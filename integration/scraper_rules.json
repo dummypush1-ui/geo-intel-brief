@@ -1,0 +1,20 @@
+{
+  "enabled": false,
+  "state": "per_site_review_required",
+  "min_interval_seconds": 3600,
+  "max_pages_per_run": 2,
+  "respect_robots": true,
+  "stop_on_status": [401, 403, 429],
+  "sites": [
+    {"name":"Kremlin","url":"http://kremlin.ru/events/president/news","country":"Russia","enabled":false,"reviewed":false},
+    {"name":"China MFA","url":"https://www.mfa.gov.cn/eng/","country":"China","enabled":false,"reviewed":false},
+    {"name":"SA Government News","url":"https://www.sanews.gov.za/","country":"South Africa","enabled":false,"reviewed":false},
+    {"name":"gov.br","url":"https://www.gov.br/pt-br","country":"Brazil","enabled":false,"reviewed":false},
+    {"name":"SIS Egypt","url":"https://www.sis.gov.eg/en/","country":"Egypt","enabled":false,"reviewed":false},
+    {"name":"Ethiopia PMO","url":"https://pmo.gov.et/","country":"Ethiopia","enabled":false,"reviewed":false},
+    {"name":"Kemlu Indonesia","url":"https://kemlu.go.id/","country":"Indonesia","enabled":false,"reviewed":false},
+    {"name":"Iran Press","url":"https://iranpress.com/","country":"Iran","enabled":false,"reviewed":false},
+    {"name":"UAE MFA","url":"https://www.mofa.gov.ae/","country":"United Arab Emirates","enabled":false,"reviewed":false},
+    {"name":"SPA","url":"https://www.spa.gov.sa/en","country":"Saudi Arabia","enabled":false,"reviewed":false}
+  ]
+}

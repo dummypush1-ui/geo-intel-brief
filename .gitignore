@@ -5,3 +5,6 @@ __pycache__/
 *.db
 *.log
 node_modules/
+
+# Keep only the blank configuration template.
+!.env.example

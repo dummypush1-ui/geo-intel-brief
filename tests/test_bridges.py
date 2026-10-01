@@ -26,8 +26,8 @@ class BridgeTests(unittest.TestCase):
   for route in ['/collect','/send-digest','/cleanup-old','/mark-emailed']:self.assertEqual(c.post(route).status_code,403)
  def test_fixture_authorized_search(self):
   c=create_app(lambda:ROWS,lambda r:True).test_client();self.assertEqual(len(c.get('/api/news?q=India').json['items']),2)
-  self.assertEqual(len(c.post('/api/related-news',json={'country':'India'}).json['items']),2)
+  self.assertEqual(len(c.post('/api/related-news',headers={'Origin':'http://localhost'},json={'country':'India'}).json['items']),2)
  def test_bad_context(self):
-  c=create_app(lambda:ROWS,lambda r:True).test_client();self.assertEqual(c.post('/api/related-news',json={'product_terms':'x'}).status_code,400)
+  c=create_app(lambda:ROWS,lambda r:True).test_client();self.assertEqual(c.post('/api/related-news',headers={'Origin':'http://localhost'},json={'product_terms':'x'}).status_code,400)
  def test_scraper_off(self):self.assertEqual(collect_site('anything')['state'],'disabled')
  def test_no_unsafe_urls(self):self.assertEqual(views({'geo':[{'title':'x','url':'javascript:alert(1)'}]}),[])

@@ -2,24 +2,86 @@
   "status": "review_design_not_live",
   "collection_enabled": false,
   "user_facing_application": {
-    "preserve": ["finder search/detail/offline/export/local lists", "Geo dashboard/reports", "BRICS dashboard/streams/reports"],
-    "connections_to_add": ["finder selected country/code -> related Geo/BRICS news", "news country/trade/sanctions -> finder context"],
-    "limits": ["No claim of tariff-specific relevance without mapping evidence", "Private news remains unserved until approved access control"]
+    "preserve": [
+      "finder search/detail/offline/export/local lists",
+      "Geo dashboard/reports",
+      "BRICS dashboard/streams/reports"
+    ],
+    "connections_to_add": [
+      "finder selected country/code -> related Geo/BRICS news",
+      "news country/trade/sanctions -> finder context"
+    ],
+    "limits": [
+      "No claim of tariff-specific relevance without mapping evidence",
+      "Private news remains unserved until approved access control"
+    ]
   },
   "underlying_infrastructure": {
-    "preserve": ["Geo original article/event storage contract", "BRICS original store and stream configuration", "finder build/daily refresh"],
+    "preserve": [
+      "Geo original article/event storage contract",
+      "BRICS original store and stream configuration",
+      "finder build/daily refresh"
+    ],
     "database": "existing owner-selected database; name and collection mapping pending live verification",
     "migration": false,
-    "connections_to_add": ["Read-only normalized view adapters over existing records", "Additive mapping/status collections only after review"],
-    "limits": ["Never rename/drop/overwrite existing collections", "Keep original IDs/timestamps/backup references", "Collection disabled in staging"]
+    "connections_to_add": [
+      "Read-only normalized view adapters over existing records",
+      "Additive mapping/status collections only after review"
+    ],
+    "limits": [
+      "Never rename/drop/overwrite existing collections",
+      "Keep original IDs/timestamps/backup references",
+      "Collection disabled in staging"
+    ]
   },
   "traffic_control": {
-    "preserve": ["existing AI/AIS proxy", "existing Geo Apps Script handlers"],
-    "connections_to_add": ["Explicit service routing", "Private news access guard outside preserved engines", "One scheduler owner and reviewed cutover"],
-    "limits": ["No duplicate collector", "No old setupTriggers invocation", "No automatic change to live URLs or keys"]
+    "preserve": [
+      "existing AI/AIS proxy",
+      "existing Geo Apps Script handlers"
+    ],
+    "connections_to_add": [
+      "Explicit service routing",
+      "Private news access guard outside preserved engines",
+      "One scheduler owner and reviewed cutover"
+    ],
+    "limits": [
+      "No duplicate collector",
+      "No old setupTriggers invocation",
+      "No automatic change to live URLs or keys"
+    ]
   },
   "destination": {
-    "preserve": ["RSS", "optional full-text extraction", "optional Google News", "official/sanctions/events source functions", "Atlas", "AI/AIS providers", "email/Telegram/WhatsApp features"],
-    "limits": ["Retained feature is not automatically enabled", "Original placeholder remains identified as placeholder", "No new sends or destructive cleanup during staging"]
+    "preserve": [
+      "RSS",
+      "optional full-text extraction",
+      "optional Google News",
+      "official/sanctions/events source functions",
+      "Atlas",
+      "AI/AIS providers",
+      "email/Telegram/WhatsApp features"
+    ],
+    "limits": [
+      "Retained feature is not automatically enabled",
+      "Original placeholder remains identified as placeholder",
+      "No new sends or destructive cleanup during staging"
+    ]
+  },
+  "mail": {
+    "delivery_path": "apps_script",
+    "enabled": false,
+    "status": "offline_contract_only",
+    "projects": [
+      "finder",
+      "geo",
+      "brics"
+    ],
+    "acknowledgement": "project-scoped IDs only after GmailApp success",
+    "pending": [
+      "durable receipt ledger",
+      "authenticated routes",
+      "project report/store adapters",
+      "reviewed Apps Script cutover"
+    ],
+    "smtp": "legacy preserved only, not a merged fallback"
   }
 }

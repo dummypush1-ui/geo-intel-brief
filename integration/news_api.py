@@ -1,10 +1,13 @@
 """Fixture-backed private staging API. Never imports a live legacy app."""
 from flask import Flask,request,jsonify,send_from_directory
 from pathlib import Path
+import re,hashlib,base64
 from integration.news_view import views
 from integration.relevance import match
+from integration.story_links import groups
+from integration.finder_links import finder_link
 
-def create_app(reader=None,authorize=None):
+def create_app(reader=None,authorize=None,finder_context_reader=None,finder_base=None,finder_index_verified=False,allowed_origin=None):
  app=Flask(__name__)
  root=Path(__file__).resolve().parents[1]
  @app.after_request
@@ -12,7 +15,12 @@ def create_app(reader=None,authorize=None):
   response.headers['Cache-Control']='no-store'
   response.headers['X-Content-Type-Options']='nosniff'
   response.headers['Referrer-Policy']='no-referrer'
-  response.headers['Content-Security-Policy']="frame-ancestors 'self'; object-src 'none'; base-uri 'self'"
+  response.headers['Content-Security-Policy']="default-src 'self'; script-src 'self'; style-src 'self'; frame-ancestors 'self'; object-src 'none'; base-uri 'self'"
+  if request.path.startswith('/workspace/finder/') and response.mimetype=='text/html' and response.status_code==200:
+   response.direct_passthrough=False
+   scripts=re.findall(r'<script(?:\s[^>]*)?>(.*?)</script>',response.get_data(as_text=True),flags=re.S|re.I)
+   hashes=['\'sha256-'+base64.b64encode(hashlib.sha256(s.encode()).digest()).decode()+'\'' for s in scripts]
+   response.headers['Content-Security-Policy']="default-src 'self'; script-src 'self' "+' '.join(hashes)+"; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; frame-ancestors 'self'; object-src 'none'; base-uri 'self'"
   return response
  @app.get('/workspace')
  def workspace():return send_from_directory(root/'integration/ui','workspace.html')
@@ -31,7 +39,12 @@ def create_app(reader=None,authorize=None):
  def health():return jsonify(state='staging',collection=False,mail=False,scraper=False)
  @app.before_request
  def guard():
-  if request.path!='/health' and not authorize(request):return jsonify(error='Private news unavailable until approved access control'),403
+  if request.path=='/health':return None
+  try:allowed=authorize(request)
+  except Exception:allowed=False
+  if not allowed:return jsonify(error='Private news unavailable until approved access control'),403
+  if request.method=='POST' and request.headers.get('Origin')!=(allowed_origin or request.host_url.rstrip('/')):
+   return jsonify(error='Same-origin request required'),403
  @app.get('/api/news')
  def news():
   q=request.args.get('q','')[:200].casefold()
@@ -42,11 +55,27 @@ def create_app(reader=None,authorize=None):
  @app.post('/api/related-news')
  def related():
   context=request.get_json(silent=True)
-  if not isinstance(context,dict) or not isinstance(context.get('product_terms',[]),list):return jsonify(error='Invalid context'),400
+  if not isinstance(context,dict) or not isinstance(context.get('product_terms',[]),list) or len(context.get('product_terms',[]))>20 or any(not isinstance(t,str) or len(t)>200 for t in context.get('product_terms',[])):return jsonify(error='Invalid context'),400
   out=[]
   for row in views(reader()):
    evidence=match(context,row)
    if evidence['reasons']:out.append({'article':row,'match':evidence})
+  return jsonify(items=out[:100])
+ @app.get('/api/story-groups')
+ def story_groups():return jsonify(items=groups(views(reader())))
+ @app.post('/api/finder-context')
+ def finder_context():
+  data=request.get_json(silent=True)
+  if not isinstance(data,dict) or data.get('project') not in ('geo','brics') or not isinstance(data.get('legacy_id'),str):return jsonify(error='Exact project and original ID required'),400
+  articles=[r for r in views(reader()) if r['project']==data['project'] and r['legacy_id']==data['legacy_id']]
+  if len(articles)!=1:return jsonify(error='Article identity not unique or unavailable'),404
+  if finder_context_reader is None or not finder_base or not finder_index_verified:return jsonify(items=[],state='verified_finder_index_unwired')
+  out=[]
+  for context in finder_context_reader():
+   evidence=match(context,articles[0])
+   if not evidence['reasons']:continue
+   link=finder_link(finder_base,context.get('system_index'),context.get('entry_index'),verified=True)
+   out.append({'context':{k:context.get(k) for k in ('code','system','edition','country')},'finder_url':link,'match':evidence})
   return jsonify(items=out[:100])
  @app.get('/dashboard')
  def dashboard():return jsonify(state='Private dashboard UI requires Phase 2 login'),503

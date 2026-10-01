@@ -7,4 +7,4 @@ def finder_link(base,system_index,entry_index,verified=False):
  if not verified:return None
  for n in (system_index,entry_index):
   if not isinstance(n,int) or isinstance(n,bool) or n<0:raise ValueError('Invalid finder index')
- return base.rstrip('/')+'/#code='+str(system_index)+':'+str(entry_index)
+ return base.rstrip('/')+('' if u.path.endswith('.html') else '/')+'#code='+str(system_index)+':'+str(entry_index)
