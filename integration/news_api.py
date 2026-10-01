@@ -1,6 +1,7 @@
 """Fixture-backed private staging API. Never imports a live legacy app."""
 from flask import Flask,request,jsonify,send_from_directory
 from pathlib import Path
+from collections import Counter
 import re,hashlib,base64
 from integration.news_view import views
 from integration.relevance import match
@@ -49,6 +50,7 @@ def create_app(reader=None,authorize=None,finder_context_reader=None,finder_base
  class ReadUnavailable(Exception):pass
  @app.errorhandler(ReadUnavailable)
  def read_unavailable(error):return jsonify(error='News storage temporarily unavailable'),503
+ def public_row(row):return {k:v for k,v in row.items() if k not in ('mongo_id','emailed','original_url')}
  def reader():
   try:return source_reader()
   except Exception as error:
@@ -70,8 +72,20 @@ def create_app(reader=None,authorize=None,finder_context_reader=None,finder_base
   q=request.args.get('q','')[:200].casefold()
   project=request.args.get('project','')
   if project and project not in ('geo','brics'):return jsonify(error='Invalid project'),400
-  records=[r for r in views(reader()) if not project or r['project']==project]
-  return jsonify(items=[r for r in records if not q or q in (r['title']+' '+r['summary']).casefold()][:100])
+  category=request.args.get('category','')[:100]
+  country=request.args.get('country','')[:100].casefold()
+  records=[r for r in views(reader()) if (not project or r['project']==project) and (not category or r['category']==category) and (not country or r['original_country'].casefold()==country)]
+  records.sort(key=lambda row:row['collected_at'] or '',reverse=True)
+  matched=[r for r in records if not q or q in (r['title']+' '+r['summary']).casefold()]
+  return jsonify(items=[public_row(r) for r in matched[:100]],scope='loaded_read_view',limit=100,truncated=len(matched)>100)
+ @app.get('/api/news-stats')
+ def news_stats():
+  project=request.args.get('project','')
+  if project and project not in ('geo','brics'):return jsonify(error='Invalid project'),400
+  rows=[r for r in views(reader()) if not project or r['project']==project]
+  counts=lambda key:[{'label':k,'count':v} for k,v in sorted(Counter(r[key] for r in rows if r[key]).items(),key=lambda x:(-x[1],x[0]))]
+  dates=[r['collected_at'] for r in rows if r['collected_at']]
+  return jsonify(count=len(rows),categories=counts('category'),countries=counts('original_country'),latest_collected=max(dates) if dates else None,scope='loaded_read_view',not_total_database=True)
  @app.post('/api/related-news')
  def related():
   context=request.get_json(silent=True)
@@ -79,7 +93,7 @@ def create_app(reader=None,authorize=None,finder_context_reader=None,finder_base
   out=[]
   for row in views(reader()):
    evidence=match(context,row)
-   if evidence['reasons']:out.append({'article':row,'match':evidence})
+   if evidence['reasons']:out.append({'article':public_row(row),'match':evidence})
   return jsonify(items=out[:100])
  @app.get('/api/story-groups')
  def story_groups():return jsonify(items=groups(views(reader())))

@@ -1,6 +1,6 @@
 /* Copyright (c) 2026 Push. No key or live endpoint in this client. */
 const byId = id => document.getElementById(id);
-let active = 'finder', relatedId = 0, newsId = 0, lastContext = '';
+let active = 'finder', relatedId = 0, newsId = 0, statsId = 0, lastContext = '';
 const frame = byId('finder');
 const SYS_COUNTRY = {IN:'India',US:'United States',EU:'European Union',UK:'United Kingdom',KR:'South Korea',CA:'Canada',JP:'Japan',AU:'Australia',BR:'Brazil',TW:'Taiwan',NZ:'New Zealand',NO:'Norway',SG:'Singapore',IL:'Israel',MX:'Mexico',HK:'Hong Kong',ZA:'South Africa',PE:'Peru',CN:'China',AE:'United Arab Emirates',SAC:'India'};
 function safeLink(value) {
@@ -13,6 +13,7 @@ function render(container, items) {
     if (!url) continue;
     const row = document.createElement('article'); row.className = 'story';
     const link = document.createElement('a'); link.href = url; link.target = '_blank'; link.rel = 'noopener noreferrer'; link.textContent = String(article.title || 'News'); row.append(link);
+    const meta = document.createElement('p'); meta.className = 'story-meta'; meta.textContent = [article.source, article.original_country, article.published_at ? 'Published '+article.published_at.slice(0,10) : '', article.collected_at ? 'Collected '+article.collected_at.slice(0,10) : ''].filter(Boolean).join(' · '); row.append(meta);
     const summary = document.createElement('p'); summary.textContent = String(article.summary || ''); row.append(summary);
     for (const label of [article.project === 'geo' ? 'Geo' : 'BRICS', article.category, ...(item.match?.reasons || []).map(r => r.type === 'explicit_code' ? 'Explicit code mention, unverified' : r.type === 'country_context' ? 'Country context' : 'Product mention')]) {
       if (!label) continue; const badge = document.createElement('span'); badge.className = 'badge'; badge.textContent = label; row.append(badge);
@@ -30,17 +31,17 @@ async function readNews() {
   const id = ++newsId, project = active;
   byId('news-status').textContent = 'Loading news...'; byId('news-results').replaceChildren();
   try {
-    const params = new URLSearchParams({q:byId('news-query').value,project});
+    const params = new URLSearchParams({q:byId('news-query').value,project,category:byId('news-category').value,country:byId('news-country').value});
     const items = await request('/api/news?' + params);
     if (id !== newsId) return;
-    render(byId('news-results'), items); byId('news-status').textContent = items.length ? `${items.length} ${items.length === 1 ? 'story' : 'stories'} shown.` : 'No stories in this view.';
+    render(byId('news-results'), items); byId('news-status').textContent = items.length ? `Showing ${items.length} ${items.length === 1 ? 'story' : 'stories'} (up to first 100, newest collection first).` : 'No stories in this view.';
   } catch (error) { if (id === newsId) byId('news-status').textContent = error.message; }
 }
 for (const button of document.querySelectorAll('[data-view]')) button.addEventListener('click', () => {
   active = button.dataset.view;
   for (const other of document.querySelectorAll('[data-view]')) other.setAttribute('aria-pressed',String(other === button));
   byId('finder-view').hidden = active !== 'finder'; byId('news-view').hidden = active === 'finder';
-  if (active !== 'finder') {byId('news-heading').textContent = active === 'geo' ? 'Geo news' : 'BRICS news'; readNews();}
+  if (active !== 'finder') {byId('news-heading').textContent = active === 'geo' ? 'Geo news' : 'BRICS news'; byId('news-category').value='';byId('news-country').value='';readStats(active);readNews();}
 });
 byId('news-search').addEventListener('submit', event => {event.preventDefault();readNews();});
 async function syncContext() {
@@ -90,3 +91,20 @@ frame.addEventListener('load', () => {
   new MutationObserver(() => requestAnimationFrame(syncContext)).observe(frame.contentDocument.body,{childList:true,subtree:true});
   syncContext();
 });
+
+async function readStats(project) {
+  const id=++statsId;
+  byId('news-stats').textContent='Loading read-view counts...';
+  try {
+    const r=await fetch('/api/news-stats?'+new URLSearchParams({project}),{credentials:'same-origin',cache:'no-store'});
+    if(!r.ok)throw new Error('Read-view counts unavailable.');
+    const d=await r.json();if(active!==project || id!==statsId)return;
+    byId('news-stats').textContent=`${d.count} loaded stories, not total database count. Latest collection: ${d.latest_collected ? d.latest_collected.replace('T',' ').slice(0,16)+' UTC' : 'not recorded'}.`;
+    for(const [id,key,label] of [['news-category','categories','All categories'],['news-country','countries','All countries']]) {
+      const select=byId(id), selected=select.value;select.replaceChildren();const first=document.createElement('option');first.value='';first.textContent=label;select.append(first);
+      for(const row of d[key] || []) {const option=document.createElement('option');option.value=String(row.label);option.textContent=String(row.label)+` (${row.count})`;select.append(option);}
+      if([...select.options].some(option=>option.value===selected))select.value=selected;
+    }
+  } catch(error){if(active===project && id===statsId)byId('news-stats').textContent=error.message;}
+}
+for(const id of ['news-category','news-country'])byId(id).addEventListener('change',readNews);
