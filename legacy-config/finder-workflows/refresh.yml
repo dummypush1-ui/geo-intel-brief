@@ -1,0 +1,34 @@
+name: Daily data refresh
+on:
+  schedule: [{ cron: '30 3 * * *' }]
+  workflow_dispatch:
+permissions: { contents: write, issues: write, pull-requests: write }
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - run: sudo apt-get install -y -q poppler-utils
+      - run: node automate.mjs
+        env:
+          COMTRADE_KEY: ${{ secrets.COMTRADE_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+      - name: Commit verified data to main
+        run: |
+          git config user.name "hsn-finder-bot"; git config user.email "bot@users.noreply.github.com"
+          git add -A -- . ':!state/gst-proposal.json'
+          git diff --cached --quiet || (git commit -m "Auto data refresh $(date -u +%F)" && git push)
+      - name: Open GST review PR (AI draft, human approves)
+        if: hashFiles('state/gst-proposal.json') != ''
+        env: { GH_TOKEN: '${{ secrets.GITHUB_TOKEN }}' }
+        run: |
+          B=gst-update-$(date -u +%F-%H%M); git checkout -b $B
+          node apply-gst.mjs && rm state/gst-proposal.json && node build.mjs
+          git add -A && git commit -m "GST rate update (AI-drafted, needs review)" && git push -u origin $B
+          gh pr create --title "GST rate update - review needed" --body-file /tmp/pr-body.md
+          [ "${{ vars.AUTO_MERGE_GST }}" = "1" ] && gh pr merge --squash || true

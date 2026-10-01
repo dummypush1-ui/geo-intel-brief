@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: hsn-finder
+    runtime: static
+    staticPublishPath: .
+    autoDeploy: true
+  - type: web
+    name: hsn-ai-proxy
+    runtime: node
+    plan: free
+    buildCommand: ""
+    startCommand: node proxy.js
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: APP_SECRET
+        sync: false
+      - key: GEMINI_KEYS
+        sync: false
+      - key: GROQ_KEYS
+        sync: false
+      - key: MISTRAL_KEYS
+        sync: false
+      - key: AISSTREAM_KEY
+        sync: false

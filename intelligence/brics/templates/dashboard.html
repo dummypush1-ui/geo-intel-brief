@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html data-theme="dark">
+<head>
+<meta charset="utf-8">
+<title>BRICS Live Monitor</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  html[data-theme="dark"] {
+    --ink:#15140F; --panel:#1D1B14; --panel2:#221F17; --paper:#EDEAE0;
+    --hair:#3B3830; --dim:#93907E; --red:#C4553B; --red-dim:#5C2A20;
+    --green:#5E9E6E; --focus:#D9C98A; --shadow: rgba(0,0,0,.35);
+  }
+  html[data-theme="light"] {
+    --ink:#EDEAE0; --panel:#FFFFFF; --panel2:#F6F3E9; --paper:#1B1912;
+    --hair:#DAD4C2; --dim:#7C7867; --red:#A6392A; --red-dim:#F1DAD3;
+    --green:#3D7A50; --focus:#8A6D1E; --shadow: rgba(60,55,35,.12);
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin:0; background: var(--ink); color: var(--paper);
+    font-family: "Inter", -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    font-size: 14px; line-height: 1.5;
+    transition: background .15s ease, color .15s ease;
+  }
+  h1, h2 { font-family: "Zilla Slab", Georgia, serif; }
+  .mono { font-family: "IBM Plex Mono", ui-monospace, monospace; }
+  a { color: var(--paper); }
+  :focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+
+  /* ---- Critical alert ticker ribbon (always at the very top) ---- */
+  .ticker-wrap {
+    background: var(--red-dim); border-bottom:1px solid var(--red);
+    overflow:hidden; position:relative; white-space:nowrap;
+    display:none;
+  }
+  .ticker-wrap.has-items { display:block; }
+  .ticker-label {
+    position:absolute; left:0; top:0; bottom:0; display:flex; align-items:center;
+    padding:0 12px; background: var(--red); color:#fff; font-family:"IBM Plex Mono";
+    font-size:11px; font-weight:600; letter-spacing:.03em; z-index:2;
+  }
+  .ticker-track {
+    display:inline-block; padding-left:100%; padding-top:7px; padding-bottom:7px;
+    animation: ticker-scroll 40s linear infinite;
+  }
+  .ticker-wrap:hover .ticker-track { animation-play-state: paused; }
+  @media (prefers-reduced-motion: reduce) { .ticker-track { animation: none; padding-left:130px; } }
+  .ticker-track a { color: var(--paper); text-decoration:none; font-size:12.5px; margin-right:48px; }
+  .ticker-track a:hover { color: var(--focus); text-decoration:underline; }
+  .ticker-track a .src { color: var(--dim); font-size:11px; }
+  @keyframes ticker-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+  }
+
+  header {
+    border-bottom: 1px solid var(--hair);
+    padding: 22px 28px 18px;
+    display:flex; justify-content:space-between; align-items:flex-end; gap:16px; flex-wrap:wrap;
+  }
+  header .title-block { min-width:0; }
+  header h1 { margin:0; font-size: 24px; font-weight:600; letter-spacing:.01em; }
+  header .dispatch-line { margin: 4px 0 0; font-size: 12.5px; color: var(--dim); }
+  header .dispatch-line .mono { color: var(--paper); }
+
+  .theme-toggle {
+    background: transparent; border:1px solid var(--hair); color: var(--paper);
+    padding:7px 12px; font-size:12px; font-family:"IBM Plex Mono"; cursor:pointer;
+    flex-shrink:0; white-space:nowrap;
+  }
+  .theme-toggle:hover { border-color: var(--focus); color: var(--focus); }
+
+  .wrap { padding: 0 28px 60px; max-width: 1400px; margin: 0 auto; }
+
+  .stats { display:flex; flex-wrap:wrap; border-bottom: 1px solid var(--hair); margin: 0 0 20px; }
+  .stat { padding: 16px 26px 16px 0; margin-right:26px; border-right: 1px solid var(--hair); }
+  .stat:last-child { border-right:0; }
+  .stat b { display:block; font-family:"IBM Plex Mono"; font-size:24px; font-weight:600; color: var(--paper); }
+  .stat span { font-size:11.5px; color: var(--dim); }
+
+  .chart-panel { padding: 16px 0 20px; border-bottom: 1px solid var(--hair); margin-bottom: 28px; }
+  .chart-panel h2 { margin:0 0 4px; font-size:14px; font-weight:600; }
+  .chart-panel .chart-sub { font-size:11.5px; color: var(--dim); margin:0 0 14px; }
+  .bars { display:flex; align-items:flex-end; gap:5px; height:64px; }
+  .bar-col { flex:1; display:flex; flex-direction:column; align-items:center; gap:6px; min-width:0; }
+  .bar-col .bar { width:100%; max-width:26px; background: var(--focus); opacity:.85; min-height:2px; transition: height .25s ease; }
+  .bar-col .bar.today { background: var(--red); opacity:1; }
+  .bar-col .bar-label { font-size:9.5px; color: var(--dim); font-family:"IBM Plex Mono"; white-space:nowrap; }
+  .bar-col:hover .bar { opacity:1; }
+
+  .panel { border-top: 2px solid var(--hair); padding-top:16px; margin-bottom:34px; }
+  .panel.critical { border-top-color: var(--red); }
+  .panel h2 { margin:0 0 16px; font-size:16px; font-weight:600; color:var(--paper); }
+  .panel h2 .hint { font-size:11px; font-weight:400; color:var(--dim); margin-left:8px; }
+
+  /* ---- Live feeds: 20% list of small auto-playing feeds / 80% big player ---- */
+  .live-feed-layout { display:flex; gap:20px; align-items:flex-start; }
+  .feed-list {
+    flex: 0 0 20%; max-width:240px; min-width:170px;
+    max-height:560px; overflow-y:auto; border:1px solid var(--hair);
+    padding:6px; display:flex; flex-direction:column; gap:8px;
+  }
+  .feed-mini { position:relative; border:1px solid var(--hair); cursor:pointer; }
+  .feed-mini.active { border-color: var(--focus); }
+  .feed-mini iframe { width:100%; aspect-ratio:16/9; display:block; pointer-events:none; background:#000; }
+  .feed-mini .mini-label {
+    font-size:11px; padding:5px 7px; display:flex; align-items:center; gap:6px;
+    background: var(--panel2); color: var(--paper);
+  }
+  .feed-mini .mini-label .dot {
+    width:6px; height:6px; border-radius:50%; background: var(--green); flex-shrink:0;
+    box-shadow: 0 0 0 0 rgba(94,158,110,.6); animation: pulse 2.4s infinite;
+  }
+  .feed-mini .mini-label .name { flex:1; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .feed-mini .rm {
+    position:absolute; top:4px; right:4px; background: var(--shadow); border:1px solid var(--hair);
+    color: var(--paper); width:18px; height:18px; font-size:10px; cursor:pointer; line-height:16px; padding:0; z-index:2;
+  }
+  .feed-mini .rm:hover { background: var(--red); border-color: var(--red); color:#fff; }
+  .feed-mini .mini-ended {
+    position:absolute; inset:0; background:rgba(0,0,0,.82); color:#fff; display:flex;
+    flex-direction:column; align-items:center; justify-content:center; text-align:center;
+    font-size:10px; padding:6px; gap:4px; z-index:3;
+  }
+  .feed-list .empty { padding:10px 4px; }
+
+  .feed-player { flex:1 1 80%; min-width:0; position:relative; }
+  .feed-player iframe { width:100%; aspect-ratio:16/9; border:1px solid var(--hair); background:#000; }
+  .feed-player .vname { font-size:14px; margin-top:9px; color: var(--paper); font-weight:600; display:flex; align-items:center; gap:8px; }
+  .feed-player .vname a { color: var(--dim); font-weight:400; text-decoration:none; font-size:12px; }
+  .feed-player .vname a:hover { color: var(--paper); }
+  .feed-player .empty { aspect-ratio:16/9; display:flex; align-items:center; justify-content:center; border:1px dashed var(--hair); }
+  .feed-player .hero-ended {
+    position:absolute; top:0; left:0; right:0; aspect-ratio:16/9; background:rgba(0,0,0,.85);
+    color:#fff; display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center; gap:10px; padding:20px; z-index:3;
+  }
+  .hero-ended .btn, .mini-ended .btn {
+    background: var(--paper); color: var(--ink); border:0; padding:7px 14px;
+    font-size:12px; font-weight:600; cursor:pointer;
+  }
+  .mini-ended .btn { padding:4px 8px; font-size:10px; }
+  .hero-ended .btn:hover, .mini-ended .btn:hover { background: var(--focus); }
+
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(94,158,110,.55); }
+    70% { box-shadow: 0 0 0 6px rgba(94,158,110,0); }
+    100% { box-shadow: 0 0 0 0 rgba(94,158,110,0); }
+  }
+  @media (prefers-reduced-motion: reduce) { .feed-mini .mini-label .dot { animation:none; } }
+
+  .add-stream-form { display:grid; grid-template-columns: 1fr 1fr; gap:8px; margin-top:20px; padding-top:16px; border-top:1px solid var(--hair); }
+  .add-stream-form input { padding:9px 11px; border:1px solid var(--hair); background: var(--panel2); color: var(--paper); font-size:12.5px; font-family:inherit; }
+  .add-stream-form input::placeholder { color: var(--dim); }
+  .add-stream-form input.link { grid-column: 1 / -1; }
+  .add-stream-form button { grid-column: 1 / -1; background: var(--paper); color: var(--ink); border:0; padding:10px; font-size:13px; font-weight:600; cursor:pointer; }
+  .add-stream-form button:hover { background: var(--focus); color: var(--ink); }
+  .stream-msg { grid-column: 1 / -1; font-size:12px; }
+  .stream-msg.err { color: var(--red); }
+  .stream-msg.ok { color: var(--green); }
+
+  .filter-row { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:16px; }
+  .filter-row .search { flex: 2 1 220px; margin-bottom:0; }
+  .filter-row select { flex: 1 1 130px; padding:11px 10px; border:1px solid var(--hair); background: var(--panel2); color: var(--paper); font-size:12.5px; font-family:inherit; cursor:pointer; }
+  .export-btn {
+    flex: 0 0 auto; padding:11px 16px; border:1px solid var(--focus); background: transparent;
+    color: var(--focus); font-size:12.5px; font-family:inherit; font-weight:600; cursor:pointer; white-space:nowrap;
+  }
+  .export-btn:hover { background: var(--focus); color: var(--ink); }
+  .export-btn:disabled { opacity:.5; cursor:default; background:transparent; color:var(--focus); }
+  .search { width:100%; padding:11px 14px; border:1px solid var(--hair); background: var(--panel2); color: var(--paper); font-size:13px; margin-bottom:16px; font-family:inherit; }
+  .search::placeholder { color: var(--dim); }
+
+  .article { display:flex; gap:14px; padding:11px 0; border-bottom:1px solid var(--hair); position:relative; }
+  .article:last-child { border-bottom:0; }
+  .article .ts { flex-shrink:0; width:74px; padding-top:1px; font-size:11px; color: var(--dim); }
+  .article .body { min-width:0; }
+  .article a.headline { text-decoration:none; font-weight:500; font-size:13.5px; word-break:break-word; }
+  .article a.headline:hover { color: var(--focus); }
+  .meta { font-size:11.5px; color: var(--dim); margin-top:4px; display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+  .meta .sep { color: var(--hair); }
+
+  .badge { display:inline-block; font-size:10px; font-family:"IBM Plex Mono"; padding:1px 6px; border:1px solid var(--hair); color: var(--dim); }
+  .badge.crit { border-color: var(--red); color: var(--red); }
+  .badge.score { border-color: var(--focus); color: var(--focus); }
+
+  /* ---- Hover preview popup for Latest News headlines ---- */
+  .hover-preview {
+    position:fixed; z-index:50; max-width:320px; background: var(--panel);
+    border:1px solid var(--focus); box-shadow:0 6px 18px var(--shadow);
+    padding:12px 14px; font-size:12.5px; pointer-events:none; display:none;
+  }
+  .hover-preview.show { display:block; }
+  .hover-preview .hp-title { font-weight:600; font-size:13px; margin-bottom:6px; color: var(--paper); }
+  .hover-preview .hp-meta { color: var(--dim); font-size:11px; display:flex; gap:6px; flex-wrap:wrap; }
+  .hover-preview .hp-cta { margin-top:8px; color: var(--focus); font-size:11px; }
+
+  /* ---- Sources in use: collapsible, tucked at the very bottom ---- */
+  .sources-toggle {
+    display:flex; align-items:center; gap:8px; width:100%; text-align:left;
+    background: var(--panel2); border:1px solid var(--hair); color: var(--paper);
+    padding:12px 16px; font-size:13px; font-weight:600; cursor:pointer; font-family:inherit;
+  }
+  .sources-toggle:hover { border-color: var(--focus); color: var(--focus); }
+  .sources-toggle .arrow { transition: transform .15s ease; margin-left:auto; }
+  .sources-panel[open] .sources-toggle .arrow { transform: rotate(180deg); }
+  .sources-body { padding-top:14px; }
+  .source-row { display:flex; justify-content:space-between; align-items:center; gap:8px; padding:8px 0; border-bottom:1px solid var(--hair); font-size:12.5px; flex-wrap:wrap; }
+  .source-row:last-child { border-bottom:0; }
+  .source-row small { color: var(--dim); }
+
+  .empty { color: var(--dim); font-size:12.5px; padding:10px 0; }
+
+  @media (max-width: 900px) {
+    .live-feed-layout { flex-direction:column; }
+    .feed-list { flex-basis:auto; max-width:none; width:100%; max-height:none; flex-direction:row; overflow-x:auto; overflow-y:visible; }
+    .feed-mini { flex:0 0 160px; }
+  }
+
+  @media (max-width: 600px) {
+    header { padding: 16px 16px 14px; }
+    header h1 { font-size:20px; }
+    .wrap { padding: 0 16px 44px; }
+    .stat { padding: 12px 16px 12px 0; margin-right:16px; }
+    .stat b { font-size:19px; }
+    .add-stream-form { grid-template-columns: 1fr; }
+    .filter-row select { flex-basis: 100%; }
+    .bars { height:48px; }
+    .bar-col .bar-label { display:none; }
+    .hover-preview { display:none !important; } /* no hover on touch */
+  }
+</style>
+</head>
+<body>
+<div class="ticker-wrap" id="tickerWrap">
+  <div class="ticker-label">🚨 Critical</div>
+  <div class="ticker-track" id="tickerTrack"></div>
+</div>
+<header>
+  <div class="title-block">
+    <h1>BRICS Live Monitor</h1>
+    <p class="dispatch-line">Last refreshed <span id="refreshedTime" class="mono">{{ refreshed }}</span> — <span id="totalCount" class="mono">{{ total }}</span> articles tracked — live feeds embedded below, never reload</p>
+  </div>
+  <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">☾ Dark</button>
+</header>
+<div class="wrap">
+  <div class="stats">
+    <div class="stat"><b id="statTotal">{{ total }}</b><span>Total articles</span></div>
+    <div class="stat"><b id="statCritical">{{ critical_count }}</b><span>Critical (24h)</span></div>
+    <div class="stat"><b>{{ streams|length }}</b><span>Live streams</span></div>
+    <div class="stat"><b>{{ sources|length }}</b><span>Sources tracked</span></div>
+  </div>
+
+  <div class="chart-panel">
+    <h2>Volume, last 14 days</h2>
+    <p class="chart-sub">Articles collected per day — bars scale to the busiest day in this window.</p>
+    <div class="bars" id="volumeChart"></div>
+  </div>
+
+  <!-- ---- Live feeds: all streams auto-play, small on the left, big on the right ---- -->
+  <div class="panel">
+    <h2>Live feeds <span class="hint">all feeds play automatically — click one on the left to feature it</span></h2>
+    <div class="live-feed-layout">
+      <div class="feed-list" id="feedList"></div>
+      <div class="feed-player" id="feedPlayer"></div>
+    </div>
+
+    <div class="add-stream-form">
+      <input id="newStreamName" placeholder="Stream name (e.g. NDTV 24x7)">
+      <input id="newStreamCountry" placeholder="Country (optional)">
+      <input id="newStreamLink" class="link" placeholder="Paste any YouTube link (watch?v=, youtu.be/, /live/...) or a bare video ID">
+      <input id="dashboardKey" type="password" placeholder="Dashboard key">
+      <button onclick="submitNewStream()">Add live stream</button>
+      <div class="stream-msg" id="streamMsg"></div>
+    </div>
+  </div>
+
+  <!-- ---- Critical alerts: directly below live feeds ---- -->
+  <div class="panel critical">
+    <h2>Critical alerts (last 24h)</h2>
+    <div id="criticalList">
+    {% for a in critical %}
+    <div class="article">
+      <div class="ts mono">{{ a.collected_at[5:16] }}</div>
+      <div class="body">
+        <a class="headline" href="{{ a.url }}" target="_blank" rel="noopener" data-title="{{ a.title }}" data-source="{{ a.source }}" data-country="{{ a.country }}" data-category="{{ a.category }}" data-ts="{{ a.collected_at }}">{{ a.title }}</a>
+        <div class="meta"><span>{{ a.source }}</span></div>
+      </div>
+    </div>
+    {% else %}
+    <div class="empty">No critical items right now.</div>
+    {% endfor %}
+    </div>
+  </div>
+
+  <!-- ---- Latest News (renamed from Latest Wire) ---- -->
+  <div class="panel">
+    <h2>Latest news</h2>
+    <div class="filter-row">
+      <input class="search" id="filterBox" placeholder="Filter by title, source, or country..." onkeyup="filterArticles()">
+      <select id="categoryFilter" onchange="filterArticles()">
+        <option value="">All categories</option>
+        {% for cat in categories %}
+        <option value="{{ cat|lower }}">{{ cat }}</option>
+        {% endfor %}
+      </select>
+      <select id="countryFilter" onchange="filterArticles()">
+        <option value="">All countries</option>
+        {% for c in countries %}
+        <option value="{{ c|lower }}">{{ c }}</option>
+        {% endfor %}
+      </select>
+      <select id="sortOrder" onchange="sortArticles()">
+        <option value="latest">Sort: Latest first</option>
+        <option value="country">Sort: Country (A–Z)</option>
+        <option value="score">Sort: Highest score first</option>
+      </select>
+      <button class="export-btn" id="exportCsvBtn" onclick="exportCsv()" title="Download the currently filtered articles as a CSV file">⬇ Export CSV</button>
+    </div>
+    <div id="articleList">
+      {% for a in articles %}
+      <div class="article" data-search="{{ (a.title ~ ' ' ~ a.source ~ ' ' ~ a.country)|lower }}" data-category="{{ (a.category or '')|lower }}" data-country="{{ (a.country or '')|lower }}" data-ts="{{ a.collected_at or '' }}" data-score="{{ (a.corroborated_by|length) if a.corroborated_by else 1 }}">
+        <div class="ts mono">{{ a.collected_at[5:16] }}</div>
+        <div class="body">
+          <a class="headline" href="{{ a.url }}" target="_blank" rel="noopener" data-title="{{ a.title }}" data-source="{{ a.source }}" data-country="{{ a.country }}" data-category="{{ a.category }}" data-ts="{{ a.collected_at }}">{{ a.title }}</a>
+          <div class="meta">
+            <span class="badge{{ ' crit' if a.category=='RISK' else '' }}">{{ a.category }}</span>
+            <span>{{ a.source }}</span><span class="sep">/</span><span>{{ a.country }}</span>
+            {% if a.corroborated_by and a.corroborated_by|length > 1 %}
+            <span class="sep">/</span><span class="badge score">score {{ a.corroborated_by|length }}</span>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      {% else %}
+      <div class="empty" id="noArticlesMsg">Nothing collected yet. The next collect cycle will populate this — check "Sources in use" at the bottom of the page if it's been a while.</div>
+      {% endfor %}
+    </div>
+    <div class="empty" id="noMatchesMsg" style="display:none;">No articles match the current filters. Try clearing the search box or switching category/country back to "All".</div>
+  </div>
+
+  <!-- ---- Sources in use: hidden by default, pulled open at the very bottom ---- -->
+  <details class="panel sources-panel" id="sourcesPanel">
+    <summary class="sources-toggle">
+      Sources in use ({{ sources|length }}) <span class="arrow">▾</span>
+    </summary>
+    <div class="sources-body">
+      {% for s in sources %}
+      <div class="source-row" title="{{ s.last_message or '' }}">
+        <span>{{ s.name }} <small>({{ s.country }})</small></span>
+        <span>
+          <span class="badge">tier {{ s.tier }}</span>
+          {% if s.last_status == 'ok' %}
+            <span class="badge" style="color:#1a7d3c;border-color:#1a7d3c;">● {{ s.last_count }}</span>
+          {% elif s.last_status == 'warning' %}
+            <span class="badge" style="color:#b8860b;border-color:#b8860b;">⚠ {{ s.last_count }}</span>
+          {% elif s.last_status == 'error' %}
+            <span class="badge" style="color:var(--red);border-color:var(--red);">✕ blocked/failed</span>
+          {% elif s.last_status == 'disabled' %}
+            <span class="badge" style="opacity:.5;">disabled</span>
+          {% else %}
+            <span class="badge" style="opacity:.5;">not scanned yet</span>
+          {% endif %}
+        </span>
+      </div>
+      {% endfor %}
+    </div>
+  </details>
+</div>
+
+<div class="hover-preview" id="hoverPreview">
+  <div class="hp-title" id="hpTitle"></div>
+  <div class="hp-meta" id="hpMeta"></div>
+  <div class="hp-cta">Click to open the full article ↗</div>
+</div>
+
+<script>
+// IMPORTANT: refreshNews() (60s poll) only ever touches #articleList,
+// #criticalList, #volumeChart, #tickerTrack and the stat counters. It
+// never re-renders the live-feed iframes — reloading those would restart
+// the streams. Only selectStream()/submitNewStream()/removeStream() and
+// the ended-feed recovery buttons touch #feedList / #feedPlayer.
+
+function escapeHtml(s){
+  return (s || "").replace(/[&<>"']/g, function(c){
+    return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+  });
+}
+
+function articleHtml(a){
+  var badgeClass = a.category === 'RISK' ? 'badge crit' : 'badge';
+  var search = ((a.title||'') + ' ' + (a.source||'') + ' ' + (a.country||'')).toLowerCase();
+  var ts = (a.collected_at||'').slice(5,16);
+  var score = (a.corroborated_by && a.corroborated_by.length) ? a.corroborated_by.length : 1;
+  var scoreBadge = score > 1 ? ('<span class="sep">/</span><span class="badge score">score ' + score + '</span>') : '';
+  return '<div class="article" data-search="' + escapeHtml(search) + '" data-category="' + escapeHtml((a.category||'').toLowerCase()) + '" data-country="' + escapeHtml((a.country||'').toLowerCase()) + '" data-ts="' + escapeHtml(a.collected_at||'') + '" data-score="' + score + '">' +
+    '<div class="ts mono">' + escapeHtml(ts) + '</div>' +
+    '<div class="body">' +
+    '<a class="headline" href="' + escapeHtml(a.url) + '" target="_blank" rel="noopener" data-title="' + escapeHtml(a.title) + '" data-source="' + escapeHtml(a.source) + '" data-country="' + escapeHtml(a.country) + '" data-category="' + escapeHtml(a.category) + '" data-ts="' + escapeHtml(a.collected_at||'') + '">' + escapeHtml(a.title) + '</a>' +
+    '<div class="meta"><span class="' + badgeClass + '">' + escapeHtml(a.category) + '</span>' +
+    '<span>' + escapeHtml(a.source) + '</span><span class="sep">/</span><span>' + escapeHtml(a.country) + '</span>' +
+    scoreBadge +
+    '</div></div></div>';
+}
+
+// ---- Hover preview popup (headline hover -> metadata card near cursor) ----
+// Note: this shows a metadata preview card, not a live embedded iframe of
+// the target page — most news sites send X-Frame-Options/CSP headers that
+// block being framed at all, so an actual embedded preview would just show
+// a blank/broken box for the majority of sources. This gives a fast,
+// reliable preview of what the link is before clicking through instead.
+(function(){
+  var hp = document.getElementById('hoverPreview');
+  var hpTitle = document.getElementById('hpTitle');
+  var hpMeta = document.getElementById('hpMeta');
+  var showTimer = null;
+
+  document.body.addEventListener('mouseover', function(e){
+    var link = e.target.closest('a.headline');
+    if (!link) return;
+    clearTimeout(showTimer);
+    showTimer = setTimeout(function(){
+      hpTitle.textContent = link.dataset.title || link.textContent;
+      var ts = (link.dataset.ts || '').slice(5,16).replace('T', ' ');
+      hpMeta.innerHTML = [
+        link.dataset.category ? escapeHtml(link.dataset.category) : '',
+        link.dataset.source ? escapeHtml(link.dataset.source) : '',
+        link.dataset.country ? escapeHtml(link.dataset.country) : '',
+        ts ? escapeHtml(ts) + ' UTC' : ''
+      ].filter(Boolean).map(function(s){ return '<span>' + s + '</span>'; }).join('<span>/</span>');
+      hp.classList.add('show');
+    }, 150);
+  });
+
+  document.body.addEventListener('mousemove', function(e){
+    if (!hp.classList.contains('show')) return;
+    var x = e.clientX + 16, y = e.clientY + 16;
+    var maxX = window.innerWidth - 340, maxY = window.innerHeight - 140;
+    hp.style.left = Math.min(x, Math.max(0, maxX)) + 'px';
+    hp.style.top = Math.min(y, Math.max(0, maxY)) + 'px';
+  });
+
+  document.body.addEventListener('mouseout', function(e){
+    var link = e.target.closest('a.headline');
+    if (!link) return;
+    clearTimeout(showTimer);
+    hp.classList.remove('show');
+  });
+})();
+
+// ---- Critical ticker ----
+function tickerItemHtml(a){
+  return '<a href="' + escapeHtml(a.url) + '" target="_blank" rel="noopener">🚨 ' +
+    escapeHtml(a.title) + ' <span class="src">— ' + escapeHtml(a.source) + '</span></a>';
+}
+function renderTicker(critical){
+  var wrap = document.getElementById('tickerWrap');
+  var track = document.getElementById('tickerTrack');
+  if (!critical || !critical.length){ wrap.classList.remove('has-items'); track.innerHTML = ''; return; }
+  wrap.classList.add('has-items');
+  var html = critical.map(tickerItemHtml).join('');
+  track.innerHTML = html + html;
+}
+
+function renderVolumeChart(articles){
+  var days = [], counts = {}, now = new Date();
+  for (var i = 13; i >= 0; i--){
+    var d = new Date(now); d.setDate(d.getDate() - i);
+    var key = d.toISOString().slice(0,10);
+    days.push(key); counts[key] = 0;
+  }
+  articles.forEach(function(a){
+    var key = (a.collected_at || '').slice(0,10);
+    if (key in counts) counts[key]++;
+  });
+  var max = Math.max.apply(null, days.map(function(k){ return counts[k]; }).concat([1]));
+  var todayKey = now.toISOString().slice(0,10);
+  var html = days.map(function(k){
+    var pct = Math.max(2, Math.round((counts[k] / max) * 100));
+    var label = k.slice(5).replace('-', '/');
+    var isToday = k === todayKey ? ' today' : '';
+    return '<div class="bar-col" title="' + counts[k] + ' on ' + k + '">' +
+      '<div class="bar' + isToday + '" style="height:' + pct + '%"></div>' +
+      '<div class="bar-label">' + label + '</div></div>';
+  }).join('');
+  document.getElementById('volumeChart').innerHTML = html;
+}
+
+function refreshNews(){
+  fetch('/api/articles').then(function(r){ return r.json(); }).then(function(data){
+    var list = document.getElementById('articleList');
+    list.innerHTML = data.articles.length
+      ? data.articles.map(articleHtml).join('')
+      : '<div class="empty" id="noArticlesMsg">Nothing collected yet. The next collect cycle will populate this — check "Sources in use" at the bottom of the page if it\'s been a while.</div>';
+
+    var crit = document.getElementById('criticalList');
+    crit.innerHTML = data.critical.length
+      ? data.critical.map(articleHtml).join('')
+      : '<div class="empty">No critical items right now.</div>';
+
+    document.getElementById('statTotal').textContent = data.total;
+    document.getElementById('statCritical').textContent = data.critical_count;
+    document.getElementById('totalCount').textContent = data.total;
+    document.getElementById('refreshedTime').textContent = data.refreshed;
+
+    renderVolumeChart(data.articles);
+    renderTicker(data.critical);
+    filterArticles();
+    sortArticles();
+  }).catch(function(e){ console.error('refresh failed', e); });
+}
+
+function filterArticles(){
+  var q = document.getElementById('filterBox').value.toLowerCase();
+  var cat = document.getElementById('categoryFilter').value;
+  var country = document.getElementById('countryFilter').value;
+  var visibleCount = 0;
+  var rows = document.querySelectorAll('#articleList .article');
+  rows.forEach(function(el){
+    var matchesText = !q || el.dataset.search.indexOf(q) > -1;
+    var matchesCat = !cat || el.dataset.category === cat;
+    var matchesCountry = !country || el.dataset.country === country;
+    var show = matchesText && matchesCat && matchesCountry;
+    el.style.display = show ? '' : 'none';
+    if (show) visibleCount++;
+  });
+  var noMatches = document.getElementById('noMatchesMsg');
+  if (noMatches) noMatches.style.display = (rows.length > 0 && visibleCount === 0) ? '' : 'none';
+}
+
+function sortArticles(){
+  var mode = document.getElementById('sortOrder').value;
+  var list = document.getElementById('articleList');
+  var rows = Array.prototype.slice.call(list.querySelectorAll('.article'));
+  if (!rows.length) return;
+  rows.sort(function(a, b){
+    if (mode === 'country'){
+      var ca = a.dataset.country || '', cb = b.dataset.country || '';
+      if (ca !== cb) return ca < cb ? -1 : 1;
+      return (b.dataset.ts || '').localeCompare(a.dataset.ts || '');
+    }
+    if (mode === 'score'){
+      var sa = parseInt(a.dataset.score, 10) || 0, sb = parseInt(b.dataset.score, 10) || 0;
+      if (sa !== sb) return sb - sa;
+      return (b.dataset.ts || '').localeCompare(a.dataset.ts || '');
+    }
+    return (b.dataset.ts || '').localeCompare(a.dataset.ts || '');
+  });
+  rows.forEach(function(el){ list.appendChild(el); });
+}
+
+setInterval(refreshNews, 60000);
+
+// ---- CSV export: sends whatever filters are currently active (search
+// text, category, country) to /export.csv so the download matches what's
+// on screen, rather than always dumping the full unfiltered article set. ----
+function exportCsv(){
+  var params = new URLSearchParams();
+  var q = document.getElementById('filterBox').value.trim();
+  var cat = document.getElementById('categoryFilter').value;
+  var country = document.getElementById('countryFilter').value;
+  if (q) params.set('q', q);
+  if (cat) params.set('category', cat);
+  if (country) params.set('country', country);
+  params.set('limit', '2000');
+
+  var btn = document.getElementById('exportCsvBtn');
+  var original = btn.textContent;
+  btn.disabled = true;
+  btn.textContent = 'Preparing…';
+  // A plain navigation (not fetch) so the browser handles the file download
+  // and Content-Disposition header itself.
+  window.location.href = '/export.csv?' + params.toString();
+  setTimeout(function(){ btn.disabled = false; btn.textContent = original; }, 1200);
+}
+
+(function(){
+  var saved = localStorage.getItem('brics_theme') || 'dark';
+  document.documentElement.setAttribute('data-theme', saved);
+  document.getElementById('themeToggle').textContent = saved === 'dark' ? '☾ Dark' : '☀ Light';
+})();
+
+function toggleTheme(){
+  var current = document.documentElement.getAttribute('data-theme');
+  var next = current === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', next);
+  localStorage.setItem('brics_theme', next);
+  document.getElementById('themeToggle').textContent = next === 'dark' ? '☾ Dark' : '☀ Light';
+}
+
+(function(){
+  var saved = localStorage.getItem('brics_dashboard_key');
+  if (saved) document.getElementById('dashboardKey').value = saved;
+})();
+
+function streamMsg(text, isError){
+  var el = document.getElementById('streamMsg');
+  el.textContent = text;
+  el.className = 'stream-msg ' + (isError ? 'err' : 'ok');
+}
+
+// ---- Live streams: all auto-play (muted, required by browser autoplay
+// policy), mini copies on the left, one big "hero" copy on the right.
+// Ended-stream detection uses YouTube's postMessage bridge (enablejsapi=1
+// + a "listening" handshake) rather than loading the full external
+// IFrame Player API script, so state-change events (state 0 = ended)
+// arrive without an extra script dependency. ----
+var streamsState = {{ streams|tojson }};
+var activeStreamName = streamsState.length ? streamsState[0].name : null;
+var endedStreams = {}; // name -> true, once we've detected/alerted on it
+
+function ytEmbedUrl(baseUrl, opts){
+  opts = opts || {};
+  var sep = baseUrl.indexOf('?') > -1 ? '&' : '?';
+  var params = 'autoplay=1&mute=' + (opts.muted === false ? 0 : 1) +
+    '&playsinline=1&enablejsapi=1&rel=0&modestbranding=1&origin=' + encodeURIComponent(window.location.origin);
+  return baseUrl + sep + params;
+}
+
+function miniIframeId(name){ return 'mini-' + name.replace(/[^a-zA-Z0-9]/g, '_'); }
+
+function feedMiniHtml(s){
+  var activeClass = (s.name === activeStreamName) ? ' active' : '';
+  var ended = endedStreams[s.name];
+  return '<div class="feed-mini' + activeClass + '" data-select-stream="' + escapeHtml(s.name) + '">' +
+    '<button class="rm" title="Remove stream" data-remove-stream="' + escapeHtml(s.name) + '">✕</button>' +
+    (ended
+      ? '<div class="mini-ended">Feed ended<br><button class="btn" data-retry-stream="' + escapeHtml(s.name) + '">Retry</button></div>'
+      : '') +
+    '<iframe id="' + miniIframeId(s.name) + '" data-stream-name="' + escapeHtml(s.name) + '" src="' + escapeHtml(ytEmbedUrl(s.embed_url, {muted:true})) + '" allow="autoplay; encrypted-media" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>' +
+    '<div class="mini-label"><span class="dot"></span><span class="name">' + escapeHtml(s.name) + '</span></div>' +
+    '</div>';
+}
+
+function playerHtml(s){
+  if (!s) {
+    return '<div class="empty">No live streams yet — add one below, and it\'ll start playing automatically.</div>';
+  }
+  var ended = endedStreams[s.name];
+  return (ended ? heroEndedHtml(s) : '') +
+    '<iframe id="hero-frame" data-stream-name="' + escapeHtml(s.name) + '" src="' + escapeHtml(ytEmbedUrl(s.embed_url, {muted:true})) + '" allow="autoplay; encrypted-media" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>' +
+    '<div class="vname">' + escapeHtml(s.name) +
+    ' <a href="' + escapeHtml(s.watch_url) + '" target="_blank">↗ open on YouTube</a></div>';
+}
+
+function heroEndedHtml(s){
+  return '<div class="hero-ended">' +
+    '<div>🔴 "' + escapeHtml(s.name) + '" has ended.</div>' +
+    '<div style="display:flex;gap:10px;">' +
+    '<button class="btn" data-retry-stream="' + escapeHtml(s.name) + '">Try reloading it</button>' +
+    '<button class="btn" onclick="document.getElementById(\'newStreamName\').scrollIntoView({behavior:\'smooth\',block:\'center\'});document.getElementById(\'newStreamName\').focus();">Add a new feed</button>' +
+    '</div></div>';
+}
+
+function renderFeedList(){
+  var listEl = document.getElementById('feedList');
+  listEl.innerHTML = streamsState.length
+    ? streamsState.map(feedMiniHtml).join('')
+    : '<div class="empty">No streams yet.</div>';
+}
+
+function renderPlayer(){
+  var s = streamsState.find(function(x){ return x.name === activeStreamName; }) || null;
+  document.getElementById('feedPlayer').innerHTML = playerHtml(s);
+}
+
+function selectStream(name){
+  if (name === activeStreamName) return; // don't reload the same feed
+  activeStreamName = name;
+  renderFeedList();
+  renderPlayer();
+}
+
+function retryStream(name){
+  delete endedStreams[name];
+  if (name === activeStreamName) { renderPlayer(); } else { renderFeedList(); }
+}
+window.retryStream = retryStream;
+
+// Delegated click handler for select / remove / retry — works for
+// dynamically-added elements too, and never embeds a name inside an
+// inline onclick="" attribute (breaks on names containing a quote).
+document.addEventListener('click', function(e){
+  var retry = e.target.closest('[data-retry-stream]');
+  if (retry){ retryStream(retry.getAttribute('data-retry-stream')); return; }
+  var rm = e.target.closest('[data-remove-stream]');
+  if (rm){ removeStream(rm.getAttribute('data-remove-stream')); return; }
+  var item = e.target.closest('[data-select-stream]');
+  if (item){ selectStream(item.getAttribute('data-select-stream')); }
+});
+
+// ---- Ended-feed detection via YouTube's lightweight postMessage bridge ----
+// Each embedded player (mini + hero) is sent a "listening" handshake once
+// loaded; YouTube then pushes player-state updates back. playerState 0
+// means the video/broadcast ended. This needs no external script beyond
+// the iframe itself.
+function attachListener(iframeEl){
+  if (!iframeEl || iframeEl._listened) return;
+  iframeEl._listened = true;
+  iframeEl.addEventListener('load', function(){
+    try {
+      iframeEl.contentWindow.postMessage(JSON.stringify({event:'listening', id: iframeEl.id}), '*');
+    } catch(e) {}
+  });
+}
+
+window.addEventListener('message', function(e){
+  var data;
+  try { data = JSON.parse(e.data); } catch(err) { return; }
+  if (!data || data.event !== 'infoDelivery' || !data.info) return;
+  if (typeof data.info.playerState === 'undefined') return;
+  if (data.info.playerState !== 0) return; // 0 = ended
+
+  // Figure out which iframe posted this by matching its source window.
+  var frames = document.querySelectorAll('iframe[data-stream-name]');
+  for (var i = 0; i < frames.length; i++){
+    if (frames[i].contentWindow === e.source){
+      var name = frames[i].dataset.streamName;
+      if (!endedStreams[name]){
+        endedStreams[name] = true;
+        renderFeedList();
+        renderPlayer();
+      }
+      break;
+    }
+  }
+});
+
+// Re-attach listeners whenever the feed list / player DOM is rebuilt.
+var _origRenderFeedList = renderFeedList, _origRenderPlayer = renderPlayer;
+renderFeedList = function(){ _origRenderFeedList(); document.querySelectorAll('#feedList iframe').forEach(attachListener); };
+renderPlayer = function(){ _origRenderPlayer(); attachListener(document.getElementById('hero-frame')); };
+
+function submitNewStream(){
+  var name = document.getElementById('newStreamName').value.trim();
+  var country = document.getElementById('newStreamCountry').value.trim();
+  var link = document.getElementById('newStreamLink').value.trim();
+  var key = document.getElementById('dashboardKey').value;
+
+  if (!name || !link){ streamMsg('Name and a YouTube link are both required.', true); return; }
+
+  localStorage.setItem('brics_dashboard_key', key);
+
+  fetch('/api/streams', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({name: name, country: country, link: link, key: key})
+  }).then(function(r){ return r.json().then(function(data){ return {ok: r.ok, data: data}; }); })
+    .then(function(res){
+      if (!res.ok){ streamMsg(res.data.error || 'Could not add stream.', true); return; }
+      streamMsg('Added "' + res.data.stream.name + '". Playing automatically now.', false);
+      streamsState.push(res.data.stream);
+      if (!activeStreamName) activeStreamName = res.data.stream.name;
+      renderFeedList();
+      renderPlayer();
+      document.getElementById('newStreamName').value = '';
+      document.getElementById('newStreamCountry').value = '';
+      document.getElementById('newStreamLink').value = '';
+    }).catch(function(){ streamMsg('Network error adding stream.', true); });
+}
+
+function removeStream(name){
+  var key = document.getElementById('dashboardKey').value;
+  if (!confirm('Remove "' + name + '"?')) return;
+  fetch('/api/streams/' + encodeURIComponent(name) + '?key=' + encodeURIComponent(key), {method: 'DELETE'})
+    .then(function(r){ return r.json().then(function(data){ return {ok: r.ok, data: data}; }); })
+    .then(function(res){
+      if (!res.ok){ streamMsg(res.data.error || 'Could not remove stream.', true); return; }
+      streamsState = streamsState.filter(function(s){ return s.name !== name; });
+      delete endedStreams[name];
+      if (activeStreamName === name){
+        activeStreamName = streamsState.length ? streamsState[0].name : null;
+      }
+      renderFeedList();
+      renderPlayer();
+      streamMsg('Removed "' + name + '".', false);
+    }).catch(function(){ streamMsg('Network error removing stream.', true); });
+}
+
+// Initial render — all feeds start playing (muted) automatically here.
+renderFeedList();
+renderPlayer();
+renderVolumeChart({{ articles|tojson }});
+renderTicker({{ critical|tojson }});
+sortArticles();
+</script>
+</body>
+</html>

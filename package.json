@@ -1,0 +1,14 @@
+{
+  "name": "hsn-finder",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Worldwide HSN Code Finder - static site, daily self-updater worker, AI proxy, live-ships AIS proxy",
+  "scripts": {
+    "start": "node server.js",
+    "build": "node build.mjs",
+    "refresh": "node refresh.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
