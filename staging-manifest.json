@@ -3,12 +3,12 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 80,
+  "tests": 94,
   "files": [
     {
       "path": ".env.example",
-      "bytes": 4992,
-      "sha256": "2134ec0f143c016c30b012c3c0223ff6b6315c54acb4637b2ced76efc47cadf4"
+      "bytes": 6060,
+      "sha256": "d7933628889971f4b138b1e8feb119b468114101ce46f5e3e298813d5b205549"
     },
     {
       "path": ".gitignore",
@@ -182,8 +182,8 @@
     },
     {
       "path": "integration/news_api.py",
-      "bytes": 5896,
-      "sha256": "58fd4022ec2033c4a1bb7dc076dee8b5164a8b4f1bdedb793696d1ed3d9a534a"
+      "bytes": 6299,
+      "sha256": "e3fa7ace58d8033e943be0dd664881278987eece3d9dcd37c1e15e1228f315f3"
     },
     {
       "path": "integration/news_view.py",
@@ -191,9 +191,14 @@
       "sha256": "c332c08d6f1d4e757e97985bfe132a148bb9ff10fbd3dd0ded06953a5bca5ae5"
     },
     {
+      "path": "integration/preview_access.py",
+      "bytes": 4762,
+      "sha256": "4a2e4a7ab64ad1a6ff733fe66c0d9a0d231d2a4036fad3289a463beedfbc12b2"
+    },
+    {
       "path": "integration/private_router.py",
-      "bytes": 213,
-      "sha256": "e1c2f77b5609c77da70590069c258ce878b3c73d249aeb05e7428f2a411dd7e2"
+      "bytes": 150,
+      "sha256": "a7829f328566524f54ed0b56b7259e180bef095d94e7318fbee86252be48595e"
     },
     {
       "path": "integration/project_reports.py",
@@ -209,6 +214,11 @@
       "path": "integration/report_adapters.py",
       "bytes": 2506,
       "sha256": "d07ea3515cbb02c9b7f178dc2e8c74d3cd2d01a49024bd7e913523ea90df80d4"
+    },
+    {
+      "path": "integration/runtime.py",
+      "bytes": 2440,
+      "sha256": "de386230b423b1a7cd56031b7ab0f9391d440593e6b63b87492b1401ec6cdc60"
     },
     {
       "path": "integration/scraper_policy.py",
@@ -232,8 +242,8 @@
     },
     {
       "path": "integration/storage_reader.py",
-      "bytes": 1135,
-      "sha256": "e11cc9266b39cb8e47b5f8daa76dd8e91e62f12b7318c1438db4f85e5f192c9e"
+      "bytes": 1311,
+      "sha256": "6b8f87a734de02d1098cbdc865886de79a03f5b1414d036e0984a96e42609159"
     },
     {
       "path": "integration/storage_settings.py",
@@ -612,8 +622,8 @@
     },
     {
       "path": "requirements-staging.txt",
-      "bytes": 80,
-      "sha256": "b85bb8ff28f6fb78544753091f5d852a5a0837d9cf3daa4e47c359013d345c66"
+      "bytes": 96,
+      "sha256": "459ac8205071b77f22bb60f658314a48dfbbc8907270633d56b61ca0da230742"
     },
     {
       "path": "robots.txt",
@@ -1236,9 +1246,19 @@
       "sha256": "c5262ec2025af42818e100dab4a8ce55fc0613f3e56f8292631ee70c48199bd4"
     },
     {
+      "path": "tests/test_preview_access.py",
+      "bytes": 3953,
+      "sha256": "bc87fbf14d7c20f654fce6cd501c1fd0ed41f89012a92d80b2e5c545b5723f4f"
+    },
+    {
       "path": "tests/test_project_reports.py",
       "bytes": 1015,
       "sha256": "59a59dd575a26efdfc1f5aa09262eb7c1c3f8fa9ab0efcfa7983a9737db768c7"
+    },
+    {
+      "path": "tests/test_runtime.py",
+      "bytes": 2365,
+      "sha256": "46b564ef38afa23db58bd539510e1473d2dcde40382702356712f3ce10c965da"
     },
     {
       "path": "tests/test_scraper_policy.py",
@@ -1252,8 +1272,8 @@
     },
     {
       "path": "tests/test_storage_reader.py",
-      "bytes": 1762,
-      "sha256": "59565d56083ba0ba5c5729e7d260598185a04554bb39f63b9ef164c65066e671"
+      "bytes": 1778,
+      "sha256": "ad425907c1a8dace022c92d08880526fe224b15886ffe460e085605952938dfc"
     },
     {
       "path": "tests/test_storage_settings.py",

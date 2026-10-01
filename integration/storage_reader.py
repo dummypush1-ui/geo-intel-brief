@@ -14,6 +14,7 @@ class ReadOnlyNewsReader:
  def __call__(self):
   result={}
   for project,store in self.stores.items():
-   cursor=store.find({}).sort('created_at' if project=='geo' else 'collected_at',-1).limit(self.limit)
+   projection={key:1 for key in ('_id','id','url','title','summary','source','country','category','published','created_at','collected_at','telegram_url','emailed')}
+   cursor=store.find({},projection).sort('created_at' if project=='geo' else 'collected_at',-1).limit(self.limit)
    result[project]=[dict(row) for row in cursor]
   return result

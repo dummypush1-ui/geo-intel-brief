@@ -3,7 +3,7 @@ from integration.storage_reader import ReadOnlyNewsReader
 from integration.news_view import views
 class FakeReadStore:
  def __init__(self,rows):self.rows=rows;self.calls=[]
- def find(self,query):self.calls.append(('find',query));return self
+ def find(self,query,projection=None):self.calls.append(('find',query));return self
  def sort(self,key,direction):self.calls.append(('sort',key,direction));return self
  def limit(self,limit):self.calls.append(('limit',limit));self.n=limit;return self
  def __iter__(self):return iter(self.rows[:self.n])

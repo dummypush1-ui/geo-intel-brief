@@ -3,3 +3,4 @@ gunicorn==22.0.0
 pymongo==4.8.0
 python-dotenv==1.0.1
 PyYAML==6.0.2
+Werkzeug==3.0.6

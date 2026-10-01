@@ -20,13 +20,13 @@ def create_app(reader=None,authorize=None,finder_context_reader=None,finder_base
    response.direct_passthrough=False
    response.set_data(brand_head(response.get_data(as_text=True),branding_public_base))
   response.headers['X-Content-Type-Options']='nosniff'
-  response.headers['Referrer-Policy']='no-referrer'
-  response.headers['Content-Security-Policy']="default-src 'self'; script-src 'self'; style-src 'self'; frame-ancestors 'self'; object-src 'none'; base-uri 'self'"
+  response.headers['Referrer-Policy']='same-origin'
+  response.headers['Content-Security-Policy']="default-src 'self'; script-src 'self'; style-src 'self'; frame-ancestors 'self'; object-src 'none'; base-uri 'self'; form-action 'self'"
   if request.path.startswith('/workspace/finder/') and response.mimetype=='text/html' and response.status_code==200:
    response.direct_passthrough=False
    scripts=[body for attrs,body in re.findall(r'<script\b([^>]*)>(.*?)</script>',response.get_data(as_text=True),flags=re.S|re.I) if body.strip() and not re.search(r'\bsrc\s*=',attrs,re.I)]
    hashes=['\'sha256-'+base64.b64encode(hashlib.sha256(s.encode()).digest()).decode()+'\'' for s in scripts]
-   response.headers['Content-Security-Policy']="default-src 'self'; script-src 'self' "+' '.join(hashes)+"; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; frame-ancestors 'self'; object-src 'none'; base-uri 'self'"
+   response.headers['Content-Security-Policy']="default-src 'self'; script-src 'self' "+' '.join(hashes)+"; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; frame-ancestors 'self'; object-src 'none'; base-uri 'self'; form-action 'self'"
   return response
  @app.get('/workspace')
  def workspace():return send_from_directory(root/'integration/ui','workspace.html')
@@ -45,7 +45,15 @@ def create_app(reader=None,authorize=None,finder_context_reader=None,finder_base
   import re
   if name not in ('index.html','offline.html','sw.js','manifest.webmanifest','icon-192.png','icon-512.png') and not re.fullmatch(r'data\.[0-9a-f]{12}\.js',name):return jsonify(error='Not found'),404
   return send_from_directory(root,name)
- reader=reader or (lambda:{'geo':[],'brics':[]})
+ source_reader=reader or (lambda:{'geo':[],'brics':[]})
+ class ReadUnavailable(Exception):pass
+ @app.errorhandler(ReadUnavailable)
+ def read_unavailable(error):return jsonify(error='News storage temporarily unavailable'),503
+ def reader():
+  try:return source_reader()
+  except Exception as error:
+   app.logger.warning('Read-only news unavailable: %s',type(error).__name__)
+   raise ReadUnavailable() from None
  authorize=authorize or (lambda req:False)
  @app.get('/health')
  def health():return jsonify(state='staging',collection=False,mail=False,scraper=False)
