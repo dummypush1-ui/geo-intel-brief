@@ -21,7 +21,7 @@ def normalize_row(row,project):
  if project not in ('geo','brics'):raise ValueError('Unknown project')
  url=safe_url(row.get('url'))
  if not url or not str(row.get('title','')).strip():return None
- return {'project':project,'legacy_id':str(row.get('_id',row.get('id',''))),'url':url,'original_url':row['url'],
+ return {'project':project,'legacy_id':str(row.get('id',row.get('_id','')) if project=='brics' else row.get('_id',row.get('id',''))),'mongo_id':str(row.get('_id','')),'url':url,'original_url':row['url'],
   'title':str(row['title']),'summary':str(row.get('summary') or ''),'source':str(row.get('source') or ''),
   'original_country':str(row.get('country') or ''),'category':str(row.get('category') or 'GENERAL'),
   'published_at':date_view(row.get('published')),'collected_at':date_view(row.get('created_at') or row.get('collected_at')),
