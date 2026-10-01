@@ -35,7 +35,7 @@ jobs:
           python - <<'PY'
           from pathlib import Path
           import hashlib,zipfile,io,base64
-          data=base64.b64decode(Path('private-overlay.b64').read_text(),validate=True)
+          data=base64.b64decode(''.join(Path('private-overlay.b64').read_text().split()))
           assert hashlib.sha256(data).hexdigest()=='213c119f527eec61603277b002ae246bdbaa0ce7e2a90dd90b9be250c4effaaf'
           with zipfile.ZipFile(io.BytesIO(data)) as z:
               assert not z.testzip()
