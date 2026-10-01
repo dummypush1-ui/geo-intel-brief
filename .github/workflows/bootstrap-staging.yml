@@ -1,0 +1,48 @@
+name: Populate private staging tree
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  populate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Verify and unpack private payload
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import hashlib,zipfile,io
+          parts=[]
+          for suffix in ['merge-payload.001','merge-payload.002']:
+              matches=list(Path('.').glob('*'+suffix))
+              assert len(matches)==1, suffix
+              parts.append(matches[0])
+          data=b''.join(p.read_bytes() for p in parts)
+          assert hashlib.sha256(data).hexdigest()=='6860579b6d9a3f657cb4420239a01fcc7772a0648359f38f60ddf92deddcb94b'
+          with zipfile.ZipFile(io.BytesIO(data)) as z:
+              assert not z.testzip()
+              for info in z.infolist():
+                  p=Path(info.filename)
+                  assert not p.is_absolute() and '..' not in p.parts and '.git' not in p.parts
+                  assert p.parts[:2]!=('.github','workflows')
+              z.extractall('.')
+          for p in parts:p.unlink()
+          PY
+      - name: Fixture tests, no credentials or live data
+        run: |
+          pip install -r requirements-staging.txt
+          python -m unittest discover -s tests -v
+          python -m compileall -q integration
+      - name: Commit staging only and retire bootstrap
+        run: |
+          rm .github/workflows/bootstrap-staging.yml
+          git config user.name 'geo-intel-staging-bot'
+          git config user.email 'staging@users.noreply.github.com'
+          git add -A
+          git commit -m 'Add preserved three-project staging tree and tested additive bridges'
+          git push
