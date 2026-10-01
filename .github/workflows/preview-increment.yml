@@ -1,5 +1,5 @@
 name: Private preview access and read-only runtime
-true:
+on:
   workflow_dispatch: null
 permissions:
   contents: write
