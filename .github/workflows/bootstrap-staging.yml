@@ -12,18 +12,31 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Verify and unpack private payload
+      - name: Copy verified public finder baseline
+        run: |
+          git clone --quiet https://github.com/push2006/finder-hsn-codee.git /tmp/finder
+          git -C /tmp/finder checkout --quiet ddbaf5a69ea87913976cf4ea0acd3c74cad1833c
+          python - <<'PY'
+          from pathlib import Path
+          import shutil
+          root=Path('/tmp/finder')
+          for p in root.rglob('*'):
+              if not p.is_file() or '.git' in p.parts or p.name.startswith('.env'): continue
+              rel=p.relative_to(root)
+              if rel.parts[:2]==('.github','workflows'): target=Path('legacy-config/finder-workflows')/p.name
+              elif str(rel)=='render.yaml': target=Path('legacy-config/finder-render.yaml')
+              elif str(rel)=='README.md': target=Path('legacy-config/finder-README.md')
+              else: target=rel
+              target.parent.mkdir(parents=True,exist_ok=True)
+              shutil.copy2(p,target)
+          PY
+      - name: Verify and unpack private overlay
         run: |
           python - <<'PY'
           from pathlib import Path
-          import hashlib,zipfile,io
-          parts=[]
-          for suffix in ['merge-payload.001','merge-payload.002']:
-              matches=list(Path('.').glob('*'+suffix))
-              assert len(matches)==1, suffix
-              parts.append(matches[0])
-          data=b''.join(p.read_bytes() for p in parts)
-          assert hashlib.sha256(data).hexdigest()=='6860579b6d9a3f657cb4420239a01fcc7772a0648359f38f60ddf92deddcb94b'
+          import hashlib,zipfile,io,base64
+          data=base64.b64decode(Path('private-overlay.b64').read_text(),validate=True)
+          assert hashlib.sha256(data).hexdigest()=='213c119f527eec61603277b002ae246bdbaa0ce7e2a90dd90b9be250c4effaaf'
           with zipfile.ZipFile(io.BytesIO(data)) as z:
               assert not z.testzip()
               for info in z.infolist():
@@ -31,7 +44,7 @@ jobs:
                   assert not p.is_absolute() and '..' not in p.parts and '.git' not in p.parts
                   assert p.parts[:2]!=('.github','workflows')
               z.extractall('.')
-          for p in parts:p.unlink()
+          Path('private-overlay.b64').unlink()
           PY
       - name: Fixture tests, no credentials or live data
         run: |
