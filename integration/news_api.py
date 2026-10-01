@@ -6,19 +6,25 @@ from integration.news_view import views
 from integration.relevance import match
 from integration.story_links import groups
 from integration.finder_links import finder_link
+from integration.branding_meta import brand_head,valid_origin
 
-def create_app(reader=None,authorize=None,finder_context_reader=None,finder_base=None,finder_index_verified=False,allowed_origin=None):
+def create_app(reader=None,authorize=None,finder_context_reader=None,finder_base=None,finder_index_verified=False,allowed_origin=None,branding_public_base=None):
+ branding_public_base=valid_origin(branding_public_base)
  app=Flask(__name__)
  root=Path(__file__).resolve().parents[1]
  @app.after_request
  def private_response(response):
   response.headers['Cache-Control']='no-store'
+  response.headers['X-Robots-Tag']='noindex, nofollow'
+  if response.status_code==200 and response.mimetype=='text/html':
+   response.direct_passthrough=False
+   response.set_data(brand_head(response.get_data(as_text=True),branding_public_base))
   response.headers['X-Content-Type-Options']='nosniff'
   response.headers['Referrer-Policy']='no-referrer'
   response.headers['Content-Security-Policy']="default-src 'self'; script-src 'self'; style-src 'self'; frame-ancestors 'self'; object-src 'none'; base-uri 'self'"
   if request.path.startswith('/workspace/finder/') and response.mimetype=='text/html' and response.status_code==200:
    response.direct_passthrough=False
-   scripts=re.findall(r'<script(?:\s[^>]*)?>(.*?)</script>',response.get_data(as_text=True),flags=re.S|re.I)
+   scripts=[body for attrs,body in re.findall(r'<script\b([^>]*)>(.*?)</script>',response.get_data(as_text=True),flags=re.S|re.I) if body.strip() and not re.search(r'\bsrc\s*=',attrs,re.I)]
    hashes=['\'sha256-'+base64.b64encode(hashlib.sha256(s.encode()).digest()).decode()+'\'' for s in scripts]
    response.headers['Content-Security-Policy']="default-src 'self'; script-src 'self' "+' '.join(hashes)+"; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; frame-ancestors 'self'; object-src 'none'; base-uri 'self'"
   return response
@@ -28,6 +34,12 @@ def create_app(reader=None,authorize=None,finder_context_reader=None,finder_base
  def assets(name):
   if name not in ('workspace.js','workspace.css'):return jsonify(error='Not found'),404
   return send_from_directory(root/'integration/ui',name)
+ @app.get('/workspace/branding/<name>')
+ def branding(name):
+  if name not in ('favicon.ico','icon-48.png','icon-192.png','icon-512.png','apple-touch-icon.png','og-image.png','logo.svg'):return jsonify(error='Not found'),404
+  return send_from_directory(root/'integration/branding',name)
+ @app.get('/workspace/manifest.webmanifest')
+ def merged_manifest():return send_from_directory(root/'integration/branding','manifest.webmanifest')
  @app.get('/workspace/finder/<name>')
  def finder(name):
   import re

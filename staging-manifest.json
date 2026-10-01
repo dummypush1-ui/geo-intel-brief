@@ -3,12 +3,12 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 73,
+  "tests": 80,
   "files": [
     {
       "path": ".env.example",
-      "bytes": 4840,
-      "sha256": "abd521ddf0845b1907eb6394f9d9a27721f5a236fe668482f147ac01d738039a"
+      "bytes": 4992,
+      "sha256": "2134ec0f143c016c30b012c3c0223ff6b6315c54acb4637b2ced76efc47cadf4"
     },
     {
       "path": ".gitignore",
@@ -106,6 +106,56 @@
       "sha256": "5d961509258c047783dbe624ffaa01940143f0e09e8e19cf4e595372fd5c0a88"
     },
     {
+      "path": "integration/branding/apple-touch-icon.png",
+      "bytes": 14807,
+      "sha256": "5c6ec15042f2f866a355e6597a5549f7f6c01112b966f3dd56ffbae6ad32a638"
+    },
+    {
+      "path": "integration/branding/favicon.ico",
+      "bytes": 5883,
+      "sha256": "5365789556e5149c0319d785a3a4864a1a5cc97c116b31e88538e9876ab0576b"
+    },
+    {
+      "path": "integration/branding/icon-192.png",
+      "bytes": 15917,
+      "sha256": "dd32d63cef450d6e1b2238330ecd07e928bf4257effe0aff67b2ae1fe33e6508"
+    },
+    {
+      "path": "integration/branding/icon-48.png",
+      "bytes": 2813,
+      "sha256": "6dc0c3cbafc66fc6c89dbb678e2cf0d234f2df6cd8693d96520dfdd03d933fe5"
+    },
+    {
+      "path": "integration/branding/icon-512.png",
+      "bytes": 45370,
+      "sha256": "a24bdaa1e55d3a0f3a0034674bae7ed8d5041f4a38d22f0b6ba4ffbba67de080"
+    },
+    {
+      "path": "integration/branding/logo.svg",
+      "bytes": 791,
+      "sha256": "74e6381146a3b051c85da428c1504dc3bcad68b7f3489e1d20a8e8e85aad4130"
+    },
+    {
+      "path": "integration/branding/manifest.webmanifest",
+      "bytes": 519,
+      "sha256": "916caa92a9ee54ba8b951caef0a1474ce2704bc731e28ead0646750fbcef4802"
+    },
+    {
+      "path": "integration/branding/og-image.png",
+      "bytes": 45176,
+      "sha256": "f594d69d14ea5412cd4c9e07fc5982ce3a89a471ec05ce3ffa141fa41b59802a"
+    },
+    {
+      "path": "integration/branding/social.svg",
+      "bytes": 1325,
+      "sha256": "06321f2325062a6b3ee420689cc93411de11df8938e076b1a4f79f366e7c9bbc"
+    },
+    {
+      "path": "integration/branding_meta.py",
+      "bytes": 2774,
+      "sha256": "100d7085bb5e1d7b2701325efaf2efad0dfe39b37410757524a5aa51c8631463"
+    },
+    {
       "path": "integration/cross-connections.json",
       "bytes": 2642,
       "sha256": "08baedc5db555d1220acfee91710836803318eb09160701a69e24cce517ba8d3"
@@ -132,8 +182,8 @@
     },
     {
       "path": "integration/news_api.py",
-      "bytes": 4989,
-      "sha256": "5cfece255fc4c9df2458950fae1652d89f3599c5cd407c09c47f0d03f70cc8a4"
+      "bytes": 5896,
+      "sha256": "58fd4022ec2033c4a1bb7dc076dee8b5164a8b4f1bdedb793696d1ed3d9a534a"
     },
     {
       "path": "integration/news_view.py",
@@ -142,8 +192,8 @@
     },
     {
       "path": "integration/private_router.py",
-      "bytes": 139,
-      "sha256": "0f38629d19bdec2c263299b837cc095f2d2213e90bb4355c545fefbc7b76e355"
+      "bytes": 213,
+      "sha256": "e1c2f77b5609c77da70590069c258ce878b3c73d249aeb05e7428f2a411dd7e2"
     },
     {
       "path": "integration/project_reports.py",
@@ -1139,6 +1189,11 @@
       "path": "sw.js",
       "bytes": 843,
       "sha256": "d68611324f813edaa64a23392792051397a437df2a7e5ffb5e8dc84e99b510c2"
+    },
+    {
+      "path": "tests/test_branding.py",
+      "bytes": 2441,
+      "sha256": "ec04fee6d602819bc53ddef36e53d58b19131faa795263d5f5b859f03de92ee6"
     },
     {
       "path": "tests/test_bridges.py",
