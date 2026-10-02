@@ -3,7 +3,7 @@ from integration.dashboard_snapshots import DashboardSnapshots
 from integration.news_api import create_app
 STAMP='2026-10-02T00:00:00Z'
 class DashboardSnapshotTests(unittest.TestCase):
- def reader(self,key,rows,stamp=STAMP):return DashboardSnapshots({key:lambda:{'observed_at':stamp,'items':rows}},True)
+ def reader(self,key,rows,stamp=STAMP):return DashboardSnapshots({key:lambda:{'observed_at':stamp,'items':rows}},True,allowed_hosts={key:['example.com']})
  def test_unavailable_not_empty_claim(self):
   d=DashboardSnapshots({},True)('geo');self.assertEqual(d['panels']['geo_events']['state'],'unavailable')
   d=self.reader('geo_events',[])('geo');self.assertEqual(d['panels']['geo_events']['state'],'supplied_snapshot')
@@ -26,3 +26,34 @@ class DashboardSnapshotTests(unittest.TestCase):
   c=create_app(authorize=lambda r:True).test_client();self.assertEqual(c.get('/api/dashboard-snapshots').status_code,400);self.assertEqual(c.get('/api/dashboard-snapshots?project=geo').json['state'],'snapshot_readers_unwired')
   def bad(project):raise RuntimeError('private password')
   c=create_app(authorize=lambda r:True,dashboard_snapshot_reader=bad).test_client();r=c.get('/api/dashboard-snapshots?project=geo');self.assertEqual(r.status_code,503);self.assertNotIn('password',r.text)
+
+ def test_route_rejects_arbitrary_outputs(self):
+  for reader in [lambda p:{'password':'secret'},lambda p:[],object()]:
+   c=create_app(authorize=lambda r:True,dashboard_snapshot_reader=reader).test_client()
+   r=c.get('/api/dashboard-snapshots?project=geo');self.assertEqual(r.status_code,503);self.assertNotIn('secret',r.text)
+ def test_valid_adapter_route_and_project_guard(self):
+  c=create_app(authorize=lambda r:True,dashboard_snapshot_reader=self.reader('geo_events',[])).test_client()
+  self.assertEqual(c.get('/api/dashboard-snapshots?project=geo').json['panels']['geo_events']['state'],'supplied_snapshot')
+  self.assertEqual(c.get('/api/dashboard-snapshots?project=all').status_code,400)
+ def test_unreviewed_hosts_and_queries_withheld(self):
+  rows=[{'name':'x','watch_url':u} for u in ['https://example.com/x?token=secret','https://127.0.0.1/x','https://localhost/x','https://internal.company/x','https://evil.com/x','https://example.com:999/x','https://example.com:bad/x','https://user:pass@example.com/x']]
+  panel=self.reader('brics_streams',rows)('brics')['panels']['brics_streams'];self.assertEqual(panel['items'],[]);self.assertEqual(panel['rejected_count'],len(rows))
+ def test_reader_host_contract(self):
+  for hosts in [None,{}, {'geo_events':['127.0.0.1']},{'geo_events':['a.local']},{'geo_events':['EXAMPLE.com']},{'geo_events':['example.com'],'brics_sources':['example.com']}]:
+   with self.assertRaises(ValueError):DashboardSnapshots({'geo_events':lambda:{}},True,hosts)
+ def test_deterministic_cap_order_and_no_mutation(self):
+  rows=[{'name':str(i).zfill(3),'event_date':'2026-10-03','source_url':'https://example.com/'+str(i)} for i in range(105)]
+  panel=self.reader('geo_events',list(reversed(rows)))('geo')['panels']['geo_events']
+  self.assertEqual([r['name'] for r in panel['items']],[str(i).zfill(3) for i in range(100)])
+  self.assertTrue(panel['truncated']);self.assertEqual(len(rows),105)
+
+ def test_numeric_ipv4_aliases_not_allowlist_hosts(self):
+  for host in ['127.1','127.0.1','0x7f.0.0.1','0177.0.0.1','192.168.1','10.1','0x7f.1','2130706433']:
+   with self.assertRaises(ValueError):DashboardSnapshots({'geo_events':lambda:{}},True,{'geo_events':[host]})
+ def test_full_payload_tiebreak_at_cap(self):
+  cases={'geo_events':[{'name':'x','source_url':'https://example.com/a','event_date':'2026-10-03','description':str(i)} for i in range(105)],'brics_sources':[{'name':'x','url':'https://example.com/a','country':'A','last_status':'ok','last_count':i,'last_checked':STAMP} for i in range(105)],'brics_streams':[{'name':'X' if i%2 else 'x','watch_url':'https://example.com/a','country':'a' if i%2 else 'A'} for i in range(105)]}
+  for key,rows in cases.items():
+   project='geo' if key=='geo_events' else 'brics'
+   forward=self.reader(key,rows)(project)['panels'][key]['items']
+   reverse=self.reader(key,list(reversed(rows)))(project)['panels'][key]['items']
+   self.assertEqual(forward,reverse);self.assertEqual(len(forward),100)

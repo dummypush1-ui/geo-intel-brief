@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 172,
+  "tests": 179,
   "files": [
     {
       "path": ".env.example",
@@ -172,8 +172,8 @@
     },
     {
       "path": "integration/dashboard_snapshots.py",
-      "bytes": 2958,
-      "sha256": "743365f7ebf8b2df4bdcd9f5abdb663fec87db5ed7d21f2aeec6b52a3df2b8b8"
+      "bytes": 4878,
+      "sha256": "c81883290f39d23485ac0261779cf7893fd1d05999a7950ea78763505381b16a"
     },
     {
       "path": "integration/finder-news.js",
@@ -202,8 +202,8 @@
     },
     {
       "path": "integration/news_api.py",
-      "bytes": 8343,
-      "sha256": "80fb8bb8ccdd3dbcbc7062402207135fa45d7452cf7f548873c4bc686017335d"
+      "bytes": 8529,
+      "sha256": "a939f73c307ba6adf99c7c716cec002a095b0ad0732fdc3491dcf655d224939a"
     },
     {
       "path": "integration/news_view.py",
@@ -1262,8 +1262,8 @@
     },
     {
       "path": "tests/test_dashboard_snapshots.py",
-      "bytes": 2687,
-      "sha256": "829d884dcef3c540959b6c8c294a92e4b1878bc88137a692d264623a0b09cb9f"
+      "bytes": 5697,
+      "sha256": "5537d442877567ef975d4d077df6a6ff147d25779fa3f7fc686aaef07d3d6e1e"
     },
     {
       "path": "tests/test_dashboard_stats.py",

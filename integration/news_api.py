@@ -8,6 +8,7 @@ from integration.relevance import match
 from integration.story_links import groups
 from integration.finder_links import finder_link
 from integration.dashboard_model import loaded_stats
+from integration.dashboard_snapshots import DashboardSnapshots
 from integration.branding_meta import brand_head,valid_origin
 
 def create_app(reader=None,authorize=None,finder_context_reader=None,finder_base=None,finder_index_verified=False,allowed_origin=None,branding_public_base=None,dashboard_snapshot_reader=None):
@@ -92,6 +93,7 @@ def create_app(reader=None,authorize=None,finder_context_reader=None,finder_base
   project=request.args.get('project','')
   if project not in ('geo','brics'):return jsonify(error='Exact project required'),400
   if dashboard_snapshot_reader is None:return jsonify(project=project,state='snapshot_readers_unwired',not_live_status=True)
+  if type(dashboard_snapshot_reader) is not DashboardSnapshots:return jsonify(error='Dashboard snapshots unavailable'),503
   try:return jsonify(dashboard_snapshot_reader(project))
   except Exception:return jsonify(error='Dashboard snapshots unavailable'),503
  @app.get('/api/dashboard-signals')
