@@ -3,6 +3,17 @@
 Source status is reported as a captured observation, never a current health
 claim. Stream URLs are outbound links only; this adapter does not embed video.
 Unavailable differs from an empty verified snapshot.
+
+Fail-closed display policy: labels need a letter, number or visible symbol.
+Other-category characters and known fillers are withheld. Object-replacement
+U+FFFC alone fails the visible-label rule, but mixed labels can retain it;
+U+FFFD, nonbreaking spaces and line/paragraph separators beside letters remain.
+This also withholds legitimate ZWNJ/ZWJ Persian/Indic text and joined emoji,
+private-use names, percent-escaped URLs and query-based watch URLs. Rejected
+rows are counted; no label or URL is silently rewritten to a different value.
+Descriptions with format/control characters (except newline/tab) are omitted;
+CRLF descriptions are also omitted because carriage return is a control.
+This policy covers snapshots only, not ordinary news links.
 """
 from datetime import date
 from urllib.parse import urlsplit,urlunsplit
@@ -31,7 +42,7 @@ class DashboardSnapshots:
   except ValueError:pass
   return all(1<=len(label)<=63 and not label.startswith('-') and not label.endswith('-') for label in host.split('.'))
  def link(self,key,value):
-  if not isinstance(value,str) or '\\' in value or '%' in value or any(unicodedata.category(c)=='Cf' for c in value):return None
+  if not isinstance(value,str) or '\\' in value or '%' in value or any(unicodedata.category(c).startswith('C') or c in '\u2800\u3164\u115f\u1160\uffa0' for c in value):return None
   url=safe_url(value)
   if not url:return None
   u=urlsplit(url)
@@ -69,13 +80,13 @@ class DashboardSnapshots:
    v=row.get(k);return v[:2000] if isinstance(v,str) else ''
   def label(k):
    value=text(k)
-   return value if value.strip() and not any(unicodedata.category(c)=='Cf' for c in value) else ''
+   return value if any(unicodedata.category(c)[0] in 'LNS' and c not in '\u2800\u3164\u115f\u1160\uffa0\ufffc' for c in value) and not any(unicodedata.category(c).startswith('C') or c in '\u2800\u3164\u115f\u1160\uffa0' for c in value) else ''
   if key=='geo_events':
    try:day=date.fromisoformat(text('event_date')).isoformat()
    except ValueError:return None
    url=self.link(key,row.get('source_url'));name=label('name')
    if not name or not url:return None
-   return {'name':name,'event_date':day,'source_url':url,'description':text('description')}
+   return {'name':name,'event_date':day,'source_url':url,'description':text('description') if not any(unicodedata.category(c).startswith('C') and c not in '\n\t' for c in text('description')) else ''}
   if key=='brics_sources':
    name=label('name');url=self.link(key,row.get('url'))
    if not name or not url:return None

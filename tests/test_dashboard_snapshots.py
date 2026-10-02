@@ -79,3 +79,28 @@ class DashboardSnapshotTests(unittest.TestCase):
  def test_format_country_not_displayed(self):
   r=self.reader('brics_sources',[{'name':'Valid','url':'https://example.com/x','country':'\u202eCountry'}])('brics')['panels']['brics_sources']['items'][0]
   self.assertEqual(r['country'],'')
+
+ def test_nonformat_invisible_controls_and_surrogates(self):
+  invisible=['\u2800','\u3164','\u115f','\u1160','\uffa0','\x00ok\x7f','a\ud800','a\ue000','a\u0378']
+  for key,urlkey in [('geo_events','source_url'),('brics_sources','url'),('brics_streams','watch_url')]:
+   for name in invisible:
+    row={'name':name,urlkey:'https://example.com/x','event_date':'2026-10-03'}
+    project='geo' if key=='geo_events' else 'brics'
+    self.assertEqual(self.reader(key,[row])(project)['panels'][key]['items'],[])
+  reader=self.reader('brics_streams',[])
+  for value in invisible:self.assertIsNone(reader.link('brics_streams','https://example.com/a'+value))
+
+ def test_nonspacing_invisible_names_and_countries(self):
+  for name in ['\u034f','\ufe0f','\u180b','\u17b4','\u17b5','\U000e0100','\ufffc','\u0301','...']:
+   row={'name':name,'watch_url':'https://example.com/x'}
+   self.assertEqual(self.reader('brics_streams',[row])('brics')['panels']['brics_streams']['items'],[])
+   item=self.reader('brics_sources',[{'name':'Valid','url':'https://example.com/x','country':name}])('brics')['panels']['brics_sources']['items'][0];self.assertEqual(item['country'],'')
+ def test_visible_multilingual_and_combining_labels(self):
+  for name in ['भारत','ایران','a\u0301','中','😀','2026']:
+   self.assertEqual(self.reader('brics_streams',[{'name':name,'watch_url':'https://example.com/x'}])('brics')['panels']['brics_streams']['items'][0]['name'],name)
+  for name in ['ای\u200cران','क\u200dष','👩\u200d💻']:
+   self.assertEqual(self.reader('brics_streams',[{'name':name,'watch_url':'https://example.com/x'}])('brics')['panels']['brics_streams']['items'],[])
+ def test_description_spoof_controls_omitted(self):
+  for description,want in [('abc\u202edef',''),('abc\x7fdef',''),('a\ud800',''),('Line one\nLine two\tend','Line one\nLine two\tend')]:
+   item=self.reader('geo_events',[{'name':'Valid','source_url':'https://example.com/x','event_date':'2026-10-03','description':description}])('geo')['panels']['geo_events']['items'][0]
+   self.assertEqual(item['description'],want)
