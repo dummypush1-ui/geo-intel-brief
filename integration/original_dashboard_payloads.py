@@ -13,7 +13,7 @@ parser would interpret them as midnight).
 """
 from datetime import datetime,timezone
 from integration.news_view import date_view
-from integration.youtube_links import supplied_video_watch
+from integration.youtube_links import supplied_video_watch,supplied_channel_watch
 
 def captured_snapshot(items,observed_at):
  stamp=date_view(observed_at)
@@ -44,10 +44,20 @@ def brics_sources(config_rows,status_map,observed_at,source_timezone=None):
  return snapshot
 
 def brics_video_streams(config_rows,observed_at):
+ # Compatibility entry point: video-only supplied configuration mapper.
  snapshot=captured_snapshot(config_rows,observed_at);items=[]
  for row in snapshot['items']:
   if row.get('type')!='video':continue
   watch=supplied_video_watch(row.get('video_id'))
+  if watch:items.append({'name':row.get('name'),'country':row.get('country'),'watch_url':watch})
+ snapshot['items']=items
+ return snapshot
+
+def brics_streams(config_rows,observed_at):
+ snapshot=captured_snapshot(config_rows,observed_at);items=[]
+ for row in snapshot['items']:
+  kind=row.get('type')
+  watch=supplied_video_watch(row.get('video_id')) if kind=='video' else supplied_channel_watch(row.get('channel_id')) if kind=='channel' else None
   if watch:items.append({'name':row.get('name'),'country':row.get('country'),'watch_url':watch})
  snapshot['items']=items
  return snapshot

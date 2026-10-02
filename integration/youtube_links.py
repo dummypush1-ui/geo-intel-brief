@@ -15,3 +15,8 @@ def youtube_watch(value):
 def supplied_video_watch(video_id):
  if not isinstance(video_id,str) or not VIDEO.fullmatch(video_id):return None
  return 'https://www.youtube.com/watch?v='+video_id
+
+CHANNEL=re.compile(r'UC[A-Za-z0-9_-]{22}\Z')
+def supplied_channel_watch(channel_id):
+ if not isinstance(channel_id,str) or not CHANNEL.fullmatch(channel_id):return None
+ return 'https://www.youtube.com/channel/'+channel_id+'/live'

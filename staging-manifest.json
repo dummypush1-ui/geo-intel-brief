@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 198,
+  "tests": 199,
   "files": [
     {
       "path": ".env.example",
@@ -212,8 +212,8 @@
     },
     {
       "path": "integration/original_dashboard_payloads.py",
-      "bytes": 2915,
-      "sha256": "605398e1be8df316094e362c0aeebdd2f002aa2ca4277d10194eb5a00f8a0924"
+      "bytes": 3457,
+      "sha256": "4bd03769cd1b612a5817f3c7740b2c89c593cf977adc32b279ab5303040f8d87"
     },
     {
       "path": "integration/page_watch.py",
@@ -317,8 +317,8 @@
     },
     {
       "path": "integration/youtube_links.py",
-      "bytes": 768,
-      "sha256": "4694073600499471c1460ce06d36ace8f2fb467471689c48d537b3705fd284a3"
+      "bytes": 1000,
+      "sha256": "0a0286f4d2d26cee69690b5e64c405a0a046a73bb21fa1d840fb36f7e16cdbc1"
     },
     {
       "path": "intelligence/__init__.py",
@@ -1387,8 +1387,8 @@
     },
     {
       "path": "tests/test_youtube_links.py",
-      "bytes": 2542,
-      "sha256": "f8065aa1aea4725cfab8559021753990ed370f5013f43e04d1058bf4c834a67d"
+      "bytes": 3722,
+      "sha256": "8385a19db84921ab19d9aba846d95b4d1e7edc4830020b6b18fb738b31e1d763"
     },
     {
       "path": "vendor/pako-inflate.min.js",
