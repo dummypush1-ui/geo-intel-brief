@@ -4,3 +4,5 @@
 select{font:inherit;max-width:100%;border:1px solid #9aadc0;border-radius:8px;padding:6px;margin:4px 12px 12px 0}.story-meta{font-size:12px!important}.story p{white-space:pre-wrap;overflow-wrap:anywhere}#news-stats{font-size:13px;color:#597087}
 
 #dashboard-signals{border:1px solid #d9e2eb;border-radius:8px;padding:14px;margin-bottom:18px}#signal-values p{font-size:13px;overflow-wrap:anywhere}.story button{margin:8px 8px 0 0;font-size:13px}
+
+#dashboard-snapshots{border:1px solid #d9e2eb;border-radius:8px;padding:14px;margin-bottom:18px}#dashboard-snapshots h3{margin:0 0 8px;font-size:18px}.snapshot-panel{border-top:1px solid #d9e2eb;margin-top:12px;padding-top:12px}.snapshot-panel h4{margin:0 0 8px}.snapshot-panel p{font-size:13px;overflow-wrap:anywhere}.snapshot-row{padding:8px 0}.snapshot-row a{color:#125b92;font-weight:600;overflow-wrap:anywhere}.snapshot-row p{margin:5px 0;white-space:pre-wrap}

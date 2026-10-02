@@ -1,6 +1,6 @@
 /* Copyright (c) 2026 Push. No key or live endpoint in this client. */
 const byId = id => document.getElementById(id);
-let active = 'finder', relatedId = 0, newsId = 0, statsId = 0, signalsId = 0, lastContext = '';
+let active = 'finder', relatedId = 0, newsId = 0, statsId = 0, signalsId = 0, snapshotsId = 0, lastContext = '';
 const frame = byId('finder');
 const SYS_COUNTRY = {IN:'India',US:'United States',EU:'European Union',UK:'United Kingdom',KR:'South Korea',CA:'Canada',JP:'Japan',AU:'Australia',BR:'Brazil',TW:'Taiwan',NZ:'New Zealand',NO:'Norway',SG:'Singapore',IL:'Israel',MX:'Mexico',HK:'Hong Kong',ZA:'South Africa',PE:'Peru',CN:'China',AE:'United Arab Emirates',SAC:'India'};
 function safeLink(value) {
@@ -62,7 +62,7 @@ for (const button of document.querySelectorAll('[data-view]')) button.addEventLi
   active = button.dataset.view;
   for (const other of document.querySelectorAll('[data-view]')) other.setAttribute('aria-pressed',String(other === button));
   byId('finder-view').hidden = active !== 'finder'; byId('news-view').hidden = active === 'finder';
-  if (active !== 'finder') {byId('news-heading').textContent = active === 'geo' ? 'Geo news' : 'BRICS news'; byId('news-category').value='';byId('news-country').value='';readStats(active);readSignals(active);readNews();}
+  if (active !== 'finder') {byId('news-heading').textContent = active === 'geo' ? 'Geo news' : 'BRICS news'; byId('news-category').value='';byId('news-country').value='';readStats(active);readSignals(active);readSnapshots(active);readNews();}
 });
 byId('news-search').addEventListener('submit', event => {event.preventDefault();readNews();});
 async function syncContext() {
@@ -144,4 +144,48 @@ async function readSignals(project) {
    for(const [key,label,missing] of [['risk_levels','Risk levels','missing_risk_count'],['credibility_levels','Credibility','missing_credibility_count']])add(label+': '+Object.entries(d[key] || {}).map(([k,v])=>k+' '+v).join(', ')+'; not recorded '+(Number.isFinite(d[missing]) ? d[missing] : 'not recorded')+'.');
   } else add('Critical count unavailable without the original BRICS policy. Corroboration missing in '+(Number.isFinite(d.missing_corroboration_count) ? d.missing_corroboration_count : 'unknown number of')+' loaded stories.');
  }catch(error){if(active===project && id===signalsId)status.textContent=error.message;}
+}
+
+function snapshotLink(value) {
+ const link=safeLink(value);if(!link)return null;
+ const u=new URL(link);
+ if(u.search || u.hash || !/^[a-z0-9]+(?:[.-][a-z0-9]+)*$/.test(u.hostname) || !u.hostname.includes('.') || /(?:^|\.)(?:localhost|local|internal|test|invalid|example)$/.test(u.hostname) || /^(?:[0-9]+|0x[0-9a-f]+)$/.test(u.hostname.split('.').at(-1)) || (u.port && !['80','443'].includes(u.port)))return null;
+ return u.href;
+}
+async function readSnapshots(project) {
+ const id=++snapshotsId,status=byId('snapshot-status'),panels=byId('snapshot-panels');
+ status.textContent='Loading captured dashboard snapshots...';panels.replaceChildren();
+ const labels=project==='geo' ? {geo_events:'Geo events'} : {brics_sources:'BRICS source observations',brics_streams:'BRICS stream links'};
+ const unavailable=key=>{const p=document.createElement('p');p.textContent=labels[key]+': no verified snapshot connected.';panels.append(p);};
+ try {
+  const r=await fetch('/api/dashboard-snapshots?'+new URLSearchParams({project}),{credentials:'same-origin',cache:'no-store'});
+  if(!r.ok)throw new Error('Captured dashboard snapshots unavailable.');const d=await r.json();
+  if(active!==project || id!==snapshotsId)return;
+  if(d.project!==project || d.not_live_status!==true)throw new Error('Captured dashboard snapshot contract unavailable.');
+  status.textContent='Supplied snapshots only, not current source health or live video.';
+  for(const key of Object.keys(labels)) {
+   const panel=d.panels?.[key];
+   if(panel?.state!=='supplied_snapshot' || !Array.isArray(panel.items) || !panel.observed_at){unavailable(key);continue;}
+   const section=document.createElement('section');section.className='snapshot-panel';const heading=document.createElement('h4');heading.textContent=labels[key];section.append(heading);
+   const observation=document.createElement('p');observation.className='muted';observation.textContent='Snapshot observed at '+String(panel.observed_at)+'.';section.append(observation);
+   if(!panel.items.length){const p=document.createElement('p');p.textContent='No entries in this supplied snapshot.';section.append(p);}
+   let shown=0;
+   for(const item of panel.items.slice(0,100)) {
+    if(!item || typeof item!=='object')continue;
+    const url=snapshotLink(item.source_url || item.url || item.watch_url);if(!url || typeof item.name!=='string')continue;
+    const row=document.createElement('article');row.className='snapshot-row';const link=document.createElement('a');link.href=url;link.target='_blank';link.rel='noopener noreferrer';link.textContent=item.name;row.append(link);
+    const meta=document.createElement('p');
+    if(key==='geo_events')meta.textContent='Event date: '+String(item.event_date || 'not recorded');
+    else if(key==='brics_sources')meta.textContent=[item.country,'Captured status: '+(['ok','warning','error','disabled'].includes(item.last_status) ? item.last_status : 'not recorded'),'Captured count: '+(Number.isInteger(item.last_count) && item.last_count>=0 ? item.last_count : 'not recorded'),'Last checked in snapshot: '+String(item.last_checked || 'not recorded')].filter(Boolean).join(' · ');
+    else meta.textContent=[item.country,'Outbound link only. Availability not checked.'].filter(Boolean).join(' · ');
+    row.append(meta);
+    if(key==='geo_events' && typeof item.description==='string'){const p=document.createElement('p');p.textContent=item.description;row.append(p);}
+    section.append(row);shown++;
+   }
+   if(panel.items.length && !shown){const p=document.createElement('p');p.textContent='No displayable links in this supplied snapshot.';section.append(p);}
+   if(panel.truncated===true){const p=document.createElement('p');p.className='muted';p.textContent='Showing the first 100 entries in deterministic snapshot order.';section.append(p);}
+   if(Number.isInteger(panel.rejected_count) && panel.rejected_count>0){const p=document.createElement('p');p.className='muted';p.textContent=panel.rejected_count+' entries withheld by snapshot validation.';section.append(p);}
+   panels.append(section);
+  }
+ } catch(error){if(active===project && id===snapshotsId){status.textContent=error.message;panels.replaceChildren();for(const key of Object.keys(labels))unavailable(key);}}
 }
