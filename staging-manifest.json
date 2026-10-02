@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 206,
+  "tests": 210,
   "files": [
     {
       "path": ".env.example",
@@ -194,6 +194,11 @@
       "path": "integration/html_safety.py",
       "bytes": 2280,
       "sha256": "2e8384c448f45c3bdbb8e525feebf7f8ca4f15a45b129689e615a0aaf7bc46bb"
+    },
+    {
+      "path": "integration/loaded_charts.py",
+      "bytes": 3172,
+      "sha256": "c15c5ae8859f085be9a248365523263d619f3be3f1f7ea8ddefa14c2a41f7f13"
     },
     {
       "path": "integration/loaded_news.py",
@@ -1314,6 +1319,11 @@
       "path": "tests/test_finder_index.py",
       "bytes": 3921,
       "sha256": "591b3a5bff97a5f4631ff4c17a7e76f4c6bb24b06976d1cddf3eeb493ce3fadf"
+    },
+    {
+      "path": "tests/test_loaded_charts.py",
+      "bytes": 1912,
+      "sha256": "186b4ae784fd339d72cc79d2f04e74aa03db41d7912cb7c4cb4d471f2137193c"
     },
     {
       "path": "tests/test_loaded_news.py",
