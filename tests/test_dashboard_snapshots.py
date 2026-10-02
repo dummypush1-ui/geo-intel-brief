@@ -57,3 +57,11 @@ class DashboardSnapshotTests(unittest.TestCase):
    forward=self.reader(key,rows)(project)['panels'][key]['items']
    reverse=self.reader(key,list(reversed(rows)))(project)['panels'][key]['items']
    self.assertEqual(forward,reverse);self.assertEqual(len(forward),100)
+
+ def test_normalized_ports_and_bidi_paths(self):
+  reader=self.reader('brics_streams',[])
+  for url,want in [('https://example.com:00443/x','https://example.com/x'),('http://example.com:080/x','http://example.com/x'),('https://example.com:00080/x','https://example.com:80/x')]:self.assertEqual(reader.link('brics_streams',url),want)
+  for path in ['/x\u202ey','/x%e2%80%aey','/x%E2%81%A6y','/x%d8%9cy']:self.assertIsNone(reader.link('brics_streams','https://example.com'+path))
+ def test_numeric_or_hex_last_label_refused(self):
+  for host in ['a.1','1e3.1','x.0x','x.0xff']:
+   with self.assertRaises(ValueError):DashboardSnapshots({'geo_events':lambda:{}},True,{'geo_events':[host]})

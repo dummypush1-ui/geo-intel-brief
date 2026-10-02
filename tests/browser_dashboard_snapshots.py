@@ -23,17 +23,22 @@ with sync_playwright() as p:
  page.screenshot(path='/downloads/dashboard-snapshots-brics.png',full_page=True)
  page.set_viewport_size({'width':390,'height':844});page.screenshot(path='/downloads/dashboard-snapshots-mobile.png',full_page=True);assert page.evaluate('document.documentElement.scrollWidth<=innerWidth')
  rows['brics_sources']=[];page.locator('[data-view=brics]').click();page.get_by_text('No entries in this supplied snapshot.',exact=True).wait_for()
- adapter.readers.clear();page.locator('[data-view=geo]').click();page.get_by_text('Geo events: no verified snapshot connected.',exact=True).wait_for()
+ adapter.readers.clear();page.locator('[data-view=geo]').click();page.get_by_text('Geo events: verified snapshot unavailable.',exact=True).wait_for()
  # Slow Geo response cannot overwrite a later BRICS view.
  pending=[]
  def delayed(route):
   if 'project=geo' in route.request.url:pending.append(route)
   else:route.continue_()
- page.route('**/api/dashboard-snapshots?*',delayed);page.locator('[data-view=geo]').click();page.wait_for_function("document.getElementById('snapshot-status').textContent.startsWith('Loading')");page.locator('[data-view=brics]').click();page.get_by_text('BRICS source observations: no verified snapshot connected.',exact=True).wait_for()
+ page.route('**/api/dashboard-snapshots?*',delayed);page.locator('[data-view=geo]').click();page.wait_for_function("document.getElementById('snapshot-status').textContent.startsWith('Loading')");page.locator('[data-view=brics]').click();page.get_by_text('BRICS source observations: verified snapshot unavailable.',exact=True).wait_for()
  assert pending
  for route in pending:route.fulfill(json={'project':'geo','not_live_status':True,'panels':{}},status=200)
  page.wait_for_function("document.getElementById('snapshot-panels').textContent.includes('BRICS source')")
  assert 'Geo events' not in page.locator('#snapshot-panels').inner_text()
+ # Raw confusion/encoded paths and invisible labels must not become links.
+ page.route('**/api/dashboard-snapshots?*',lambda r:r.fulfill(json={'project':'brics','not_live_status':True,'panels':{'brics_streams':{'state':'supplied_snapshot','observed_at':STAMP,'items':[{'name':'bad','watch_url':'https://evil.com\\.example.com/'},{'name':'bad','watch_url':'https://example.com/%E2%80%AEname'},{'name':'  ','watch_url':'https://example.com/good'}]}}}))
+ page.locator('[data-view=brics]').click();page.get_by_text('No displayable links in this supplied snapshot.',exact=True).wait_for();assert page.locator('#snapshot-panels a').count()==0
+ page.route('**/api/dashboard-snapshots?*',lambda r:r.fulfill(json={'project':'brics','not_live_status':True,'state':'snapshot_readers_unwired'}))
+ page.locator('[data-view=brics]').click();page.get_by_text('BRICS source observations: snapshot reader is not connected.',exact=True).wait_for()
  assert not errors;print(json.dumps({'errors':errors,'hostile_text_literal':True,'captured_not_live':True,'empty_missing_distinct':True,'no_embed':True,'mobile_no_overflow':True,'tab_switch_guard':True}))
  browser.close()
 server.shutdown()

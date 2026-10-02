@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 179,
+  "tests": 181,
   "files": [
     {
       "path": ".env.example",
@@ -172,8 +172,8 @@
     },
     {
       "path": "integration/dashboard_snapshots.py",
-      "bytes": 4878,
-      "sha256": "c81883290f39d23485ac0261779cf7893fd1d05999a7950ea78763505381b16a"
+      "bytes": 5301,
+      "sha256": "9ddda7efbd7e465f07f4ac7df87c972d7bb1546efb449b0860833a5da512f39d"
     },
     {
       "path": "integration/finder-news.js",
@@ -307,8 +307,8 @@
     },
     {
       "path": "integration/ui/workspace.js",
-      "bytes": 16628,
-      "sha256": "82dc55ca84053b27cd9792133f33422e870bc1d1490800573fa38e7224611bd5"
+      "bytes": 16861,
+      "sha256": "ccf70cd7b715fca37f885313c37b42ddfe6b76fdb7ff3e2e18852b11a229a773"
     },
     {
       "path": "intelligence/__init__.py",
@@ -1242,8 +1242,8 @@
     },
     {
       "path": "tests/browser_dashboard_snapshots.py",
-      "bytes": 3890,
-      "sha256": "a4ce1bec71899f019a9b6815ab3d9199b4acc48c2c6e30c0583d60d3c572bf31"
+      "bytes": 4818,
+      "sha256": "308993a2bce44f64b29f6890937ad10254169021675bc087263ff9d176ee6c28"
     },
     {
       "path": "tests/test_agencia_parser.py",
@@ -1272,8 +1272,8 @@
     },
     {
       "path": "tests/test_dashboard_snapshots.py",
-      "bytes": 5697,
-      "sha256": "5537d442877567ef975d4d077df6a6ff147d25779fa3f7fc686aaef07d3d6e1e"
+      "bytes": 6384,
+      "sha256": "2492e2831fd7939709d3be681f2c470b6c2e7a333b2970411b6d85be72d3d122"
     },
     {
       "path": "tests/test_dashboard_stats.py",

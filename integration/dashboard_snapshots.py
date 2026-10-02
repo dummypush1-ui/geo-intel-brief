@@ -25,6 +25,7 @@ class DashboardSnapshots:
  def public_host(host):
   if not isinstance(host,str) or len(host)>253 or host!=host.lower() or not re.fullmatch(r'[a-z0-9]+(?:[.-][a-z0-9]+)*',host) or '.' not in host or host.endswith(('.localhost','.local','.internal','.test','.invalid','.example')):return False
   # Browsers also interpret shortened, octal and hex IPv4 forms as IPs.
+  if re.fullmatch(r'(?:[0-9]+|0x[0-9a-f]*)',host.split('.')[-1]):return False
   if all(re.fullmatch(r'(?:[0-9]+|0x[0-9a-f]+)',label) for label in host.split('.')):return False
   try:ipaddress.ip_address(host);return False
   except ValueError:pass
@@ -38,8 +39,10 @@ class DashboardSnapshots:
   if u.hostname not in self.hosts[key] or port not in (None,443,80):return None
   # Query values can hold tokens or private context; do not silently rewrite
   # a watch link into a different resource. Query-bearing links are withheld.
-  if u.query:return None
-  return urlunsplit((u.scheme,u.netloc,u.path,'',''))
+  if re.search(r'%(?:e2%80%(?:8e|8f|aa|ab|ac|ad|ae)|e2%81%(?:a6|a7|a8|a9)|d8%9c)',u.path,re.I):return None
+  if u.query or any(c in u.path for c in ('\u061c','\u200e','\u200f','\u202a','\u202b','\u202c','\u202d','\u202e','\u2066','\u2067','\u2068','\u2069')):return None
+  netloc=u.hostname if port in (None,443 if u.scheme=='https' else 80) else u.hostname+':'+str(port)
+  return urlunsplit((u.scheme,netloc,u.path,'',''))
  def __call__(self,project):
   if project not in ('geo','brics'):raise ValueError('Exact project required')
   keys=('geo_events',) if project=='geo' else ('brics_sources','brics_streams')

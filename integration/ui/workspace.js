@@ -147,6 +147,7 @@ async function readSignals(project) {
 }
 
 function snapshotLink(value) {
+ if(typeof value!=='string' || /[\\%\u061c\u200e\u200f\u202a-\u202e\u2066-\u2069]/.test(value))return null;
  const link=safeLink(value);if(!link)return null;
  const u=new URL(link);
  if(u.search || u.hash || !/^[a-z0-9]+(?:[.-][a-z0-9]+)*$/.test(u.hostname) || !u.hostname.includes('.') || /(?:^|\.)(?:localhost|local|internal|test|invalid|example)$/.test(u.hostname) || /^(?:[0-9]+|0x[0-9a-f]+)$/.test(u.hostname.split('.').at(-1)) || (u.port && !['80','443'].includes(u.port)))return null;
@@ -156,7 +157,7 @@ async function readSnapshots(project) {
  const id=++snapshotsId,status=byId('snapshot-status'),panels=byId('snapshot-panels');
  status.textContent='Loading captured dashboard snapshots...';panels.replaceChildren();
  const labels=project==='geo' ? {geo_events:'Geo events'} : {brics_sources:'BRICS source observations',brics_streams:'BRICS stream links'};
- const unavailable=key=>{const p=document.createElement('p');p.textContent=labels[key]+': no verified snapshot connected.';panels.append(p);};
+ const unavailable=(key,unwired=false)=>{const p=document.createElement('p');p.textContent=labels[key]+(unwired ? ': snapshot reader is not connected.' : ': verified snapshot unavailable.');panels.append(p);};
  try {
   const r=await fetch('/api/dashboard-snapshots?'+new URLSearchParams({project}),{credentials:'same-origin',cache:'no-store'});
   if(!r.ok)throw new Error('Captured dashboard snapshots unavailable.');const d=await r.json();
@@ -165,14 +166,14 @@ async function readSnapshots(project) {
   status.textContent='Supplied snapshots only, not current source health or live video.';
   for(const key of Object.keys(labels)) {
    const panel=d.panels?.[key];
-   if(panel?.state!=='supplied_snapshot' || !Array.isArray(panel.items) || !panel.observed_at){unavailable(key);continue;}
+   if(panel?.state!=='supplied_snapshot' || !Array.isArray(panel.items) || !panel.observed_at){unavailable(key,d.state==='snapshot_readers_unwired');continue;}
    const section=document.createElement('section');section.className='snapshot-panel';const heading=document.createElement('h4');heading.textContent=labels[key];section.append(heading);
    const observation=document.createElement('p');observation.className='muted';observation.textContent='Snapshot observed at '+String(panel.observed_at)+'.';section.append(observation);
    if(!panel.items.length){const p=document.createElement('p');p.textContent='No entries in this supplied snapshot.';section.append(p);}
    let shown=0;
    for(const item of panel.items.slice(0,100)) {
     if(!item || typeof item!=='object')continue;
-    const url=snapshotLink(item.source_url || item.url || item.watch_url);if(!url || typeof item.name!=='string')continue;
+    const url=snapshotLink(item.source_url || item.url || item.watch_url);if(!url || typeof item.name!=='string' || !item.name.trim())continue;
     const row=document.createElement('article');row.className='snapshot-row';const link=document.createElement('a');link.href=url;link.target='_blank';link.rel='noopener noreferrer';link.textContent=item.name;row.append(link);
     const meta=document.createElement('p');
     if(key==='geo_events')meta.textContent='Event date: '+String(item.event_date || 'not recorded');
