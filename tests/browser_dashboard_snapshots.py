@@ -6,7 +6,7 @@ from integration.dashboard_snapshots import DashboardSnapshots
 from werkzeug.serving import make_server
 from playwright.sync_api import sync_playwright
 STAMP='2026-10-02T00:00:00Z'
-rows={'geo_events':[{'name':'Trade summit <img src=x>','event_date':'2026-10-03','source_url':'https://example.com/event','description':'<script>alert(1)</script> Captured event description.','category':'CONFERENCE','confidence':'CONFIRMED'}],'brics_sources':[{'name':'Source A <script>x</script>','url':'https://example.com/news','country':'India','last_status':'ok','last_count':4,'last_checked':STAMP}],'brics_streams':[{'name':'Official stream link','country':'Brazil','watch_url':'https://www.youtube.com/watch?v=gCNeDWCI0vo'}]}
+rows={'geo_events':[{'name':'Trade summit <img src=x>','event_date':'2026-10-03','source_url':'https://example.com/event','description':'<script>alert(1)</script> Captured event description.','category':'CONFERENCE','confidence':'CONFIRMED'}],'brics_sources':[{'name':'Source A <script>x</script>','url':'https://example.com/news','country':'India','last_status':'ok','last_count':4,'last_checked':STAMP}],'brics_streams':[{'name':'Official stream link','country':'Brazil','watch_url':'https://www.youtube.com/channel/UC'+'a'*22+'/live'}]}
 readers={k:lambda k=k:{'observed_at':STAMP,'items':rows[k]} for k in rows}
 adapter=DashboardSnapshots(readers,True,{k:(['example.com','www.youtube.com'] if k=='brics_streams' else ['example.com']) for k in rows})
 app=create_app(authorize=lambda r:True,dashboard_snapshot_reader=adapter)
@@ -20,7 +20,7 @@ with sync_playwright() as p:
  assert 'Snapshot observed at' in page.locator('#snapshot-panels').inner_text()
  assert 'Category: CONFERENCE' in page.locator('#snapshot-panels').inner_text() and 'Confidence: CONFIRMED' in page.locator('#snapshot-panels').inner_text()
  page.screenshot(path='/downloads/dashboard-snapshots-geo.png',full_page=True)
- page.locator('[data-view=brics]').click();page.get_by_text('Official stream link',exact=True).wait_for();assert 'Captured status: ok' in page.locator('#snapshot-panels').inner_text();assert 'Availability not checked' in page.locator('#snapshot-panels').inner_text();assert page.get_by_text('Official stream link',exact=True).get_attribute('href')=='https://www.youtube.com/watch?v=gCNeDWCI0vo'
+ page.locator('[data-view=brics]').click();page.get_by_text('Official stream link',exact=True).wait_for();assert 'Captured status: ok' in page.locator('#snapshot-panels').inner_text();assert 'Availability not checked' in page.locator('#snapshot-panels').inner_text();assert page.get_by_text('Official stream link',exact=True).get_attribute('href')=='https://www.youtube.com/channel/UC'+'a'*22+'/live'
  page.screenshot(path='/downloads/dashboard-snapshots-brics.png',full_page=True)
  page.set_viewport_size({'width':390,'height':844});page.screenshot(path='/downloads/dashboard-snapshots-mobile.png',full_page=True);assert page.evaluate('document.documentElement.scrollWidth<=innerWidth')
  rows['brics_sources']=[];page.locator('[data-view=brics]').click();page.get_by_text('No entries in this supplied snapshot.',exact=True).wait_for()

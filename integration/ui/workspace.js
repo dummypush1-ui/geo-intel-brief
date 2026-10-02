@@ -151,6 +151,7 @@ function snapshotLink(value,key) {
  if(key==='brics_streams' && /^https:\/\/www\.youtube\.com\/watch\?v=[A-Za-z0-9_-]{11}$/.test(value) && !/[\r\n]/.test(value))return value;
  const link=safeLink(value);if(!link)return null;
  const u=new URL(link);
+ if(key==='brics_streams' && u.hostname==='www.youtube.com')return /^https:\/\/www\.youtube\.com\/channel\/UC[A-Za-z0-9_-]{22}\/live$/.test(value) && !/[\r\n]/.test(value) ? value : null;
  if(u.search || u.hash || !/^[a-z0-9]+(?:[.-][a-z0-9]+)*$/.test(u.hostname) || !u.hostname.includes('.') || /(?:^|\.)(?:localhost|local|internal|test|invalid|example)$/.test(u.hostname) || /^(?:[0-9]+|0x[0-9a-f]+)$/.test(u.hostname.split('.').at(-1)) || (u.port && !['80','443'].includes(u.port)))return null;
  return u.href;
 }

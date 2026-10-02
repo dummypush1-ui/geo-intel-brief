@@ -35,3 +35,15 @@ class YoutubeLinkTests(unittest.TestCase):
   snapshot=brics_streams(raw,'2026-10-02T00:00:00Z');self.assertEqual(len(snapshot['items']),2);self.assertEqual(snapshot['items'][0]['watch_url'],want);self.assertNotIn('embed_url',snapshot['items'][0]);self.assertIn('embed_url',raw[0])
   from integration.dashboard_snapshots import DashboardSnapshots
   result=DashboardSnapshots({'brics_streams':lambda:snapshot},True,{'brics_streams':['www.youtube.com']})('brics')['panels']['brics_streams']['items'];self.assertEqual(len(result),2)
+
+ def test_channel_downstream_mirror_and_host_gate(self):
+  from integration.youtube_links import youtube_channel_live
+  from integration.dashboard_snapshots import DashboardSnapshots
+  url='https://www.youtube.com/channel/UC'+'a'*22+'/live'
+  self.assertEqual(youtube_channel_live(url),url)
+  def adapter(hosts):return DashboardSnapshots({'brics_streams':lambda:{}},True,{'brics_streams':hosts})
+  self.assertEqual(adapter(['www.youtube.com']).link('brics_streams',url),url);self.assertIsNone(adapter(['example.com']).link('brics_streams',url))
+  for bad in [url+'/x',url+'?v=abcdefghijk',url+'#x',url+'\n',url.replace('/live','/'),url.replace('https:','http:'),url.replace('www.youtube.com','www.youtube.com:443'),url.replace('UC','uc'),url.replace('www.youtube.com','youtube.com')]:
+   self.assertIsNone(youtube_channel_live(bad));self.assertIsNone(adapter(['www.youtube.com']).link('brics_streams',bad))
+  for bad in ['https://www.youtube.com/','https://www.youtube.com/anything','https://[bad']:
+   self.assertIsNone(adapter(['www.youtube.com']).link('brics_streams',bad))

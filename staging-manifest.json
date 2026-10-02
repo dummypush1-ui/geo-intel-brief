@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 199,
+  "tests": 200,
   "files": [
     {
       "path": ".env.example",
@@ -172,8 +172,8 @@
     },
     {
       "path": "integration/dashboard_snapshots.py",
-      "bytes": 6978,
-      "sha256": "c253dca135ba7f2f7ecb7ea661063e579555ef471816eb3389bc75b9fe55c417"
+      "bytes": 7368,
+      "sha256": "ce90cf7da68a6d51db42814251077d9f11f38b1f1f039df6fdc0a349b0a9a1a2"
     },
     {
       "path": "integration/finder-news.js",
@@ -312,13 +312,13 @@
     },
     {
       "path": "integration/ui/workspace.js",
-      "bytes": 17367,
-      "sha256": "2c9780a0b9631bf76bc4a3d842ca41cb0d485a233edf3f3ac7fe5571d9f4eaab"
+      "bytes": 17555,
+      "sha256": "e0dfc98cbf2b0a37b22f6a3834adb41d4cc1d85058fc7cac1e26b84c3224e05d"
     },
     {
       "path": "integration/youtube_links.py",
-      "bytes": 1000,
-      "sha256": "0a0286f4d2d26cee69690b5e64c405a0a046a73bb21fa1d840fb36f7e16cdbc1"
+      "bytes": 1303,
+      "sha256": "d725d910b08cae5317c82f7b9742b0e499396cd9a9d8dfe7be4a7b3e4d958503"
     },
     {
       "path": "intelligence/__init__.py",
@@ -1252,8 +1252,8 @@
     },
     {
       "path": "tests/browser_dashboard_snapshots.py",
-      "bytes": 5700,
-      "sha256": "b751062469f4c495173d3137c0d6a96743c751d77c5567d288b4734efa81b20c"
+      "bytes": 5712,
+      "sha256": "5a9ddf8b17e6ab5e9befac529e8595c50ed2b1be9b27769737bf68906e560cba"
     },
     {
       "path": "tests/test_agencia_parser.py",
@@ -1387,8 +1387,8 @@
     },
     {
       "path": "tests/test_youtube_links.py",
-      "bytes": 3722,
-      "sha256": "8385a19db84921ab19d9aba846d95b4d1e7edc4830020b6b18fb738b31e1d763"
+      "bytes": 4800,
+      "sha256": "9a23b7a3a18e13d41ee2356e3b1e7e8e80a68d47061d4294fccb014bbd290bdb"
     },
     {
       "path": "vendor/pako-inflate.min.js",
