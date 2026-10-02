@@ -1,6 +1,6 @@
 /* Copyright (c) 2026 Push. No key or live endpoint in this client. */
 const byId = id => document.getElementById(id);
-let active = 'finder', relatedId = 0, newsId = 0, statsId = 0, signalsId = 0, snapshotsId = 0, lastContext = '';
+let active = 'finder', relatedId = 0, newsId = 0, statsId = 0, signalsId = 0, snapshotsId = 0, volumeId = 0, lastContext = '';
 const frame = byId('finder');
 const SYS_COUNTRY = {IN:'India',US:'United States',EU:'European Union',UK:'United Kingdom',KR:'South Korea',CA:'Canada',JP:'Japan',AU:'Australia',BR:'Brazil',TW:'Taiwan',NZ:'New Zealand',NO:'Norway',SG:'Singapore',IL:'Israel',MX:'Mexico',HK:'Hong Kong',ZA:'South Africa',PE:'Peru',CN:'China',AE:'United Arab Emirates',SAC:'India'};
 function safeLink(value) {
@@ -50,7 +50,7 @@ async function request(url, options) {
 }
 async function readNews() {
   const id = ++newsId, project = active;
-  byId('news-status').textContent = 'Loading news...'; byId('news-results').replaceChildren();
+  byId('news-status').textContent = 'Loading news...'; byId('news-results').replaceChildren();readVolume(project);
   try {
     const params = new URLSearchParams({q:byId('news-query').value,project,category:byId('news-category').value,country:byId('news-country').value,sort:byId('news-sort').value});
     const items = await request('/api/news?' + params);
@@ -205,3 +205,17 @@ byId('news-export').addEventListener('click',async()=>{
   status.textContent='Loaded sample exported (up to 100 matched stories, not a full database backup).'+(r.headers.get('X-Export-Truncated')==='true' ? ' More matched loaded stories were omitted.' : '');
  }catch(error){if(active===project)status.textContent=error.message;}
 });
+
+async function readVolume(project) {
+ const id=++volumeId,summary=byId('volume-summary'),details=byId('volume-details'),days=byId('volume-days');
+ summary.textContent='Loading sample volume...';details.hidden=true;details.open=false;days.replaceChildren();
+ try {
+  const params=new URLSearchParams({project,q:byId('news-query').value,category:byId('news-category').value,country:byId('news-country').value,sort:byId('news-sort').value});
+  const r=await fetch('/api/sample-volume?'+params,{credentials:'same-origin',cache:'no-store'});if(!r.ok)throw new Error('Sample volume unavailable.');const d=await r.json();
+  if(active!==project || id!==volumeId)return;
+  if(d.scope!=='loaded_read_view' || d.not_total_database!==true || !Array.isArray(d.daily_volume) || d.daily_volume.length!==(project==='geo'?7:14) || d.daily_volume.some(x=>!/^\d{4}-\d{2}-\d{2}$/.test(x.date) || !Number.isInteger(x.count) || x.count<0 || x.count>100))throw new Error('Sample volume unavailable.');
+  const total=d.daily_volume.reduce((n,x)=>n+x.count,0),peak=d.daily_volume.reduce((a,b)=>b.count>a.count?b:a);
+  summary.textContent=(total ? 'Peak day: '+peak.date+', '+peak.count+' stories (loaded sample). ' : 'No dated stories in these UTC calendar days (loaded sample). ')+d.sample_count+' distinct story URLs in the current filtered, sorted sample (up to 100'+(d.truncated?', truncated':'')+'). Missing collection time: '+d.missing_time_count+'. Future collection time excluded: '+d.future_time_count+'. Outside window: '+d.outside_window_count+'. Duplicate URLs omitted: '+d.duplicates_omitted+'. As of '+d.as_of+'. Not full database totals.';
+  for(const row of d.daily_volume){const line=document.createElement('div');line.className='volume-day';const label=document.createElement('span');label.textContent=row.date+' UTC'+(row.date===d.as_of.slice(0,10)?' (partial day)':'')+': '+row.count;const meter=document.createElement('meter');meter.min=0;meter.max=Math.max(1,peak.count);meter.value=row.count;meter.setAttribute('aria-label',row.date+' UTC, '+row.count+' loaded stories');line.append(label,meter);days.append(line);}details.hidden=false;
+ }catch(error){if(active===project && id===volumeId){summary.textContent=error.message;days.replaceChildren();details.hidden=true;}}
+}

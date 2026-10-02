@@ -9,6 +9,8 @@ from integration.story_links import groups
 from integration.finder_links import finder_link
 from integration.dashboard_model import loaded_stats
 from integration.loaded_news import selection,sample_csv
+from integration.loaded_charts import loaded_chart
+from datetime import datetime,timezone
 from integration.dashboard_snapshots import DashboardSnapshots
 from integration.branding_meta import brand_head,valid_origin
 
@@ -88,6 +90,18 @@ def create_app(reader=None,authorize=None,finder_context_reader=None,finder_base
   response.headers['X-Export-Limit']='100'
   response.headers['X-Export-Truncated']=str(result['truncated']).lower()
   return response
+ @app.get('/api/sample-volume')
+ def sample_volume():
+  project=request.args.get('project','')
+  if project not in ('geo','brics'):return jsonify(error='Exact project required'),400
+  try:result=selected_news()
+  except ValueError:return jsonify(error='Invalid project or sort'),400
+  unique={}
+  for row in result['items']:unique.setdefault(row['article_key'],row)
+  chart=loaded_chart(list(unique.values()),project,datetime.now(timezone.utc))
+  chart['outside_window_count']=len(unique)-sum(day['count'] for day in chart['daily_volume'])-chart['missing_time_count']-chart['future_time_count']
+  chart.update(sample_count=len(unique),limit=result['limit'],truncated=result['truncated'],sort=result['sort'],duplicates_omitted=len(result['items'])-len(unique),selection='current_filtered_sorted_first_100')
+  return jsonify(chart)
  @app.get('/api/news-stats')
  def news_stats():
   project=request.args.get('project','')

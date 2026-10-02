@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 210,
+  "tests": 213,
   "files": [
     {
       "path": ".env.example",
@@ -212,8 +212,8 @@
     },
     {
       "path": "integration/news_api.py",
-      "bytes": 8781,
-      "sha256": "4ca5d061ff4f1e2fc06f86f680abbd150a7de6ca8954a002f954658d6b142a88"
+      "bytes": 9701,
+      "sha256": "06a16ef63d64bb1420a9a152d2d3cabaf209ba545de08bc1ee3630d38d56cefb"
     },
     {
       "path": "integration/news_view.py",
@@ -312,18 +312,18 @@
     },
     {
       "path": "integration/ui/workspace.css",
-      "bytes": 2814,
-      "sha256": "b0eeb777890317d55ebb844677d23d21e27deef13ec905a719b5a5abf7c3c09d"
+      "bytes": 3150,
+      "sha256": "e7cbeefed0ae6f7045a31a3681adde67554ea944141ef9c3c5eb9146eebc60e7"
     },
     {
       "path": "integration/ui/workspace.html",
-      "bytes": 2853,
-      "sha256": "0554a7872521dbd52d85d5add7dbc59b9b5ecb6b5c5bb92f70c31df5bc059241"
+      "bytes": 3178,
+      "sha256": "c43b022b411e1141c25b777c5dfd852a55e059144bb5622b44d44443f9cc09b3"
     },
     {
       "path": "integration/ui/workspace.js",
-      "bytes": 19206,
-      "sha256": "af31ab45bdf17888a567fcc538ae3cb5d4d78a6cbf969658f661c55ba0ab4f83"
+      "bytes": 21511,
+      "sha256": "36317364e8096dad9bdebcccbc159ad772f87e04476ce6fbde4de882f7ea26f0"
     },
     {
       "path": "integration/youtube_links.py",
@@ -1271,6 +1271,11 @@
       "sha256": "c8cfa550ab6c32e442d2b927009e594d4f1e0be7c536f83a13d7c8cca0d0ed12"
     },
     {
+      "path": "tests/browser_sample_volume.py",
+      "bytes": 5563,
+      "sha256": "4408f861b4c61ba1191d56b9288a8cea4f1ea5efedf7cb50f4daaa440e7309f2"
+    },
+    {
       "path": "tests/test_agencia_parser.py",
       "bytes": 3584,
       "sha256": "1d93647a48a3f6d2c88d7441273865b4eac3897c1f7d71eb54bc631ddb6971a8"
@@ -1379,6 +1384,11 @@
       "path": "tests/test_runtime.py",
       "bytes": 2365,
       "sha256": "46b564ef38afa23db58bd539510e1473d2dcde40382702356712f3ce10c965da"
+    },
+    {
+      "path": "tests/test_sample_volume.py",
+      "bytes": 2312,
+      "sha256": "03bacde7d62ca90ce577e2698c5841ea768ab96fae8bcbb43fa5e6dc81a082e1"
     },
     {
       "path": "tests/test_scraper_policy.py",
