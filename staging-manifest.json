@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 200,
+  "tests": 206,
   "files": [
     {
       "path": ".env.example",
@@ -196,14 +196,19 @@
       "sha256": "2e8384c448f45c3bdbb8e525feebf7f8ca4f15a45b129689e615a0aaf7bc46bb"
     },
     {
+      "path": "integration/loaded_news.py",
+      "bytes": 2645,
+      "sha256": "5a4c5ed830a89b37bfaa76ef29b180fb8c708b8b4a8de58f12ef5e28c006e559"
+    },
+    {
       "path": "integration/mail_bridge.py",
       "bytes": 3727,
       "sha256": "baa30b07294b26249e5fe826bfbe41a2000ac93bc5016d17a5b04c95a0508f03"
     },
     {
       "path": "integration/news_api.py",
-      "bytes": 8529,
-      "sha256": "a939f73c307ba6adf99c7c716cec002a095b0ad0732fdc3491dcf655d224939a"
+      "bytes": 8781,
+      "sha256": "4ca5d061ff4f1e2fc06f86f680abbd150a7de6ca8954a002f954658d6b142a88"
     },
     {
       "path": "integration/news_view.py",
@@ -307,13 +312,13 @@
     },
     {
       "path": "integration/ui/workspace.html",
-      "bytes": 2540,
-      "sha256": "144857a160c4eed7617d3256360b7599c39354c94ab0768e74adb75753cdfa65"
+      "bytes": 2853,
+      "sha256": "0554a7872521dbd52d85d5add7dbc59b9b5ecb6b5c5bb92f70c31df5bc059241"
     },
     {
       "path": "integration/ui/workspace.js",
-      "bytes": 17555,
-      "sha256": "e0dfc98cbf2b0a37b22f6a3834adb41d4cc1d85058fc7cac1e26b84c3224e05d"
+      "bytes": 19206,
+      "sha256": "af31ab45bdf17888a567fcc538ae3cb5d4d78a6cbf969658f661c55ba0ab4f83"
     },
     {
       "path": "integration/youtube_links.py",
@@ -1256,6 +1261,11 @@
       "sha256": "5a9ddf8b17e6ab5e9befac529e8595c50ed2b1be9b27769737bf68906e560cba"
     },
     {
+      "path": "tests/browser_loaded_news.py",
+      "bytes": 6472,
+      "sha256": "c8cfa550ab6c32e442d2b927009e594d4f1e0be7c536f83a13d7c8cca0d0ed12"
+    },
+    {
       "path": "tests/test_agencia_parser.py",
       "bytes": 3584,
       "sha256": "1d93647a48a3f6d2c88d7441273865b4eac3897c1f7d71eb54bc631ddb6971a8"
@@ -1304,6 +1314,11 @@
       "path": "tests/test_finder_index.py",
       "bytes": 3921,
       "sha256": "591b3a5bff97a5f4631ff4c17a7e76f4c6bb24b06976d1cddf3eeb493ce3fadf"
+    },
+    {
+      "path": "tests/test_loaded_news.py",
+      "bytes": 3586,
+      "sha256": "70c1d9b0a5b9c83b122db36a955159163d26b17d6a48ae3142236ad3ad5a26f3"
     },
     {
       "path": "tests/test_mail_bridge.py",

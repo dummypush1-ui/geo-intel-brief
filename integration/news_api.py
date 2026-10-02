@@ -1,5 +1,5 @@
 """Fixture-backed private staging API. Never imports a live legacy app."""
-from flask import Flask,request,jsonify,send_from_directory
+from flask import Flask,request,jsonify,send_from_directory,Response
 from pathlib import Path
 from collections import Counter
 import re,hashlib,base64
@@ -8,6 +8,7 @@ from integration.relevance import match
 from integration.story_links import groups
 from integration.finder_links import finder_link
 from integration.dashboard_model import loaded_stats
+from integration.loaded_news import selection,sample_csv
 from integration.dashboard_snapshots import DashboardSnapshots
 from integration.branding_meta import brand_head,valid_origin
 
@@ -69,17 +70,24 @@ def create_app(reader=None,authorize=None,finder_context_reader=None,finder_base
   if not allowed:return jsonify(error='Private news unavailable until approved access control'),403
   if request.method=='POST' and request.headers.get('Origin')!=(allowed_origin or request.host_url.rstrip('/')):
    return jsonify(error='Same-origin request required'),403
+ def selected_news():
+  return selection(views(reader()),project=request.args.get('project',''),query=request.args.get('q',''),category=request.args.get('category',''),country=request.args.get('country',''),sort=request.args.get('sort','newest'))
  @app.get('/api/news')
  def news():
-  q=request.args.get('q','')[:200].casefold()
-  project=request.args.get('project','')
-  if project and project not in ('geo','brics'):return jsonify(error='Invalid project'),400
-  category=request.args.get('category','')[:100]
-  country=request.args.get('country','')[:100].casefold()
-  records=[r for r in views(reader()) if (not project or r['project']==project) and (not category or r['category']==category) and (not country or r['original_country'].casefold()==country)]
-  records.sort(key=lambda row:row['collected_at'] or '',reverse=True)
-  matched=[r for r in records if not q or q in (r['title']+' '+r['summary']).casefold()]
-  return jsonify(items=[public_row(r) for r in matched[:100]],scope='loaded_read_view',limit=100,truncated=len(matched)>100)
+  try:result=selected_news()
+  except ValueError:return jsonify(error='Invalid project or sort'),400
+  result['items']=[public_row(r) for r in result['items']]
+  return jsonify(result)
+ @app.get('/api/news-export.csv')
+ def news_export():
+  try:result=selected_news()
+  except ValueError:return jsonify(error='Invalid project or sort'),400
+  response=Response(sample_csv(result),mimetype='text/csv')
+  response.headers['Content-Disposition']='attachment; filename="loaded-news-sample.csv"'
+  response.headers['X-Export-Scope']='loaded_read_view_not_full_database'
+  response.headers['X-Export-Limit']='100'
+  response.headers['X-Export-Truncated']=str(result['truncated']).lower()
+  return response
  @app.get('/api/news-stats')
  def news_stats():
   project=request.args.get('project','')

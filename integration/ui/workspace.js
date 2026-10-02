@@ -52,17 +52,17 @@ async function readNews() {
   const id = ++newsId, project = active;
   byId('news-status').textContent = 'Loading news...'; byId('news-results').replaceChildren();
   try {
-    const params = new URLSearchParams({q:byId('news-query').value,project,category:byId('news-category').value,country:byId('news-country').value});
+    const params = new URLSearchParams({q:byId('news-query').value,project,category:byId('news-category').value,country:byId('news-country').value,sort:byId('news-sort').value});
     const items = await request('/api/news?' + params);
     if (id !== newsId) return;
-    render(byId('news-results'), items); byId('news-status').textContent = items.length ? `Showing ${items.length} ${items.length === 1 ? 'story' : 'stories'} (up to first 100, newest collection first).` : 'No stories in this view.';
+    render(byId('news-results'), items); byId('news-status').textContent = items.length ? `Showing ${items.length} ${items.length === 1 ? 'story' : 'stories'} (up to first 100 in selected sort; loaded view, not full database).` : 'No stories in this view.';
   } catch (error) { if (id === newsId) byId('news-status').textContent = error.message; }
 }
 for (const button of document.querySelectorAll('[data-view]')) button.addEventListener('click', () => {
   active = button.dataset.view;
   for (const other of document.querySelectorAll('[data-view]')) other.setAttribute('aria-pressed',String(other === button));
   byId('finder-view').hidden = active !== 'finder'; byId('news-view').hidden = active === 'finder';
-  if (active !== 'finder') {byId('news-heading').textContent = active === 'geo' ? 'Geo news' : 'BRICS news'; byId('news-category').value='';byId('news-country').value='';readStats(active);readSignals(active);readSnapshots(active);readNews();}
+  if (active !== 'finder') {byId('news-heading').textContent = active === 'geo' ? 'Geo news' : 'BRICS news'; byId('news-category').value='';byId('news-country').value='';const sort=byId('news-sort');sort.replaceChildren();for(const [value,label] of [['newest','Newest collection'],['title','Title A-Z'],['country','Country A-Z'],active==='geo' ? ['score','Highest Geo score'] : ['corroboration','Most supplied corroboration entries']]){const option=document.createElement('option');option.value=value;option.textContent=label;sort.append(option);}byId('export-status').textContent='';readStats(active);readSignals(active);readSnapshots(active);readNews();}
 });
 byId('news-search').addEventListener('submit', event => {event.preventDefault();readNews();});
 async function syncContext() {
@@ -128,7 +128,7 @@ async function readStats(project) {
     }
   } catch(error){if(active===project && id===statsId)byId('news-stats').textContent=error.message;}
 }
-for(const id of ['news-category','news-country'])byId(id).addEventListener('change',readNews);
+for(const id of ['news-category','news-country','news-sort'])byId(id).addEventListener('change',readNews);
 
 async function readSignals(project) {
  const id=++signalsId, status=byId('signal-status'), values=byId('signal-values');
@@ -192,3 +192,16 @@ async function readSnapshots(project) {
   }
  } catch(error){if(active===project && id===snapshotsId){status.textContent=error.message;panels.replaceChildren();for(const key of Object.keys(labels))unavailable(key);}}
 }
+
+byId('news-export').addEventListener('click',async()=>{
+ const project=active,status=byId('export-status');if(!['geo','brics'].includes(project))return;
+ status.textContent='Preparing loaded sample export...';
+ try {
+  const params=new URLSearchParams({project,q:byId('news-query').value,category:byId('news-category').value,country:byId('news-country').value,sort:byId('news-sort').value});
+  const r=await fetch('/api/news-export.csv?'+params,{credentials:'same-origin',cache:'no-store'});
+  if(!r.ok || r.headers.get('X-Export-Scope')!=='loaded_read_view_not_full_database')throw new Error('Loaded sample export unavailable.');
+  const blob=await r.blob();if(active!==project)return;
+  const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='loaded-news-sample.csv';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
+  status.textContent='Loaded sample exported (up to 100 matched stories, not a full database backup).'+(r.headers.get('X-Export-Truncated')==='true' ? ' More matched loaded stories were omitted.' : '');
+ }catch(error){if(active===project)status.textContent=error.message;}
+});
