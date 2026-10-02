@@ -24,3 +24,17 @@ class AgenciaParserTests(unittest.TestCase):
   for h in [HTML.replace('<article id="content">','<article id="content" hidden>'),HTML.replace('class="titulo-noticia-conteudo"','class="titulo-noticia-conteudo" aria-hidden=" TRUE "')]:
    with self.assertRaises(ValueError):self.parse(h)
  def test_naive_creation_not_publication(self):self.assertIsNone(self.parse(HTML.replace('2026-10-01T10:00:00-03:00','2026-10-01T10:00:00'))['source_created_at'])
+
+ def test_review_boolean_exact_and_month(self):
+  for value in ['no',1,[],False]:
+   with self.assertRaises(ValueError):self.parse(reviewed=value)
+  with self.assertRaises(ValueError):self.parse(url=URL.replace('202610','202613'))
+ def test_future_created_not_reported(self):self.assertIsNone(self.parse(HTML.replace('2026-10-01T10:00:00-03:00','2030-10-01T10:00:00-03:00'))['source_created_at'])
+ def test_metadata_url_required(self):
+  for h in [HTML.replace('property="og:url"','property="unused"'),HTML.replace('content="'+URL+'"','content="https://example.com/a"')]:
+   with self.assertRaises(ValueError):self.parse(h)
+ def test_plain_entities_and_truncation(self):
+  r=self.parse(HTML.replace('Trade details. '*20,'&lt;script&gt;literal&lt;/script&gt;'+'text '*4000))
+  self.assertTrue(r['body_truncated']);self.assertIn('<script>',r['summary']);self.assertEqual(r['text_format'],'plain');self.assertEqual(len(r['summary']),16000)
+ def test_naive_observation_refused(self):
+  with self.assertRaises(ValueError):agencia_article(HTML,URL,'2026-10-02','User-agent: *\nAllow: /',True)

@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 160,
+  "tests": 172,
   "files": [
     {
       "path": ".env.example",
@@ -107,8 +107,8 @@
     },
     {
       "path": "integration/agencia_parser.py",
-      "bytes": 5186,
-      "sha256": "3c0409daf202c13e0a65df7872d021d3d03412f38dd15f7fe01f00dacf24e13a"
+      "bytes": 5348,
+      "sha256": "255c3984d99111d1660fad653e75cd8d874bef1f8ae8da55864be8368ba396e4"
     },
     {
       "path": "integration/branding/apple-touch-icon.png",
@@ -171,6 +171,11 @@
       "sha256": "7c3eaa189961b0717e4c8a9b5e3c3a1e82afe4518ef0ec77737327e317a8cd48"
     },
     {
+      "path": "integration/dashboard_snapshots.py",
+      "bytes": 2958,
+      "sha256": "743365f7ebf8b2df4bdcd9f5abdb663fec87db5ed7d21f2aeec6b52a3df2b8b8"
+    },
+    {
       "path": "integration/finder-news.js",
       "bytes": 1291,
       "sha256": "10ac4d49cc219f23ab4b8ca81b98b91de95bfc9cbdf825638972cf1c929a82ba"
@@ -197,8 +202,8 @@
     },
     {
       "path": "integration/news_api.py",
-      "bytes": 7857,
-      "sha256": "bcfbc102765e057c94d3e216ee621cdcb3b4176043136af260f6e4bb9ad00838"
+      "bytes": 8343,
+      "sha256": "80fb8bb8ccdd3dbcbc7062402207135fa45d7452cf7f548873c4bc686017335d"
     },
     {
       "path": "integration/news_view.py",
@@ -1232,8 +1237,8 @@
     },
     {
       "path": "tests/test_agencia_parser.py",
-      "bytes": 2496,
-      "sha256": "f97ee2590bee39f9a98ac666c940fcdecc5d5d535db926936f3691cf5fc93b7d"
+      "bytes": 3584,
+      "sha256": "1d93647a48a3f6d2c88d7441273865b4eac3897c1f7d71eb54bc631ddb6971a8"
     },
     {
       "path": "tests/test_branding.py",
@@ -1254,6 +1259,11 @@
       "path": "tests/test_dashboard_model.py",
       "bytes": 3971,
       "sha256": "04d0a456018e6b04c9132544bbb9de8b86e63310f60ac1164a24184870468a7f"
+    },
+    {
+      "path": "tests/test_dashboard_snapshots.py",
+      "bytes": 2687,
+      "sha256": "829d884dcef3c540959b6c8c294a92e4b1878bc88137a692d264623a0b09cb9f"
     },
     {
       "path": "tests/test_dashboard_stats.py",

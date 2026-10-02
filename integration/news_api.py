@@ -10,7 +10,7 @@ from integration.finder_links import finder_link
 from integration.dashboard_model import loaded_stats
 from integration.branding_meta import brand_head,valid_origin
 
-def create_app(reader=None,authorize=None,finder_context_reader=None,finder_base=None,finder_index_verified=False,allowed_origin=None,branding_public_base=None):
+def create_app(reader=None,authorize=None,finder_context_reader=None,finder_base=None,finder_index_verified=False,allowed_origin=None,branding_public_base=None,dashboard_snapshot_reader=None):
  branding_public_base=valid_origin(branding_public_base)
  app=Flask(__name__)
  root=Path(__file__).resolve().parents[1]
@@ -87,6 +87,13 @@ def create_app(reader=None,authorize=None,finder_context_reader=None,finder_base
   counts=lambda key:[{'label':k,'count':v} for k,v in sorted(Counter(r[key] for r in rows if r[key]).items(),key=lambda x:(-x[1],x[0]))]
   dates=[r['collected_at'] for r in rows if r['collected_at']]
   return jsonify(count=len(rows),categories=counts('category'),countries=counts('original_country'),latest_collected=max(dates) if dates else None,scope='loaded_read_view',not_total_database=True)
+ @app.get('/api/dashboard-snapshots')
+ def dashboard_snapshots():
+  project=request.args.get('project','')
+  if project not in ('geo','brics'):return jsonify(error='Exact project required'),400
+  if dashboard_snapshot_reader is None:return jsonify(project=project,state='snapshot_readers_unwired',not_live_status=True)
+  try:return jsonify(dashboard_snapshot_reader(project))
+  except Exception:return jsonify(error='Dashboard snapshots unavailable'),503
  @app.get('/api/dashboard-signals')
  def dashboard_signals():
   project=request.args.get('project','')

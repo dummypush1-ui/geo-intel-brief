@@ -16,7 +16,7 @@ def article_url(url):
  value=safe_url(url)
  if not value:return None
  u=urlsplit(value)
- if u.scheme!='https' or u.netloc!='agenciagov.ebc.com.br' or u.query or u.fragment or not re.fullmatch(r'/noticias/\d{6}/[a-z0-9][a-z0-9-]*',u.path):return None
+ if u.scheme!='https' or u.netloc!='agenciagov.ebc.com.br' or u.query or u.fragment or not re.fullmatch(r'/noticias/\d{4}(?:0[1-9]|1[0-2])/[a-z0-9][a-z0-9-]*',u.path):return None
  return value
 
 class AgenciaArticle(HTMLParser):
@@ -77,9 +77,11 @@ class AgenciaArticle(HTMLParser):
   # DC.date.created is creation metadata, not necessarily public publication.
   created=[date_view(v) for v in self.created]
   source_created=created[0] if created and all(v==created[0] for v in created) else None
+  if source_created and source_created>stamp:source_created=None
   return {'title':title[:500],'url':url,'source':RULE['name'],'country':'Brazil','category':'GENERAL','summary':text[:16000],'published':'','source_created_at':source_created,'collected_at':stamp,'method':'agenciagov_html_fixture','attribution':'Agência Gov / EBC','text_format':'plain','title_truncated':len(title)>500,'body_truncated':len(text)>16000}
 
 def agencia_article(html,url,observed_at,robots_text,reviewed=False):
+ if reviewed is not True:raise ValueError('Explicit reviewed boolean required')
  url=article_url(url)
  if not url or not can_fetch({**RULE,'enabled':reviewed,'reviewed':reviewed},url,robots_text):raise ValueError('Reviewed exact article route required')
  if not isinstance(html,str) or len(html)>2_000_000:raise ValueError('Bounded HTML required')
