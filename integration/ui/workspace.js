@@ -146,8 +146,9 @@ async function readSignals(project) {
  }catch(error){if(active===project && id===signalsId)status.textContent=error.message;}
 }
 
-function snapshotLink(value) {
+function snapshotLink(value,key) {
  if(typeof value!=='string' || /[\\%]/.test(value) || /[\p{C}\u2800\u3164\u115f\u1160\uffa0]/u.test(value))return null;
+ if(key==='brics_streams' && /^https:\/\/www\.youtube\.com\/watch\?v=[A-Za-z0-9_-]{11}$/.test(value) && !/[\r\n]/.test(value))return value;
  const link=safeLink(value);if(!link)return null;
  const u=new URL(link);
  if(u.search || u.hash || !/^[a-z0-9]+(?:[.-][a-z0-9]+)*$/.test(u.hostname) || !u.hostname.includes('.') || /(?:^|\.)(?:localhost|local|internal|test|invalid|example)$/.test(u.hostname) || /^(?:[0-9]+|0x[0-9a-f]+)$/.test(u.hostname.split('.').at(-1)) || (u.port && !['80','443'].includes(u.port)))return null;
@@ -173,10 +174,10 @@ async function readSnapshots(project) {
    let shown=0;
    for(const item of panel.items.slice(0,100)) {
     if(!item || typeof item!=='object')continue;
-    const url=snapshotLink(item.source_url || item.url || item.watch_url);if(!url || typeof item.name!=='string' || !/[\p{L}\p{N}\p{S}]/u.test(item.name.replace(/[\u2800\u3164\u115f\u1160\uffa0\ufffc]/g,'')) || /[\p{C}\u2800\u3164\u115f\u1160\uffa0]/u.test(item.name))continue;
+    const url=snapshotLink(item.source_url || item.url || item.watch_url,key);if(!url || typeof item.name!=='string' || !/[\p{L}\p{N}\p{S}]/u.test(item.name.replace(/[\u2800\u3164\u115f\u1160\uffa0\ufffc]/g,'')) || /[\p{C}\u2800\u3164\u115f\u1160\uffa0]/u.test(item.name))continue;
     const row=document.createElement('article');row.className='snapshot-row';const link=document.createElement('a');link.href=url;link.target='_blank';link.rel='noopener noreferrer';link.textContent=item.name;row.append(link);
     const meta=document.createElement('p');
-    if(key==='geo_events')meta.textContent='Event date: '+String(item.event_date || 'not recorded');
+    if(key==='geo_events')meta.textContent=['Event date: '+String(item.event_date || 'not recorded'),item.category ? 'Category: '+String(item.category) : '',item.confidence ? 'Confidence: '+String(item.confidence) : ''].filter(Boolean).join(' · ');
     else if(key==='brics_sources')meta.textContent=[item.country,'Captured status: '+(['ok','warning','error','disabled'].includes(item.last_status) ? item.last_status : 'not recorded'),'Captured count: '+(Number.isInteger(item.last_count) && item.last_count>=0 ? item.last_count : 'not recorded'),'Last checked in snapshot: '+String(item.last_checked || 'not recorded')].filter(Boolean).join(' · ');
     else meta.textContent=[item.country,'Outbound link only. Availability not checked.'].filter(Boolean).join(' · ');
     row.append(meta);

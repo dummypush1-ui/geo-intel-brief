@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 188,
+  "tests": 198,
   "files": [
     {
       "path": ".env.example",
@@ -172,8 +172,8 @@
     },
     {
       "path": "integration/dashboard_snapshots.py",
-      "bytes": 6636,
-      "sha256": "863e126f4de13f4ec6c0070500637624c7051b54a4133072de8c79c2588f8498"
+      "bytes": 6978,
+      "sha256": "c253dca135ba7f2f7ecb7ea661063e579555ef471816eb3389bc75b9fe55c417"
     },
     {
       "path": "integration/finder-news.js",
@@ -209,6 +209,11 @@
       "path": "integration/news_view.py",
       "bytes": 1896,
       "sha256": "d24256b4467b6acc81bbb4d9e0f689c42b52511443fe1fa0feb3725b06416b1f"
+    },
+    {
+      "path": "integration/original_dashboard_payloads.py",
+      "bytes": 2915,
+      "sha256": "605398e1be8df316094e362c0aeebdd2f002aa2ca4277d10194eb5a00f8a0924"
     },
     {
       "path": "integration/page_watch.py",
@@ -307,8 +312,13 @@
     },
     {
       "path": "integration/ui/workspace.js",
-      "bytes": 17070,
-      "sha256": "b2ed0ff3216c228f0588a845a82a9e3f77a253cfa87cc3bde77bfcd6ac98b994"
+      "bytes": 17367,
+      "sha256": "2c9780a0b9631bf76bc4a3d842ca41cb0d485a233edf3f3ac7fe5571d9f4eaab"
+    },
+    {
+      "path": "integration/youtube_links.py",
+      "bytes": 768,
+      "sha256": "4694073600499471c1460ce06d36ace8f2fb467471689c48d537b3705fd284a3"
     },
     {
       "path": "intelligence/__init__.py",
@@ -1242,8 +1252,8 @@
     },
     {
       "path": "tests/browser_dashboard_snapshots.py",
-      "bytes": 5284,
-      "sha256": "3ec238585c1ef7ab68fd984eb2dec2bba23ad960d0d9b0f9b81f4643e1608af7"
+      "bytes": 5700,
+      "sha256": "b751062469f4c495173d3137c0d6a96743c751d77c5567d288b4734efa81b20c"
     },
     {
       "path": "tests/test_agencia_parser.py",
@@ -1299,6 +1309,11 @@
       "path": "tests/test_mail_bridge.py",
       "bytes": 2240,
       "sha256": "1a1eea1d13254e2e9e87c0a949fceb39720e242e2d3560882c5364c7315f4c19"
+    },
+    {
+      "path": "tests/test_original_dashboard_payloads.py",
+      "bytes": 2546,
+      "sha256": "33cda797467dc0bee47f3c8e0269ec8d8108aba5f8e755b0d55c00832317e04f"
     },
     {
       "path": "tests/test_original_reports.py",
@@ -1369,6 +1384,11 @@
       "path": "tests/test_workspace.py",
       "bytes": 1422,
       "sha256": "029ce9086a43c0ed51987e2849da400f38d57fb2678dc709079fa0efbbf5f699"
+    },
+    {
+      "path": "tests/test_youtube_links.py",
+      "bytes": 2542,
+      "sha256": "f8065aa1aea4725cfab8559021753990ed370f5013f43e04d1058bf4c834a67d"
     },
     {
       "path": "vendor/pako-inflate.min.js",
