@@ -1,6 +1,6 @@
 /* Copyright (c) 2026 Push. No key or live endpoint in this client. */
 const byId = id => document.getElementById(id);
-let active = 'finder', relatedId = 0, newsId = 0, statsId = 0, lastContext = '';
+let active = 'finder', relatedId = 0, newsId = 0, statsId = 0, signalsId = 0, lastContext = '';
 const frame = byId('finder');
 const SYS_COUNTRY = {IN:'India',US:'United States',EU:'European Union',UK:'United Kingdom',KR:'South Korea',CA:'Canada',JP:'Japan',AU:'Australia',BR:'Brazil',TW:'Taiwan',NZ:'New Zealand',NO:'Norway',SG:'Singapore',IL:'Israel',MX:'Mexico',HK:'Hong Kong',ZA:'South Africa',PE:'Peru',CN:'China',AE:'United Arab Emirates',SAC:'India'};
 function safeLink(value) {
@@ -17,6 +17,27 @@ function render(container, items) {
     const summary = document.createElement('p'); summary.textContent = String(article.summary || ''); row.append(summary);
     for (const label of [article.project === 'geo' ? 'Geo' : 'BRICS', article.category, ...(item.match?.reasons || []).map(r => r.type === 'explicit_code' ? 'Explicit code mention, unverified' : r.type === 'country_context' ? 'Country context' : 'Product mention')]) {
       if (!label) continue; const badge = document.createElement('span'); badge.className = 'badge'; badge.textContent = label; row.append(badge);
+    }
+    const signal=document.createElement('p');signal.className='story-meta';
+    signal.textContent=article.project==='geo' ? [article.risk_level ? 'Risk: '+article.risk_level : 'Risk: not recorded',article.credibility ? 'Credibility: '+article.credibility : 'Credibility: not recorded',article.score!=null ? 'Score: '+article.score : ''].filter(Boolean).join(' · ') : (article.corroboration_count!=null ? 'Supplied corroboration entries: '+article.corroboration_count : 'Corroboration: not recorded');row.append(signal);
+    if(article.article_key && ['geo','brics'].includes(article.project)) {
+      const button=document.createElement('button');button.type='button';button.textContent='Find exact mentioned codes';
+      const status=document.createElement('p');status.setAttribute('role','status');const choices=document.createElement('div');
+      let attempt=0;
+      button.addEventListener('click',async()=>{
+        const current=++attempt;status.textContent='Checking exact code mentions...';choices.replaceChildren();
+        try {
+          const items=await request('/api/finder-context',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({project:article.project,article_key:article.article_key})});
+          if(current!==attempt || !row.isConnected)return;
+          status.textContent=items.length ? 'Exact mentions only. These do not verify a tariff change.' : 'No verified exact code destinations.';
+          for(const item of items) {
+            let u;try{u=new URL(item.finder_url,location.origin);}catch{continue;}
+            if(u.origin!==location.origin || u.pathname!=='/workspace/finder/index.html' || u.search || !/^#code=\d+:\d{2,12}$/.test(u.hash))continue;
+            const pick=document.createElement('button');pick.type='button';pick.textContent=String(item.context?.system || 'Code')+' '+String(item.context?.code || '');
+            pick.addEventListener('click',()=>{frame.src=u.href;document.querySelector('[data-view=finder]').click();frame.focus();});choices.append(pick);
+          }
+        } catch(error){if(current===attempt && row.isConnected)status.textContent=error.message;}
+      });row.append(button,status,choices);
     }
     container.append(row);
   }
@@ -41,7 +62,7 @@ for (const button of document.querySelectorAll('[data-view]')) button.addEventLi
   active = button.dataset.view;
   for (const other of document.querySelectorAll('[data-view]')) other.setAttribute('aria-pressed',String(other === button));
   byId('finder-view').hidden = active !== 'finder'; byId('news-view').hidden = active === 'finder';
-  if (active !== 'finder') {byId('news-heading').textContent = active === 'geo' ? 'Geo news' : 'BRICS news'; byId('news-category').value='';byId('news-country').value='';readStats(active);readNews();}
+  if (active !== 'finder') {byId('news-heading').textContent = active === 'geo' ? 'Geo news' : 'BRICS news'; byId('news-category').value='';byId('news-country').value='';readStats(active);readSignals(active);readNews();}
 });
 byId('news-search').addEventListener('submit', event => {event.preventDefault();readNews();});
 async function syncContext() {
@@ -108,3 +129,19 @@ async function readStats(project) {
   } catch(error){if(active===project && id===statsId)byId('news-stats').textContent=error.message;}
 }
 for(const id of ['news-category','news-country'])byId(id).addEventListener('change',readNews);
+
+async function readSignals(project) {
+ const id=++signalsId, status=byId('signal-status'), values=byId('signal-values');
+ status.textContent='Loading dashboard signals...';values.replaceChildren();
+ try {
+  const r=await fetch('/api/dashboard-signals?'+new URLSearchParams({project}),{credentials:'same-origin',cache:'no-store'});
+  if(!r.ok)throw new Error('Dashboard signals unavailable.');const d=await r.json();
+  if(active!==project || id!==signalsId)return;
+  status.textContent='Signals from '+d.loaded_count+' loaded stories only, not database totals.';
+  const add=text=>{const p=document.createElement('p');p.textContent=text;values.append(p);};
+  if(project==='geo') {
+   add('Critical in 24h (loaded sample): '+d.critical_24h_loaded+'. Critical stories missing time: '+d.critical_missing_time_count+'.');
+   for(const [key,label,missing] of [['risk_levels','Risk levels','missing_risk_count'],['credibility_levels','Credibility','missing_credibility_count']])add(label+': '+Object.entries(d[key] || {}).map(([k,v])=>k+' '+v).join(', ')+'; not recorded '+d[missing]+'.');
+  } else add('Critical count unavailable without the original BRICS policy. Corroboration missing in '+d.missing_corroboration_count+' loaded stories.');
+ }catch(error){if(active===project && id===signalsId)status.textContent=error.message;}
+}

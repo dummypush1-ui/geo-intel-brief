@@ -13,27 +13,38 @@ def sanews_listing(html,robots_text,reviewed=False):
  return parser.articles(rule,robots_text)
 
 class SANewsArticle(HTMLParser):
- def __init__(self):super().__init__(convert_charrefs=True);self.depth=0;self.article_depth=None;self.h1=0;self.p=0;self.ignore=0;self.title=[];self.body=[];self.current=[];self.published=None;self.head=0;self.title_done=False;self.article_nesting=0;self.root_closed=False
+ def __init__(self):super().__init__(convert_charrefs=True);self.depth=0;self.article_depth=None;self.h1=0;self.p=0;self.ignore=0;self.title=[];self.body=[];self.current=[];self.published=None;self.head=0;self.title_done=False;self.article_nesting=0;self.root_closed=False;self.page_titles=0;self.og_titles=[];self.title_ignore=[];self.hidden_stack=[];self.root_count=0
  def handle_starttag(self,tag,attrs):
   a=dict(attrs)
   if tag not in ('br','img','meta','link','input','hr','source','wbr'):self.depth+=1
+  if tag not in ('br','img','meta','link','input','hr','source','wbr') and (tag in ('script','style','nav') or 'hidden' in a or a.get('aria-hidden','').strip().casefold()=='true'):self.hidden_stack.append((tag,self.depth))
   if tag=='head':self.head+=1
+  if tag=='meta' and self.head and a.get('property')=='og:title':self.og_titles.append(' '.join((a.get('content') or '').split()))
   if tag=='meta' and self.head and self.published is None and a.get('property')=='article:published_time':
    value=a.get('content') or ''
    if value.endswith('Z') or '+' in value[10:]:self.published=date_view(value)
-  if tag=='article' and 'node-detail' in a.get('class','').split() and self.article_depth is None:self.article_depth=self.depth
+  if tag=='article' and 'node-detail' in a.get('class','').split() and self.article_depth is None:
+   self.root_count+=1
+   if self.root_count!=1:raise ValueError('Multiple article roots')
+   if self.h1:raise ValueError('Unclosed article title')
+   self.article_depth=self.depth
   if tag=='article' and self.article_depth is not None:
    self.article_nesting+=1
    if self.article_nesting>1:self.ignore+=1
-  if tag=='h1' and not self.title_done:self.h1+=1
+  if tag=='h1' and 'page-title' in a.get('class','').split() and self.article_depth is None and not self.root_closed and not self.hidden_stack:
+   self.page_titles+=1
+   if not self.title_done:
+    self.h1=1;self.title_ignore=[]
+    if 'hidden' in a or a.get('aria-hidden','').strip().casefold()=='true':self.title_ignore.append((tag,self.depth))
+  elif self.h1 and tag not in ('br','img','meta','link','input','hr','source','wbr') and (tag in ('script','style','nav') or 'hidden' in a or a.get('aria-hidden','').strip().casefold()=='true'):self.title_ignore.append((tag,self.depth))
   if self.article_depth is not None:
    if tag in ('script','style','nav'):self.ignore+=1
    if tag=='p':self.p+=1;self.current=[]
    if tag=='br' and self.p:self.current.append(' ')
    # Publication comes only from exact, zoned article metadata, never card times.
  def handle_data(self,data):
-  if self.h1:self.title.append(data)
-  if self.article_depth is not None and self.p and not self.ignore:self.current.append(data)
+  if self.h1 and not self.title_ignore and not self.hidden_stack:self.title.append(data)
+  if self.article_depth is not None and self.p and not self.ignore and not self.hidden_stack:self.current.append(data)
  def handle_startendtag(self,tag,attrs):
   self.handle_starttag(tag,attrs)
   if tag not in ('br','img','meta','link','input','hr','source','wbr'):self.handle_endtag(tag)
@@ -42,20 +53,25 @@ class SANewsArticle(HTMLParser):
   if self.article_depth is not None:
    if tag=='p' and self.p:
     text=' '.join(''.join(self.current).split())
-    if text and not self.ignore:self.body.append(text)
+    if text and not self.ignore and not self.hidden_stack:self.body.append(text)
     self.p-=1;self.current=[]
    if tag in ('script','style','nav'):self.ignore=max(0,self.ignore-1)
    if tag=='article':
     self.article_nesting-=1
     if self.article_nesting>0:self.ignore=max(0,self.ignore-1)
     else:self.article_depth=None;self.p=0;self.current=[];self.ignore=0;self.root_closed=True
-  if tag=='h1' and self.h1:self.h1=0;self.title_done=True
+  if self.title_ignore and (tag,self.depth)==self.title_ignore[-1]:self.title_ignore.pop()
+  if tag=='h1' and self.h1:self.h1=0;self.title_done=True;self.title_ignore=[]
+  if self.hidden_stack and (tag,self.depth)==self.hidden_stack[-1]:self.hidden_stack.pop()
   if tag=='head':self.head=max(0,self.head-1)
   self.depth=max(0,self.depth-1)
  def result(self,url,observed_at):
   url=safe_url(url);title=' '.join(''.join(self.title).split());text='\n'.join(self.body)
   if not url or urlsplit(url).netloc!='www.sanews.gov.za' or not urlsplit(url).path.startswith('/south-africa/') or '..' in urlsplit(url).path.split('/') or '%' in urlsplit(url).path:raise ValueError('Expected SAnews article URL')
+  # Structural visibility only; CSS display/visibility is not evaluated.
+  if self.hidden_stack:raise ValueError('Unclosed hidden container; retain previous result')
   if not self.root_closed:raise ValueError('Truncated article root; retain previous result')
+  if not self.title_done or self.h1 or self.page_titles!=1 or not self.og_titles or any(t!=title for t in self.og_titles):raise ValueError('Article title scope ambiguous')
   if not title or len(text)<100:raise ValueError('Article body/title missing; never emit homepage stub')
   stamp=date_view(observed_at)
   if not stamp:raise ValueError('Observation timestamp required')

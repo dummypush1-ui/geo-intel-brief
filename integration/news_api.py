@@ -7,6 +7,7 @@ from integration.news_view import views
 from integration.relevance import match
 from integration.story_links import groups
 from integration.finder_links import finder_link
+from integration.dashboard_model import loaded_stats
 from integration.branding_meta import brand_head,valid_origin
 
 def create_app(reader=None,authorize=None,finder_context_reader=None,finder_base=None,finder_index_verified=False,allowed_origin=None,branding_public_base=None):
@@ -50,7 +51,7 @@ def create_app(reader=None,authorize=None,finder_context_reader=None,finder_base
  class ReadUnavailable(Exception):pass
  @app.errorhandler(ReadUnavailable)
  def read_unavailable(error):return jsonify(error='News storage temporarily unavailable'),503
- def public_row(row):return {k:v for k,v in row.items() if k not in ('mongo_id','emailed','original_url')}
+ def public_row(row):return {k:v for k,v in row.items() if k not in ('mongo_id','legacy_id','emailed','original_url')}
  def reader():
   try:return source_reader()
   except Exception as error:
@@ -86,6 +87,11 @@ def create_app(reader=None,authorize=None,finder_context_reader=None,finder_base
   counts=lambda key:[{'label':k,'count':v} for k,v in sorted(Counter(r[key] for r in rows if r[key]).items(),key=lambda x:(-x[1],x[0]))]
   dates=[r['collected_at'] for r in rows if r['collected_at']]
   return jsonify(count=len(rows),categories=counts('category'),countries=counts('original_country'),latest_collected=max(dates) if dates else None,scope='loaded_read_view',not_total_database=True)
+ @app.get('/api/dashboard-signals')
+ def dashboard_signals():
+  project=request.args.get('project','')
+  if project not in ('geo','brics'):return jsonify(error='Exact project required'),400
+  return jsonify(loaded_stats(views(reader()),project))
  @app.post('/api/related-news')
  def related():
   context=request.get_json(silent=True)
@@ -96,12 +102,12 @@ def create_app(reader=None,authorize=None,finder_context_reader=None,finder_base
    if evidence['reasons']:out.append({'article':public_row(row),'match':evidence})
   return jsonify(items=out[:100])
  @app.get('/api/story-groups')
- def story_groups():return jsonify(items=groups(views(reader())))
+ def story_groups():return jsonify(items=groups([public_row(r) for r in views(reader())]))
  @app.post('/api/finder-context')
  def finder_context():
   data=request.get_json(silent=True)
-  if not isinstance(data,dict) or data.get('project') not in ('geo','brics') or not isinstance(data.get('legacy_id'),str):return jsonify(error='Exact project and original ID required'),400
-  articles=[r for r in views(reader()) if r['project']==data['project'] and r['legacy_id']==data['legacy_id']]
+  if not isinstance(data,dict) or data.get('project') not in ('geo','brics') or not isinstance(data.get('article_key',data.get('legacy_id')),str):return jsonify(error='Exact project and original ID required'),400
+  articles=[r for r in views(reader()) if r['project']==data['project'] and (r['article_key']==data['article_key'] if 'article_key' in data else r['legacy_id']==data['legacy_id'])]
   if len(articles)!=1:return jsonify(error='Article identity not unique or unavailable'),404
   if finder_context_reader is None or not finder_base or not finder_index_verified:return jsonify(items=[],state='verified_finder_index_unwired')
   out=[]
