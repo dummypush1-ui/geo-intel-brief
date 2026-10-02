@@ -6,7 +6,7 @@ Unavailable differs from an empty verified snapshot.
 """
 from datetime import date
 from urllib.parse import urlsplit,urlunsplit
-import ipaddress,re,json
+import ipaddress,re,json,unicodedata
 from integration.news_view import safe_url,date_view
 
 class DashboardSnapshots:
@@ -31,6 +31,7 @@ class DashboardSnapshots:
   except ValueError:pass
   return all(1<=len(label)<=63 and not label.startswith('-') and not label.endswith('-') for label in host.split('.'))
  def link(self,key,value):
+  if not isinstance(value,str) or '\\' in value or '%' in value or any(unicodedata.category(c)=='Cf' for c in value):return None
   url=safe_url(value)
   if not url:return None
   u=urlsplit(url)
@@ -66,17 +67,20 @@ class DashboardSnapshots:
   if not isinstance(row,dict):return None
   def text(k):
    v=row.get(k);return v[:2000] if isinstance(v,str) else ''
+  def label(k):
+   value=text(k)
+   return value if value.strip() and not any(unicodedata.category(c)=='Cf' for c in value) else ''
   if key=='geo_events':
    try:day=date.fromisoformat(text('event_date')).isoformat()
    except ValueError:return None
-   url=self.link(key,row.get('source_url'));name=text('name')
+   url=self.link(key,row.get('source_url'));name=label('name')
    if not name or not url:return None
    return {'name':name,'event_date':day,'source_url':url,'description':text('description')}
   if key=='brics_sources':
-   name=text('name');url=self.link(key,row.get('url'))
+   name=label('name');url=self.link(key,row.get('url'))
    if not name or not url:return None
    status=row.get('last_status');count=row.get('last_count')
-   return {'name':name,'url':url,'country':text('country'),'last_status':status if isinstance(status,str) and status in ('ok','warning','error','disabled') else None,'last_count':count if type(count) is int and 0<=count<=1000000 else None,'last_checked':date_view(row.get('last_checked'))}
-  url=self.link(key,row.get('watch_url'));name=text('name')
+   return {'name':name,'url':url,'country':label('country'),'last_status':status if isinstance(status,str) and status in ('ok','warning','error','disabled') else None,'last_count':count if type(count) is int and 0<=count<=1000000 else None,'last_checked':date_view(row.get('last_checked'))}
+  url=self.link(key,row.get('watch_url'));name=label('name')
   if not url or not name:return None
-  return {'name':name,'country':text('country'),'watch_url':url,'availability':'not_checked'}
+  return {'name':name,'country':label('country'),'watch_url':url,'availability':'not_checked'}

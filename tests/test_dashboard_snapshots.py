@@ -65,3 +65,17 @@ class DashboardSnapshotTests(unittest.TestCase):
  def test_numeric_or_hex_last_label_refused(self):
   for host in ['a.1','1e3.1','x.0x','x.0xff']:
    with self.assertRaises(ValueError):DashboardSnapshots({'geo_events':lambda:{}},True,{'geo_events':[host]})
+
+ def test_backslash_percent_and_format_paths_withheld(self):
+  r=self.reader('brics_streams',[])
+  for path in ['/a\\b','/a%5cb','/a%20b','/a\u200bb','/a\ufeffb','/a\u2060b']:
+   self.assertIsNone(r.link('brics_streams','https://example.com'+path))
+ def test_blank_or_format_labels_withheld(self):
+  for key,url_key in [('geo_events','source_url'),('brics_sources','url'),('brics_streams','watch_url')]:
+   for name in ['','  ','\u200b','\ufeff','\u202eSource','Valid\u2060name']:
+    row={'name':name,url_key:'https://example.com/x','event_date':'2026-10-03'}
+    project='geo' if key=='geo_events' else 'brics'
+    self.assertEqual(self.reader(key,[row])(project)['panels'][key]['items'],[])
+ def test_format_country_not_displayed(self):
+  r=self.reader('brics_sources',[{'name':'Valid','url':'https://example.com/x','country':'\u202eCountry'}])('brics')['panels']['brics_sources']['items'][0]
+  self.assertEqual(r['country'],'')

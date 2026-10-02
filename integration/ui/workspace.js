@@ -147,7 +147,7 @@ async function readSignals(project) {
 }
 
 function snapshotLink(value) {
- if(typeof value!=='string' || /[\\%\u061c\u200e\u200f\u202a-\u202e\u2066-\u2069]/.test(value))return null;
+ if(typeof value!=='string' || /[\\%]/.test(value) || /\p{Cf}/u.test(value))return null;
  const link=safeLink(value);if(!link)return null;
  const u=new URL(link);
  if(u.search || u.hash || !/^[a-z0-9]+(?:[.-][a-z0-9]+)*$/.test(u.hostname) || !u.hostname.includes('.') || /(?:^|\.)(?:localhost|local|internal|test|invalid|example)$/.test(u.hostname) || /^(?:[0-9]+|0x[0-9a-f]+)$/.test(u.hostname.split('.').at(-1)) || (u.port && !['80','443'].includes(u.port)))return null;
@@ -173,7 +173,7 @@ async function readSnapshots(project) {
    let shown=0;
    for(const item of panel.items.slice(0,100)) {
     if(!item || typeof item!=='object')continue;
-    const url=snapshotLink(item.source_url || item.url || item.watch_url);if(!url || typeof item.name!=='string' || !item.name.trim())continue;
+    const url=snapshotLink(item.source_url || item.url || item.watch_url);if(!url || typeof item.name!=='string' || !item.name.trim() || /\p{Cf}/u.test(item.name))continue;
     const row=document.createElement('article');row.className='snapshot-row';const link=document.createElement('a');link.href=url;link.target='_blank';link.rel='noopener noreferrer';link.textContent=item.name;row.append(link);
     const meta=document.createElement('p');
     if(key==='geo_events')meta.textContent='Event date: '+String(item.event_date || 'not recorded');
