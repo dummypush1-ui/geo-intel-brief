@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 213,
+  "tests": 217,
   "files": [
     {
       "path": ".env.example",
@@ -189,6 +189,11 @@
       "path": "integration/finder_links.py",
       "bytes": 712,
       "sha256": "7a5d02def15e5a03790edb6d7b11c9a922df4e4dbd3de2c309e3b188aee2453b"
+    },
+    {
+      "path": "integration/geo_rolling_breakdown.py",
+      "bytes": 2993,
+      "sha256": "30e32b3fc0f61ec24cd4d5961d812eda8eb5ccd4c1d989a9c7a9f47602b11ec6"
     },
     {
       "path": "integration/html_safety.py",
@@ -1324,6 +1329,11 @@
       "path": "tests/test_finder_index.py",
       "bytes": 3921,
       "sha256": "591b3a5bff97a5f4631ff4c17a7e76f4c6bb24b06976d1cddf3eeb493ce3fadf"
+    },
+    {
+      "path": "tests/test_geo_rolling_breakdown.py",
+      "bytes": 2068,
+      "sha256": "beda30407bf2b87309b05d78e236c0471649de26c63d2d3d424992863ba1ae29"
     },
     {
       "path": "tests/test_loaded_charts.py",
