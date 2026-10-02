@@ -105,11 +105,11 @@ def create_app(reader=None,authorize=None,finder_context_reader=None,finder_base
   if len(articles)!=1:return jsonify(error='Article identity not unique or unavailable'),404
   if finder_context_reader is None or not finder_base or not finder_index_verified:return jsonify(items=[],state='verified_finder_index_unwired')
   out=[]
-  for context in finder_context_reader():
+  for context in finder_context_reader(articles[0]):
    evidence=match(context,articles[0])
    if not evidence['reasons']:continue
-   link=finder_link(finder_base,context.get('system_index'),context.get('entry_index'),verified=True)
-   out.append({'context':{k:context.get(k) for k in ('code','system','edition','country')},'finder_url':link,'match':evidence})
+   link=finder_link(finder_base,context.get('system_index'),context.get('code'),verified=True)
+   out.append({'context':{k:context.get(k) for k in ('code','system','edition','country','system_name')},'finder_url':link,'match':evidence})
   return jsonify(items=out[:100])
  @app.get('/dashboard')
  def dashboard():return jsonify(state='Private dashboard UI requires Phase 2 login'),503

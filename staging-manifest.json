@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 118,
+  "tests": 130,
   "files": [
     {
       "path": ".env.example",
@@ -166,9 +166,14 @@
       "sha256": "10ac4d49cc219f23ab4b8ca81b98b91de95bfc9cbdf825638972cf1c929a82ba"
     },
     {
+      "path": "integration/finder_index.py",
+      "bytes": 3344,
+      "sha256": "cb3a41af1a85a03e31770c2735a0b823a46c41971804189e68597ec602763265"
+    },
+    {
       "path": "integration/finder_links.py",
-      "bytes": 636,
-      "sha256": "4f75b80be75e930af8eba7fcc48a9357f4fec4da7cf4e979ade1de79f0025f02"
+      "bytes": 712,
+      "sha256": "7a5d02def15e5a03790edb6d7b11c9a922df4e4dbd3de2c309e3b188aee2453b"
     },
     {
       "path": "integration/html_safety.py",
@@ -182,8 +187,8 @@
     },
     {
       "path": "integration/news_api.py",
-      "bytes": 7497,
-      "sha256": "bba890933c23ba1c1a6766a7e997e988687b3773c84358621db9e7e326416f5f"
+      "bytes": 7515,
+      "sha256": "f56438e64324fb717f222d4c002bb326813e399a1694cc0f488d39baa397d830"
     },
     {
       "path": "integration/news_view.py",
@@ -217,8 +222,8 @@
     },
     {
       "path": "integration/relevance.py",
-      "bytes": 1301,
-      "sha256": "2fb286ab428872bc082059fc963d04b62f2dd716c01f19eeb633b1c23e5f5165"
+      "bytes": 1323,
+      "sha256": "bef768877518ca566ebc7d40d37e4a977b3d41d5404792eabb99cf8310efac41"
     },
     {
       "path": "integration/report_adapters.py",
@@ -227,8 +232,8 @@
     },
     {
       "path": "integration/runtime.py",
-      "bytes": 2440,
-      "sha256": "de386230b423b1a7cd56031b7ab0f9391d440593e6b63b87492b1401ec6cdc60"
+      "bytes": 2864,
+      "sha256": "1e9e0d4f26742131484662793cf427591aaf39099bc1c366b0dc169ad8d065e5"
     },
     {
       "path": "integration/scraper_policy.py",
@@ -1222,13 +1227,13 @@
     },
     {
       "path": "tests/test_bridges.py",
-      "bytes": 2947,
-      "sha256": "36a2b1373037ae514a8d5b9781d89fe197cf4afe31a393855d45f060e9776b12"
+      "bytes": 2960,
+      "sha256": "847cc2d86a32b5a3cf3cc37cc5a88488216c0ad5f52867aca277e69bbc37a920"
     },
     {
       "path": "tests/test_cross_routes.py",
-      "bytes": 1531,
-      "sha256": "24543cceb2d9da11984f1c3e4dcb9edac12941fcee41d24d0d7787e6c2052d2c"
+      "bytes": 1528,
+      "sha256": "b9dce7d419aad4c5759b31a2706c45caa734fb561ed36877ce0a4f8da0b38016"
     },
     {
       "path": "tests/test_dashboard_stats.py",
@@ -1244,6 +1249,11 @@
       "path": "tests/test_file_audit.py",
       "bytes": 771,
       "sha256": "ee3d4fbbcf36e1acaa6bfa91d9f31b686e602459b26ef3d52c5ab8d8f6233b1d"
+    },
+    {
+      "path": "tests/test_finder_index.py",
+      "bytes": 3863,
+      "sha256": "d62481173b376f95559cdce417eba520049c3829ab46a160e87ce45623daec8f"
     },
     {
       "path": "tests/test_mail_bridge.py",
@@ -1325,5 +1335,6 @@
       "bytes": 22682,
       "sha256": "2ca27e9a8dae569cdeac42752ed1aed1afeff7f19282d3cc12c0aaa54a08bc04"
     }
-  ]
+  ],
+  "finder_index_trust": "Bundled files must stay operator-controlled; fingerprints check integrity, not source authenticity. Loader assumes a static local directory."
 }

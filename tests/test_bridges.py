@@ -19,8 +19,8 @@ class BridgeTests(unittest.TestCase):
  def test_never_tariff_proof(self):self.assertFalse(match({'code':'22029921'},views(ROWS)[0])['duty_change_verified'])
  def test_product_boundary(self):self.assertEqual(match({'product_terms':['rice']},{'title':'price rise'})['reasons'],[])
  def test_link_requires_verified_index(self):
-  self.assertIsNone(finder_link('https://finder-hsn-codee.onrender.com',1,2))
-  self.assertEqual(finder_link('https://finder-hsn-codee.onrender.com',1,2,True),'https://finder-hsn-codee.onrender.com/#code=1:2')
+  self.assertIsNone(finder_link('https://finder-hsn-codee.onrender.com',1,'0901'))
+  self.assertEqual(finder_link('https://finder-hsn-codee.onrender.com',1,'0901',True),'https://finder-hsn-codee.onrender.com/#code=1:0901')
  def test_default_access_closed(self):
   c=create_app(lambda:ROWS).test_client();self.assertEqual(c.get('/api/news').status_code,403)
   for route in ['/collect','/send-digest','/cleanup-old','/mark-emailed']:self.assertEqual(c.post(route).status_code,403)

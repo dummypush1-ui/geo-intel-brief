@@ -7,7 +7,7 @@ def match(context,article):
  code=str(context.get('code') or '')
  reasons=[]
  # Require an explicit HS/HSN label, not any accidental numeric sequence.
- if re.fullmatch(r'\d{6,10}',code) and re.search(r'\bhs(?:n)?\s*(?:code\s*)?[:#-]?\s*'+re.escape(code)+r'(?!\d)',text):
+ if re.fullmatch(r'\d{6,12}',code) and re.search(r'\bhs(?:n)?\s*(?:code\s*)?[:#-]?\s*'+re.escape(code)+r'(?!\w|\s*[.\-/,]\s*\d|\s+\d)',text):
   reasons.append({'type':'explicit_code','value':code,'scope':str(context.get('system') or ''),'edition':str(context.get('edition') or '')})
  terms=context.get('product_terms') or []
  if not isinstance(terms,list) or len(terms)>20 or any(not isinstance(t,str) or len(t)>200 for t in terms):raise ValueError('Invalid product terms')
