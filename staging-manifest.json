@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 152,
+  "tests": 160,
   "files": [
     {
       "path": ".env.example",
@@ -106,6 +106,11 @@
       "sha256": "5d961509258c047783dbe624ffaa01940143f0e09e8e19cf4e595372fd5c0a88"
     },
     {
+      "path": "integration/agencia_parser.py",
+      "bytes": 5186,
+      "sha256": "3c0409daf202c13e0a65df7872d021d3d03412f38dd15f7fe01f00dacf24e13a"
+    },
+    {
       "path": "integration/branding/apple-touch-icon.png",
       "bytes": 14807,
       "sha256": "5c6ec15042f2f866a355e6597a5549f7f6c01112b966f3dd56ffbae6ad32a638"
@@ -192,8 +197,8 @@
     },
     {
       "path": "integration/news_api.py",
-      "bytes": 7945,
-      "sha256": "8ca03a455811f57b4febdc3834870eb3b426315049a3f21a76df5696ee121a6d"
+      "bytes": 7857,
+      "sha256": "bcfbc102765e057c94d3e216ee621cdcb3b4176043136af260f6e4bb9ad00838"
     },
     {
       "path": "integration/news_view.py",
@@ -297,8 +302,8 @@
     },
     {
       "path": "integration/ui/workspace.js",
-      "bytes": 11867,
-      "sha256": "6eaa01ebe8f4662c19dda0281fed0952a666bd165bb9513be149d895ff4563e4"
+      "bytes": 12346,
+      "sha256": "06ac2506fd9c0dcabb8dd3f1aa920d7b41499443cbc813326ea872429357277c"
     },
     {
       "path": "intelligence/__init__.py",
@@ -1226,6 +1231,11 @@
       "sha256": "d68611324f813edaa64a23392792051397a437df2a7e5ffb5e8dc84e99b510c2"
     },
     {
+      "path": "tests/test_agencia_parser.py",
+      "bytes": 2496,
+      "sha256": "f97ee2590bee39f9a98ac666c940fcdecc5d5d535db926936f3691cf5fc93b7d"
+    },
+    {
       "path": "tests/test_branding.py",
       "bytes": 2441,
       "sha256": "ec04fee6d602819bc53ddef36e53d58b19131faa795263d5f5b859f03de92ee6"
@@ -1237,13 +1247,13 @@
     },
     {
       "path": "tests/test_cross_routes.py",
-      "bytes": 1528,
-      "sha256": "b9dce7d419aad4c5759b31a2706c45caa734fb561ed36877ce0a4f8da0b38016"
+      "bytes": 1711,
+      "sha256": "3e33ddd46c2c18c67ff7f4ed29e01fc37bd0e8878199e3b6e2dd352f3169becd"
     },
     {
       "path": "tests/test_dashboard_model.py",
-      "bytes": 3713,
-      "sha256": "1e99d8d02d9f4a49b75f19fea26ce09a5709cae19cda3e754bfd16be0c52a80d"
+      "bytes": 3971,
+      "sha256": "04d0a456018e6b04c9132544bbb9de8b86e63310f60ac1164a24184870468a7f"
     },
     {
       "path": "tests/test_dashboard_stats.py",
@@ -1262,8 +1272,8 @@
     },
     {
       "path": "tests/test_finder_index.py",
-      "bytes": 3863,
-      "sha256": "d62481173b376f95559cdce417eba520049c3829ab46a160e87ce45623daec8f"
+      "bytes": 3921,
+      "sha256": "591b3a5bff97a5f4631ff4c17a7e76f4c6bb24b06976d1cddf3eeb493ce3fadf"
     },
     {
       "path": "tests/test_mail_bridge.py",
@@ -1317,8 +1327,8 @@
     },
     {
       "path": "tests/test_security_review.py",
-      "bytes": 2948,
-      "sha256": "5fbe4ca39228180ec84a403f10e370d20ffc8b5795d0a48189b85f81d93b9bb6"
+      "bytes": 3019,
+      "sha256": "a914027a5703753b97b5a39071b962520bc86e6104bb65d2a088172eab65ec6a"
     },
     {
       "path": "tests/test_site_parsers.py",

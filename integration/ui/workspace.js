@@ -13,7 +13,7 @@ function render(container, items) {
     if (!url) continue;
     const row = document.createElement('article'); row.className = 'story';
     const link = document.createElement('a'); link.href = url; link.target = '_blank'; link.rel = 'noopener noreferrer'; link.textContent = String(article.title || 'News'); row.append(link);
-    const meta = document.createElement('p'); meta.className = 'story-meta'; meta.textContent = [article.source, article.original_country, article.published_at ? 'Published '+article.published_at.slice(0,10) : '', article.collected_at ? 'Collected '+article.collected_at.slice(0,10) : ''].filter(Boolean).join(' · '); row.append(meta);
+    const meta = document.createElement('p'); meta.className = 'story-meta'; meta.textContent = [article.source, article.original_country, article.published_at ? 'Published '+String(article.published_at).slice(0,10) : '', article.collected_at ? 'Collected '+String(article.collected_at).slice(0,10) : ''].filter(Boolean).join(' · '); row.append(meta);
     const summary = document.createElement('p'); summary.textContent = String(article.summary || ''); row.append(summary);
     for (const label of [article.project === 'geo' ? 'Geo' : 'BRICS', article.category, ...(item.match?.reasons || []).map(r => r.type === 'explicit_code' ? 'Explicit code mention, unverified' : r.type === 'country_context' ? 'Country context' : 'Product mention')]) {
       if (!label) continue; const badge = document.createElement('span'); badge.className = 'badge'; badge.textContent = label; row.append(badge);
@@ -32,7 +32,7 @@ function render(container, items) {
           status.textContent=items.length ? 'Exact mentions only. These do not verify a tariff change.' : 'No verified exact code destinations.';
           for(const item of items) {
             let u;try{u=new URL(item.finder_url,location.origin);}catch{continue;}
-            if(u.origin!==location.origin || u.pathname!=='/workspace/finder/index.html' || u.search || !/^#code=\d+:\d{2,12}$/.test(u.hash))continue;
+            if(u.username || u.password || u.origin!==location.origin || u.pathname!=='/workspace/finder/index.html' || u.search || !/^#code=\d+:\d{2,12}$/.test(u.hash))continue;
             const pick=document.createElement('button');pick.type='button';pick.textContent=String(item.context?.system || 'Code')+' '+String(item.context?.code || '');
             pick.addEventListener('click',()=>{frame.src=u.href;document.querySelector('[data-view=finder]').click();frame.focus();});choices.append(pick);
           }
@@ -88,7 +88,7 @@ async function syncContext() {
     const items = await request('/api/related-news',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(context)});
     if (id !== relatedId) return;
     render(byId('related'),items); byId('related-status').textContent = items.length ? `${items.length} stories with matching evidence.` : 'No matching stories. This does not mean there is no trade risk.';
-  } catch(error) {if (id === relatedId) byId('related-status').textContent = error.message;}
+  } catch(error) {if (id === relatedId) {lastContext='';byId('related-status').textContent = error.message;}}
 }
 async function searchContext(query) {
   const signature = 'search:' + query;
@@ -100,7 +100,7 @@ async function searchContext(query) {
     const items = await request('/api/news?' + new URLSearchParams({q:query}));
     if (id !== relatedId) return;
     render(byId('related'),items); byId('related-status').textContent = items.length ? `${items.length} news results. Code results stay in Finder.` : 'No news matches. Code results stay in Finder.';
-  } catch(error) {if (id === relatedId) byId('related-status').textContent = error.message;}
+  } catch(error) {if (id === relatedId) {lastContext='';byId('related-status').textContent = error.message;}}
 }
 frame.addEventListener('load', () => {
   frame.contentWindow.addEventListener('hashchange', () => requestAnimationFrame(syncContext));
@@ -120,10 +120,10 @@ async function readStats(project) {
     const r=await fetch('/api/news-stats?'+new URLSearchParams({project}),{credentials:'same-origin',cache:'no-store'});
     if(!r.ok)throw new Error('Read-view counts unavailable.');
     const d=await r.json();if(active!==project || id!==statsId)return;
-    byId('news-stats').textContent=`${d.count} loaded stories, not total database count. Latest collection: ${d.latest_collected ? d.latest_collected.replace('T',' ').slice(0,16)+' UTC' : 'not recorded'}.`;
+    byId('news-stats').textContent=`${Number.isFinite(d.count) ? d.count : 'Unknown number of'} loaded stories, not total database count. Latest collection: ${d.latest_collected ? String(d.latest_collected).replace('T',' ').slice(0,16)+' UTC' : 'not recorded'}.`;
     for(const [id,key,label] of [['news-category','categories','All categories'],['news-country','countries','All countries']]) {
       const select=byId(id), selected=select.value;select.replaceChildren();const first=document.createElement('option');first.value='';first.textContent=label;select.append(first);
-      for(const row of d[key] || []) {const option=document.createElement('option');option.value=String(row.label);option.textContent=String(row.label)+` (${row.count})`;select.append(option);}
+      for(const row of d[key] || []) {const option=document.createElement('option');option.value=String(row.label);option.textContent=String(row.label)+(Number.isFinite(row.count) ? ` (${row.count})` : '');select.append(option);}
       if([...select.options].some(option=>option.value===selected))select.value=selected;
     }
   } catch(error){if(active===project && id===statsId)byId('news-stats').textContent=error.message;}
@@ -137,11 +137,11 @@ async function readSignals(project) {
   const r=await fetch('/api/dashboard-signals?'+new URLSearchParams({project}),{credentials:'same-origin',cache:'no-store'});
   if(!r.ok)throw new Error('Dashboard signals unavailable.');const d=await r.json();
   if(active!==project || id!==signalsId)return;
-  status.textContent='Signals from '+d.loaded_count+' loaded stories only, not database totals.';
+  status.textContent='Signals from '+(Number.isFinite(d.loaded_count) ? d.loaded_count : 'unknown number of')+' loaded stories only, not database totals.';
   const add=text=>{const p=document.createElement('p');p.textContent=text;values.append(p);};
   if(project==='geo') {
-   add('Critical in 24h (loaded sample): '+d.critical_24h_loaded+'. Critical stories missing time: '+d.critical_missing_time_count+'.');
-   for(const [key,label,missing] of [['risk_levels','Risk levels','missing_risk_count'],['credibility_levels','Credibility','missing_credibility_count']])add(label+': '+Object.entries(d[key] || {}).map(([k,v])=>k+' '+v).join(', ')+'; not recorded '+d[missing]+'.');
-  } else add('Critical count unavailable without the original BRICS policy. Corroboration missing in '+d.missing_corroboration_count+' loaded stories.');
+   add('Critical in 24h (loaded sample): '+(Number.isFinite(d.critical_24h_loaded) ? d.critical_24h_loaded : 'not recorded')+'. Critical stories missing time: '+(Number.isFinite(d.critical_missing_time_count) ? d.critical_missing_time_count : 'not recorded')+'.');
+   for(const [key,label,missing] of [['risk_levels','Risk levels','missing_risk_count'],['credibility_levels','Credibility','missing_credibility_count']])add(label+': '+Object.entries(d[key] || {}).map(([k,v])=>k+' '+v).join(', ')+'; not recorded '+(Number.isFinite(d[missing]) ? d[missing] : 'not recorded')+'.');
+  } else add('Critical count unavailable without the original BRICS policy. Corroboration missing in '+(Number.isFinite(d.missing_corroboration_count) ? d.missing_corroboration_count : 'unknown number of')+' loaded stories.');
  }catch(error){if(active===project && id===signalsId)status.textContent=error.message;}
 }

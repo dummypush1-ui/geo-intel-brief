@@ -1,4 +1,4 @@
-import tempfile,unittest
+import tempfile,unittest,hashlib
 from pathlib import Path
 from integration.finder_index import FinderIndex,load_bundled_index
 from integration.finder_links import finder_link
@@ -34,7 +34,7 @@ class FinderIndexTests(unittest.TestCase):
  def test_route_uses_verified_exact_code(self):
   rows={'geo':[{'_id':'article','url':'https://example.com/a','title':'HS 090121 coffee'}]}
   c=create_app(reader=lambda:rows,authorize=lambda r:True,finder_context_reader=self.index.for_article,finder_index_verified=True,finder_base='http://localhost/workspace/finder/index.html').test_client()
-  d=c.post('/api/finder-context',json={'project':'geo','legacy_id':'article'},headers={'Origin':'http://localhost'}).json
+  d=c.post('/api/finder-context',json={'project':'geo','article_key':hashlib.sha256(b'geo\nhttps://example.com/a').hexdigest()},headers={'Origin':'http://localhost'}).json
   self.assertTrue(d['items']);self.assertTrue(all(x['finder_url'].endswith(':090121') for x in d['items']))
   self.assertTrue(all(x['match']['precise'] and not x['match']['duty_change_verified'] for x in d['items']))
 

@@ -1,4 +1,5 @@
-import unittest,ast,sys
+import unittest
+import hashlib,ast,sys
 from integration.news_api import create_app
 from integration.relevance import match
 from integration.html_safety import sanitize_html
@@ -14,7 +15,7 @@ class SecurityReviewTests(unittest.TestCase):
   self.assertEqual(match({'product_terms':None},{'title':'safe'})['reasons'],[])
  def test_host_not_used_for_finder(self):
   c=create_app(reader=lambda:{'geo':[{'_id':'1','url':'https://example.com/a','title':'HS 123456'}]},authorize=lambda r:True,finder_context_reader=lambda:[{'code':'123456','system_index':0,'entry_index':1,'index_verified':True}]).test_client()
-  d=c.post('/api/finder-context',headers={'Host':'attacker.test','Origin':'http://attacker.test'},json={'project':'geo','legacy_id':'1'}).json
+  d=c.post('/api/finder-context',headers={'Host':'attacker.test','Origin':'http://attacker.test'},json={'project':'geo','article_key':hashlib.sha256(b'geo\nhttps://example.com/a').hexdigest()}).json
   self.assertEqual(d['items'],[])
  def test_report_sanitizer(self):
   out=sanitize_html('<h2>Trade &amp; Tariffs</h2><a href="javascript:x" onclick="x">News</a><script>bad</script><p>Good</p>')

@@ -106,8 +106,8 @@ def create_app(reader=None,authorize=None,finder_context_reader=None,finder_base
  @app.post('/api/finder-context')
  def finder_context():
   data=request.get_json(silent=True)
-  if not isinstance(data,dict) or data.get('project') not in ('geo','brics') or not isinstance(data.get('article_key',data.get('legacy_id')),str):return jsonify(error='Exact project and original ID required'),400
-  articles=[r for r in views(reader()) if r['project']==data['project'] and (r['article_key']==data['article_key'] if 'article_key' in data else r['legacy_id']==data['legacy_id'])]
+  if not isinstance(data,dict) or data.get('project') not in ('geo','brics') or not isinstance(data.get('article_key'),str):return jsonify(error='Exact project and article key required'),400
+  articles=[r for r in views(reader()) if r['project']==data['project'] and r['article_key']==data['article_key']]
   if len(articles)!=1:return jsonify(error='Article identity not unique or unavailable'),404
   if finder_context_reader is None or not finder_base or not finder_index_verified:return jsonify(items=[],state='verified_finder_index_unwired')
   out=[]

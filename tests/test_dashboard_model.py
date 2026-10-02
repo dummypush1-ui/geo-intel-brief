@@ -46,3 +46,7 @@ class DashboardModelTests(unittest.TestCase):
    self.assertNotIn('PRIVATE-MONGO-ID',response.text);self.assertNotIn('legacy_id',response.text)
   key=c.get('/api/news').json['items'][0]['article_key']
   self.assertEqual(c.post('/api/finder-context',headers={'Origin':'http://localhost'},json={'project':'geo','article_key':key}).status_code,200)
+
+ def test_legacy_id_request_no_longer_accepted(self):
+  c=create_app(authorize=lambda r:True).test_client()
+  self.assertEqual(c.post('/api/finder-context',headers={'Origin':'http://localhost'},json={'project':'geo','legacy_id':'private'}).status_code,400)
