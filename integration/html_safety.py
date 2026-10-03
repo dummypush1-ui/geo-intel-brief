@@ -3,18 +3,7 @@ from html.parser import HTMLParser
 from html import escape
 import re
 from integration.news_view import safe_url
-def safe_style(value):
- if not isinstance(value,str):return ''
- allowed={'color','background-color','font-family','font-size','font-weight','margin','margin-top','margin-bottom','padding','border','border-left','border-bottom','border-radius','text-align','text-decoration','text-transform','width','line-height','opacity'}
- declarations=[]
- for part in value.split(';'):
-  if not part.strip():continue
-  if any(x in part.casefold() for x in ('url','expression','@','\\','(',')','<','>')):continue
-  pair=part.split(':')
-  if len(pair)!=2:return ''
-  key,val=(v.strip() for v in pair)
-  if key in allowed and re.fullmatch(r"[a-zA-Z0-9#.,% \-]+",val):declarations.append(key+':'+val)
- return ';'.join(declarations)
+from integration.report_styles import safe_style
 class SafeReport(HTMLParser):
  tags={'html','body','table','tr','td','th','thead','tbody','section','div','span','h1','h2','h3','h4','p','ul','ol','li','a','b','strong','i','em','br'}
  def __init__(self):super().__init__(convert_charrefs=True);self.output=[];self.blocked=0

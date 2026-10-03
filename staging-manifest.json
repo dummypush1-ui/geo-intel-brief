@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 217,
+  "tests": 225,
   "files": [
     {
       "path": ".env.example",
@@ -99,6 +99,11 @@
       "path": "index.html",
       "bytes": 510692,
       "sha256": "910f501394cd32f361fe6c775d2dfce72266c49e9a5b77e8ab91720c9319c1cd"
+    },
+    {
+      "path": "integration/REPORT_STYLE_LIMITS.md",
+      "bytes": 1141,
+      "sha256": "6914cc0083abbf8dcc968f26fcb72098dfe286ec8407a5c5b619ebb714475f43"
     },
     {
       "path": "integration/__init__.py",
@@ -197,8 +202,8 @@
     },
     {
       "path": "integration/html_safety.py",
-      "bytes": 2280,
-      "sha256": "2e8384c448f45c3bdbb8e525feebf7f8ca4f15a45b129689e615a0aaf7bc46bb"
+      "bytes": 1615,
+      "sha256": "a0bc8ddc593dec52ae915e4a6590def75bc25a1ea073ce68e19cbc5ad59dfa37"
     },
     {
       "path": "integration/loaded_charts.py",
@@ -264,6 +269,11 @@
       "path": "integration/report_adapters.py",
       "bytes": 2506,
       "sha256": "d07ea3515cbb02c9b7f178dc2e8c74d3cd2d01a49024bd7e913523ea90df80d4"
+    },
+    {
+      "path": "integration/report_styles.py",
+      "bytes": 6604,
+      "sha256": "a65de5a98d013d933af811a139fe0850569e9b632ffc941e9275e4faec067321"
     },
     {
       "path": "integration/runtime.py",
@@ -1276,6 +1286,11 @@
       "sha256": "c8cfa550ab6c32e442d2b927009e594d4f1e0be7c536f83a13d7c8cca0d0ed12"
     },
     {
+      "path": "tests/browser_report_styles.py",
+      "bytes": 1690,
+      "sha256": "e8c5f581cfc3f96c8949b29d10b8c25d8182c4cd6caba0738fc00f7889a25bcd"
+    },
+    {
       "path": "tests/browser_sample_volume.py",
       "bytes": 5563,
       "sha256": "4408f861b4c61ba1191d56b9288a8cea4f1ea5efedf7cb50f4daaa440e7309f2"
@@ -1389,6 +1404,11 @@
       "path": "tests/test_project_reports.py",
       "bytes": 1015,
       "sha256": "59a59dd575a26efdfc1f5aa09262eb7c1c3f8fa9ab0efcfa7983a9737db768c7"
+    },
+    {
+      "path": "tests/test_report_styles.py",
+      "bytes": 3040,
+      "sha256": "2cabde91f1e699adb69af3d4636b604e0428cc89b539102c57c4bdc1a8b9b67b"
     },
     {
       "path": "tests/test_runtime.py",
