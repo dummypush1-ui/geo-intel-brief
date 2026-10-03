@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 225,
+  "tests": 229,
   "files": [
     {
       "path": ".env.example",
@@ -101,6 +101,11 @@
       "sha256": "910f501394cd32f361fe6c775d2dfce72266c49e9a5b77e8ab91720c9319c1cd"
     },
     {
+      "path": "integration/COLLECTION_PREPARE_LIMITS.md",
+      "bytes": 1362,
+      "sha256": "136661a40c3f662cca44b87fa2ccb5f2f0c94a725e01574de4271495c2d66331"
+    },
+    {
       "path": "integration/REPORT_STYLE_LIMITS.md",
       "bytes": 1141,
       "sha256": "6914cc0083abbf8dcc968f26fcb72098dfe286ec8407a5c5b619ebb714475f43"
@@ -164,6 +169,16 @@
       "path": "integration/branding_meta.py",
       "bytes": 2774,
       "sha256": "100d7085bb5e1d7b2701325efaf2efad0dfe39b37410757524a5aa51c8631463"
+    },
+    {
+      "path": "integration/brics_processing_offline.py",
+      "bytes": 2721,
+      "sha256": "0aa79d68b68f750b0064b0955fdd5b25e884173fee6722c90f6ccacf49861da7"
+    },
+    {
+      "path": "integration/collection_prepare.py",
+      "bytes": 2493,
+      "sha256": "2d0886b3126dfd4da4c7fa647ff414afbd27a6032204a8f9ad2be046f86c25b2"
     },
     {
       "path": "integration/cross-connections.json",
@@ -1309,6 +1324,11 @@
       "path": "tests/test_bridges.py",
       "bytes": 2960,
       "sha256": "847cc2d86a32b5a3cf3cc37cc5a88488216c0ad5f52867aca277e69bbc37a920"
+    },
+    {
+      "path": "tests/test_collection_prepare.py",
+      "bytes": 2603,
+      "sha256": "d9c7f87033433a282d222bc5dc32bf04d183498e7e1357402bee2970d2efccee"
     },
     {
       "path": "tests/test_cross_routes.py",
