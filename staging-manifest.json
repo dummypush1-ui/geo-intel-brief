@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 620,
+  "tests": 627,
   "files": [
     {
       "path": ".env.example",
@@ -221,6 +221,11 @@
       "sha256": "5d961509258c047783dbe624ffaa01940143f0e09e8e19cf4e595372fd5c0a88"
     },
     {
+      "path": "integration/accounts/HTTP_FIXTURE_LIMITS.md",
+      "bytes": 2535,
+      "sha256": "8758bb26a4c3ae05af134f85f9d01e750a753e9d6c9997f411dae38f8e92f30a"
+    },
+    {
       "path": "integration/accounts/README.md",
       "bytes": 5096,
       "sha256": "562e065f567d6b9eb58448bd195089ff2c0efae73d302ae8e2d1a40e510477dc"
@@ -234,6 +239,11 @@
       "path": "integration/accounts/csrf.py",
       "bytes": 1930,
       "sha256": "83f9efa88b89f2571ee79f5c4d667b2f5be72bd39313110af8e6f9ec4f18d6ca"
+    },
+    {
+      "path": "integration/accounts/http_fixture.py",
+      "bytes": 5497,
+      "sha256": "b18c8c14fc984b6d5ee639977dcc971955249481efcf4f38a93651868309fb90"
     },
     {
       "path": "integration/accounts/limiter.py",
@@ -1809,6 +1819,11 @@
       "path": "tests/accounts/test_hardening.py",
       "bytes": 25892,
       "sha256": "48b00b44f907ba5b63ffbb34734ae42b8dcdea8f4369274973ab7c2852698210"
+    },
+    {
+      "path": "tests/accounts/test_http_fixture.py",
+      "bytes": 4392,
+      "sha256": "f2509eb5350fd97bae4aae5bd61568e6dd53afe8110947448a763fe6c18aefcb"
     },
     {
       "path": "tests/browser_brics_streams.py",
