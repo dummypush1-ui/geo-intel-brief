@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 258,
+  "tests": 267,
   "files": [
     {
       "path": ".env.example",
@@ -129,6 +129,11 @@
       "path": "integration/REPORT_STYLE_LIMITS.md",
       "bytes": 1141,
       "sha256": "6914cc0083abbf8dcc968f26fcb72098dfe286ec8407a5c5b619ebb714475f43"
+    },
+    {
+      "path": "integration/SINGLE_DB_PLAN_LIMITS.md",
+      "bytes": 1912,
+      "sha256": "b5be1981850fbaa17b511118c515c883aa107743e3fd5d40ac3d9a297479a383"
     },
     {
       "path": "integration/SOURCE_HEALTH_LIMITS.md",
@@ -344,6 +349,16 @@
       "path": "integration/scraper_rules.json",
       "bytes": 1355,
       "sha256": "d42f6aa42fbf1617ec288bb8441de1816997216cf5fa08cf1cb2d105943899e7"
+    },
+    {
+      "path": "integration/single_db_plan.py",
+      "bytes": 1790,
+      "sha256": "33fafdffad6cc217f20d4fc5b355b7d50f6d2a39ff5060a15661f44d9bebf668"
+    },
+    {
+      "path": "integration/single_db_runtime.py",
+      "bytes": 2560,
+      "sha256": "afb572afb0661da8ba959b8b5c2cb3beab4fc560c6619112bbb23ed29d742948"
     },
     {
       "path": "integration/site_parsers.py",
@@ -1524,6 +1539,16 @@
       "path": "tests/test_security_review.py",
       "bytes": 3019,
       "sha256": "a914027a5703753b97b5a39071b962520bc86e6104bb65d2a088172eab65ec6a"
+    },
+    {
+      "path": "tests/test_single_db_plan.py",
+      "bytes": 936,
+      "sha256": "65aba38f096c62becf201e616fb5e8300c972dedbf593caac0a248106f604d2a"
+    },
+    {
+      "path": "tests/test_single_db_runtime.py",
+      "bytes": 3430,
+      "sha256": "7c8619c96f7264fcc004ef93ddccbad37301809d42434f2e76b74cdcfa7974b5"
     },
     {
       "path": "tests/test_site_parsers.py",
