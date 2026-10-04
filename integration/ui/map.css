@@ -1,0 +1,8 @@
+/* Copyright (c) 2026 Push. Page styles; reuses workspace.css header/eyebrow/muted. Light house theme for the map card. */
+.map-main{max-width:1100px;margin:0 auto;padding:16px 24px}
+.map-main .map-actions{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:8px 0 12px}
+.map-main .map-msg{overflow-wrap:anywhere;color:#597087;font-size:14px}
+.map-main .map-err{color:#a40e26}
+.map-main .geo-map{--geo-fg:#17304b;--geo-bg:#fff;--geo-line:#cfdae5;--geo-sea:#e6f0f8;--geo-grid:#b9cde0;--geo-link:#0b57a4;--geo-warn:#8a5a00;--geo-focus:#0b57a4}
+.map-main .geo-map .dot:focus{stroke:#17304b}
+@media (max-width:600px){.map-main{padding:12px}}

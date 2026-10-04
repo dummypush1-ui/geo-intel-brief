@@ -3,6 +3,7 @@ from flask import Flask,request,jsonify,send_from_directory,Response
 from pathlib import Path
 from collections import Counter
 import re,hashlib,base64
+from threading import BoundedSemaphore
 from integration.news_view import views
 from integration.public_news import public_news_row
 from integration.relevance import match
@@ -16,9 +17,11 @@ from integration.country_page import country_page
 from integration.country_signals import country_signals
 from integration.tariff_evidence import TariffEvidenceSnapshot
 from integration.source_health import SourceHealthSnapshot
-from datetime import datetime,timezone
+from datetime import datetime,timezone,timedelta
+from integration.weekly_report import build_weekly_report
 from integration.dashboard_snapshots import DashboardSnapshots
 from integration.branding_meta import brand_head,valid_origin
+from integration.geospatial.response import map_data_response
 
 def create_app(reader=None,authorize=None,finder_context_reader=None,finder_base=None,finder_index_verified=False,allowed_origin=None,branding_public_base=None,dashboard_snapshot_reader=None,source_health_snapshot=None,tariff_evidence_snapshot=None):
  branding_public_base=valid_origin(branding_public_base)
@@ -46,7 +49,7 @@ def create_app(reader=None,authorize=None,finder_context_reader=None,finder_base
  def workspace():return send_from_directory(root/'integration/ui','workspace.html')
  @app.get('/workspace/assets/<name>')
  def assets(name):
-  if name not in ('workspace.js','workspace.css','live_news.js','live_channels.js','countries.js','countries.css','tariffs.js','watch_updates.js'):return jsonify(error='Not found'),404
+  if name not in ('workspace.js','workspace.css','live_news.js','live_channels.js','countries.js','countries.css','tariffs.js','watch_updates.js','weekly.js','weekly.css','map.js','map.css','geo_map_ui.js','geo_map.css'):return jsonify(error='Not found'),404
   return send_from_directory(root/'integration/ui',name)
  @app.get('/workspace/branding/<name>')
  def branding(name):
@@ -83,10 +86,45 @@ def create_app(reader=None,authorize=None,finder_context_reader=None,finder_base
    return jsonify(error='Same-origin request required'),403
  def selected_news():
   return selection(public_views(reader()),project=request.args.get('project',''),query=request.args.get('q',''),category=request.args.get('category',''),country=request.args.get('country',''),sort=request.args.get('sort','newest'))
+ @app.get('/workspace/weekly')
+ def weekly_workspace():return send_from_directory(root/'integration/ui','weekly.html')
+ weekly_build_slots=BoundedSemaphore(2)
+ @app.get('/api/weekly-report.pdf')
+ def weekly_download():
+  # Request supplies dates only; never HTML, rows, URLs or a caller summary.
+  if any(len(request.args.getlist(k))!=1 for k in ('start','end')):return jsonify(error='Exactly one start and end required'),400
+  start=request.args.get('start','');end=request.args.get('end','')
+  if not re.fullmatch(r'[0-9]{4}-[0-9]{2}-[0-9]{2}',start) or not re.fullmatch(r'[0-9]{4}-[0-9]{2}-[0-9]{2}',end):return jsonify(error='Exact start and exclusive end dates required'),400
+  try:
+   # Explicit India offset for user-entered calendar dates, no DST ambiguity.
+   zone=timezone(timedelta(hours=5,minutes=30))
+   ps=datetime.fromisoformat(start).replace(tzinfo=zone);pe=datetime.fromisoformat(end).replace(tzinfo=zone)
+   if ps.date()<datetime(1970,1,2).date() or not 1970<=ps.year<=2100 or not 1970<=pe.year<=2100 or not timedelta(days=1)<=pe-ps<=timedelta(days=31):raise ValueError()
+  except (ValueError,OverflowError):return jsonify(error='Use a 1 to31 day period between1970 and2100'),400
+  if not weekly_build_slots.acquire(blocking=False):return jsonify(error='Weekly PDF busy'),429
+  try:
+   raw=reader()
+   if type(raw) is not dict or len(raw)>2 or any(k not in ('geo','brics') for k in raw):raise ValueError('Invalid snapshot')
+   if any(type(v) not in (list,tuple) for v in raw.values()) or sum(len(v) for v in raw.values())>2000:raise ValueError('Snapshot work bound')
+   rows=public_views({k:v[:100] for k,v in raw.items()})
+   pdf=build_weekly_report(rows,[],period_start=ps,period_end=pe,generated_at=datetime.now(timezone.utc),display_tz='Asia/Kolkata',title='Weekly supplied-news report')
+   return Response(pdf,mimetype='application/pdf',headers={'Content-Disposition':'attachment; filename="weekly-supplied-news.pdf"'})
+  except Exception:
+   app.logger.warning('Weekly PDF unavailable')
+   return jsonify(error='Weekly PDF unavailable'),503
+  finally:weekly_build_slots.release()
  @app.get('/workspace/tariffs')
  def tariff_workspace():return send_from_directory(root/'integration/ui','tariffs.html')
  @app.get('/workspace/countries')
  def countries_workspace():return send_from_directory(root/'integration/ui','countries.html')
+ @app.get('/workspace/map')
+ def map_workspace():return send_from_directory(root/'integration/ui','map.html')
+ @app.get('/api/map-data')
+ def map_data():
+  if request.args:return jsonify(error='No query parameters accepted'),400
+  try:return jsonify(map_data_response(None,datetime.now(timezone.utc)))
+  except Exception:
+   app.logger.warning('Map data unavailable');return jsonify(error='Map data unavailable'),503
  @app.get('/api/tariff-evidence')
  def tariff_evidence_view():
   jurisdiction=request.args.get('jurisdiction','')

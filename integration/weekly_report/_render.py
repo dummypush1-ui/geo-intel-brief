@@ -251,6 +251,10 @@ def render_pdf(summary):
     for label, pairs in (("Country", by_country), ("Category", by_category), ("Source", by_source)):
         if not pairs:
             continue
+        # Reserve heading, table header and first wrapped data row together.
+        first = pairs[0]
+        first_h = max(len(_pdf.wrap(str(first[0]), 10.5, False, WIDTH * .75 - 8)), len(_pdf.wrap(str(first[1]), 10.5, False, WIDTH * .25 - 8))) * 13.5 + 6
+        flow.ensure(32 + 19.5 + first_h)
         flow.heading("By %s%s" % (label.lower(), " (top 12)" if len(pairs) > 12 else ""))
         rows = [[(label, True, None), ("Items", True, None)]] + [[(k, False, None), (str(v), False, None)] for k, v in pairs[:12]]
         flow.table(rows, [WIDTH * 0.75, WIDTH * 0.25])

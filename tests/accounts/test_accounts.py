@@ -125,7 +125,8 @@ class TestFlow(Base):
         self.assertEqual(set(self.store.sessions[next(iter(self.store.sessions))]),
                          {"uid", "username", "created", "expires", "idle_expires"})
         blob = repr(self.store.attempts) + repr(self.store.users)
-        self.assertNotIn("alice", repr(self.store.attempts)); self.assertNotIn("c1", repr(self.store.attempts))
+        self.assertTrue(all(len(k)==64 and all(c in "0123456789abcdef" for c in k) for k in self.store.attempts))
+        self.assertTrue(all(set(v)=={"fails","locks","last","locked_until","gen","expires"} for v in self.store.attempts.values()))
         self.assertNotIn(PW, blob)
 
     def test_enumeration_resistance(self):
