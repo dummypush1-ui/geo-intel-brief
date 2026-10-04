@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 661,
+  "tests": 666,
   "files": [
     {
       "path": ".env.example",
@@ -107,8 +107,8 @@
     },
     {
       "path": "integration/BRICS_STREAM_LIMITS.md",
-      "bytes": 4655,
-      "sha256": "e9363c3b3068378214e71d1e0d7a1b72d067263804e61839c88de4801b628b63"
+      "bytes": 6961,
+      "sha256": "61cebc64f4326d9d21772104280b8656a4ac2fd8b340601fe4297a099efc7ac9"
     },
     {
       "path": "integration/COLLECTION_PREPARE_LIMITS.md",
@@ -757,8 +757,13 @@
     },
     {
       "path": "integration/stream_config.py",
-      "bytes": 2966,
-      "sha256": "dc36e1f1310bc99fd2724d761b8fa068e1118b609ea8b2e2b0491bf025abeb4e"
+      "bytes": 3094,
+      "sha256": "2777adce27f068766a9af6ed00d9460c827ed1baf28ff00bc33aed7033e31755"
+    },
+    {
+      "path": "integration/stream_fixture_app.py",
+      "bytes": 1730,
+      "sha256": "cb522d927bfb1207170f96cb9a532288f724a7602d50cabbea13c22709db44df"
     },
     {
       "path": "integration/tariff_evidence.py",
@@ -772,13 +777,13 @@
     },
     {
       "path": "integration/ui/brics_streams.css",
-      "bytes": 541,
-      "sha256": "2d56497a2c209bd7414c51fb83cdd9977565257d1da749813d079489420c8951"
+      "bytes": 815,
+      "sha256": "a46602045ec03005dd1a6f4146af8cd656b0811664ead261bc4f4c0304842a85"
     },
     {
       "path": "integration/ui/brics_streams.html",
-      "bytes": 1078,
-      "sha256": "66c156ee98747386ab9fbd0d493cfa5a7af4683b04429dc34106a1d36dd01bbd"
+      "bytes": 1208,
+      "sha256": "6a83febfb08d4e2c45870e49e843fd2a28ec2aa8ac2260d38eeecabd0117befc"
     },
     {
       "path": "integration/ui/brics_streams.js",
@@ -1951,6 +1956,11 @@
       "sha256": "4408f861b4c61ba1191d56b9288a8cea4f1ea5efedf7cb50f4daaa440e7309f2"
     },
     {
+      "path": "tests/browser_stream_config.py",
+      "bytes": 2116,
+      "sha256": "ba301e706542eef1d2f4a0e89e4a716c95d0a53e3cc79345d9c541b70da6c081"
+    },
+    {
       "path": "tests/browser_tariff_evidence.py",
       "bytes": 3876,
       "sha256": "ceb7f2a41bf1decbf2948a38edd4be68f7aff85ed049025e7c62ab3c9c21218e"
@@ -2334,6 +2344,11 @@
       "path": "tests/test_stream_config.py",
       "bytes": 3173,
       "sha256": "fe6edd2f32f29aee1a12a6ec044a27b9d511691e4399631304bfb2d53acf3c4f"
+    },
+    {
+      "path": "tests/test_stream_fixture_app.py",
+      "bytes": 3293,
+      "sha256": "905aaa33e8b4cef331e97ec72baadac0f7b02be77cfeb0be8519e266e34fe6b2"
     },
     {
       "path": "tests/test_tariff_evidence.py",

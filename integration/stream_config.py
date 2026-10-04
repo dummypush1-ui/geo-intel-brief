@@ -41,11 +41,13 @@ def configured_streams(raw,observed_at):
    if isinstance(event,(yaml.events.MappingEndEvent,yaml.events.SequenceEndEvent)):depth-=1
   data=yaml.load(text,Loader=StrictLoader)
   if type(data) is not dict or set(data)!={'streams'} or type(data['streams']) is not list or len(data['streams'])>20:raise StreamConfigError('Exact bounded stream envelope required')
-  rows=[];names=set()
-  for row in data['streams']:
+  rows=[];names=set();row_index=None
+  for row_index,row in enumerate(data['streams'],1):
    if type(row) is not dict or set(row)-{'name','country','type','video_id','channel_id'} or any(type(v) is not str or len(v)>200 for v in row.values()):raise StreamConfigError('Exact scalar stream fields required')
    item=enrich(row);key=name_key(item['name'])
    if key in names:raise StreamConfigError('Duplicate names')
    names.add(key);rows.append(item)
   return {'observed_at':observed_at.astimezone(timezone.utc).isoformat(),'items':rows,'sha256':hashlib.sha256(raw).hexdigest(),'scope':'supplied_original_configuration','availability':'not_checked','persistence':False}
- except (ValueError,UnicodeError,OverflowError,yaml.YAMLError,RecursionError):raise StreamConfigError('Invalid stream configuration snapshot') from None
+ except (ValueError,UnicodeError,OverflowError,yaml.YAMLError,RecursionError):
+  index=locals().get('row_index')
+  raise StreamConfigError('Invalid stream configuration snapshot'+(' at row '+str(index) if index is not None else '')) from None
