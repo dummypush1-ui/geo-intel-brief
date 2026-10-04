@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 267,
+  "tests": 274,
   "files": [
     {
       "path": ".env.example",
@@ -104,6 +104,11 @@
       "path": "integration/COLLECTION_PREPARE_LIMITS.md",
       "bytes": 1362,
       "sha256": "136661a40c3f662cca44b87fa2ccb5f2f0c94a725e01574de4271495c2d66331"
+    },
+    {
+      "path": "integration/COUNTRY_PAGE_LIMITS.md",
+      "bytes": 1483,
+      "sha256": "3f8324bf3fd6c6a4bcaf5c6728323233fb5d43b3f1567f3bb258e0d0b10135f6"
     },
     {
       "path": "integration/FAKE_WRITER_LIMITS.md",
@@ -211,6 +216,11 @@
       "sha256": "2d0886b3126dfd4da4c7fa647ff414afbd27a6032204a8f9ad2be046f86c25b2"
     },
     {
+      "path": "integration/country_page.py",
+      "bytes": 2013,
+      "sha256": "e836976782f130871e44ecc3201c27ba1e3d40b67538cd87b9b235c6ecf664aa"
+    },
+    {
       "path": "integration/critical_stories.py",
       "bytes": 1929,
       "sha256": "a03f7ea0218d84ee7536a47ccf671bd0e73c34767cffc2ab1aadba064f6bda63"
@@ -277,8 +287,8 @@
     },
     {
       "path": "integration/news_api.py",
-      "bytes": 10658,
-      "sha256": "fcaa53d95e3bf075ab7be410f427f3781586fddd6f18cc7c156e6236b0a725cb"
+      "bytes": 11115,
+      "sha256": "7f9c268169852ffc20ddcf0ec8865dee92c1f4d9f66a45deef8ea3a40abab4eb"
     },
     {
       "path": "integration/news_view.py",
@@ -401,6 +411,21 @@
       "sha256": "cc3d2a4e84ab863da50b77916a47b74cbd17d755d8cd8fcf8874498ad4d30002"
     },
     {
+      "path": "integration/ui/countries.css",
+      "bytes": 1159,
+      "sha256": "01eec24d431f5f51ed96ae4d44b0208b477fcfc4bf5830e3cea96cf0cabe0f6d"
+    },
+    {
+      "path": "integration/ui/countries.html",
+      "bytes": 2133,
+      "sha256": "c46776f5184c00d6d0374da143c7194850c14c2f1a432a46a9a3fe3e3e6ed729"
+    },
+    {
+      "path": "integration/ui/countries.js",
+      "bytes": 5277,
+      "sha256": "934167610683dd9174db60afa42699ffb4aead504517c408b7e826e2d26c3efa"
+    },
+    {
       "path": "integration/ui/live_channels.js",
       "bytes": 1711,
       "sha256": "56b2e6ecc1a5bb1bb8a9f364aed58e2bed8b93ee0c2464cd159feb78510e73b2"
@@ -417,8 +442,8 @@
     },
     {
       "path": "integration/ui/workspace.html",
-      "bytes": 4905,
-      "sha256": "59bee3bd8a7cdfb0194acd7512bd5090fe1e77065f28348d492961674e4f5e4d"
+      "bytes": 4957,
+      "sha256": "622b39619308bc1ead8c9d7da33f1577e7e21b7c5ff0046993ae634b8dca49b0"
     },
     {
       "path": "integration/ui/workspace.js",
@@ -1361,6 +1386,11 @@
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     {
+      "path": "tests/browser_country_page.py",
+      "bytes": 3820,
+      "sha256": "4bbb5fc2b0572b9b03e50d4ff23d04e69819b42151a42b06ab4158773072ab06"
+    },
+    {
       "path": "tests/browser_dashboard_snapshots.py",
       "bytes": 5712,
       "sha256": "5a9ddf8b17e6ab5e9befac529e8595c50ed2b1be9b27769737bf68906e560cba"
@@ -1399,6 +1429,11 @@
       "path": "tests/test_collection_prepare.py",
       "bytes": 2603,
       "sha256": "d9c7f87033433a282d222bc5dc32bf04d183498e7e1357402bee2970d2efccee"
+    },
+    {
+      "path": "tests/test_country_page.py",
+      "bytes": 3179,
+      "sha256": "c6b8f7c9f507cf962855856bc6879916d44adb2f3ef3e66cd8de6761f6f76617"
     },
     {
       "path": "tests/test_critical_stories.py",

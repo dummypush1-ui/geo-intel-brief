@@ -11,6 +11,7 @@ from integration.dashboard_model import loaded_stats
 from integration.loaded_news import selection,sample_csv
 from integration.loaded_charts import loaded_chart
 from integration.critical_stories import critical_stories
+from integration.country_page import country_page
 from integration.source_health import SourceHealthSnapshot
 from datetime import datetime,timezone
 from integration.dashboard_snapshots import DashboardSnapshots
@@ -42,7 +43,7 @@ def create_app(reader=None,authorize=None,finder_context_reader=None,finder_base
  def workspace():return send_from_directory(root/'integration/ui','workspace.html')
  @app.get('/workspace/assets/<name>')
  def assets(name):
-  if name not in ('workspace.js','workspace.css','live_news.js','live_channels.js'):return jsonify(error='Not found'),404
+  if name not in ('workspace.js','workspace.css','live_news.js','live_channels.js','countries.js','countries.css'):return jsonify(error='Not found'),404
   return send_from_directory(root/'integration/ui',name)
  @app.get('/workspace/branding/<name>')
  def branding(name):
@@ -78,6 +79,12 @@ def create_app(reader=None,authorize=None,finder_context_reader=None,finder_base
    return jsonify(error='Same-origin request required'),403
  def selected_news():
   return selection(views(reader()),project=request.args.get('project',''),query=request.args.get('q',''),category=request.args.get('category',''),country=request.args.get('country',''),sort=request.args.get('sort','newest'))
+ @app.get('/workspace/countries')
+ def countries_workspace():return send_from_directory(root/'integration/ui','countries.html')
+ @app.get('/api/country-page')
+ def countries_read_view():
+  try:return jsonify(country_page(views(reader()),request.args.get('country',''),request.args.get('project','')))
+  except ValueError:return jsonify(error='Invalid country or project'),400
  @app.get('/api/news')
  def news():
   try:result=selected_news()
