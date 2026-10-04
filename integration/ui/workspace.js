@@ -15,7 +15,7 @@ function render(container, items) {
     const link = document.createElement('a'); link.href = url; link.target = '_blank'; link.rel = 'noopener noreferrer'; link.textContent = String(article.title || 'News'); row.append(link);
     const meta = document.createElement('p'); meta.className = 'story-meta'; meta.textContent = [article.source, article.original_country, article.published_at ? 'Published '+String(article.published_at).slice(0,10) : '', article.collected_at ? 'Collected '+String(article.collected_at).slice(0,10) : ''].filter(Boolean).join(' · '); row.append(meta);
     const summary = document.createElement('p'); summary.textContent = String(article.summary || ''); row.append(summary);
-    for (const label of [article.project === 'geo' ? 'Geo' : 'BRICS', article.category, ...(item.match?.reasons || []).map(r => r.type === 'explicit_code' ? 'Explicit code mention, unverified' : r.type === 'country_context' ? 'Country context' : 'Product mention')]) {
+    for (const label of [article.project === 'geo' ? 'Geo' : 'Other source', article.category, ...(item.match?.reasons || []).map(r => r.type === 'explicit_code' ? 'Explicit code mention, unverified' : r.type === 'country_context' ? 'Country context' : 'Product mention')]) {
       if (!label) continue; const badge = document.createElement('span'); badge.className = 'badge'; badge.textContent = label; row.append(badge);
     }
     const signal=document.createElement('p');signal.className='story-meta';
@@ -61,8 +61,8 @@ async function readNews() {
 for (const button of document.querySelectorAll('[data-view]')) button.addEventListener('click', () => {
   active = button.dataset.view;
   for (const other of document.querySelectorAll('[data-view]')) other.setAttribute('aria-pressed',String(other === button));
-  byId('finder-view').hidden = active !== 'finder'; byId('news-view').hidden = active === 'finder';
-  if (active !== 'finder') {byId('news-heading').textContent = active === 'geo' ? 'Geo news' : 'BRICS news'; byId('news-category').value='';byId('news-country').value='';const sort=byId('news-sort');sort.replaceChildren();for(const [value,label] of [['newest','Newest collection'],['title','Title A-Z'],['country','Country A-Z'],active==='geo' ? ['score','Highest Geo score'] : ['corroboration','Most supplied corroboration entries']]){const option=document.createElement('option');option.value=value;option.textContent=label;sort.append(option);}byId('export-status').textContent='';readStats(active);readSignals(active);readSnapshots(active);readNews();readCritical();readSourceHealth();}
+  byId('finder-view').hidden = active !== 'finder'; byId('news-view').hidden = active !== 'geo';byId('live-view').hidden=active!=='live';byId('channels-view').hidden=active!=='channels';
+  if (active === 'geo') {byId('news-heading').textContent = active === 'geo' ? 'Geo news' : 'BRICS news'; byId('news-category').value='';byId('news-country').value='';const sort=byId('news-sort');sort.replaceChildren();for(const [value,label] of [['newest','Newest collection'],['title','Title A-Z'],['country','Country A-Z'],active==='geo' ? ['score','Highest Geo score'] : ['corroboration','Most supplied corroboration entries']]){const option=document.createElement('option');option.value=value;option.textContent=label;sort.append(option);}byId('export-status').textContent='';readStats(active);readSignals(active);readSnapshots(active);readNews();readCritical();readSourceHealth();}
 });
 byId('news-search').addEventListener('submit', event => {event.preventDefault();readNews();});
 async function syncContext() {

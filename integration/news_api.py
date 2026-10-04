@@ -30,6 +30,8 @@ def create_app(reader=None,authorize=None,finder_context_reader=None,finder_base
   response.headers['X-Content-Type-Options']='nosniff'
   response.headers['Referrer-Policy']='same-origin'
   response.headers['Content-Security-Policy']="default-src 'self'; script-src 'self'; style-src 'self'; frame-ancestors 'self'; object-src 'none'; base-uri 'self'; form-action 'self'"
+  if request.path=='/workspace' and response.status_code==200:
+   response.headers['Content-Security-Policy']+="; frame-src 'self' https://www.youtube-nocookie.com"
   if request.path.startswith('/workspace/finder/') and response.mimetype=='text/html' and response.status_code==200:
    response.direct_passthrough=False
    scripts=[body for attrs,body in re.findall(r'<script\b([^>]*)>(.*?)</script>',response.get_data(as_text=True),flags=re.S|re.I) if body.strip() and not re.search(r'\bsrc\s*=',attrs,re.I)]
@@ -40,7 +42,7 @@ def create_app(reader=None,authorize=None,finder_context_reader=None,finder_base
  def workspace():return send_from_directory(root/'integration/ui','workspace.html')
  @app.get('/workspace/assets/<name>')
  def assets(name):
-  if name not in ('workspace.js','workspace.css'):return jsonify(error='Not found'),404
+  if name not in ('workspace.js','workspace.css','live_news.js','live_channels.js'):return jsonify(error='Not found'),404
   return send_from_directory(root/'integration/ui',name)
  @app.get('/workspace/branding/<name>')
  def branding(name):

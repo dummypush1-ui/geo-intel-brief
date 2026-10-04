@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 255,
+  "tests": 258,
   "files": [
     {
       "path": ".env.example",
@@ -109,6 +109,11 @@
       "path": "integration/FAKE_WRITER_LIMITS.md",
       "bytes": 1272,
       "sha256": "c425188abfd19c098941adb8f1b62519e4b42200a20cc61040a6687de89e254d"
+    },
+    {
+      "path": "integration/LIVE_NEWS_LIMITS.md",
+      "bytes": 2611,
+      "sha256": "678826c4012d5573c1aca79b347455f32986f87e72983d2aa2ffb178a3a7bf9c"
     },
     {
       "path": "integration/NEWS_PANEL_LIMITS.md",
@@ -267,8 +272,8 @@
     },
     {
       "path": "integration/news_api.py",
-      "bytes": 10459,
-      "sha256": "1b2da76d43c4d9f37ee2acf27aae7689daa7ae358d2dba769833d46107240106"
+      "bytes": 10658,
+      "sha256": "fcaa53d95e3bf075ab7be410f427f3781586fddd6f18cc7c156e6236b0a725cb"
     },
     {
       "path": "integration/news_view.py",
@@ -381,19 +386,29 @@
       "sha256": "cc3d2a4e84ab863da50b77916a47b74cbd17d755d8cd8fcf8874498ad4d30002"
     },
     {
+      "path": "integration/ui/live_channels.js",
+      "bytes": 1711,
+      "sha256": "56b2e6ecc1a5bb1bb8a9f364aed58e2bed8b93ee0c2464cd159feb78510e73b2"
+    },
+    {
+      "path": "integration/ui/live_news.js",
+      "bytes": 4289,
+      "sha256": "ab8de1aa320df86d71fdb24081119e72a2757a22fcfa37ba2116625ead1fde6f"
+    },
+    {
       "path": "integration/ui/workspace.css",
-      "bytes": 4300,
-      "sha256": "9f65991a71d77baf618a0802119919dcf2d42172148d61ed20989168af0e01e6"
+      "bytes": 5152,
+      "sha256": "3dfd3aac0ff3ad2f5cbea92b93d207674190a3855704542edc82ceeeaef9a94e"
     },
     {
       "path": "integration/ui/workspace.html",
-      "bytes": 3830,
-      "sha256": "b6fe4a4b30bf6127f3c362ff58db6a498027ebd6f42a8ca2b9e8cd1ae3499554"
+      "bytes": 4905,
+      "sha256": "59bee3bd8a7cdfb0194acd7512bd5090fe1e77065f28348d492961674e4f5e4d"
     },
     {
       "path": "integration/ui/workspace.js",
-      "bytes": 25215,
-      "sha256": "faadd0483a552eac884edabafbb88bae7aa02c07f51a22978d15f792d5bb57a0"
+      "bytes": 25306,
+      "sha256": "ad4ac10ca9ee8244794ad9bc62ab7768d494c80cd1105275dc801c77d03d2262"
     },
     {
       "path": "integration/youtube_links.py",
@@ -1419,6 +1434,11 @@
       "path": "tests/test_geo_rolling_breakdown.py",
       "bytes": 2068,
       "sha256": "beda30407bf2b87309b05d78e236c0471649de26c63d2d3d424992863ba1ae29"
+    },
+    {
+      "path": "tests/test_live_news_ui.py",
+      "bytes": 1215,
+      "sha256": "5dd438d746d2dc0658e888139cf348fd7983a3e39affb8897c115d1e7da426fb"
     },
     {
       "path": "tests/test_loaded_charts.py",
