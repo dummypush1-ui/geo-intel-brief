@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 655,
+  "tests": 661,
   "files": [
     {
       "path": ".env.example",
@@ -107,8 +107,8 @@
     },
     {
       "path": "integration/BRICS_STREAM_LIMITS.md",
-      "bytes": 2687,
-      "sha256": "6f201c5363bdeada0c0f7ebae843de07588daafb47c6dcbb805d91c2bfc78003"
+      "bytes": 4655,
+      "sha256": "e9363c3b3068378214e71d1e0d7a1b72d067263804e61839c88de4801b628b63"
     },
     {
       "path": "integration/COLLECTION_PREPARE_LIMITS.md",
@@ -754,6 +754,11 @@
       "path": "integration/story_links.py",
       "bytes": 679,
       "sha256": "09aa82ec7d4bc1fa59120545ad14b4565aa5b0662002a1a3c1b84e65d9d9e525"
+    },
+    {
+      "path": "integration/stream_config.py",
+      "bytes": 2966,
+      "sha256": "dc36e1f1310bc99fd2724d761b8fa068e1118b609ea8b2e2b0491bf025abeb4e"
     },
     {
       "path": "integration/tariff_evidence.py",
@@ -2324,6 +2329,11 @@
       "path": "tests/test_storage_settings.py",
       "bytes": 2293,
       "sha256": "dd38a82da40cebf309af60359b57272370626237fc712117f662e62d2df4ec85"
+    },
+    {
+      "path": "tests/test_stream_config.py",
+      "bytes": 3173,
+      "sha256": "fe6edd2f32f29aee1a12a6ec044a27b9d511691e4399631304bfb2d53acf3c4f"
     },
     {
       "path": "tests/test_tariff_evidence.py",
