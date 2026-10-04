@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 627,
+  "tests": 628,
   "files": [
     {
       "path": ".env.example",
@@ -242,8 +242,8 @@
     },
     {
       "path": "integration/accounts/http_fixture.py",
-      "bytes": 5497,
-      "sha256": "b18c8c14fc984b6d5ee639977dcc971955249481efcf4f38a93651868309fb90"
+      "bytes": 6066,
+      "sha256": "0e41c2cedee4d4a92f06b9eecfd947f9da1c9c40265e8d05d11d23bf13463aa0"
     },
     {
       "path": "integration/accounts/limiter.py",
@@ -269,6 +269,21 @@
       "path": "integration/accounts/store.py",
       "bytes": 7714,
       "sha256": "5ae1f45078356e42cacadbcae705e5d34bac58aa62a9da0fd8b9c9befdca4644"
+    },
+    {
+      "path": "integration/accounts/ui/account.css",
+      "bytes": 800,
+      "sha256": "6236fa318f85cbb358a7ef8bd1847131b0455c790e11f84498980ff64f11e404"
+    },
+    {
+      "path": "integration/accounts/ui/account.html",
+      "bytes": 1633,
+      "sha256": "79969a901bc356378562a0834a5ccdba4d7b30bed3130ab079aa797992495e6d"
+    },
+    {
+      "path": "integration/accounts/ui/account.js",
+      "bytes": 3378,
+      "sha256": "0831daee94aa9ef66c4abcfba2d2fb7d0ad1ce03e8410d4b11eb9f357afc3a2e"
     },
     {
       "path": "integration/accounts/validators.py",
@@ -1811,6 +1826,11 @@
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     {
+      "path": "tests/accounts/browser_http_fixture.py",
+      "bytes": 2936,
+      "sha256": "73055044391049441a8fe6b16b63e1e7ffead68121630d0f16fe5c3bcd930947"
+    },
+    {
       "path": "tests/accounts/test_accounts.py",
       "bytes": 19331,
       "sha256": "e1a45f6d74036f5a848eec26795535689633accb72447ae9f2b8490e58211246"
@@ -1822,8 +1842,8 @@
     },
     {
       "path": "tests/accounts/test_http_fixture.py",
-      "bytes": 4392,
-      "sha256": "f2509eb5350fd97bae4aae5bd61568e6dd53afe8110947448a763fe6c18aefcb"
+      "bytes": 4867,
+      "sha256": "3a210c397ef54d3f80424d2646be199ffb8424b9cbc071bc160be3ea3891cd40"
     },
     {
       "path": "tests/browser_brics_streams.py",

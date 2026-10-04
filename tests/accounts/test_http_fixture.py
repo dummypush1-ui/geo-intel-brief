@@ -46,3 +46,12 @@ class HttpFixtureTests(unittest.TestCase):
   self.assertEqual(self.get('/account/login').json['error'],'method_not_allowed')
   self.c.delete_cookie('__Host-gib_session',domain='fixture.example')
   r=self.post('logout',{'csrf':'invalid'});self.assertEqual(r.status_code,401);self.assertTrue(any('__Host-gib_session=' in c and 'Max-Age=0' in c for c in r.headers.getlist('Set-Cookie')))
+
+ def test_safe_json500_debug_off(self):
+  app=create_fixture_app(self.svc,O,lambda r:'fixture-client')
+  self.assertFalse(app.debug)
+  @app.get('/fixture-failure')
+  def fail():raise RuntimeError('private traceback canary')
+  r=app.test_client().get('/fixture-failure',base_url=O)
+  self.assertEqual(r.status_code,500);self.assertEqual(r.json,{'ok':False,'error':'internal_error'})
+  self.assertNotIn('canary',r.text);self.assertEqual(r.headers['Cache-Control'],'no-store')

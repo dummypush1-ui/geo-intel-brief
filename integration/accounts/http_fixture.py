@@ -5,7 +5,8 @@ service and trusted fixture client resolver. No forwarded headers are trusted.
 """
 import json
 from urllib.parse import urlsplit
-from flask import Flask,request,jsonify
+from flask import Flask,request,jsonify,send_from_directory
+from pathlib import Path
 from .service import AccountService,COOKIE_NAME,PREAUTH_NAME,clear_cookie_header
 from .store import MemoryStore
 
@@ -14,14 +15,16 @@ def create_fixture_app(service,origin,client_identity):
  if u.scheme!='https' or not u.hostname or u.username or u.password or u.path or u.query or u.fragment or origin=='null' or any(c.isspace() for c in origin):raise ValueError('Canonical HTTPS fixture origin required')
  if type(service) is not AccountService or type(service.store) is not MemoryStore or service.origins!=frozenset([origin]) or not service.require_origin:raise ValueError('Exact fixture service required')
  if not callable(client_identity):raise ValueError('Explicit trusted fixture client resolver required')
- app=Flask(__name__);app.config['MAX_CONTENT_LENGTH']=16384
+ app=Flask(__name__);app.config.update(MAX_CONTENT_LENGTH=16384,DEBUG=False,PROPAGATE_EXCEPTIONS=False)
  @app.before_request
  def host_guard():
   if request.host_url.rstrip('/')!=origin:return jsonify(ok=False,error='forbidden'),403
   if request.method!='GET' and request.headers.get('Origin')!=origin:return jsonify(ok=False,error='forbidden'),403
  @app.after_request
  def security(r):
-  r.headers['Cache-Control']='no-store';r.headers['X-Content-Type-Options']='nosniff';r.headers['X-Robots-Tag']='noindex, nofollow';r.headers['Referrer-Policy']='no-referrer';r.headers['Content-Security-Policy']="default-src 'none'; frame-ancestors 'none'; form-action 'self'; base-uri 'none'";return r
+  r.headers['Cache-Control']='no-store';r.headers['X-Content-Type-Options']='nosniff';r.headers['X-Robots-Tag']='noindex, nofollow';r.headers['Referrer-Policy']='no-referrer';r.headers['Content-Security-Policy']="default-src 'none'; script-src 'self'; style-src 'self'; connect-src 'self'; frame-ancestors 'none'; form-action 'self'; base-uri 'none'";return r
+ @app.errorhandler(500)
+ def internal_error(e):return jsonify(ok=False,error='internal_error'),500
  @app.errorhandler(404)
  def not_found(e):return jsonify(ok=False,error='not_found'),404
  @app.errorhandler(405)
@@ -58,6 +61,12 @@ def create_fixture_app(service,origin,client_identity):
   if cookie:response.headers.add('Set-Cookie',cookie)
   if data.get('retry_after'):response.headers['Retry-After']=str(data['retry_after'])
   return response
+ @app.get('/account/preview')
+ def preview():return send_from_directory(Path(__file__).parent/'ui','account.html')
+ @app.get('/account/assets/<name>')
+ def asset(name):
+  if name not in ('account.js','account.css'):return jsonify(ok=False,error='not_found'),404
+  return send_from_directory(Path(__file__).parent/'ui',name)
  @app.get('/account/preauth')
  def preauth():
   data=service.issue_preauth();r=jsonify(csrf=data['csrf'],state='fixture_only',signup_mode=service.mode);r.headers.add('Set-Cookie',data['set_cookie']);return r
