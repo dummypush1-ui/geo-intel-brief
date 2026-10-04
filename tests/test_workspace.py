@@ -19,5 +19,5 @@ class WorkspaceTests(unittest.TestCase):
   self.assertEqual(c.get('/api/news?project=wrong').status_code,400)
  def test_no_live_mutation_routes(self):
   c=create_app(lambda:ROWS,lambda r:True).test_client()
-  for path in ['/collect','/mark-emailed','/cleanup-old','/send-digest']:
+  for path in ['/collect','/cleanup-old','/send-digest']:
    self.assertEqual(c.post(path,headers={'Origin':'http://localhost'}).status_code,404)

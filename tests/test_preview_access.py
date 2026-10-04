@@ -36,7 +36,7 @@ class PreviewAccessTests(unittest.TestCase):
   with self.assertRaises(ValueError):create_preview_from_env({'PREVIEW_ACCESS_ENABLED':'true'})
  def test_no_collection_routes(self):
   self.post('/login',{'csrf':self.token(),'password':'fixture-only-password'})
-  for p in ['/collect','/mark-emailed','/send-digest']:self.assertEqual(self.post(p).status_code,404)
+  for p in ['/collect','/send-digest']:self.assertEqual(self.post(p).status_code,404)
 
  def test_missing_origin_and_expired_session(self):
   t=self.token()

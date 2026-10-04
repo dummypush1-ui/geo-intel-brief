@@ -1,9 +1,9 @@
 """Fixture-backed private staging API. Never imports a live legacy app."""
-from flask import Flask,request,jsonify,send_from_directory,Response
+from flask import Flask,request,jsonify,send_from_directory,Response,stream_with_context
 from pathlib import Path
 from collections import Counter
 import re,hashlib,base64
-from threading import BoundedSemaphore
+from threading import BoundedSemaphore,Lock
 from integration.news_view import views
 from integration.public_news import public_news_row
 from integration.relevance import match
@@ -23,8 +23,10 @@ from integration.dashboard_snapshots import DashboardSnapshots
 from integration.branding_meta import brand_head,valid_origin
 from integration.geospatial.response import map_data_response
 from integration.finder_network import connect_sources,manual_ships_shell
+from integration.news_export import snapshot_export,stream_export,guarded,parse_args as parse_export_args,ExportRequestError,ExportUnavailable
+from integration.digest_preview import preview as digest_preview
 
-def create_app(reader=None,authorize=None,finder_context_reader=None,finder_base=None,finder_index_verified=False,allowed_origin=None,branding_public_base=None,dashboard_snapshot_reader=None,source_health_snapshot=None,tariff_evidence_snapshot=None,finder_network_preview_enabled=False):
+def create_app(reader=None,authorize=None,finder_context_reader=None,finder_base=None,finder_index_verified=False,allowed_origin=None,branding_public_base=None,dashboard_snapshot_reader=None,source_health_snapshot=None,tariff_evidence_snapshot=None,finder_network_preview_enabled=False,full_export_pager=None):
  finder_connect=connect_sources(finder_network_preview_enabled)
  branding_public_base=valid_origin(branding_public_base)
  app=Flask(__name__)
@@ -116,6 +118,62 @@ def create_app(reader=None,authorize=None,finder_context_reader=None,finder_base
    app.logger.warning('Weekly PDF unavailable')
    return jsonify(error='Weekly PDF unavailable'),503
   finally:weekly_build_slots.release()
+ @app.get('/api/export.csv')
+ def export_snapshot_csv():
+  args={k:(v[0] if len(v)==1 else v) for k,v in request.args.lists()}
+  try:
+   raw=reader()
+   if type(raw) is not dict or len(raw)>2 or any(k not in ('geo','brics') for k in raw) or any(type(v) not in (list,tuple) for v in raw.values()) or sum(len(v) for v in raw.values())>2000:raise ValueError('Snapshot bound')
+   parsed=parse_export_args(args)
+   chosen={}
+   for project,values in raw.items():
+    if parsed['project'] and project!=parsed['project']:continue
+    selected=[v for v in values if not parsed['category'] or (type(v) is dict and (v.get('category') or 'GENERAL')==parsed['category'])]
+    chosen[project]=selected
+   cut=any(len(v)>100 for v in chosen.values())
+   body,headers,meta=snapshot_export(public_views({k:v[:100] for k,v in chosen.items()}),args)
+   headers['X-Export-Input-Limit']='100 per project'
+   if cut:headers['X-Export-Truncated']='true'
+  except ExportRequestError:return jsonify(error='Invalid export arguments'),400
+  except ReadUnavailable:raise
+  except Exception:
+   app.logger.warning('Export unavailable');return jsonify(error='Export unavailable'),503
+  return Response(body,headers=headers)
+ export_slots=BoundedSemaphore(1)
+ @app.get('/api/export-full.csv')
+ def export_full_csv():
+  if full_export_pager is None:return jsonify(error='Full export not wired',state='full_export_unwired'),503
+  args={k:(v[0] if len(v)==1 else v) for k,v in request.args.lists()}
+  if not export_slots.acquire(blocking=False):return jsonify(error='Export busy'),429,{'Retry-After':'5'}
+  try:chunks,headers,state=stream_export(full_export_pager,args)
+  except ExportRequestError:
+   export_slots.release();return jsonify(error='Invalid export arguments'),400
+  except Exception as error:
+   export_slots.release();app.logger.warning('Full export unavailable: %s',type(error).__name__);return jsonify(error='Export unavailable'),503
+  close_lock=Lock();released=[False]
+  def release_once():
+   with close_lock:
+    if not released[0]:released[0]=True;export_slots.release()
+  response=Response(stream_with_context(guarded(chunks,release_once)),headers=headers)
+  response.call_on_close(release_once)
+  return response
+ def geo_digest_preview(kind):
+  if request.args:return jsonify(error='No preview query parameters accepted'),400
+  try:
+   raw=reader()
+   if type(raw) is not dict or len(raw)>2 or any(k not in ('geo','brics') for k in raw) or any(type(v) not in (list,tuple) for v in raw.values()) or sum(len(v) for v in raw.values())>2000:raise ValueError('Snapshot bound')
+   rows=public_views({'geo':raw.get('geo',[])[:100]})
+   return jsonify(digest_preview(rows,kind,datetime.now(timezone.utc)))
+  except Exception:
+   app.logger.warning('Digest preview unavailable');return jsonify(error='Digest preview unavailable'),503
+ @app.get('/digest-data')
+ def digest_data_preview():return geo_digest_preview('digest')
+ @app.post('/mark-emailed')
+ def mark_emailed_disabled():return jsonify(error='Sent marking disabled',state='receipt_adapter_unwired',writes=False),503
+ @app.route('/critical',methods=['GET','POST'])
+ def critical_preview():return geo_digest_preview('critical')
+ @app.route('/weekly',methods=['GET','POST'])
+ def weekly_preview():return geo_digest_preview('weekly')
  @app.get('/workspace/tariffs')
  def tariff_workspace():return send_from_directory(root/'integration/ui','tariffs.html')
  @app.get('/workspace/countries')

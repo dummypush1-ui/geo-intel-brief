@@ -33,9 +33,9 @@ Static features above are present by preserved Finder source/bundle, not individ
 | Geo | Read/filter/sort/loaded stats/CSV/signal adapters | Works in offline tested preview | Production signoff remains gated |
 | Geo | Events snapshot | Present but reader unwired | Port original read-only event data |
 | Geo | Collection/classifier/scoring/credibility/corroboration/dedupe | Present but unwired | Single Geo-only collector composition, no live execution |
-| Geo | Apps Script digest/sent-marking/critical/weekly/channel delivery | Present but unwired | Port original delivery contracts; approved Apps Script path, no SMTP replacement |
+| Geo | Apps Script digest/sent-marking/critical/weekly/channel delivery | Original HTML dry-run previews wired; delivery still unwired | Port original delivery contracts; approved Apps Script path, no SMTP replacement |
 | Geo | HTML digest archive/Telegram record archive/cleanup | Present but unwired | Port retention and archive contracts; execution gated |
-| Geo | Full-history CSV | Missing (sample CSV differs) | Original fields and category filtering, bounded streaming/incremental read design |
+| Geo | Full-history CSV | Bounded snapshot+fixture stream wired; live full-history missing | Original fields and category filtering, bounded streaming/incremental read design |
 | BRICS | News/search/filter/critical display/loaded CSV | Backend adapters present; separate BRICS tab absent in current Geo-only UI | Port BRICS-specific capabilities onto unified Geo UI; do not dismiss removed capabilities as storage consolidation |
 | BRICS | Source-status and original streams | Snapshot adapters present, readers unwired | Port source status and exact configured streams |
 | BRICS | Stream add/delete | Missing | Port original validated mutation semantics, fixture store first |

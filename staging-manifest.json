@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 529,
+  "tests": 607,
   "files": [
     {
       "path": ".env.example",
@@ -126,6 +126,11 @@
       "sha256": "3918ea4093bd003008851821bb520b5b5c52ca37c6c84913fc484307f1abd5a6"
     },
     {
+      "path": "integration/EXPORT_DIGEST_LIMITS.md",
+      "bytes": 2384,
+      "sha256": "64c4bc9bcc9fd838f5a7a7030e60f2e60915ad0f24ce832420b2d0044369ccca"
+    },
+    {
       "path": "integration/FAKE_WRITER_LIMITS.md",
       "bytes": 1272,
       "sha256": "c425188abfd19c098941adb8f1b62519e4b42200a20cc61040a6687de89e254d"
@@ -137,8 +142,8 @@
     },
     {
       "path": "integration/FINDER_PARITY_PLAN.md",
-      "bytes": 6317,
-      "sha256": "fa512f062aa5fc0a1c5646f58070df5d035ad409977e0aa02c0540125988fc16"
+      "bytes": 6394,
+      "sha256": "c08422950d1fc76bbf7de473cc2baf324ca756e58454bdc9ef65bfc186e9ea62"
     },
     {
       "path": "integration/FINDER_SNAPSHOT_NOTES.md",
@@ -346,6 +351,11 @@
       "sha256": "ce90cf7da68a6d51db42814251077d9f11f38b1f1f039df6fdc0a349b0a9a1a2"
     },
     {
+      "path": "integration/digest_preview.py",
+      "bytes": 2005,
+      "sha256": "3be26e0a3fe772b46f6e42e7e5f92402cb6f0f7ac1f1b00414f1708f78155e38"
+    },
+    {
       "path": "integration/fake_collection_writer.py",
       "bytes": 3605,
       "sha256": "f209fe293d3fab5702476682b9b7d3a659ddaea466dc3e9d88e52a56dbd05c64"
@@ -379,6 +389,36 @@
       "path": "integration/geo_rolling_breakdown.py",
       "bytes": 2993,
       "sha256": "30e32b3fc0f61ec24cd4d5961d812eda8eb5ccd4c1d989a9c7a9f47602b11ec6"
+    },
+    {
+      "path": "integration/geonews_digest/README.md",
+      "bytes": 5324,
+      "sha256": "734269a0cef4fd49c46ecb5f9d3a0cca8fa1c7b6fbfb4d61c5f85745e511aaf4"
+    },
+    {
+      "path": "integration/geonews_digest/__init__.py",
+      "bytes": 854,
+      "sha256": "e4290966cf431433c192d3464e76009d7772867032f19d92792ca531a95bf3f5"
+    },
+    {
+      "path": "integration/geonews_digest/_safe.py",
+      "bytes": 3147,
+      "sha256": "ef9af1f0afb6623fba3855970b97edfefa017b3bff7a58bf826fc17368fc14e1"
+    },
+    {
+      "path": "integration/geonews_digest/delivery.py",
+      "bytes": 11329,
+      "sha256": "0eb4afbecb16f0c166303cb551ab075ce53d8f140ea1e9e323e03ac0b968c29e"
+    },
+    {
+      "path": "integration/geonews_digest/model.py",
+      "bytes": 7735,
+      "sha256": "581a56390f2bbd080a68acafc00418e94b9f7aafb803a4d087b802d09fec0389"
+    },
+    {
+      "path": "integration/geonews_digest/render.py",
+      "bytes": 15643,
+      "sha256": "560a4f2ead6b6211988ee3c4a0fc6ab04b7ddaccc0d46e94518a035e1c8cf2dd"
     },
     {
       "path": "integration/geospatial/README.md",
@@ -477,8 +517,18 @@
     },
     {
       "path": "integration/news_api.py",
-      "bytes": 16202,
-      "sha256": "6a34120a29e06f5aa4dece633adbf2e6bdc0d2328bc5d8ff3aa4e49b056c4066"
+      "bytes": 19730,
+      "sha256": "c114ac53df63bbd82a62f8257f64397386452a540e2be36c84846c8000358a1b"
+    },
+    {
+      "path": "integration/news_export/__init__.py",
+      "bytes": 451,
+      "sha256": "93eb53a354d5b4d92d0e3b6ace238c477bddd1c6b85a2b3cec30f215ab746f1f"
+    },
+    {
+      "path": "integration/news_export/export.py",
+      "bytes": 12651,
+      "sha256": "fad8c67bb915280cb895db79c553d60e137d9df339d791b8ad554d5ebad614a1"
     },
     {
       "path": "integration/news_view.py",
@@ -531,9 +581,14 @@
       "sha256": "323fdec911b456c0a0aa57c2c650e1b703f7633a0fb55d59f982f99194a95604"
     },
     {
+      "path": "integration/renderer_scope.py",
+      "bytes": 3864,
+      "sha256": "b7cb66c187affdc02ec569a34c14fbd3d6655988da176ec856d0762c07e00ac6"
+    },
+    {
       "path": "integration/report_adapters.py",
-      "bytes": 2506,
-      "sha256": "d07ea3515cbb02c9b7f178dc2e8c74d3cd2d01a49024bd7e913523ea90df80d4"
+      "bytes": 1760,
+      "sha256": "0ae3f29a0c10e894b03b6b3dd871794c9dd90543b8a038b6fda16f4175fd026a"
     },
     {
       "path": "integration/report_styles.py",
@@ -1721,6 +1776,11 @@
       "sha256": "5a9ddf8b17e6ab5e9befac529e8595c50ed2b1be9b27769737bf68906e560cba"
     },
     {
+      "path": "tests/browser_digest_preview.py",
+      "bytes": 1589,
+      "sha256": "011b500bb9e75ba75b2b86c3e242bf30e4207071a9b086829c02d75317a62ca5"
+    },
+    {
       "path": "tests/browser_finder_network.py",
       "bytes": 3582,
       "sha256": "97b4fcaf1861f06c6752473786c60056153fc3d98839772c399677b301443120"
@@ -1764,6 +1824,21 @@
       "path": "tests/browser_weekly.py",
       "bytes": 1949,
       "sha256": "5331e36a64282ccd13e54a874d4efc4b1777dd65b66b573d3f405084e55bd71d"
+    },
+    {
+      "path": "tests/digest_cold_probe.py",
+      "bytes": 2789,
+      "sha256": "1a801e91b8a6c2057331d98b39deba21d4972c44534b9630c8f6fb7f7eb3ff16"
+    },
+    {
+      "path": "tests/geonews_digest/__init__.py",
+      "bytes": 26,
+      "sha256": "8c8f4e58b5581824c3ab9932c3b94abf31493161d06eab4e11f1565a4c3b8c74"
+    },
+    {
+      "path": "tests/geonews_digest/test_digest.py",
+      "bytes": 24927,
+      "sha256": "5cd8f7016915e24d85d8256136699b23c3d3d858b69ec93b446f4161ae799496"
     },
     {
       "path": "tests/geospatial/__init__.py",
@@ -1824,6 +1899,21 @@
       "path": "tests/geospatial/url_vectors.json",
       "bytes": 1276,
       "sha256": "8e6d55edceb294a63859ae8a13aaa09d52298296229ff70fc380b1bfe8c00c5b"
+    },
+    {
+      "path": "tests/news_export/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tests/news_export/test_export.py",
+      "bytes": 14801,
+      "sha256": "5947a024421eada728189d85ee80b57020e1ee471abf86d56f592679e4a3064c"
+    },
+    {
+      "path": "tests/news_export/test_export_route.py",
+      "bytes": 4680,
+      "sha256": "e8ff6b98073eedb24660967ad8d07b57a46792f7e668aa013af48a9c392d2e93"
     },
     {
       "path": "tests/test_agencia_parser.py",
@@ -1889,6 +1979,16 @@
       "path": "tests/test_dashboard_stats.py",
       "bytes": 1209,
       "sha256": "d9e2a6808f09e6b0043ba62dffd1ddb4df7240ca9b13ba30aaf8e7b1cfd4dd82"
+    },
+    {
+      "path": "tests/test_digest_cold.py",
+      "bytes": 466,
+      "sha256": "8a6cee6ca08008fd6d9f84b0c784f59c8d6ccbab4e6d408f1d0dceaf2270240d"
+    },
+    {
+      "path": "tests/test_digest_preview_routes.py",
+      "bytes": 3519,
+      "sha256": "f580b439b2b2e542dbd5eaaa94c46c638a70adfbe1e895dc51acdbae3650e146"
     },
     {
       "path": "tests/test_env_example.py",
@@ -1982,8 +2082,8 @@
     },
     {
       "path": "tests/test_preview_access.py",
-      "bytes": 3953,
-      "sha256": "bc87fbf14d7c20f654fce6cd501c1fd0ed41f89012a92d80b2e5c545b5723f4f"
+      "bytes": 3937,
+      "sha256": "442fe79aa0c4ef98ece3db25e13ef5347e9a76f94847d2d73bd759c626222777"
     },
     {
       "path": "tests/test_private_news_fields.py",
@@ -2072,8 +2172,8 @@
     },
     {
       "path": "tests/test_workspace.py",
-      "bytes": 1422,
-      "sha256": "029ce9086a43c0ed51987e2849da400f38d57fb2678dc709079fa0efbbf5f699"
+      "bytes": 1406,
+      "sha256": "e6d86764b5a5942b55be700d8dfe155b09f341f61ce0abd92d26f5ba8819837a"
     },
     {
       "path": "tests/test_youtube_links.py",
