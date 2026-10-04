@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 322,
+  "tests": 337,
   "files": [
     {
       "path": ".env.example",
@@ -114,6 +114,11 @@
       "path": "integration/COUNTRY_PAGE_LIMITS.md",
       "bytes": 1483,
       "sha256": "3f8324bf3fd6c6a4bcaf5c6728323233fb5d43b3f1567f3bb258e0d0b10135f6"
+    },
+    {
+      "path": "integration/COUNTRY_SIGNALS_LIMITS.md",
+      "bytes": 2897,
+      "sha256": "b5d8a61ed6386c8cb1aef98c9b6e57daf54a48854ff7d91963400c47d7ab50ef"
     },
     {
       "path": "integration/FAKE_WRITER_LIMITS.md",
@@ -244,6 +249,11 @@
       "path": "integration/country_page.py",
       "bytes": 1809,
       "sha256": "cab75618848fe4066d59ba38f9edd5f2870773a21e8bde90f9a15c5f4c2e2faa"
+    },
+    {
+      "path": "integration/country_signals.py",
+      "bytes": 5183,
+      "sha256": "d1ef8e79a3dd9fc9d72dccbcc1a4e66e395cd1e802759d3435e0e8d935a91634"
     },
     {
       "path": "integration/critical_stories.py",
@@ -1529,6 +1539,11 @@
       "path": "tests/test_country_page.py",
       "bytes": 4069,
       "sha256": "283a28f8a6cddcda792e95d3849de75a302ed34005e3128e3d93863117ccb938"
+    },
+    {
+      "path": "tests/test_country_signals.py",
+      "bytes": 5757,
+      "sha256": "699e87a1761071512481405283e721ffd7c9d47ed0e01b260447445e37aa127a"
     },
     {
       "path": "tests/test_critical_stories.py",
