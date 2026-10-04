@@ -29,7 +29,7 @@ Static features above are present by preserved Finder source/bundle, not individ
 | Finder | AI/FX/weather/marine/AIS | Offline preview port reviewed; seven exact origins behind default-off flag, original UI fixture tests pass | Real network/provider CORS availability and AI-disclosure permission still gated; AIS timers suppressed in served preview |
 | Finder | Snapshot/data and new branding | Reviewed Oct4 upstream snapshot ported offline | Source-derived auto-refreshed label only; not independently verified official data |
 | Finder | Share/print/export/settings | Present, nested operation unproven | Private route tests and merged-origin links |
-| Finder | PWA | Missing on merged host (old-host-only registration) | Private-safe manifest/scope/cache port |
+| Finder | PWA | Public-only offline snapshot preview; explicit device opt-in and clear cache | Hosted HTTPS/Safari/quota tests; page-session offline settings, never protected news/cache |
 | Geo | Read/filter/sort/loaded stats/CSV/signal adapters | Works in offline tested preview | Production signoff remains gated |
 | Geo | Events snapshot | Present but reader unwired | Port original read-only event data |
 | Geo | Collection/classifier/scoring/credibility/corroboration/dedupe | Present but unwired | Single Geo-only collector composition, no live execution |
@@ -38,8 +38,8 @@ Static features above are present by preserved Finder source/bundle, not individ
 | Geo | Full-history CSV | Bounded snapshot+fixture stream wired; live full-history missing | Original fields and category filtering, bounded streaming/incremental read design |
 | BRICS | News/search/filter/critical display/loaded CSV | Backend adapters present; separate BRICS tab absent in current Geo-only UI | Port BRICS-specific capabilities onto unified Geo UI; do not dismiss removed capabilities as storage consolidation |
 | BRICS | Source-status and original streams | Snapshot adapters present, readers unwired | Port source status and exact configured streams |
-| BRICS | Stream add/delete | Missing | Port original validated mutation semantics, fixture store first |
-| BRICS | Auto-refresh | Missing by no-polling gate | Port original UI logic, disabled until polling approval |
+| BRICS | Stream add/delete | Fixture-only CRUD+management page preview | Original stream readers/durable persistence unwired |
+| BRICS | Auto-refresh | Original60s logic ported dormant with fake-timer tests | Production callers/timers disabled until polling approval |
 | BRICS | Full filtered/critical-only CSV | Missing (sample CSV differs) | Port original export contract, not sample substitute |
 | BRICS | Collection/classifier/dedupe/delivery | Present but unwired | Port relevant processing/delivery capabilities to Geo-only composition |
 | BRICS | Separate BRICS collection/database | Intentionally dropped | Keep historical code for rollback; no new BRICS writes/migration |

@@ -2,7 +2,7 @@
 from flask import Flask,request,jsonify,send_from_directory,Response,stream_with_context
 from pathlib import Path
 from collections import Counter
-import re,hashlib,base64
+import re,hashlib,base64,json
 from threading import BoundedSemaphore,Lock
 from integration.news_view import views
 from integration.public_news import public_news_row
@@ -23,10 +23,18 @@ from integration.dashboard_snapshots import DashboardSnapshots
 from integration.branding_meta import brand_head,valid_origin
 from integration.geospatial.response import map_data_response
 from integration.finder_network import connect_sources,manual_ships_shell
+from integration.finder_offline import shell as offline_shell,opt_in as offline_opt_in
 from integration.news_export import snapshot_export,stream_export,guarded,parse_args as parse_export_args,ExportRequestError,ExportUnavailable
 from integration.digest_preview import preview as digest_preview
 
-def create_app(reader=None,authorize=None,finder_context_reader=None,finder_base=None,finder_index_verified=False,allowed_origin=None,branding_public_base=None,dashboard_snapshot_reader=None,source_health_snapshot=None,tariff_evidence_snapshot=None,finder_network_preview_enabled=False,full_export_pager=None):
+def create_app(reader=None,authorize=None,finder_context_reader=None,finder_base=None,finder_index_verified=False,allowed_origin=None,branding_public_base=None,dashboard_snapshot_reader=None,source_health_snapshot=None,tariff_evidence_snapshot=None,finder_network_preview_enabled=False,full_export_pager=None,brics_stream_fixture=None):
+ if brics_stream_fixture is not None:
+  from integration.brics_streams import FixtureStreams
+  if type(brics_stream_fixture) is not FixtureStreams:raise ValueError('Exact fixture-only store required')
+  from urllib.parse import urlsplit
+  u=urlsplit(allowed_origin or '')
+  if u.scheme not in ('http','https') or not u.hostname or u.username or u.password or u.path or u.query or u.fragment or u.netloc!=u.hostname+((':'+str(u.port)) if u.port else ''):raise ValueError('Canonical scheme authority Origin required')
+  if u.scheme=='http' and u.hostname not in ('localhost','127.0.0.1'):raise ValueError('HTTP loopback only')
  finder_connect=connect_sources(finder_network_preview_enabled)
  branding_public_base=valid_origin(branding_public_base)
  app=Flask(__name__)
@@ -35,7 +43,7 @@ def create_app(reader=None,authorize=None,finder_context_reader=None,finder_base
  def private_response(response):
   response.headers['Cache-Control']='no-store'
   response.headers['X-Robots-Tag']='noindex, nofollow'
-  if response.status_code==200 and response.mimetype=='text/html':
+  if response.status_code==200 and response.mimetype=='text/html' and request.path!='/workspace/finder/offline.html':
    response.direct_passthrough=False
    response.set_data(brand_head(response.get_data(as_text=True),branding_public_base))
   response.headers['X-Content-Type-Options']='nosniff'
@@ -45,16 +53,24 @@ def create_app(reader=None,authorize=None,finder_context_reader=None,finder_base
    response.headers['Content-Security-Policy']+="; frame-src 'self' https://www.youtube-nocookie.com"
   if request.path=='/workspace/finder/index.html' and response.mimetype=='text/html' and response.status_code==200:
    response.direct_passthrough=False
-   response.set_data(manual_ships_shell(response.get_data(as_text=True)))
+   response.set_data(offline_opt_in(manual_ships_shell(response.get_data(as_text=True))))
    scripts=[body for attrs,body in re.findall(r'<script\b([^>]*)>(.*?)</script>',response.get_data(as_text=True),flags=re.S|re.I) if body.strip() and not re.search(r'\bsrc\s*=',attrs,re.I)]
    hashes=['\'sha256-'+base64.b64encode(hashlib.sha256(s.encode()).digest()).decode()+'\'' for s in scripts]
    response.headers['Content-Security-Policy']="default-src 'self'; script-src 'self' "+' '.join(hashes)+"; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src "+finder_connect+"; frame-ancestors 'self'; object-src 'none'; base-uri 'self'; form-action 'self'"
+  if request.path=='/workspace/finder/offline.html' and response.status_code==200 and response.mimetype=='text/html':
+   response.direct_passthrough=False
+   # Use source original, not branding that adds protected external assets.
+   # Memory route already supplies the transformed complete shell (Range ignored).
+   scripts=[body for attrs,body in re.findall(r'<script\b([^>]*)>(.*?)</script>',response.get_data(as_text=True),flags=re.S|re.I) if body.strip() and not re.search(r'\bsrc\s*=',attrs,re.I)]
+   hashes=["'sha256-"+base64.b64encode(hashlib.sha256(s.encode()).digest()).decode()+"'" for s in scripts]
+   response.headers['Content-Security-Policy']="default-src 'none'; script-src "+' '.join(hashes)+"; style-src 'unsafe-inline'; img-src data:; connect-src 'none'; frame-ancestors 'self'; object-src 'none'; base-uri 'none'; form-action 'none'"
+   response.headers['X-Finder-Public-Snapshot']='true'
   return response
  @app.get('/workspace')
  def workspace():return send_from_directory(root/'integration/ui','workspace.html')
  @app.get('/workspace/assets/<name>')
  def assets(name):
-  if name not in ('workspace.js','workspace.css','live_news.js','live_channels.js','countries.js','countries.css','tariffs.js','watch_updates.js','weekly.js','weekly.css','map.js','map.css','geo_map_ui.js','geo_map.css'):return jsonify(error='Not found'),404
+  if name not in ('workspace.js','workspace.css','live_news.js','live_channels.js','countries.js','countries.css','tariffs.js','watch_updates.js','weekly.js','weekly.css','map.js','map.css','geo_map_ui.js','geo_map.css','brics_streams.js','brics_streams.css'):return jsonify(error='Not found'),404
   return send_from_directory(root/'integration/ui',name)
  @app.get('/workspace/branding/<name>')
  def branding(name):
@@ -65,6 +81,11 @@ def create_app(reader=None,authorize=None,finder_context_reader=None,finder_base
  @app.get('/workspace/finder/<name>')
  def finder(name):
   import re
+  if name=='offline.html':return Response(offline_shell((root/'offline.html').read_text(encoding='utf-8')),mimetype='text/html')
+  if name=='offline-manifest.webmanifest':return jsonify(name='Public offline trade Finder',short_name='Offline Finder',id='/workspace/finder/offline.html',start_url='/workspace/finder/offline.html',scope='/workspace/finder/',display='standalone',icons=[])
+  if name=='offline-sw.js':
+   r=send_from_directory(root/'integration/ui','finder-offline-sw.js');r.headers['Service-Worker-Allowed']='/workspace/finder/';return r
+  if name=='offline-control.js':return send_from_directory(root/'integration/ui','finder-offline-control.js')
   if name not in ('index.html','offline.html','sw.js','manifest.webmanifest','icon-192.png','icon-512.png') and not re.fullmatch(r'data\.[0-9a-f]{12}\.js',name):return jsonify(error='Not found'),404
   return send_from_directory(root,name)
  source_reader=reader or (lambda:{'geo':[],'brics':[]})
@@ -87,7 +108,7 @@ def create_app(reader=None,authorize=None,finder_context_reader=None,finder_base
   try:allowed=authorize(request)
   except Exception:allowed=False
   if not allowed:return jsonify(error='Private news unavailable until approved access control'),403
-  if request.method=='POST' and request.headers.get('Origin')!=(allowed_origin or request.host_url.rstrip('/')):
+  if request.method in ('POST','DELETE') and request.headers.get('Origin')!=(allowed_origin or request.host_url.rstrip('/')):
    return jsonify(error='Same-origin request required'),403
  def selected_news():
   return selection(public_views(reader()),project=request.args.get('project',''),query=request.args.get('q',''),category=request.args.get('category',''),country=request.args.get('country',''),sort=request.args.get('sort','newest'))
@@ -174,6 +195,46 @@ def create_app(reader=None,authorize=None,finder_context_reader=None,finder_base
  def critical_preview():return geo_digest_preview('critical')
  @app.route('/weekly',methods=['GET','POST'])
  def weekly_preview():return geo_digest_preview('weekly')
+ @app.get('/workspace/brics-streams')
+ def brics_stream_workspace():return send_from_directory(root/'integration/ui','brics_streams.html')
+ @app.get('/api/brics/streams')
+ def brics_stream_get():
+  if brics_stream_fixture is None:return jsonify(error='Original stream persistence unwired',state='unwired'),503
+  return jsonify(streams=brics_stream_fixture.load(),state='fixture_only',persistence=False,polling=False)
+ def stream_json():
+  if request.mimetype!='application/json':return None,415
+  if request.content_length is None or not 0<request.content_length<=4096:return None,413
+  def pairs(items):
+   out={}
+   for key,value in items:
+    if key in out:raise ValueError('Duplicate field')
+    out[key]=value
+   return out
+  raw=request.stream.read(4097)
+  if len(raw)>4096:return None,413
+  if len(raw)!=request.content_length:return None,400
+  try:return json.loads(raw,object_pairs_hook=pairs),None
+  except (ValueError,UnicodeError):return None,400
+ @app.post('/api/brics/streams')
+ def brics_stream_add():
+  data,error=stream_json()
+  if error:return jsonify(error='Invalid bounded JSON request'),error
+  if brics_stream_fixture is None:return jsonify(error='Stream persistence unwired'),503
+  if type(data) is not dict or set(data)-{'name','country','link','video_id'}:return jsonify(error='Invalid stream fields'),400
+  try:row=brics_stream_fixture.add(data.get('name'),data.get('country'),data.get('link') or data.get('video_id'))
+  except ValueError:return jsonify(error='Invalid or duplicate stream'),400
+  return jsonify(status='added',stream=row,state='fixture_only',persistence=False)
+ @app.delete('/api/brics/streams')
+ def brics_stream_delete():
+  data,error=stream_json()
+  if error:return jsonify(error='Invalid bounded JSON request'),error
+  if type(data) is not dict or set(data)!={'name'}:return jsonify(error='Exact name body required'),400
+  name=data['name']
+  if brics_stream_fixture is None:return jsonify(error='Stream persistence unwired'),503
+  try:removed=brics_stream_fixture.remove(name)
+  except ValueError:return jsonify(error='Invalid stream name'),400
+  if not removed:return jsonify(error='No matching stream'),404
+  return jsonify(status='removed',name=name,state='fixture_only',persistence=False)
  @app.get('/workspace/tariffs')
  def tariff_workspace():return send_from_directory(root/'integration/ui','tariffs.html')
  @app.get('/workspace/countries')

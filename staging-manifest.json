@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 607,
+  "tests": 620,
   "files": [
     {
       "path": ".env.example",
@@ -106,6 +106,11 @@
       "sha256": "83a9704fdb322434e2505fb78f2c1f3a8ba158cc19e50dfe61b5cd22e69883b3"
     },
     {
+      "path": "integration/BRICS_STREAM_LIMITS.md",
+      "bytes": 2687,
+      "sha256": "6f201c5363bdeada0c0f7ebae843de07588daafb47c6dcbb805d91c2bfc78003"
+    },
+    {
       "path": "integration/COLLECTION_PREPARE_LIMITS.md",
       "bytes": 1362,
       "sha256": "136661a40c3f662cca44b87fa2ccb5f2f0c94a725e01574de4271495c2d66331"
@@ -141,9 +146,14 @@
       "sha256": "a5b3d3ecc8dfddc53374853649e1f0d4468d7a90be1a367b2ae35abe085da768"
     },
     {
+      "path": "integration/FINDER_OFFLINE_LIMITS.md",
+      "bytes": 2969,
+      "sha256": "e8378108d5c4c7599c90054b4374357031f351c41be8e71ad5ed3c38ddd4dbbc"
+    },
+    {
       "path": "integration/FINDER_PARITY_PLAN.md",
-      "bytes": 6394,
-      "sha256": "c08422950d1fc76bbf7de473cc2baf324ca756e58454bdc9ef65bfc186e9ea62"
+      "bytes": 6523,
+      "sha256": "ae6014af278244b42def412a0e761cb5a19ce3f9999f692557bf47b4f36febfc"
     },
     {
       "path": "integration/FINDER_SNAPSHOT_NOTES.md",
@@ -316,6 +326,11 @@
       "sha256": "0aa79d68b68f750b0064b0955fdd5b25e884173fee6722c90f6ccacf49861da7"
     },
     {
+      "path": "integration/brics_streams.py",
+      "bytes": 3821,
+      "sha256": "a7f2328432960151a499ff6c2ddff1dcb50e0dd48ae696da0d94d071932b6f99"
+    },
+    {
       "path": "integration/collection_prepare.py",
       "bytes": 2493,
       "sha256": "2d0886b3126dfd4da4c7fa647ff414afbd27a6032204a8f9ad2be046f86c25b2"
@@ -379,6 +394,11 @@
       "path": "integration/finder_network.py",
       "bytes": 1676,
       "sha256": "07fc045266659eadbefef1b52829c4e185ccdc70a3362fbd076a9d79719b3232"
+    },
+    {
+      "path": "integration/finder_offline.py",
+      "bytes": 3465,
+      "sha256": "1be81c458ef1cdd088abdad1df6623cadaf52ac8065ae279ebe0e997adca1b57"
     },
     {
       "path": "integration/geo_only_runtime.py",
@@ -517,8 +537,8 @@
     },
     {
       "path": "integration/news_api.py",
-      "bytes": 19730,
-      "sha256": "c114ac53df63bbd82a62f8257f64397386452a540e2be36c84846c8000358a1b"
+      "bytes": 24403,
+      "sha256": "a52b724341855add72f328ddda81942bd918126d98e611a1e1f46d29b0b94bfe"
     },
     {
       "path": "integration/news_export/__init__.py",
@@ -529,6 +549,11 @@
       "path": "integration/news_export/export.py",
       "bytes": 12651,
       "sha256": "fad8c67bb915280cb895db79c553d60e137d9df339d791b8ad554d5ebad614a1"
+    },
+    {
+      "path": "integration/news_refresh.js",
+      "bytes": 974,
+      "sha256": "5578573fd8e1facad013f96f28674289c8df160ad4e61ec93439606cb781adc2"
     },
     {
       "path": "integration/news_view.py",
@@ -686,6 +711,21 @@
       "sha256": "cc3d2a4e84ab863da50b77916a47b74cbd17d755d8cd8fcf8874498ad4d30002"
     },
     {
+      "path": "integration/ui/brics_streams.css",
+      "bytes": 541,
+      "sha256": "2d56497a2c209bd7414c51fb83cdd9977565257d1da749813d079489420c8951"
+    },
+    {
+      "path": "integration/ui/brics_streams.html",
+      "bytes": 1078,
+      "sha256": "66c156ee98747386ab9fbd0d493cfa5a7af4683b04429dc34106a1d36dd01bbd"
+    },
+    {
+      "path": "integration/ui/brics_streams.js",
+      "bytes": 1699,
+      "sha256": "c05a58762faa06df9cf4dde0c7330cfc8f65c9151d34b8586344a420701aa424"
+    },
+    {
       "path": "integration/ui/countries.css",
       "bytes": 1159,
       "sha256": "01eec24d431f5f51ed96ae4d44b0208b477fcfc4bf5830e3cea96cf0cabe0f6d"
@@ -699,6 +739,16 @@
       "path": "integration/ui/countries.js",
       "bytes": 9239,
       "sha256": "6968fcdc7439a1fd455f6b7befa9ceda3287bd2929b67a22284028063258b188"
+    },
+    {
+      "path": "integration/ui/finder-offline-control.js",
+      "bytes": 1542,
+      "sha256": "6fd7db7a47a172695aff804e47d12429613be6ddf158cd94a9b12a356a92b012"
+    },
+    {
+      "path": "integration/ui/finder-offline-sw.js",
+      "bytes": 1238,
+      "sha256": "17706e41dce79b9800886a067c3cee15fd0491466725baa1c5dec9c442898fb4"
     },
     {
       "path": "integration/ui/geo_map.css",
@@ -772,8 +822,8 @@
     },
     {
       "path": "integration/ui/workspace.html",
-      "bytes": 5146,
-      "sha256": "081c0c8d4a8ace4c4e63e705ca4ae956ef9a6d449a4d7ae99767ba26f96ea43b"
+      "bytes": 5198,
+      "sha256": "53bd579a5b1078453b990271acb5157c4db35943df7748f76e1481bd96b0674d"
     },
     {
       "path": "integration/ui/workspace.js",
@@ -1761,6 +1811,11 @@
       "sha256": "48b00b44f907ba5b63ffbb34734ae42b8dcdea8f4369274973ab7c2852698210"
     },
     {
+      "path": "tests/browser_brics_streams.py",
+      "bytes": 1755,
+      "sha256": "76635cec97752e0d3c452e778b26e0a14d690a750b81fc66af51489f7dd598c2"
+    },
+    {
       "path": "tests/browser_compulsory_channels.py",
       "bytes": 3758,
       "sha256": "a7fb379487a34c625d886c5c4d372f8931985ef72a382625868ea4c6c1e0a822"
@@ -1784,6 +1839,11 @@
       "path": "tests/browser_finder_network.py",
       "bytes": 3582,
       "sha256": "97b4fcaf1861f06c6752473786c60056153fc3d98839772c399677b301443120"
+    },
+    {
+      "path": "tests/browser_finder_offline.py",
+      "bytes": 3176,
+      "sha256": "66a6de4f67743d93c3570d8652698e3c21bb01f413c02b2a2f9845128f0b4789"
     },
     {
       "path": "tests/browser_finder_static.py",
@@ -1916,6 +1976,11 @@
       "sha256": "e8ff6b98073eedb24660967ad8d07b57a46792f7e668aa013af48a9c392d2e93"
     },
     {
+      "path": "tests/news_refresh_test.mjs",
+      "bytes": 1052,
+      "sha256": "24b9372e196cb78371662905a0892f89a2ad6beef7949a0caa7dd2dd21436c14"
+    },
+    {
       "path": "tests/test_agencia_parser.py",
       "bytes": 3584,
       "sha256": "1d93647a48a3f6d2c88d7441273865b4eac3897c1f7d71eb54bc631ddb6971a8"
@@ -1924,6 +1989,11 @@
       "path": "tests/test_branding.py",
       "bytes": 2441,
       "sha256": "ec04fee6d602819bc53ddef36e53d58b19131faa795263d5f5b859f03de92ee6"
+    },
+    {
+      "path": "tests/test_brics_streams.py",
+      "bytes": 5954,
+      "sha256": "9253ef6d64669c58a3026d0824077d45f1659df508c45b220e286405610a6e5f"
     },
     {
       "path": "tests/test_bridges.py",
@@ -2016,6 +2086,11 @@
       "sha256": "6b48236705d3aad92490e62509f5aa9f544f085dd82ca4d7f657ce68ab78ec72"
     },
     {
+      "path": "tests/test_finder_offline.py",
+      "bytes": 2365,
+      "sha256": "089b837eead1a110cb4f4050a8360b1d036520e40b9b4f5f6069767a731c5fb0"
+    },
+    {
       "path": "tests/test_geo_only_runtime.py",
       "bytes": 4870,
       "sha256": "d20b07e376acbf2acf2850b2f9b3edfa5db4dfcad7d5fab4fec5012789018f74"
@@ -2094,6 +2169,11 @@
       "path": "tests/test_project_reports.py",
       "bytes": 1015,
       "sha256": "59a59dd575a26efdfc1f5aa09262eb7c1c3f8fa9ab0efcfa7983a9737db768c7"
+    },
+    {
+      "path": "tests/test_refresh_controller.py",
+      "bytes": 347,
+      "sha256": "cf41f1d36268c4838ea31783560a63518291353672ec3b326457f8ac39c619fa"
     },
     {
       "path": "tests/test_report_styles.py",
