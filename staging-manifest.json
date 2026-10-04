@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 428,
+  "tests": 508,
   "files": [
     {
       "path": ".env.example",
@@ -117,8 +117,8 @@
     },
     {
       "path": "integration/COUNTRY_SIGNALS_LIMITS.md",
-      "bytes": 2897,
-      "sha256": "b5d8a61ed6386c8cb1aef98c9b6e57daf54a48854ff7d91963400c47d7ab50ef"
+      "bytes": 3572,
+      "sha256": "3918ea4093bd003008851821bb520b5b5c52ca37c6c84913fc484307f1abd5a6"
     },
     {
       "path": "integration/FAKE_WRITER_LIMITS.md",
@@ -179,6 +179,51 @@
       "path": "integration/__init__.py",
       "bytes": 77,
       "sha256": "5d961509258c047783dbe624ffaa01940143f0e09e8e19cf4e595372fd5c0a88"
+    },
+    {
+      "path": "integration/accounts/README.md",
+      "bytes": 5096,
+      "sha256": "562e065f567d6b9eb58448bd195089ff2c0efae73d302ae8e2d1a40e510477dc"
+    },
+    {
+      "path": "integration/accounts/__init__.py",
+      "bytes": 540,
+      "sha256": "b5c2db9c2b3c8c4115e44893b6a29319919200a9f39ffe8c05be8c9b2eb94c46"
+    },
+    {
+      "path": "integration/accounts/csrf.py",
+      "bytes": 1930,
+      "sha256": "83f9efa88b89f2571ee79f5c4d667b2f5be72bd39313110af8e6f9ec4f18d6ca"
+    },
+    {
+      "path": "integration/accounts/limiter.py",
+      "bytes": 3900,
+      "sha256": "cd9ba7535264fe001a3afeaef840a7333b02788bd0c106ede483145c8e6384b5"
+    },
+    {
+      "path": "integration/accounts/passwords.py",
+      "bytes": 6198,
+      "sha256": "748f863aeb3cacf20bca3c0c7efcc1e583e615db7404533ad6d693879b22208c"
+    },
+    {
+      "path": "integration/accounts/service.py",
+      "bytes": 12378,
+      "sha256": "2f53edc5575786782d32233e17809044258bb93d5046ad6a2e4669703678b4ef"
+    },
+    {
+      "path": "integration/accounts/settings.py",
+      "bytes": 2940,
+      "sha256": "1f55a375a105ac272ccbef71e9eb3763e3bb13155ce68e80f305b00e178e2389"
+    },
+    {
+      "path": "integration/accounts/store.py",
+      "bytes": 7714,
+      "sha256": "5ae1f45078356e42cacadbcae705e5d34bac58aa62a9da0fd8b9c9befdca4644"
+    },
+    {
+      "path": "integration/accounts/validators.py",
+      "bytes": 2036,
+      "sha256": "4aae0e598d9240d99ee41e4687c3a23fc35438b992009c24a7451410569872d4"
     },
     {
       "path": "integration/agencia_parser.py",
@@ -382,8 +427,8 @@
     },
     {
       "path": "integration/news_api.py",
-      "bytes": 12195,
-      "sha256": "0ef5af734726934f7d5b220de3af8822a7039fc28ad718b6f87e0cf07935c1d4"
+      "bytes": 13178,
+      "sha256": "8e8c99629a94ba541765421dd93c2cb7a7337f5a880e90baf56cce82db38b049"
     },
     {
       "path": "integration/news_view.py",
@@ -542,13 +587,13 @@
     },
     {
       "path": "integration/ui/countries.html",
-      "bytes": 2696,
-      "sha256": "18bff900edb973f700b75a4397b80c8f700b9450ca04e6e1862d1fd6b8f7d1f6"
+      "bytes": 3181,
+      "sha256": "510907a12cdc096394a4fa8ad4c167efedf88a7a3dcee517e9cee2fad42689c1"
     },
     {
       "path": "integration/ui/countries.js",
-      "bytes": 7258,
-      "sha256": "c497e9a519f3cb03ec7718951860bf67722c2df5af403d123984244f9762a688"
+      "bytes": 9239,
+      "sha256": "6968fcdc7439a1fd455f6b7befa9ceda3287bd2929b67a22284028063258b188"
     },
     {
       "path": "integration/ui/live_channels.js",
@@ -1556,6 +1601,21 @@
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     {
+      "path": "tests/accounts/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tests/accounts/test_accounts.py",
+      "bytes": 19197,
+      "sha256": "2612b3ae5930128533eccad04dad3abcbe9f314357ea716a53d8bc78d51fff9e"
+    },
+    {
+      "path": "tests/accounts/test_hardening.py",
+      "bytes": 25892,
+      "sha256": "48b00b44f907ba5b63ffbb34734ae42b8dcdea8f4369274973ab7c2852698210"
+    },
+    {
       "path": "tests/browser_compulsory_channels.py",
       "bytes": 3758,
       "sha256": "a7fb379487a34c625d886c5c4d372f8931985ef72a382625868ea4c6c1e0a822"
@@ -1684,6 +1744,11 @@
       "path": "tests/test_country_signals.py",
       "bytes": 5757,
       "sha256": "699e87a1761071512481405283e721ffd7c9d47ed0e01b260447445e37aa127a"
+    },
+    {
+      "path": "tests/test_country_signals_routes.py",
+      "bytes": 1878,
+      "sha256": "cbb5e02d08fdc4e390c80214968984303a04f3072224f28aa171e7faff300314"
     },
     {
       "path": "tests/test_critical_stories.py",

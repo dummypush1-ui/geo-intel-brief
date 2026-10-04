@@ -13,6 +13,7 @@ from integration.loaded_news import selection,sample_csv
 from integration.loaded_charts import loaded_chart
 from integration.critical_stories import critical_stories
 from integration.country_page import country_page
+from integration.country_signals import country_signals
 from integration.tariff_evidence import TariffEvidenceSnapshot
 from integration.source_health import SourceHealthSnapshot
 from datetime import datetime,timezone
@@ -94,6 +95,21 @@ def create_app(reader=None,authorize=None,finder_context_reader=None,finder_base
   if type(tariff_evidence_snapshot) is not TariffEvidenceSnapshot:return jsonify(error='Evidence unavailable'),503
   try:return jsonify(TariffEvidenceSnapshot.view(tariff_evidence_snapshot,datetime.now(timezone.utc),jurisdiction))
   except Exception:return jsonify(error='Evidence unavailable'),503
+ @app.get('/api/country-signals')
+ def countries_signal_view():
+  country=request.args.get('country','')
+  try:country_signals([],country,datetime.now(timezone.utc))
+  except ValueError:return jsonify(error='Exact bounded country label required'),400
+  rows=public_views(reader())
+  # The normalized public read view has plain string fields. Isolate exact
+  # country/project before strict signal validation; unrelated data can't fail it.
+  selected=[r for r in rows if r.get('original_country')==country and r.get('project')=='geo']
+  try:
+   result=country_signals(selected,country,datetime.now(timezone.utc))
+   result['supplied_read_view_rows']=len(rows)
+   result['reader_scope_note']='Bounded supplied read view, not whole database; live reader uses newest up to100 rows per configured collection'
+   return jsonify(result)
+  except (ValueError,TypeError):return jsonify(error='Supplied signal snapshot unavailable'),503
  @app.get('/api/country-page')
  def countries_read_view():
   try:return jsonify(country_page(public_views(reader()),request.args.get('country',''),request.args.get('project','')))
