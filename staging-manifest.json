@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 233,
+  "tests": 243,
   "files": [
     {
       "path": ".env.example",
@@ -111,6 +111,11 @@
       "sha256": "c425188abfd19c098941adb8f1b62519e4b42200a20cc61040a6687de89e254d"
     },
     {
+      "path": "integration/OFFLINE_CYCLE_LIMITS.md",
+      "bytes": 1932,
+      "sha256": "27486fc2db38e9aea323f3b5afdfb9ba770186d783f294c5a636ea5edcc0cc80"
+    },
+    {
       "path": "integration/REPORT_STYLE_LIMITS.md",
       "bytes": 1141,
       "sha256": "6914cc0083abbf8dcc968f26fcb72098dfe286ec8407a5c5b619ebb714475f43"
@@ -202,8 +207,8 @@
     },
     {
       "path": "integration/fake_collection_writer.py",
-      "bytes": 3576,
-      "sha256": "d65420155e73f75bb7c59857ed406ec39b371c588906393cbc41342915be3205"
+      "bytes": 3605,
+      "sha256": "f209fe293d3fab5702476682b9b7d3a659ddaea466dc3e9d88e52a56dbd05c64"
     },
     {
       "path": "integration/finder-news.js",
@@ -254,6 +259,11 @@
       "path": "integration/news_view.py",
       "bytes": 1896,
       "sha256": "d24256b4467b6acc81bbb4d9e0f689c42b52511443fe1fa0feb3725b06416b1f"
+    },
+    {
+      "path": "integration/offline_collection_cycle.py",
+      "bytes": 2066,
+      "sha256": "18c5a89dbf8d788c25c00d20d34ed6ad532b2396e8a2f4326decf3b2a0680d06"
     },
     {
       "path": "integration/original_dashboard_payloads.py",
@@ -1399,6 +1409,11 @@
       "path": "tests/test_mail_bridge.py",
       "bytes": 2240,
       "sha256": "1a1eea1d13254e2e9e87c0a949fceb39720e242e2d3560882c5364c7315f4c19"
+    },
+    {
+      "path": "tests/test_offline_collection_cycle.py",
+      "bytes": 5413,
+      "sha256": "db5d9b91337e1ec4dbdf7c493e075340fd0e1d3c7a5cb7011b6ca49da4774383"
     },
     {
       "path": "tests/test_original_dashboard_payloads.py",

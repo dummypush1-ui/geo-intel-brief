@@ -26,6 +26,7 @@ def plain(value,depth=0):
  return False
 
 class FakeCollectionWriter:
+ __slots__=('_geo','_brics')
  def __init__(self):self._geo={};self._brics={}
  def snapshot(self,project):
   if project not in FIELDS:raise ValueError('Exact project required')
