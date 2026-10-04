@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 628,
+  "tests": 637,
   "files": [
     {
       "path": ".env.example",
@@ -222,13 +222,13 @@
     },
     {
       "path": "integration/accounts/HTTP_FIXTURE_LIMITS.md",
-      "bytes": 2535,
-      "sha256": "8758bb26a4c3ae05af134f85f9d01e750a753e9d6c9997f411dae38f8e92f30a"
+      "bytes": 2743,
+      "sha256": "97c8717037cd7c0ce6d6fcc27738de4e165b5bde70814238e3b198401be833d4"
     },
     {
       "path": "integration/accounts/README.md",
-      "bytes": 5096,
-      "sha256": "562e065f567d6b9eb58448bd195089ff2c0efae73d302ae8e2d1a40e510477dc"
+      "bytes": 5185,
+      "sha256": "e439a4604863382f28a8c3c7ba2e5fcbca3e971fca152aa747463b27a154feb3"
     },
     {
       "path": "integration/accounts/__init__.py",
@@ -566,6 +566,11 @@
       "sha256": "a52b724341855add72f328ddda81942bd918126d98e611a1e1f46d29b0b94bfe"
     },
     {
+      "path": "integration/news_export/ORIGINAL_CONTRACT_LIMITS.md",
+      "bytes": 3298,
+      "sha256": "abdcc9c9a6f4ec5c9870ae118175e68294d760d34baff2f426eb4b780c70d8f7"
+    },
+    {
       "path": "integration/news_export/__init__.py",
       "bytes": 451,
       "sha256": "93eb53a354d5b4d92d0e3b6ace238c477bddd1c6b85a2b3cec30f215ab746f1f"
@@ -574,6 +579,11 @@
       "path": "integration/news_export/export.py",
       "bytes": 12651,
       "sha256": "fad8c67bb915280cb895db79c553d60e137d9df339d791b8ad554d5ebad614a1"
+    },
+    {
+      "path": "integration/news_export/original_contract.py",
+      "bytes": 5875,
+      "sha256": "7f46af666deae5793df9c066e2a7afbf38de6317e195c74cb438a4206802841e"
     },
     {
       "path": "integration/news_refresh.js",
@@ -2009,6 +2019,11 @@
       "path": "tests/news_export/test_export_route.py",
       "bytes": 4680,
       "sha256": "e8ff6b98073eedb24660967ad8d07b57a46792f7e668aa013af48a9c392d2e93"
+    },
+    {
+      "path": "tests/news_export/test_original_contract.py",
+      "bytes": 4737,
+      "sha256": "c9c75c0d717119b567a91b471782a91921282763b1edd122b7c257f251c6e062"
     },
     {
       "path": "tests/news_refresh_test.mjs",
