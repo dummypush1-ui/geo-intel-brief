@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 312,
+  "tests": 322,
   "files": [
     {
       "path": ".env.example",
@@ -379,6 +379,26 @@
       "path": "integration/report_styles.py",
       "bytes": 6604,
       "sha256": "a65de5a98d013d933af811a139fe0850569e9b632ffc941e9275e4faec067321"
+    },
+    {
+      "path": "integration/rss_catalog/README.md",
+      "bytes": 2478,
+      "sha256": "ad16bfe99118af51e0a96ccefa52740dae622e674860827cdc154ab518b9dd54"
+    },
+    {
+      "path": "integration/rss_catalog/__init__.py",
+      "bytes": 69,
+      "sha256": "471bc14d40ed6d05418c8d1de007c5c1386059715c183ca6554098ec93f199c9"
+    },
+    {
+      "path": "integration/rss_catalog/candidates.json",
+      "bytes": 81905,
+      "sha256": "11ec23d0fd606efb71ad2dc212b6f4cf36bf24a507a96585c75ccf5acf78176b"
+    },
+    {
+      "path": "integration/rss_catalog/catalog.py",
+      "bytes": 4723,
+      "sha256": "4c22b421ec0c8e25ba6a96c9cd2b24038c1c8c930cd6e1f2a98ce07ff45bf9c9"
     },
     {
       "path": "integration/runtime.py",
@@ -1639,6 +1659,11 @@
       "path": "tests/test_report_styles.py",
       "bytes": 3040,
       "sha256": "2cabde91f1e699adb69af3d4636b604e0428cc89b539102c57c4bdc1a8b9b67b"
+    },
+    {
+      "path": "tests/test_rss_catalog.py",
+      "bytes": 3934,
+      "sha256": "915b124532c5d1b1f9ab2c1911879336a467b6fdfca162ef0bc016d8ccaef7d2"
     },
     {
       "path": "tests/test_runtime.py",
