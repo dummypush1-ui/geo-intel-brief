@@ -12,12 +12,13 @@ from integration.loaded_news import selection,sample_csv
 from integration.loaded_charts import loaded_chart
 from integration.critical_stories import critical_stories
 from integration.country_page import country_page
+from integration.tariff_evidence import TariffEvidenceSnapshot
 from integration.source_health import SourceHealthSnapshot
 from datetime import datetime,timezone
 from integration.dashboard_snapshots import DashboardSnapshots
 from integration.branding_meta import brand_head,valid_origin
 
-def create_app(reader=None,authorize=None,finder_context_reader=None,finder_base=None,finder_index_verified=False,allowed_origin=None,branding_public_base=None,dashboard_snapshot_reader=None,source_health_snapshot=None):
+def create_app(reader=None,authorize=None,finder_context_reader=None,finder_base=None,finder_index_verified=False,allowed_origin=None,branding_public_base=None,dashboard_snapshot_reader=None,source_health_snapshot=None,tariff_evidence_snapshot=None):
  branding_public_base=valid_origin(branding_public_base)
  app=Flask(__name__)
  root=Path(__file__).resolve().parents[1]
@@ -43,7 +44,7 @@ def create_app(reader=None,authorize=None,finder_context_reader=None,finder_base
  def workspace():return send_from_directory(root/'integration/ui','workspace.html')
  @app.get('/workspace/assets/<name>')
  def assets(name):
-  if name not in ('workspace.js','workspace.css','live_news.js','live_channels.js','countries.js','countries.css'):return jsonify(error='Not found'),404
+  if name not in ('workspace.js','workspace.css','live_news.js','live_channels.js','countries.js','countries.css','tariffs.js'):return jsonify(error='Not found'),404
   return send_from_directory(root/'integration/ui',name)
  @app.get('/workspace/branding/<name>')
  def branding(name):
@@ -79,8 +80,18 @@ def create_app(reader=None,authorize=None,finder_context_reader=None,finder_base
    return jsonify(error='Same-origin request required'),403
  def selected_news():
   return selection(views(reader()),project=request.args.get('project',''),query=request.args.get('q',''),category=request.args.get('category',''),country=request.args.get('country',''),sort=request.args.get('sort','newest'))
+ @app.get('/workspace/tariffs')
+ def tariff_workspace():return send_from_directory(root/'integration/ui','tariffs.html')
  @app.get('/workspace/countries')
  def countries_workspace():return send_from_directory(root/'integration/ui','countries.html')
+ @app.get('/api/tariff-evidence')
+ def tariff_evidence_view():
+  jurisdiction=request.args.get('jurisdiction','')
+  if jurisdiction not in ('','IN','US','EU'):return jsonify(error='Known jurisdiction required'),400
+  if tariff_evidence_snapshot is None:return jsonify(state='tariff_evidence_unwired',items=[],current_rates_verified=False,legal_effect_independently_verified=False,network=False,delivery=False,polling=False)
+  if type(tariff_evidence_snapshot) is not TariffEvidenceSnapshot:return jsonify(error='Evidence unavailable'),503
+  try:return jsonify(TariffEvidenceSnapshot.view(tariff_evidence_snapshot,datetime.now(timezone.utc),jurisdiction))
+  except Exception:return jsonify(error='Evidence unavailable'),503
  @app.get('/api/country-page')
  def countries_read_view():
   try:return jsonify(country_page(views(reader()),request.args.get('country',''),request.args.get('project','')))

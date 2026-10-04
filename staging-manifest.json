@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 284,
+  "tests": 293,
   "files": [
     {
       "path": ".env.example",
@@ -151,6 +151,11 @@
       "sha256": "b2f2d1bcb3b0368ced209b49a84eb348e2e3926a355894c98177d01eee32c2a1"
     },
     {
+      "path": "integration/TARIFF_EVIDENCE_LIMITS.md",
+      "bytes": 2060,
+      "sha256": "56d1f44f809a636b423dc077ebf75cd59070abd0d4185d4205d5bd03d98956a4"
+    },
+    {
       "path": "integration/__init__.py",
       "bytes": 77,
       "sha256": "5d961509258c047783dbe624ffaa01940143f0e09e8e19cf4e595372fd5c0a88"
@@ -292,8 +297,8 @@
     },
     {
       "path": "integration/news_api.py",
-      "bytes": 11115,
-      "sha256": "7f9c268169852ffc20ddcf0ec8865dee92c1f4d9f66a45deef8ea3a40abab4eb"
+      "bytes": 12065,
+      "sha256": "2ffeb7f6502985a7be044c794f16478ebfb6903a421f83f86e0998508fadaf5f"
     },
     {
       "path": "integration/news_view.py",
@@ -411,6 +416,11 @@
       "sha256": "2339eeb0ea56152adb526033f2f6ce7e90b819e26014e99b35ba69c59b4f82fb"
     },
     {
+      "path": "integration/tariff_evidence.py",
+      "bytes": 5275,
+      "sha256": "a065557e5912ae5330818a62eefae8367032f157c902127056be6934e70c8e17"
+    },
+    {
       "path": "integration/taxonomy.py",
       "bytes": 974,
       "sha256": "cc3d2a4e84ab863da50b77916a47b74cbd17d755d8cd8fcf8874498ad4d30002"
@@ -422,13 +432,13 @@
     },
     {
       "path": "integration/ui/countries.html",
-      "bytes": 2133,
-      "sha256": "c46776f5184c00d6d0374da143c7194850c14c2f1a432a46a9a3fe3e3e6ed729"
+      "bytes": 2202,
+      "sha256": "3ac5c455996044d5ae464dcc098d44ec17ef3e09029495282723369318dab024"
     },
     {
       "path": "integration/ui/countries.js",
-      "bytes": 5277,
-      "sha256": "934167610683dd9174db60afa42699ffb4aead504517c408b7e826e2d26c3efa"
+      "bytes": 5532,
+      "sha256": "4ab3e3f8bf3fe95cfae9f86809a9619f21bf1b423fd2dc7b44ed87746a6eb891"
     },
     {
       "path": "integration/ui/live_channels.js",
@@ -439,6 +449,16 @@
       "path": "integration/ui/live_news.js",
       "bytes": 4624,
       "sha256": "905ef37da5badb95bee57b4e3cebb1bcad8ad66acebf3d8b4aa78189adb199be"
+    },
+    {
+      "path": "integration/ui/tariffs.html",
+      "bytes": 2240,
+      "sha256": "15c8c455cf93ac80b8607583802968ae86f54891bb8d2a5b6e7c9435063a42f3"
+    },
+    {
+      "path": "integration/ui/tariffs.js",
+      "bytes": 2838,
+      "sha256": "08cee7dc00a91d0fe8dd665f5f19bb4f5da39e50e6dc1df79a97330eced9064f"
     },
     {
       "path": "integration/ui/workspace.css",
@@ -1421,6 +1441,11 @@
       "sha256": "4408f861b4c61ba1191d56b9288a8cea4f1ea5efedf7cb50f4daaa440e7309f2"
     },
     {
+      "path": "tests/browser_tariff_evidence.py",
+      "bytes": 3876,
+      "sha256": "ceb7f2a41bf1decbf2948a38edd4be68f7aff85ed049025e7c62ab3c9c21218e"
+    },
+    {
       "path": "tests/test_agencia_parser.py",
       "bytes": 3584,
       "sha256": "1d93647a48a3f6d2c88d7441273865b4eac3897c1f7d71eb54bc631ddb6971a8"
@@ -1619,6 +1644,11 @@
       "path": "tests/test_storage_settings.py",
       "bytes": 2293,
       "sha256": "dd38a82da40cebf309af60359b57272370626237fc712117f662e62d2df4ec85"
+    },
+    {
+      "path": "tests/test_tariff_evidence.py",
+      "bytes": 4108,
+      "sha256": "034a3ab164508c2bddbbb4d89ec7db68f43b491a501c9c099b42e3552d70b276"
     },
     {
       "path": "tests/test_workspace.py",
