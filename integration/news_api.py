@@ -184,7 +184,7 @@ def create_app(reader=None,authorize=None,finder_context_reader=None,finder_base
    raw=reader()
    if type(raw) is not dict or len(raw)>2 or any(k not in ('geo','brics') for k in raw) or any(type(v) not in (list,tuple) for v in raw.values()) or sum(len(v) for v in raw.values())>2000:raise ValueError('Snapshot bound')
    rows=public_views({'geo':raw.get('geo',[])[:100]})
-   return jsonify(digest_preview(rows,kind,datetime.now(timezone.utc)))
+   return jsonify(digest_preview(rows,kind,datetime.now(timezone.utc),event_snapshots=dashboard_snapshot_reader))
   except Exception:
    app.logger.warning('Digest preview unavailable');return jsonify(error='Digest preview unavailable'),503
  @app.get('/digest-data')

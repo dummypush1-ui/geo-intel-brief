@@ -24,7 +24,7 @@ SPECS={
 }
 BUILTINS={'list':list,'dict':dict,'len':len,'sum':sum,'sorted':sorted,'str':str}
 
-def renderer(kind,dependencies):
+def renderer(kind,dependencies,now=None):
  path,names,constants=SPECS[kind]
  source=(ROOT/path).read_bytes()
  if hashlib.sha256(source).hexdigest()!=PINS[kind]:raise ValueError('Renderer requires review')
@@ -38,7 +38,10 @@ def renderer(kind,dependencies):
    values[node.targets[0].id]=ast.literal_eval(node.value)
  if {n.name for n in body}!=set(names) or set(values)!=set(constants):raise ValueError('Renderer definition missing')
  formats=('%d %B %Y','%d %b %Y','%d %b %Y | %H:%M')
- date_text={fmt:datetime.datetime.now().strftime(fmt) for fmt in formats}
+ if now is None:now=datetime.datetime.now(datetime.timezone.utc)
+ if type(now) is not datetime.datetime or type(now.tzinfo) is not datetime.timezone:raise ValueError('Fixed aware renderer clock required')
+ now=now.astimezone(datetime.timezone.utc)
+ date_text={fmt:now.strftime(fmt) for fmt in formats}
  clock=SimpleNamespace(strftime=lambda fmt:date_text[fmt])
  scope={'__builtins__':dict(BUILTINS),'html':SimpleNamespace(escape=html.escape),'defaultdict':defaultdict,
  'datetime':SimpleNamespace(now=lambda:clock),'UPCOMING_DAYS':90,

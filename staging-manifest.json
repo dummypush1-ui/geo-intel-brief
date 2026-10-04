@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 644,
+  "tests": 647,
   "files": [
     {
       "path": ".env.example",
@@ -132,8 +132,8 @@
     },
     {
       "path": "integration/EVENT_READER_LIMITS.md",
-      "bytes": 2411,
-      "sha256": "e643cd0301531bceafc70c07b636dc5babbd76c8de3add449c2f5c6ca1508701"
+      "bytes": 3638,
+      "sha256": "ba98984cd757f63d80e4f84e5eda53fa05e869cbb63d5e6a4ecb240f6025dc64"
     },
     {
       "path": "integration/EXPORT_DIGEST_LIMITS.md",
@@ -397,8 +397,8 @@
     },
     {
       "path": "integration/digest_preview.py",
-      "bytes": 2005,
-      "sha256": "3be26e0a3fe772b46f6e42e7e5f92402cb6f0f7ac1f1b00414f1708f78155e38"
+      "bytes": 3278,
+      "sha256": "d3265da45145f05434cb1e163af803f1eecd70847aa80a6b340e3ae2bfdfef88"
     },
     {
       "path": "integration/event_reader.py",
@@ -572,8 +572,8 @@
     },
     {
       "path": "integration/news_api.py",
-      "bytes": 24403,
-      "sha256": "a52b724341855add72f328ddda81942bd918126d98e611a1e1f46d29b0b94bfe"
+      "bytes": 24445,
+      "sha256": "fa897ed78dc33761fb76624b2e8e6043795e07b017637ff7bb0d96e998c91c2b"
     },
     {
       "path": "integration/news_export/ORIGINAL_CONTRACT_LIMITS.md",
@@ -652,13 +652,13 @@
     },
     {
       "path": "integration/renderer_scope.py",
-      "bytes": 3864,
-      "sha256": "b7cb66c187affdc02ec569a34c14fbd3d6655988da176ec856d0762c07e00ac6"
+      "bytes": 4101,
+      "sha256": "b5cc8d3b8bce68a53b19ae9f28b14f1d1e6c5ac0046a9a2dcdf868b02ad7ba46"
     },
     {
       "path": "integration/report_adapters.py",
-      "bytes": 1760,
-      "sha256": "0ae3f29a0c10e894b03b6b3dd871794c9dd90543b8a038b6fda16f4175fd026a"
+      "bytes": 1777,
+      "sha256": "af267f1950dc9fe0ed25757e1d3f380180239b7c89fa9bc6f0d872b8a1f7072a"
     },
     {
       "path": "integration/report_styles.py",
@@ -1891,6 +1891,11 @@
       "sha256": "011b500bb9e75ba75b2b86c3e242bf30e4207071a9b086829c02d75317a62ca5"
     },
     {
+      "path": "tests/browser_event_digest.py",
+      "bytes": 1862,
+      "sha256": "a27b4a2c654538299e19e2324090ebbcb1c15d78804f14daf1bc123b93163163"
+    },
+    {
       "path": "tests/browser_finder_network.py",
       "bytes": 3582,
       "sha256": "97b4fcaf1861f06c6752473786c60056153fc3d98839772c399677b301443120"
@@ -2117,8 +2122,8 @@
     },
     {
       "path": "tests/test_digest_preview_routes.py",
-      "bytes": 3519,
-      "sha256": "f580b439b2b2e542dbd5eaaa94c46c638a70adfbe1e895dc51acdbae3650e146"
+      "bytes": 6855,
+      "sha256": "b171fed8fd837dc9d800b00fd17d13fcc6b26e8341ca2e8e31daecb7ba14378e"
     },
     {
       "path": "tests/test_env_example.py",

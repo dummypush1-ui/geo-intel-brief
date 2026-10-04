@@ -8,10 +8,10 @@ from integration.html_safety import sanitize_html
 from html import escape
 from integration.news_view import safe_url
 
-def geo_report_builder(articles_reader,events_reader):
+def geo_report_builder(articles_reader,events_reader,now=None):
  # Legacy HTML puts a trigger secret into dashboard links; never forward that
  # link into merged mail. Authenticated workspace links will be added separately.
- fn=renderer('geo_digest',{'unemailed_articles':articles_reader,'upcoming_events':events_reader})
+ fn=renderer('geo_digest',{'unemailed_articles':articles_reader,'upcoming_events':events_reader},now=now)
  def build():
   html,critical,ids=fn();return {'html':sanitize_html(html),'critical_count':critical,'ids':ids}
  return build
