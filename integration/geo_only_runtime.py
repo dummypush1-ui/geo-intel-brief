@@ -1,0 +1,52 @@
+"""Explicit offline Geo-only read composition. Independently written (c)2026 Push.
+
+No private_router selection, default client, migration, old-store access or
+collector effects. A caller injects the client after separate live-read gates.
+"""
+from integration.preview_access import create_preview_from_env
+from integration.storage_reader import ReadOnlyNewsReader
+from integration.finder_index import load_bundled_index
+from integration.single_db_plan import label
+from pathlib import Path
+
+
+def compose_geo_only(environ,client_factory=None):
+    if type(environ) is not dict or any(type(k) is not str or type(v) is not str for k,v in environ.items()):raise ValueError('Plain environment strings required')
+    # Validate private access before loading any client. Finder is local only.
+    access=environ.get('PREVIEW_ACCESS_ENABLED','false').lower()=='true'
+    opts={}
+    if access:
+        idx=load_bundled_index(Path(__file__).resolve().parents[1])
+        opts={'finder_context_reader':idx.for_article,'finder_base':environ.get('PREVIEW_ORIGIN','').rstrip('/')+'/workspace/finder/index.html','finder_index_verified':True}
+    app=create_preview_from_env(environ,**opts);clients=[]
+    if environ.get('NEWS_READ_ENABLED','false').lower()=='true':
+        if not access or environ.get('NEWS_STORE_MAPPING_VERIFIED','false').lower()!='true':raise ValueError('Private access and Geo store review required')
+        database=environ.get('GEO_DATABASE','geo_intel');collection=environ.get('GEO_ARTICLES_COLLECTION','articles')
+        if (database,collection)!=('geo_intel','articles') and environ.get('GEO_MAPPING_OVERRIDE_VERIFIED','false').lower()!='true':raise ValueError('Nondefault Geo mapping requires separate review')
+        if not label(database) or not label(collection) or collection.casefold() in ('events','oplog','oplog.rs','admin','local') or database.casefold() in ('admin','local','newsbot','events'):raise ValueError('Explicit article mapping required')
+        if not environ.get('GEO_MONGODB_URI') or not callable(client_factory):raise ValueError('Explicit URI and injected client factory required')
+        try:client=client_factory(environ['GEO_MONGODB_URI'],serverSelectionTimeoutMS=5000,connect=False)
+        except Exception:raise ValueError('Read-only client unavailable') from None
+        if client is None:raise ValueError('Read-only client unavailable')
+        clients.append(client)
+        try:
+            reader=ReadOnlyNewsReader({'geo':client[database][collection]},verified=True,limit=100)
+            from threading import Lock
+            read_lock=Lock();failed=[False]
+            def guarded_read():
+                with read_lock:
+                    if failed[0]:raise ValueError('Geo news read unavailable')
+                    try:return reader()
+                    except Exception:
+                        failed[0]=True
+                        try:client.close()
+                        except Exception:pass
+                        raise ValueError('Geo news read unavailable') from None
+            app=create_preview_from_env(environ,reader=guarded_read,**opts)
+        except Exception:
+            try:client.close()
+            except Exception:pass
+            raise ValueError('Geo article mapping unavailable') from None
+    app.extensions['read_only_news_clients']=clients
+    app.extensions['stored_news_projects']=('geo',)
+    return app

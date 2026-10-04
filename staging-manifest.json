@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 305,
+  "tests": 312,
   "files": [
     {
       "path": ".env.example",
@@ -119,6 +119,11 @@
       "path": "integration/FAKE_WRITER_LIMITS.md",
       "bytes": 1272,
       "sha256": "c425188abfd19c098941adb8f1b62519e4b42200a20cc61040a6687de89e254d"
+    },
+    {
+      "path": "integration/GEO_ONLY_LIMITS.md",
+      "bytes": 1772,
+      "sha256": "aefbb56145f57cd8f2296a9ffcf3e14832384e85544b8292d48db9e4d385285b"
     },
     {
       "path": "integration/LIVE_NEWS_LIMITS.md",
@@ -279,6 +284,11 @@
       "path": "integration/finder_links.py",
       "bytes": 712,
       "sha256": "7a5d02def15e5a03790edb6d7b11c9a922df4e4dbd3de2c309e3b188aee2453b"
+    },
+    {
+      "path": "integration/geo_only_runtime.py",
+      "bytes": 3404,
+      "sha256": "36ff523cf9401943b2b3e511631d36663bcc0d8ab6f17e4d8cb938f092199846"
     },
     {
       "path": "integration/geo_rolling_breakdown.py",
@@ -1544,6 +1554,11 @@
       "path": "tests/test_finder_index.py",
       "bytes": 3921,
       "sha256": "591b3a5bff97a5f4631ff4c17a7e76f4c6bb24b06976d1cddf3eeb493ce3fadf"
+    },
+    {
+      "path": "tests/test_geo_only_runtime.py",
+      "bytes": 4870,
+      "sha256": "d20b07e376acbf2acf2850b2f9b3edfa5db4dfcad7d5fab4fec5012789018f74"
     },
     {
       "path": "tests/test_geo_rolling_breakdown.py",
