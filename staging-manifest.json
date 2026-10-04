@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 243,
+  "tests": 248,
   "files": [
     {
       "path": ".env.example",
@@ -111,6 +111,11 @@
       "sha256": "c425188abfd19c098941adb8f1b62519e4b42200a20cc61040a6687de89e254d"
     },
     {
+      "path": "integration/NEWS_PANEL_LIMITS.md",
+      "bytes": 1569,
+      "sha256": "1d8c28ed84406b508a242b02f8131c14d76b3ca5ce637338381163ae22e1c387"
+    },
+    {
       "path": "integration/OFFLINE_CYCLE_LIMITS.md",
       "bytes": 1932,
       "sha256": "27486fc2db38e9aea323f3b5afdfb9ba770186d783f294c5a636ea5edcc0cc80"
@@ -191,6 +196,11 @@
       "sha256": "2d0886b3126dfd4da4c7fa647ff414afbd27a6032204a8f9ad2be046f86c25b2"
     },
     {
+      "path": "integration/critical_stories.py",
+      "bytes": 1929,
+      "sha256": "a03f7ea0218d84ee7536a47ccf671bd0e73c34767cffc2ab1aadba064f6bda63"
+    },
+    {
       "path": "integration/cross-connections.json",
       "bytes": 2642,
       "sha256": "08baedc5db555d1220acfee91710836803318eb09160701a69e24cce517ba8d3"
@@ -252,8 +262,8 @@
     },
     {
       "path": "integration/news_api.py",
-      "bytes": 9701,
-      "sha256": "06a16ef63d64bb1420a9a152d2d3cabaf209ba545de08bc1ee3630d38d56cefb"
+      "bytes": 9902,
+      "sha256": "92bdd9352a39a2d290a6e938856cd5bd332df81e715b2811875a511f453f15a8"
     },
     {
       "path": "integration/news_view.py",
@@ -362,18 +372,18 @@
     },
     {
       "path": "integration/ui/workspace.css",
-      "bytes": 3150,
-      "sha256": "e7cbeefed0ae6f7045a31a3681adde67554ea944141ef9c3c5eb9146eebc60e7"
+      "bytes": 4081,
+      "sha256": "d0387ae5af7a7ae222552c1a30e44a658804c8f84baf5980f38cb863543818a9"
     },
     {
       "path": "integration/ui/workspace.html",
-      "bytes": 3178,
-      "sha256": "c43b022b411e1141c25b777c5dfd852a55e059144bb5622b44d44443f9cc09b3"
+      "bytes": 3649,
+      "sha256": "4e4468da5cacd2f4bf19e19ad7520bf88b5ef66f03f42799485b73a801bc374e"
     },
     {
       "path": "integration/ui/workspace.js",
-      "bytes": 21511,
-      "sha256": "36317364e8096dad9bdebcccbc159ad772f87e04476ce6fbde4de882f7ea26f0"
+      "bytes": 23456,
+      "sha256": "d28b9b9fc2d2765bc6bb682460f5fef70c6aaaa85edd3f04d3369f3fff4c559d"
     },
     {
       "path": "integration/youtube_links.py",
@@ -1349,6 +1359,11 @@
       "path": "tests/test_collection_prepare.py",
       "bytes": 2603,
       "sha256": "d9c7f87033433a282d222bc5dc32bf04d183498e7e1357402bee2970d2efccee"
+    },
+    {
+      "path": "tests/test_critical_stories.py",
+      "bytes": 2593,
+      "sha256": "4667df586c67fee181e9435a50cf9717921a7abc56100c5915629cac69dfcb73"
     },
     {
       "path": "tests/test_cross_routes.py",

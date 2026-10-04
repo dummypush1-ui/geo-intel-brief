@@ -62,7 +62,7 @@ for (const button of document.querySelectorAll('[data-view]')) button.addEventLi
   active = button.dataset.view;
   for (const other of document.querySelectorAll('[data-view]')) other.setAttribute('aria-pressed',String(other === button));
   byId('finder-view').hidden = active !== 'finder'; byId('news-view').hidden = active === 'finder';
-  if (active !== 'finder') {byId('news-heading').textContent = active === 'geo' ? 'Geo news' : 'BRICS news'; byId('news-category').value='';byId('news-country').value='';const sort=byId('news-sort');sort.replaceChildren();for(const [value,label] of [['newest','Newest collection'],['title','Title A-Z'],['country','Country A-Z'],active==='geo' ? ['score','Highest Geo score'] : ['corroboration','Most supplied corroboration entries']]){const option=document.createElement('option');option.value=value;option.textContent=label;sort.append(option);}byId('export-status').textContent='';readStats(active);readSignals(active);readSnapshots(active);readNews();}
+  if (active !== 'finder') {byId('news-heading').textContent = active === 'geo' ? 'Geo news' : 'BRICS news'; byId('news-category').value='';byId('news-country').value='';const sort=byId('news-sort');sort.replaceChildren();for(const [value,label] of [['newest','Newest collection'],['title','Title A-Z'],['country','Country A-Z'],active==='geo' ? ['score','Highest Geo score'] : ['corroboration','Most supplied corroboration entries']]){const option=document.createElement('option');option.value=value;option.textContent=label;sort.append(option);}byId('export-status').textContent='';readStats(active);readSignals(active);readSnapshots(active);readNews();readCritical();}
 });
 byId('news-search').addEventListener('submit', event => {event.preventDefault();readNews();});
 async function syncContext() {
@@ -219,3 +219,30 @@ async function readVolume(project) {
   for(const row of d.daily_volume){const line=document.createElement('div');line.className='volume-day';const label=document.createElement('span');label.textContent=row.date+' UTC'+(row.date===d.as_of.slice(0,10)?' (partial day)':'')+': '+row.count;const meter=document.createElement('meter');meter.min=0;meter.max=Math.max(1,peak.count);meter.value=row.count;meter.setAttribute('aria-label',row.date+' UTC, '+row.count+' loaded stories');line.append(label,meter);days.append(line);}details.hidden=false;
  }catch(error){if(active===project && id===volumeId){summary.textContent=error.message;days.replaceChildren();details.hidden=true;}}
 }
+
+// News-only controls never replace, reload or change a player iframe.
+// No interval/timer is enabled by this offline increment.
+let criticalId = 0;
+async function readCritical() {
+ const id=++criticalId,status=byId('critical-status'),container=byId('critical-results');
+ if(active!=='geo'){status.textContent='Critical-story policy unavailable for this view.';container.replaceChildren();return;}
+ status.textContent='Loading critical stories...';container.replaceChildren();
+ try {
+  const r=await fetch('/api/critical-stories',{credentials:'same-origin',cache:'no-store'});
+  if(!r.ok)throw new Error('Critical stories unavailable.');const d=await r.json();
+  if(id!==criticalId || active!=='geo')return;
+  if(d.scope!=='loaded_read_view' || d.not_total_database!==true || d.policy!=='supplied_geo_critical_risk_only' || !Array.isArray(d.items))throw new Error('Critical-story contract unavailable.');
+  render(container,d.items);
+  status.textContent=d.count+' critical '+(d.count===1?'story':'stories')+' in the loaded view, not database totals. As of '+String(d.as_of || '').slice(0,16).replace('T',' ')+' UTC'+'. Missing collection time: '+d.missing_time_count+'. Future times excluded: '+d.future_time_count+'.'+(d.truncated?' Showing first 100.':'')+(d.other_project_policy_unavailable_count?' Other-source critical policy unavailable.':'');
+ }catch(error){if(id===criticalId && active==='geo')status.textContent=error.message;}
+}
+byId('news-theme').addEventListener('click',()=>{
+ const dark=byId('news-view').dataset.theme!=='dark';
+ byId('news-view').dataset.theme=dark?'dark':'light';
+ byId('news-theme').setAttribute('aria-pressed',String(dark));
+ byId('news-theme').textContent=dark?'Light news view':'Dark news view';
+});
+byId('news-refresh').addEventListener('click',()=>{
+ if(!['geo','brics'].includes(active))return;
+ readStats(active);readSignals(active);readSnapshots(active);readNews();readCritical();
+});

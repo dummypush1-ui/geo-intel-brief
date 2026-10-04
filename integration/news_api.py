@@ -10,6 +10,7 @@ from integration.finder_links import finder_link
 from integration.dashboard_model import loaded_stats
 from integration.loaded_news import selection,sample_csv
 from integration.loaded_charts import loaded_chart
+from integration.critical_stories import critical_stories
 from datetime import datetime,timezone
 from integration.dashboard_snapshots import DashboardSnapshots
 from integration.branding_meta import brand_head,valid_origin
@@ -102,6 +103,9 @@ def create_app(reader=None,authorize=None,finder_context_reader=None,finder_base
   chart['outside_window_count']=len(unique)-sum(day['count'] for day in chart['daily_volume'])-chart['missing_time_count']-chart['future_time_count']
   chart.update(sample_count=len(unique),limit=result['limit'],truncated=result['truncated'],sort=result['sort'],duplicates_omitted=len(result['items'])-len(unique),selection='current_filtered_sorted_first_100')
   return jsonify(chart)
+ @app.get('/api/critical-stories')
+ def critical_story_panel():
+  return jsonify(critical_stories(views(reader()),datetime.now(timezone.utc)))
  @app.get('/api/news-stats')
  def news_stats():
   project=request.args.get('project','')
