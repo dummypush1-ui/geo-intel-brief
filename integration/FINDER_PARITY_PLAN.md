@@ -26,8 +26,8 @@ Static features above are present by preserved Finder source/bundle, not individ
 | Project | Feature group | Status | Remaining port |
 |---|---|---|---|
 | Finder | Static code search/details/duties/trade/market/sanctions/unit values | Present, source preserved; comprehensive function tests pending | Test each original feature in nested private route |
-| Finder | AI/FX/weather/marine/AIS | Present but blocked by CSP | Exact trusted-origin allowlist or reviewed adapter; fixture-only tests before live access approval |
-| Finder | Snapshot/data and new branding | Earlier snapshot present | Diff latest data provenance and headers, port reviewed delta |
+| Finder | AI/FX/weather/marine/AIS | Offline preview port reviewed; seven exact origins behind default-off flag, original UI fixture tests pass | Real network/provider CORS availability and AI-disclosure permission still gated; AIS timers suppressed in served preview |
+| Finder | Snapshot/data and new branding | Reviewed Oct4 upstream snapshot ported offline | Source-derived auto-refreshed label only; not independently verified official data |
 | Finder | Share/print/export/settings | Present, nested operation unproven | Private route tests and merged-origin links |
 | Finder | PWA | Missing on merged host (old-host-only registration) | Private-safe manifest/scope/cache port |
 | Geo | Read/filter/sort/loaded stats/CSV/signal adapters | Works in offline tested preview | Production signoff remains gated |

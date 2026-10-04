@@ -1,0 +1,7 @@
+# Finder external feature preview port
+
+Default off. FINDER_NETWORK_PREVIEW_ENABLED accepts exact true/false; no Render setting is changed here. Explicit opt-in changes only Finder HTML connect-src to seven fixed original HTTPS origins (NVIDIA excluded by owner scope). It permits original AI proxy, optional user-key providers, currency and weather requests; it never creates a forwarding proxy or accepts arbitrary destinations. Private auth and other pages' CSP stay unchanged. Network opt-in remains separate from owner approval to disclose AI prompts to providers. Original browser personal-key behavior is preserved, not a server-secret solution.
+
+Served private Finder HTML suppresses original AIS retry/refresh timers using an exact fail-closed seam; polling remains off. Original index/source bytes remain unchanged. In this preview users can load ships manually and hide/reopen to refresh. Automatic60-second live tracking is not silently enabled by network opt-in.
+
+Fixture browser tests intercept every external request before network. Verified original AI plain-words, INR/USD FX, AIS and weather/marine UI render against simulated responses, no browser errors at390px. These tests do not prove current provider availability, CORS, quota, account ownership or proxy operation on the real preview origin. Live activation must be separately approved; real provider/CORS/auth validation comes at that gate. Model descriptions and free-tier claims inherited from original code are not verified here.

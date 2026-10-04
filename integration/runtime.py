@@ -8,6 +8,7 @@ access is single-worker only; no public account registration is provided.
 from integration.storage_settings import StorageSettings
 from integration.storage_reader import ReadOnlyNewsReader
 from integration.preview_access import create_preview_from_env
+from integration.finder_network import from_env as finder_network_from_env
 from integration.finder_index import load_bundled_index
 from pathlib import Path
 
@@ -16,7 +17,7 @@ def compose(environ,client_factory=None):
  clients=[];reader=None;finder_config={}
  if environ.get('PREVIEW_ACCESS_ENABLED','false').lower()=='true':
   index=load_bundled_index(Path(__file__).resolve().parents[1])
-  finder_config={'finder_context_reader':index.for_article,'finder_base':environ.get('PREVIEW_ORIGIN','').rstrip('/')+'/workspace/finder/index.html','finder_index_verified':True}
+  finder_config={'finder_context_reader':index.for_article,'finder_base':environ.get('PREVIEW_ORIGIN','').rstrip('/')+'/workspace/finder/index.html','finder_index_verified':True,'finder_network_preview_enabled':finder_network_from_env(environ)}
  if settings.read_enabled:
   if environ.get('PREVIEW_ACCESS_ENABLED','false').lower()!='true':raise ValueError('Private preview access required for live reads')
   if environ.get('NEWS_STORE_MAPPING_VERIFIED','false').lower()!='true':raise ValueError('Store ownership/schema review required')

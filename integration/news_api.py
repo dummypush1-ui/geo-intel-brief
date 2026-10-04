@@ -22,8 +22,10 @@ from integration.weekly_report import build_weekly_report
 from integration.dashboard_snapshots import DashboardSnapshots
 from integration.branding_meta import brand_head,valid_origin
 from integration.geospatial.response import map_data_response
+from integration.finder_network import connect_sources,manual_ships_shell
 
-def create_app(reader=None,authorize=None,finder_context_reader=None,finder_base=None,finder_index_verified=False,allowed_origin=None,branding_public_base=None,dashboard_snapshot_reader=None,source_health_snapshot=None,tariff_evidence_snapshot=None):
+def create_app(reader=None,authorize=None,finder_context_reader=None,finder_base=None,finder_index_verified=False,allowed_origin=None,branding_public_base=None,dashboard_snapshot_reader=None,source_health_snapshot=None,tariff_evidence_snapshot=None,finder_network_preview_enabled=False):
+ finder_connect=connect_sources(finder_network_preview_enabled)
  branding_public_base=valid_origin(branding_public_base)
  app=Flask(__name__)
  root=Path(__file__).resolve().parents[1]
@@ -39,11 +41,12 @@ def create_app(reader=None,authorize=None,finder_context_reader=None,finder_base
   response.headers['Content-Security-Policy']="default-src 'self'; script-src 'self'; style-src 'self'; frame-ancestors 'self'; object-src 'none'; base-uri 'self'; form-action 'self'"
   if request.path=='/workspace' and response.status_code==200:
    response.headers['Content-Security-Policy']+="; frame-src 'self' https://www.youtube-nocookie.com"
-  if request.path.startswith('/workspace/finder/') and response.mimetype=='text/html' and response.status_code==200:
+  if request.path=='/workspace/finder/index.html' and response.mimetype=='text/html' and response.status_code==200:
    response.direct_passthrough=False
+   response.set_data(manual_ships_shell(response.get_data(as_text=True)))
    scripts=[body for attrs,body in re.findall(r'<script\b([^>]*)>(.*?)</script>',response.get_data(as_text=True),flags=re.S|re.I) if body.strip() and not re.search(r'\bsrc\s*=',attrs,re.I)]
    hashes=['\'sha256-'+base64.b64encode(hashlib.sha256(s.encode()).digest()).decode()+'\'' for s in scripts]
-   response.headers['Content-Security-Policy']="default-src 'self'; script-src 'self' "+' '.join(hashes)+"; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; frame-ancestors 'self'; object-src 'none'; base-uri 'self'; form-action 'self'"
+   response.headers['Content-Security-Policy']="default-src 'self'; script-src 'self' "+' '.join(hashes)+"; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src "+finder_connect+"; frame-ancestors 'self'; object-src 'none'; base-uri 'self'; form-action 'self'"
   return response
  @app.get('/workspace')
  def workspace():return send_from_directory(root/'integration/ui','workspace.html')

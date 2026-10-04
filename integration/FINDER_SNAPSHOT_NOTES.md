@@ -1,0 +1,5 @@
+# Finder snapshot reconciliation
+
+Ported original snapshot from upstream asset data.17204075ad25.js, SHA25617204075ad25512b76900835aca83960c82ed8d9e8a997c4e23e954713d89330. Hash refers to JS asset bytes, not HTTP wire compression or decoded JSON.340,232 core code rows unchanged; inline application455,031 UTF8 bytes (454,994 characters) unchanged. Loader changes data filename;10 upstream branding lines copied, served private head still replaced by merged branding.
+
+Partner context adds740400 and871120. Sanctions adds58 OFAC rows and removes1 EVER SHINING LIMITED row (75106->75163). This is a source-snapshot change, not a legal-clearance decision or independent official-source verification. Source says auto-refreshed2026-10-04; UFLPA throughAug2026 remains supplied unchanged. Prior bundle retained locally/in backup for rollback. Original upstream tradepartner/sanction source literals, service worker fingerprint and offline artifact ported together. Offline/PWA merged execution remains queued, not proven by HTTP200.

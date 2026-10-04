@@ -4,6 +4,7 @@ No private_router selection, default client, migration, old-store access or
 collector effects. A caller injects the client after separate live-read gates.
 """
 from integration.preview_access import create_preview_from_env
+from integration.finder_network import from_env as finder_network_from_env
 from integration.storage_reader import ReadOnlyNewsReader
 from integration.finder_index import load_bundled_index
 from integration.single_db_plan import label
@@ -17,7 +18,7 @@ def compose_geo_only(environ,client_factory=None):
     opts={}
     if access:
         idx=load_bundled_index(Path(__file__).resolve().parents[1])
-        opts={'finder_context_reader':idx.for_article,'finder_base':environ.get('PREVIEW_ORIGIN','').rstrip('/')+'/workspace/finder/index.html','finder_index_verified':True}
+        opts={'finder_context_reader':idx.for_article,'finder_base':environ.get('PREVIEW_ORIGIN','').rstrip('/')+'/workspace/finder/index.html','finder_index_verified':True,'finder_network_preview_enabled':finder_network_from_env(environ)}
     app=create_preview_from_env(environ,**opts);clients=[]
     if environ.get('NEWS_READ_ENABLED','false').lower()=='true':
         if not access or environ.get('NEWS_STORE_MAPPING_VERIFIED','false').lower()!='true':raise ValueError('Private access and Geo store review required')
