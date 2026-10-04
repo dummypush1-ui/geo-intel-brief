@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 647,
+  "tests": 653,
   "files": [
     {
       "path": ".env.example",
@@ -144,6 +144,11 @@
       "path": "integration/FAKE_WRITER_LIMITS.md",
       "bytes": 1272,
       "sha256": "c425188abfd19c098941adb8f1b62519e4b42200a20cc61040a6687de89e254d"
+    },
+    {
+      "path": "integration/FINDER_NESTED_LIMITS.md",
+      "bytes": 3964,
+      "sha256": "4c2a8a7452e6a60ace834b31d6416eb06457933e3d39e981a74e51d14c9c3ca7"
     },
     {
       "path": "integration/FINDER_NETWORK_LIMITS.md",
@@ -426,6 +431,11 @@
       "sha256": "7a5d02def15e5a03790edb6d7b11c9a922df4e4dbd3de2c309e3b188aee2453b"
     },
     {
+      "path": "integration/finder_nested.py",
+      "bytes": 1202,
+      "sha256": "d81ccdd05d21b280be66fb1215143302d8356af79a2cbeac926baea80192d886"
+    },
+    {
       "path": "integration/finder_network.py",
       "bytes": 1676,
       "sha256": "07fc045266659eadbefef1b52829c4e185ccdc70a3362fbd076a9d79719b3232"
@@ -572,8 +582,8 @@
     },
     {
       "path": "integration/news_api.py",
-      "bytes": 24445,
-      "sha256": "fa897ed78dc33761fb76624b2e8e6043795e07b017637ff7bb0d96e998c91c2b"
+      "bytes": 24518,
+      "sha256": "4217871952620914c8ec1d8c1e4167c3839b3adf886f1b9c70b6b200e7282a24"
     },
     {
       "path": "integration/news_export/ORIGINAL_CONTRACT_LIMITS.md",
@@ -1896,6 +1906,11 @@
       "sha256": "a27b4a2c654538299e19e2324090ebbcb1c15d78804f14daf1bc123b93163163"
     },
     {
+      "path": "tests/browser_finder_nested.py",
+      "bytes": 4708,
+      "sha256": "de72d9c225b71e6909e9218a96c3dd273d108ca7bfbafa2abbfb8b3edfce4c83"
+    },
+    {
       "path": "tests/browser_finder_network.py",
       "bytes": 3582,
       "sha256": "97b4fcaf1861f06c6752473786c60056153fc3d98839772c399677b301443120"
@@ -2149,6 +2164,11 @@
       "path": "tests/test_finder_index.py",
       "bytes": 3921,
       "sha256": "591b3a5bff97a5f4631ff4c17a7e76f4c6bb24b06976d1cddf3eeb493ce3fadf"
+    },
+    {
+      "path": "tests/test_finder_nested.py",
+      "bytes": 3082,
+      "sha256": "5aeeda7c2b200b03bca7569a34398af9811753dbb71bbef641ffa9004128f7ab"
     },
     {
       "path": "tests/test_finder_network.py",
