@@ -62,7 +62,7 @@ for (const button of document.querySelectorAll('[data-view]')) button.addEventLi
   active = button.dataset.view;
   for (const other of document.querySelectorAll('[data-view]')) other.setAttribute('aria-pressed',String(other === button));
   byId('finder-view').hidden = active !== 'finder'; byId('news-view').hidden = active === 'finder';
-  if (active !== 'finder') {byId('news-heading').textContent = active === 'geo' ? 'Geo news' : 'BRICS news'; byId('news-category').value='';byId('news-country').value='';const sort=byId('news-sort');sort.replaceChildren();for(const [value,label] of [['newest','Newest collection'],['title','Title A-Z'],['country','Country A-Z'],active==='geo' ? ['score','Highest Geo score'] : ['corroboration','Most supplied corroboration entries']]){const option=document.createElement('option');option.value=value;option.textContent=label;sort.append(option);}byId('export-status').textContent='';readStats(active);readSignals(active);readSnapshots(active);readNews();readCritical();}
+  if (active !== 'finder') {byId('news-heading').textContent = active === 'geo' ? 'Geo news' : 'BRICS news'; byId('news-category').value='';byId('news-country').value='';const sort=byId('news-sort');sort.replaceChildren();for(const [value,label] of [['newest','Newest collection'],['title','Title A-Z'],['country','Country A-Z'],active==='geo' ? ['score','Highest Geo score'] : ['corroboration','Most supplied corroboration entries']]){const option=document.createElement('option');option.value=value;option.textContent=label;sort.append(option);}byId('export-status').textContent='';readStats(active);readSignals(active);readSnapshots(active);readNews();readCritical();readSourceHealth();}
 });
 byId('news-search').addEventListener('submit', event => {event.preventDefault();readNews();});
 async function syncContext() {
@@ -244,5 +244,22 @@ byId('news-theme').addEventListener('click',()=>{
 });
 byId('news-refresh').addEventListener('click',()=>{
  if(!['geo','brics'].includes(active))return;
- readStats(active);readSignals(active);readSnapshots(active);readNews();readCritical();
+ readStats(active);readSignals(active);readSnapshots(active);readNews();readCritical();readSourceHealth();
 });
+
+let sourceHealthId=0;
+async function readSourceHealth(){
+ const id=++sourceHealthId,status=byId('source-health-status'),rows=byId('source-health-rows');
+ status.textContent='Loading source observations...';rows.replaceChildren();
+ try{
+  const r=await fetch('/api/source-health',{credentials:'same-origin',cache:'no-store'});
+  if(!r.ok)throw new Error('Source observations unavailable.');const d=await r.json();
+  if(id!==sourceHealthId || active==='finder')return;
+  if(d.not_live_status!==true || !Array.isArray(d.items))throw new Error('Source contract unavailable.');
+  if(d.state==='source_health_unwired'){status.textContent='Source-check reader is not connected. Current health is unknown.';return;}
+  if(d.state!=='supplied_snapshot' || d.scope!=='supplied_source_checks')throw new Error('Source contract unavailable.');
+  status.textContent='Captured observations at '+String(d.observed_at).slice(0,16).replace('T',' ')+' UTC, '+d.age_seconds+' seconds old. Not current health.'+(d.truncated?' First 100 of '+d.total_supplied+' checks shown.':'');
+  for(const item of d.items){const row=document.createElement('p');row.className='source-health-row';row.textContent=String(item.name)+' · recorded '+String(item.status)+' · fetched '+(item.count??'not recorded')+' · checked '+(item.checked_at?String(item.checked_at).slice(0,16).replace('T',' ')+' UTC':'not recorded')+(item.error_code?' · error '+String(item.error_code):'');rows.append(row);}
+  if(!d.items.length){const row=document.createElement('p');row.textContent='No source checks in this supplied snapshot.';rows.append(row);}
+ }catch(error){if(id===sourceHealthId && active!=='finder'){status.textContent=error.message;rows.replaceChildren();}}
+}

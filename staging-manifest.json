@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 248,
+  "tests": 255,
   "files": [
     {
       "path": ".env.example",
@@ -124,6 +124,11 @@
       "path": "integration/REPORT_STYLE_LIMITS.md",
       "bytes": 1141,
       "sha256": "6914cc0083abbf8dcc968f26fcb72098dfe286ec8407a5c5b619ebb714475f43"
+    },
+    {
+      "path": "integration/SOURCE_HEALTH_LIMITS.md",
+      "bytes": 1642,
+      "sha256": "b2f2d1bcb3b0368ced209b49a84eb348e2e3926a355894c98177d01eee32c2a1"
     },
     {
       "path": "integration/__init__.py",
@@ -262,8 +267,8 @@
     },
     {
       "path": "integration/news_api.py",
-      "bytes": 9902,
-      "sha256": "92bdd9352a39a2d290a6e938856cd5bd332df81e715b2811875a511f453f15a8"
+      "bytes": 10459,
+      "sha256": "1b2da76d43c4d9f37ee2acf27aae7689daa7ae358d2dba769833d46107240106"
     },
     {
       "path": "integration/news_view.py",
@@ -346,6 +351,11 @@
       "sha256": "ca8ea55103c13506c032a164a1c3cd5baafa5456752535c962b2e4908a2fe558"
     },
     {
+      "path": "integration/source_health.py",
+      "bytes": 3663,
+      "sha256": "c6861935af722652489d2eee65023a8c7054484cddb585842e8f810d57d00e81"
+    },
+    {
       "path": "integration/sqlite_reader.py",
       "bytes": 966,
       "sha256": "581e60b90c337d8e056d131ca8fe5d7d3206a1f7fda5d998af76b12d16a3d4c4"
@@ -372,18 +382,18 @@
     },
     {
       "path": "integration/ui/workspace.css",
-      "bytes": 4081,
-      "sha256": "d0387ae5af7a7ae222552c1a30e44a658804c8f84baf5980f38cb863543818a9"
+      "bytes": 4300,
+      "sha256": "9f65991a71d77baf618a0802119919dcf2d42172148d61ed20989168af0e01e6"
     },
     {
       "path": "integration/ui/workspace.html",
-      "bytes": 3649,
-      "sha256": "4e4468da5cacd2f4bf19e19ad7520bf88b5ef66f03f42799485b73a801bc374e"
+      "bytes": 3830,
+      "sha256": "b6fe4a4b30bf6127f3c362ff58db6a498027ebd6f42a8ca2b9e8cd1ae3499554"
     },
     {
       "path": "integration/ui/workspace.js",
-      "bytes": 23456,
-      "sha256": "d28b9b9fc2d2765bc6bb682460f5fef70c6aaaa85edd3f04d3369f3fff4c559d"
+      "bytes": 25215,
+      "sha256": "faadd0483a552eac884edabafbb88bae7aa02c07f51a22978d15f792d5bb57a0"
     },
     {
       "path": "integration/youtube_links.py",
@@ -1499,6 +1509,11 @@
       "path": "tests/test_site_parsers.py",
       "bytes": 6462,
       "sha256": "47baaa59d9a049e757b7d6547349c963cba9607e6c76223037e440baab9f7954"
+    },
+    {
+      "path": "tests/test_source_health.py",
+      "bytes": 2579,
+      "sha256": "8d956101911904586e48b1f63bf94fb7c4497baa1a980e750955940d1a327914"
     },
     {
       "path": "tests/test_storage_reader.py",

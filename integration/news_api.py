@@ -11,11 +11,12 @@ from integration.dashboard_model import loaded_stats
 from integration.loaded_news import selection,sample_csv
 from integration.loaded_charts import loaded_chart
 from integration.critical_stories import critical_stories
+from integration.source_health import SourceHealthSnapshot
 from datetime import datetime,timezone
 from integration.dashboard_snapshots import DashboardSnapshots
 from integration.branding_meta import brand_head,valid_origin
 
-def create_app(reader=None,authorize=None,finder_context_reader=None,finder_base=None,finder_index_verified=False,allowed_origin=None,branding_public_base=None,dashboard_snapshot_reader=None):
+def create_app(reader=None,authorize=None,finder_context_reader=None,finder_base=None,finder_index_verified=False,allowed_origin=None,branding_public_base=None,dashboard_snapshot_reader=None,source_health_snapshot=None):
  branding_public_base=valid_origin(branding_public_base)
  app=Flask(__name__)
  root=Path(__file__).resolve().parents[1]
@@ -103,6 +104,12 @@ def create_app(reader=None,authorize=None,finder_context_reader=None,finder_base
   chart['outside_window_count']=len(unique)-sum(day['count'] for day in chart['daily_volume'])-chart['missing_time_count']-chart['future_time_count']
   chart.update(sample_count=len(unique),limit=result['limit'],truncated=result['truncated'],sort=result['sort'],duplicates_omitted=len(result['items'])-len(unique),selection='current_filtered_sorted_first_100')
   return jsonify(chart)
+ @app.get('/api/source-health')
+ def source_health():
+  if source_health_snapshot is None:return jsonify(state='source_health_unwired',not_live_status=True,items=[]),200
+  if type(source_health_snapshot) is not SourceHealthSnapshot:return jsonify(error='Source observations unavailable'),503
+  try:return jsonify(SourceHealthSnapshot.view(source_health_snapshot,datetime.now(timezone.utc)))
+  except Exception:return jsonify(error='Source observations unavailable'),503
  @app.get('/api/critical-stories')
  def critical_story_panel():
   return jsonify(critical_stories(views(reader()),datetime.now(timezone.utc)))

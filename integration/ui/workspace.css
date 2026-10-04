@@ -13,3 +13,5 @@ select{font:inherit;max-width:100%;border:1px solid #9aadc0;border-radius:8px;pa
 #news-view[data-theme=dark]{background:#142335;color:#e4edf7;border-color:#48617b}#news-view[data-theme=dark] .muted,#news-view[data-theme=dark] .story p,#news-view[data-theme=dark] #news-stats{color:#b4c5d8}#news-view[data-theme=dark] a{color:#8ecbff}#news-view[data-theme=dark] button,#news-view[data-theme=dark] input,#news-view[data-theme=dark] select{background:#233952;color:#f0f6fc;border-color:#6685a5}#news-view[data-theme=dark] .badge{background:#2b4058;color:#cfdfef}#news-view[data-theme=dark] .story{border-color:#48617b}
 
 #news-view[data-theme=dark] input::placeholder{color:#b4c5d8;opacity:1}
+
+#source-health{border:1px solid #9aadc0;border-radius:8px;padding:14px;margin-bottom:18px}#source-health h3{margin:0 0 8px;font-size:18px}#source-health-status,.source-health-row{font-size:13px;overflow-wrap:anywhere}
