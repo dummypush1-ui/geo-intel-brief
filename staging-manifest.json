@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 337,
+  "tests": 387,
   "files": [
     {
       "path": ".env.example",
@@ -304,6 +304,61 @@
       "path": "integration/geo_rolling_breakdown.py",
       "bytes": 2993,
       "sha256": "30e32b3fc0f61ec24cd4d5961d812eda8eb5ccd4c1d989a9c7a9f47602b11ec6"
+    },
+    {
+      "path": "integration/geospatial/README.md",
+      "bytes": 1594,
+      "sha256": "1324fc92895bc610c1427be788bf2936334cb787fa2bd60634dde30cd5f3f8d2"
+    },
+    {
+      "path": "integration/geospatial/__init__.py",
+      "bytes": 433,
+      "sha256": "be3d4bb979633c60e70cf5a8223a86c177915055cddf04e7b89969b1327e29db"
+    },
+    {
+      "path": "integration/geospatial/_safe.py",
+      "bytes": 2672,
+      "sha256": "39f3323c310fbdf0c041260e466d4f493673eeca04787e98575c374d0423948a"
+    },
+    {
+      "path": "integration/geospatial/data/DATA_SOURCES.md",
+      "bytes": 2240,
+      "sha256": "4b831a3711029c24fa183938e78fafcbe627274ce97cdf2bd0be8581dfff7dc2"
+    },
+    {
+      "path": "integration/geospatial/data/chokepoints_wikidata.json",
+      "bytes": 6631,
+      "sha256": "645200f1f8b4953773e446526fe9f3706d9896804b5590dd51e97fe3036f1d5a"
+    },
+    {
+      "path": "integration/geospatial/features.py",
+      "bytes": 2869,
+      "sha256": "4892aad1e6279ddbbaf40a137c91c9b3d8fbef8c51edf3d63f292869abd215f0"
+    },
+    {
+      "path": "integration/geospatial/fixtures.py",
+      "bytes": 1655,
+      "sha256": "4c444c1508862a7cf979420f70109793ae784bfd6337298e569030cbc002a298"
+    },
+    {
+      "path": "integration/geospatial/geo_map.css",
+      "bytes": 1492,
+      "sha256": "1e1ef24f2559eb5a22962c38570c8f276cbca8d811013ab540fc551670628026"
+    },
+    {
+      "path": "integration/geospatial/map_ui.js",
+      "bytes": 11433,
+      "sha256": "c03076735b59842d1135983d752fa2ab26244726363a3b213e78bd322e8b98a6"
+    },
+    {
+      "path": "integration/geospatial/payload.py",
+      "bytes": 6003,
+      "sha256": "55ecdd29e2c2fd15541672303584790191e4a636c8f07087a74ec9433cfffbc2"
+    },
+    {
+      "path": "integration/geospatial/ships.py",
+      "bytes": 5159,
+      "sha256": "eab86467b41cfbed6ba863c804663ef363bf573f9ff6b0d01b92c43156735ad7"
     },
     {
       "path": "integration/html_safety.py",
@@ -1509,6 +1564,61 @@
       "path": "tests/browser_watch_updates.py",
       "bytes": 3240,
       "sha256": "9ed845f92d7c43ee93df92525265f99c9198bf4ce58ea3689e8c167dc5061b59"
+    },
+    {
+      "path": "tests/geospatial/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tests/geospatial/preview/hostile.json",
+      "bytes": 747,
+      "sha256": "d6b6ed9918fda3049fe4c3c29a051fc44575f00457e50f02acb19aa6bd3201c9"
+    },
+    {
+      "path": "tests/geospatial/preview/make_payload.py",
+      "bytes": 800,
+      "sha256": "1c6d96524ae23c617af43a4ea2618a54eabba46336de2a668cb5b8f73da8afe0"
+    },
+    {
+      "path": "tests/geospatial/preview/payload.json",
+      "bytes": 13087,
+      "sha256": "f0299566aebc9a1d44b2bcc23b61ba0cd556b9e7e032836c8513dc182e3e72d4"
+    },
+    {
+      "path": "tests/geospatial/preview/preview.css",
+      "bytes": 142,
+      "sha256": "b3d57c18c23cc4d9f5c54bdc4c42de1ca7d7ecc5edc2106e93dc9eb9930660e2"
+    },
+    {
+      "path": "tests/geospatial/preview/preview.html",
+      "bytes": 539,
+      "sha256": "b00059628c26a0fed944e9b0ee5b143a8e9a1bde38224d4c9cb7424b54622ad1"
+    },
+    {
+      "path": "tests/geospatial/preview/preview.js",
+      "bytes": 815,
+      "sha256": "e32b06bd00d344171b39ac64b375f393f99b25c8ac2d45207ea39aa658c7bcd5"
+    },
+    {
+      "path": "tests/geospatial/preview/real-chokepoints.json",
+      "bytes": 5684,
+      "sha256": "f6e16f52e32eda92b4f34490d40f2cca3616a4d8e71cb915c22c21ac2ff9dc69"
+    },
+    {
+      "path": "tests/geospatial/test_geospatial.py",
+      "bytes": 17190,
+      "sha256": "7f6bf59e7db1ce9e3d3ca203bd0c83e464d7284c331811096e4078363ce3b5e8"
+    },
+    {
+      "path": "tests/geospatial/url_parity.mjs",
+      "bytes": 497,
+      "sha256": "fa38c4676c10031be426d69e8e05ae1912c0c1b50f0959a362f580576c981ae3"
+    },
+    {
+      "path": "tests/geospatial/url_vectors.json",
+      "bytes": 1276,
+      "sha256": "8e6d55edceb294a63859ae8a13aaa09d52298296229ff70fc380b1bfe8c00c5b"
     },
     {
       "path": "tests/test_agencia_parser.py",

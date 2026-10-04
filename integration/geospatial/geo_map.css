@@ -1,0 +1,25 @@
+/* Copyright (c) 2026 Push */
+.geo-map{font:14px/1.4 system-ui,sans-serif;color:#e6edf3;background:#0d1117;border:1px solid #30363d;border-radius:8px;padding:8px;max-width:100%;box-sizing:border-box}
+.geo-map svg{width:100%;height:auto;display:block;background:#0b1e33;border-radius:6px}
+.geo-map .geo-bar{display:flex;flex-wrap:wrap;gap:6px 14px;margin:6px 0}
+.geo-map label{display:inline-flex;align-items:center;gap:6px;min-height:32px}
+.geo-map .geo-status{margin:4px 0;overflow-wrap:anywhere}
+.geo-map .geo-warn{color:#f0b429}
+.geo-map table{width:100%;border-collapse:collapse;table-layout:fixed;font-size:13px}
+.geo-map th,.geo-map td{border-bottom:1px solid #30363d;padding:4px;text-align:left;overflow-wrap:anywhere;vertical-align:top}
+.geo-map a{color:#58a6ff}
+.geo-map a:focus,.geo-map input:focus,.geo-map [tabindex]:focus{outline:2px solid #f0b429;outline-offset:2px}
+.geo-map .grat{stroke:#1f3b57;stroke-width:1;fill:none}
+.geo-map .bx{fill:#f0b429;fill-opacity:.15;stroke:#f0b429}
+.geo-map .m-news{fill:#ff7b72}
+.geo-map .m-ports{fill:#7ee787}
+.geo-map .m-chokepoints{fill:#f0b429}
+.geo-map .m-ships{fill:#79c0ff}
+.geo-map .dot:focus{stroke:#fff;stroke-width:3}
+.geo-map .key{display:inline-block;width:10px;height:10px;border-radius:50%}
+.geo-map .k-news{background:#ff7b72}
+.geo-map .k-ports{background:#7ee787}
+.geo-map .k-chokepoints{background:#f0b429}
+.geo-map .k-ships{background:#79c0ff}
+.geo-map .scroll{max-height:260px;overflow:auto}
+.geo-map .dot.stale{opacity:.4}
