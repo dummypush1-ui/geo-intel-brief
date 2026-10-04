@@ -6,6 +6,7 @@ Missing source/stream/event snapshots remain unavailable, never zero.
 from collections import Counter
 from datetime import datetime,timezone
 from math import isfinite
+from integration.public_news import public_news_row
 def date_view(value):
  try:
   d=value if isinstance(value,datetime) else datetime.fromisoformat(str(value).replace("Z","+00:00"))
@@ -31,7 +32,7 @@ def loaded_stats(rows,project,now=None):
  if project not in ('geo','brics'):raise ValueError('Exact project required')
  now=now or datetime.now(timezone.utc)
  if now.tzinfo is None:raise ValueError('Zoned clock required')
- selected=[r for r in rows if r['project']==project]
+ selected=[public_news_row(r) for r in rows if r['project']==project]
  result={'scope':'loaded_read_view','not_total_database':True,'loaded_count':len(selected),'events_state':'unavailable','source_status_state':'unavailable','streams_state':'unavailable'}
  if project=='geo':
   counts=lambda key:dict(Counter(r.get(key) for r in selected if r.get(key)))

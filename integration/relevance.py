@@ -1,8 +1,10 @@
 """Explainable suggestions. Never a tariff update or legal screening result."""
 import re
+from integration.public_news import public_news_row
 from integration.taxonomy import country_code,mentioned_countries
 
 def match(context,article):
+ article=public_news_row(article)
  text=(str(article.get('title',''))+' '+str(article.get('summary',''))).casefold()
  code=str(context.get('code') or '')
  reasons=[]

@@ -4,6 +4,7 @@ The caller must supply verified Geo/BRICS article stores separately. Never infer
 that two stores named articles share a schema or represent the same project.
 """
 from collections.abc import Mapping
+from integration.public_news import READ_STORE_FIELDS
 class ReadOnlyNewsReader:
  def __init__(self,stores,verified=False,limit=100):
   if not verified:raise ValueError('Verified store mapping required')
@@ -14,7 +15,7 @@ class ReadOnlyNewsReader:
  def __call__(self):
   result={}
   for project,store in self.stores.items():
-   projection={key:1 for key in ('_id','id','url','title','summary','source','country','category','published','created_at','collected_at','telegram_url','emailed','risk_level','credibility','score','corroborated_by')}
+   projection={key:1 for key in READ_STORE_FIELDS}
    cursor=store.find({},projection).sort('created_at' if project=='geo' else 'collected_at',-1).limit(self.limit)
    result[project]=[dict(row) for row in cursor]
   return result

@@ -1,0 +1,5 @@
+# Manual watched-country update comparison
+
+Browser-local identity baseline for an already watched exact country label and selected project. Loading the country manually compares the current first100 supplied rows. First load is a baseline, never a new-news alert. Duplicate identities counted once; same project+URL identities from the existing read view are reused. Content edits at the same identity are not detected.
+
+UI calls these newly seen rows, not newly published news or verified trade/tariff changes. No device/browser push permission, background tab check, service worker, timers, polling, account storage, email/WhatsApp or deliveries. History caps60 label/project baselines,500 article identities each; eviction may make previously seen rows newly seen again. Truncated-view comparison has a visible coverage caveat. Failed storage stays visible and no persisted-success claim is made. Clearing data resets memory. This is a manual in-page update prototype, not activated real-time watchlist alerts. Code-based watch rules remain unbuilt.

@@ -3,12 +3,10 @@
 Copyright (c) 2026 Push. Independently written for this project.
 """
 from collections import Counter
+from integration.public_news import public_news_row
 
 MAX_LABEL = 100
 LIMIT = 100
-PUBLIC_FIELDS = ('article_key', 'project', 'url', 'title', 'summary', 'source',
-                 'original_country', 'category', 'published_at', 'collected_at',
-                 'risk_level', 'credibility', 'score', 'corroboration_count')
 
 def country_page(rows, country='', project=''):
     if project not in ('', 'geo', 'brics') or not isinstance(country, str) or len(country) > MAX_LABEL or any((ord(c) < 32 or ord(c) == 127) for c in country):
@@ -21,7 +19,7 @@ def country_page(rows, country='', project=''):
     count = Counter(r['project'] for r in selected)
     return {'country':country, 'project':project, 'countries':labels,
             'count':len(selected), 'project_counts':{'geo':count['geo'], 'brics':count['brics']},
-            'items':[{k:r.get(k) for k in PUBLIC_FIELDS} for r in selected[:LIMIT]],
+            'items':[public_news_row(r) for r in selected[:LIMIT]],
             'limit':LIMIT, 'truncated':len(selected)>LIMIT, 'scope':'loaded_read_view',
             'not_total_database':True, 'country_match':'exact_original_label',
             'risk_index':None, 'risk_index_state':'not_built', 'tariff_changes_state':'not_verified',

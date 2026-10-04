@@ -14,6 +14,7 @@ ignored; this adapter only applies the original keyword policy to BRICS.
 """
 from datetime import datetime,timezone,timedelta
 from integration.news_view import date_view
+from integration.public_news import public_news_row
 class BricsKeywordPolicy:
  def __init__(self,keywords,verified=False):
   if verified is not True or not isinstance(keywords,list) or not 1<=len(keywords)<=100 or any(not isinstance(k,str) or not k.strip() or len(k)>200 for k in keywords):raise ValueError('Reviewed bounded original keywords required')
@@ -28,7 +29,7 @@ def loaded_chart(rows,project,now,policy=None):
  if not stamp or not isinstance(rows,list) or len(rows)>1000 or project not in ('geo','brics'):raise ValueError('Bounded supplied rows, project and zoned clock required')
  clock=datetime.fromisoformat(stamp);days=7 if project=='geo' else 14
  dates=[(clock.date()-timedelta(days=i)).isoformat() for i in range(days-1,-1,-1)];counts=dict.fromkeys(dates,0)
- selected=[r for r in rows if isinstance(r,dict) and r.get('project')==project];missing=0;future=0;recent=[]
+ selected=[public_news_row(r) for r in rows if type(r) is dict and r.get('project')==project];missing=0;future=0;recent=[]
  for row in selected:
   collected=date_view(row.get('collected_at'))
   if not collected:missing+=1;continue

@@ -5,6 +5,7 @@ Other-project critical policy is not inferred from Geo risk or keywords.
 """
 from datetime import datetime, timezone
 from integration.dashboard_model import date_view
+from integration.public_news import public_news_row
 
 
 def critical_stories(rows, now):
@@ -32,9 +33,7 @@ def critical_stories(rows, now):
             selected.append(row)
     selected.sort(key=lambda row: row['collected_at'], reverse=True)
     # Rows are normalized read views. Do not expose legacy IDs or sent state.
-    items = [{key: value for key, value in row.items()
-              if key not in ('mongo_id', 'legacy_id', 'emailed', 'original_url')}
-             for row in selected[:100]]
+    items = [public_news_row(row) for row in selected[:100]]
     return {'items': items, 'scope': 'loaded_read_view', 'not_total_database': True,
             'policy': 'supplied_geo_critical_risk_only', 'as_of': now.isoformat(),
             'window_hours': 24, 'count': len(selected), 'limit': 100,

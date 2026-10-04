@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 293,
+  "tests": 305,
   "files": [
     {
       "path": ".env.example",
@@ -136,6 +136,11 @@
       "sha256": "27486fc2db38e9aea323f3b5afdfb9ba770186d783f294c5a636ea5edcc0cc80"
     },
     {
+      "path": "integration/PRIVATE_NEWS_FIELDS_LIMITS.md",
+      "bytes": 1682,
+      "sha256": "abf477fd8b12df7b4c128e367a0c4e281272cbe4b706a32be0baa2f62a0578cd"
+    },
+    {
       "path": "integration/REPORT_STYLE_LIMITS.md",
       "bytes": 1141,
       "sha256": "6914cc0083abbf8dcc968f26fcb72098dfe286ec8407a5c5b619ebb714475f43"
@@ -154,6 +159,11 @@
       "path": "integration/TARIFF_EVIDENCE_LIMITS.md",
       "bytes": 2060,
       "sha256": "56d1f44f809a636b423dc077ebf75cd59070abd0d4185d4205d5bd03d98956a4"
+    },
+    {
+      "path": "integration/WATCH_UPDATES_LIMITS.md",
+      "bytes": 1054,
+      "sha256": "9bc130bfd55e72ea1490a0e0773b172617565cefb10344a151feae322576badb"
     },
     {
       "path": "integration/__init__.py",
@@ -227,13 +237,13 @@
     },
     {
       "path": "integration/country_page.py",
-      "bytes": 2013,
-      "sha256": "e836976782f130871e44ecc3201c27ba1e3d40b67538cd87b9b235c6ecf664aa"
+      "bytes": 1809,
+      "sha256": "cab75618848fe4066d59ba38f9edd5f2870773a21e8bde90f9a15c5f4c2e2faa"
     },
     {
       "path": "integration/critical_stories.py",
-      "bytes": 1929,
-      "sha256": "a03f7ea0218d84ee7536a47ccf671bd0e73c34767cffc2ab1aadba064f6bda63"
+      "bytes": 1865,
+      "sha256": "133217d9751cf48f93d9f4bc230b2ee6666fbeb895eef53437202bd3882a3a33"
     },
     {
       "path": "integration/cross-connections.json",
@@ -242,8 +252,8 @@
     },
     {
       "path": "integration/dashboard_model.py",
-      "bytes": 2800,
-      "sha256": "7c3eaa189961b0717e4c8a9b5e3c3a1e82afe4518ef0ec77737327e317a8cd48"
+      "bytes": 2869,
+      "sha256": "2a771a65358b9f62bb014d614cf8c0dea07b048edd8c7be93e7d8c467209a4f0"
     },
     {
       "path": "integration/dashboard_snapshots.py",
@@ -282,13 +292,13 @@
     },
     {
       "path": "integration/loaded_charts.py",
-      "bytes": 3172,
-      "sha256": "c15c5ae8859f085be9a248365523263d619f3be3f1f7ea8ddefa14c2a41f7f13"
+      "bytes": 3238,
+      "sha256": "3a74702d675fe720b55402d129a9f042fda23a37ee59c06f6d70afc69ef37b2a"
     },
     {
       "path": "integration/loaded_news.py",
-      "bytes": 2645,
-      "sha256": "5a4c5ed830a89b37bfaa76ef29b180fb8c708b8b4a8de58f12ef5e28c006e559"
+      "bytes": 2755,
+      "sha256": "dce14c2d4ec2573e9216d28fc097da3eade4a3e4425cd098b7fab38d86b3c49c"
     },
     {
       "path": "integration/mail_bridge.py",
@@ -297,8 +307,8 @@
     },
     {
       "path": "integration/news_api.py",
-      "bytes": 12065,
-      "sha256": "2ffeb7f6502985a7be044c794f16478ebfb6903a421f83f86e0998508fadaf5f"
+      "bytes": 12195,
+      "sha256": "0ef5af734726934f7d5b220de3af8822a7039fc28ad718b6f87e0cf07935c1d4"
     },
     {
       "path": "integration/news_view.py",
@@ -341,9 +351,14 @@
       "sha256": "f01301b538b5a65c7d5501291045644be894cf7267f4301cc28997728db4e12c"
     },
     {
+      "path": "integration/public_news.py",
+      "bytes": 1051,
+      "sha256": "08a002863831a1e7cf9336e10b2f9d61aa1ce0ecf4b4367027dd34ed1dbd8145"
+    },
+    {
       "path": "integration/relevance.py",
-      "bytes": 1323,
-      "sha256": "bef768877518ca566ebc7d40d37e4a977b3d41d5404792eabb99cf8310efac41"
+      "bytes": 1409,
+      "sha256": "323fdec911b456c0a0aa57c2c650e1b703f7633a0fb55d59f982f99194a95604"
     },
     {
       "path": "integration/report_adapters.py",
@@ -402,8 +417,8 @@
     },
     {
       "path": "integration/storage_reader.py",
-      "bytes": 1364,
-      "sha256": "99999a5465f35490afd97c630660007e995150fe3c80f26d2ee63cef516b44d9"
+      "bytes": 1251,
+      "sha256": "04f2622d773a9f777b063f566586389a98a691dd5af66954b138d114fc307009"
     },
     {
       "path": "integration/storage_settings.py",
@@ -412,8 +427,8 @@
     },
     {
       "path": "integration/story_links.py",
-      "bytes": 617,
-      "sha256": "2339eeb0ea56152adb526033f2f6ce7e90b819e26014e99b35ba69c59b4f82fb"
+      "bytes": 679,
+      "sha256": "09aa82ec7d4bc1fa59120545ad14b4565aa5b0662002a1a3c1b84e65d9d9e525"
     },
     {
       "path": "integration/tariff_evidence.py",
@@ -432,13 +447,13 @@
     },
     {
       "path": "integration/ui/countries.html",
-      "bytes": 2202,
-      "sha256": "3ac5c455996044d5ae464dcc098d44ec17ef3e09029495282723369318dab024"
+      "bytes": 2696,
+      "sha256": "18bff900edb973f700b75a4397b80c8f700b9450ca04e6e1862d1fd6b8f7d1f6"
     },
     {
       "path": "integration/ui/countries.js",
-      "bytes": 5532,
-      "sha256": "4ab3e3f8bf3fe95cfae9f86809a9619f21bf1b423fd2dc7b44ed87746a6eb891"
+      "bytes": 7258,
+      "sha256": "c497e9a519f3cb03ec7718951860bf67722c2df5af403d123984244f9762a688"
     },
     {
       "path": "integration/ui/live_channels.js",
@@ -459,6 +474,11 @@
       "path": "integration/ui/tariffs.js",
       "bytes": 2838,
       "sha256": "08cee7dc00a91d0fe8dd665f5f19bb4f5da39e50e6dc1df79a97330eced9064f"
+    },
+    {
+      "path": "integration/ui/watch_updates.js",
+      "bytes": 2140,
+      "sha256": "1683fb09bfd5b9b58861cf142878a4f2cc75bd643dda48b3527272a31e90e247"
     },
     {
       "path": "integration/ui/workspace.css",
@@ -1446,6 +1466,11 @@
       "sha256": "ceb7f2a41bf1decbf2948a38edd4be68f7aff85ed049025e7c62ab3c9c21218e"
     },
     {
+      "path": "tests/browser_watch_updates.py",
+      "bytes": 3240,
+      "sha256": "9ed845f92d7c43ee93df92525265f99c9198bf4ce58ea3689e8c167dc5061b59"
+    },
+    {
       "path": "tests/test_agencia_parser.py",
       "bytes": 3584,
       "sha256": "1d93647a48a3f6d2c88d7441273865b4eac3897c1f7d71eb54bc631ddb6971a8"
@@ -1472,8 +1497,8 @@
     },
     {
       "path": "tests/test_country_page.py",
-      "bytes": 3179,
-      "sha256": "c6b8f7c9f507cf962855856bc6879916d44adb2f3ef3e66cd8de6761f6f76617"
+      "bytes": 4069,
+      "sha256": "283a28f8a6cddcda792e95d3849de75a302ed34005e3128e3d93863117ccb938"
     },
     {
       "path": "tests/test_critical_stories.py",
@@ -1586,6 +1611,11 @@
       "sha256": "bc87fbf14d7c20f654fce6cd501c1fd0ed41f89012a92d80b2e5c545b5723f4f"
     },
     {
+      "path": "tests/test_private_news_fields.py",
+      "bytes": 4292,
+      "sha256": "955439872af7f01f9a6b710161dfdb05ac66fcd6172f9b0c85916bd24b36dce6"
+    },
+    {
       "path": "tests/test_project_reports.py",
       "bytes": 1015,
       "sha256": "59a59dd575a26efdfc1f5aa09262eb7c1c3f8fa9ab0efcfa7983a9737db768c7"
@@ -1649,6 +1679,11 @@
       "path": "tests/test_tariff_evidence.py",
       "bytes": 4108,
       "sha256": "034a3ab164508c2bddbbb4d89ec7db68f43b491a501c9c099b42e3552d70b276"
+    },
+    {
+      "path": "tests/test_watch_updates.py",
+      "bytes": 2176,
+      "sha256": "084a30b793e34219b5ffbd6771c48b49f1874b3c4cb30b27c5b41ed40d99fd87"
     },
     {
       "path": "tests/test_workspace.py",

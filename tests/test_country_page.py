@@ -32,3 +32,7 @@ class CountryPageTests(unittest.TestCase):
  def test_reader_failure_is_not_empty(self):
   def fail():raise RuntimeError('private detail')
   r=create_app(reader=fail,authorize=lambda req:True).test_client().get('/api/country-page?country=India');self.assertEqual(r.status_code,503);self.assertNotIn('private detail',r.get_data(as_text=True))
+ def test_atlas_sample_shape_read_only_empty_country(self):
+  raw={'geo':[{'_id':'fixture-private','title':'Atlas-shape fixture','url':'https://example.com/a?at_medium=RSS&at_campaign=rss','source':'BBC World','category':'TRADE','summary':'Fixture only','published':'2026-09-09T10:20:40+00:00','score':16,'risk_level':'MODERATE','country':'','created_at':'2026-09-09T17:07:50.869488+00:00','emailed':True}]}
+  normalized=views(raw);self.assertEqual(normalized[0]['original_country'],'');self.assertTrue(normalized[0]['collected_at'].endswith('+00:00'));self.assertIn('at_medium=RSS',normalized[0]['url']);self.assertEqual(country_page(normalized,'India')['count'],0)
+  d=create_app(reader=lambda:raw,authorize=lambda req:True).test_client().get('/api/news?project=geo').json['items'][0];self.assertNotIn('emailed',d);self.assertNotIn('mongo_id',d);self.assertTrue(raw['geo'][0]['emailed'])

@@ -5,6 +5,7 @@ apostrophe, including operators hidden behind whitespace/format characters.
 The same selection drives JSON and CSV. No clients, writes or live lookups.
 """
 import csv,io,unicodedata
+from integration.public_news import public_news_row
 SORTS={'':'newest','newest':'newest','title':'title','country':'country','score':'score','corroboration':'corroboration'}
 LIMIT=100
 FIELDS=('project','title','source','original_country','category','published_at','collected_at','risk_level','credibility','score','corroboration_count','url','summary')
@@ -21,7 +22,7 @@ def selection(rows,project='',query='',category='',country='',sort='newest'):
  if sort in ('score','corroboration'):
   key='score' if sort=='score' else 'corroboration_count'
   matched.sort(key=lambda r:(r.get(key) is not None,r.get(key) if r.get(key) is not None else 0),reverse=True)
- return {'items':matched[:LIMIT],'scope':'loaded_read_view','limit':LIMIT,'sort':sort,'truncated':len(matched)>LIMIT,'not_full_database_export':True}
+ return {'items':[public_news_row(r) for r in matched[:LIMIT]],'scope':'loaded_read_view','limit':LIMIT,'sort':sort,'truncated':len(matched)>LIMIT,'not_full_database_export':True}
 
 def csv_cell(value):
  if value is None:return ''
@@ -34,5 +35,6 @@ def csv_cell(value):
 
 def sample_csv(result):
  buf=io.StringIO(newline='');writer=csv.writer(buf,lineterminator='\r\n');writer.writerow(FIELDS)
- for row in result['items']:writer.writerow([csv_cell(row.get(key)) for key in FIELDS])
+ for row in result['items']:
+  row=public_news_row(row);writer.writerow([csv_cell(row.get(key)) for key in FIELDS])
  return buf.getvalue()
