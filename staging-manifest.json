@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 755,
+  "tests": 756,
   "files": [
     {
       "path": ".env.example",
@@ -137,8 +137,8 @@
     },
     {
       "path": "integration/EXPORT_DIGEST_LIMITS.md",
-      "bytes": 2776,
-      "sha256": "ca6cd4cdfc1eb03dcca5b6ad0062577836f354c3416c1faa7c84423401209aa7"
+      "bytes": 3157,
+      "sha256": "95f9029499f75d2138ebe320ddb1accd7ad7690799dacaee9feb2d5b0b02bc1c"
     },
     {
       "path": "integration/FAKE_WRITER_LIMITS.md",
@@ -162,8 +162,8 @@
     },
     {
       "path": "integration/FINDER_PARITY_PLAN.md",
-      "bytes": 9920,
-      "sha256": "496a1b1f8c70078eccbb985f0374224e162f3e40c1ff55caffd958c2a84e765e"
+      "bytes": 10080,
+      "sha256": "373a9a8902e639db1f6e6d1116753606a150873e75c1b00a1c9b7b2685c447c9"
     },
     {
       "path": "integration/FINDER_SNAPSHOT_NOTES.md",
@@ -319,6 +319,21 @@
       "path": "integration/agencia_parser.py",
       "bytes": 5348,
       "sha256": "255c3984d99111d1660fad653e75cd8d874bef1f8ae8da55864be8368ba396e4"
+    },
+    {
+      "path": "integration/apps_script_audit/README.md",
+      "bytes": 4034,
+      "sha256": "fe4abd3058d0ee1d3655d7ddabdb36205c276075c28350fbe63fd1abf1712225"
+    },
+    {
+      "path": "integration/apps_script_audit/audit.js",
+      "bytes": 7556,
+      "sha256": "c45451120b211d1dee387d0e9922522fa58008fb6e5e0ca73095ca910db1aac5"
+    },
+    {
+      "path": "integration/apps_script_audit/labeled_run.py",
+      "bytes": 551,
+      "sha256": "10688b7be0964a5f5ff36c0392c3d4aaad0e80127168a01b1642a207eacaf40d"
     },
     {
       "path": "integration/branding/apple-touch-icon.png",
@@ -2169,6 +2184,11 @@
       "path": "tests/test_agencia_parser.py",
       "bytes": 3584,
       "sha256": "1d93647a48a3f6d2c88d7441273865b4eac3897c1f7d71eb54bc631ddb6971a8"
+    },
+    {
+      "path": "tests/test_apps_script_audit.py",
+      "bytes": 1722,
+      "sha256": "0d5d90ddf002870c80e3ef59da25590e310c67aa883a4b12eebd392a655b2c42"
     },
     {
       "path": "tests/test_branding.py",
