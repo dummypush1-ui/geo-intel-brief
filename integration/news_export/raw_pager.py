@@ -33,17 +33,19 @@ class RawPager:
   self._closed=True;self._execute=None;self._verify=None
  def close(self):
   RawPager._shutdown(self)
- def fetch_page(self):
+ def fetch_page(self,*,limit=None):
   if self._closed:raise RawPagerError('pager closed')
   if self._eof:return []
+  limit=self._size if limit is None else limit
+  if type(limit) is not int or not 1<=limit<=self._size:raise RawPagerError('page limit')
   try:
-   plan=query_plan(self._project,self._last,self._size)
+   plan=query_plan(self._project,self._last,limit)
    if not self._verified:
     if self._verify(self._project,tuple(plan['sort'])) is not True:raise RawPagerError('scope not verified')
     self._verified=True
    # The executor must not mutate the plan; validation uses independent contract.
    rows=self._execute(plan)
-   if type(rows) is not list or len(rows)>self._size:raise RawPagerError('bounded materialized page required')
+   if type(rows) is not list or len(rows)>limit:raise RawPagerError('bounded materialized page required')
    fields=set(query_plan(self._project,limit=self._size)['projection'])
    total=2
    for row in rows:
@@ -58,9 +60,9 @@ class RawPager:
     encoded=json.dumps(row,ensure_ascii=False,allow_nan=False,separators=(',',':'),default=lambda x:str(x) if type(x) is ObjectId else None).encode('utf-8')
     total+=len(encoded)+1
     if total>self._budget:raise RawPagerError('page byte budget')
-   last=page_resume(self._project,rows,self._last,limit=self._size)
+   last=page_resume(self._project,rows,self._last,limit=limit)
    self._last=last
-   if len(rows)<self._size:self._eof=True
+   if len(rows)<limit:self._eof=True
    return rows
   except BaseException as exc:
    RawPager._shutdown(self)
