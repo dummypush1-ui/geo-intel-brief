@@ -666,6 +666,11 @@
       "sha256": "ce9b9897da5e2e73f49ddab61d4c8946eb2ea915a5e9232cc48fab656a8b01ff"
     },
     {
+      "path": "integration/news_export/GEO_SNAPSHOT_LIMITS.md",
+      "bytes": 4356,
+      "sha256": "71734b010f30f2fabab37e54dc8cdbaccb31ebc649bfb342c9666d7d8b1949c3"
+    },
+    {
       "path": "integration/news_export/KEYSET_LIMITS.md",
       "bytes": 4526,
       "sha256": "08efb761999e743637e83d1668857211fff2b5fb663ebfbc3109d1d33b2a0c32"
@@ -704,6 +709,11 @@
       "path": "integration/news_export/fixture_http.py",
       "bytes": 10424,
       "sha256": "14c1a0339e553462584137cac34d740f3565b411fab926d961cf4e3d5123a780"
+    },
+    {
+      "path": "integration/news_export/geo_snapshot.py",
+      "bytes": 7127,
+      "sha256": "3e73e4c4f45b439c6ccf59226fe106f82d01970651f743e92fd35c4c980915c3"
     },
     {
       "path": "integration/news_export/keyset_plan.py",
@@ -2396,6 +2406,11 @@
       "sha256": "beda30407bf2b87309b05d78e236c0471649de26c63d2d3d424992863ba1ae29"
     },
     {
+      "path": "tests/test_geo_snapshot.py",
+      "bytes": 7273,
+      "sha256": "27e8215960ae99d0d5e2c3f2b4e0b94397247f9d417f01d32205669fea537d5d"
+    },
+    {
       "path": "tests/test_live_news_ui.py",
       "bytes": 1215,
       "sha256": "5dd438d746d2dc0658e888139cf348fd7983a3e39affb8897c115d1e7da426fb"
@@ -2616,5 +2631,5 @@
       "sha256": "2ca27e9a8dae569cdeac42752ed1aed1afeff7f19282d3cc12c0aaa54a08bc04"
     }
   ],
-  "test_evidence_note": "Last full suite830 at save60 before workspace reset. Save62 focused4PASS and extracted4PASS; fresh independent4PASS. Finder seam mocked; restored pinned renderers tested. Fullsuite not rerun in partial tree."
+  "test_evidence_note": "Last full suite830 save60 before reset; save63 focused14author/extracted/reviewerPASS. Fullsuite not rerun partialtree."
 }
