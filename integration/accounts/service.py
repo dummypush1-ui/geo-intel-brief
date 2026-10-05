@@ -122,31 +122,40 @@ class AccountService:
         tok, wait = self.limiter.begin("signup", u or "invalid", client)
         if wait:
             return {"ok": False, "error": "too_many_attempts", "retry_after": wait}
-        if not u:
-            return generic
-        problems = check_policy(password, u)
-        if problems:
-            self.limiter.refund(tok)
-            return {"ok": False, "error": "weak_password", "problems": problems}
-        ih = None
-        if self.mode == "invite":
-            if not printable_ascii(invite_code, 8, 128):
-                return generic
-            ih = hash_invite(self.secret, invite_code)
         try:
-            pw_hash = self.hasher.hash(password)
-        except Busy:
-            self.limiter.refund(tok)
-            return {"ok": False, "error": "busy"}
-        rec = {"uid": secrets.token_hex(16), "password": pw_hash, "created": self.clock(), "pwv": 0}
-        if self.store.create_account(u, rec, ih, self.max_users) != "ok":
-            return generic
-        rec["username"] = u
-        out = self._open_session(rec)
-        if not out:
-            return generic
-        self.limiter.success(tok)
-        return out
+            if not u:
+                self.limiter.fail(tok)
+                return generic
+            problems = check_policy(password, u)
+            if problems:
+                self.limiter.refund(tok)
+                return {"ok": False, "error": "weak_password", "problems": problems}
+            ih = None
+            if self.mode == "invite":
+                if not printable_ascii(invite_code, 8, 128):
+                    self.limiter.fail(tok)
+                    return generic
+                ih = hash_invite(self.secret, invite_code)
+            try:
+                pw_hash = self.hasher.hash(password)
+            except Busy:
+                self.limiter.refund(tok)
+                return {"ok": False, "error": "busy"}
+            rec = {"uid": secrets.token_hex(16), "password": pw_hash, "created": self.clock(), "pwv": 0}
+            if self.store.create_account(u, rec, ih, self.max_users) != "ok":
+                self.limiter.fail(tok)
+                return generic
+            rec["username"] = u
+            out = self._open_session(rec)
+            if not out:
+                self.limiter.fail(tok)
+                return generic
+            self.limiter.success(tok)
+            return out
+        finally:
+            # Consume unhandled/exceptional reservations without refunding counts.
+            # Already-settled tokens are a no-op; fail performs no store callbacks.
+            self.limiter.fail(tok)
 
     def login(self, username, password, csrf_token, nonce, client, origin=None):
         bad = {"ok": False, "error": "invalid_credentials"}
@@ -158,24 +167,31 @@ class AccountService:
         tok, wait = self.limiter.begin("login", u or "invalid", client)
         if wait:
             return {"ok": False, "error": "too_many_attempts", "retry_after": wait}
-        rec = self.store.get_user(u) if u else None
         try:
-            ok = self.hasher.verify(password, rec["password"] if rec else self._dummy_hash())
-        except Busy:
-            self.limiter.refund(tok)
-            return {"ok": False, "error": "busy"}
-        if not (rec and ok):
-            return bad
-        if self.hasher.needs_rehash(rec["password"]):
+            rec = self.store.get_user(u) if u else None
             try:
-                self.store.rehash_password(rec["uid"], rec["pwv"], self.hasher.hash(password))
+                ok = self.hasher.verify(password, rec["password"] if rec else self._dummy_hash())
             except Busy:
-                pass
-        out = self._open_session(rec)
-        if not out:
-            return bad       # account deleted or password changed mid-login
-        self.limiter.success(tok)
-        return out
+                self.limiter.refund(tok)
+                return {"ok": False, "error": "busy"}
+            if not (rec and ok):
+                self.limiter.fail(tok)
+                return bad
+            if self.hasher.needs_rehash(rec["password"]):
+                try:
+                    self.store.rehash_password(rec["uid"], rec["pwv"], self.hasher.hash(password))
+                except Busy:
+                    pass
+            out = self._open_session(rec)
+            if not out:
+                self.limiter.fail(tok)
+                return bad       # account deleted or password changed mid-login
+            self.limiter.success(tok)
+            return out
+        finally:
+            # Consume unhandled/exceptional reservations without refunding counts.
+            # Already-settled tokens are a no-op; fail performs no store callbacks.
+            self.limiter.fail(tok)
 
     def logout(self, token, csrf_token, origin=None):
         s, h, err = self._authed(token, csrf_token, origin)
@@ -197,19 +213,25 @@ class AccountService:
         tok, wait = self.limiter.begin("login", s["username"], client)
         if wait:
             return "too_many_attempts", None
-        rec = self.store.get_user(s["username"])
-        if not rec or rec["uid"] != s["uid"]:
-            self.limiter.refund(tok)
-            return "unauthenticated", None
         try:
-            ok = self.hasher.verify(password, rec["password"])
-        except Busy:
-            self.limiter.refund(tok)
-            return "busy", None
-        if not ok:
-            return "invalid_credentials", None
-        self.limiter.success(tok)
-        return None, rec
+            rec = self.store.get_user(s["username"])
+            if not rec or rec["uid"] != s["uid"]:
+                self.limiter.refund(tok)
+                return "unauthenticated", None
+            try:
+                ok = self.hasher.verify(password, rec["password"])
+            except Busy:
+                self.limiter.refund(tok)
+                return "busy", None
+            if not ok:
+                self.limiter.fail(tok)
+                return "invalid_credentials", None
+            self.limiter.success(tok)
+            return None, rec
+        finally:
+            # Consume unhandled/exceptional reservations without refunding counts.
+            # Already-settled tokens are a no-op; fail performs no store callbacks.
+            self.limiter.fail(tok)
 
     def change_password(self, token, csrf_token, old, new, client, origin=None):
         s, h, err = self._authed(token, csrf_token, origin)

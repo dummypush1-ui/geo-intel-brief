@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 767,
+  "tests": 801,
   "files": [
     {
       "path": ".env.example",
@@ -251,6 +251,11 @@
       "sha256": "5d961509258c047783dbe624ffaa01940143f0e09e8e19cf4e595372fd5c0a88"
     },
     {
+      "path": "integration/accounts/CONFORMANCE_LIMITS.md",
+      "bytes": 7114,
+      "sha256": "5a6351b5f5e4ceed59aa9791676a9c0a35e24a00e0add0053bd4960bcba113f1"
+    },
+    {
       "path": "integration/accounts/HTTP_FIXTURE_LIMITS.md",
       "bytes": 2743,
       "sha256": "97c8717037cd7c0ce6d6fcc27738de4e165b5bde70814238e3b198401be833d4"
@@ -277,8 +282,8 @@
     },
     {
       "path": "integration/accounts/limiter.py",
-      "bytes": 3900,
-      "sha256": "cd9ba7535264fe001a3afeaef840a7333b02788bd0c106ede483145c8e6384b5"
+      "bytes": 8534,
+      "sha256": "816112e2b31c0864ca9493b9ccece1096b93d6c25918631250e238b12ec2a565"
     },
     {
       "path": "integration/accounts/passwords.py",
@@ -287,8 +292,8 @@
     },
     {
       "path": "integration/accounts/service.py",
-      "bytes": 12378,
-      "sha256": "2f53edc5575786782d32233e17809044258bb93d5046ad6a2e4669703678b4ef"
+      "bytes": 13575,
+      "sha256": "9c54cf9b76f0c691635da6a43d868ebc52c9ff115cadd6726592605c8fa8239f"
     },
     {
       "path": "integration/accounts/settings.py",
@@ -1979,6 +1984,16 @@
       "path": "tests/accounts/test_http_fixture.py",
       "bytes": 4867,
       "sha256": "3a210c397ef54d3f80424d2646be199ffb8424b9cbc071bc160be3ea3891cd40"
+    },
+    {
+      "path": "tests/accounts/test_reservation_terminal.py",
+      "bytes": 12933,
+      "sha256": "ef47ec262e461b0373be3cc90c08e92f6f195029ee401e47c4f2ed8d24170812"
+    },
+    {
+      "path": "tests/accounts/test_store_conformance.py",
+      "bytes": 6458,
+      "sha256": "3a46fd4738f2eb8a46edceea2bcd208eea6fdf9f4d9263aa949f87095325d541"
     },
     {
       "path": "tests/browser_brics_streams.py",
