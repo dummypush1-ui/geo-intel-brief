@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 756,
+  "tests": 767,
   "files": [
     {
       "path": ".env.example",
@@ -226,6 +226,11 @@
       "sha256": "b2f2d1bcb3b0368ced209b49a84eb348e2e3926a355894c98177d01eee32c2a1"
     },
     {
+      "path": "integration/STREAM_REVISION_LIMITS.md",
+      "bytes": 3513,
+      "sha256": "ac5c8731800995d24ea21e32795784ab6aae03da4d2f7890eeaf2f8490d110e4"
+    },
+    {
       "path": "integration/TARIFF_EVIDENCE_LIMITS.md",
       "bytes": 2060,
       "sha256": "56d1f44f809a636b423dc077ebf75cd59070abd0d4185d4205d5bd03d98956a4"
@@ -392,8 +397,8 @@
     },
     {
       "path": "integration/brics_streams.py",
-      "bytes": 3821,
-      "sha256": "a7f2328432960151a499ff6c2ddff1dcb50e0dd48ae696da0d94d071932b6f99"
+      "bytes": 3852,
+      "sha256": "0add85dfd3b541b2d681daad0d21af4a6320dea89d8c9254baf9a308d9a89b10"
     },
     {
       "path": "integration/collection_prepare.py",
@@ -849,6 +854,11 @@
       "path": "integration/stream_fixture_app.py",
       "bytes": 1730,
       "sha256": "cb522d927bfb1207170f96cb9a532288f724a7602d50cabbea13c22709db44df"
+    },
+    {
+      "path": "integration/stream_revision.py",
+      "bytes": 2399,
+      "sha256": "39f607f7b2ae8b81b185bc4dbc610259efa103f51f7bb22f350e06bc93c8f06a"
     },
     {
       "path": "integration/tariff_evidence.py",
@@ -2474,6 +2484,11 @@
       "path": "tests/test_stream_fixture_app.py",
       "bytes": 3293,
       "sha256": "905aaa33e8b4cef331e97ec72baadac0f7b02be77cfeb0be8519e266e34fe6b2"
+    },
+    {
+      "path": "tests/test_stream_revision.py",
+      "bytes": 5779,
+      "sha256": "8345a29e6a48fb855c61c2bfd1c8b185fb3d059648ad520df0a24fc3ab86ba85"
     },
     {
       "path": "tests/test_tariff_evidence.py",

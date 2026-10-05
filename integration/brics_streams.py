@@ -1,7 +1,7 @@
 """Original BRICS stream CRUD contract over an injected fixture-only store.
 
 No YAML writes, DB clients, timers or live imports. Stricter YouTube grammar
-retains watch/short/live/embed input forms; arbitrary original bare IDs fail.
+retains watch/short/live/embed input forms; exact11char bare IDs accepted; other original bare strings fail.
 """
 import re,threading,unicodedata
 from urllib.parse import urlsplit,parse_qs
