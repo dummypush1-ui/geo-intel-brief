@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 801,
+  "tests": 805,
   "files": [
     {
       "path": ".env.example",
@@ -639,6 +639,11 @@
       "path": "integration/news_export/KEYSET_LIMITS.md",
       "bytes": 4526,
       "sha256": "08efb761999e743637e83d1668857211fff2b5fb663ebfbc3109d1d33b2a0c32"
+    },
+    {
+      "path": "integration/news_export/LOCAL_SERVING_LIMITS.md",
+      "bytes": 3470,
+      "sha256": "fc79461042c82e5367c96998ab2a35603bd37f1aab3f26038e629054a5de9b1c"
     },
     {
       "path": "integration/news_export/ORIGINAL_CONTRACT_LIMITS.md",
@@ -2179,6 +2184,11 @@
       "path": "tests/news_export/test_fixture_http.py",
       "bytes": 14608,
       "sha256": "5b5ded65e6c00cd55f7a71392d9a01bb0bde9c2045147ec4041cb93fb1a1fa53"
+    },
+    {
+      "path": "tests/news_export/test_fixture_serving.py",
+      "bytes": 9802,
+      "sha256": "d6743b4ca36b8a4d6ed975dc19bca048b25666bc91b981fbaf0c6de20d324d85"
     },
     {
       "path": "tests/news_export/test_keyset_plan.py",
