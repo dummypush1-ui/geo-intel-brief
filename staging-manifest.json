@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 709,
+  "tests": 736,
   "files": [
     {
       "path": ".env.example",
@@ -137,8 +137,8 @@
     },
     {
       "path": "integration/EXPORT_DIGEST_LIMITS.md",
-      "bytes": 2519,
-      "sha256": "7d10815568f25a85637609faaec5dc5f1b7fa5a03e8634a5f6d26400b5fa39db"
+      "bytes": 2776,
+      "sha256": "ca6cd4cdfc1eb03dcca5b6ad0062577836f354c3416c1faa7c84423401209aa7"
     },
     {
       "path": "integration/FAKE_WRITER_LIMITS.md",
@@ -162,8 +162,8 @@
     },
     {
       "path": "integration/FINDER_PARITY_PLAN.md",
-      "bytes": 9627,
-      "sha256": "45c11691c29ed391f7388b77b711df0ab0884e43128825c0b083994593f33633"
+      "bytes": 9920,
+      "sha256": "496a1b1f8c70078eccbb985f0374224e162f3e40c1ff55caffd958c2a84e765e"
     },
     {
       "path": "integration/FINDER_SNAPSHOT_NOTES.md",
@@ -591,6 +591,11 @@
       "sha256": "66f03e63a0a0bbc0360f39861903231c0d8c3fd2429670d0bf791d2c313df511"
     },
     {
+      "path": "integration/news_export/FIXTURE_HTTP_LIMITS.md",
+      "bytes": 5257,
+      "sha256": "ce9b9897da5e2e73f49ddab61d4c8946eb2ea915a5e9232cc48fab656a8b01ff"
+    },
+    {
       "path": "integration/news_export/KEYSET_LIMITS.md",
       "bytes": 4526,
       "sha256": "08efb761999e743637e83d1668857211fff2b5fb663ebfbc3109d1d33b2a0c32"
@@ -619,6 +624,11 @@
       "path": "integration/news_export/export.py",
       "bytes": 12651,
       "sha256": "fad8c67bb915280cb895db79c553d60e137d9df339d791b8ad554d5ebad614a1"
+    },
+    {
+      "path": "integration/news_export/fixture_http.py",
+      "bytes": 10424,
+      "sha256": "14c1a0339e553462584137cac34d740f3565b411fab926d961cf4e3d5123a780"
     },
     {
       "path": "integration/news_export/keyset_plan.py",
@@ -2104,6 +2114,11 @@
       "path": "tests/news_export/test_export_route.py",
       "bytes": 4680,
       "sha256": "e8ff6b98073eedb24660967ad8d07b57a46792f7e668aa013af48a9c392d2e93"
+    },
+    {
+      "path": "tests/news_export/test_fixture_http.py",
+      "bytes": 14608,
+      "sha256": "5b5ded65e6c00cd55f7a71392d9a01bb0bde9c2045147ec4041cb93fb1a1fa53"
     },
     {
       "path": "tests/news_export/test_keyset_plan.py",
