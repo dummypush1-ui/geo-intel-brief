@@ -17,8 +17,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 2313,
-      "sha256": "0023a60d3ba1f8dc63e0d43cdee0ea2871d9920f50c69b09bb66cbe38c4b13ac"
+      "bytes": 2453,
+      "sha256": "e5d9f0d58f90ac8c6bf55e05e543e746bfe7cd01514721d9afd4647b0c8d2eb5"
     },
     {
       "path": "REVIEW.md",
@@ -174,6 +174,11 @@
       "path": "integration/FINDER_SNAPSHOT_NOTES.md",
       "bytes": 1029,
       "sha256": "f17380d3c633e8dc55248303f209bcda6805006b5354f63a3c7fdecaa06375e4"
+    },
+    {
+      "path": "integration/GEO_ARTICLE_WRITER_LIMITS.md",
+      "bytes": 3239,
+      "sha256": "1de66dab3c2ce5c4e0695637197d1c755810c4b3ad3ff12fde6999e82d6fdf48"
     },
     {
       "path": "integration/GEO_COLLECTOR_CONTRACT_LIMITS.md",
@@ -514,6 +519,11 @@
       "path": "integration/finder_offline.py",
       "bytes": 3465,
       "sha256": "1be81c458ef1cdd088abdad1df6623cadaf52ac8065ae279ebe0e997adca1b57"
+    },
+    {
+      "path": "integration/geo_article_writer.py",
+      "bytes": 7311,
+      "sha256": "28379724081b15a961f30ac4bbbb7711aac8058b2b956392a77bbe960ebb54dd"
     },
     {
       "path": "integration/geo_collector_contract.py",
@@ -2391,6 +2401,11 @@
       "sha256": "089b837eead1a110cb4f4050a8360b1d036520e40b9b4f5f6069767a731c5fb0"
     },
     {
+      "path": "tests/test_geo_article_writer.py",
+      "bytes": 8753,
+      "sha256": "cd596802291b4bf2243fc1101cb21a12c8029c4b93189e92554b756bb2278fdc"
+    },
+    {
       "path": "tests/test_geo_collector_contract.py",
       "bytes": 4961,
       "sha256": "9681ef874637ba5ba3eb303382d03ebc400e105a649a8ccc0d8069670b4f8469"
@@ -2646,5 +2661,5 @@
       "sha256": "2ca27e9a8dae569cdeac42752ed1aed1afeff7f19282d3cc12c0aaa54a08bc04"
     }
   ],
-  "test_evidence_note": "Last full suite830 save60 before reset; save64 focused9author/extracted/reviewerPASS. Fullsuite not rerun partialtree."
+  "test_evidence_note": "Last full suite830 save60 before reset; save65 focused22author/extractedPASS,v4reviewer20PASS. Fullsuite not rerun partialtree."
 }

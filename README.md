@@ -33,6 +33,8 @@ assert any current external service or database state.
 Local check in the configured Python environment:
 PYTHONPATH=tests python -m unittest discover
 Dependencies and per-feature caveats are in integration/*LIMITS.md and package
-README files. As reported by the author's local run: 816 tests OK with 1 skip and 1 expected
-failure (command and recorded backup report in FEATURE_STATUS.md); unsupported multiple
-account limiter instances are explicitly pinned, not hidden passing coverage.
+README files. Last full author suite: 830 tests at save 60, with 1 skip and 1 expected failure.
+After a workspace reset, the local tree is partial; that full suite has not been
+rerun. Saves 61-65 have focused evidence in their LIMITS files, not a new full
+suite count. Save 65 has 22 native-PyMongo fake-driver tests passing. Unsupported
+multiple account limiter instances remain explicitly pinned.
