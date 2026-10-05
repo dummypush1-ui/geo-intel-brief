@@ -176,6 +176,11 @@
       "sha256": "f17380d3c633e8dc55248303f209bcda6805006b5354f63a3c7fdecaa06375e4"
     },
     {
+      "path": "integration/GEO_COLLECTOR_CONTRACT_LIMITS.md",
+      "bytes": 3835,
+      "sha256": "ec5c229454d3063dbcc805c5cfd238e63048670f40250ab3dc0e3ca5d093db6e"
+    },
+    {
       "path": "integration/GEO_EVENTS_COMPOSITION_LIMITS.md",
       "bytes": 3092,
       "sha256": "7131804831955b0a9aa1a9311dcbbd6f1bcebf31ba91f934e4e430b5737da27c"
@@ -509,6 +514,11 @@
       "path": "integration/finder_offline.py",
       "bytes": 3465,
       "sha256": "1be81c458ef1cdd088abdad1df6623cadaf52ac8065ae279ebe0e997adca1b57"
+    },
+    {
+      "path": "integration/geo_collector_contract.py",
+      "bytes": 6433,
+      "sha256": "a2c2047d37b8d12132af784c4ca9bab697a53492580e90e98a77261e6d965d9d"
     },
     {
       "path": "integration/geo_only_runtime.py",
@@ -2381,6 +2391,11 @@
       "sha256": "089b837eead1a110cb4f4050a8360b1d036520e40b9b4f5f6069767a731c5fb0"
     },
     {
+      "path": "tests/test_geo_collector_contract.py",
+      "bytes": 4961,
+      "sha256": "9681ef874637ba5ba3eb303382d03ebc400e105a649a8ccc0d8069670b4f8469"
+    },
+    {
       "path": "tests/test_geo_event_composition.py",
       "bytes": 4422,
       "sha256": "6814a32a6de068f6a694c76126664d5f1143a5bc9e7e818a0270477036a62b89"
@@ -2631,5 +2646,5 @@
       "sha256": "2ca27e9a8dae569cdeac42752ed1aed1afeff7f19282d3cc12c0aaa54a08bc04"
     }
   ],
-  "test_evidence_note": "Last full suite830 save60 before reset; save63 focused14author/extracted/reviewerPASS. Fullsuite not rerun partialtree."
+  "test_evidence_note": "Last full suite830 save60 before reset; save64 focused9author/extracted/reviewerPASS. Fullsuite not rerun partialtree."
 }
