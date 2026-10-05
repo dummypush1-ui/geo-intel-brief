@@ -1,11 +1,11 @@
 # Current private merge status
 
-As of the reviewed local increments through 55. This is a code/test status,
+As of the reviewed local increments through 58. This is a code/test status,
 not a deployment, live source, availability or full parity certificate.
-As reported by the author's local run: 805 tests, OK with 1 skip and 1
+As reported by the author's local run: 816 tests, OK with 1 skip and 1
 expected failure. Command: PYTHONPATH=tests /tmp/phase1-venv/bin/python -m
-unittest discover. Recorded in the backup 55 completion report and run
-https://github.com/dummypush1-ui/geo-intel-brief/actions/runs/37254349096
+unittest discover. Recorded in the backup 58 completion report and run
+https://github.com/dummypush1-ui/geo-intel-brief/actions/runs/37255729398
 (the backup run confirms uploaded files, not independent test execution). The
 expected failure pins unsupported multiple account Limiter instances per store.
 No collector, mail, DB mutation, polling, Render change or cutover was performed
@@ -34,6 +34,7 @@ means intentionally excluded from the selected composition, not deleted source.
 | CSV | Loaded sample export; original-order planner/pager/stream and separate dev HTTP fixture | Full production original adapter/route/index/snapshot missing. Local gated-reset serving proof is not natural slow-reader/Render proof | news_export/*LIMITS.md; tests/news_export/test_fixture_serving.py |
 | Original unsent queue | Supplied Geo cap-before-score/all-fetched-ID renderer | Current unsent state unverified; fetched-vs-displayed marking policy OPEN; no mark writes | GEO_QUEUE_LIMITS.md |
 | BRICS stream management | Separate captured-config/RAM edit fixture; supplied-byte revision transform | Durable YAML writer/CAS/recovery missing, no production config loader. RAM edits do not change captured players | BRICS_STREAM_LIMITS.md; STREAM_REVISION_LIMITS.md |
+| Page-watch snapshots | Canonical UTC/URL, strict integrity/bounds, parser input/event caps and bounded diff | No actual fetching/source authorization/persisted baseline; fixed Nilgiried labels, strict-reject compatibility limits, no CPU deadline | PAGE_WATCH_LIMITS.md; tests/test_page_watch_contract.py |
 | Sources/tariff evidence | Supplied observation/evidence panels distinguish unavailable/empty | No live health probe or verified current tariff/legal-effect feed | SOURCE_HEALTH_LIMITS.md; TARIFF_EVIDENCE_LIMITS.md |
 | Collection | Original processing order plus fake-writer/offline cycle fixture | Live fetching/writer/schema/identity/atomicity/scheduler/cutover unconnected; no second collector | COLLECTION_PREPARE_LIMITS.md; OFFLINE_CYCLE_LIMITS.md |
 | Apps Script mail | Preserved source and fake-service compatibility audit; offline mail contract | Authenticated delivery/claim/receipt ledger and cutover missing. Audit VM not isolation; duplicates/mark failure source risks | apps_script_audit/README.md; mail_bridge.py |

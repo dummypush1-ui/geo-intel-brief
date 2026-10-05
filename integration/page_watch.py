@@ -5,7 +5,7 @@ snapshots separately from legacy articles; callers decide reviewed activation.
 """
 from html.parser import HTMLParser
 from html import escape
-import hashlib,difflib,re
+import hashlib,difflib,re,unicodedata
 from datetime import datetime,timezone
 from urllib.parse import urlsplit,urlunsplit
 
@@ -114,7 +114,8 @@ def compare(previous,current):
  if current['observed_at']==previous['observed_at'] and current['sha256']!=previous['sha256']:raise ValueError('Conflicting equal-time observation')
  if previous.get('sha256')==current.get('sha256'):return {'state':'unchanged','items':[],'snapshot':current}
  old_bytes,old_lines=_text(previous['text']);new_bytes,new_lines=_text(current['text'])
- omitted=max(len(old_lines),len(new_lines))>DIFF_LINES or max(len(old_bytes),len(new_bytes))>DIFF_BYTES
+ controls_present=any(unicodedata.category(c) in ("Cc","Cf","Zl","Zp") and c not in "\n\r\t" for c in previous["text"]+current["text"])
+ omitted=controls_present or max(len(old_lines),len(new_lines))>DIFF_LINES or max(len(old_bytes),len(new_bytes))>DIFF_BYTES
  diff=['[Page changed; diff omitted due to bounded comparison budget. Review source page.]'] if omitted else list(difflib.unified_diff(old_lines,new_lines,fromfile='previous observation',tofile='current observation',lineterm=''))
  change_id=hashlib.sha256((current['url']+'\n'+previous['sha256']+'\n'+current['sha256']+'\n'+previous['observed_at']).encode()).hexdigest()
  row={'id':change_id,'title':'Page changed: Nilgiris Economic Dialogue','url':current['url'],'source':'Nilgiried page watch','country':'India','category':'GENERAL','summary':'\n'.join(diff[:80])[:12000]+ ('\n[Diff truncated. Review source page.]' if len(diff)>80 else ''),'summary_html':escape('\n'.join(diff[:80])[:12000]),'summary_format':'plain_text','published':'','created_at':current['observed_at'],'method':'page_change','previous_sha256':previous['sha256'],'current_sha256':current['sha256'],'emailed':False}

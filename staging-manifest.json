@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 816,
+  "tests": 822,
   "files": [
     {
       "path": ".env.example",
@@ -18,7 +18,7 @@
     {
       "path": "README.md",
       "bytes": 2313,
-      "sha256": "4c1cc6279abaf55125b57a641b4d77c7f4b23922aaacde4d798362f3d302056a"
+      "sha256": "0023a60d3ba1f8dc63e0d43cdee0ea2871d9920f50c69b09bb66cbe38c4b13ac"
     },
     {
       "path": "REVIEW.md",
@@ -147,8 +147,8 @@
     },
     {
       "path": "integration/FEATURE_STATUS.md",
-      "bytes": 8644,
-      "sha256": "2c2060f20bb0e8e6da3dc951e6afe5d26e1ca0d7a518fe1ad3fd489645f07627"
+      "bytes": 8952,
+      "sha256": "933adfca99ca44613247ad71969fd121cbd44ce8c59986fef487a4b8c73551f6"
     },
     {
       "path": "integration/FINDER_NESTED_LIMITS.md",
@@ -199,6 +199,11 @@
       "path": "integration/OFFLINE_CYCLE_LIMITS.md",
       "bytes": 1932,
       "sha256": "27486fc2db38e9aea323f3b5afdfb9ba770186d783f294c5a636ea5edcc0cc80"
+    },
+    {
+      "path": "integration/PAGEWATCH_REPORT_LIMITS.md",
+      "bytes": 2251,
+      "sha256": "9fdaa5ddaed815f53b29b59af39e1d37eaa8f28c46fd740fb83e1e04c07e43d3"
     },
     {
       "path": "integration/PAGE_WATCH_LIMITS.md",
@@ -727,13 +732,13 @@
     },
     {
       "path": "integration/page_watch.py",
-      "bytes": 7551,
-      "sha256": "2fb22cf46b766c42dffee15fa5a79bfe343edaff3ddefef87ff69b7f44beffa8"
+      "bytes": 7719,
+      "sha256": "8709612dd2424494c6737763853117d599f3eb7a5f8bb9008ba73724174fd0eb"
     },
     {
       "path": "integration/pagewatch_report.py",
-      "bytes": 1332,
-      "sha256": "aea6f1ac37e55137eda3b967faa8900eb82c1ec1e7f29cd75bb9656d21f1a448"
+      "bytes": 3551,
+      "sha256": "f941eadb45a81cae8cc9096563fe474f21a7e9bf7b1b86a237b54e7e4d1c2626"
     },
     {
       "path": "integration/preview_access.py",
@@ -2424,6 +2429,11 @@
       "path": "tests/test_pagewatch_report.py",
       "bytes": 970,
       "sha256": "d7d291266634a972fc632314d5b7af6542e97d3125518220b2cb817c14611250"
+    },
+    {
+      "path": "tests/test_pagewatch_report_contract.py",
+      "bytes": 2933,
+      "sha256": "1d50be85e535293e543ac69270e222e881506efbf6830d2547f423c7a492d385"
     },
     {
       "path": "tests/test_preservation.py",
