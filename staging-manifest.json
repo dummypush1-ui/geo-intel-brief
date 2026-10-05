@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 747,
+  "tests": 755,
   "files": [
     {
       "path": ".env.example",
@@ -209,6 +209,11 @@
       "path": "integration/REPORT_STYLE_LIMITS.md",
       "bytes": 1141,
       "sha256": "6914cc0083abbf8dcc968f26fcb72098dfe286ec8407a5c5b619ebb714475f43"
+    },
+    {
+      "path": "integration/RETENTION_AUDIT_LIMITS.md",
+      "bytes": 4334,
+      "sha256": "04d2776a42d4e24c441cd53eb057538c0ed9265a3dfdf5aa665fd77886e6ae93"
     },
     {
       "path": "integration/SINGLE_DB_PLAN_LIMITS.md",
@@ -734,6 +739,11 @@
       "path": "integration/report_styles.py",
       "bytes": 6604,
       "sha256": "a65de5a98d013d933af811a139fe0850569e9b632ffc941e9275e4faec067321"
+    },
+    {
+      "path": "integration/retention_audit.py",
+      "bytes": 6818,
+      "sha256": "e27fe8c17a3b05ebef25d784877b7562556cbbf7a9f28a25961db660aa8e34ac"
     },
     {
       "path": "integration/rss_catalog/README.md",
@@ -2374,6 +2384,11 @@
       "path": "tests/test_report_styles.py",
       "bytes": 3040,
       "sha256": "2cabde91f1e699adb69af3d4636b604e0428cc89b539102c57c4bdc1a8b9b67b"
+    },
+    {
+      "path": "tests/test_retention_audit.py",
+      "bytes": 3842,
+      "sha256": "ea7d34b9940cfec1043778ee9f696b5104e594b1aca943b412a1fd0270e525ba"
     },
     {
       "path": "tests/test_rss_catalog.py",
