@@ -157,3 +157,9 @@ required beforehostactivation. Sessions/cooldownperprocess, wallclockexpiry,
 capselflockout/globalunauthbudgetburn/near1024urlencoded413 residualsdocumented.
 Render screens held. DedicatedreadonlyDBuser preferred later, noindex/writes/
 collectorstop/cutover/realsends inferred from manualcheckpreparation.
+
+## Increment 72: reviewed offline scope
+
+Closed memory account/workspace fixture; session checks, original gates unchanged. 390/1280 login/workspace/nav/logout pixels checked. Production accounts, shared limiter/recovery/invite expiry and settings sync remain blocked.
+Author full configured suite: 958 tests OK, 1 skip/1 expected failure.
+This milestone is offline code/test status, not live activation.

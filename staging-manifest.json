@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 944,
+  "tests": 958,
   "files": [
     {
       "path": ".env.example",
@@ -147,8 +147,8 @@
     },
     {
       "path": "integration/FEATURE_STATUS.md",
-      "bytes": 14552,
-      "sha256": "c71ca21531ef7b6383e97790491f2e9fd8cc4a8211a2ebe772d749cbaa52dda6"
+      "bytes": 14958,
+      "sha256": "c4a36d2bb5c1ee4c6fb5cad11d35b345d21e21c4ae22def76ebccb443ac4fa4e"
     },
     {
       "path": "integration/FINDER_NESTED_LIMITS.md",
@@ -316,6 +316,11 @@
       "sha256": "97c8717037cd7c0ce6d6fcc27738de4e165b5bde70814238e3b198401be833d4"
     },
     {
+      "path": "integration/accounts/MERGED_FIXTURE_LIMITS.md",
+      "bytes": 2909,
+      "sha256": "cd79cdec80e64bb132fd0a9ddc4f19e41d3a3311c789a9d409e39fed659d9f83"
+    },
+    {
       "path": "integration/accounts/MONGO_STORE_LIMITS.md",
       "bytes": 5006,
       "sha256": "04dfe9296398e82ecc893ae629386b1e789ef835d8ebe84fec971bc8e4b78744"
@@ -344,6 +349,11 @@
       "path": "integration/accounts/limiter.py",
       "bytes": 8534,
       "sha256": "816112e2b31c0864ca9493b9ccece1096b93d6c25918631250e238b12ec2a565"
+    },
+    {
+      "path": "integration/accounts/merged_fixture.py",
+      "bytes": 8553,
+      "sha256": "31c8e57628ccda84e852a09affb6e21888a18c260a0b74b34b51b0d7d215ffc7"
     },
     {
       "path": "integration/accounts/mongo_store.py",
@@ -1196,6 +1206,11 @@
       "sha256": "936a244b97187892bc9cd889d2b2d465742cf2c424af777c0ff91fd4bfb822f7"
     },
     {
+      "path": "intelligence/brics/config.py",
+      "bytes": 2671,
+      "sha256": "2419339566c5946dd0daeae7147eba7a49dffdd379b3c34769d6d62860afc82d"
+    },
+    {
       "path": "intelligence/brics/config/sources.yaml",
       "bytes": 5886,
       "sha256": "8de2ecee36e058ff76d84a39b0ee588aa936fd171156ea28f2a997250159f309"
@@ -1204,11 +1219,6 @@
       "path": "intelligence/brics/config/streams.yaml",
       "bytes": 712,
       "sha256": "65c676f7112813ac6196e859ecf88dd0a866118b9ad5801dd8982b2ea9afc0dd"
-    },
-    {
-      "path": "intelligence/brics/config.py",
-      "bytes": 2671,
-      "sha256": "2419339566c5946dd0daeae7147eba7a49dffdd379b3c34769d6d62860afc82d"
     },
     {
       "path": "intelligence/brics/config_check.py",
@@ -1346,14 +1356,14 @@
       "sha256": "87779b824769bf2b2ab6294838249f9431ae3890405050987870b3e474c6afd1"
     },
     {
-      "path": "intelligence/geo/config/sources.example.yaml",
-      "bytes": 708,
-      "sha256": "a97e256c6bf2bc4518336ff38507c4837f206a32f1e09aecbd9777e913794440"
-    },
-    {
       "path": "intelligence/geo/config.py",
       "bytes": 7266,
       "sha256": "f7fbf007954c6918fbe2e402863fa29f597fe5d5cb4d60d1001deca8896b21f3"
+    },
+    {
+      "path": "intelligence/geo/config/sources.example.yaml",
+      "bytes": 708,
+      "sha256": "a97e256c6bf2bc4518336ff38507c4837f206a32f1e09aecbd9777e913794440"
     },
     {
       "path": "intelligence/geo/config_check.py",
@@ -2111,6 +2121,11 @@
       "sha256": "3a210c397ef54d3f80424d2646be199ffb8424b9cbc071bc160be3ea3891cd40"
     },
     {
+      "path": "tests/accounts/test_merged_fixture.py",
+      "bytes": 9794,
+      "sha256": "43bbc4d8169ef9c716b6b4d6cd83d8c8deb7231817db24e4d55b8303c622cac9"
+    },
+    {
       "path": "tests/accounts/test_reservation_terminal.py",
       "bytes": 12933,
       "sha256": "ef47ec262e461b0373be3cc90c08e92f6f195029ee401e47c4f2ed8d24170812"
@@ -2750,5 +2765,6 @@
       "bytes": 22682,
       "sha256": "2ca27e9a8dae569cdeac42752ed1aed1afeff7f19282d3cc12c0aaa54a08bc04"
     }
-  ]
+  ],
+  "test_evidence_note": "Configured author full suite 958 OK; 1 skip/1 expected failure. Independent narrow review SAFE. Offline only."
 }
