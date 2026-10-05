@@ -5,6 +5,7 @@ IDs are discarded at this boundary. Optional events use the exact reviewed displ
 """
 from integration.report_adapters import geo_report_builder
 from integration.html_safety import sanitize_html
+from integration.report_preview_frame import responsive_preview
 from integration.renderer_scope import renderer
 from integration.geonews_digest import model
 from integration.dashboard_snapshots import DashboardSnapshots
@@ -46,6 +47,7 @@ def preview(rows,kind,now,event_snapshots=None):
    'top_countries':lambda days:[{'country':c,'cnt':n} for c,n in model.top_countries(articles,now,days)]},now=now)
   html=sanitize_html(fn());count=len(model.weekly_top_articles(articles,now))
  else:raise ValueError('Exact preview kind required')
+ if kind in ('digest','weekly'):html=responsive_preview(html)
  return {'html':html,'kind':kind,'shown_count':count,'state':'dry_run_sample',
  'delivery':False,'writes':False,'scheduler':False,'scope':'newest_supplied_public_geo_sample',
  'unsent_queue_verified':False,'events':event_info['state'],'event_snapshot':event_info,'normalization':stats}

@@ -1,11 +1,11 @@
 # Current private merge status
 
-As of reviewed increments through 67, with final offline parity check 68.
+As of reviewed increment 69, after full offline parity check 68.
 This is code/test status, not deployment or a live source certificate.
 All 537 saved manifest files were restored from backup 67 and SHA-256 checked,
 including original Finder assets. No synthetic original files were substituted.
 Configured author command: PYTHONPATH=tests /tmp/phase1-venv/bin/python -m unittest discover.
-909 tests ran in 93.7 seconds: OK, 1 skip and 1 expected failure. The expected
+913 tests ran in 98.2 seconds after increment 69: OK, 1 skip and 1 expected failure. The expected
 failure pins unsupported multiple account Limiter instances per store. Earlier
 workspace-recovery failures are not the current result. The backup workflow
 checks file hashes; it does not independently run the full test suite.
@@ -106,3 +106,20 @@ above are author observations. No UI rewrites or live source checks performed.
 These are remaining work, not checked-off activation steps. Live database checks,
 writes, mail, polling, deploy and stopping original collectors require Push's
 explicit permission. Offline build/test/private backup can continue.
+
+## Increment 69: narrow mobile private preview
+
+Digest and weekly private JSON previews now frame the sanitized original HTML
+with fixed trusted CSS and a viewport. Original direct renderer and mail-builder
+output remain unchanged and hash-pinned. Critical preview remains unchanged.
+The preview keeps sanitized body style and wraps long words on a phone.
+Reviewer approved this narrow scope after four wrapper tests and actual 390px
+and 1280px screenshots. Reviewer route tests were not run (Flask unavailable);
+author configured dependencies run the route tests as well.
+
+The routes return JSON. Their CSP style-src 'self' is not proof that an eventual
+iframe/srcdoc consumer can render this HTML. Test that exact consumer before
+claiming hosted UI readiness. Desktop private preview is capped at 700px, not
+identical to the original email. The weekly category subtable remains narrow
+from the pre-existing sanitizer. Phone pixels do not establish email-client
+responsiveness. No deployment, DB query or sending was added by this increment.

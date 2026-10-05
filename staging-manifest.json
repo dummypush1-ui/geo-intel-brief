@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 909,
+  "tests": 913,
   "files": [
     {
       "path": ".env.example",
@@ -147,8 +147,8 @@
     },
     {
       "path": "integration/FEATURE_STATUS.md",
-      "bytes": 11280,
-      "sha256": "b3dfc1f10e7b29428d80e907eb1cd1f3b9b1f0b360e66fac81a576865a4cabb3"
+      "bytes": 12334,
+      "sha256": "5ffb2e62ea7d11ef4f47c4a7a4b3913998e90409dcd48fb8f0bc04df94f35b2e"
     },
     {
       "path": "integration/FINDER_NESTED_LIMITS.md",
@@ -239,6 +239,11 @@
       "path": "integration/PRIVATE_NEWS_FIELDS_LIMITS.md",
       "bytes": 1682,
       "sha256": "abf477fd8b12df7b4c128e367a0c4e281272cbe4b706a32be0baa2f62a0578cd"
+    },
+    {
+      "path": "integration/REPORT_PREVIEW_FRAME_LIMITS.md",
+      "bytes": 1594,
+      "sha256": "e3a81eab0783cd0d48dc6ccb7d8d0a4763ac5972457463a7f2f75eca067cbd13"
     },
     {
       "path": "integration/REPORT_STYLE_LIMITS.md",
@@ -492,8 +497,8 @@
     },
     {
       "path": "integration/digest_preview.py",
-      "bytes": 3278,
-      "sha256": "d3265da45145f05434cb1e163af803f1eecd70847aa80a6b340e3ae2bfdfef88"
+      "bytes": 3404,
+      "sha256": "4b492669e765a593ea54ffa66d5fcc6361be034f764c5054ba808f11cd6be30c"
     },
     {
       "path": "integration/event_reader.py",
@@ -839,6 +844,11 @@
       "path": "integration/report_adapters.py",
       "bytes": 1777,
       "sha256": "af267f1950dc9fe0ed25757e1d3f380180239b7c89fa9bc6f0d872b8a1f7072a"
+    },
+    {
+      "path": "integration/report_preview_frame.py",
+      "bytes": 1423,
+      "sha256": "d5f553041aa1d017362b13a40ac089ea2bbdb9907aa9516afaaa0412a06e47df"
     },
     {
       "path": "integration/report_styles.py",
@@ -2559,6 +2569,11 @@
       "path": "tests/test_refresh_controller.py",
       "bytes": 347,
       "sha256": "cf41f1d36268c4838ea31783560a63518291353672ec3b326457f8ac39c619fa"
+    },
+    {
+      "path": "tests/test_report_preview_frame.py",
+      "bytes": 1861,
+      "sha256": "b5cc4b6468230022cc15f9f2d085662c4eff5dfc9de5c10971ca140f290dec83"
     },
     {
       "path": "tests/test_report_styles.py",
