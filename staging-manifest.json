@@ -7,8 +7,8 @@
   "files": [
     {
       "path": ".env.example",
-      "bytes": 6670,
-      "sha256": "65c87aeee0110e691f502e0a6ced2b435da43624c9fc3ec5335cebfae7b4302a"
+      "bytes": 6998,
+      "sha256": "5b55ea34232193b14ed821cecc9afa35f4d78e61e056d98da109cd7750c6ae56"
     },
     {
       "path": ".gitignore",
@@ -176,9 +176,14 @@
       "sha256": "f17380d3c633e8dc55248303f209bcda6805006b5354f63a3c7fdecaa06375e4"
     },
     {
+      "path": "integration/GEO_EVENTS_COMPOSITION_LIMITS.md",
+      "bytes": 3092,
+      "sha256": "7131804831955b0a9aa1a9311dcbbd6f1bcebf31ba91f934e4e430b5737da27c"
+    },
+    {
       "path": "integration/GEO_ONLY_LIMITS.md",
-      "bytes": 1986,
-      "sha256": "6631d0aef83b7b2be9d22bb51cf608de223a89cb100bc3a45e9b58fb9f2de9c5"
+      "bytes": 2153,
+      "sha256": "c7987ba25cbb982a42c9131bd2dc902895eb37aff066b8972302430b412b64de"
     },
     {
       "path": "integration/GEO_QUEUE_LIMITS.md",
@@ -187,8 +192,8 @@
     },
     {
       "path": "integration/GEO_READ_FACTORY_LIMITS.md",
-      "bytes": 2422,
-      "sha256": "5d2ebd1d34fbc764353e356aa6f2a226e1cca0b4508e240af957efea900636fa"
+      "bytes": 2581,
+      "sha256": "51f161c7421d970ff4fd82cbacf3a595417d0d37a69d8433e5ee39eaa5006445"
     },
     {
       "path": "integration/LIVE_NEWS_LIMITS.md",
@@ -507,8 +512,8 @@
     },
     {
       "path": "integration/geo_only_runtime.py",
-      "bytes": 3567,
-      "sha256": "ec3bbc98f4c29678dff3372648c828f791ea04ef9191041d02cabe37ce92013f"
+      "bytes": 5479,
+      "sha256": "49cdb46fbffbf4b3cda0eb3598899585dcf2799228cb362a082bbc3b68d81834"
     },
     {
       "path": "integration/geo_queue_fixture.py",
@@ -757,8 +762,8 @@
     },
     {
       "path": "integration/preview_launcher.py",
-      "bytes": 1644,
-      "sha256": "a9d7a58fb7723a2154fac0ac5ecdd42a79a6ab221bbb86581d9ca033954e4bf9"
+      "bytes": 1702,
+      "sha256": "a3db46d60c7348f25f7629ef36f784a1400b0eae9b8eb016f8563f79682a6f0d"
     },
     {
       "path": "integration/private_router.py",
@@ -2366,6 +2371,11 @@
       "sha256": "089b837eead1a110cb4f4050a8360b1d036520e40b9b4f5f6069767a731c5fb0"
     },
     {
+      "path": "tests/test_geo_event_composition.py",
+      "bytes": 4422,
+      "sha256": "6814a32a6de068f6a694c76126664d5f1143a5bc9e7e818a0270477036a62b89"
+    },
+    {
       "path": "tests/test_geo_only_runtime.py",
       "bytes": 5036,
       "sha256": "a1926e3495ece212f10348335e63efe5ba1d2b8a3ef2fe9b78a81ef71141bf0f"
@@ -2606,5 +2616,5 @@
       "sha256": "2ca27e9a8dae569cdeac42752ed1aed1afeff7f19282d3cc12c0aaa54a08bc04"
     }
   ],
-  "test_evidence_note": "830 is last full run at backup60, not rerun after61.61 review23 focused pass with synthetic Finder shell; author pure iterator regression only after workspace reset."
+  "test_evidence_note": "Last full suite830 at save60 before workspace reset. Save62 focused4PASS and extracted4PASS; fresh independent4PASS. Finder seam mocked; restored pinned renderers tested. Fullsuite not rerun in partial tree."
 }

@@ -13,7 +13,7 @@ def build_preview(environ,client_factory=None):
  flag=environ.get('PREVIEW_GEO_ONLY_ENABLED','false')
  if flag not in ('true','false'):raise ValueError('Exact Geo-only preview flag required')
  if flag=='true':
-  for name in ('PREVIEW_ACCESS_ENABLED','NEWS_READ_ENABLED','NEWS_STORE_MAPPING_VERIFIED','GEO_MAPPING_OVERRIDE_VERIFIED','PREVIEW_TRUST_ONE_PROXY','FINDER_NETWORK_PREVIEW_ENABLED'):
+  for name in ('PREVIEW_ACCESS_ENABLED','NEWS_READ_ENABLED','NEWS_STORE_MAPPING_VERIFIED','GEO_MAPPING_OVERRIDE_VERIFIED','PREVIEW_TRUST_ONE_PROXY','FINDER_NETWORK_PREVIEW_ENABLED','NEWS_EVENTS_READ_ENABLED','NEWS_EVENTS_MAPPING_VERIFIED'):
    if environ.get(name,'false') not in ('true','false'):raise ValueError('Exact boolean Geo-only preview settings required')
   # Reject ambiguous legacy database label instead of silently ignoring it.
   old=environ.get('GEO_MONGODB_DB_NAME')

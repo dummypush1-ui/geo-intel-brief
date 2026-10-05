@@ -35,3 +35,6 @@ surface, setup/iteration cursor closure and existing launcher/read regressions.
 No real account/Atlas/Render test. Source schema/index/deadlines/permissions and
 live activation approval still required. Review bundle includes integration
 modules/assets plus required tests and rootFinder files for indexload tests.
+
+The same narrow read facade may map exact geo_intel/events only through separate
+events composition gates; article-only default unchanged. No new facade API.

@@ -10,3 +10,6 @@ narrow read-only facade for explicit Geo-only/read-on flags only. Private login 
 Default read-off creates no client and news view remains empty. Screenshot mapping/schema is evidence, not verification of live credentials, permissions, rate-limit suitability or old/new cutover. URI should be configured through secret environment by the owner, never in browser/source. No deployment or live database action performed.
 
 Request-time find/sort/cursor failures close the sole client once and latch reads unavailable. Later requests remain503 until the composition is rebuilt after operator review; no automatic retry or second client. Guarded read uses a lock for request concurrency. Raw errors never returned to UI.
+
+Separately gated events composition now exists; see GEO_EVENTS_COMPOSITION_LIMITS.md.
+Article mapping exclusions unchanged; events mapped only via independent flags.
