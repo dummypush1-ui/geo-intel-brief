@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 822,
+  "tests": 830,
   "files": [
     {
       "path": ".env.example",
@@ -247,8 +247,8 @@
     },
     {
       "path": "integration/TARIFF_EVIDENCE_LIMITS.md",
-      "bytes": 2060,
-      "sha256": "56d1f44f809a636b423dc077ebf75cd59070abd0d4185d4205d5bd03d98956a4"
+      "bytes": 4503,
+      "sha256": "f8ffc5f123be528079985a9eec9c05d206f5ccab7b42ca3b54ebb17c7059ce16"
     },
     {
       "path": "integration/WATCH_UPDATES_LIMITS.md",
@@ -887,8 +887,8 @@
     },
     {
       "path": "integration/tariff_evidence.py",
-      "bytes": 5275,
-      "sha256": "a065557e5912ae5330818a62eefae8367032f157c902127056be6934e70c8e17"
+      "bytes": 6732,
+      "sha256": "cac8e46fade3005839a6a4f179a11675d35b855bbe11b8712b77e3431454b69c"
     },
     {
       "path": "integration/taxonomy.py",
@@ -2549,6 +2549,11 @@
       "path": "tests/test_tariff_evidence.py",
       "bytes": 4108,
       "sha256": "034a3ab164508c2bddbbb4d89ec7db68f43b491a501c9c099b42e3552d70b276"
+    },
+    {
+      "path": "tests/test_tariff_evidence_plain.py",
+      "bytes": 3944,
+      "sha256": "593fba04a064fe669f26161d75dee2c4fdef7ea24e6204056c5732ecd440c329"
     },
     {
       "path": "tests/test_watch_updates.py",
