@@ -3,12 +3,12 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 666,
+  "tests": 673,
   "files": [
     {
       "path": ".env.example",
-      "bytes": 6237,
-      "sha256": "0f08a4720d86a4dca311f83e5e4ab795f6620a74d25ec6bd492165b114cd8ecc"
+      "bytes": 6670,
+      "sha256": "65c87aeee0110e691f502e0a6ced2b435da43624c9fc3ec5335cebfae7b4302a"
     },
     {
       "path": ".gitignore",
@@ -137,8 +137,8 @@
     },
     {
       "path": "integration/EXPORT_DIGEST_LIMITS.md",
-      "bytes": 2384,
-      "sha256": "64c4bc9bcc9fd838f5a7a7030e60f2e60915ad0f24ce832420b2d0044369ccca"
+      "bytes": 2519,
+      "sha256": "7d10815568f25a85637609faaec5dc5f1b7fa5a03e8634a5f6d26400b5fa39db"
     },
     {
       "path": "integration/FAKE_WRITER_LIMITS.md",
@@ -162,8 +162,8 @@
     },
     {
       "path": "integration/FINDER_PARITY_PLAN.md",
-      "bytes": 6523,
-      "sha256": "ae6014af278244b42def412a0e761cb5a19ce3f9999f692557bf47b4f36febfc"
+      "bytes": 9627,
+      "sha256": "45c11691c29ed391f7388b77b711df0ab0884e43128825c0b083994593f33633"
     },
     {
       "path": "integration/FINDER_SNAPSHOT_NOTES.md",
@@ -189,6 +189,11 @@
       "path": "integration/OFFLINE_CYCLE_LIMITS.md",
       "bytes": 1932,
       "sha256": "27486fc2db38e9aea323f3b5afdfb9ba770186d783f294c5a636ea5edcc0cc80"
+    },
+    {
+      "path": "integration/PREVIEW_LAUNCHER_LIMITS.md",
+      "bytes": 4111,
+      "sha256": "d9b22cbef544337d9b0f1d9b4f0635fa068a994a1d58a0e94e71344fa7d586d4"
     },
     {
       "path": "integration/PRIVATE_NEWS_FIELDS_LIMITS.md",
@@ -641,9 +646,14 @@
       "sha256": "4a2e4a7ab64ad1a6ff733fe66c0d9a0d231d2a4036fad3289a463beedfbc12b2"
     },
     {
+      "path": "integration/preview_launcher.py",
+      "bytes": 1644,
+      "sha256": "a9d7a58fb7723a2154fac0ac5ecdd42a79a6ab221bbb86581d9ca033954e4bf9"
+    },
+    {
       "path": "integration/private_router.py",
-      "bytes": 150,
-      "sha256": "a7829f328566524f54ed0b56b7259e180bef095d94e7318fbee86252be48595e"
+      "bytes": 256,
+      "sha256": "61b4b22a12a3d3a20e9ab89f3f8d7f501e78021f9c0e547daf4125c25c0ec037"
     },
     {
       "path": "integration/project_reports.py",
@@ -2264,6 +2274,11 @@
       "path": "tests/test_preview_access.py",
       "bytes": 3937,
       "sha256": "442fe79aa0c4ef98ece3db25e13ef5347e9a76f94847d2d73bd759c626222777"
+    },
+    {
+      "path": "tests/test_preview_launcher.py",
+      "bytes": 3615,
+      "sha256": "9020d077b00f79b736d28f03569a21506d086088cbe2cbd4fcc241c365107dd0"
     },
     {
       "path": "tests/test_private_news_fields.py",
