@@ -301,6 +301,11 @@
       "sha256": "97c8717037cd7c0ce6d6fcc27738de4e165b5bde70814238e3b198401be833d4"
     },
     {
+      "path": "integration/accounts/MONGO_STORE_LIMITS.md",
+      "bytes": 5006,
+      "sha256": "04dfe9296398e82ecc893ae629386b1e789ef835d8ebe84fec971bc8e4b78744"
+    },
+    {
       "path": "integration/accounts/README.md",
       "bytes": 5185,
       "sha256": "e439a4604863382f28a8c3c7ba2e5fcbca3e971fca152aa747463b27a154feb3"
@@ -324,6 +329,11 @@
       "path": "integration/accounts/limiter.py",
       "bytes": 8534,
       "sha256": "816112e2b31c0864ca9493b9ccece1096b93d6c25918631250e238b12ec2a565"
+    },
+    {
+      "path": "integration/accounts/mongo_store.py",
+      "bytes": 8432,
+      "sha256": "7e2618d61a19017b5140c92299a648ffceeeba246921b986761a4b6244eb7796"
     },
     {
       "path": "integration/accounts/passwords.py",
@@ -2471,6 +2481,11 @@
       "sha256": "1a1eea1d13254e2e9e87c0a949fceb39720e242e2d3560882c5364c7315f4c19"
     },
     {
+      "path": "tests/test_mongo_account_store.py",
+      "bytes": 7599,
+      "sha256": "69c36e6c3fea5a172ec228656818407d9268737b97f29e44d7b6fab154456c14"
+    },
+    {
       "path": "tests/test_offline_collection_cycle.py",
       "bytes": 5413,
       "sha256": "db5d9b91337e1ec4dbdf7c493e075340fd0e1d3c7a5cb7011b6ca49da4774383"
@@ -2676,5 +2691,5 @@
       "sha256": "2ca27e9a8dae569cdeac42752ed1aed1afeff7f19282d3cc12c0aaa54a08bc04"
     }
   ],
-  "test_evidence_note": "Last full suite830 save60 before reset; save66 focused10author/extractedPASS,reviewer9PASS. Fullsuite not rerun partialtree."
+  "test_evidence_note": "Last full suite830 save60 before reset; save67 focused15author/extractedPASS,reviewer13PASS(stubconcern). Fullsuite not rerun partialtree."
 }
