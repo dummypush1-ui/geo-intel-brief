@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 673,
+  "tests": 681,
   "files": [
     {
       "path": ".env.example",
@@ -591,6 +591,11 @@
       "sha256": "66f03e63a0a0bbc0360f39861903231c0d8c3fd2429670d0bf791d2c313df511"
     },
     {
+      "path": "integration/news_export/KEYSET_LIMITS.md",
+      "bytes": 4524,
+      "sha256": "75a195012a6a3a394e21058b935c61f84940b85e3e4c47f0d8abb918a6902448"
+    },
+    {
       "path": "integration/news_export/ORIGINAL_CONTRACT_LIMITS.md",
       "bytes": 3298,
       "sha256": "abdcc9c9a6f4ec5c9870ae118175e68294d760d34baff2f426eb4b780c70d8f7"
@@ -604,6 +609,11 @@
       "path": "integration/news_export/export.py",
       "bytes": 12651,
       "sha256": "fad8c67bb915280cb895db79c553d60e137d9df339d791b8ad554d5ebad614a1"
+    },
+    {
+      "path": "integration/news_export/keyset_plan.py",
+      "bytes": 4494,
+      "sha256": "516120452e7eacde7daec0a727a19c6803b4d0f3554990ee863761d6368174ca"
     },
     {
       "path": "integration/news_export/original_contract.py",
@@ -2074,6 +2084,11 @@
       "path": "tests/news_export/test_export_route.py",
       "bytes": 4680,
       "sha256": "e8ff6b98073eedb24660967ad8d07b57a46792f7e668aa013af48a9c392d2e93"
+    },
+    {
+      "path": "tests/news_export/test_keyset_plan.py",
+      "bytes": 4073,
+      "sha256": "2487e1b3625a470a56b0c15820cba10ffcf99664b5a585fccfc27fb745c38ac8"
     },
     {
       "path": "tests/news_export/test_original_contract.py",
