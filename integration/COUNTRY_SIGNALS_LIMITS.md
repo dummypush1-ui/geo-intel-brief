@@ -8,7 +8,8 @@ Countries without an observation at least28 days old show insufficient_history. 
 
 Risk index and baseline stay null. A future index needs reviewed methodology, complete daily exposure/coverage metadata and country-specific baselines. A large archive or an earliest timestamp alone is not sufficient. No threat, investment, legal or official-rating claims.
 
-Public outputs contain counts, exact country label, collection/publication window timestamps, earliest observed collection, history duration, coverage/methodology flags and unavailable-index states. They do not contain titles, URLs, database IDs or private Telegram fields. This module is not wired until independent review passes.
+Public outputs contain counts, exact country label, collection/publication window timestamps, earliest observed collection, history duration, coverage/methodology flags and unavailable-index states. They do not contain titles, URLs, database IDs or private Telegram fields. Private API/UI wiring exists (see final wiring paragraph); live source activation
+and full-history coverage remain unverified.
 
 Input is a plain list or tuple of at most10000 plain dictionaries of at most100 exact string keys each. Keys are validated before any field lookup. Larger inputs and invalid row shapes fail validation, not silent truncation. Consumed fields have length/type caps:country100, project5, article_key128, timestamp100, risk_level16 characters; exact datetime timestamps with datetime.timezone fixed offsets also accepted. Custom tzinfo and string/datetime subclasses are rejected without calling their hooks. Naive row timestamps remain missing; naive clocks reject. Unknown fields are not read or emitted. Missing fields may remain unavailable. These limits bound scan work; input parsing/transport must enforce its own byte-size limits before creating the snapshot.
 

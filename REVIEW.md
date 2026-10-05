@@ -1,18 +1,30 @@
-# Corrected preservation baseline, not deployable yet
+# Current review boundary
 Copyright (c) 2026 Push.
 
-Supersedes the replacement RSS-only collection bundle. This baseline restores the original Geo/BRICS source behavior and only namespaces Python root imports. It retains RSS, optional full-text extraction, Google News, classification, duplicate filtering, reports, dashboards, stream configuration, Apps Script and original database functions. Retained source is not permission to activate sends, cleanup or public routes.
+See [integration/FEATURE_STATUS.md](integration/FEATURE_STATUS.md) for current
+works/blocked/missing/dropped scope. Earlier baseline-only status prose is
+superseded, not a claim that every preserved feature now works in one app.
 
-42 Python modules: non-import AST matches the pinned originals. 53 source/config/template/script files are mapped with original and copied hashes. Classifier, dedupe and extraction bytes are unchanged. Original bugs/limitations are not silently fixed in this baseline. The earlier draft's 57 tests do not certify this different baseline.
+Original preservation: pinned source/config/template/script files in
+preservation-manifest.json, namespace-only Python source changes and specific
+classifier/dedupe/extraction hash checks. Original limitations remain visible.
+Use current tests/test_preservation.py rather than obsolete baseline test counts.
 
-This is NOT a runnable merged application yet. Original environment names collide, Geo web connects on import, relative config paths need launch isolation or reviewed path adapters, and legacy routes lack the required private access wrapper. Old code is not imported or served during staging. Geo's unconfigured optional archive import remains as the original source rather than an invented shim. These gaps need exact reviewed integration changes.
+Additive private routes now include Finder/news context, country signals,
+weekly manual PDF, reference map and manual watched-country views. Preview
+password access is optional single-worker configuration, not multi-user
+accounts. All current readers/features retain explicit caps and supplied-data
+limits. No live database/service/collector/mail/deploy proof follows.
 
-Owner chose SAME existing database, no new database and no migration/copy. Existing approximately 10k articles are owner-reported; count/schema/IDs/indexes and database/collection names need verification. Do not overwrite/drop legacy records. Additive adapter/status/mapping collections need separate review. Connection URI may be entered directly by the user into Render; direct private access is optional, not required just to copy code.
+Geo-only launcher is explicit default off. Its selected destination is
+geo_intel/articles; no old BRICS newsbot/migration is needed in that composition.
+Legacy isolated composition remains available, not silently replaced. Actual
+mapping/credentials/source state and read factory must be reviewed at activation.
 
-Four-layer design in integration/cross-connections.json keeps existing features and proposes view/routing adapters instead of replacing the collection engine. Cross-links are still a design, not working implemented UI. Country/HSN/news relevance needs explicit mapping evidence; do not imply all articles match tariff codes.
-
-Existing finder, Geo Render service, database and Apps Script triggers remain live and untouched. Staging has collection OFF and no deploy blueprint/auto-trigger. Before cutover: verify live service URL/config, inventory installed trigger IDs/handlers/properties, select a single collector/scheduler owner, reconcile storage counts/identities without a migration, test feature parity and private access, review exact changes, then switch once with rollback. Never install a second live collector alongside existing triggers.
-
-Local additive workspace increment: /workspace serves a private shell around the preserved finder, with separate Geo/BRICS normalized news search and selected-code related-news context. It requires injected authorization and supplied rows; default access is denied. No live reader or login has been configured. This is not the full original dashboard merge or combined search. Static routes use a strict allowlist and no-store responses. Twenty tests and a local browser fixture check cover this increment; desktop/mobile pixels were inspected. No live database, collector, mailer or deployment was used.
-
-Local workspace search now mirrors Finder's query into a separate news-results pane. Selected codes use explicit-code/product/country evidence, not a claimed tariff update. ReadOnlyNewsReader accepts only caller-supplied verified, separate project stores; it never opens MongoDB or creates indexes and refuses an undifferentiated shared store. BRICS URL-hash IDs and Mongo object IDs are retained separately. Twenty-four local tests pass. Actual store mapping/access and login remain unresolved; no live storage call has been made for this increment.
+Before cutover: verify current service/config, exact storage identity/schema/
+indexes and read authority, trusted proxy and host controls, worker/concurrency/
+write deadlines, scheduler ownership and rollback. Separate explicit approvals
+are required for live cutover, stopping old collectors, Render settings, mail,
+live DB writes, polling and Telegram/WhatsApp delivery. Do not install a second
+collector or run old setupTriggers. Destructive retention needs verified backup
+policy and its own approval. No such effects were performed by this review.

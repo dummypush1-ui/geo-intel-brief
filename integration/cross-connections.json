@@ -1,5 +1,5 @@
 {
-  "status": "review_design_not_live",
+  "status": "private_local_additive_wiring_not_live",
   "collection_enabled": false,
   "user_facing_application": {
     "preserve": [
@@ -7,14 +7,23 @@
       "Geo dashboard/reports",
       "BRICS dashboard/streams/reports"
     ],
-    "connections_to_add": [
-      "finder selected country/code -> related Geo/BRICS news",
-      "news country/trade/sanctions -> finder context"
-    ],
     "limits": [
-      "No claim of tariff-specific relevance without mapping evidence",
-      "Private news remains unserved until approved access control"
-    ]
+      "No tariff-specific relevance without mapping evidence",
+      "Optional single-worker preview login is not production accounts",
+      "Bounded supplied-data/local tests do not certify live deployment"
+    ],
+    "local_implemented": [
+      "private Finder/news context",
+      "country signals observed-history panel",
+      "manual weekly supplied-news PDF",
+      "chokepoint-only reference map",
+      "manual country watch comparison"
+    ],
+    "remaining_connections": [
+      "Live report/store composition after separate source review",
+      "Account-backed/device-independent watch rules and authorized alerts"
+    ],
+    "preserve_scope": "BRICS preserve items are source-only, not selected composition; BRICS tab/ticker and old separate news tab/ticker dropped"
   },
   "underlying_infrastructure": {
     "preserve": [
@@ -22,7 +31,7 @@
       "BRICS original store and stream configuration",
       "finder build/daily refresh"
     ],
-    "database": "existing owner-selected database; name and collection mapping pending live verification",
+    "database": "Selected Geo-only composition: geo_intel/articles; live source/credential/schema verification pending; legacy separate-project composition preserved",
     "migration": false,
     "connections_to_add": [
       "Read-only normalized view adapters over existing records",
@@ -32,7 +41,11 @@
       "Never rename/drop/overwrite existing collections",
       "Keep original IDs/timestamps/backup references",
       "Collection disabled in staging"
-    ]
+    ],
+    "selected_exclusions": [
+      "BRICS newsbot stored-news access in Geo-only branch; no migration/deletion"
+    ],
+    "preserve_scope": "BRICS store/config retained source-only; no old newsbot access in selected Geo-only branch"
   },
   "traffic_control": {
     "preserve": [
@@ -48,6 +61,10 @@
       "No duplicate collector",
       "No old setupTriggers invocation",
       "No automatic change to live URLs or keys"
+    ],
+    "local_implemented": [
+      "Explicit default-off Geo-only launcher switch",
+      "Private access and separate live-read gates"
     ]
   },
   "destination": {
@@ -77,11 +94,12 @@
     ],
     "acknowledgement": "project-scoped IDs only after GmailApp success",
     "pending": [
-      "durable receipt ledger",
-      "authenticated routes",
-      "project report/store adapters",
+      "durable claim/receipt ledger",
+      "production authenticated delivery/mark routes",
+      "live report/store adapters",
       "reviewed Apps Script cutover"
     ],
     "smtp": "legacy preserved only, not a merged fallback"
-  }
+  },
+  "current_status_document": "integration/FEATURE_STATUS.md"
 }
