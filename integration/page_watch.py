@@ -10,8 +10,16 @@ from datetime import datetime,timezone
 from urllib.parse import urlsplit,urlunsplit
 
 class VisibleText(HTMLParser):
- def __init__(self):super().__init__(convert_charrefs=True);self.parts=[];self.stack=[];self.malformed_hidden=False;self.hidden_depth=0
+ def __init__(self):super().__init__(convert_charrefs=True);self.parts=[];self.stack=[];self.malformed_hidden=False;self.hidden_depth=0;self.events=0
+ def _event(self):
+  self.events+=1
+  if self.events>8000:raise ValueError("Page event budget")
+ def handle_comment(self,data):self._event()
+ def handle_decl(self,data):self._event()
+ def handle_pi(self,data):self._event()
+ def unknown_decl(self,data):self._event()
  def handle_starttag(self,tag,attrs):
+  self._event()
   a=dict(attrs);hidden=tag in ('head','script','style','noscript','template','nav','footer') or 'hidden' in a or (a.get('aria-hidden') or '').strip().lower()=='true' or 'display:none' in (a.get('style') or '').replace(' ','').lower() or 'visibility:hidden' in (a.get('style') or '').replace(' ','').lower()
   if tag in ('p','li'):
    for i in range(len(self.stack)-1,-1,-1):
@@ -23,16 +31,19 @@ class VisibleText(HTMLParser):
    if len(self.stack)>=500:raise ValueError('Page nesting too deep')
    self.stack.append((tag,hidden));self.hidden_depth+=int(hidden)
  def handle_endtag(self,tag):
+  self._event()
   for i in range(len(self.stack)-1,-1,-1):
    if self.stack[i][0]==tag:
     if any(hidden for _,hidden in self.stack[i+1:]):self.malformed_hidden=True
     self.hidden_depth-=sum(hidden for _,hidden in self.stack[i:])
     self.stack=self.stack[:i];break
  def handle_data(self,data):
+  self._event()
   if not self.hidden_depth:
    text=' '.join(data.split())
    if text:self.parts.append(text)
 
+MAX_HTML_BYTES=128*1024
 MAX_TEXT_BYTES=2_000_000
 MAX_LINES=20000
 MAX_LINE_CHARS=100000
@@ -73,9 +84,13 @@ def _text(value):
 
 def snapshot(url,html,observed_at):
  url=_url(url);stamp=_stamp(observed_at)
- if type(html) is not str or len(html)>MAX_TEXT_BYTES:raise ValueError('Bounded HTML required')
+ if type(html) is not str or len(html)>MAX_HTML_BYTES:raise ValueError('Bounded HTML required')
  try:
-  if len(html.encode('utf-8'))>MAX_TEXT_BYTES:raise ValueError()
+  if len(html.encode('utf-8'))>MAX_HTML_BYTES:raise ValueError()
+  if html.count('<')>4000:raise ValueError()
+  # Conservative delimiter spans, not an HTML tokenizer. Bounds giant
+  # attributes/comments and text runs before HTMLParser scans them.
+  if any(len(part)>4096 for part in re.split('[<>]',html)):raise ValueError()
  except (ValueError,UnicodeError):raise ValueError('Bounded HTML required') from None
  parser=VisibleText()
  try:parser.feed(html);parser.close()

@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 812,
+  "tests": 816,
   "files": [
     {
       "path": ".env.example",
@@ -202,8 +202,8 @@
     },
     {
       "path": "integration/PAGE_WATCH_LIMITS.md",
-      "bytes": 3444,
-      "sha256": "e8a8d524b4ace3e9081e95f1434233582a4e3ff5d1df4fe4512b692773313cf5"
+      "bytes": 5424,
+      "sha256": "efd7f956afaaf6eecb9e6a09377c0eb8e9d6dbd7829970db97795909c00c08ee"
     },
     {
       "path": "integration/PREVIEW_LAUNCHER_LIMITS.md",
@@ -727,8 +727,8 @@
     },
     {
       "path": "integration/page_watch.py",
-      "bytes": 6938,
-      "sha256": "a4d45a456769b1e6f17496ce24b04ccc3a97e25cc28a3ac3b15bf736645346dc"
+      "bytes": 7551,
+      "sha256": "2fb22cf46b766c42dffee15fa5a79bfe343edaff3ddefef87ff69b7f44beffa8"
     },
     {
       "path": "integration/pagewatch_report.py",
@@ -2414,6 +2414,11 @@
       "path": "tests/test_page_watch_contract.py",
       "bytes": 3805,
       "sha256": "b03dddaf8a43ea5946d62204c79dd9a8e3c7846a8bf5fe3c61cfa53afa88b3bc"
+    },
+    {
+      "path": "tests/test_page_watch_parser_budget.py",
+      "bytes": 2210,
+      "sha256": "dfa8b432358aeda393367b8714cee485b69efbbc2db3aa54577d3d3f18760e84"
     },
     {
       "path": "tests/test_pagewatch_report.py",
