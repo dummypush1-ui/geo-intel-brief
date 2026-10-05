@@ -261,6 +261,11 @@
       "sha256": "b2f2d1bcb3b0368ced209b49a84eb348e2e3926a355894c98177d01eee32c2a1"
     },
     {
+      "path": "integration/STREAM_DISK_LIMITS.md",
+      "bytes": 2902,
+      "sha256": "5ce37a8701a04fb68e533af1137d0dfba393a6d5a89f42c3aeb551cc1002f875"
+    },
+    {
       "path": "integration/STREAM_REVISION_LIMITS.md",
       "bytes": 3513,
       "sha256": "ac5c8731800995d24ea21e32795784ab6aae03da4d2f7890eeaf2f8490d110e4"
@@ -919,6 +924,11 @@
       "path": "integration/stream_config.py",
       "bytes": 3094,
       "sha256": "2777adce27f068766a9af6ed00d9460c827ed1baf28ff00bc33aed7033e31755"
+    },
+    {
+      "path": "integration/stream_disk.py",
+      "bytes": 4160,
+      "sha256": "ecca84c39e56c96c67edde8f067f8a439dfe0d0332378823a2607bc6fdae79f8"
     },
     {
       "path": "integration/stream_fixture_app.py",
@@ -2606,6 +2616,11 @@
       "sha256": "fe6edd2f32f29aee1a12a6ec044a27b9d511691e4399631304bfb2d53acf3c4f"
     },
     {
+      "path": "tests/test_stream_disk.py",
+      "bytes": 4293,
+      "sha256": "82247bc90f6eff4df4f371b1d2a00251d862c346c621a1d6eb3442c9fa7637a0"
+    },
+    {
       "path": "tests/test_stream_fixture_app.py",
       "bytes": 3293,
       "sha256": "905aaa33e8b4cef331e97ec72baadac0f7b02be77cfeb0be8519e266e34fe6b2"
@@ -2661,5 +2676,5 @@
       "sha256": "2ca27e9a8dae569cdeac42752ed1aed1afeff7f19282d3cc12c0aaa54a08bc04"
     }
   ],
-  "test_evidence_note": "Last full suite830 save60 before reset; save65 focused22author/extractedPASS,v4reviewer20PASS. Fullsuite not rerun partialtree."
+  "test_evidence_note": "Last full suite830 save60 before reset; save66 focused10author/extractedPASS,reviewer9PASS. Fullsuite not rerun partialtree."
 }
