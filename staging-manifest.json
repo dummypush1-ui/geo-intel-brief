@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 913,
+  "tests": 922,
   "files": [
     {
       "path": ".env.example",
@@ -147,8 +147,8 @@
     },
     {
       "path": "integration/FEATURE_STATUS.md",
-      "bytes": 12334,
-      "sha256": "5ffb2e62ea7d11ef4f47c4a7a4b3913998e90409dcd48fb8f0bc04df94f35b2e"
+      "bytes": 13310,
+      "sha256": "70eaf0de9452ed55199d3dedd9d91a9c0421200ba9d6b77aefb0f623edcd7041"
     },
     {
       "path": "integration/FINDER_NESTED_LIMITS.md",
@@ -204,6 +204,11 @@
       "path": "integration/GEO_READ_FACTORY_LIMITS.md",
       "bytes": 2581,
       "sha256": "51f161c7421d970ff4fd82cbacf3a595417d0d37a69d8433e5ee39eaa5006445"
+    },
+    {
+      "path": "integration/GEO_SAMPLE_PROBE_LIMITS.md",
+      "bytes": 3102,
+      "sha256": "9cde4838179cf49f6bf3bcffb6d490757d5630e50b91d9949603bfa022e0aa46"
     },
     {
       "path": "integration/LIVE_NEWS_LIMITS.md",
@@ -569,6 +574,11 @@
       "path": "integration/geo_rolling_breakdown.py",
       "bytes": 2993,
       "sha256": "30e32b3fc0f61ec24cd4d5961d812eda8eb5ccd4c1d989a9c7a9f47602b11ec6"
+    },
+    {
+      "path": "integration/geo_sample_probe.py",
+      "bytes": 4006,
+      "sha256": "875990c2646571fbf5741000540d3211e63081d8c03af396d8fde0f343de39f7"
     },
     {
       "path": "integration/geonews_digest/README.md",
@@ -2464,6 +2474,11 @@
       "path": "tests/test_geo_rolling_breakdown.py",
       "bytes": 2068,
       "sha256": "beda30407bf2b87309b05d78e236c0471649de26c63d2d3d424992863ba1ae29"
+    },
+    {
+      "path": "tests/test_geo_sample_probe.py",
+      "bytes": 5034,
+      "sha256": "089cb9966c4107ea93ee77fc4e542875c76cc51deded62e336ea4c2e30118922"
     },
     {
       "path": "tests/test_geo_snapshot.py",

@@ -1,11 +1,11 @@
 # Current private merge status
 
-As of reviewed increment 69, after full offline parity check 68.
+As of reviewed increment 70, after full offline parity check 68.
 This is code/test status, not deployment or a live source certificate.
 All 537 saved manifest files were restored from backup 67 and SHA-256 checked,
 including original Finder assets. No synthetic original files were substituted.
 Configured author command: PYTHONPATH=tests /tmp/phase1-venv/bin/python -m unittest discover.
-913 tests ran in 98.2 seconds after increment 69: OK, 1 skip and 1 expected failure. The expected
+922 tests ran in 94.0 seconds after increment 70: OK, 1 skip and 1 expected failure. The expected
 failure pins unsupported multiple account Limiter instances per store. Earlier
 workspace-recovery failures are not the current result. The backup workflow
 checks file hashes; it does not independently run the full test suite.
@@ -123,3 +123,18 @@ claiming hosted UI readiness. Desktop private preview is capped at 700px, not
 identical to the original email. The weekly category subtable remains narrow
 from the pre-existing sanitizer. Phone pixels do not establish email-client
 responsiveness. No deployment, DB query or sending was added by this increment.
+
+## Increment 70: separate injected Geo sample probe
+
+Offline find-only20rowprobe, noenv/HTTP/startupactivation oroldgatebypass.
+Exactgeo_intel/articles projectedcreated_at/published/score, noIDs/valuesreturned.
+Aggregatecompatibilitycounts; sample/empty/unavailable distinct. Honestlabel:
+read operations under a write-capable credential, not verified read-only access.
+Fixedquery/io/connection/cleanup failure categories, never sourceerror text.
+probe_issues_no_writes=true says what this probe issues, not credential powers.
+Noindex/explain/role/snapshot/fullschema proof.9authornativefocusedPASS, reviewer
+7of8initialtestsPASS (existinggatetest notrun, fullrepo missing); requested
+doc/timeout/flagfixes applied.922fullsuitePASS1skip1expectedfailure.
+Hostedprivatewrapper/auth/rate/deadline/logreview remains futurework.
+Render screens held; no DBconnected/deployed/provisioned, URIcollected, writes
+or real sends. DedicatedreadonlyDBuser is preferredlater access option.
