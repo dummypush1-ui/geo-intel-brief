@@ -1,5 +1,11 @@
 # Injected events read adapter
 
+Historical/direct-adapter scope: statements below that composition is not
+attached describe this standalone reader's initial increment. Later Geo-only
+composition is separately gated and connected to digest preview; see
+FEATURE_STATUS.md and GEO_EVENTS_COMPOSITION_LIMITS.md. No live schema, role,
+source capability or activation has been verified by that wiring.
+
 ReadOnlyEventsReader preserves original Geo upcoming_events query: inclusive UTC date today..today+days, event_date ascending. No database client/config/index/imported legacy module, write, collector or live route. Clock and collection explicitly injected; verified flag required. Original source: intelligence/geo/database.py upcoming_events, retained unmodified.
 
 Caller must verify the exact collection identity and read-only credential. Production composition is not attached. Cursor query has2second server-execution max_time_ms (not an end-to-end2s deadline) and reads at most limit+1 (limit at most1000). More rows fail unavailable rather than silently truncate; complete serialized UTF-8 snapshot envelope at most2MB, each scalar16k. Collection/provider must enforce network/socket deadlines and projection before allocating payloads; this adapter cannot bound a client library's incoming wire bytes. Cursor assigned immediately after find and closed on successful read, sort/limit/max_time_ms setup failure and validation/iteration errors; close errors suppressed without disclosing details.

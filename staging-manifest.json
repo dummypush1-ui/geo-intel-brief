@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 830,
+  "tests": 909,
   "files": [
     {
       "path": ".env.example",
@@ -17,8 +17,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 2453,
-      "sha256": "e5d9f0d58f90ac8c6bf55e05e543e746bfe7cd01514721d9afd4647b0c8d2eb5"
+      "bytes": 2663,
+      "sha256": "a5632ccd20d0322a61526c3e277aabaeaabdcd9c13b52fc8cfdca3dc78462063"
     },
     {
       "path": "REVIEW.md",
@@ -132,8 +132,8 @@
     },
     {
       "path": "integration/EVENT_READER_LIMITS.md",
-      "bytes": 3638,
-      "sha256": "ba98984cd757f63d80e4f84e5eda53fa05e869cbb63d5e6a4ecb240f6025dc64"
+      "bytes": 4003,
+      "sha256": "a834549638b2a31765a5781655b041c722188e5a62e0d4c7228de881b04df2a7"
     },
     {
       "path": "integration/EXPORT_DIGEST_LIMITS.md",
@@ -147,8 +147,8 @@
     },
     {
       "path": "integration/FEATURE_STATUS.md",
-      "bytes": 8952,
-      "sha256": "933adfca99ca44613247ad71969fd121cbd44ce8c59986fef487a4b8c73551f6"
+      "bytes": 11280,
+      "sha256": "b3dfc1f10e7b29428d80e907eb1cd1f3b9b1f0b360e66fac81a576865a4cabb3"
     },
     {
       "path": "integration/FINDER_NESTED_LIMITS.md",
@@ -252,8 +252,8 @@
     },
     {
       "path": "integration/SINGLE_DB_PLAN_LIMITS.md",
-      "bytes": 1912,
-      "sha256": "b5be1981850fbaa17b511118c515c883aa107743e3fd5d40ac3d9a297479a383"
+      "bytes": 2301,
+      "sha256": "59f843ef877dd8cafc0613c1184024b21df692de01b6990d5cca6d232f080ddb"
     },
     {
       "path": "integration/SOURCE_HEALTH_LIMITS.md",
@@ -1156,11 +1156,6 @@
       "sha256": "936a244b97187892bc9cd889d2b2d465742cf2c424af777c0ff91fd4bfb822f7"
     },
     {
-      "path": "intelligence/brics/config.py",
-      "bytes": 2671,
-      "sha256": "2419339566c5946dd0daeae7147eba7a49dffdd379b3c34769d6d62860afc82d"
-    },
-    {
       "path": "intelligence/brics/config/sources.yaml",
       "bytes": 5886,
       "sha256": "8de2ecee36e058ff76d84a39b0ee588aa936fd171156ea28f2a997250159f309"
@@ -1169,6 +1164,11 @@
       "path": "intelligence/brics/config/streams.yaml",
       "bytes": 712,
       "sha256": "65c676f7112813ac6196e859ecf88dd0a866118b9ad5801dd8982b2ea9afc0dd"
+    },
+    {
+      "path": "intelligence/brics/config.py",
+      "bytes": 2671,
+      "sha256": "2419339566c5946dd0daeae7147eba7a49dffdd379b3c34769d6d62860afc82d"
     },
     {
       "path": "intelligence/brics/config_check.py",
@@ -1306,14 +1306,14 @@
       "sha256": "87779b824769bf2b2ab6294838249f9431ae3890405050987870b3e474c6afd1"
     },
     {
-      "path": "intelligence/geo/config.py",
-      "bytes": 7266,
-      "sha256": "f7fbf007954c6918fbe2e402863fa29f597fe5d5cb4d60d1001deca8896b21f3"
-    },
-    {
       "path": "intelligence/geo/config/sources.example.yaml",
       "bytes": 708,
       "sha256": "a97e256c6bf2bc4518336ff38507c4837f206a32f1e09aecbd9777e913794440"
+    },
+    {
+      "path": "intelligence/geo/config.py",
+      "bytes": 7266,
+      "sha256": "f7fbf007954c6918fbe2e402863fa29f597fe5d5cb4d60d1001deca8896b21f3"
     },
     {
       "path": "intelligence/geo/config_check.py",
@@ -2690,6 +2690,5 @@
       "bytes": 22682,
       "sha256": "2ca27e9a8dae569cdeac42752ed1aed1afeff7f19282d3cc12c0aaa54a08bc04"
     }
-  ],
-  "test_evidence_note": "Last full suite830 save60 before reset; save67 focused15author/extractedPASS,reviewer13PASS(stubconcern). Fullsuite not rerun partialtree."
+  ]
 }

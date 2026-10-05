@@ -1,5 +1,11 @@
 # One-database mapping preparation
 
+Historical/direct-adapter scope: this describes SingleDatabasePlan and the
+separate two-project compose_single_database seam, not the later Geo-only
+private_router. Current selected Geo-only read factory and separate events
+composition are described in FEATURE_STATUS.md and GEO_EVENTS_COMPOSITION_LIMITS.md.
+This seam remains unwired; do not read its old wiring limits as global status.
+
 SingleDatabasePlan is an offline caller-supplied label/map fixture. It does not
 connect to MongoDB or change runtime.compose. The selected existing Geo database
 will be the eventual destination, but its actual database/collection names,

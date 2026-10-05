@@ -1,15 +1,16 @@
 # Current private merge status
 
-As of the reviewed local increments through 58. This is a code/test status,
-not a deployment, live source, availability or full parity certificate.
-As reported by the author's local run: 816 tests, OK with 1 skip and 1
-expected failure. Command: PYTHONPATH=tests /tmp/phase1-venv/bin/python -m
-unittest discover. Recorded in the backup 58 completion report and run
-https://github.com/dummypush1-ui/geo-intel-brief/actions/runs/37255729398
-(the backup run confirms uploaded files, not independent test execution). The
-expected failure pins unsupported multiple account Limiter instances per store.
-No collector, mail, DB mutation, polling, Render change or cutover was performed
-by these increments. Current external service state is not verified here.
+As of reviewed increments through 67, with final offline parity check 68.
+This is code/test status, not deployment or a live source certificate.
+All 537 saved manifest files were restored from backup 67 and SHA-256 checked,
+including original Finder assets. No synthetic original files were substituted.
+Configured author command: PYTHONPATH=tests /tmp/phase1-venv/bin/python -m unittest discover.
+909 tests ran in 93.7 seconds: OK, 1 skip and 1 expected failure. The expected
+failure pins unsupported multiple account Limiter instances per store. Earlier
+workspace-recovery failures are not the current result. The backup workflow
+checks file hashes; it does not independently run the full test suite.
+No live collector, mail, DB mutation, polling, Render change or cutover occurred.
+Current external service state is not verified by this table.
 
 Works means the stated local/supplied-data scope has code and exercised tests.
 Blocked means preparation exists but a live dependency, policy or effect gate
@@ -20,7 +21,7 @@ means intentionally excluded from the selected composition, not deleted source.
 |---|---|---|---|
 | Original Geo/BRICS source | Preserved modules/config/templates, pinned hashes and processing AST parity | Not imported as a merged live engine; copied source is not serving parity | preservation-manifest.json; tests/test_preservation.py |
 | Private preview | Optional password/CSRF/secure-session gate, deny by default | Single-worker preview only; operator secrets/origin/proxy configuration and hosted validation needed; not accounts | preview_access.py; tests/test_preview_access.py |
-| Launcher | Explicit default-off Geo-only switch, read-off creates no client | private_router injects no Geo factory: read-on fails closed. Legacy branch still exists, not selected by missing BRICS config | preview_launcher.py; PREVIEW_LAUNCHER_LIMITS.md |
+| Launcher | Explicit default-off Geo-only switch, read-off creates no client | private_router has a reviewed lazy narrow Geo read factory; reads remain off by default. Legacy branch still exists, not selected by missing BRICS config | preview_launcher.py; PREVIEW_LAUNCHER_LIMITS.md |
 | Selected stored news | Geo-only composition targets geo_intel/articles with read/mapping/private gates and explicit factory | Live credential, ownership/schema/index/deadlines and activation unverified. BRICS newsbot excluded here, no migration/deletion | geo_only_runtime.py; GEO_ONLY_LIMITS.md |
 | Finder | Private served copy, search/detail/local lists/export and exact-index news context | Network default off; original provider features tested with intercepted fixtures only. Manual AIS refresh, no timer | FINDER_NETWORK_LIMITS.md; tests/test_cross_routes.py |
 | Device offline Finder | Explicit public-only snapshot install, narrow worker scope | Browser quota/hosted HTTPS/iOS unverified; offline notes/lists session-only, no protected news cache | FINDER_OFFLINE_LIMITS.md |
@@ -30,15 +31,15 @@ means intentionally excluded from the selected composition, not deleted source.
 | Country page/watch | Exact labels, local watchlist, manual newly-seen comparison | Code watch rules/background alerts/account sync missing; no delivery | COUNTRY_PAGE_LIMITS.md; WATCH_UPDATES_LIMITS.md |
 | Reference map | Private page/API, manually loaded labelled chokepoints | Ports absent; no live ships/news geocoding/tiles in standard route; not live AIS map | tests/geospatial/test_map_route.py; ui/map.js |
 | Weekly PDF | Private manual PDF download, supplied rows, concurrency 2/app | Bounded history, not complete weekly collection; mail/storage absent; multi-worker work limit missing | WEEKLY_REPORT_LIMITS.md; tests/test_weekly_routes.py |
-| Original dashboards/reports | Supplied snapshots and hash-pinned original renderer functions | Original query/store/events composition unwired; SMTP original behavior preserved but not selected merged mail | dashboard_snapshots.py; EXPORT_DIGEST_LIMITS.md |
-| CSV | Loaded sample export; original-order planner/pager/stream and separate dev HTTP fixture | Full production original adapter/route/index/snapshot missing. Local gated-reset serving proof is not natural slow-reader/Render proof | news_export/*LIMITS.md; tests/news_export/test_fixture_serving.py |
+| Original dashboards/reports | Supplied snapshots and hash-pinned original renderer functions | Separately gated exact Geo events read composition feeds original digest; real event schema/role/host list unverified. Critical/weekly remain supplied article samples; SMTP original behavior preserved but not selected merged mail | dashboard_snapshots.py; EXPORT_DIGEST_LIMITS.md |
+| CSV | Loaded sample export; original-order planner/pager/stream and separate dev HTTP fixture | Injected Geo same-snapshot/schema-scan original CSV adapter exists offline; production route/client/index/capability review and activation missing. Local gated-reset serving proof is not natural slow-reader/Render proof | news_export/*LIMITS.md; tests/news_export/test_fixture_serving.py |
 | Original unsent queue | Supplied Geo cap-before-score/all-fetched-ID renderer | Current unsent state unverified; fetched-vs-displayed marking policy OPEN; no mark writes | GEO_QUEUE_LIMITS.md |
-| BRICS stream management | Separate captured-config/RAM edit fixture; supplied-byte revision transform | Durable YAML writer/CAS/recovery missing, no production config loader. RAM edits do not change captured players | BRICS_STREAM_LIMITS.md; STREAM_REVISION_LIMITS.md |
+| BRICS stream management | Separate captured-config/RAM edit fixture; supplied-byte revision transform | Reviewed local-file revision CAS exists, not selected by runtime; durable Render volume or Atlas config store still unverified/missing. No live config loader. RAM edits do not change captured players | BRICS_STREAM_LIMITS.md; STREAM_REVISION_LIMITS.md |
 | Page-watch snapshots | Canonical UTC/URL, strict integrity/bounds, parser input/event caps and bounded diff | No actual fetching/source authorization/persisted baseline; fixed Nilgiried labels, strict-reject compatibility limits, no CPU deadline | PAGE_WATCH_LIMITS.md; tests/test_page_watch_contract.py |
 | Sources/tariff evidence | Supplied observation/evidence panels distinguish unavailable/empty | No live health probe or verified current tariff/legal-effect feed | SOURCE_HEALTH_LIMITS.md; TARIFF_EVIDENCE_LIMITS.md |
-| Collection | Original processing order plus fake-writer/offline cycle fixture | Live fetching/writer/schema/identity/atomicity/scheduler/cutover unconnected; no second collector | COLLECTION_PREPARE_LIMITS.md; OFFLINE_CYCLE_LIMITS.md |
+| Collection | Hash-pinned original post-fetch docs, fixture store and separate injected bulk article writer | Live fetching/full-text/source policy/write role/index/outcome recovery/scheduler/cutover unconnected; no second collector | COLLECTION_PREPARE_LIMITS.md; OFFLINE_CYCLE_LIMITS.md |
 | Apps Script mail | Preserved source and fake-service compatibility audit; offline mail contract | Authenticated delivery/claim/receipt ledger and cutover missing. Audit VM not isolation; duplicates/mark failure source risks | apps_script_audit/README.md; mail_bridge.py |
-| Accounts | Memory-only service/HTTP/UI fixture, fences/session/settings and reservation tests | NOT merged login. Exactly one AccountService/Limiter per store. Shared adapter/multiworker/recovery/invite expiry missing; pinned two-instance defect | accounts/CONFORMANCE_LIMITS.md; accounts/HTTP_FIXTURE_LIMITS.md |
+| Accounts | Memory service/HTTP/UI fixture plus injected bounded Mongo transaction store; fences/session/settings and reservation tests | NOT merged login. Exactly one AccountService/Limiter per store. Real transaction/role/schema provisioning unverified; multiworker limiter/recovery/invite expiry missing; pinned two-instance defect | accounts/CONFORMANCE_LIMITS.md; accounts/HTTP_FIXTURE_LIMITS.md |
 | Retention/archive | Aggregate original-fidelity audit | Lossless backup/retrieval/receipt policy unproven; original cleanup unsafe without verification; no delete | RETENTION_AUDIT_LIMITS.md |
 
 | Dropped: BRICS tab/ticker | Original source retained only | Not part of selected workspace composition | LIVE_NEWS_LIMITS.md; ui/workspace.js |
@@ -76,3 +77,32 @@ asserted.
 Choose and authorize each live activation/cutover/send/write/polling/cleanup
 separately. Never infer completion from tests, old limits wording or this table.
 Per-feature limits remain authoritative for scope and known contract differences.
+
+## Final offline visual scope (author observations)
+
+Weekly PDF form and reference map inspected at 390px; PDF pages inspected from
+fixture download. No horizontal overflow in these two UI pages. Original digest
+renderer retains a 700px minimum layout at a 390px viewport: not phone-responsive.
+Original weekly HTML also retains 680px layout; critical HTML fits 390px but
+its alert icon glyph is missing. Finder core code details and country page pixels inspected at390px; readable
+core hierarchy, no horizontaloverflow in fixture tests;
+passed DOM tests or preserved bytes are not a complete visual certificate.
+Independent reviewer verified hashes/tests/docs, not pixels. The visual notes
+above are author observations. No UI rewrites or live source checks performed.
+
+## Next decision menu, not an approval
+
+1. Database check: exact Geo schemas, read-only role, sort/index/explain, snapshot
+   and transaction support on actual Atlas tier. No index creation bundled.
+2. Collection: source policy and verified feeds/full-text, write role, partial
+   receipt recovery, fetched-versus-displayed and lossless retention policy.
+3. Accounts and config: state provisioning, shared limiter/recovery/invite expiry,
+   production HTTP wiring, and durable stream storage (local CAS alone is not
+   free Render persistence).
+4. Mail: Apps Script authentication, receipt/claim/retry ledger and marking policy.
+5. Hosting: private origin/proxy/TLS/secrets, real serving deadlines/slow-client
+   cleanup, staging deploy, rollback and eventual cutover.
+
+These are remaining work, not checked-off activation steps. Live database checks,
+writes, mail, polling, deploy and stopping original collectors require Push's
+explicit permission. Offline build/test/private backup can continue.

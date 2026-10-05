@@ -8,8 +8,12 @@ supplied/explicitly gated readers. No live cutover is certified here.
 
 The default-off PREVIEW_GEO_ONLY_ENABLED launcher switch selects the reviewed
 Geo-only branch only when explicitly true. Reads remain separately off/gated.
-That branch has no default database client factory, so read-on through the
-current private entrypoint fails closed pending reviewed live composition.
+Direct build_preview calls still require an injected factory for reads.
+private_router wires the reviewed create_geo_read_client only when both
+PREVIEW_GEO_ONLY_ENABLED and NEWS_READ_ENABLED are true; private access,
+mapping and URI gates remain required. Reads default off. connect=False is
+not a blanket no-network guarantee, especially with MongoDB SRV discovery.
+No current live credential or read activation is verified here.
 The legacy isolated branch is retained for rollback; missing BRICS settings do
 not silently select Geo-only. Use neither branch as permission for live reads.
 
@@ -33,8 +37,7 @@ assert any current external service or database state.
 Local check in the configured Python environment:
 PYTHONPATH=tests python -m unittest discover
 Dependencies and per-feature caveats are in integration/*LIMITS.md and package
-README files. Last full author suite: 830 tests at save 60, with 1 skip and 1 expected failure.
-After a workspace reset, the local tree is partial; that full suite has not been
-rerun. Saves 61-65 have focused evidence in their LIMITS files, not a new full
-suite count. Save 65 has 22 native-PyMongo fake-driver tests passing. Unsupported
-multiple account limiter instances remain explicitly pinned.
+README files. Final configured offline suite: 909 tests OK, 1 skip and 1 expected failure.
+All 537 backup-67 manifest files restored and hash checked after the workspace
+reset. See integration/FEATURE_STATUS.md for local scope, limitations and open
+activation work. Tests do not make the app live or prove current source state.
