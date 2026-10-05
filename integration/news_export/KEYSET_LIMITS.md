@@ -8,7 +8,7 @@ Internal Resume is typed/revalidated, not a public request token. A stateless pu
 
 No source snapshot guarantee: concurrent inserts/score edits/deletes can change ordering and coverage across requests. Production requires an approved consistent read snapshot strategy or frozen export boundary; max_id fence alone does not solve score updates. Current original CSV serializers remain snapshot-only, generic stream route still not original contract. This plan is preparation for an injected bounded executor/stream serializer, not a million-row export or live read.
 
-Focused repro in existing configured repo: python -m unittest tests.news_export.test_keyset_plan (PyMongo BSON dependency, existing original_contract/export helpers). Tests verify original orders/closed projections/lexicographic tie continuation/page order/schema refusals, real BRICS producer format, int/float equality and fixture raw-page-to-original-serializer exclusions. No executable pager path exists yet. Increment bundle requires existing package dependencies, not standalone full repo.
+Focused repro in existing configured repo: python -m unittest tests.news_export.test_keyset_plan (PyMongo BSON dependency, existing original_contract/export helpers). Tests verify original orders/closed projections/lexicographic tie continuation/page order/schema refusals, real BRICS producer format, int/float equality and fixture raw-page-to-original-serializer exclusions. No production database adapter exists. Increment bundle requires existing package dependencies, not standalone full repo.
 
 Mongo-only plan. Original SQLite backends need their own reviewed plan and identity contract.
 

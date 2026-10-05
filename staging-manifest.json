@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 681,
+  "tests": 693,
   "files": [
     {
       "path": ".env.example",
@@ -592,13 +592,18 @@
     },
     {
       "path": "integration/news_export/KEYSET_LIMITS.md",
-      "bytes": 4524,
-      "sha256": "75a195012a6a3a394e21058b935c61f84940b85e3e4c47f0d8abb918a6902448"
+      "bytes": 4526,
+      "sha256": "08efb761999e743637e83d1668857211fff2b5fb663ebfbc3109d1d33b2a0c32"
     },
     {
       "path": "integration/news_export/ORIGINAL_CONTRACT_LIMITS.md",
       "bytes": 3298,
       "sha256": "abdcc9c9a6f4ec5c9870ae118175e68294d760d34baff2f426eb4b780c70d8f7"
+    },
+    {
+      "path": "integration/news_export/RAW_PAGER_LIMITS.md",
+      "bytes": 4137,
+      "sha256": "d3418bd1e96269f32e020b8a6e798eb290d10dd8bfcf0b15e4dbf92bfe9eaf73"
     },
     {
       "path": "integration/news_export/__init__.py",
@@ -619,6 +624,11 @@
       "path": "integration/news_export/original_contract.py",
       "bytes": 5875,
       "sha256": "7f46af666deae5793df9c066e2a7afbf38de6317e195c74cb438a4206802841e"
+    },
+    {
+      "path": "integration/news_export/raw_pager.py",
+      "bytes": 4030,
+      "sha256": "daa939b3e3934d7ba3cdf0ec9f75f52965167394cfd4c2609d47baba8e79d1f4"
     },
     {
       "path": "integration/news_refresh.js",
@@ -2087,13 +2097,18 @@
     },
     {
       "path": "tests/news_export/test_keyset_plan.py",
-      "bytes": 4073,
-      "sha256": "2487e1b3625a470a56b0c15820cba10ffcf99664b5a585fccfc27fb745c38ac8"
+      "bytes": 4071,
+      "sha256": "413f8f911c4dee5131f97c4b23ca59d8a11baded6c7272e1e5ea9347b89741e4"
     },
     {
       "path": "tests/news_export/test_original_contract.py",
       "bytes": 4737,
       "sha256": "c9c75c0d717119b567a91b471782a91921282763b1edd122b7c257f251c6e062"
+    },
+    {
+      "path": "tests/news_export/test_raw_pager.py",
+      "bytes": 5561,
+      "sha256": "239101cf19da8c2636f4e44635ca2a561148291848a3b680060d08d510df59f0"
     },
     {
       "path": "tests/news_refresh_test.mjs",

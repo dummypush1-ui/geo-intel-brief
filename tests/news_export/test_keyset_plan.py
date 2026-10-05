@@ -44,7 +44,7 @@ class KeysetPlanTests(unittest.TestCase):
   with self.assertRaises(KeysetPlanError):page_resume('geo',[geo(5),geo(5.0)],limit=2)
   self.assertEqual(page_resume('geo',[geo(5),geo(4.9)],limit=2).values[0],4.9)
  def test_raw_page_to_original_serializer_closed_columns(self):
-  # Fixture handoff only, no executable database pager exists yet.
+  # Fixture handoff only, no production database adapter exists.
   rows=[{'collected_at':'2026-10-04T00:00:00.000001','_id':I,'summary':'PRIVATE PREDICATE TEXT','title':'fixture'}]
   page_resume('brics',rows,limit=1)
   data,headers,meta=original_snapshot(rows,'brics')
