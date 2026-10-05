@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 805,
+  "tests": 812,
   "files": [
     {
       "path": ".env.example",
@@ -199,6 +199,11 @@
       "path": "integration/OFFLINE_CYCLE_LIMITS.md",
       "bytes": 1932,
       "sha256": "27486fc2db38e9aea323f3b5afdfb9ba770186d783f294c5a636ea5edcc0cc80"
+    },
+    {
+      "path": "integration/PAGE_WATCH_LIMITS.md",
+      "bytes": 3444,
+      "sha256": "e8a8d524b4ace3e9081e95f1434233582a4e3ff5d1df4fe4512b692773313cf5"
     },
     {
       "path": "integration/PREVIEW_LAUNCHER_LIMITS.md",
@@ -722,8 +727,8 @@
     },
     {
       "path": "integration/page_watch.py",
-      "bytes": 4411,
-      "sha256": "1e13b2db0fb4254e753d2c2e2df62885b4f035a9b0f358e3027378d749b97515"
+      "bytes": 6938,
+      "sha256": "a4d45a456769b1e6f17496ce24b04ccc3a97e25cc28a3ac3b15bf736645346dc"
     },
     {
       "path": "integration/pagewatch_report.py",
@@ -2402,8 +2407,13 @@
     },
     {
       "path": "tests/test_page_watch.py",
-      "bytes": 2887,
-      "sha256": "1616828c0e3c674bc0af7c85a743cd247d5c393edec6e172e8975309af5a2847"
+      "bytes": 2931,
+      "sha256": "0a9ec099c21e937d745e2124df210864243923022aac3d0c2c69c6dd1ee539c6"
+    },
+    {
+      "path": "tests/test_page_watch_contract.py",
+      "bytes": 3805,
+      "sha256": "b03dddaf8a43ea5946d62204c79dd9a8e3c7846a8bf5fe3c61cfa53afa88b3bc"
     },
     {
       "path": "tests/test_pagewatch_report.py",

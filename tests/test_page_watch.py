@@ -3,7 +3,7 @@ from integration.page_watch import snapshot,compare
 URL='https://nilgiried.com/'
 HTML='<html><body><h1>Nilgiris Economic Dialogue</h1><p>Event dates: February 6 to 8</p></body></html>'
 class PageWatchTests(unittest.TestCase):
- def make(self,s=HTML):return snapshot(URL,s,'2026-10-02T03:00:00+05:30')
+ def make(self,s=HTML):return snapshot(URL,s,'2026-10-02T03:00:00+05:30' if s==HTML else '2026-10-02T03:01:00+05:30')
  def test_baseline_and_unchanged(self):
   a=self.make();self.assertEqual(compare(None,a)['state'],'baseline');self.assertEqual(compare(a,self.make())['items'],[])
  def test_changed_details_no_invented_publication(self):
