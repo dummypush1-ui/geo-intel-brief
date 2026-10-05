@@ -36,7 +36,8 @@ class Tests(unittest.TestCase):
   with patch('integration.geo_only_runtime.load_bundled_index',return_value=Index()):return compose_geo_only(e,lambda *a,**k:client)
  def auth(self,app):
   c=app.test_client()
-  with c.session_transaction(base_url='https://preview.example') as s:s['preview_authenticated']=True;s['preview_issued_at']=time.time()
+  from tests.test_geo_only_runtime import login
+  login(c)
   return c
  def test_default_events_off_no_mapping(self):
   c=EventClient();a=self.app(env(),c);self.assertNotIn('events',c.paths);self.assertFalse(a.extensions['geo_events_read_enabled'])

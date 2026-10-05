@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 922,
+  "tests": 944,
   "files": [
     {
       "path": ".env.example",
@@ -147,8 +147,8 @@
     },
     {
       "path": "integration/FEATURE_STATUS.md",
-      "bytes": 13310,
-      "sha256": "70eaf0de9452ed55199d3dedd9d91a9c0421200ba9d6b77aefb0f623edcd7041"
+      "bytes": 14552,
+      "sha256": "c71ca21531ef7b6383e97790491f2e9fd8cc4a8211a2ebe772d749cbaa52dda6"
     },
     {
       "path": "integration/FINDER_NESTED_LIMITS.md",
@@ -194,6 +194,11 @@
       "path": "integration/GEO_ONLY_LIMITS.md",
       "bytes": 2153,
       "sha256": "c7987ba25cbb982a42c9131bd2dc902895eb37aff066b8972302430b412b64de"
+    },
+    {
+      "path": "integration/GEO_PROBE_HTTP_LIMITS.md",
+      "bytes": 4832,
+      "sha256": "32395d1bd216b46c805f0759723090bcb3adac58779641e50ad623110be5d40d"
     },
     {
       "path": "integration/GEO_QUEUE_LIMITS.md",
@@ -561,6 +566,16 @@
       "sha256": "49cdb46fbffbf4b3cda0eb3598899585dcf2799228cb362a082bbc3b68d81834"
     },
     {
+      "path": "integration/geo_probe_http.py",
+      "bytes": 4479,
+      "sha256": "e32dd5d8fe0060655022f19133172749cf71729732b6889eb2af8884e970c318"
+    },
+    {
+      "path": "integration/geo_probe_process.py",
+      "bytes": 3633,
+      "sha256": "55fa50c21baa518e28165d2a5ac78bdaabc5ad894f9444812c7596dcb43ec2bd"
+    },
+    {
       "path": "integration/geo_queue_fixture.py",
       "bytes": 4254,
       "sha256": "c3be7feaa65f7d2352709c1a6b091672659ccf233d424ad4f75e9205ef49ab81"
@@ -579,6 +594,11 @@
       "path": "integration/geo_sample_probe.py",
       "bytes": 4006,
       "sha256": "875990c2646571fbf5741000540d3211e63081d8c03af396d8fde0f343de39f7"
+    },
+    {
+      "path": "integration/geo_sample_probe_child.py",
+      "bytes": 621,
+      "sha256": "fa0cf8aa447cb2b92a818c0feeb51440051c6a6450f9c74b6112e356674d0867"
     },
     {
       "path": "integration/geonews_digest/README.md",
@@ -817,8 +837,8 @@
     },
     {
       "path": "integration/preview_access.py",
-      "bytes": 4762,
-      "sha256": "4a2e4a7ab64ad1a6ff733fe66c0d9a0d231d2a4036fad3289a463beedfbc12b2"
+      "bytes": 6893,
+      "sha256": "b1251341be695cf24f537a63e3278da18e034ce5601f05fd12c02a4ad58e4c8e"
     },
     {
       "path": "integration/preview_launcher.py",
@@ -2452,13 +2472,23 @@
     },
     {
       "path": "tests/test_geo_event_composition.py",
-      "bytes": 4422,
-      "sha256": "6814a32a6de068f6a694c76126664d5f1143a5bc9e7e818a0270477036a62b89"
+      "bytes": 4344,
+      "sha256": "6c63779165391da9070af11ac783ef036ab16b1e8831128159bda91722a49cfd"
     },
     {
       "path": "tests/test_geo_only_runtime.py",
-      "bytes": 5036,
-      "sha256": "a1926e3495ece212f10348335e63efe5ba1d2b8a3ef2fe9b78a81ef71141bf0f"
+      "bytes": 5025,
+      "sha256": "4f4ec866ba6aa7e53181dc7155ec2eac4df60746843f933831956bcdf4739dc1"
+    },
+    {
+      "path": "tests/test_geo_probe_http.py",
+      "bytes": 4715,
+      "sha256": "fe9a78f6d1e9422deff931546bc05326ed5eeb9362f6ad27e30354fa3241fb02"
+    },
+    {
+      "path": "tests/test_geo_probe_process.py",
+      "bytes": 3353,
+      "sha256": "4c392d195bba0451467acf75c0c9dd97e190475f852fc82ad625d8d3e9802f53"
     },
     {
       "path": "tests/test_geo_queue_fixture.py",
@@ -2562,8 +2592,8 @@
     },
     {
       "path": "tests/test_preview_access.py",
-      "bytes": 3937,
-      "sha256": "442fe79aa0c4ef98ece3db25e13ef5347e9a76f94847d2d73bd759c626222777"
+      "bytes": 6953,
+      "sha256": "ce87b8a014095a1d995d22f0d86abb41b9be3fe9f83fc1540ea80a678ce1e516"
     },
     {
       "path": "tests/test_preview_launcher.py",

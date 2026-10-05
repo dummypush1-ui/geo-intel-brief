@@ -3,6 +3,10 @@ from werkzeug.security import generate_password_hash
 from integration.geo_only_runtime import compose_geo_only
 HASH=generate_password_hash('fixture-private-access-password')
 def env():return {'PREVIEW_ACCESS_ENABLED':'true','PREVIEW_ORIGIN':'https://preview.example','PREVIEW_SESSION_KEY':'x'*64,'PREVIEW_PASSWORD_HASH':HASH,'NEWS_READ_ENABLED':'true','NEWS_STORE_MAPPING_VERIFIED':'true','GEO_MONGODB_URI':'mongodb://fixture-only','GEO_DATABASE':'geo_intel','GEO_ARTICLES_COLLECTION':'articles'}
+def login(c):
+ import re
+ base='https://preview.example';r=c.get('/login',base_url=base);token=re.search(r'name="csrf" value="([^"]+)"',r.text)[1]
+ assert c.post('/login',base_url=base,headers={'Origin':base},data={'csrf':token,'password':'fixture-private-access-password'}).status_code==303
 class Store:
  def __init__(self):self.calls=[]
  def find(self,q,p):self.calls.append(('find',q,p));return self
@@ -20,7 +24,7 @@ class GeoOnlyTests(unittest.TestCase):
   a=compose_geo_only({});self.assertEqual(a.extensions['read_only_news_clients'],[]);self.assertEqual(a.test_client().get('/api/news').status_code,403)
  def test_only_geo_labels_and_bounded_find(self):
   client=Client();a=compose_geo_only(env(),lambda *args,**kwargs:client);c=a.test_client()
-  with c.session_transaction(base_url='https://preview.example') as s:s['preview_authenticated']=True;import time;s['preview_issued_at']=time.time()
+  login(c)
   response=c.get('/api/news',base_url='https://preview.example');self.assertEqual(response.status_code,200);self.assertEqual([r['project'] for r in response.json['items']],['geo']);self.assertEqual(client.paths,['geo_intel','articles']);self.assertIn(('limit',100),client.store.calls);self.assertEqual(client.store.calls[-1],('close',));self.assertNotIn('emailed',response.json['items'][0]);self.assertEqual(response.json['items'][0]['original_country'],'')
  def test_no_client_without_gates(self):
   for key,value in [('NEWS_STORE_MAPPING_VERIFIED','false'),('PREVIEW_ACCESS_ENABLED','false'),('GEO_MONGODB_URI',''),('GEO_ARTICLES_COLLECTION','events'),('GEO_DATABASE','admin'),('GEO_DATABASE','newsbot'),('GEO_DATABASE','NewsBot'),('GEO_ARTICLES_COLLECTION','ADMIN'),('GEO_ARTICLES_COLLECTION','local'),('GEO_DATABASE','geo_other')]:
@@ -60,9 +64,7 @@ class GeoOnlyTests(unittest.TestCase):
     def __init__(self):super().__init__();self.store=BadStore();self.closes=0
     def close(self):self.closes+=1;super().close()
    client=BadClient();a=compose_geo_only(env(),lambda *a,**kw:client);c=a.test_client()
-   with c.session_transaction(base_url='https://preview.example') as session:
-    import time
-    session['preview_authenticated']=True;session['preview_issued_at']=time.time()
+   login(c)
    for _ in range(2):
     response=c.get('/api/news',base_url='https://preview.example');self.assertEqual(response.status_code,503);self.assertNotIn('private-',response.get_data(as_text=True))
    self.assertEqual(client.closes,1)

@@ -1,11 +1,11 @@
 # Current private merge status
 
-As of reviewed increment 70, after full offline parity check 68.
+As of reviewed increment 71, after full offline parity check 68.
 This is code/test status, not deployment or a live source certificate.
 All 537 saved manifest files were restored from backup 67 and SHA-256 checked,
 including original Finder assets. No synthetic original files were substituted.
 Configured author command: PYTHONPATH=tests /tmp/phase1-venv/bin/python -m unittest discover.
-922 tests ran in 94.0 seconds after increment 70: OK, 1 skip and 1 expected failure. The expected
+944 tests ran in 95.9 seconds after increment 71: OK, 1 skip and 1 expected failure. The expected
 failure pins unsupported multiple account Limiter instances per store. Earlier
 workspace-recovery failures are not the current result. The backup workflow
 checks file hashes; it does not independently run the full test suite.
@@ -138,3 +138,22 @@ doc/timeout/flagfixes applied.922fullsuitePASS1skip1expectedfailure.
 Hostedprivatewrapper/auth/rate/deadline/logreview remains futurework.
 Render screens held; no DBconnected/deployed/provisioned, URIcollected, writes
 or real sends. DedicatedreadonlyDBuser is preferredlater access option.
+
+## Increment 71: private manual check wrapper, no activation
+
+Separate explicitfactory/POST wrapper andexecchild runner around70, no standard
+launcher/gates/DBenvironmentactivation. AuthCSRF/exactorigin/noquery/busy10min
+cooldown; fixedredactedJSON/4096bytechildoutput/10s sampledchildbudget/killwait.
+ReviewV1/V2foundauthissues, fixed: atomichashreservation+singlehashslot, origin
+login/logout, UTF8CSRFcomparison, import-light access, bounded128servernonces
+revokedlogout, browserlogoutform, canonicalorigin. ReviewerV3SAFEprivate single
+worker manualscope,21of23HTTP testsPASS;2neededUIassetsmissingfromzip. Author42
+focused+944fullsuitePASS1skip1expectedfailure. Actual390pxformpixels inspected.
+
+NoactualDB/Rendercheck/deploy/URIcollection. NohardHTTPdeadline orparentworker
+forcedkillchildcleanup guarantee; clientdisconnect/logouting-flightprobe not
+cancelled. Externalratecontrol, processlifecycle/hostproxy/cost/runtimechecks
+required beforehostactivation. Sessions/cooldownperprocess, wallclockexpiry,
+capselflockout/globalunauthbudgetburn/near1024urlencoded413 residualsdocumented.
+Render screens held. DedicatedreadonlyDBuser preferred later, noindex/writes/
+collectorstop/cutover/realsends inferred from manualcheckpreparation.
