@@ -31,7 +31,7 @@ def compose_geo_only(environ,client_factory=None):
         if client is None:raise ValueError('Read-only client unavailable')
         clients.append(client)
         try:
-            reader=ReadOnlyNewsReader({'geo':client[database][collection]},verified=True,limit=100)
+            reader=ReadOnlyNewsReader({'geo':client[database][collection]},verified=True,limit=100,query_timeout_ms=2000)
             from threading import Lock
             read_lock=Lock();failed=[False]
             def guarded_read():

@@ -8,6 +8,8 @@ class Store:
  def find(self,q,p):self.calls.append(('find',q,p));return self
  def sort(self,*a):self.calls.append(('sort',*a));return self
  def limit(self,n):self.calls.append(('limit',n));return self
+ def max_time_ms(self,n):self.calls.append(('max_time_ms',n));return self
+ def close(self):self.calls.append(('close',))
  def __iter__(self):return iter([{'title':'fixture','url':'https://example.com/a','country':'','created_at':'2026-09-09T17:07:50+00:00','emailed':True}])
 class Client:
  def __init__(self):self.paths=[];self.closed=False;self.store=Store()
@@ -19,7 +21,7 @@ class GeoOnlyTests(unittest.TestCase):
  def test_only_geo_labels_and_bounded_find(self):
   client=Client();a=compose_geo_only(env(),lambda *args,**kwargs:client);c=a.test_client()
   with c.session_transaction(base_url='https://preview.example') as s:s['preview_authenticated']=True;import time;s['preview_issued_at']=time.time()
-  response=c.get('/api/news',base_url='https://preview.example');self.assertEqual(response.status_code,200);self.assertEqual([r['project'] for r in response.json['items']],['geo']);self.assertEqual(client.paths,['geo_intel','articles']);self.assertEqual(client.store.calls[-1],('limit',100));self.assertNotIn('emailed',response.json['items'][0]);self.assertEqual(response.json['items'][0]['original_country'],'')
+  response=c.get('/api/news',base_url='https://preview.example');self.assertEqual(response.status_code,200);self.assertEqual([r['project'] for r in response.json['items']],['geo']);self.assertEqual(client.paths,['geo_intel','articles']);self.assertIn(('limit',100),client.store.calls);self.assertEqual(client.store.calls[-1],('close',));self.assertNotIn('emailed',response.json['items'][0]);self.assertEqual(response.json['items'][0]['original_country'],'')
  def test_no_client_without_gates(self):
   for key,value in [('NEWS_STORE_MAPPING_VERIFIED','false'),('PREVIEW_ACCESS_ENABLED','false'),('GEO_MONGODB_URI',''),('GEO_ARTICLES_COLLECTION','events'),('GEO_DATABASE','admin'),('GEO_DATABASE','newsbot'),('GEO_DATABASE','NewsBot'),('GEO_ARTICLES_COLLECTION','ADMIN'),('GEO_ARTICLES_COLLECTION','local'),('GEO_DATABASE','geo_other')]:
    e=env();e[key]=value;called=[]

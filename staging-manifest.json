@@ -177,13 +177,18 @@
     },
     {
       "path": "integration/GEO_ONLY_LIMITS.md",
-      "bytes": 1900,
-      "sha256": "05d80e5d7ccbd6052c1cb56e881ffa7308600d1e774576be9eb7e0d5c50f7778"
+      "bytes": 1986,
+      "sha256": "6631d0aef83b7b2be9d22bb51cf608de223a89cb100bc3a45e9b58fb9f2de9c5"
     },
     {
       "path": "integration/GEO_QUEUE_LIMITS.md",
       "bytes": 4089,
       "sha256": "3b51b3246bfff820d49f478c2e5b3fe5d6e33422d31b1aaa796eb799ec3f0609"
+    },
+    {
+      "path": "integration/GEO_READ_FACTORY_LIMITS.md",
+      "bytes": 2422,
+      "sha256": "5d2ebd1d34fbc764353e356aa6f2a226e1cca0b4508e240af957efea900636fa"
     },
     {
       "path": "integration/LIVE_NEWS_LIMITS.md",
@@ -212,8 +217,8 @@
     },
     {
       "path": "integration/PREVIEW_LAUNCHER_LIMITS.md",
-      "bytes": 4111,
-      "sha256": "d9b22cbef544337d9b0f1d9b4f0635fa068a994a1d58a0e94e71344fa7d586d4"
+      "bytes": 4076,
+      "sha256": "77bb03e830afd66324ebe479f7c0354c0af4cdd99c8e60a344424e332a438870"
     },
     {
       "path": "integration/PRIVATE_NEWS_FIELDS_LIMITS.md",
@@ -502,13 +507,18 @@
     },
     {
       "path": "integration/geo_only_runtime.py",
-      "bytes": 3545,
-      "sha256": "147126bcfecc9917162c70f00433006892a26a387b116c96f340519d39cf1faa"
+      "bytes": 3567,
+      "sha256": "ec3bbc98f4c29678dff3372648c828f791ea04ef9191041d02cabe37ce92013f"
     },
     {
       "path": "integration/geo_queue_fixture.py",
       "bytes": 4254,
       "sha256": "c3be7feaa65f7d2352709c1a6b091672659ccf233d424ad4f75e9205ef49ab81"
+    },
+    {
+      "path": "integration/geo_read_factory.py",
+      "bytes": 1868,
+      "sha256": "4fc0cbc49a5e9d8a388eef08466a5eb1d77902582522a40e65f360d1a018930b"
     },
     {
       "path": "integration/geo_rolling_breakdown.py",
@@ -752,8 +762,8 @@
     },
     {
       "path": "integration/private_router.py",
-      "bytes": 256,
-      "sha256": "61b4b22a12a3d3a20e9ab89f3f8d7f501e78021f9c0e547daf4125c25c0ec037"
+      "bytes": 534,
+      "sha256": "c9e18e7e5648e5328e987612e764cf398c3b995ce333afdcdce78431ece9d158"
     },
     {
       "path": "integration/project_reports.py",
@@ -857,8 +867,8 @@
     },
     {
       "path": "integration/storage_reader.py",
-      "bytes": 1251,
-      "sha256": "04f2622d773a9f777b063f566586389a98a691dd5af66954b138d114fc307009"
+      "bytes": 1677,
+      "sha256": "80cdbf0b41b09183e2675d8e4d8abf3a25535cb93f5cb6ec46084d0dfdd26a97"
     },
     {
       "path": "integration/storage_settings.py",
@@ -1091,6 +1101,11 @@
       "sha256": "936a244b97187892bc9cd889d2b2d465742cf2c424af777c0ff91fd4bfb822f7"
     },
     {
+      "path": "intelligence/brics/config.py",
+      "bytes": 2671,
+      "sha256": "2419339566c5946dd0daeae7147eba7a49dffdd379b3c34769d6d62860afc82d"
+    },
+    {
       "path": "intelligence/brics/config/sources.yaml",
       "bytes": 5886,
       "sha256": "8de2ecee36e058ff76d84a39b0ee588aa936fd171156ea28f2a997250159f309"
@@ -1099,11 +1114,6 @@
       "path": "intelligence/brics/config/streams.yaml",
       "bytes": 712,
       "sha256": "65c676f7112813ac6196e859ecf88dd0a866118b9ad5801dd8982b2ea9afc0dd"
-    },
-    {
-      "path": "intelligence/brics/config.py",
-      "bytes": 2671,
-      "sha256": "2419339566c5946dd0daeae7147eba7a49dffdd379b3c34769d6d62860afc82d"
     },
     {
       "path": "intelligence/brics/config_check.py",
@@ -1241,14 +1251,14 @@
       "sha256": "87779b824769bf2b2ab6294838249f9431ae3890405050987870b3e474c6afd1"
     },
     {
-      "path": "intelligence/geo/config/sources.example.yaml",
-      "bytes": 708,
-      "sha256": "a97e256c6bf2bc4518336ff38507c4837f206a32f1e09aecbd9777e913794440"
-    },
-    {
       "path": "intelligence/geo/config.py",
       "bytes": 7266,
       "sha256": "f7fbf007954c6918fbe2e402863fa29f597fe5d5cb4d60d1001deca8896b21f3"
+    },
+    {
+      "path": "intelligence/geo/config/sources.example.yaml",
+      "bytes": 708,
+      "sha256": "a97e256c6bf2bc4518336ff38507c4837f206a32f1e09aecbd9777e913794440"
     },
     {
       "path": "intelligence/geo/config_check.py",
@@ -2357,13 +2367,18 @@
     },
     {
       "path": "tests/test_geo_only_runtime.py",
-      "bytes": 4870,
-      "sha256": "d20b07e376acbf2acf2850b2f9b3edfa5db4dfcad7d5fab4fec5012789018f74"
+      "bytes": 5036,
+      "sha256": "a1926e3495ece212f10348335e63efe5ba1d2b8a3ef2fe9b78a81ef71141bf0f"
     },
     {
       "path": "tests/test_geo_queue_fixture.py",
       "bytes": 5135,
       "sha256": "5d4ab0ed44621d50137b98f89b4bc3711f6c5de05504243aded75d17a30d2a3d"
+    },
+    {
+      "path": "tests/test_geo_read_factory.py",
+      "bytes": 3607,
+      "sha256": "b44e71faa294692349d14acc8280dd9ea2be071fa25acc43c01dc9ebc0996ea7"
     },
     {
       "path": "tests/test_geo_rolling_breakdown.py",
@@ -2590,5 +2605,6 @@
       "bytes": 22682,
       "sha256": "2ca27e9a8dae569cdeac42752ed1aed1afeff7f19282d3cc12c0aaa54a08bc04"
     }
-  ]
+  ],
+  "test_evidence_note": "830 is last full run at backup60, not rerun after61.61 review23 focused pass with synthetic Finder shell; author pure iterator regression only after workspace reset."
 }

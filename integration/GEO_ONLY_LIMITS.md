@@ -4,7 +4,8 @@ Geo news is the sole stored news view. geo_intel/articles is the user-identified
 
 compose_geo_only is now selectable through build_preview by explicit
 PREVIEW_GEO_ONLY_ENABLED=true (default off). private_router uses that launcher;
-legacy compose remains unchanged. No operator settings/deploy changed. No default MongoClient; explicit injected factory only. Private login config + NEWS_READ_ENABLED + NEWS_STORE_MAPPING_VERIFIED + explicit URI required before client creation. Factory connect=False, bounded reads100, no indexes/update/insert/write. Finder index/local exact-HSN reader retained when access configured. Failure closes supplied client and redacts connection errors.
+legacy compose remains unchanged. No operator settings/deploy changed. Direct compose requires injected factory. private_router now selects a lazy
+narrow read-only facade for explicit Geo-only/read-on flags only. Private login config + NEWS_READ_ENABLED + NEWS_STORE_MAPPING_VERIFIED + explicit URI required before client creation. Factory connect=False, bounded reads100, no indexes/update/insert/write. Finder index/local exact-HSN reader retained when access configured. Failure closes supplied client and redacts connection errors.
 
 Default read-off creates no client and news view remains empty. Screenshot mapping/schema is evidence, not verification of live credentials, permissions, rate-limit suitability or old/new cutover. URI should be configured through secret environment by the owner, never in browser/source. No deployment or live database action performed.
 
