@@ -1,0 +1,16 @@
+test_family (test_http.EdgeTests) ... ok
+test_framing_wire_nested (test_http.EdgeTests) ... ok
+test_line_exact_cap (test_http.EdgeTests) ... ok
+test_absolute_slowdrip (test_http.Tests) ... ok
+test_adversarial (test_http.Tests) ... ok
+test_dns (test_http.Tests) ... ok
+test_valid (test_http.Tests) ... ok
+test_wire (test_http.Tests) ... ok
+test_decode_refusals (test_http.WireTests) ... ok
+test_actual_tls_peer_sni_host (test_tls.TLSProof) ... ok
+test_wrong_certificate_name (test_tls.TLSProof) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.085s
+
+OK

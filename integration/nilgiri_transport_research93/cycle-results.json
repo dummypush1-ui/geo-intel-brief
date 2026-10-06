@@ -1,0 +1,70 @@
+[
+  {
+    "status": "passed",
+    "exit_code": 0,
+    "stop_reason": null,
+    "output_bytes": 319,
+    "regression_AS_bytes": 1073741824,
+    "aggregate_RSS_cap": 805306368,
+    "aggregate_process_cap": 128,
+    "wall_seconds": 0.052,
+    "case": "first",
+    "sha256": "ae5917cac7bf9958aa6cfacd7436fec47425515d9590fba5ae56a8ccf62ab4b4",
+    "response_summary": [
+      {
+        "status": 404,
+        "body_bytes": 0
+      },
+      {
+        "status": 200,
+        "body_bytes": 73
+      }
+    ]
+  },
+  {
+    "status": "passed",
+    "exit_code": 0,
+    "stop_reason": null,
+    "output_bytes": 217,
+    "regression_AS_bytes": 1073741824,
+    "aggregate_RSS_cap": 805306368,
+    "aggregate_process_cap": 128,
+    "wall_seconds": 0.054,
+    "case": "conditional",
+    "sha256": "4e81b1250798ee5a9d2cfaeb830c76fe7017d2f7b5a62879ec6f4e3460aa20be",
+    "response_summary": [
+      {
+        "status": 404,
+        "body_bytes": 0
+      },
+      {
+        "status": 304,
+        "body_bytes": 0
+      }
+    ]
+  },
+  {
+    "status": "blocked",
+    "exit_code": 23,
+    "stop_reason": "nonzero_exit",
+    "output_bytes": 0,
+    "regression_AS_bytes": 1073741824,
+    "aggregate_RSS_cap": 805306368,
+    "aggregate_process_cap": 128,
+    "wall_seconds": 0.042,
+    "case": "bad_header",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "status": "blocked",
+    "exit_code": 23,
+    "stop_reason": "nonzero_exit",
+    "output_bytes": 0,
+    "regression_AS_bytes": 1073741824,
+    "aggregate_RSS_cap": 805306368,
+    "aggregate_process_cap": 128,
+    "wall_seconds": 0.039,
+    "case": "extra_host",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+]

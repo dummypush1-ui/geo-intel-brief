@@ -1,0 +1,13 @@
+"""Fixed local fixture child, NOT production entrypoint or runtime selectable seam."""
+import sys,time,os,json
+from pathlib import Path
+# Harness-only adversarial modes supplied directly by authored tests, never source/runtime input.
+mode=sys.argv[1]
+if mode=='suite':
+ import unittest
+ sys.path.insert(0,'/work');suite=unittest.TestLoader().discover('/work',pattern='test_*.py');assert suite.countTestCases()==11,suite.countTestCases();r=unittest.TextTestRunner(verbosity=2).run(suite);sys.exit(not r.wasSuccessful())
+elif mode=='dns_block':time.sleep(60)
+elif mode=='overflow':sys.stdout.buffer.write(b'x'*286734);sys.stdout.flush();time.sleep(60)
+elif mode=='eof_alive':os.close(1);time.sleep(60)
+elif mode=='crash':sys.exit(17)
+else:sys.exit(19)

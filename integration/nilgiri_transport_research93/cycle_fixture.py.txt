@@ -1,0 +1,68 @@
+"""Local TLS whole-cycle authored fixture ONLY. Never production selectable."""
+import socket,ssl,threading,time,json,sys
+from pathlib import Path
+from http_closed import parse,encode,decode,Refused
+# Closed input: validators only, exact source absent because hard-coded local proof.
+def input_value(raw):
+ if type(raw)is not bytes or len(raw)>8192:raise Refused('input_bounds')
+ def pairs(xs):
+  d={}
+  for k,v in xs:
+   if k in d:raise Refused('duplicate_input')
+   d[k]=v
+  return d
+ try:d=json.loads(raw.decode('utf-8'),object_pairs_hook=pairs)
+ except (UnicodeError,ValueError,RecursionError):raise Refused('input_json')
+ if type(d)is not dict or set(d)!={'validators'}or type(d['validators'])is not dict or not set(d['validators'])<={'etag','last-modified'}:raise Refused('input_schema')
+ for v in d['validators'].values():
+  if type(v)is not str or len(v)>1024 or any(ord(c)<32 or ord(c)>=127 for c in v):raise Refused('input_validator')
+ return d['validators']
+def cycle_local(raw):
+ validators=input_value(raw);deadline=time.monotonic()+20
+ serverctx=ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER);serverctx.load_cert_chain('fixture-server.pem','fixture-server-key.pem');names=[];serverctx.set_servername_callback(lambda s,n,c:names.append(n));listener=socket.socket();listener.bind(('127.0.0.1',0));listener.listen(2);listener.settimeout(3);port=listener.getsockname()[1];requests=[];fail=[]
+ def serve():
+  try:
+   for expected in ['/robots.txt','/']:
+    conn,peer=listener.accept();conn.settimeout(2)
+    with serverctx.wrap_socket(conn,server_side=True)as tls:
+     data=bytearray()
+     while not data.endswith(b'\r\n\r\n'):
+      b=tls.recv(1)
+      if not b:raise Refused('request_eof')
+      data+=b
+      if len(data)>4096:raise Refused('request_bound')
+     assert data.startswith(('GET '+expected+' HTTP/1.1\r\n').encode());assert b'Host: nilgiried.com\r\n'in data;requests.append(bytes(data))
+     if expected=='/robots.txt':out=b'HTTP/1.1 404 Not Found\r\nContent-Length: 0\r\nConnection: close\r\n\r\n'
+     elif validators:out=b'HTTP/1.1 304 Not Modified\r\nContent-Length: 0\r\nConnection: close\r\n\r\n'
+     else:
+      body=b'<main><p>Local public page fixture enough visible detail only.</p></main>';out=b'HTTP/1.1 200 OK\r\nContent-Type: text/html\r\nContent-Length: '+str(len(body)).encode()+b'\r\nConnection: close\r\n\r\n'+body
+     tls.sendall(out)
+  except Exception as e:fail.append(type(e).__name__)
+  finally:listener.close()
+ thread=threading.Thread(target=serve);thread.start();rows=[]
+ ctx=ssl.create_default_context(cafile='fixture-ca.pem') # test seam fixed authoredCA, NOT productionroots.
+ try:
+  for index,path in enumerate(['/robots.txt','/']):
+   if len(rows)>=2:raise Refused('request_count')
+   sock=socket.socket();sock.settimeout(min(3,deadline-time.monotonic()))
+   try:
+    sock.connect(('127.0.0.1',port)) # fixed local fixture, neverglobalDNSproof.
+    assert sock.getpeername()[0]=='127.0.0.1';sock.settimeout(min(3,deadline-time.monotonic()))
+    with ctx.wrap_socket(sock,server_hostname='nilgiried.com')as tls:
+     request='GET '+path+' HTTP/1.1\r\nHost: nilgiried.com\r\nConnection: close\r\nAccept-Encoding: identity\r\nUser-Agent: Push page-watch offline transport proof\r\n'
+     if index:
+      for k,v in validators.items():request+=('If-None-Match'if k=='etag'else'If-Modified-Since')+': '+v+'\r\n'
+     request+='\r\n';phase_end=min(deadline,time.monotonic()+6);tls.settimeout(phase_end-time.monotonic());tls.sendall(request.encode());rows.append(parse(tls,phase_end))
+   finally:sock.close()
+   if index==0 and rows[0]['status']!=404:break
+  thread.join(max(0,deadline-time.monotonic()));assert not thread.is_alive()and not fail;assert names==['nilgiried.com']*len(rows);assert len(requests)==len(rows)<=2
+  if time.monotonic()>=deadline:raise Refused('serialization_deadline')
+  blob=encode(rows)
+  if time.monotonic()>=deadline:raise Refused('serialization_deadline')
+  return blob
+ finally:
+  listener.close();thread.join(4)
+  if thread.is_alive():raise Refused('fixture_thread_cleanup')
+if __name__=='__main__':
+ try:blob=cycle_local(sys.stdin.buffer.read(8193));decode(blob);sys.stdout.buffer.write(blob)
+ except Exception:sys.exit(23) # coarseexit, stderr notpage/credentials.

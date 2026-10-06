@@ -1026,6 +1026,66 @@
       "sha256": "d24256b4467b6acc81bbb4d9e0f689c42b52511443fe1fa0feb3725b06416b1f"
     },
     {
+      "path": "integration/nilgiri_transport_research93/CONTRACT.md",
+      "bytes": 3451,
+      "sha256": "dd636e38230e6c7e1c95b430cf7c0565cb5055f8d284eb9fb0bb96c1d0413adb"
+    },
+    {
+      "path": "integration/nilgiri_transport_research93/README.md",
+      "bytes": 886,
+      "sha256": "0cd643bf54b5e1eb3ac887030933a7787d707678d1f8934d84d7a410370b1cff"
+    },
+    {
+      "path": "integration/nilgiri_transport_research93/RESULTS.md",
+      "bytes": 2661,
+      "sha256": "c2ce82c4fcb2b4b90e584ccf4286db87224ab26adb558e226a0a3eacda81af48"
+    },
+    {
+      "path": "integration/nilgiri_transport_research93/cycle-results.json",
+      "bytes": 1723,
+      "sha256": "1c1c8e7b01791a3d2f97652ad0e9980fd961f495bacb8a8cfa60571ea467b4bd"
+    },
+    {
+      "path": "integration/nilgiri_transport_research93/cycle_fixture.py.txt",
+      "bytes": 4247,
+      "sha256": "6c15b9ffef02fde50d221860ab951fd1ab300aeedc5792624ccf9974592247d6"
+    },
+    {
+      "path": "integration/nilgiri_transport_research93/fixture_child.py.txt",
+      "bytes": 750,
+      "sha256": "2b9b337642e08f70e1209052ea331f987c29fff9f3d89fa26bf6b4013fa54754"
+    },
+    {
+      "path": "integration/nilgiri_transport_research93/http_closed.py.txt",
+      "bytes": 7279,
+      "sha256": "0c0d0c199d5a5df95df4c7e87ad28b485cfdbcd78aa2592fdde8808af186fa4b"
+    },
+    {
+      "path": "integration/nilgiri_transport_research93/payload-hashes.json",
+      "bytes": 982,
+      "sha256": "b4be119f649065d0a0d0f292f1d34c9c93250133d501802ae0d8a14e0e411ae6"
+    },
+    {
+      "path": "integration/nilgiri_transport_research93/process-results.json",
+      "bytes": 1798,
+      "sha256": "df86bbaef7a41eeb83826a22f7ee6f1afbe12a5d3884614e39b0c7b16415f87e"
+    },
+    {
+      "path": "integration/nilgiri_transport_research93/suite.log",
+      "bytes": 600,
+      "sha256": "3542125bfbba8c691ba2234395eadf2bd83ca910dc6f455e73ea1b4633333aaf"
+    },
+    {
+      "path": "integration/nilgiri_transport_research93/test_http.py.txt",
+      "bytes": 4384,
+      "sha256": "3da148523a2e53b0e5b26f064a09ba066a64033cc6cf306f72c71d8fb9be3962"
+    },
+    {
+      "path": "integration/nilgiri_transport_research93/test_tls.py.txt",
+      "bytes": 2180,
+      "sha256": "b6945a3a8febfe78ec6753a7fbf20e1c68cf23d498e3fa2ea14acf6ea25d7b7e"
+    },
+    {
       "path": "integration/nilgiri_watch_fixture/LIMITS.md",
       "bytes": 4327,
       "sha256": "a2bca7e07fb29b391e61e404ab4f71e85d4fef3bcdfc0ea82b013fd7906a7453"
@@ -3276,5 +3336,5 @@
       "sha256": "2ca27e9a8dae569cdeac42752ed1aed1afeff7f19282d3cc12c0aaa54a08bc04"
     }
   ],
-  "test_evidence_note": "92 configured1150 tests run suiteOK575+287+288,1expected/1existingoptionalPDFskip; independent31focusedreplayOK incladditive3pathinventory. Offline trusted fixtureonly,noactualtransport/watcher/DB/persistence/mail/render/activation. Original87/88/90/91immutable;no pinselection."
+  "test_evidence_note": "93 scoped standalone research archived only as text, unselected/unwired. Configured1150 suiteOK575+287+288,1expected/1existingoptionalPDFskip. Independent9HTTP/DNS/wire OK;11 namespace IDs includes2TLS authoronly, wholecycle/killreap authoronly. ProductionDNS/literalpeer/defaultroots link, resolverstall, slowTLS/write, namespacerouting UNVERIFIED/BLOCKED. No sitefetch/watch/activation; historical87/88/90/91/92 unchanged."
 }

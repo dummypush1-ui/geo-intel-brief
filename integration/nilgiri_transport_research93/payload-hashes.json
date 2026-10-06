@@ -1,0 +1,13 @@
+{
+  "fixture_child.py.txt": "2b9b337642e08f70e1209052ea331f987c29fff9f3d89fa26bf6b4013fa54754",
+  "cycle_fixture.py.txt": "6c15b9ffef02fde50d221860ab951fd1ab300aeedc5792624ccf9974592247d6",
+  "test_http.py.txt": "3da148523a2e53b0e5b26f064a09ba066a64033cc6cf306f72c71d8fb9be3962",
+  "README.md": "0cd643bf54b5e1eb3ac887030933a7787d707678d1f8934d84d7a410370b1cff",
+  "RESULTS.md": "c2ce82c4fcb2b4b90e584ccf4286db87224ab26adb558e226a0a3eacda81af48",
+  "CONTRACT.md": "dd636e38230e6c7e1c95b430cf7c0565cb5055f8d284eb9fb0bb96c1d0413adb",
+  "http_closed.py.txt": "0c0d0c199d5a5df95df4c7e87ad28b485cfdbcd78aa2592fdde8808af186fa4b",
+  "process-results.json": "df86bbaef7a41eeb83826a22f7ee6f1afbe12a5d3884614e39b0c7b16415f87e",
+  "suite.log": "3542125bfbba8c691ba2234395eadf2bd83ca910dc6f455e73ea1b4633333aaf",
+  "cycle-results.json": "1c1c8e7b01791a3d2f97652ad0e9980fd961f495bacb8a8cfa60571ea467b4bd",
+  "test_tls.py.txt": "b6945a3a8febfe78ec6753a7fbf20e1c68cf23d498e3fa2ea14acf6ea25d7b7e"
+}

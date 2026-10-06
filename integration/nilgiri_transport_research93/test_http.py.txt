@@ -1,0 +1,65 @@
+import unittest,socket,threading,time,ssl,json
+from http_closed import *
+class Tests(unittest.TestCase):
+ def read(self,raw,timeout=.5,drip=0):
+  a,b=socket.socketpair();stop=threading.Event()
+  def send():
+   try:
+    if drip:
+     for byte in raw:
+      if stop.wait(drip):break
+      b.send(bytes([byte]))
+    else:b.sendall(raw)
+   except OSError:pass
+   finally:b.close()
+  t=threading.Thread(target=send);t.start()
+  try:return parse(a,time.monotonic()+timeout)
+  finally:stop.set();a.close();t.join(2);assert not t.is_alive()
+ def test_valid(self):
+  r=self.read(b'HTTP/1.1 200 OK\r\nContent-Length: 5\r\n\r\nHello');self.assertEqual(r['body'],b'Hello')
+  r=self.read(b'HTTP/1.1 200 OK\r\nTransfer-Encoding: chunked\r\n\r\n5\r\nHello\r\n0\r\n\r\n');self.assertEqual(r['body'],b'Hello')
+  self.assertEqual(self.read(b'HTTP/1.1 304 Not Modified\r\n\r\n')['body'],b'')
+ def test_adversarial(self):
+  cases=[b'HTTP/1.1 100 Continue\r\n\r\n',b'HTTP/1.0 200 OK\r\n\r\n',b'HTTP/1.1 200 OK\r\nContent-Length: 0\r\ncontent-length: 0\r\n\r\n',b'HTTP/1.1 200 OK\r\nContent-Length: 0\r\nTransfer-Encoding: chunked\r\n\r\n',b'HTTP/1.1 200 OK\r\nContent-Encoding: gzip\r\nContent-Length: 0\r\n\r\n',b'HTTP/1.1 200 OK\r\nContent-Length: 999999\r\n\r\n',b'HTTP/1.1 200 OK\r\nTransfer-Encoding: chunked\r\n\r\nFFFFFF\r\n',b'HTTP/1.1 200 OK\r\nTransfer-Encoding: chunked\r\n\r\n0\r\nX: trailer\r\n\r\n',b'HTTP/1.1 200 OK\r\nTransfer-Encoding: chunked\r\n\r\n1;x=y\r\n',b'HTTP/1.1 200 OK\r\nX: '+b'x'*1200+b'\r\n\r\n',b'HTTP/1.1 200 OK\r\n'+b''.join(('X%d: a\r\n'%n).encode()for n in range(33))+b'\r\n',b'HTTP/1.1 200 OK\r\n folded\r\n\r\n',b'HTTP/1.1 200 OK\r\nContent-Length: 2\r\n\r\n\xffx',b'HTTP/1.1 200 OK\r\nContent-Length: 9\r\n\r\nx']
+  for c in cases:
+   with self.subTest(raw=c[:70]),self.assertRaises((Refused,OSError)):self.read(c)
+ def test_absolute_slowdrip(self):
+  start=time.monotonic()
+  with self.assertRaises((Refused,TimeoutError)):self.read(b'HTTP/1.1 200 OK\r\nContent-Length: 3\r\n\r\nabc',timeout=.06,drip=.008)
+  self.assertLess(time.monotonic()-start,.5)
+ def test_dns(self):
+  def a(ip,fam=socket.AF_INET):return(fam,socket.SOCK_STREAM,6,'',(ip,443)if fam==socket.AF_INET else(ip,443,0,0))
+  self.assertEqual(select_address([a('8.8.8.8'),a('1.1.1.1')]),'1.1.1.1')
+  self.assertEqual(select_address([a('::ffff:8.8.8.8',socket.AF_INET6)]),'8.8.8.8')
+  for v in [[a('8.8.8.8'),a('127.0.0.1')],[a('fe80::1%lo',socket.AF_INET6)],[],[a('8.8.8.8')]*17]:
+   with self.assertRaises(Refused):select_address(v)
+ def test_wire(self):
+  records=[{'status':404,'headers':{'etag':'x'*1024,'content-length':'131072'},'body':b'a'*131072}]*2;wire=encode(records);self.assertLessEqual(len(wire),286733);self.assertEqual(decode(wire),records)
+  with self.assertRaises(Refused):encode(records*2)
+class WireTests(unittest.TestCase):
+ def test_decode_refusals(self):
+  good=encode([{'status':404,'headers':{'content-length':'0'},'body':b''}])
+  for raw in [b'',b'wrong',good[:-1],good+b'garbage',b'N93v1'+struct.pack('!I',999999)]:
+   with self.assertRaises(Refused):decode(raw)
+  bad={'resource':'robots','status':404,'headers':{},'body_bytes':True};raw=json.dumps(bad).encode()
+  with self.assertRaises(Refused):decode(b'N93v1'+struct.pack('!I',len(raw))+raw)
+class EdgeTests(unittest.TestCase):
+ def test_line_exact_cap(self):
+  for size,ok in [(16,True),(17,False)]:
+   a,b=socket.socketpair();b.sendall(b'x'*(size-2)+b'\r\n');b.close()
+   try:
+    r=Reader(a,time.monotonic()+1)
+    if ok:self.assertEqual(len(r.line(16)),16)
+    else:
+     with self.assertRaises(Refused):r.line(16)
+   finally:a.close()
+ def test_framing_wire_nested(self):
+  for h,b,code in [({'content-length':'1'},b'',200),({'content-length':'0','transfer-encoding':'chunked'},b'',200),({'transfer-encoding':'chunked'},b'',304),({'content-length':'1'},b'x',304)]:
+   raw=encode([{'status':code,'headers':h,'body':b}])
+   with self.assertRaises(Refused):decode(raw)
+  raw=b'['*3000+b']'*3000
+  with self.assertRaises(Refused):decode(b'N93v1'+struct.pack('!I',len(raw))+raw)
+ def test_family(self):
+  for row in [(socket.AF_INET,socket.SOCK_STREAM,6,'',('8.8.8.8',443,0,0)),(socket.AF_INET,socket.SOCK_STREAM,6,'',('2606:4700:4700::1111',443)),(socket.AF_INET6,socket.SOCK_STREAM,6,'',('8.8.8.8',443,0,0))]:
+   with self.assertRaises(Refused):select_address([row])
+if __name__=='__main__':unittest.main(verbosity=2)

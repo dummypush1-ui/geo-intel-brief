@@ -1,0 +1,153 @@
+"""Standalone local protocol proof. Not selected production transport."""
+import time,re,ipaddress,socket,json,struct
+class Refused(ValueError):pass
+class Reader:
+ def __init__(self,sock,deadline):self.sock=sock;self.deadline=deadline;self.buffer=bytearray()
+ def receive(self,n):
+  remaining=self.deadline-time.monotonic()
+  if remaining<=0:raise Refused('deadline')
+  self.sock.settimeout(remaining);data=self.sock.recv(min(n,32768))
+  if not data:raise Refused('unexpected_eof')
+  return data
+ def exact(self,n):
+  out=bytearray()
+  while len(out)<n:
+   if self.buffer:
+    k=min(n-len(out),len(self.buffer));out.extend(self.buffer[:k]);del self.buffer[:k]
+   else:out.extend(self.receive(n-len(out)))
+  return bytes(out)
+ def line(self,cap):
+  out=bytearray()
+  while len(out)<=cap:
+   b=self.exact(1);out+=b
+   if out.endswith(b'\r\n'):
+    if len(out)>cap:raise Refused('line_bounds')
+    return bytes(out)
+   if b==b'\n':raise Refused('bad_crlf')
+  raise Refused('line_bounds')
+def parse(sock,deadline):
+ r=Reader(sock,deadline);status=r.line(256)
+ m=re.fullmatch(rb'HTTP/1\.1 ([1-5][0-9][0-9]) [\x20-\x7e]*\r\n',status)
+ if not m:raise Refused('status')
+ code=int(m[1])
+ if code<200:raise Refused('interim')
+ headers={};total=0;count=0
+ while True:
+  line=r.line(1152);total+=len(line)
+  if total>8192:raise Refused('header_total')
+  if line==b'\r\n':break
+  count+=1
+  if count>32 or line[:1]in(b' ',b'\t'):raise Refused('headers')
+  n,sep,v=line[:-2].partition(b':')
+  if not sep or not re.fullmatch(rb"[A-Za-z0-9!#$%&'*+.^_`|~-]{1,64}",n):raise Refused('name')
+  v=v.strip(b' ')
+  if len(v)>1024 or any(c<32 or c>=127 for c in v):raise Refused('value')
+  key=n.decode().lower()
+  if key in headers:raise Refused('duplicate')
+  headers[key]=v.decode()
+ if headers.get('content-encoding','identity').lower()!='identity':raise Refused('compression')
+ cl=headers.get('content-length');te=headers.get('transfer-encoding')
+ if cl is not None and te is not None:raise Refused('framing')
+ if code==304:
+  if te is not None or cl not in(None,'0'):raise Refused('304_body')
+  body=b''
+ elif cl is not None:
+  if not re.fullmatch('[0-9]{1,6}',cl)or int(cl)>131072:raise Refused('length')
+  body=r.exact(int(cl))
+ elif te=='chunked':
+  out=bytearray();count=0
+  while True:
+   line=r.line(16)
+   if not re.fullmatch(rb'[0-9a-fA-F]{1,6}\r\n',line):raise Refused('chunk_line')
+   n=int(line[:-2],16)
+   if n==0:
+    if r.line(2)!=b'\r\n':raise Refused('trailer')
+    break
+   count+=1
+   if count>256 or n>131072 or len(out)+n>131072:raise Refused('chunk_bounds')
+   out.extend(r.exact(n))
+   if r.exact(2)!=b'\r\n':raise Refused('chunk_crlf')
+  body=bytes(out)
+ else:raise Refused('framing_missing')
+ remaining=deadline-time.monotonic()
+ if remaining<=0:raise Refused('deadline')
+ sock.settimeout(remaining)
+ if sock.recv(1):raise Refused('extra_body_or_framing')
+ try:body.decode('utf-8','strict')
+ except UnicodeError:raise Refused('utf8')
+ return {'status':code,'headers':headers,'body':body}
+def normalized_ip(value):
+ if type(value)is not str or '%'in value:raise Refused('address')
+ try:a=ipaddress.ip_address(value)
+ except ValueError:raise Refused('address')
+ if isinstance(a,ipaddress.IPv6Address)and a.ipv4_mapped is not None:a=a.ipv4_mapped
+ if not a.is_global or a.is_multicast or a.is_reserved or a.is_unspecified or a.is_loopback or a.is_link_local:raise Refused('nonglobal')
+ return str(a)
+def select_address(answers):
+ if type(answers)is not list or not 1<=len(answers)<=16:raise Refused('dns_bounds')
+ found=[]
+ for row in answers:
+  if type(row)is not tuple or len(row)!=5:raise Refused('dns_shape')
+  family,kind,protocol,cname,sa=row
+  if family not in(socket.AF_INET,socket.AF_INET6)or kind!=socket.SOCK_STREAM or protocol not in(0,socket.IPPROTO_TCP)or type(sa)is not tuple or len(sa)not in(2,4)or sa[1]!=443:raise Refused('dns_shape')
+  if family==socket.AF_INET and(len(sa)!=2 or ':'in sa[0]):raise Refused('dns_family')
+  if family==socket.AF_INET6 and(len(sa)!=4 or ':'not in sa[0]):raise Refused('dns_family')
+  if family==socket.AF_INET6 and len(sa)==4 and(sa[2]!=0 or sa[3]!=0):raise Refused('dns_scope')
+  found.append(normalized_ip(sa[0]))
+ return sorted(set(found))[0]
+def encode(records):
+ if type(records)is not list or not 1<=len(records)<=2:raise Refused('records')
+ out=bytearray(b'N93v1')
+ for i,row in enumerate(records):
+  if type(row)is not dict or set(row)!={'status','headers','body'}:raise Refused('record_shape')
+  body=row['body'];meta={'resource':'robots'if i==0 else'page','status':row['status'],'headers':row['headers'],'body_bytes':len(body)};b=json.dumps(meta,separators=(',',':'),ensure_ascii=True).encode()
+  if len(b)>12288 or type(body)is not bytes or len(body)>131072:raise Refused('wire_bounds')
+  out+=struct.pack('!I',len(b))+b+body
+ if len(out)>286733:raise Refused('aggregate_wire')
+ return bytes(out)
+
+
+def decode(blob):
+ if type(blob)is not bytes or len(blob)>286733 or not blob.startswith(b'N93v1'):raise Refused('wire_magic_bounds')
+ pos=5;rows=[]
+ while pos<len(blob):
+  if len(rows)>=2 or pos+4>len(blob):raise Refused('wire_count_prefix')
+  size=struct.unpack('!I',blob[pos:pos+4])[0];pos+=4
+  if not 1<=size<=12288 or pos+size>len(blob):raise Refused('wire_meta_bounds')
+  raw=blob[pos:pos+size];pos+=size
+  def pairs(xs):
+   out={}
+   for k,v in xs:
+    if k in out:raise Refused('duplicate_json_key')
+    out[k]=v
+   return out
+  try:meta=json.loads(raw.decode('utf-8'),object_pairs_hook=pairs)
+  except (ValueError,UnicodeError,RecursionError):raise Refused('wire_json')
+  if type(meta)is not dict or set(meta)!={'resource','status','headers','body_bytes'}:raise Refused('wire_meta_shape')
+  if meta['resource']!=('robots'if not rows else'page')or type(meta['status'])is not int or not 200<=meta['status']<=599:raise Refused('wire_identity')
+  n=meta['body_bytes'];h=meta['headers']
+  if type(n)is not int or not 0<=n<=131072 or pos+n>len(blob)or type(h)is not dict or len(h)>32:raise Refused('wire_body')
+  total=0
+  for k,v in h.items():
+   if type(k)is not str or not re.fullmatch(r"[a-z0-9!#$%&'*+.^_`|~-]{1,64}",k)or type(v)is not str or len(v)>1024 or any(ord(c)<32 or ord(c)>=127 for c in v):raise Refused('wire_header')
+   total+=len(k)+len(v)+4
+  if total>8192 or h.get('content-encoding','identity')!='identity':raise Refused('wire_header_bounds')
+  body=blob[pos:pos+n];pos+=n
+  try:body.decode('utf-8','strict')
+  except UnicodeError:raise Refused('wire_utf8')
+  if meta['status']==304 and body:raise Refused('wire_304')
+  validate_normalized(meta['status'],h,body)
+  rows.append({'status':meta['status'],'headers':h,'body':body})
+ if not rows:raise Refused('wire_empty')
+ if len(rows)==2 and rows[0]['status']!=404:raise Refused('wire_robots_progression')
+ return rows
+
+
+def validate_normalized(status,headers,body):
+ cl=headers.get('content-length');te=headers.get('transfer-encoding')
+ if cl is not None and te is not None:raise Refused('wire_framing')
+ if cl is not None and(not re.fullmatch('[0-9]{1,6}',cl)or int(cl)!=len(body)):raise Refused('wire_length')
+ if te is not None and te!='chunked':raise Refused('wire_te')
+ if status==304:
+  if te is not None or cl not in(None,'0')or body:raise Refused('wire_304_framing')
+ elif cl is None and te is None:raise Refused('wire_framing_missing')

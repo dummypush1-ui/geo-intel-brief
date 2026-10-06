@@ -1,0 +1,62 @@
+[
+  {
+    "status": "passed",
+    "exit_code": 0,
+    "stop_reason": null,
+    "output_bytes": 600,
+    "regression_AS_bytes": 1073741824,
+    "aggregate_RSS_cap": 805306368,
+    "aggregate_process_cap": 128,
+    "wall_seconds": 0.143,
+    "mode": "suite",
+    "output_sha256": "3542125bfbba8c691ba2234395eadf2bd83ca910dc6f455e73ea1b4633333aaf"
+  },
+  {
+    "status": "blocked",
+    "exit_code": -9,
+    "stop_reason": "wall_deadline",
+    "output_bytes": 0,
+    "regression_AS_bytes": 1073741824,
+    "aggregate_RSS_cap": 805306368,
+    "aggregate_process_cap": 128,
+    "wall_seconds": 0.304,
+    "mode": "dns_block",
+    "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "status": "blocked",
+    "exit_code": -9,
+    "stop_reason": "output_cap",
+    "output_bytes": 286733,
+    "regression_AS_bytes": 1073741824,
+    "aggregate_RSS_cap": 805306368,
+    "aggregate_process_cap": 128,
+    "wall_seconds": 0.035,
+    "mode": "overflow",
+    "output_sha256": "afad7f492793b9c5c90654012e8b696235b6dcdeb10415f0d23133131cb3506c"
+  },
+  {
+    "status": "blocked",
+    "exit_code": -9,
+    "stop_reason": "wall_deadline",
+    "output_bytes": 0,
+    "regression_AS_bytes": 1073741824,
+    "aggregate_RSS_cap": 805306368,
+    "aggregate_process_cap": 128,
+    "wall_seconds": 0.305,
+    "mode": "eof_alive",
+    "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "status": "blocked",
+    "exit_code": 17,
+    "stop_reason": "nonzero_exit",
+    "output_bytes": 0,
+    "regression_AS_bytes": 1073741824,
+    "aggregate_RSS_cap": 805306368,
+    "aggregate_process_cap": 128,
+    "wall_seconds": 0.026,
+    "mode": "crash",
+    "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+]
