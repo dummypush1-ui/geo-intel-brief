@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 1060,
+  "tests": 1068,
   "files": [
     {
       "path": ".env.example",
@@ -162,8 +162,8 @@
     },
     {
       "path": "integration/FEATURE_STATUS.md",
-      "bytes": 19009,
-      "sha256": "47d5b256e81f1114fe66f883adbc534ac99d58f390d39311b826c10c1ce46ac0"
+      "bytes": 19363,
+      "sha256": "2e2eb1f77d071003e14931f3b2288a7250745ecf07d32993cccbb147f3b9555c"
     },
     {
       "path": "integration/FINDER_NESTED_LIMITS.md",
@@ -314,6 +314,11 @@
       "path": "integration/SUPPLIED_FULLTEXT_FIXTURE_LIMITS.md",
       "bytes": 3639,
       "sha256": "0921e7659ef804d821a502969ba4e021520d165e5bb5ecc917b2d11338d710d2"
+    },
+    {
+      "path": "integration/SUPPLIED_PIPELINE_LIMITS.md",
+      "bytes": 3260,
+      "sha256": "238ca2ecf7f44659fbdd2fb1391c24e8dccc0640186bb33054c682d6f1c761f1"
     },
     {
       "path": "integration/TARIFF_EVIDENCE_LIMITS.md",
@@ -1074,6 +1079,11 @@
       "path": "integration/stream_revision.py",
       "bytes": 2399,
       "sha256": "39f607f7b2ae8b81b185bc4dbc610259efa103f51f7bb22f350e06bc93c8f06a"
+    },
+    {
+      "path": "integration/supplied_collector_pipeline.py",
+      "bytes": 6383,
+      "sha256": "55c84358f42f4d08d00353522990d99a6083148fbae321fecfdf0af9e1097145"
     },
     {
       "path": "integration/supplied_feed_fixture.py",
@@ -2841,6 +2851,11 @@
       "sha256": "8345a29e6a48fb855c61c2bfd1c8b185fb3d059648ad520df0a24fc3ab86ba85"
     },
     {
+      "path": "tests/test_supplied_collector_pipeline.py",
+      "bytes": 6047,
+      "sha256": "91e088e40fdce235ac05b72adb97139b5eb7b6e0c6914aa4517c0ab3754bdc87"
+    },
+    {
       "path": "tests/test_supplied_feed_fixture.py",
       "bytes": 5382,
       "sha256": "9a26a4df17cffff38c612c888eb97be735115ee9c06056efd4299ccf2cdbf720"
@@ -2896,5 +2911,5 @@
       "sha256": "2ca27e9a8dae569cdeac42752ed1aed1afeff7f19282d3cc12c0aaa54a08bc04"
     }
   ],
-  "test_evidence_note": "Author full configured1060 PASS530+265+265 partitions,1skip/1expected. Independent10SAFE. Supplied parsed entries only, no live RSS."
+  "test_evidence_note": "Author full configured1068 PASS534+267+267 partitions,1skip/1expected. Independent8SAFE. Supplied pipeline only, no live collector."
 }

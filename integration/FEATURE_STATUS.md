@@ -211,3 +211,7 @@ Separate private supplied download/extract outcome fixture preserves reviewed or
 ## Increment81: supplied parsed-entry RSS source-semantic selection
 
 Separate supplied entry fixture preserving original slice/filter/field precedence/stripHTML and reviewed date parsing with explicit fixed-UTC default deviation. No live HTTP/XML/source health.10author+10independent focused PASS/SAFE; full configured1060 PASS530+265+265 partitions,1expected/1skip. No composition to80 or provider activation.
+
+## Increment82: supplied feed/fulltext/original-doc pipeline
+
+Separate composition81->80->64 preserving stage restrictions and deterministic date deviation.8author+8independent focused PASS/SAFE after rawURL refinement; configured1068 PASS534+267+267 partitions,1expected/1skip. No real RSS/XML/fulltext/mail/Telegram/store or health/fullarticle proof.
