@@ -1,0 +1,35 @@
+{
+  "kind": "additive92_not_replacement87",
+  "scope": "exact3paths, source/hash/ASTonly nottransport/dependencycompleteness",
+  "files": {
+    "integration/nilgiri_watch_fixture/__init__.py": {
+      "sha256": "0d23dabafddff89457f43079ae2ea29db693610831a403a8cd0b0a466e540295",
+      "imports": []
+    },
+    "integration/nilgiri_watch_fixture/core.py": {
+      "sha256": "28057f6cf2a3eaeff209c28060c800069b3694cc77f3a4fc055a2f282ff4d23a",
+      "imports": [
+        "copy",
+        "datetime",
+        "integration.page_watch",
+        "re",
+        "threading"
+      ]
+    },
+    "tests/test_nilgiri_watch_fixture.py": {
+      "sha256": "d81f63cf5014057e2cbbad85fbd98ff6c5a52fc87244d25e4de337296935edcf",
+      "imports": [
+        "ast",
+        "copy",
+        "datetime",
+        "hashlib",
+        "hashlib",
+        "integration.nilgiri_watch_fixture.core",
+        "json",
+        "pathlib",
+        "threading",
+        "unittest"
+      ]
+    }
+  }
+}

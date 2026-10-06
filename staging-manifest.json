@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 1119,
+  "tests": 1150,
   "files": [
     {
       "path": ".env.example",
@@ -1024,6 +1024,26 @@
       "path": "integration/news_view.py",
       "bytes": 1896,
       "sha256": "d24256b4467b6acc81bbb4d9e0f689c42b52511443fe1fa0feb3725b06416b1f"
+    },
+    {
+      "path": "integration/nilgiri_watch_fixture/LIMITS.md",
+      "bytes": 4327,
+      "sha256": "a2bca7e07fb29b391e61e404ab4f71e85d4fef3bcdfc0ea82b013fd7906a7453"
+    },
+    {
+      "path": "integration/nilgiri_watch_fixture/__init__.py",
+      "bytes": 68,
+      "sha256": "0d23dabafddff89457f43079ae2ea29db693610831a403a8cd0b0a466e540295"
+    },
+    {
+      "path": "integration/nilgiri_watch_fixture/core.py",
+      "bytes": 8714,
+      "sha256": "28057f6cf2a3eaeff209c28060c800069b3694cc77f3a4fc055a2f282ff4d23a"
+    },
+    {
+      "path": "integration/nilgiri_watch_fixture/inventory92.json",
+      "bytes": 961,
+      "sha256": "3c2de814337aa9fc230742f5b911aa1d9cb625535402e80423ecd7efc7c5ee76"
     },
     {
       "path": "integration/offline_collection_cycle.py",
@@ -2847,8 +2867,8 @@
     },
     {
       "path": "tests/test_dependency_audit.py",
-      "bytes": 9437,
-      "sha256": "3804101d3a8cbeaa6e3177081bd1e607cc227cc01972ca8fda0ea55e83816d08"
+      "bytes": 9567,
+      "sha256": "69738096f3d52beaa6411a6786af4b937dd12cbf86addd3daa8a5d35468d75ad"
     },
     {
       "path": "tests/test_dependency_build_runner.py",
@@ -3004,6 +3024,11 @@
       "path": "tests/test_mongo_account_store.py",
       "bytes": 7599,
       "sha256": "69c36e6c3fea5a172ec228656818407d9268737b97f29e44d7b6fab154456c14"
+    },
+    {
+      "path": "tests/test_nilgiri_watch_fixture.py",
+      "bytes": 8098,
+      "sha256": "d81f63cf5014057e2cbbad85fbd98ff6c5a52fc87244d25e4de337296935edcf"
     },
     {
       "path": "tests/test_offline_collection_cycle.py",
@@ -3251,5 +3276,5 @@
       "sha256": "2ca27e9a8dae569cdeac42752ed1aed1afeff7f19282d3cc12c0aaa54a08bc04"
     }
   ],
-  "test_evidence_note": "91tests run suiteOKoriginal1119 and eachseparateold/upgradedbootstrapcandidate1119uniquequalifyingIDs,1expected/1optionalPDFskip. Initialfailuresexcludedretained. Newinstaller1635payloadhashes installationonlynot separatelyrerunsuite. IndependentSAFEunselectedevidenceonly; no pinsselected/securityoutcomeclosure. SampledmonitorNOTenforcedaggregate."
+  "test_evidence_note": "92 configured1150 tests run suiteOK575+287+288,1expected/1existingoptionalPDFskip; independent31focusedreplayOK incladditive3pathinventory. Offline trusted fixtureonly,noactualtransport/watcher/DB/persistence/mail/render/activation. Original87/88/90/91immutable;no pinselection."
 }
