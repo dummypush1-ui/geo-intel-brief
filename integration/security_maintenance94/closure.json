@@ -1,0 +1,228 @@
+[
+  {
+    "name": "blinker",
+    "version": "1.9.0",
+    "sha256": "ba0efaa9080b619ff2f3459d1d500c57bddea4a6b424b60a91141db6fd2f08bc",
+    "requires_python": ">=3.9",
+    "active_requires_dist": [],
+    "artifact": "blinker-1.9.0-py3-none-any.whl"
+  },
+  {
+    "name": "certifi",
+    "version": "2026.7.22",
+    "sha256": "62f22742b58a1a33014a2b6b706588a8d7e2a88ae7bd1a6ebe8c992928483775",
+    "requires_python": ">=3.7",
+    "active_requires_dist": [],
+    "artifact": "certifi-2026.7.22-py3-none-any.whl"
+  },
+  {
+    "name": "charset-normalizer",
+    "version": "3.5.2",
+    "sha256": "8a893cc101149f80a653f82062ebc95b34525a2614382e1da5458fe7c6997249",
+    "requires_python": ">=3.7",
+    "active_requires_dist": [],
+    "artifact": "charset_normalizer-3.5.2-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl"
+  },
+  {
+    "name": "click",
+    "version": "8.5.0",
+    "sha256": "255bc9599cf7748b4b1a446ccc735421bd08a2ae529a8b88597d3de5664ee360",
+    "requires_python": ">=3.10",
+    "active_requires_dist": [],
+    "artifact": "click-8.5.0-py3-none-any.whl"
+  },
+  {
+    "name": "dnspython",
+    "version": "2.8.0",
+    "sha256": "01d9bbc4a2d76bf0db7c1f729812ded6d912bd318d3b1cf81d30c0f845dbf3af",
+    "requires_python": ">=3.10",
+    "active_requires_dist": [],
+    "artifact": "dnspython-2.8.0-py3-none-any.whl"
+  },
+  {
+    "name": "feedparser",
+    "version": "6.0.11",
+    "sha256": "0be7ee7b395572b19ebeb1d6aafb0028dee11169f1c934e0ed67d54992f4ad45",
+    "requires_python": ">=3.6",
+    "active_requires_dist": [
+      "sgmllib3k"
+    ],
+    "artifact": "feedparser-6.0.11-py3-none-any.whl"
+  },
+  {
+    "name": "flask",
+    "version": "3.1.3",
+    "sha256": "f4bcbefc124291925f1a26446da31a5178f9483862233b23c0c96a20701f670c",
+    "requires_python": ">=3.9",
+    "active_requires_dist": [
+      "blinker>=1.9.0",
+      "click>=8.1.3",
+      "itsdangerous>=2.2.0",
+      "jinja2>=3.1.2",
+      "markupsafe>=2.1.1",
+      "werkzeug>=3.1.0"
+    ],
+    "artifact": "flask-3.1.3-py3-none-any.whl"
+  },
+  {
+    "name": "gunicorn",
+    "version": "22.0.0",
+    "sha256": "350679f91b24062c86e386e198a15438d53a7a8207235a78ba1b53df4c4378d9",
+    "requires_python": ">=3.7",
+    "active_requires_dist": [
+      "packaging"
+    ],
+    "artifact": "gunicorn-22.0.0-py3-none-any.whl"
+  },
+  {
+    "name": "idna",
+    "version": "3.20",
+    "sha256": "ab7ae7122974553370f0bdb919e1a960b2cd1bc1ef0276416d896db81c14582c",
+    "requires_python": ">=3.9",
+    "active_requires_dist": [],
+    "artifact": "idna-3.20-py3-none-any.whl"
+  },
+  {
+    "name": "itsdangerous",
+    "version": "2.2.0",
+    "sha256": "c6242fc49e35958c8b15141343aa660db5fc54d4f13a1db01a3f5891b98700ef",
+    "requires_python": ">=3.8",
+    "active_requires_dist": [],
+    "artifact": "itsdangerous-2.2.0-py3-none-any.whl"
+  },
+  {
+    "name": "jinja2",
+    "version": "3.1.6",
+    "sha256": "85ece4451f492d0c13c5dd7c13a64681a86afae63a5f347908daf103ce6d2f67",
+    "requires_python": ">=3.7",
+    "active_requires_dist": [
+      "MarkupSafe>=2.0"
+    ],
+    "artifact": "jinja2-3.1.6-py3-none-any.whl"
+  },
+  {
+    "name": "markupsafe",
+    "version": "3.0.4",
+    "sha256": "d1aca03ede943eb80ab3d63bb082c84b7aab85ea83bd0fd0c200260945fb49d9",
+    "requires_python": ">=3.9",
+    "active_requires_dist": [],
+    "artifact": "markupsafe-3.0.4-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl"
+  },
+  {
+    "name": "packaging",
+    "version": "26.3",
+    "sha256": "d7193f7c8e4e93f444fde0262bf90af30e16fa0ad0ad44cb553c87339b23cd1c",
+    "requires_python": ">=3.9",
+    "active_requires_dist": [],
+    "artifact": "packaging-26.3-py3-none-any.whl"
+  },
+  {
+    "name": "pymongo",
+    "version": "4.18.2",
+    "sha256": "46d9922c08c0fc166620b5693829a2852a16082f4fc8fb431e30bf6d0a1f4984",
+    "requires_python": ">=3.9",
+    "active_requires_dist": [
+      "dnspython<3.0.0,>=2.7.0"
+    ],
+    "artifact": "pymongo-4.18.2-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl"
+  },
+  {
+    "name": "pypdf",
+    "version": "6.19.0",
+    "sha256": "7e5d6e730e7dae87d560a2cee218b852f6498c8be61966f3cd02ead971e48d14",
+    "requires_python": ">=3.9",
+    "active_requires_dist": [
+      "typing_extensions >= 4.0; python_version < '3.11'"
+    ],
+    "artifact": "pypdf-6.19.0-py3-none-any.whl"
+  },
+  {
+    "name": "python-dateutil",
+    "version": "2.9.0.post0",
+    "sha256": "a8b2bc7bffae282281c8140a97d3aa9c14da0b136dfe83f850eea9a5f7470427",
+    "requires_python": "!=3.0.*,!=3.1.*,!=3.2.*,>=2.7",
+    "active_requires_dist": [
+      "six >=1.5"
+    ],
+    "artifact": "python_dateutil-2.9.0.post0-py2.py3-none-any.whl"
+  },
+  {
+    "name": "python-dotenv",
+    "version": "1.2.4",
+    "sha256": "42269a8a5b3fd54ffa6f3d84b18abed50064717576b4ecf03dc4a55d8aa04fdc",
+    "requires_python": ">=3.10",
+    "active_requires_dist": [],
+    "artifact": "python_dotenv-1.2.4-py3-none-any.whl"
+  },
+  {
+    "name": "pyyaml",
+    "version": "6.0.2",
+    "sha256": "ec031d5d2feb36d1d1a24380e4db6d43695f3748343d99434e6f5f9156aaa2ed",
+    "requires_python": ">=3.8",
+    "active_requires_dist": [],
+    "artifact": "PyYAML-6.0.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl"
+  },
+  {
+    "name": "requests",
+    "version": "2.34.2",
+    "sha256": "2a0d60c172f83ac6ab31e4554906c0f3b3588d37b5cb939b1c061f4907e278e0",
+    "requires_python": ">=3.10",
+    "active_requires_dist": [
+      "charset_normalizer<4,>=2",
+      "idna<4,>=2.5",
+      "urllib3<3,>=1.26",
+      "certifi>=2023.5.7"
+    ],
+    "artifact": "requests-2.34.2-py3-none-any.whl"
+  },
+  {
+    "name": "schedule",
+    "version": "1.2.2",
+    "sha256": "5bef4a2a0183abf44046ae0d164cadcac21b1db011bdd8102e4a0c1e91e06a7d",
+    "requires_python": ">=3.7",
+    "active_requires_dist": [],
+    "artifact": "schedule-1.2.2-py3-none-any.whl"
+  },
+  {
+    "name": "sgmllib3k",
+    "version": "1.0.0",
+    "sha256": "d697b1ce32621812e6fbf5d3dac57818192068f47e4b6f39bc76e14a8fb4c534",
+    "requires_python": null,
+    "active_requires_dist": [],
+    "artifact": "sgmllib3k-1.0.0-py3-none-any.whl"
+  },
+  {
+    "name": "six",
+    "version": "1.17.0",
+    "sha256": "4721f391ed90541fddacab5acf947aa0d3dc7d27b2e1e8eda2be8970586c3274",
+    "requires_python": ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*",
+    "active_requires_dist": [],
+    "artifact": "six-1.17.0-py2.py3-none-any.whl"
+  },
+  {
+    "name": "typing-extensions",
+    "version": "4.16.0",
+    "sha256": "481caa481374e813c1b176ada14e97f1f67a4539ce9cfeb3f350d78d6370c2e8",
+    "requires_python": ">=3.9",
+    "active_requires_dist": [],
+    "artifact": "typing_extensions-4.16.0-py3-none-any.whl"
+  },
+  {
+    "name": "urllib3",
+    "version": "2.8.0",
+    "sha256": "0cf3cae568d36aa9576b28dfb35f11328f1cb974ca7647d9475ebb86c75ac6e3",
+    "requires_python": ">=3.10",
+    "active_requires_dist": [],
+    "artifact": "urllib3-2.8.0-py3-none-any.whl"
+  },
+  {
+    "name": "werkzeug",
+    "version": "3.1.9",
+    "sha256": "6392e50c78460ba618e5b21f08a71f59c99ce99cdc6cf6e3dd7e6ccca8754fab",
+    "requires_python": ">=3.9",
+    "active_requires_dist": [
+      "markupsafe>=2.1.1"
+    ],
+    "artifact": "werkzeug-3.1.9-py3-none-any.whl"
+  }
+]

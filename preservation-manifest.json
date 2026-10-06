@@ -43,8 +43,11 @@
       "source_path": "requirements.txt",
       "path": "intelligence/geo/requirements.txt",
       "source_sha256": "0063d42c4eecadbd6e1f1ef0d7c6474c4ae7b371cdd38f4f13a0283b53f1dc7f",
-      "sha256": "0063d42c4eecadbd6e1f1ef0d7c6474c4ae7b371cdd38f4f13a0283b53f1dc7f",
-      "changes": []
+      "sha256": "b7a552a11ce6bcfca8963db1565f39ca6d8775320e49a71dbceb182f2bd7360e",
+      "changes": [
+        "Intentional security-maintenance94 dependency pins; priorbytes recoverable in integration/security_maintenance94/manifest-revisions.json"
+      ],
+      "prior_preserved_sha256": "0063d42c4eecadbd6e1f1ef0d7c6474c4ae7b371cdd38f4f13a0283b53f1dc7f"
     },
     {
       "source_repo": "geonews",
@@ -311,8 +314,11 @@
       "source_path": "requirements.txt",
       "path": "intelligence/brics/requirements.txt",
       "source_sha256": "d7b1f7d52dc5f6ae861d096f9d835dd365c3160e29cf2b3de007a67051f97da4",
-      "sha256": "d7b1f7d52dc5f6ae861d096f9d835dd365c3160e29cf2b3de007a67051f97da4",
-      "changes": []
+      "sha256": "bfdf9020fd5fa7491f888cb63bd6cbe698f6841fa8a932c3987abba570d49159",
+      "changes": [
+        "Intentional security-maintenance94 dependency pins; priorbytes recoverable in integration/security_maintenance94/manifest-revisions.json"
+      ],
+      "prior_preserved_sha256": "d7b1f7d52dc5f6ae861d096f9d835dd365c3160e29cf2b3de007a67051f97da4"
     },
     {
       "source_repo": "BRICS-",

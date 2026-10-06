@@ -1386,6 +1386,61 @@
       "sha256": "52b72a27a68c2310511b71bb11ee3c2bd7414ce9d865199351c4785b86d50f92"
     },
     {
+      "path": "integration/security_maintenance94/DEPLOY-CONTRACT.md",
+      "bytes": 1747,
+      "sha256": "be8849c197919ba09a3d61544cca8b1b2b2b334fc77a274da7fa2bb43214b724"
+    },
+    {
+      "path": "integration/security_maintenance94/README.md",
+      "bytes": 1475,
+      "sha256": "948d75c742537a022ce6beb7b52430649c323c8c6bce29d58d942a7b489828a0"
+    },
+    {
+      "path": "integration/security_maintenance94/alert-dispositions.json",
+      "bytes": 133683,
+      "sha256": "5ea828a33030a2658020559b55445da01f6c79d802459e16b0d9f712f154566e"
+    },
+    {
+      "path": "integration/security_maintenance94/bootstrap-lock.txt",
+      "bytes": 189,
+      "sha256": "9719b6e950dd9b41e4ff7b000dfe01272b62ed2e2f6e9e415f4aba0c49b87ef8"
+    },
+    {
+      "path": "integration/security_maintenance94/closure.json",
+      "bytes": 7180,
+      "sha256": "013c1edcc844eb21b57c82ba94ee2ba91f9c9ed1e33598448f46d0e5b3db39df"
+    },
+    {
+      "path": "integration/security_maintenance94/focused-tests.py.txt",
+      "bytes": 1999,
+      "sha256": "a5755f451e2e74d237d4ed385d26428e6032ffcc10df1bc6f3f22297a1e546fd"
+    },
+    {
+      "path": "integration/security_maintenance94/installed-metadata.json",
+      "bytes": 9481,
+      "sha256": "51aec50b78883985ecbd5066188810bcd83f82ea588a32f7e13d3d0f89f4d45a"
+    },
+    {
+      "path": "integration/security_maintenance94/manifest-revisions.json",
+      "bytes": 1839,
+      "sha256": "a59c9462851f212dfe9405e20637d2be0f9383382e4678eed5740594da0d23d5"
+    },
+    {
+      "path": "integration/security_maintenance94/operational-advisories.json",
+      "bytes": 18752,
+      "sha256": "fc05df7b3bd24385a5c2f87c4dc92872e761481b5bb28db7a9299b2782db9e85"
+    },
+    {
+      "path": "integration/security_maintenance94/osv-refreshed.json",
+      "bytes": 5426,
+      "sha256": "508e87a8ad73560b74093609268d46fd4815bafb6158dd5fb2d63397b8fd6638"
+    },
+    {
+      "path": "integration/security_maintenance94/sdk-physical-pins.json",
+      "bytes": 73137,
+      "sha256": "7c93a5e0aeb82865ad6bd7edaa57216ea1fe44446d9e15bcaf339116eed82ec4"
+    },
+    {
       "path": "integration/single_db_plan.py",
       "bytes": 1790,
       "sha256": "33fafdffad6cc217f20d4fc5b355b7d50f6d2a39ff5060a15661f44d9bebf668"
@@ -1747,8 +1802,8 @@
     },
     {
       "path": "intelligence/brics/requirements.txt",
-      "bytes": 132,
-      "sha256": "d7b1f7d52dc5f6ae861d096f9d835dd365c3160e29cf2b3de007a67051f97da4"
+      "bytes": 150,
+      "sha256": "bfdf9020fd5fa7491f888cb63bd6cbe698f6841fa8a932c3987abba570d49159"
     },
     {
       "path": "intelligence/brics/run_all.py",
@@ -1922,8 +1977,8 @@
     },
     {
       "path": "intelligence/geo/requirements.txt",
-      "bytes": 523,
-      "sha256": "0063d42c4eecadbd6e1f1ef0d7c6474c4ae7b371cdd38f4f13a0283b53f1dc7f"
+      "bytes": 678,
+      "sha256": "b7a552a11ce6bcfca8963db1565f39ca6d8775320e49a71dbceb182f2bd7360e"
     },
     {
       "path": "intelligence/geo/scheduler.py",
@@ -1972,8 +2027,8 @@
     },
     {
       "path": "preservation-manifest.json",
-      "bytes": 19518,
-      "sha256": "7530efd2085a33e71eabff5bf6d9731a21c8ffc26caa07af472634ee7a028729"
+      "bytes": 20027,
+      "sha256": "4b35fe1589c8f149f2acfbf57f39cdc9e74ad9f90d6d861479246935b314915d"
     },
     {
       "path": "proxy.js",
@@ -1986,14 +2041,19 @@
       "sha256": "40616b6a9d4fde07d580529d062c70f7b09907159ab7cbde647111681ba0617e"
     },
     {
+      "path": "requirements-future-deploy.lock",
+      "bytes": 2503,
+      "sha256": "4dc6df004ead76ba40e827b5d749447d1738002b152f62e59cce5b3a3fd404bf"
+    },
+    {
       "path": "requirements-offline-reviewed.candidate.txt",
       "bytes": 2479,
       "sha256": "1d6360b5d3e60775a43904a8a772f841b8e09d0db13d17f4fd4ad315d7f79901"
     },
     {
       "path": "requirements-staging.txt",
-      "bytes": 96,
-      "sha256": "459ac8205071b77f22bb60f658314a48dfbbc8907270633d56b61ca0da230742"
+      "bytes": 114,
+      "sha256": "78b43c46ea9a9c242f362f3ec19aadbb90c30c41ca511885260b217b945848cc"
     },
     {
       "path": "robots.txt",
@@ -3336,5 +3396,5 @@
       "sha256": "2ca27e9a8dae569cdeac42752ed1aed1afeff7f19282d3cc12c0aaa54a08bc04"
     }
   ],
-  "test_evidence_note": "93 scoped standalone research archived only as text, unselected/unwired. Configured1150 suiteOK575+287+288,1expected/1existingoptionalPDFskip. Independent9HTTP/DNS/wire OK;11 namespace IDs includes2TLS authoronly, wholecycle/killreap authoronly. ProductionDNS/literalpeer/defaultroots link, resolverstall, slowTLS/write, namespacerouting UNVERIFIED/BLOCKED. No sitefetch/watch/activation; historical87/88/90/91/92 unchanged."
+  "test_evidence_note": "94 intentionalsource security-maintenance,originalrequirementsrecoverable. Freshhashlocked25application+pip26.2.1/setuptools84 CPython3.10.12Linuxx86_64 full1150uniqueIDs suiteOK1expected1optionalPDFskip; originalconfigured1150OK. IndependentexactIDs/hashreview, not fullsuiteindependentrerun.18operationalIDrangefixesproposedproviderreindexpending,130historicalremainVISIBLEunchanged.757physicalSDKfiles;39exactOSVapp/bootstrap/vendorsnohits,time/ecosystemscopeonly. OptionalGeoGNews/trafilaturaINSTALLDEFAULToutside25lock;plainrequirementsNOTverifiedprofile. No deploy/buildroute/collector/client/DB/send/Finderchange."
 }

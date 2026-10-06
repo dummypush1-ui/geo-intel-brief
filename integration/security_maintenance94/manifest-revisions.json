@@ -1,0 +1,23 @@
+[
+  {
+    "path": "requirements-staging.txt",
+    "before_utf8": "Flask==3.0.3\ngunicorn==22.0.0\npymongo==4.8.0\npython-dotenv==1.0.1\nPyYAML==6.0.2\nWerkzeug==3.0.6\n",
+    "before_sha256": "459ac8205071b77f22bb60f658314a48dfbbc8907270633d56b61ca0da230742",
+    "after_sha256": "78b43c46ea9a9c242f362f3ec19aadbb90c30c41ca511885260b217b945848cc",
+    "intent": "Security-maintenance revision, not byte-identical original. No live deployment."
+  },
+  {
+    "path": "intelligence/brics/requirements.txt",
+    "before_utf8": "feedparser==6.0.11\nrequests==2.32.3\nPyYAML==6.0.2\npython-dotenv==1.0.1\nschedule==1.2.2\nFlask==3.0.3\ngunicorn==22.0.0\npymongo==4.8.0\n",
+    "before_sha256": "d7b1f7d52dc5f6ae861d096f9d835dd365c3160e29cf2b3de007a67051f97da4",
+    "after_sha256": "bfdf9020fd5fa7491f888cb63bd6cbe698f6841fa8a932c3987abba570d49159",
+    "intent": "Security-maintenance revision, not byte-identical original. No live deployment."
+  },
+  {
+    "path": "intelligence/geo/requirements.txt",
+    "before_utf8": "feedparser>=6.0.11\nrequests>=2.32.0\npython-dateutil>=2.9.0\npython-dotenv>=1.0.1\nschedule>=1.2.2\npymongo>=4.8.0\nFlask>=3.0.3\ngunicorn>=22.0.0\n\n# Installed by default so a single `pip install -r requirements.txt` /\n# Render build works whether or not you turn these on. They're \"optional\"\n# in the sense that they sit behind an ENABLE_*=true flag in .env, not in\n# the sense that they're a separate install step.\ntrafilatura>=1.8.0   # used only if ENABLE_FULL_TEXT=true\ngnews>=0.3.6         # used only if ENABLE_GNEWS=true\n",
+    "before_sha256": "0063d42c4eecadbd6e1f1ef0d7c6474c4ae7b371cdd38f4f13a0283b53f1dc7f",
+    "after_sha256": "b7a552a11ce6bcfca8963db1565f39ca6d8775320e49a71dbceb182f2bd7360e",
+    "intent": "Security-maintenance revision, not byte-identical original. No live deployment."
+  }
+]

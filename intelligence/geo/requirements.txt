@@ -1,15 +1,18 @@
 feedparser>=6.0.11
-requests>=2.32.0
+requests>=2.34.2
 python-dateutil>=2.9.0
-python-dotenv>=1.0.1
+python-dotenv>=1.2.4
 schedule>=1.2.2
-pymongo>=4.8.0
-Flask>=3.0.3
+pymongo>=4.18.2
+Flask>=3.1.3
 gunicorn>=22.0.0
 
-# Installed by default so a single `pip install -r requirements.txt` /
-# Render build works whether or not you turn these on. They're "optional"
-# in the sense that they sit behind an ENABLE_*=true flag in .env, not in
-# the sense that they're a separate install step.
+# SECURITY94: these extras install BY DEFAULT with this plain requirements file,
+# even when ENABLE_* flags are off. They are OUTSIDE the tested 25-package lock.
+# Plain pip install -r intelligence/geo/requirements.txt is NOT the verified profile.
+# Future deployment requires exact verified wheels/requirements-future-deploy.lock,
+# no extras, under integration/security_maintenance94/DEPLOY-CONTRACT.md.
 trafilatura>=1.8.0   # used only if ENABLE_FULL_TEXT=true
 gnews>=0.3.6         # used only if ENABLE_GNEWS=true
+
+Werkzeug>=3.1.9

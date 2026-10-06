@@ -1,0 +1,7 @@
+# Security-maintenance94 preparation, not deployed
+
+18 operational-source alert occurrences mapped exactID/GHSA/ranges from liveprovider. 130 historical research occurrences remainVISIBLE atunchangedpaths/bytes, notfixed/dismissed/renamed. Root requirements-staging isfutureintent, notRenderdeployed. Exactfuturelock requires Python3.10.12 Linuxx86_64 and hash-locked installer offlinephysicalwheels; no claimcrossplatform. Geo>=floorsminimalconstraints, notreproducibledeploy. Preserved BRICS/geo requirements intentionalmaintenancewithbeforebytes/hashes inrevisionrecord; sourcecodeunchanged. Existingoptionalgeo ENABLE_FULL_TEXT/trafilatura+ENABLE_GNEWS/gnews notincluded25closure, mustnotenable untilseparatelock+testreview. Future25closure coversstagingandBRICSroots, notevery optionalgeo path.
+
+No liveDB/client/collector/send/Finder/deploy. Providercount148 unchangeduntilsave/reindex, historical130remainunresolved. Freshinstall/pipcheck/metadata/physicalpins/fullcurrent1150 regression must pass andindependentreview before save.
+
+Retained limits: Windows safe_join tested only Linux string branch, not Windows filesystem; BSON >2GiB overflow not executed; no live Mongo tests. Old-bootstrap1150 author logs not independently rerun. Freshselected1150 ID set independently verified, not an independent entire-suite execution. Bootstrap26.2.1/setuptools84 tested; sgmllib existing local wheel reused, not rebuilt with new bootstrap. No build command/service selected.

@@ -1,0 +1,27 @@
+import unittest,json,hashlib,re
+from pathlib import Path
+from packaging.requirements import Requirement
+from packaging.utils import canonicalize_name
+from packaging.specifiers import SpecifierSet
+R=Path(__file__).resolve().parents[2];D=R/'integration/security_maintenance94'
+class MaintenanceTests(unittest.TestCase):
+ def test_exact_advisory_occurrences(self):
+  a=json.loads((D/'operational-advisories.json').read_text());self.assertEqual(len(a),18);self.assertEqual(len({x['url']for x in a}),18)
+  for x in a:self.assertRegex(x['ghsa'],r'^GHSA-');self.assertIn(x['selected_future_version'],SpecifierSet('>='+x['patched_version']))
+ def test_historical_alerts_visible(self):
+  a=json.loads((D/'alert-dispositions.json').read_text())['alerts'];self.assertEqual(len(a),148);self.assertEqual(sum(x['classification']=='unselected_historical_candidate_visible_unresolved'for x in a),130)
+  for x in a:self.assertTrue((R/x['manifest']).is_file())
+ def test_original_bytes_and_revisions(self):
+  for x in json.loads((D/'manifest-revisions.json').read_text()):self.assertEqual(hashlib.sha256(x['before_utf8'].encode()).hexdigest(),x['before_sha256']);self.assertEqual(hashlib.sha256((R/x['path']).read_bytes()).hexdigest(),x['after_sha256'])
+ def test_lock_closure_and_roots(self):
+  c=json.loads((D/'closure.json').read_text());v={x['name']:x['version']for x in c};self.assertEqual(len(v),25)
+  for x in c:
+   for s in x['active_requires_dist']:
+    q=Requirement(s);self.assertIn(v[canonicalize_name(q.name)],q.specifier)
+  for p in ['requirements-staging.txt','intelligence/brics/requirements.txt']:
+   for s in (R/p).read_text().splitlines():
+    if s and not s.startswith('#'):
+     q=Requirement(s);self.assertIn(v[canonicalize_name(q.name)],q.specifier)
+ def test_no_provider_closure_claim(self):
+  a=json.loads((D/'alert-dispositions.json').read_text());self.assertEqual(a['before']['total'],148);self.assertIn('Not checked',a['provider_after'])
+if __name__=='__main__':unittest.main(verbosity=2)
