@@ -1,0 +1,17 @@
+{
+  "reason": "FEATURE_STATUS.md updated90 but currentgeneratedmanifest stale; nohistoricalreceiptsedited",
+  "changes": [
+    {
+      "old": {
+        "path": "integration/FEATURE_STATUS.md",
+        "bytes": 23147,
+        "sha256": "047a7dc1408cf3ee66c8e1c283a556fb293a8518c3281c9a4f172e24aec9e076"
+      },
+      "new": {
+        "path": "integration/FEATURE_STATUS.md",
+        "bytes": 24204,
+        "sha256": "05f3ffa53c77001fa4e258837d79d92b39fa353fd169087777cc0ea8b60324f2"
+      }
+    }
+  ]
+}

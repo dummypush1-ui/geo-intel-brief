@@ -1196,6 +1196,116 @@
       "sha256": "16e9a9b331c186362cbcd4dc00f7a1cfb565963aed15e249075a8dbc8ac57bae"
     },
     {
+      "path": "integration/security_candidate91/README.md",
+      "bytes": 1025,
+      "sha256": "c5bba9bcd61489316147889ae2b244d45994d7e4bed0553433a813a63ff7f899"
+    },
+    {
+      "path": "integration/security_candidate91/app-closure.json",
+      "bytes": 7180,
+      "sha256": "013c1edcc844eb21b57c82ba94ee2ba91f9c9ed1e33598448f46d0e5b3db39df"
+    },
+    {
+      "path": "integration/security_candidate91/app-lock.txt",
+      "bytes": 2452,
+      "sha256": "16f42811a3b9fb646d261f238694979712ccee084e7ba96091e58abc49b78303"
+    },
+    {
+      "path": "integration/security_candidate91/bootstrap-build-result.txt",
+      "bytes": 1882,
+      "sha256": "90d66cd03e5f9e7f3e05e352b1c4dc3e0b430de817c77963ce7581a773d4cefd"
+    },
+    {
+      "path": "integration/security_candidate91/bootstrap-lock.txt",
+      "bytes": 189,
+      "sha256": "9719b6e950dd9b41e4ff7b000dfe01272b62ed2e2f6e9e415f4aba0c49b87ef8"
+    },
+    {
+      "path": "integration/security_candidate91/bootstrap-regression-coverage.json",
+      "bytes": 157519,
+      "sha256": "59780e162ed1dadfbbe12a45490af4acc3dbbc6347be68f8779ecf067a7204b5"
+    },
+    {
+      "path": "integration/security_candidate91/official-artifact-verification.json",
+      "bytes": 113339,
+      "sha256": "31dc88f885b53894b9c527219dfa2b7eef271a6e641940eceff1a3444140e121"
+    },
+    {
+      "path": "integration/security_candidate91/osv-actual-closure.json",
+      "bytes": 5284,
+      "sha256": "0589a04a73a813423948e9448a8e5f286444e7ce052d00616e666e7c12edfc86"
+    },
+    {
+      "path": "integration/security_candidate91/osv-request.json",
+      "bytes": 3345,
+      "sha256": "9de217fe02505881d3388bda054b3be34ca84658a5b981a30044a020ce4c2123"
+    },
+    {
+      "path": "integration/security_candidate91/osv-response.json",
+      "bytes": 4480,
+      "sha256": "ae9adfa618d1c04745ca2036043375e3ee9b110aa83a98a6da7b53b800ec8527"
+    },
+    {
+      "path": "integration/security_candidate91/planning-notes.md",
+      "bytes": 1940,
+      "sha256": "7105f6af33c6a57103db2b66cf7ee6ce7c38589d0cdd3693d6c127928c1de1bc"
+    },
+    {
+      "path": "integration/security_candidate91/receipt.json",
+      "bytes": 3359,
+      "sha256": "b18d1707ab0b1a3a195acae8e4853bc5572a21ce19b1412151379af0a3df6b99"
+    },
+    {
+      "path": "integration/security_candidate91/reconciled.json",
+      "bytes": 273843,
+      "sha256": "38b67a8f12121139e883007d4b974e86c31ace101d56c5df19ecc5283d296590"
+    },
+    {
+      "path": "integration/security_candidate91/regression-coverage.json",
+      "bytes": 157236,
+      "sha256": "5c9e7548d70657c5582a58f2c86722bac172d513f63305b6276804b312f8a547"
+    },
+    {
+      "path": "integration/security_candidate91/retained-harness-error.txt",
+      "bytes": 260,
+      "sha256": "3554a8fcb01d992dbb4673943b1f03fdb7dab0623f7e4d61122182a2d2d0d950"
+    },
+    {
+      "path": "integration/security_candidate91/retained-manifest-failure.txt",
+      "bytes": 6347,
+      "sha256": "9cc0fb97706dcffcb7bcea37982deedf4741bf799240676cc9471813c64ef81c"
+    },
+    {
+      "path": "integration/security_candidate91/security91-manifest-diff.json",
+      "bytes": 503,
+      "sha256": "46d12f43339fbc419e02ec1e873e97ecbe9fbf3a68fda342a6501db301b697fd"
+    },
+    {
+      "path": "integration/security_candidate91/sources.md",
+      "bytes": 10894,
+      "sha256": "3d5d9fe66a75b5fbbf368084d0a8e0781bbbfab8a4bbd818fd4b48e081bc779b"
+    },
+    {
+      "path": "integration/security_candidate91/synthetic-cases.txt",
+      "bytes": 4651,
+      "sha256": "47d5c9bfae80c8b8d5afea37f000e7225d3ca3e38f4bce6be46d0b43a57a06d8"
+    },
+    {
+      "path": "integration/security_candidate91/synthetic-result.json",
+      "bytes": 303,
+      "sha256": "d0e2f33e4ecbcdf9e76645f15b41d13ae79595ac796f15f86ce296c21c7e5aaa"
+    },
+    {
+      "path": "integration/security_candidate91/synthetic-result.txt",
+      "bytes": 702,
+      "sha256": "004f1316a2b2e3710cb1a30e5702c363061b0d7cc196ac81babfd94feb21764e"
+    },
+    {
+      "path": "integration/security_candidate91/updated-osv.json",
+      "bytes": 858,
+      "sha256": "52b72a27a68c2310511b71bb11ee3c2bd7414ce9d865199351c4785b86d50f92"
+    },
+    {
       "path": "integration/single_db_plan.py",
       "bytes": 1790,
       "sha256": "33fafdffad6cc217f20d4fc5b355b7d50f6d2a39ff5060a15661f44d9bebf668"
@@ -3141,5 +3251,5 @@
       "sha256": "2ca27e9a8dae569cdeac42752ed1aed1afeff7f19282d3cc12c0aaa54a08bc04"
     }
   ],
-  "test_evidence_note": "Configuredoriginal1119runOK1expected/1skip; separateunselectedcandidate1119qualifyinguniqueIDs namespaceOK1expected/1skip,4GiBperprocessvirtual, best-effortsampledmonitorNOTaggregateboundary. IndependentSAFEresearchonly, no pinselection/securityoutcomeclosed."
+  "test_evidence_note": "91tests run suiteOKoriginal1119 and eachseparateold/upgradedbootstrapcandidate1119uniquequalifyingIDs,1expected/1optionalPDFskip. Initialfailuresexcludedretained. Newinstaller1635payloadhashes installationonlynot separatelyrerunsuite. IndependentSAFEunselectedevidenceonly; no pinsselected/securityoutcomeclosure. SampledmonitorNOTenforcedaggregate."
 }

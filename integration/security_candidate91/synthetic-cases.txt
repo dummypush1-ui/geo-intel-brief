@@ -1,0 +1,53 @@
+import os,json,tempfile,zipfile,pathlib,hashlib,base64
+from unittest.mock import patch
+from flask import Flask,session
+from requests.utils import get_netrc_auth,extract_zipped_paths
+from dotenv import set_key,unset_key,dotenv_values
+import requests,werkzeug.security as ws
+checks=[]
+with tempfile.TemporaryDirectory(dir='/work')as td:
+ p=pathlib.Path(td);outside=p/'outside';outside.write_bytes(b"DUMMY='original'\nSENTINEL='unchanged'\n");before=outside.read_bytes();nr=p/'netrc';nr.write_text('machine trusted.example login dummy-user password dummy-password\n');nr.chmod(0o600)
+ with patch.dict(os.environ,{'NETRC':str(nr),'HOME':td},clear=False):
+  assert get_netrc_auth('https://trusted.example/path')==('dummy-user','dummy-password')
+  for u in ['https://trusted.example:dummy@evil.example/path','https://trusted.example@evil.example/path']:
+   assert get_netrc_auth(u) is None
+   q=requests.Session().prepare_request(requests.Request('GET',u));assert q.headers.get('Authorization') != 'Basic '+base64.b64encode(b'dummy-user:dummy-password').decode();assert 'dummy-password' not in base64.b64decode(q.headers.get('Authorization','Basic ')[6:]).decode()
+ checks.append('dummy-netrc URLhostname/authheader withoutnetwork')
+ archive=p/'tiny.zip'
+ with zipfile.ZipFile(archive,'w',compression=zipfile.ZIP_STORED)as z:z.writestr('ca.pem',b'legitimate dummy CA\n')
+ assert archive.stat().st_size<2048
+ legacy=p/'ca.pem';legacy.write_bytes(b'precreated attacker dummy\n')
+ with patch('requests.utils.tempfile.tempdir',td):
+  x=pathlib.Path(extract_zipped_paths(str(archive)+'/ca.pem'));y=pathlib.Path(extract_zipped_paths(str(archive)+'/ca.pem'));assert x!=y and x!=legacy and x.parent==p and y.parent==p;assert x.read_bytes()==y.read_bytes()==b'legitimate dummy CA\n';assert legacy.read_bytes()==b'precreated attacker dummy\n';x.unlink();y.unlink()
+ checks.append('bounded1entryzip freshuniqueextract/legacytargetunchanged/cleanup')
+ link=p/'.env';link.symlink_to(outside)
+ set_key(link,'DUMMY','fixture');assert outside.read_bytes()==before and not link.is_symlink() and dotenv_values(link)['DUMMY']=='fixture';link.unlink();link.symlink_to(outside);unset_key(link,'DUMMY');assert outside.read_bytes()==before and not link.is_symlink();assert outside.read_bytes()==before
+ checks.append('dotenv symlink entry replaced targetsentinelunchanged; same-directoryatomic no crossdevice test')
+app=Flask(__name__);app.secret_key='fixture-key-notcredential'
+@app.get('/keys')
+def keys():return 'has'if 'fixture'in session else 'no'
+@app.get('/get')
+def gets():return session.get('fixture','no')
+@app.get('/iterate')
+def iterate():return ','.join(session)
+c=app.test_client()
+with c.session_transaction()as ss:ss['fixture']='dummy'
+for route in ['/keys','/get','/iterate']:
+ r=c.get(route);assert 'Cookie'in r.vary
+checks.append('affectedsessioncontains/iter/get responsesVaryCookie')
+from integration.preview_access import PreviewAccess
+from werkzeug.security import generate_password_hash
+import re
+real=PreviewAccess('https://preview.example',generate_password_hash('fixture-password')).build('fixture-session-'+'a'*48);c=real.test_client();base='https://preview.example'
+r=c.get('/login',base_url=base);token=re.search(r'name="csrf" value="([^"]+)"',r.text)[1];assert r.headers['Cache-Control']=='no-store'and 'Cookie'in r.vary
+r=c.post('/login',base_url=base,headers={'Origin':base},data={'csrf':token,'password':'fixture-password'});assert r.status_code==303
+for v in ['Secure','HttpOnly','SameSite=Strict','Path=/']:assert v in r.headers['Set-Cookie']
+for route in ['/private-session','/api/news','/workspace']:
+ r=c.get(route,base_url=base);assert r.status_code==200;assert r.headers['Cache-Control']=='no-store'and 'Cookie'in r.vary;assert r.headers['X-Content-Type-Options']=='nosniff';assert "form-action 'self'"in r.headers['Content-Security-Policy'];r.close()
+checks.append('actualpreviewselectedFlasksessionlogin/read NoStore,Vary,cookie/securityheaders')
+# Windows branch API string behavior on Linux only, not filesystem exploitation.
+with patch('werkzeug.security.os.name','nt'):
+ for name in ['CON','CON.txt','CON.foo.bar','NUL','NUL.tar','COM1','LPT1.txt','con ']:assert ws.safe_join('/safe',name) is None,name
+assert ws.safe_join('/safe','../escape')is None and ws.safe_join('/safe','ordinary.txt')=='/safe/ordinary.txt'
+checks.append('Windows safe_join stringbranch only notrealWindowsfilesystem')
+print(json.dumps({'checks':checks,'network':'no requests send/network; namespace defense','scratch':'bounded1zip/1entry<2048archive and tinyfixturefiles;symlinksentinelcleanup','crossdevice':'notexercised','scope':'researchnotfixclosure'}))

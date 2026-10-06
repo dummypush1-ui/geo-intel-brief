@@ -1,0 +1,76 @@
+{
+  "state": "research_candidate_tested_NOT_SELECTED",
+  "packages": {
+    "blinker": "1.9.0",
+    "certifi": "2026.7.22",
+    "charset-normalizer": "3.5.2",
+    "click": "8.5.0",
+    "dnspython": "2.8.0",
+    "feedparser": "6.0.11",
+    "flask": "3.1.3",
+    "gunicorn": "22.0.0",
+    "idna": "3.20",
+    "itsdangerous": "2.2.0",
+    "jinja2": "3.1.6",
+    "markupsafe": "3.0.4",
+    "packaging": "26.3",
+    "pymongo": "4.18.2",
+    "pypdf": "6.19.0",
+    "python-dateutil": "2.9.0.post0",
+    "python-dotenv": "1.2.4",
+    "pyyaml": "6.0.2",
+    "requests": "2.34.2",
+    "schedule": "1.2.2",
+    "sgmllib3k": "1.0.0",
+    "six": "1.17.0",
+    "typing-extensions": "4.16.0",
+    "urllib3": "2.8.0",
+    "werkzeug": "3.1.9"
+  },
+  "bootstrap": {
+    "original_profile": [
+      "pip22.0.2",
+      "setuptools59.6.0"
+    ],
+    "upgraded_profile": [
+      "pip26.2.1",
+      "setuptools84.0.0"
+    ],
+    "newinstaller_fresh_profile": "installationonly1635payloadhashesequalregressedupgradedprofile; NOTseparatelyrerunsuite; NOToldsdistbuildcompatibility",
+    "requires_python": "pip26.2.1 and setuptools84.0.0 >=3.10 verifiedofficialwheelMETADATA"
+  },
+  "tests": {
+    "original_configured": "1119 559+280+280 PASS",
+    "candidate_oldbootstrap": "1119uniquePASS",
+    "candidate_newbootstrap": "1119uniquePASS",
+    "expected_failure": 1,
+    "existing_optional_skip": 1,
+    "new_skips": 0,
+    "attack_limit_bytes": 1073741824,
+    "regression_only_limit_bytes": 4294967296,
+    "monitor": "50ms sampled process-group RSS/processcount best-effortNOTenforcedaggregate; spikes/threads/own sessionsnotaccounted",
+    "wording": "tests run, suite OK;1expectedfailure/1existingoptionalskip in eachprofile; earlierfailedattemptsretained separately"
+  },
+  "source_contracts": {
+    "feedparser": "32sourcefiles exactunchanged",
+    "sgmllib": "1sourcefileexactunchanged",
+    "sdk_apis": "fulloriginalASTfixture/HTTP/session/cookie/schema/origin/CSRFcontractregressions in unique-IDcoverage",
+    "synthetic": "6boundedchecks PASS no requests send/network; tempfilescleanup"
+  },
+  "limits": [
+    "sgmllib existingwheel reused, NOT rebuilt with upgradedbootstrap; authoredtinybackendfixtureONLY",
+    "Windows safe_join STRINGbranchonLinux only, notWindowsfilesystem exploit",
+    "dotenvsame-directorysymlinkpositive; crossdevfallbackNOTexecuted",
+    "newMongo/PDF90 retained, >2GiBBSONoverflowNOTexecuted",
+    "no selectedpins/realcollector/DBwrites/sends/activation/deploy/PRmerge",
+    "OSV39 scopedexactversions/time/ecosystem no-hitnotimmunity; GitHubalertIDs independentlynotavailableinCLIsurface, previous scanexactfindingcontentsunverified"
+  ],
+  "retained_failures": [
+    "setuptoolsvendorMETADATA strictguardrefusedbeforeinstall thencanonicalrootguard+vendorinventory",
+    "initial4GiBinstallreceipt excluded; candidate recreated1GiB",
+    "chunk25staleFEATURE_STATUSgeneratedmanifesthashfailed beforeapprovedcurrentmanifestrefresh",
+    "syntheticincorrect no-Authorization assertion failed due URLuserinfo legitimateBasicAuth then netrcsecret-specificcheck repaired; valid.env fixturefinalpositive withoutwarnings"
+  ],
+  "manifest_refresh": "currentgeneratedmanifestONLYsame1119/oneFEATURE_STATUS hashdiff;87/88/90historicalreceiptsunchanged",
+  "advisories": "39queriesreturnedempty scopednohitonly; old19GHSAhistoricalalertsretained"
+}

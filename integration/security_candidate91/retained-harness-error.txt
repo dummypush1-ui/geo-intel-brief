@@ -1,0 +1,5 @@
+bwrap: Only the last --chdir option will take effect
+Traceback (most recent call last):
+  File "/work/synthetic.py", line 14, in <module>
+    q=requests.Session().prepare_request(requests.Request('GET',u));assert 'Authorization'not in q.headers
+AssertionError

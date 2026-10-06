@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "exit_code": 0,
+  "stop_reason": null,
+  "output_bytes": 702,
+  "regression_AS_bytes": 1073741824,
+  "aggregate_RSS_cap": 805306368,
+  "aggregate_process_cap": 128,
+  "wall_seconds": 0.555,
+  "output_sha256": "004f1316a2b2e3710cb1a30e5702c363061b0d7cc196ac81babfd94feb21764e"
+}
