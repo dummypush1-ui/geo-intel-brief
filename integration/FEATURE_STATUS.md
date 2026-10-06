@@ -231,3 +231,7 @@ SeveninternalhashpinnedRSS/Atom/bozocases, realfeedparser6.0.11/SDKpins+Expat2.4
 ## Increment86: fixed-seven-case parser/supplied-enrichment/document pipeline
 
 Wrapperonly existing85enums, runtimeonechild then80/64once. Suppliedsyntheticoutcomes/private, fixeddateoffsetspreserved, bozometadatanothealth/error.6author+6independentfocusedPASS/SAFE (plus11existing80); configured1096 PASS548+274+274partitions,1expected/1skip. No newXML/livecollector/DB/mail/Telegramactivation.
+
+## Increment87: offline dependency candidate audit
+
+25metadata-derivedclosure,24cachedcompatiblewheelhashes, missing sgmllib3k1.0.0wheel (sdistnotbuilt). Candidate NOTINSTALLABLE/freshinstall-smoke-SDK-freshsuiteNOTATTEMPTED. Currentconfiguredregressiondifferentfromreproduction; no originalrequirements/venvchange/networkfetch.7authorfocusedPASS; independent v3 SAFE as blocked candidate, review cache absent and 119/263 baseline files unavailable to reviewer. Full configured1103 PASS551+276+276 partitions,1expected/1optionalPDFskip; not fresh reproduction.

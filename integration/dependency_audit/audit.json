@@ -1,0 +1,589 @@
+{
+  "status": "candidate_blocked_missing_cached_wheel",
+  "environment": {
+    "implementation": "CPython",
+    "python": "3.10.12",
+    "os": "Linux",
+    "arch": "x86_64"
+  },
+  "scope": "integration/tests/scripts static inventory; minimum staging+discovered unittest+original AST fixture support; manual Playwright browser scripts excluded",
+  "roots": [
+    "Flask",
+    "Werkzeug",
+    "pymongo",
+    "gunicorn",
+    "python-dotenv",
+    "PyYAML",
+    "python-dateutil",
+    "feedparser",
+    "requests",
+    "schedule",
+    "pypdf"
+  ],
+  "distributions": {
+    "pypdf": {
+      "name": "pypdf",
+      "version": "5.0.1",
+      "active_requires": [
+        "typing_extensions>=4.0; python_version < \"3.11\""
+      ],
+      "inactive_markers_extras": [
+        "Pillow>=8.0.0; extra == \"full\"",
+        "Pillow>=8.0.0; extra == \"image\"",
+        "PyCryptodome; extra == \"crypto\" and python_version == \"3.6\"",
+        "PyCryptodome; extra == \"full\" and python_version == \"3.6\"",
+        "black; extra == \"dev\"",
+        "cryptography; extra == \"crypto\" and python_version >= \"3.7\"",
+        "cryptography; extra == \"full\" and python_version >= \"3.7\"",
+        "flit; extra == \"dev\"",
+        "myst_parser; extra == \"docs\"",
+        "pip-tools; extra == \"dev\"",
+        "pre-commit<2.18.0; extra == \"dev\"",
+        "pytest-cov; extra == \"dev\"",
+        "pytest-socket; extra == \"dev\"",
+        "pytest-timeout; extra == \"dev\"",
+        "pytest-xdist; extra == \"dev\"",
+        "sphinx; extra == \"docs\"",
+        "sphinx_rtd_theme; extra == \"docs\"",
+        "wheel; extra == \"dev\""
+      ]
+    },
+    "typing-extensions": {
+      "name": "typing_extensions",
+      "version": "4.16.0",
+      "active_requires": [],
+      "inactive_markers_extras": []
+    },
+    "schedule": {
+      "name": "schedule",
+      "version": "1.2.2",
+      "active_requires": [],
+      "inactive_markers_extras": [
+        "pytz; extra == \"timezone\""
+      ]
+    },
+    "requests": {
+      "name": "requests",
+      "version": "2.32.3",
+      "active_requires": [
+        "certifi>=2017.4.17",
+        "charset-normalizer<4,>=2",
+        "idna<4,>=2.5",
+        "urllib3<3,>=1.21.1"
+      ],
+      "inactive_markers_extras": [
+        "PySocks!=1.5.7,>=1.5.6; extra == \"socks\"",
+        "chardet<6,>=3.0.2; extra == \"use-chardet-on-py3\""
+      ]
+    },
+    "certifi": {
+      "name": "certifi",
+      "version": "2026.7.22",
+      "active_requires": [],
+      "inactive_markers_extras": []
+    },
+    "urllib3": {
+      "name": "urllib3",
+      "version": "2.8.0",
+      "active_requires": [],
+      "inactive_markers_extras": [
+        "backports-zstd>=1.0.0; python_version < \"3.14\" and extra == \"zstd\"",
+        "brotli>=1.2.0; platform_python_implementation == \"CPython\" and extra == \"brotli\"",
+        "brotlicffi>=1.2.0.0; platform_python_implementation != \"CPython\" and extra == \"brotli\"",
+        "h2<5,>=4; extra == \"h2\"",
+        "pysocks!=1.5.7,<2.0,>=1.5.6; extra == \"socks\""
+      ]
+    },
+    "idna": {
+      "name": "idna",
+      "version": "3.20",
+      "active_requires": [],
+      "inactive_markers_extras": [
+        "coverage>=7.10.0; extra == \"all\"",
+        "hypothesis>=6.141.1; extra == \"all\"",
+        "mypy>=1.11.2; extra == \"all\"",
+        "pytest>=8.3.2; extra == \"all\"",
+        "ruff>=0.16.0; extra == \"all\"",
+        "ty>=0.0.37; extra == \"all\""
+      ]
+    },
+    "charset-normalizer": {
+      "name": "charset-normalizer",
+      "version": "3.5.2",
+      "active_requires": [],
+      "inactive_markers_extras": []
+    },
+    "feedparser": {
+      "name": "feedparser",
+      "version": "6.0.11",
+      "active_requires": [
+        "sgmllib3k"
+      ],
+      "inactive_markers_extras": []
+    },
+    "sgmllib3k": {
+      "name": "sgmllib3k",
+      "version": "1.0.0",
+      "active_requires": [],
+      "inactive_markers_extras": []
+    },
+    "python-dateutil": {
+      "name": "python-dateutil",
+      "version": "2.9.0.post0",
+      "active_requires": [
+        "six>=1.5"
+      ],
+      "inactive_markers_extras": []
+    },
+    "six": {
+      "name": "six",
+      "version": "1.17.0",
+      "active_requires": [],
+      "inactive_markers_extras": []
+    },
+    "pyyaml": {
+      "name": "PyYAML",
+      "version": "6.0.2",
+      "active_requires": [],
+      "inactive_markers_extras": []
+    },
+    "python-dotenv": {
+      "name": "python-dotenv",
+      "version": "1.0.1",
+      "active_requires": [],
+      "inactive_markers_extras": [
+        "click>=5.0; extra == \"cli\""
+      ]
+    },
+    "gunicorn": {
+      "name": "gunicorn",
+      "version": "22.0.0",
+      "active_requires": [
+        "packaging"
+      ],
+      "inactive_markers_extras": [
+        "coverage; extra == \"testing\"",
+        "eventlet!=0.36.0,>=0.24.1; extra == \"eventlet\"",
+        "eventlet; extra == \"testing\"",
+        "gevent; extra == \"testing\"",
+        "gevent>=1.4.0; extra == \"gevent\"",
+        "importlib-metadata; python_version < \"3.8\"",
+        "pytest-cov; extra == \"testing\"",
+        "pytest; extra == \"testing\"",
+        "setproctitle; extra == \"setproctitle\"",
+        "tornado>=0.2; extra == \"tornado\""
+      ]
+    },
+    "packaging": {
+      "name": "packaging",
+      "version": "26.3",
+      "active_requires": [],
+      "inactive_markers_extras": []
+    },
+    "pymongo": {
+      "name": "pymongo",
+      "version": "4.8.0",
+      "active_requires": [
+        "dnspython<3.0.0,>=1.16.0"
+      ],
+      "inactive_markers_extras": [
+        "certifi; (os_name == \"nt\" or sys_platform == \"darwin\") and extra == \"encryption\"",
+        "certifi; (os_name == \"nt\" or sys_platform == \"darwin\") and extra == \"ocsp\"",
+        "cryptography>=2.5; extra == \"ocsp\"",
+        "furo==2023.9.10; extra == \"docs\"",
+        "pykerberos; os_name != \"nt\" and extra == \"gssapi\"",
+        "pymongo-auth-aws<2.0.0,>=1.1.0; extra == \"aws\"",
+        "pymongo-auth-aws<2.0.0,>=1.1.0; extra == \"encryption\"",
+        "pymongocrypt<2.0.0,>=1.6.0; extra == \"encryption\"",
+        "pyopenssl>=17.2.0; extra == \"ocsp\"",
+        "pytest>=7; extra == \"test\"",
+        "python-snappy; extra == \"snappy\"",
+        "readthedocs-sphinx-search~=0.3; extra == \"docs\"",
+        "requests<3.0.0; extra == \"ocsp\"",
+        "service-identity>=18.1.0; extra == \"ocsp\"",
+        "sphinx-rtd-theme<3,>=2; extra == \"docs\"",
+        "sphinx<8,>=5.3; extra == \"docs\"",
+        "sphinxcontrib-shellcheck<2,>=1; extra == \"docs\"",
+        "winkerberos>=0.5.0; os_name == \"nt\" and extra == \"gssapi\"",
+        "zstandard; extra == \"zstd\""
+      ]
+    },
+    "dnspython": {
+      "name": "dnspython",
+      "version": "2.8.0",
+      "active_requires": [],
+      "inactive_markers_extras": [
+        "aioquic>=1.2.0; extra == \"doq\"",
+        "black>=25.1.0; extra == \"dev\"",
+        "coverage>=7.0; extra == \"dev\"",
+        "cryptography>=45; extra == \"dnssec\"",
+        "flake8>=7; extra == \"dev\"",
+        "h2>=4.2.0; extra == \"doh\"",
+        "httpcore>=1.0.0; extra == \"doh\"",
+        "httpx>=0.28.0; extra == \"doh\"",
+        "hypercorn>=0.17.0; extra == \"dev\"",
+        "idna>=3.10; extra == \"idna\"",
+        "mypy>=1.17; extra == \"dev\"",
+        "pylint>=3; extra == \"dev\"",
+        "pytest-cov>=6.2.0; extra == \"dev\"",
+        "pytest>=8.4; extra == \"dev\"",
+        "quart-trio>=0.12.0; extra == \"dev\"",
+        "sphinx-rtd-theme>=3.0.0; extra == \"dev\"",
+        "sphinx>=8.2.0; extra == \"dev\"",
+        "trio>=0.30; extra == \"trio\"",
+        "twine>=6.1.0; extra == \"dev\"",
+        "wheel>=0.45.0; extra == \"dev\"",
+        "wmi>=1.5.1; platform_system == \"Windows\" and extra == \"wmi\""
+      ]
+    },
+    "werkzeug": {
+      "name": "Werkzeug",
+      "version": "3.0.6",
+      "active_requires": [
+        "MarkupSafe>=2.1.1"
+      ],
+      "inactive_markers_extras": [
+        "watchdog>=2.3; extra == \"watchdog\""
+      ]
+    },
+    "markupsafe": {
+      "name": "MarkupSafe",
+      "version": "3.0.4",
+      "active_requires": [],
+      "inactive_markers_extras": []
+    },
+    "flask": {
+      "name": "Flask",
+      "version": "3.0.3",
+      "active_requires": [
+        "Jinja2>=3.1.2",
+        "Werkzeug>=3.0.0",
+        "blinker>=1.6.2",
+        "click>=8.1.3",
+        "itsdangerous>=2.1.2"
+      ],
+      "inactive_markers_extras": [
+        "asgiref>=3.2; extra == \"async\"",
+        "importlib-metadata>=3.6.0; python_version < \"3.10\"",
+        "python-dotenv; extra == \"dotenv\""
+      ]
+    },
+    "blinker": {
+      "name": "blinker",
+      "version": "1.9.0",
+      "active_requires": [],
+      "inactive_markers_extras": []
+    },
+    "click": {
+      "name": "click",
+      "version": "8.5.0",
+      "active_requires": [],
+      "inactive_markers_extras": []
+    },
+    "itsdangerous": {
+      "name": "itsdangerous",
+      "version": "2.2.0",
+      "active_requires": [],
+      "inactive_markers_extras": []
+    },
+    "jinja2": {
+      "name": "Jinja2",
+      "version": "3.1.6",
+      "active_requires": [
+        "MarkupSafe>=2.0"
+      ],
+      "inactive_markers_extras": [
+        "Babel>=2.7; extra == \"i18n\""
+      ]
+    }
+  },
+  "artifacts": [
+    {
+      "filename": "PyYAML-6.0.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "distribution": "pyyaml",
+      "version": "6.0.2",
+      "sha256": "ec031d5d2feb36d1d1a24380e4db6d43695f3748343d99434e6f5f9156aaa2ed",
+      "tags": [
+        "cp310-cp310-manylinux2014_x86_64",
+        "cp310-cp310-manylinux_2_17_x86_64"
+      ],
+      "compatible_here": true
+    },
+    {
+      "filename": "blinker-1.9.0-py3-none-any.whl",
+      "distribution": "blinker",
+      "version": "1.9.0",
+      "sha256": "ba0efaa9080b619ff2f3459d1d500c57bddea4a6b424b60a91141db6fd2f08bc",
+      "tags": [
+        "py3-none-any"
+      ],
+      "compatible_here": true
+    },
+    {
+      "filename": "certifi-2026.7.22-py3-none-any.whl",
+      "distribution": "certifi",
+      "version": "2026.7.22",
+      "sha256": "62f22742b58a1a33014a2b6b706588a8d7e2a88ae7bd1a6ebe8c992928483775",
+      "tags": [
+        "py3-none-any"
+      ],
+      "compatible_here": true
+    },
+    {
+      "filename": "charset_normalizer-3.5.2-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+      "distribution": "charset-normalizer",
+      "version": "3.5.2",
+      "sha256": "8a893cc101149f80a653f82062ebc95b34525a2614382e1da5458fe7c6997249",
+      "tags": [
+        "cp310-cp310-manylinux2014_x86_64",
+        "cp310-cp310-manylinux_2_17_x86_64",
+        "cp310-cp310-manylinux_2_28_x86_64"
+      ],
+      "compatible_here": true
+    },
+    {
+      "filename": "click-8.5.0-py3-none-any.whl",
+      "distribution": "click",
+      "version": "8.5.0",
+      "sha256": "255bc9599cf7748b4b1a446ccc735421bd08a2ae529a8b88597d3de5664ee360",
+      "tags": [
+        "py3-none-any"
+      ],
+      "compatible_here": true
+    },
+    {
+      "filename": "dnspython-2.8.0-py3-none-any.whl",
+      "distribution": "dnspython",
+      "version": "2.8.0",
+      "sha256": "01d9bbc4a2d76bf0db7c1f729812ded6d912bd318d3b1cf81d30c0f845dbf3af",
+      "tags": [
+        "py3-none-any"
+      ],
+      "compatible_here": true
+    },
+    {
+      "filename": "feedparser-6.0.11-py3-none-any.whl",
+      "distribution": "feedparser",
+      "version": "6.0.11",
+      "sha256": "0be7ee7b395572b19ebeb1d6aafb0028dee11169f1c934e0ed67d54992f4ad45",
+      "tags": [
+        "py3-none-any"
+      ],
+      "compatible_here": true
+    },
+    {
+      "filename": "flask-3.0.3-py3-none-any.whl",
+      "distribution": "flask",
+      "version": "3.0.3",
+      "sha256": "34e815dfaa43340d1d15a5c3a02b8476004037eb4840b34910c6e21679d288f3",
+      "tags": [
+        "py3-none-any"
+      ],
+      "compatible_here": true
+    },
+    {
+      "filename": "gunicorn-22.0.0-py3-none-any.whl",
+      "distribution": "gunicorn",
+      "version": "22.0.0",
+      "sha256": "350679f91b24062c86e386e198a15438d53a7a8207235a78ba1b53df4c4378d9",
+      "tags": [
+        "py3-none-any"
+      ],
+      "compatible_here": true
+    },
+    {
+      "filename": "idna-3.20-py3-none-any.whl",
+      "distribution": "idna",
+      "version": "3.20",
+      "sha256": "ab7ae7122974553370f0bdb919e1a960b2cd1bc1ef0276416d896db81c14582c",
+      "tags": [
+        "py3-none-any"
+      ],
+      "compatible_here": true
+    },
+    {
+      "filename": "itsdangerous-2.2.0-py3-none-any.whl",
+      "distribution": "itsdangerous",
+      "version": "2.2.0",
+      "sha256": "c6242fc49e35958c8b15141343aa660db5fc54d4f13a1db01a3f5891b98700ef",
+      "tags": [
+        "py3-none-any"
+      ],
+      "compatible_here": true
+    },
+    {
+      "filename": "jinja2-3.1.6-py3-none-any.whl",
+      "distribution": "jinja2",
+      "version": "3.1.6",
+      "sha256": "85ece4451f492d0c13c5dd7c13a64681a86afae63a5f347908daf103ce6d2f67",
+      "tags": [
+        "py3-none-any"
+      ],
+      "compatible_here": true
+    },
+    {
+      "filename": "markupsafe-3.0.4-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+      "distribution": "markupsafe",
+      "version": "3.0.4",
+      "sha256": "d1aca03ede943eb80ab3d63bb082c84b7aab85ea83bd0fd0c200260945fb49d9",
+      "tags": [
+        "cp310-cp310-manylinux2014_x86_64",
+        "cp310-cp310-manylinux_2_17_x86_64",
+        "cp310-cp310-manylinux_2_28_x86_64"
+      ],
+      "compatible_here": true
+    },
+    {
+      "filename": "packaging-26.3-py3-none-any.whl",
+      "distribution": "packaging",
+      "version": "26.3",
+      "sha256": "d7193f7c8e4e93f444fde0262bf90af30e16fa0ad0ad44cb553c87339b23cd1c",
+      "tags": [
+        "py3-none-any"
+      ],
+      "compatible_here": true
+    },
+    {
+      "filename": "pymongo-4.8.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "distribution": "pymongo",
+      "version": "4.8.0",
+      "sha256": "aec2b9088cdbceb87e6ca9c639d0ff9b9d083594dda5ca5d3c4f6774f4c81b33",
+      "tags": [
+        "cp310-cp310-manylinux2014_x86_64",
+        "cp310-cp310-manylinux_2_17_x86_64"
+      ],
+      "compatible_here": true
+    },
+    {
+      "filename": "pypdf-5.0.1-py3-none-any.whl",
+      "distribution": "pypdf",
+      "version": "5.0.1",
+      "sha256": "ff8a32da6c7a63fea9c32fa4dd837cdd0db7966adf6c14f043e3f12592e992db",
+      "tags": [
+        "py3-none-any"
+      ],
+      "compatible_here": true
+    },
+    {
+      "filename": "python_dateutil-2.9.0.post0-py2.py3-none-any.whl",
+      "distribution": "python-dateutil",
+      "version": "2.9.0.post0",
+      "sha256": "a8b2bc7bffae282281c8140a97d3aa9c14da0b136dfe83f850eea9a5f7470427",
+      "tags": [
+        "py2-none-any",
+        "py3-none-any"
+      ],
+      "compatible_here": true
+    },
+    {
+      "filename": "python_dotenv-1.0.1-py3-none-any.whl",
+      "distribution": "python-dotenv",
+      "version": "1.0.1",
+      "sha256": "f7b63ef50f1b690dddf550d03497b66d609393b40b564ed0d674909a68ebf16a",
+      "tags": [
+        "py3-none-any"
+      ],
+      "compatible_here": true
+    },
+    {
+      "filename": "requests-2.32.3-py3-none-any.whl",
+      "distribution": "requests",
+      "version": "2.32.3",
+      "sha256": "70761cfe03c773ceb22aa2f671b4757976145175cdfca038c02654d061d6dcc6",
+      "tags": [
+        "py3-none-any"
+      ],
+      "compatible_here": true
+    },
+    {
+      "filename": "schedule-1.2.2-py3-none-any.whl",
+      "distribution": "schedule",
+      "version": "1.2.2",
+      "sha256": "5bef4a2a0183abf44046ae0d164cadcac21b1db011bdd8102e4a0c1e91e06a7d",
+      "tags": [
+        "py3-none-any"
+      ],
+      "compatible_here": true
+    },
+    {
+      "filename": "six-1.17.0-py2.py3-none-any.whl",
+      "distribution": "six",
+      "version": "1.17.0",
+      "sha256": "4721f391ed90541fddacab5acf947aa0d3dc7d27b2e1e8eda2be8970586c3274",
+      "tags": [
+        "py2-none-any",
+        "py3-none-any"
+      ],
+      "compatible_here": true
+    },
+    {
+      "filename": "typing_extensions-4.16.0-py3-none-any.whl",
+      "distribution": "typing-extensions",
+      "version": "4.16.0",
+      "sha256": "481caa481374e813c1b176ada14e97f1f67a4539ce9cfeb3f350d78d6370c2e8",
+      "tags": [
+        "py3-none-any"
+      ],
+      "compatible_here": true
+    },
+    {
+      "filename": "urllib3-2.8.0-py3-none-any.whl",
+      "distribution": "urllib3",
+      "version": "2.8.0",
+      "sha256": "0cf3cae568d36aa9576b28dfb35f11328f1cb974ca7647d9475ebb86c75ac6e3",
+      "tags": [
+        "py3-none-any"
+      ],
+      "compatible_here": true
+    },
+    {
+      "filename": "werkzeug-3.0.6-py3-none-any.whl",
+      "distribution": "werkzeug",
+      "version": "3.0.6",
+      "sha256": "1bc0c2310d2fbb07b1dd1105eba2f7af72f322e1e455f2f93c993bee8c8a5f17",
+      "tags": [
+        "py3-none-any"
+      ],
+      "compatible_here": true
+    }
+  ],
+  "explicit_cache": "/downloads/wheels68",
+  "missing": [
+    {
+      "distribution": "sgmllib3k",
+      "version": "1.0.0",
+      "reason": "no compatible wheel in explicit cache"
+    }
+  ],
+  "sdist_present": {
+    "filename": "sgmllib3k-1.0.0.tar.gz",
+    "sha256": "7868fb1c8bfa764c1ac563d3cf369c381d1325d36124933a726f29fcdaa812e9",
+    "not_substituted_for_wheel": true
+  },
+  "fresh_install": "not attempted: complete hashed wheel closure absent",
+  "fresh_import_smoke": "not attempted",
+  "fresh_sdk_backend": "not verified",
+  "fresh_test_execution": "not attempted",
+  "prerequisites": {
+    "node": "22.23.3",
+    "expat": "expat_2.4.7",
+    "feedparser": "6.0.11 +32 source hashes",
+    "sgmllib_source_hash": "9180791aa507111207d7c14f36db574a11fbedda257debfb9d030b273b773f44"
+  },
+  "optional_absent": [
+    "pikepdf: weekly_report.test_report.Writer.test_external_validators skip",
+    "trafilatura: unavailable provider baseline"
+  ],
+  "expected_failure": "accounts.test_reservation_terminal.ReservationTests.test_UNSUPPORTED_two_limiter_compensation_marker_interleaving",
+  "manual_excluded": [
+    "playwright1.48.0+greenlet3.1.1+pyee12.0.0; browser binaries not locked"
+  ],
+  "static_limit": "AST inventory does not prove conditional/dynamic/runtime imports complete",
+  "source_baseline_revision": "4d7f7f342140a144f429d03f82b94a3176f341c2",
+  "source_manifest_sha256": "49ede3b236974a719df9bd26c6d5722fc3af493fdb9f06ee41f23d5d29b1e9df",
+  "artifact_verification": {
+    "status": "verified_in_author_environment",
+    "method": "SHA256 of each explicit cache wheel; metadata filename version/tag checks; reviewer cache not transferred",
+    "unavailable_policy": "unavailable bytes are unverified, never passed verification"
+  }
+}

@@ -1,0 +1,4059 @@
+{
+  "python": "3.10.12 (main, Aug 31 2026, 10:18:17) [GCC 11.4.0]",
+  "os": "Linux",
+  "arch": "x86_64",
+  "inventory": [
+    {
+      "import": "ast",
+      "files": [
+        "integration/feedparser_audit/child.py",
+        "integration/geo_collector_contract.py",
+        "integration/renderer_scope.py",
+        "integration/retention_audit.py",
+        "integration/supplied_feed_fixture.py",
+        "integration/supplied_fulltext_fixture.py",
+        "integration/telegram_format_audit.py",
+        "scripts/audit_connections.py",
+        "tests/geonews_digest/test_digest.py",
+        "tests/news_export/test_original_contract.py",
+        "tests/test_collector_mail_fixture.py",
+        "tests/test_env_example.py",
+        "tests/test_fixed_parser_pipeline.py",
+        "tests/test_geo_collector_contract.py",
+        "tests/test_geo_queue_fixture.py",
+        "tests/test_preservation.py",
+        "tests/test_security_review.py",
+        "tests/test_stream_revision.py",
+        "tests/test_supplied_collector_pipeline.py",
+        "tests/test_supplied_feed_fixture.py",
+        "tests/test_supplied_fulltext_fixture.py",
+        "tests/test_supplied_multi_feed.py",
+        "tests/test_telegram_format_audit.py",
+        "tests/weekly_report/test_report.py"
+      ],
+      "stdlib": true,
+      "distributions": [],
+      "provenance": {
+        "source": "sys.stdlib_module_names"
+      },
+      "classification": "stdlib"
+    },
+    {
+      "import": "asyncio",
+      "files": [
+        "integration/news_export/raw_pager.py",
+        "tests/news_export/test_raw_pager.py",
+        "tests/test_mongo_account_store.py"
+      ],
+      "stdlib": true,
+      "distributions": [],
+      "provenance": {
+        "source": "sys.stdlib_module_names"
+      },
+      "classification": "stdlib"
+    },
+    {
+      "import": "base64",
+      "files": [
+        "integration/accounts/passwords.py",
+        "integration/article_archive.py",
+        "integration/finder_index.py",
+        "integration/finder_offline.py",
+        "integration/news_api.py",
+        "tests/accounts/test_hardening.py",
+        "tests/test_finder_nested.py"
+      ],
+      "stdlib": true,
+      "distributions": [],
+      "provenance": {
+        "source": "sys.stdlib_module_names"
+      },
+      "classification": "stdlib"
+    },
+    {
+      "import": "bson",
+      "files": [
+        "integration/article_archive.py",
+        "integration/collector_mail_fixture.py",
+        "integration/geo_queue_fixture.py",
+        "integration/news_export/fixture_http.py",
+        "integration/news_export/geo_snapshot.py",
+        "integration/news_export/keyset_plan.py",
+        "integration/news_export/raw_pager.py",
+        "integration/project_reports.py",
+        "tests/news_export/test_fixture_http.py",
+        "tests/news_export/test_keyset_plan.py",
+        "tests/news_export/test_original_stream.py",
+        "tests/news_export/test_raw_pager.py",
+        "tests/test_article_archive.py",
+        "tests/test_collector_mail_fixture.py",
+        "tests/test_geo_queue_fixture.py",
+        "tests/test_geo_snapshot.py",
+        "tests/test_project_reports.py"
+      ],
+      "stdlib": false,
+      "distributions": [
+        {
+          "name": "pymongo",
+          "version": "4.8.0",
+          "requires": [
+            "dnspython<3.0.0,>=1.16.0",
+            "pymongo-auth-aws<2.0.0,>=1.1.0; extra == 'aws'",
+            "furo==2023.9.10; extra == 'docs'",
+            "readthedocs-sphinx-search~=0.3; extra == 'docs'",
+            "sphinx-rtd-theme<3,>=2; extra == 'docs'",
+            "sphinx<8,>=5.3; extra == 'docs'",
+            "sphinxcontrib-shellcheck<2,>=1; extra == 'docs'",
+            "certifi; (os_name == 'nt' or sys_platform == 'darwin') and extra == 'encryption'",
+            "pymongo-auth-aws<2.0.0,>=1.1.0; extra == 'encryption'",
+            "pymongocrypt<2.0.0,>=1.6.0; extra == 'encryption'",
+            "pykerberos; (os_name != 'nt') and extra == 'gssapi'",
+            "winkerberos>=0.5.0; (os_name == 'nt') and extra == 'gssapi'",
+            "certifi; (os_name == 'nt' or sys_platform == 'darwin') and extra == 'ocsp'",
+            "cryptography>=2.5; extra == 'ocsp'",
+            "pyopenssl>=17.2.0; extra == 'ocsp'",
+            "requests<3.0.0; extra == 'ocsp'",
+            "service-identity>=18.1.0; extra == 'ocsp'",
+            "python-snappy; extra == 'snappy'",
+            "pytest>=7; extra == 'test'",
+            "zstandard; extra == 'zstd'"
+          ]
+        }
+      ],
+      "provenance": {
+        "source": "distribution files metadata",
+        "matching_files": {
+          "pymongo": [
+            "bson/__init__.py",
+            "bson/__pycache__/__init__.cpython-310.pyc",
+            "bson/__pycache__/_helpers.cpython-310.pyc",
+            "bson/__pycache__/binary.cpython-310.pyc",
+            "bson/__pycache__/code.cpython-310.pyc",
+            "bson/__pycache__/codec_options.cpython-310.pyc",
+            "bson/__pycache__/datetime_ms.cpython-310.pyc",
+            "bson/__pycache__/dbref.cpython-310.pyc",
+            "bson/__pycache__/decimal128.cpython-310.pyc",
+            "bson/__pycache__/errors.cpython-310.pyc",
+            "bson/__pycache__/int64.cpython-310.pyc",
+            "bson/__pycache__/json_util.cpython-310.pyc",
+            "bson/__pycache__/max_key.cpython-310.pyc",
+            "bson/__pycache__/min_key.cpython-310.pyc",
+            "bson/__pycache__/objectid.cpython-310.pyc",
+            "bson/__pycache__/raw_bson.cpython-310.pyc",
+            "bson/__pycache__/regex.cpython-310.pyc",
+            "bson/__pycache__/son.cpython-310.pyc",
+            "bson/__pycache__/timestamp.cpython-310.pyc",
+            "bson/__pycache__/typings.cpython-310.pyc",
+            "bson/__pycache__/tz_util.cpython-310.pyc",
+            "bson/_cbson.cpython-310-x86_64-linux-gnu.so",
+            "bson/_cbson.cpython-38-x86_64-linux-gnu.so",
+            "bson/_cbson.cpython-39-x86_64-linux-gnu.so",
+            "bson/_cbsonmodule.c",
+            "bson/_cbsonmodule.h",
+            "bson/_helpers.py",
+            "bson/binary.py",
+            "bson/bson-endian.h",
+            "bson/buffer.c",
+            "bson/buffer.h",
+            "bson/code.py",
+            "bson/codec_options.py",
+            "bson/datetime_ms.py",
+            "bson/dbref.py",
+            "bson/decimal128.py",
+            "bson/errors.py",
+            "bson/int64.py",
+            "bson/json_util.py",
+            "bson/max_key.py",
+            "bson/min_key.py",
+            "bson/objectid.py",
+            "bson/py.typed",
+            "bson/raw_bson.py",
+            "bson/regex.py",
+            "bson/son.py",
+            "bson/time64.c",
+            "bson/time64.h",
+            "bson/time64_config.h",
+            "bson/time64_limits.h",
+            "bson/timestamp.py",
+            "bson/typings.py",
+            "bson/tz_util.py"
+          ]
+        }
+      },
+      "classification": "required_distribution"
+    },
+    {
+      "import": "builtins",
+      "files": [
+        "tests/digest_cold_probe.py",
+        "tests/geospatial/test_geospatial.py",
+        "tests/news_export/test_export.py"
+      ],
+      "stdlib": true,
+      "distributions": [],
+      "provenance": {
+        "source": "sys.stdlib_module_names"
+      },
+      "classification": "stdlib"
+    },
+    {
+      "import": "collections",
+      "files": [
+        "integration/accounts/limiter.py",
+        "integration/country_page.py",
+        "integration/country_signals.py",
+        "integration/dashboard_model.py",
+        "integration/geo_rolling_breakdown.py",
+        "integration/geonews_digest/model.py",
+        "integration/geonews_digest/render.py",
+        "integration/news_api.py",
+        "integration/renderer_scope.py",
+        "integration/storage_reader.py",
+        "integration/weekly_report/report.py"
+      ],
+      "stdlib": true,
+      "distributions": [],
+      "provenance": {
+        "source": "sys.stdlib_module_names"
+      },
+      "classification": "stdlib"
+    },
+    {
+      "import": "concurrent",
+      "files": [
+        "tests/test_mail_bridge.py"
+      ],
+      "stdlib": true,
+      "distributions": [],
+      "provenance": {
+        "source": "sys.stdlib_module_names"
+      },
+      "classification": "stdlib"
+    },
+    {
+      "import": "contextlib",
+      "files": [
+        "integration/mail_bridge.py",
+        "tests/digest_cold_probe.py",
+        "tests/news_export/test_fixture_serving.py",
+        "tests/test_digest_preview_routes.py",
+        "tests/test_geo_probe_process.py"
+      ],
+      "stdlib": true,
+      "distributions": [],
+      "provenance": {
+        "source": "sys.stdlib_module_names"
+      },
+      "classification": "stdlib"
+    },
+    {
+      "import": "copy",
+      "files": [
+        "integration/accounts/mongo_store.py",
+        "integration/accounts/shared_ledger_fixture.py",
+        "integration/accounts/store.py",
+        "integration/brics_streams.py",
+        "integration/collection_prepare.py",
+        "integration/fake_collection_writer.py",
+        "integration/geo_article_writer.py",
+        "integration/geo_collector_contract.py",
+        "integration/mail_bridge.py",
+        "integration/news_view.py",
+        "integration/public_news.py",
+        "integration/rss_catalog/catalog.py",
+        "integration/source_health.py",
+        "integration/stream_fixture_app.py",
+        "tests/accounts/test_reservation_terminal.py",
+        "tests/accounts/test_store_conformance.py",
+        "tests/test_article_archive.py",
+        "tests/test_collection_prepare.py",
+        "tests/test_collector_mail_fixture.py",
+        "tests/test_country_alerts.py",
+        "tests/test_country_signals.py",
+        "tests/test_fixed_parser_pipeline.py",
+        "tests/test_geo_collector_contract.py",
+        "tests/test_invite_expiry.py",
+        "tests/test_map_layers.py",
+        "tests/test_mongo_account_store.py",
+        "tests/test_offline_collection_cycle.py",
+        "tests/test_page_watch_contract.py",
+        "tests/test_page_watch_parser_budget.py",
+        "tests/test_pagewatch_report_contract.py",
+        "tests/test_rss_catalog.py",
+        "tests/test_shared_ledger_fixture.py",
+        "tests/test_shared_service_fixture.py",
+        "tests/test_supplied_collector_pipeline.py",
+        "tests/test_supplied_feed_fixture.py",
+        "tests/test_supplied_fulltext_fixture.py",
+        "tests/test_supplied_multi_feed.py",
+        "tests/test_tariff_evidence_plain.py",
+        "tests/test_telegram_format_audit.py"
+      ],
+      "stdlib": true,
+      "distributions": [],
+      "provenance": {
+        "source": "sys.stdlib_module_names"
+      },
+      "classification": "stdlib"
+    },
+    {
+      "import": "csv",
+      "files": [
+        "integration/loaded_news.py",
+        "integration/news_export/export.py",
+        "integration/news_export/fixture_http.py",
+        "integration/news_export/original_contract.py",
+        "integration/news_export/original_stream.py",
+        "tests/browser_finder_nested.py",
+        "tests/news_export/test_export.py",
+        "tests/news_export/test_export_route.py",
+        "tests/news_export/test_fixture_http.py",
+        "tests/news_export/test_keyset_plan.py",
+        "tests/news_export/test_original_contract.py",
+        "tests/news_export/test_original_stream.py",
+        "tests/test_loaded_news.py"
+      ],
+      "stdlib": true,
+      "distributions": [],
+      "provenance": {
+        "source": "sys.stdlib_module_names"
+      },
+      "classification": "stdlib"
+    },
+    {
+      "import": "dataclasses",
+      "files": [
+        "integration/accounts/limiter.py",
+        "integration/accounts/shared_ledger_fixture.py",
+        "integration/geonews_digest/delivery.py",
+        "integration/geonews_digest/model.py",
+        "integration/mail_bridge.py",
+        "integration/news_export/keyset_plan.py",
+        "integration/single_db_plan.py",
+        "integration/storage_settings.py"
+      ],
+      "stdlib": true,
+      "distributions": [],
+      "provenance": {
+        "source": "sys.stdlib_module_names"
+      },
+      "classification": "stdlib"
+    },
+    {
+      "import": "datetime",
+      "files": [
+        "integration/accounts/service.py",
+        "integration/article_archive.py",
+        "integration/collector_mail_fixture.py",
+        "integration/country_alerts.py",
+        "integration/country_signals.py",
+        "integration/critical_stories.py",
+        "integration/dashboard_model.py",
+        "integration/dashboard_snapshots.py",
+        "integration/digest_preview.py",
+        "integration/event_reader.py",
+        "integration/fake_collection_writer.py",
+        "integration/feedparser_audit/child.py",
+        "integration/feedparser_audit/runner.py",
+        "integration/fixed_parser_pipeline.py",
+        "integration/geo_article_writer.py",
+        "integration/geo_collector_contract.py",
+        "integration/geo_only_runtime.py",
+        "integration/geo_probe_http.py",
+        "integration/geo_queue_fixture.py",
+        "integration/geo_rolling_breakdown.py",
+        "integration/geo_sample_probe.py",
+        "integration/geonews_digest/_safe.py",
+        "integration/geonews_digest/model.py",
+        "integration/geonews_digest/render.py",
+        "integration/geospatial/response.py",
+        "integration/geospatial/ships.py",
+        "integration/loaded_charts.py",
+        "integration/map_layers.py",
+        "integration/news_api.py",
+        "integration/news_export/keyset_plan.py",
+        "integration/news_view.py",
+        "integration/original_dashboard_payloads.py",
+        "integration/page_watch.py",
+        "integration/preview_access.py",
+        "integration/renderer_scope.py",
+        "integration/retention_audit.py",
+        "integration/rss_catalog/catalog.py",
+        "integration/source_health.py",
+        "integration/stream_config.py",
+        "integration/stream_fixture_app.py",
+        "integration/stream_revision.py",
+        "integration/supplied_collector_pipeline.py",
+        "integration/supplied_feed_fixture.py",
+        "integration/supplied_fulltext_fixture.py",
+        "integration/supplied_multi_feed.py",
+        "integration/tariff_evidence.py",
+        "integration/telegram_format_audit.py",
+        "integration/weekly_report/_pdf.py",
+        "integration/weekly_report/_render.py",
+        "integration/weekly_report/report.py",
+        "tests/browser_digest_preview.py",
+        "tests/browser_event_digest.py",
+        "tests/browser_stream_config.py",
+        "tests/digest_cold_probe.py",
+        "tests/geonews_digest/test_digest.py",
+        "tests/geospatial/preview/make_payload.py",
+        "tests/geospatial/test_geospatial.py",
+        "tests/news_export/test_keyset_plan.py",
+        "tests/test_article_archive.py",
+        "tests/test_collector_mail_fixture.py",
+        "tests/test_country_signals.py",
+        "tests/test_critical_stories.py",
+        "tests/test_dashboard_model.py",
+        "tests/test_digest_preview_routes.py",
+        "tests/test_event_reader.py",
+        "tests/test_fixed_feedparser_audit.py",
+        "tests/test_fixed_parser_pipeline.py",
+        "tests/test_geo_article_writer.py",
+        "tests/test_geo_collector_contract.py",
+        "tests/test_geo_event_composition.py",
+        "tests/test_geo_queue_fixture.py",
+        "tests/test_geo_sample_probe.py",
+        "tests/test_private_news_fields.py",
+        "tests/test_report_preview_frame.py",
+        "tests/test_retention_audit.py",
+        "tests/test_sample_volume.py",
+        "tests/test_source_health.py",
+        "tests/test_stream_config.py",
+        "tests/test_stream_disk.py",
+        "tests/test_stream_fixture_app.py",
+        "tests/test_stream_revision.py",
+        "tests/test_supplied_collector_pipeline.py",
+        "tests/test_supplied_feed_fixture.py",
+        "tests/test_supplied_fulltext_fixture.py",
+        "tests/test_supplied_multi_feed.py",
+        "tests/test_tariff_evidence.py",
+        "tests/test_tariff_evidence_plain.py",
+        "tests/test_telegram_format_audit.py",
+        "tests/weekly_report/test_report.py"
+      ],
+      "stdlib": true,
+      "distributions": [],
+      "provenance": {
+        "source": "sys.stdlib_module_names"
+      },
+      "classification": "stdlib"
+    },
+    {
+      "import": "dateutil",
+      "files": [
+        "integration/feedparser_audit/child.py",
+        "integration/fixed_parser_pipeline.py",
+        "integration/geo_collector_contract.py",
+        "integration/supplied_collector_pipeline.py",
+        "integration/supplied_feed_fixture.py",
+        "integration/supplied_multi_feed.py",
+        "tests/test_supplied_collector_pipeline.py",
+        "tests/test_supplied_feed_fixture.py",
+        "tests/test_supplied_multi_feed.py"
+      ],
+      "stdlib": false,
+      "distributions": [
+        {
+          "name": "python-dateutil",
+          "version": "2.9.0.post0",
+          "requires": [
+            "six >=1.5"
+          ]
+        }
+      ],
+      "provenance": {
+        "source": "packages_distributions",
+        "matching_files": {}
+      },
+      "classification": "required_distribution"
+    },
+    {
+      "import": "decimal",
+      "files": [
+        "integration/country_signals.py"
+      ],
+      "stdlib": true,
+      "distributions": [],
+      "provenance": {
+        "source": "sys.stdlib_module_names"
+      },
+      "classification": "stdlib"
+    },
+    {
+      "import": "difflib",
+      "files": [
+        "integration/brics_processing_offline.py",
+        "integration/page_watch.py",
+        "integration/story_links.py"
+      ],
+      "stdlib": true,
+      "distributions": [],
+      "provenance": {
+        "source": "sys.stdlib_module_names"
+      },
+      "classification": "stdlib"
+    },
+    {
+      "import": "dotenv",
+      "files": [
+        "tests/digest_cold_probe.py"
+      ],
+      "stdlib": false,
+      "distributions": [
+        {
+          "name": "python-dotenv",
+          "version": "1.0.1",
+          "requires": [
+            "click >=5.0 ; extra == 'cli'"
+          ]
+        }
+      ],
+      "provenance": {
+        "source": "packages_distributions",
+        "matching_files": {}
+      },
+      "classification": "required_distribution"
+    },
+    {
+      "import": "email",
+      "files": [
+        "integration/geonews_digest/delivery.py"
+      ],
+      "stdlib": true,
+      "distributions": [],
+      "provenance": {
+        "source": "sys.stdlib_module_names"
+      },
+      "classification": "stdlib"
+    },
+    {
+      "import": "fcntl",
+      "files": [
+        "integration/stream_disk.py"
+      ],
+      "stdlib": true,
+      "distributions": [],
+      "provenance": {
+        "source": "sys.stdlib_module_names"
+      },
+      "classification": "stdlib"
+    },
+    {
+      "import": "feedparser",
+      "files": [
+        "integration/feedparser_audit/child.py"
+      ],
+      "stdlib": false,
+      "distributions": [
+        {
+          "name": "feedparser",
+          "version": "6.0.11",
+          "requires": [
+            "sgmllib3k"
+          ]
+        }
+      ],
+      "provenance": {
+        "source": "packages_distributions",
+        "matching_files": {}
+      },
+      "classification": "required_distribution"
+    },
+    {
+      "import": "flask",
+      "files": [
+        "integration/accounts/http_fixture.py",
+        "integration/geo_probe_http.py",
+        "integration/news_api.py",
+        "integration/news_export/fixture_http.py",
+        "integration/preview_access.py",
+        "tests/digest_cold_probe.py"
+      ],
+      "stdlib": false,
+      "distributions": [
+        {
+          "name": "Flask",
+          "version": "3.0.3",
+          "requires": [
+            "Werkzeug>=3.0.0",
+            "Jinja2>=3.1.2",
+            "itsdangerous>=2.1.2",
+            "click>=8.1.3",
+            "blinker>=1.6.2",
+            "importlib-metadata>=3.6.0; python_version < '3.10'",
+            "asgiref>=3.2 ; extra == \"async\"",
+            "python-dotenv ; extra == \"dotenv\""
+          ]
+        }
+      ],
+      "provenance": {
+        "source": "distribution files metadata",
+        "matching_files": {
+          "Flask": [
+            "flask/__init__.py",
+            "flask/__main__.py",
+            "flask/__pycache__/__init__.cpython-310.pyc",
+            "flask/__pycache__/__main__.cpython-310.pyc",
+            "flask/__pycache__/app.cpython-310.pyc",
+            "flask/__pycache__/blueprints.cpython-310.pyc",
+            "flask/__pycache__/cli.cpython-310.pyc",
+            "flask/__pycache__/config.cpython-310.pyc",
+            "flask/__pycache__/ctx.cpython-310.pyc",
+            "flask/__pycache__/debughelpers.cpython-310.pyc",
+            "flask/__pycache__/globals.cpython-310.pyc",
+            "flask/__pycache__/helpers.cpython-310.pyc",
+            "flask/__pycache__/logging.cpython-310.pyc",
+            "flask/__pycache__/sessions.cpython-310.pyc",
+            "flask/__pycache__/signals.cpython-310.pyc",
+            "flask/__pycache__/templating.cpython-310.pyc",
+            "flask/__pycache__/testing.cpython-310.pyc",
+            "flask/__pycache__/typing.cpython-310.pyc",
+            "flask/__pycache__/views.cpython-310.pyc",
+            "flask/__pycache__/wrappers.cpython-310.pyc",
+            "flask/app.py",
+            "flask/blueprints.py",
+            "flask/cli.py",
+            "flask/config.py",
+            "flask/ctx.py",
+            "flask/debughelpers.py",
+            "flask/globals.py",
+            "flask/helpers.py",
+            "flask/json/__init__.py",
+            "flask/json/__pycache__/__init__.cpython-310.pyc",
+            "flask/json/__pycache__/provider.cpython-310.pyc",
+            "flask/json/__pycache__/tag.cpython-310.pyc",
+            "flask/json/provider.py",
+            "flask/json/tag.py",
+            "flask/logging.py",
+            "flask/py.typed",
+            "flask/sansio/README.md",
+            "flask/sansio/__pycache__/app.cpython-310.pyc",
+            "flask/sansio/__pycache__/blueprints.cpython-310.pyc",
+            "flask/sansio/__pycache__/scaffold.cpython-310.pyc",
+            "flask/sansio/app.py",
+            "flask/sansio/blueprints.py",
+            "flask/sansio/scaffold.py",
+            "flask/sessions.py",
+            "flask/signals.py",
+            "flask/templating.py",
+            "flask/testing.py",
+            "flask/typing.py",
+            "flask/views.py",
+            "flask/wrappers.py"
+          ]
+        }
+      },
+      "classification": "required_distribution"
+    },
+    {
+      "import": "gzip",
+      "files": [
+        "integration/finder_index.py"
+      ],
+      "stdlib": true,
+      "distributions": [],
+      "provenance": {
+        "source": "sys.stdlib_module_names"
+      },
+      "classification": "stdlib"
+    },
+    {
+      "import": "hashlib",
+      "files": [
+        "integration/accounts/csrf.py",
+        "integration/accounts/limiter.py",
+        "integration/accounts/passwords.py",
+        "integration/accounts/service.py",
+        "integration/accounts/shared_ledger_fixture.py",
+        "integration/accounts/shared_service_fixture.py",
+        "integration/article_archive.py",
+        "integration/collector_mail_fixture.py",
+        "integration/country_alerts.py",
+        "integration/fake_collection_writer.py",
+        "integration/feedparser_audit/child.py",
+        "integration/feedparser_audit/runner.py",
+        "integration/finder_index.py",
+        "integration/finder_offline.py",
+        "integration/fixed_parser_pipeline.py",
+        "integration/geo_collector_contract.py",
+        "integration/geo_queue_fixture.py",
+        "integration/mail_bridge.py",
+        "integration/map_layers.py",
+        "integration/news_api.py",
+        "integration/news_export/fixture_http.py",
+        "integration/news_export/original_stream.py",
+        "integration/news_view.py",
+        "integration/page_watch.py",
+        "integration/renderer_scope.py",
+        "integration/retention_audit.py",
+        "integration/stream_config.py",
+        "integration/stream_disk.py",
+        "integration/stream_revision.py",
+        "integration/supplied_collector_pipeline.py",
+        "integration/supplied_feed_fixture.py",
+        "integration/supplied_fulltext_fixture.py",
+        "integration/supplied_multi_feed.py",
+        "integration/telegram_format_audit.py",
+        "integration/weekly_report/_pdf.py",
+        "scripts/audit_connections.py",
+        "scripts/package_manifest.py",
+        "tests/news_export/test_fixture_http.py",
+        "tests/news_export/test_original_contract.py",
+        "tests/news_export/test_original_stream.py",
+        "tests/test_apps_script_audit.py",
+        "tests/test_article_archive.py",
+        "tests/test_branding.py",
+        "tests/test_country_alerts.py",
+        "tests/test_cross_routes.py",
+        "tests/test_fake_collection_writer.py",
+        "tests/test_finder_index.py",
+        "tests/test_finder_nested.py",
+        "tests/test_geo_collector_contract.py",
+        "tests/test_map_layers.py",
+        "tests/test_package_manifest.py",
+        "tests/test_page_watch_contract.py",
+        "tests/test_preservation.py",
+        "tests/test_private_news_fields.py",
+        "tests/test_report_preview_frame.py",
+        "tests/test_security_review.py",
+        "tests/test_shared_service_fixture.py",
+        "tests/test_stream_config.py",
+        "tests/test_stream_disk.py",
+        "tests/test_stream_fixture_app.py",
+        "tests/test_stream_revision.py"
+      ],
+      "stdlib": true,
+      "distributions": [],
+      "provenance": {
+        "source": "sys.stdlib_module_names"
+      },
+      "classification": "stdlib"
+    },
+    {
+      "import": "hmac",
+      "files": [
+        "integration/accounts/csrf.py",
+        "integration/accounts/limiter.py",
+        "integration/accounts/passwords.py",
+        "integration/accounts/shared_ledger_fixture.py",
+        "integration/geo_probe_http.py",
+        "integration/preview_access.py",
+        "integration/stream_revision.py"
+      ],
+      "stdlib": true,
+      "distributions": [],
+      "provenance": {
+        "source": "sys.stdlib_module_names"
+      },
+      "classification": "stdlib"
+    },
+    {
+      "import": "html",
+      "files": [
+        "integration/agencia_parser.py",
+        "integration/branding_meta.py",
+        "integration/geo_queue_fixture.py",
+        "integration/geonews_digest/render.py",
+        "integration/html_safety.py",
+        "integration/page_watch.py",
+        "integration/pagewatch_report.py",
+        "integration/project_reports.py",
+        "integration/renderer_scope.py",
+        "integration/report_adapters.py",
+        "integration/scraper_policy.py",
+        "integration/site_parsers.py"
+      ],
+      "stdlib": true,
+      "distributions": [],
+      "provenance": {
+        "source": "sys.stdlib_module_names"
+      },
+      "classification": "stdlib"
+    },
+    {
+      "import": "http",
+      "files": [
+        "integration/geonews_digest/delivery.py",
+        "tests/geonews_digest/test_digest.py",
+        "tests/news_export/test_fixture_serving.py"
+      ],
+      "stdlib": true,
+      "distributions": [],
+      "provenance": {
+        "source": "sys.stdlib_module_names"
+      },
+      "classification": "stdlib"
+    },
+    {
+      "import": "importlib",
+      "files": [
+        "tests/geospatial/test_geospatial.py",
+        "tests/news_export/test_export.py",
+        "tests/test_geo_probe_http.py",
+        "tests/test_geo_read_factory.py",
+        "tests/test_geo_sample_probe.py",
+        "tests/test_preview_launcher.py"
+      ],
+      "stdlib": true,
+      "distributions": [],
+      "provenance": {
+        "source": "sys.stdlib_module_names"
+      },
+      "classification": "stdlib"
+    },
+    {
+      "import": "integration",
+      "files": [
+        "integration/accounts/merged_fixture.py",
+        "integration/agencia_parser.py",
+        "integration/brics_streams.py",
+        "integration/collection_prepare.py",
+        "integration/collector_mail_fixture.py",
+        "integration/country_page.py",
+        "integration/critical_stories.py",
+        "integration/dashboard_model.py",
+        "integration/dashboard_snapshots.py",
+        "integration/digest_preview.py",
+        "integration/feedparser_audit/child.py",
+        "integration/feedparser_audit/runner.py",
+        "integration/finder_offline.py",
+        "integration/geo_article_writer.py",
+        "integration/geo_collector_contract.py",
+        "integration/geo_only_runtime.py",
+        "integration/geo_probe_http.py",
+        "integration/geo_probe_process.py",
+        "integration/geo_queue_fixture.py",
+        "integration/geo_rolling_breakdown.py",
+        "integration/geo_sample_probe.py",
+        "integration/geo_sample_probe_child.py",
+        "integration/html_safety.py",
+        "integration/loaded_charts.py",
+        "integration/loaded_news.py",
+        "integration/mail_bridge.py",
+        "integration/map_layers.py",
+        "integration/news_api.py",
+        "integration/news_view.py",
+        "integration/offline_collection_cycle.py",
+        "integration/original_dashboard_payloads.py",
+        "integration/pagewatch_report.py",
+        "integration/preview_access.py",
+        "integration/preview_launcher.py",
+        "integration/private_router.py",
+        "integration/project_reports.py",
+        "integration/relevance.py",
+        "integration/report_adapters.py",
+        "integration/report_preview_frame.py",
+        "integration/runtime.py",
+        "integration/scraper_policy.py",
+        "integration/single_db_runtime.py",
+        "integration/site_parsers.py",
+        "integration/source_health.py",
+        "integration/storage_reader.py",
+        "integration/story_links.py",
+        "integration/stream_config.py",
+        "integration/stream_disk.py",
+        "integration/stream_fixture_app.py",
+        "integration/stream_revision.py",
+        "integration/supplied_feed_fixture.py",
+        "integration/supplied_fulltext_fixture.py",
+        "tests/accounts/browser_http_fixture.py",
+        "tests/accounts/test_accounts.py",
+        "tests/accounts/test_hardening.py",
+        "tests/accounts/test_http_fixture.py",
+        "tests/accounts/test_merged_fixture.py",
+        "tests/accounts/test_reservation_terminal.py",
+        "tests/accounts/test_store_conformance.py",
+        "tests/browser_brics_streams.py",
+        "tests/browser_compulsory_channels.py",
+        "tests/browser_country_page.py",
+        "tests/browser_dashboard_snapshots.py",
+        "tests/browser_digest_preview.py",
+        "tests/browser_event_digest.py",
+        "tests/browser_finder_nested.py",
+        "tests/browser_finder_network.py",
+        "tests/browser_finder_offline.py",
+        "tests/browser_finder_static.py",
+        "tests/browser_loaded_news.py",
+        "tests/browser_map.py",
+        "tests/browser_report_styles.py",
+        "tests/browser_sample_volume.py",
+        "tests/browser_stream_config.py",
+        "tests/browser_tariff_evidence.py",
+        "tests/browser_watch_updates.py",
+        "tests/browser_weekly.py",
+        "tests/digest_cold_probe.py",
+        "tests/geonews_digest/test_digest.py",
+        "tests/geospatial/preview/make_payload.py",
+        "tests/geospatial/test_geospatial.py",
+        "tests/geospatial/test_map_route.py",
+        "tests/news_export/test_export.py",
+        "tests/news_export/test_export_route.py",
+        "tests/news_export/test_fixture_http.py",
+        "tests/news_export/test_fixture_serving.py",
+        "tests/news_export/test_keyset_plan.py",
+        "tests/news_export/test_original_contract.py",
+        "tests/news_export/test_original_stream.py",
+        "tests/news_export/test_raw_pager.py",
+        "tests/test_agencia_parser.py",
+        "tests/test_article_archive.py",
+        "tests/test_branding.py",
+        "tests/test_brics_streams.py",
+        "tests/test_bridges.py",
+        "tests/test_collection_prepare.py",
+        "tests/test_collector_mail_fixture.py",
+        "tests/test_country_alerts.py",
+        "tests/test_country_page.py",
+        "tests/test_country_signals.py",
+        "tests/test_country_signals_routes.py",
+        "tests/test_critical_stories.py",
+        "tests/test_cross_routes.py",
+        "tests/test_dashboard_model.py",
+        "tests/test_dashboard_snapshots.py",
+        "tests/test_dashboard_stats.py",
+        "tests/test_digest_preview_routes.py",
+        "tests/test_env_example.py",
+        "tests/test_event_reader.py",
+        "tests/test_fake_collection_writer.py",
+        "tests/test_finder_index.py",
+        "tests/test_finder_nested.py",
+        "tests/test_finder_network.py",
+        "tests/test_finder_offline.py",
+        "tests/test_fixed_feedparser_audit.py",
+        "tests/test_fixed_parser_pipeline.py",
+        "tests/test_geo_article_writer.py",
+        "tests/test_geo_collector_contract.py",
+        "tests/test_geo_event_composition.py",
+        "tests/test_geo_only_runtime.py",
+        "tests/test_geo_probe_http.py",
+        "tests/test_geo_probe_process.py",
+        "tests/test_geo_queue_fixture.py",
+        "tests/test_geo_read_factory.py",
+        "tests/test_geo_rolling_breakdown.py",
+        "tests/test_geo_sample_probe.py",
+        "tests/test_geo_snapshot.py",
+        "tests/test_invite_expiry.py",
+        "tests/test_live_news_ui.py",
+        "tests/test_loaded_charts.py",
+        "tests/test_loaded_news.py",
+        "tests/test_mail_bridge.py",
+        "tests/test_map_layers.py",
+        "tests/test_mongo_account_store.py",
+        "tests/test_offline_collection_cycle.py",
+        "tests/test_original_dashboard_payloads.py",
+        "tests/test_original_reports.py",
+        "tests/test_page_watch.py",
+        "tests/test_page_watch_contract.py",
+        "tests/test_page_watch_parser_budget.py",
+        "tests/test_pagewatch_report.py",
+        "tests/test_pagewatch_report_contract.py",
+        "tests/test_preview_access.py",
+        "tests/test_preview_launcher.py",
+        "tests/test_private_news_fields.py",
+        "tests/test_project_reports.py",
+        "tests/test_report_preview_frame.py",
+        "tests/test_report_styles.py",
+        "tests/test_retention_audit.py",
+        "tests/test_rss_catalog.py",
+        "tests/test_runtime.py",
+        "tests/test_sample_volume.py",
+        "tests/test_scraper_policy.py",
+        "tests/test_security_review.py",
+        "tests/test_shared_ledger_fixture.py",
+        "tests/test_shared_service_fixture.py",
+        "tests/test_single_db_plan.py",
+        "tests/test_single_db_runtime.py",
+        "tests/test_site_parsers.py",
+        "tests/test_source_health.py",
+        "tests/test_storage_reader.py",
+        "tests/test_storage_settings.py",
+        "tests/test_stream_config.py",
+        "tests/test_stream_disk.py",
+        "tests/test_stream_fixture_app.py",
+        "tests/test_stream_revision.py",
+        "tests/test_supplied_collector_pipeline.py",
+        "tests/test_supplied_feed_fixture.py",
+        "tests/test_supplied_fulltext_fixture.py",
+        "tests/test_supplied_multi_feed.py",
+        "tests/test_tariff_evidence.py",
+        "tests/test_tariff_evidence_plain.py",
+        "tests/test_telegram_format_audit.py",
+        "tests/test_weekly_routes.py",
+        "tests/test_workspace.py",
+        "tests/test_youtube_links.py",
+        "tests/weekly_report/test_report.py"
+      ],
+      "stdlib": false,
+      "distributions": [],
+      "provenance": {
+        "source": "baseline scoped file paths",
+        "paths": [
+          "integration/storage_settings.py",
+          "integration/pagewatch_report.py",
+          "integration/storage_reader.py",
+          "integration/runtime.py",
+          "integration/offline_collection_cycle.py",
+          "integration/html_safety.py",
+          "integration/news_api.py",
+          "integration/brics_processing_offline.py",
+          "integration/collector_mail_fixture.py",
+          "integration/article_archive.py",
+          "integration/geo_read_factory.py",
+          "integration/country_alerts.py",
+          "integration/stream_config.py",
+          "integration/critical_stories.py",
+          "integration/public_news.py",
+          "integration/dashboard_model.py",
+          "integration/brics_streams.py",
+          "integration/geo_only_runtime.py",
+          "integration/event_reader.py",
+          "integration/geo_collector_contract.py",
+          "integration/fixed_parser_pipeline.py",
+          "integration/loaded_charts.py",
+          "integration/agencia_parser.py",
+          "integration/stream_revision.py",
+          "integration/renderer_scope.py",
+          "integration/site_scraper.py",
+          "integration/__init__.py",
+          "integration/finder_links.py",
+          "integration/supplied_multi_feed.py",
+          "integration/finder_nested.py",
+          "integration/country_page.py",
+          "integration/telegram_format_audit.py",
+          "integration/stream_disk.py",
+          "integration/geo_article_writer.py",
+          "integration/relevance.py",
+          "integration/finder_network.py",
+          "integration/geo_rolling_breakdown.py",
+          "integration/single_db_plan.py",
+          "integration/preview_access.py",
+          "integration/finder_index.py",
+          "integration/geo_sample_probe_child.py",
+          "integration/news_view.py",
+          "integration/map_layers.py",
+          "integration/taxonomy.py",
+          "integration/dashboard_snapshots.py",
+          "integration/geo_probe_process.py",
+          "integration/source_health.py",
+          "integration/finder_offline.py",
+          "integration/supplied_feed_fixture.py",
+          "integration/youtube_links.py",
+          "integration/site_parsers.py",
+          "integration/original_dashboard_payloads.py",
+          "integration/single_db_runtime.py",
+          "integration/project_reports.py",
+          "integration/preview_launcher.py",
+          "integration/story_links.py",
+          "integration/retention_audit.py",
+          "integration/sqlite_reader.py",
+          "integration/stream_fixture_app.py",
+          "integration/report_preview_frame.py",
+          "integration/geo_probe_http.py",
+          "integration/geo_sample_probe.py",
+          "integration/country_signals.py",
+          "integration/digest_preview.py",
+          "integration/report_adapters.py",
+          "integration/scraper_policy.py",
+          "integration/supplied_fulltext_fixture.py",
+          "integration/branding_meta.py",
+          "integration/loaded_news.py",
+          "integration/private_router.py",
+          "integration/page_watch.py",
+          "integration/collection_prepare.py",
+          "integration/mail_bridge.py",
+          "integration/report_styles.py",
+          "integration/supplied_collector_pipeline.py",
+          "integration/geo_queue_fixture.py",
+          "integration/fake_collection_writer.py",
+          "integration/tariff_evidence.py",
+          "integration/weekly_report/_pdf.py",
+          "integration/weekly_report/__init__.py",
+          "integration/weekly_report/_metrics.py",
+          "integration/weekly_report/_render.py",
+          "integration/weekly_report/report.py",
+          "integration/rss_catalog/__init__.py",
+          "integration/rss_catalog/catalog.py",
+          "integration/geospatial/features.py",
+          "integration/geospatial/__init__.py",
+          "integration/geospatial/_safe.py",
+          "integration/geospatial/response.py",
+          "integration/geospatial/payload.py",
+          "integration/geospatial/ships.py",
+          "integration/geospatial/fixtures.py",
+          "integration/geonews_digest/__init__.py",
+          "integration/geonews_digest/render.py",
+          "integration/geonews_digest/_safe.py",
+          "integration/geonews_digest/delivery.py",
+          "integration/geonews_digest/model.py",
+          "integration/apps_script_audit/labeled_run.py",
+          "integration/accounts/service.py",
+          "integration/accounts/passwords.py",
+          "integration/accounts/settings.py",
+          "integration/accounts/limiter.py",
+          "integration/accounts/__init__.py",
+          "integration/accounts/validators.py",
+          "integration/accounts/store.py",
+          "integration/accounts/http_fixture.py",
+          "integration/accounts/shared_service_fixture.py",
+          "integration/accounts/shared_ledger_fixture.py",
+          "integration/accounts/csrf.py",
+          "integration/accounts/merged_fixture.py",
+          "integration/accounts/mongo_store.py",
+          "integration/news_export/geo_snapshot.py",
+          "integration/news_export/__init__.py",
+          "integration/news_export/original_contract.py",
+          "integration/news_export/raw_pager.py",
+          "integration/news_export/fixture_http.py",
+          "integration/news_export/export.py",
+          "integration/news_export/original_stream.py",
+          "integration/news_export/keyset_plan.py",
+          "integration/feedparser_audit/child.py",
+          "integration/feedparser_audit/runner.py",
+          "integration/feedparser_audit/corpus.py"
+        ]
+      },
+      "classification": "local"
+    },
+    {
+      "import": "intelligence",
+      "files": [
+        "integration/collection_prepare.py",
+        "integration/geo_collector_contract.py",
+        "tests/test_digest_preview_routes.py",
+        "tests/test_fixed_parser_pipeline.py",
+        "tests/test_geo_collector_contract.py",
+        "tests/test_original_reports.py",
+        "tests/test_supplied_collector_pipeline.py",
+        "tests/test_supplied_multi_feed.py"
+      ],
+      "stdlib": false,
+      "distributions": [],
+      "provenance": {
+        "source": "baseline scoped file paths",
+        "paths": [
+          "intelligence/__init__.py",
+          "intelligence/brics/database.py",
+          "intelligence/brics/__init__.py",
+          "intelligence/brics/config_check.py",
+          "intelligence/brics/config.py",
+          "intelligence/brics/run_all.py",
+          "intelligence/brics/video.py",
+          "intelligence/brics/app.py",
+          "intelligence/brics/web.py",
+          "intelligence/brics/scheduler.py",
+          "intelligence/brics/collectors/__init__.py",
+          "intelligence/brics/collectors/official.py",
+          "intelligence/brics/collectors/rss.py",
+          "intelligence/brics/reports/telegram_report.py",
+          "intelligence/brics/reports/critical_alert.py",
+          "intelligence/brics/reports/__init__.py",
+          "intelligence/brics/reports/whatsapp_report.py",
+          "intelligence/brics/reports/email_report.py",
+          "intelligence/brics/processing/classifier.py",
+          "intelligence/brics/processing/__init__.py",
+          "intelligence/brics/processing/dedupe.py",
+          "intelligence/geo/database.py",
+          "intelligence/geo/__init__.py",
+          "intelligence/geo/config_check.py",
+          "intelligence/geo/config.py",
+          "intelligence/geo/app.py",
+          "intelligence/geo/web.py",
+          "intelligence/geo/scheduler.py",
+          "intelligence/geo/collectors/events.py",
+          "intelligence/geo/collectors/sanctions.py",
+          "intelligence/geo/collectors/__init__.py",
+          "intelligence/geo/collectors/gnews_search.py",
+          "intelligence/geo/collectors/official.py",
+          "intelligence/geo/collectors/rss.py",
+          "intelligence/geo/reports/telegram_report.py",
+          "intelligence/geo/reports/critical_alert.py",
+          "intelligence/geo/reports/telegram_archive.py",
+          "intelligence/geo/reports/__init__.py",
+          "intelligence/geo/reports/metadata_cleanup.py",
+          "intelligence/geo/reports/whatsapp_report.py",
+          "intelligence/geo/reports/weekly_report.py",
+          "intelligence/geo/reports/telegram_backup.py",
+          "intelligence/geo/reports/email_report.py",
+          "intelligence/geo/reports/dashboard.py",
+          "intelligence/geo/processing/classifier.py",
+          "intelligence/geo/processing/extract.py",
+          "intelligence/geo/processing/__init__.py",
+          "intelligence/geo/processing/dedupe.py"
+        ]
+      },
+      "classification": "local"
+    },
+    {
+      "import": "io",
+      "files": [
+        "integration/accounts/merged_fixture.py",
+        "integration/feedparser_audit/child.py",
+        "integration/finder_index.py",
+        "integration/loaded_news.py",
+        "integration/news_export/export.py",
+        "integration/news_export/fixture_http.py",
+        "integration/news_export/original_contract.py",
+        "integration/news_export/original_stream.py",
+        "tests/browser_finder_nested.py",
+        "tests/news_export/test_export.py",
+        "tests/news_export/test_export_route.py",
+        "tests/news_export/test_fixture_http.py",
+        "tests/news_export/test_keyset_plan.py",
+        "tests/news_export/test_original_contract.py",
+        "tests/news_export/test_original_stream.py",
+        "tests/test_geo_probe_process.py",
+        "tests/test_loaded_news.py",
+        "tests/test_weekly_routes.py",
+        "tests/weekly_report/test_report.py"
+      ],
+      "stdlib": true,
+      "distributions": [],
+      "provenance": {
+        "source": "sys.stdlib_module_names"
+      },
+      "classification": "stdlib"
+    },
+    {
+      "import": "ipaddress",
+      "files": [
+        "integration/dashboard_snapshots.py",
+        "integration/rss_catalog/catalog.py"
+      ],
+      "stdlib": true,
+      "distributions": [],
+      "provenance": {
+        "source": "sys.stdlib_module_names"
+      },
+      "classification": "stdlib"
+    },
+    {
+      "import": "json",
+      "files": [
+        "integration/accounts/http_fixture.py",
+        "integration/accounts/merged_fixture.py",
+        "integration/accounts/mongo_store.py",
+        "integration/accounts/settings.py",
+        "integration/accounts/shared_ledger_fixture.py",
+        "integration/article_archive.py",
+        "integration/country_alerts.py",
+        "integration/dashboard_snapshots.py",
+        "integration/event_reader.py",
+        "integration/feedparser_audit/child.py",
+        "integration/feedparser_audit/runner.py",
+        "integration/finder_index.py",
+        "integration/geo_article_writer.py",
+        "integration/geo_probe_process.py",
+        "integration/geo_queue_fixture.py",
+        "integration/geo_sample_probe_child.py",
+        "integration/geospatial/response.py",
+        "integration/mail_bridge.py",
+        "integration/map_layers.py",
+        "integration/news_api.py",
+        "integration/news_export/fixture_http.py",
+        "integration/news_export/geo_snapshot.py",
+        "integration/news_export/raw_pager.py",
+        "integration/retention_audit.py",
+        "integration/supplied_fulltext_fixture.py",
+        "integration/tariff_evidence.py",
+        "scripts/audit_connections.py",
+        "scripts/package_manifest.py",
+        "tests/accounts/browser_http_fixture.py",
+        "tests/browser_brics_streams.py",
+        "tests/browser_compulsory_channels.py",
+        "tests/browser_country_page.py",
+        "tests/browser_dashboard_snapshots.py",
+        "tests/browser_digest_preview.py",
+        "tests/browser_event_digest.py",
+        "tests/browser_finder_nested.py",
+        "tests/browser_finder_network.py",
+        "tests/browser_finder_offline.py",
+        "tests/browser_finder_static.py",
+        "tests/browser_loaded_news.py",
+        "tests/browser_map.py",
+        "tests/browser_report_styles.py",
+        "tests/browser_sample_volume.py",
+        "tests/browser_stream_config.py",
+        "tests/browser_tariff_evidence.py",
+        "tests/browser_watch_updates.py",
+        "tests/browser_weekly.py",
+        "tests/digest_cold_probe.py",
+        "tests/geospatial/preview/make_payload.py",
+        "tests/geospatial/test_geospatial.py",
+        "tests/geospatial/test_map_route.py",
+        "tests/news_export/test_fixture_http.py",
+        "tests/test_apps_script_audit.py",
+        "tests/test_article_archive.py",
+        "tests/test_branding.py",
+        "tests/test_compulsory_channels.py",
+        "tests/test_country_alerts.py",
+        "tests/test_event_reader.py",
+        "tests/test_file_audit.py",
+        "tests/test_finder_nested.py",
+        "tests/test_geo_probe_http.py",
+        "tests/test_geo_probe_process.py",
+        "tests/test_geo_sample_probe.py",
+        "tests/test_package_manifest.py",
+        "tests/test_page_watch_parser_budget.py",
+        "tests/test_preservation.py",
+        "tests/test_retention_audit.py",
+        "tests/test_rss_catalog.py",
+        "tests/test_scraper_policy.py",
+        "tests/test_tariff_evidence_plain.py"
+      ],
+      "stdlib": true,
+      "distributions": [],
+      "provenance": {
+        "source": "sys.stdlib_module_names"
+      },
+      "classification": "stdlib"
+    },
+    {
+      "import": "logging",
+      "files": [
+        "integration/geo_sample_probe_child.py"
+      ],
+      "stdlib": true,
+      "distributions": [],
+      "provenance": {
+        "source": "sys.stdlib_module_names"
+      },
+      "classification": "stdlib"
+    },
+    {
+      "import": "math",
+      "files": [
+        "integration/accounts/mongo_store.py",
+        "integration/accounts/shared_ledger_fixture.py",
+        "integration/accounts/store.py",
+        "integration/article_archive.py",
+        "integration/collector_mail_fixture.py",
+        "integration/dashboard_model.py",
+        "integration/fake_collection_writer.py",
+        "integration/fixed_parser_pipeline.py",
+        "integration/geo_article_writer.py",
+        "integration/geo_collector_contract.py",
+        "integration/geo_probe_http.py",
+        "integration/geo_queue_fixture.py",
+        "integration/geo_sample_probe.py",
+        "integration/geonews_digest/_safe.py",
+        "integration/geospatial/_safe.py",
+        "integration/map_layers.py",
+        "integration/news_export/fixture_http.py",
+        "integration/news_export/geo_snapshot.py",
+        "integration/news_export/keyset_plan.py",
+        "integration/news_export/original_stream.py",
+        "integration/preview_access.py",
+        "integration/retention_audit.py",
+        "integration/supplied_collector_pipeline.py",
+        "integration/supplied_feed_fixture.py",
+        "integration/supplied_fulltext_fixture.py",
+        "integration/supplied_multi_feed.py",
+        "integration/telegram_format_audit.py",
+        "integration/weekly_report/report.py",
+        "tests/geospatial/test_geospatial.py"
+      ],
+      "stdlib": true,
+      "distributions": [],
+      "provenance": {
+        "source": "sys.stdlib_module_names"
+      },
+      "classification": "stdlib"
+    },
+    {
+      "import": "multiprocessing",
+      "files": [
+        "tests/test_stream_disk.py"
+      ],
+      "stdlib": true,
+      "distributions": [],
+      "provenance": {
+        "source": "sys.stdlib_module_names"
+      },
+      "classification": "stdlib"
+    },
+    {
+      "import": "os",
+      "files": [
+        "integration/accounts/passwords.py",
+        "integration/feedparser_audit/child.py",
+        "integration/feedparser_audit/runner.py",
+        "integration/geo_probe_process.py",
+        "integration/geo_sample_probe_child.py",
+        "integration/private_router.py",
+        "integration/storage_settings.py",
+        "integration/stream_disk.py",
+        "tests/digest_cold_probe.py",
+        "tests/geospatial/test_geospatial.py",
+        "tests/news_export/test_export.py",
+        "tests/test_digest_cold.py",
+        "tests/test_geo_probe_process.py",
+        "tests/test_geo_read_factory.py",
+        "tests/test_geo_sample_probe.py",
+        "tests/test_preview_launcher.py",
+        "tests/test_stream_disk.py",
+        "tests/weekly_report/test_report.py"
+      ],
+      "stdlib": true,
+      "distributions": [],
+      "provenance": {
+        "source": "sys.stdlib_module_names"
+      },
+      "classification": "stdlib"
+    },
+    {
+      "import": "pathlib",
+      "files": [
+        "integration/accounts/http_fixture.py",
+        "integration/accounts/merged_fixture.py",
+        "integration/branding_meta.py",
+        "integration/collector_mail_fixture.py",
+        "integration/feedparser_audit/child.py",
+        "integration/feedparser_audit/runner.py",
+        "integration/finder_index.py",
+        "integration/fixed_parser_pipeline.py",
+        "integration/geo_collector_contract.py",
+        "integration/geo_only_runtime.py",
+        "integration/geo_probe_process.py",
+        "integration/geospatial/response.py",
+        "integration/news_api.py",
+        "integration/renderer_scope.py",
+        "integration/retention_audit.py",
+        "integration/runtime.py",
+        "integration/sqlite_reader.py",
+        "integration/stream_disk.py",
+        "integration/supplied_collector_pipeline.py",
+        "integration/supplied_feed_fixture.py",
+        "integration/supplied_fulltext_fixture.py",
+        "integration/supplied_multi_feed.py",
+        "integration/telegram_format_audit.py",
+        "scripts/audit_connections.py",
+        "scripts/package_manifest.py",
+        "tests/accounts/browser_http_fixture.py",
+        "tests/browser_brics_streams.py",
+        "tests/browser_compulsory_channels.py",
+        "tests/browser_country_page.py",
+        "tests/browser_dashboard_snapshots.py",
+        "tests/browser_digest_preview.py",
+        "tests/browser_event_digest.py",
+        "tests/browser_finder_nested.py",
+        "tests/browser_finder_network.py",
+        "tests/browser_finder_offline.py",
+        "tests/browser_finder_static.py",
+        "tests/browser_loaded_news.py",
+        "tests/browser_map.py",
+        "tests/browser_report_styles.py",
+        "tests/browser_sample_volume.py",
+        "tests/browser_stream_config.py",
+        "tests/browser_tariff_evidence.py",
+        "tests/browser_watch_updates.py",
+        "tests/browser_weekly.py",
+        "tests/geonews_digest/test_digest.py",
+        "tests/geospatial/preview/make_payload.py",
+        "tests/geospatial/test_geospatial.py",
+        "tests/geospatial/test_map_route.py",
+        "tests/news_export/test_export.py",
+        "tests/news_export/test_export_route.py",
+        "tests/news_export/test_fixture_http.py",
+        "tests/news_export/test_original_contract.py",
+        "tests/test_apps_script_audit.py",
+        "tests/test_branding.py",
+        "tests/test_compulsory_channels.py",
+        "tests/test_digest_cold.py",
+        "tests/test_env_example.py",
+        "tests/test_file_audit.py",
+        "tests/test_finder_index.py",
+        "tests/test_finder_nested.py",
+        "tests/test_finder_offline.py",
+        "tests/test_geo_queue_fixture.py",
+        "tests/test_preservation.py",
+        "tests/test_preview_launcher.py",
+        "tests/test_refresh_controller.py",
+        "tests/test_rss_catalog.py",
+        "tests/test_scraper_policy.py",
+        "tests/test_security_review.py",
+        "tests/test_shared_service_fixture.py",
+        "tests/test_storage_settings.py",
+        "tests/test_stream_config.py",
+        "tests/test_stream_disk.py",
+        "tests/test_stream_fixture_app.py",
+        "tests/test_stream_revision.py",
+        "tests/test_watch_updates.py",
+        "tests/weekly_report/test_report.py"
+      ],
+      "stdlib": true,
+      "distributions": [],
+      "provenance": {
+        "source": "sys.stdlib_module_names"
+      },
+      "classification": "stdlib"
+    },
+    {
+      "import": "pickle",
+      "files": [
+        "tests/accounts/test_reservation_terminal.py"
+      ],
+      "stdlib": true,
+      "distributions": [],
+      "provenance": {
+        "source": "sys.stdlib_module_names"
+      },
+      "classification": "stdlib"
+    },
+    {
+      "import": "pikepdf",
+      "files": [
+        "tests/weekly_report/test_report.py"
+      ],
+      "stdlib": false,
+      "distributions": [],
+      "provenance": {
+        "source": "distribution metadata lookup",
+        "result": "PackageNotFoundError"
+      },
+      "classification": "optional_absent"
+    },
+    {
+      "import": "playwright",
+      "files": [
+        "tests/accounts/browser_http_fixture.py",
+        "tests/browser_brics_streams.py",
+        "tests/browser_compulsory_channels.py",
+        "tests/browser_country_page.py",
+        "tests/browser_dashboard_snapshots.py",
+        "tests/browser_digest_preview.py",
+        "tests/browser_event_digest.py",
+        "tests/browser_finder_nested.py",
+        "tests/browser_finder_network.py",
+        "tests/browser_finder_offline.py",
+        "tests/browser_finder_static.py",
+        "tests/browser_loaded_news.py",
+        "tests/browser_map.py",
+        "tests/browser_report_styles.py",
+        "tests/browser_sample_volume.py",
+        "tests/browser_stream_config.py",
+        "tests/browser_tariff_evidence.py",
+        "tests/browser_watch_updates.py",
+        "tests/browser_weekly.py"
+      ],
+      "stdlib": false,
+      "distributions": [
+        {
+          "name": "playwright",
+          "version": "1.48.0",
+          "requires": [
+            "greenlet ==3.1.1",
+            "pyee ==12.0.0"
+          ]
+        }
+      ],
+      "provenance": {
+        "source": "packages_distributions",
+        "matching_files": {}
+      },
+      "classification": "excluded"
+    },
+    {
+      "import": "pymongo",
+      "files": [
+        "integration/accounts/mongo_store.py",
+        "integration/geo_article_writer.py",
+        "integration/geo_read_factory.py",
+        "integration/geo_sample_probe.py",
+        "integration/runtime.py",
+        "tests/test_geo_article_writer.py",
+        "tests/test_geo_sample_probe.py",
+        "tests/test_mongo_account_store.py"
+      ],
+      "stdlib": false,
+      "distributions": [
+        {
+          "name": "pymongo",
+          "version": "4.8.0",
+          "requires": [
+            "dnspython<3.0.0,>=1.16.0",
+            "pymongo-auth-aws<2.0.0,>=1.1.0; extra == 'aws'",
+            "furo==2023.9.10; extra == 'docs'",
+            "readthedocs-sphinx-search~=0.3; extra == 'docs'",
+            "sphinx-rtd-theme<3,>=2; extra == 'docs'",
+            "sphinx<8,>=5.3; extra == 'docs'",
+            "sphinxcontrib-shellcheck<2,>=1; extra == 'docs'",
+            "certifi; (os_name == 'nt' or sys_platform == 'darwin') and extra == 'encryption'",
+            "pymongo-auth-aws<2.0.0,>=1.1.0; extra == 'encryption'",
+            "pymongocrypt<2.0.0,>=1.6.0; extra == 'encryption'",
+            "pykerberos; (os_name != 'nt') and extra == 'gssapi'",
+            "winkerberos>=0.5.0; (os_name == 'nt') and extra == 'gssapi'",
+            "certifi; (os_name == 'nt' or sys_platform == 'darwin') and extra == 'ocsp'",
+            "cryptography>=2.5; extra == 'ocsp'",
+            "pyopenssl>=17.2.0; extra == 'ocsp'",
+            "requests<3.0.0; extra == 'ocsp'",
+            "service-identity>=18.1.0; extra == 'ocsp'",
+            "python-snappy; extra == 'snappy'",
+            "pytest>=7; extra == 'test'",
+            "zstandard; extra == 'zstd'"
+          ]
+        }
+      ],
+      "provenance": {
+        "source": "distribution files metadata",
+        "matching_files": {
+          "pymongo": [
+            "pymongo/__init__.py",
+            "pymongo/__pycache__/__init__.cpython-310.pyc",
+            "pymongo/__pycache__/_azure_helpers.cpython-310.pyc",
+            "pymongo/__pycache__/_csot.cpython-310.pyc",
+            "pymongo/__pycache__/_gcp_helpers.cpython-310.pyc",
+            "pymongo/__pycache__/_version.cpython-310.pyc",
+            "pymongo/__pycache__/aggregation.cpython-310.pyc",
+            "pymongo/__pycache__/auth.cpython-310.pyc",
+            "pymongo/__pycache__/auth_aws.cpython-310.pyc",
+            "pymongo/__pycache__/auth_oidc.cpython-310.pyc",
+            "pymongo/__pycache__/bulk.cpython-310.pyc",
+            "pymongo/__pycache__/change_stream.cpython-310.pyc",
+            "pymongo/__pycache__/client_options.cpython-310.pyc",
+            "pymongo/__pycache__/client_session.cpython-310.pyc",
+            "pymongo/__pycache__/collation.cpython-310.pyc",
+            "pymongo/__pycache__/collection.cpython-310.pyc",
+            "pymongo/__pycache__/command_cursor.cpython-310.pyc",
+            "pymongo/__pycache__/common.cpython-310.pyc",
+            "pymongo/__pycache__/compression_support.cpython-310.pyc",
+            "pymongo/__pycache__/cursor.cpython-310.pyc",
+            "pymongo/__pycache__/daemon.cpython-310.pyc",
+            "pymongo/__pycache__/database.cpython-310.pyc",
+            "pymongo/__pycache__/driver_info.cpython-310.pyc",
+            "pymongo/__pycache__/encryption.cpython-310.pyc",
+            "pymongo/__pycache__/encryption_options.cpython-310.pyc",
+            "pymongo/__pycache__/errors.cpython-310.pyc",
+            "pymongo/__pycache__/event_loggers.cpython-310.pyc",
+            "pymongo/__pycache__/hello.cpython-310.pyc",
+            "pymongo/__pycache__/helpers.cpython-310.pyc",
+            "pymongo/__pycache__/lock.cpython-310.pyc",
+            "pymongo/__pycache__/logger.cpython-310.pyc",
+            "pymongo/__pycache__/max_staleness_selectors.cpython-310.pyc",
+            "pymongo/__pycache__/message.cpython-310.pyc",
+            "pymongo/__pycache__/mongo_client.cpython-310.pyc",
+            "pymongo/__pycache__/monitor.cpython-310.pyc",
+            "pymongo/__pycache__/monitoring.cpython-310.pyc",
+            "pymongo/__pycache__/network.cpython-310.pyc",
+            "pymongo/__pycache__/ocsp_cache.cpython-310.pyc",
+            "pymongo/__pycache__/ocsp_support.cpython-310.pyc",
+            "pymongo/__pycache__/operations.cpython-310.pyc",
+            "pymongo/__pycache__/periodic_executor.cpython-310.pyc",
+            "pymongo/__pycache__/pool.cpython-310.pyc",
+            "pymongo/__pycache__/pyopenssl_context.cpython-310.pyc",
+            "pymongo/__pycache__/read_concern.cpython-310.pyc",
+            "pymongo/__pycache__/read_preferences.cpython-310.pyc",
+            "pymongo/__pycache__/response.cpython-310.pyc",
+            "pymongo/__pycache__/results.cpython-310.pyc",
+            "pymongo/__pycache__/saslprep.cpython-310.pyc",
+            "pymongo/__pycache__/server.cpython-310.pyc",
+            "pymongo/__pycache__/server_api.cpython-310.pyc",
+            "pymongo/__pycache__/server_description.cpython-310.pyc",
+            "pymongo/__pycache__/server_selectors.cpython-310.pyc",
+            "pymongo/__pycache__/server_type.cpython-310.pyc",
+            "pymongo/__pycache__/settings.cpython-310.pyc",
+            "pymongo/__pycache__/socket_checker.cpython-310.pyc",
+            "pymongo/__pycache__/srv_resolver.cpython-310.pyc",
+            "pymongo/__pycache__/ssl_context.cpython-310.pyc",
+            "pymongo/__pycache__/ssl_support.cpython-310.pyc",
+            "pymongo/__pycache__/topology.cpython-310.pyc",
+            "pymongo/__pycache__/topology_description.cpython-310.pyc",
+            "pymongo/__pycache__/typings.cpython-310.pyc",
+            "pymongo/__pycache__/uri_parser.cpython-310.pyc",
+            "pymongo/__pycache__/write_concern.cpython-310.pyc",
+            "pymongo/_azure_helpers.py",
+            "pymongo/_cmessage.cpython-310-x86_64-linux-gnu.so",
+            "pymongo/_cmessage.cpython-38-x86_64-linux-gnu.so",
+            "pymongo/_cmessage.cpython-39-x86_64-linux-gnu.so",
+            "pymongo/_cmessagemodule.c",
+            "pymongo/_csot.py",
+            "pymongo/_gcp_helpers.py",
+            "pymongo/_version.py",
+            "pymongo/aggregation.py",
+            "pymongo/auth.py",
+            "pymongo/auth_aws.py",
+            "pymongo/auth_oidc.py",
+            "pymongo/bulk.py",
+            "pymongo/change_stream.py",
+            "pymongo/client_options.py",
+            "pymongo/client_session.py",
+            "pymongo/collation.py",
+            "pymongo/collection.py",
+            "pymongo/command_cursor.py",
+            "pymongo/common.py",
+            "pymongo/compression_support.py",
+            "pymongo/cursor.py",
+            "pymongo/daemon.py",
+            "pymongo/database.py",
+            "pymongo/driver_info.py",
+            "pymongo/encryption.py",
+            "pymongo/encryption_options.py",
+            "pymongo/errors.py",
+            "pymongo/event_loggers.py",
+            "pymongo/hello.py",
+            "pymongo/helpers.py",
+            "pymongo/lock.py",
+            "pymongo/logger.py",
+            "pymongo/max_staleness_selectors.py",
+            "pymongo/message.py",
+            "pymongo/mongo_client.py",
+            "pymongo/monitor.py",
+            "pymongo/monitoring.py",
+            "pymongo/network.py",
+            "pymongo/ocsp_cache.py",
+            "pymongo/ocsp_support.py",
+            "pymongo/operations.py",
+            "pymongo/periodic_executor.py",
+            "pymongo/pool.py",
+            "pymongo/py.typed",
+            "pymongo/pyopenssl_context.py",
+            "pymongo/read_concern.py",
+            "pymongo/read_preferences.py",
+            "pymongo/response.py",
+            "pymongo/results.py",
+            "pymongo/saslprep.py",
+            "pymongo/server.py",
+            "pymongo/server_api.py",
+            "pymongo/server_description.py",
+            "pymongo/server_selectors.py",
+            "pymongo/server_type.py",
+            "pymongo/settings.py",
+            "pymongo/socket_checker.py",
+            "pymongo/srv_resolver.py",
+            "pymongo/ssl_context.py",
+            "pymongo/ssl_support.py",
+            "pymongo/topology.py",
+            "pymongo/topology_description.py",
+            "pymongo/typings.py",
+            "pymongo/uri_parser.py",
+            "pymongo/write_concern.py"
+          ]
+        }
+      },
+      "classification": "required_distribution"
+    },
+    {
+      "import": "pypdf",
+      "files": [
+        "tests/test_weekly_routes.py",
+        "tests/weekly_report/test_report.py"
+      ],
+      "stdlib": false,
+      "distributions": [
+        {
+          "name": "pypdf",
+          "version": "5.0.1",
+          "requires": [
+            "typing_extensions >= 4.0; python_version < '3.11'",
+            "cryptography ; extra == \"crypto\" and ( python_version >= '3.7')",
+            "PyCryptodome ; extra == \"crypto\" and ( python_version == '3.6')",
+            "black ; extra == \"dev\"",
+            "pip-tools ; extra == \"dev\"",
+            "pre-commit<2.18.0 ; extra == \"dev\"",
+            "pytest-cov ; extra == \"dev\"",
+            "pytest-socket ; extra == \"dev\"",
+            "pytest-timeout ; extra == \"dev\"",
+            "flit ; extra == \"dev\"",
+            "wheel ; extra == \"dev\"",
+            "pytest-xdist ; extra == \"dev\"",
+            "sphinx ; extra == \"docs\"",
+            "sphinx_rtd_theme ; extra == \"docs\"",
+            "myst_parser ; extra == \"docs\"",
+            "cryptography ; extra == \"full\" and ( python_version >= '3.7')",
+            "PyCryptodome ; extra == \"full\" and ( python_version == '3.6')",
+            "Pillow>=8.0.0 ; extra == \"full\"",
+            "Pillow>=8.0.0 ; extra == \"image\""
+          ]
+        }
+      ],
+      "provenance": {
+        "source": "distribution files metadata",
+        "matching_files": {
+          "pypdf": [
+            "pypdf/__init__.py",
+            "pypdf/__pycache__/__init__.cpython-310.pyc",
+            "pypdf/__pycache__/_cmap.cpython-310.pyc",
+            "pypdf/__pycache__/_doc_common.cpython-310.pyc",
+            "pypdf/__pycache__/_encryption.cpython-310.pyc",
+            "pypdf/__pycache__/_merger.cpython-310.pyc",
+            "pypdf/__pycache__/_page.cpython-310.pyc",
+            "pypdf/__pycache__/_page_labels.cpython-310.pyc",
+            "pypdf/__pycache__/_protocols.cpython-310.pyc",
+            "pypdf/__pycache__/_reader.cpython-310.pyc",
+            "pypdf/__pycache__/_utils.cpython-310.pyc",
+            "pypdf/__pycache__/_version.cpython-310.pyc",
+            "pypdf/__pycache__/_writer.cpython-310.pyc",
+            "pypdf/__pycache__/_xobj_image_helpers.cpython-310.pyc",
+            "pypdf/__pycache__/constants.cpython-310.pyc",
+            "pypdf/__pycache__/errors.cpython-310.pyc",
+            "pypdf/__pycache__/filters.cpython-310.pyc",
+            "pypdf/__pycache__/pagerange.cpython-310.pyc",
+            "pypdf/__pycache__/papersizes.cpython-310.pyc",
+            "pypdf/__pycache__/types.cpython-310.pyc",
+            "pypdf/__pycache__/xmp.cpython-310.pyc",
+            "pypdf/_cmap.py",
+            "pypdf/_codecs/__init__.py",
+            "pypdf/_codecs/__pycache__/__init__.cpython-310.pyc",
+            "pypdf/_codecs/__pycache__/adobe_glyphs.cpython-310.pyc",
+            "pypdf/_codecs/__pycache__/pdfdoc.cpython-310.pyc",
+            "pypdf/_codecs/__pycache__/std.cpython-310.pyc",
+            "pypdf/_codecs/__pycache__/symbol.cpython-310.pyc",
+            "pypdf/_codecs/__pycache__/zapfding.cpython-310.pyc",
+            "pypdf/_codecs/adobe_glyphs.py",
+            "pypdf/_codecs/pdfdoc.py",
+            "pypdf/_codecs/std.py",
+            "pypdf/_codecs/symbol.py",
+            "pypdf/_codecs/zapfding.py",
+            "pypdf/_crypt_providers/__init__.py",
+            "pypdf/_crypt_providers/__pycache__/__init__.cpython-310.pyc",
+            "pypdf/_crypt_providers/__pycache__/_base.cpython-310.pyc",
+            "pypdf/_crypt_providers/__pycache__/_cryptography.cpython-310.pyc",
+            "pypdf/_crypt_providers/__pycache__/_fallback.cpython-310.pyc",
+            "pypdf/_crypt_providers/__pycache__/_pycryptodome.cpython-310.pyc",
+            "pypdf/_crypt_providers/_base.py",
+            "pypdf/_crypt_providers/_cryptography.py",
+            "pypdf/_crypt_providers/_fallback.py",
+            "pypdf/_crypt_providers/_pycryptodome.py",
+            "pypdf/_doc_common.py",
+            "pypdf/_encryption.py",
+            "pypdf/_merger.py",
+            "pypdf/_page.py",
+            "pypdf/_page_labels.py",
+            "pypdf/_protocols.py",
+            "pypdf/_reader.py",
+            "pypdf/_text_extraction/__init__.py",
+            "pypdf/_text_extraction/__pycache__/__init__.cpython-310.pyc",
+            "pypdf/_text_extraction/_layout_mode/__init__.py",
+            "pypdf/_text_extraction/_layout_mode/__pycache__/__init__.cpython-310.pyc",
+            "pypdf/_text_extraction/_layout_mode/__pycache__/_fixed_width_page.cpython-310.pyc",
+            "pypdf/_text_extraction/_layout_mode/__pycache__/_font.cpython-310.pyc",
+            "pypdf/_text_extraction/_layout_mode/__pycache__/_font_widths.cpython-310.pyc",
+            "pypdf/_text_extraction/_layout_mode/__pycache__/_text_state_manager.cpython-310.pyc",
+            "pypdf/_text_extraction/_layout_mode/__pycache__/_text_state_params.cpython-310.pyc",
+            "pypdf/_text_extraction/_layout_mode/_fixed_width_page.py",
+            "pypdf/_text_extraction/_layout_mode/_font.py",
+            "pypdf/_text_extraction/_layout_mode/_font_widths.py",
+            "pypdf/_text_extraction/_layout_mode/_text_state_manager.py",
+            "pypdf/_text_extraction/_layout_mode/_text_state_params.py",
+            "pypdf/_utils.py",
+            "pypdf/_version.py",
+            "pypdf/_writer.py",
+            "pypdf/_xobj_image_helpers.py",
+            "pypdf/annotations/__init__.py",
+            "pypdf/annotations/__pycache__/__init__.cpython-310.pyc",
+            "pypdf/annotations/__pycache__/_base.cpython-310.pyc",
+            "pypdf/annotations/__pycache__/_markup_annotations.cpython-310.pyc",
+            "pypdf/annotations/__pycache__/_non_markup_annotations.cpython-310.pyc",
+            "pypdf/annotations/_base.py",
+            "pypdf/annotations/_markup_annotations.py",
+            "pypdf/annotations/_non_markup_annotations.py",
+            "pypdf/constants.py",
+            "pypdf/errors.py",
+            "pypdf/filters.py",
+            "pypdf/generic/__init__.py",
+            "pypdf/generic/__pycache__/__init__.cpython-310.pyc",
+            "pypdf/generic/__pycache__/_base.cpython-310.pyc",
+            "pypdf/generic/__pycache__/_data_structures.cpython-310.pyc",
+            "pypdf/generic/__pycache__/_fit.cpython-310.pyc",
+            "pypdf/generic/__pycache__/_image_inline.cpython-310.pyc",
+            "pypdf/generic/__pycache__/_outline.cpython-310.pyc",
+            "pypdf/generic/__pycache__/_rectangle.cpython-310.pyc",
+            "pypdf/generic/__pycache__/_utils.cpython-310.pyc",
+            "pypdf/generic/__pycache__/_viewerpref.cpython-310.pyc",
+            "pypdf/generic/_base.py",
+            "pypdf/generic/_data_structures.py",
+            "pypdf/generic/_fit.py",
+            "pypdf/generic/_image_inline.py",
+            "pypdf/generic/_outline.py",
+            "pypdf/generic/_rectangle.py",
+            "pypdf/generic/_utils.py",
+            "pypdf/generic/_viewerpref.py",
+            "pypdf/pagerange.py",
+            "pypdf/papersizes.py",
+            "pypdf/py.typed",
+            "pypdf/types.py",
+            "pypdf/xmp.py"
+          ]
+        }
+      },
+      "classification": "required_distribution"
+    },
+    {
+      "import": "random",
+      "files": [
+        "tests/geospatial/test_geospatial.py",
+        "tests/news_export/test_export.py"
+      ],
+      "stdlib": true,
+      "distributions": [],
+      "provenance": {
+        "source": "sys.stdlib_module_names"
+      },
+      "classification": "stdlib"
+    },
+    {
+      "import": "re",
+      "files": [
+        "integration/accounts/csrf.py",
+        "integration/accounts/merged_fixture.py",
+        "integration/accounts/passwords.py",
+        "integration/accounts/validators.py",
+        "integration/agencia_parser.py",
+        "integration/article_archive.py",
+        "integration/branding_meta.py",
+        "integration/brics_streams.py",
+        "integration/country_alerts.py",
+        "integration/dashboard_snapshots.py",
+        "integration/feedparser_audit/child.py",
+        "integration/finder_index.py",
+        "integration/finder_links.py",
+        "integration/finder_nested.py",
+        "integration/finder_offline.py",
+        "integration/geo_queue_fixture.py",
+        "integration/geonews_digest/_safe.py",
+        "integration/geonews_digest/delivery.py",
+        "integration/geospatial/_safe.py",
+        "integration/html_safety.py",
+        "integration/map_layers.py",
+        "integration/news_api.py",
+        "integration/news_export/export.py",
+        "integration/news_export/keyset_plan.py",
+        "integration/news_export/original_contract.py",
+        "integration/page_watch.py",
+        "integration/preview_access.py",
+        "integration/relevance.py",
+        "integration/report_styles.py",
+        "integration/rss_catalog/catalog.py",
+        "integration/single_db_plan.py",
+        "integration/stream_revision.py",
+        "integration/supplied_feed_fixture.py",
+        "integration/tariff_evidence.py",
+        "integration/taxonomy.py",
+        "integration/weekly_report/report.py",
+        "integration/youtube_links.py",
+        "scripts/audit_connections.py",
+        "tests/accounts/test_merged_fixture.py",
+        "tests/geonews_digest/test_digest.py",
+        "tests/geospatial/test_geospatial.py",
+        "tests/test_env_example.py",
+        "tests/test_finder_nested.py",
+        "tests/test_finder_offline.py",
+        "tests/test_geo_only_runtime.py",
+        "tests/test_geo_probe_http.py",
+        "tests/test_preview_access.py",
+        "tests/test_supplied_collector_pipeline.py",
+        "tests/test_supplied_multi_feed.py",
+        "tests/weekly_report/test_report.py"
+      ],
+      "stdlib": true,
+      "distributions": [],
+      "provenance": {
+        "source": "sys.stdlib_module_names"
+      },
+      "classification": "stdlib"
+    },
+    {
+      "import": "requests",
+      "files": [
+        "tests/digest_cold_probe.py"
+      ],
+      "stdlib": false,
+      "distributions": [
+        {
+          "name": "requests",
+          "version": "2.32.3",
+          "requires": [
+            "charset-normalizer <4,>=2",
+            "idna <4,>=2.5",
+            "urllib3 <3,>=1.21.1",
+            "certifi >=2017.4.17",
+            "PySocks !=1.5.7,>=1.5.6 ; extra == 'socks'",
+            "chardet <6,>=3.0.2 ; extra == 'use_chardet_on_py3'"
+          ]
+        }
+      ],
+      "provenance": {
+        "source": "packages_distributions",
+        "matching_files": {}
+      },
+      "classification": "required_distribution"
+    },
+    {
+      "import": "resource",
+      "files": [
+        "integration/feedparser_audit/child.py"
+      ],
+      "stdlib": true,
+      "distributions": [],
+      "provenance": {
+        "source": "sys.stdlib_module_names"
+      },
+      "classification": "stdlib"
+    },
+    {
+      "import": "scripts",
+      "files": [
+        "tests/test_file_audit.py",
+        "tests/test_package_manifest.py"
+      ],
+      "stdlib": false,
+      "distributions": [],
+      "provenance": {
+        "source": "baseline scoped file paths",
+        "paths": [
+          "scripts/package_manifest.py",
+          "scripts/audit_connections.py"
+        ]
+      },
+      "classification": "local"
+    },
+    {
+      "import": "secrets",
+      "files": [
+        "integration/accounts/limiter.py",
+        "integration/accounts/service.py",
+        "integration/accounts/shared_ledger_fixture.py",
+        "integration/geo_probe_http.py",
+        "integration/preview_access.py"
+      ],
+      "stdlib": true,
+      "distributions": [],
+      "provenance": {
+        "source": "sys.stdlib_module_names"
+      },
+      "classification": "stdlib"
+    },
+    {
+      "import": "selectors",
+      "files": [
+        "integration/feedparser_audit/runner.py",
+        "integration/geo_probe_process.py"
+      ],
+      "stdlib": true,
+      "distributions": [],
+      "provenance": {
+        "source": "sys.stdlib_module_names"
+      },
+      "classification": "stdlib"
+    },
+    {
+      "import": "sgmllib",
+      "files": [
+        "integration/feedparser_audit/child.py"
+      ],
+      "stdlib": false,
+      "distributions": [
+        {
+          "name": "sgmllib3k",
+          "version": "1.0.0",
+          "requires": []
+        }
+      ],
+      "provenance": {
+        "source": "packages_distributions",
+        "matching_files": {}
+      },
+      "classification": "required_distribution"
+    },
+    {
+      "import": "shutil",
+      "files": [
+        "tests/geospatial/test_geospatial.py"
+      ],
+      "stdlib": true,
+      "distributions": [],
+      "provenance": {
+        "source": "sys.stdlib_module_names"
+      },
+      "classification": "stdlib"
+    },
+    {
+      "import": "smtplib",
+      "files": [
+        "integration/geonews_digest/delivery.py",
+        "tests/digest_cold_probe.py"
+      ],
+      "stdlib": true,
+      "distributions": [],
+      "provenance": {
+        "source": "sys.stdlib_module_names"
+      },
+      "classification": "stdlib"
+    },
+    {
+      "import": "socket",
+      "files": [
+        "integration/feedparser_audit/child.py",
+        "tests/accounts/test_accounts.py",
+        "tests/digest_cold_probe.py",
+        "tests/geonews_digest/test_digest.py",
+        "tests/geospatial/test_geospatial.py",
+        "tests/news_export/test_export.py",
+        "tests/news_export/test_fixture_serving.py"
+      ],
+      "stdlib": true,
+      "distributions": [],
+      "provenance": {
+        "source": "sys.stdlib_module_names"
+      },
+      "classification": "stdlib"
+    },
+    {
+      "import": "sqlite3",
+      "files": [
+        "integration/sqlite_reader.py",
+        "tests/test_storage_settings.py"
+      ],
+      "stdlib": true,
+      "distributions": [],
+      "provenance": {
+        "source": "sys.stdlib_module_names"
+      },
+      "classification": "stdlib"
+    },
+    {
+      "import": "ssl",
+      "files": [
+        "integration/geonews_digest/delivery.py"
+      ],
+      "stdlib": true,
+      "distributions": [],
+      "provenance": {
+        "source": "sys.stdlib_module_names"
+      },
+      "classification": "stdlib"
+    },
+    {
+      "import": "stat",
+      "files": [
+        "integration/stream_disk.py"
+      ],
+      "stdlib": true,
+      "distributions": [],
+      "provenance": {
+        "source": "sys.stdlib_module_names"
+      },
+      "classification": "stdlib"
+    },
+    {
+      "import": "struct",
+      "files": [
+        "tests/news_export/test_fixture_serving.py"
+      ],
+      "stdlib": true,
+      "distributions": [],
+      "provenance": {
+        "source": "sys.stdlib_module_names"
+      },
+      "classification": "stdlib"
+    },
+    {
+      "import": "subprocess",
+      "files": [
+        "integration/apps_script_audit/labeled_run.py",
+        "integration/feedparser_audit/runner.py",
+        "integration/geo_probe_process.py",
+        "tests/accounts/browser_http_fixture.py",
+        "tests/geospatial/test_geospatial.py",
+        "tests/news_export/test_fixture_http.py",
+        "tests/test_apps_script_audit.py",
+        "tests/test_collection_prepare.py",
+        "tests/test_compulsory_channels.py",
+        "tests/test_digest_cold.py",
+        "tests/test_env_example.py",
+        "tests/test_finder_nested.py",
+        "tests/test_fixed_feedparser_audit.py",
+        "tests/test_geo_probe_process.py",
+        "tests/test_page_watch_parser_budget.py",
+        "tests/test_preview_access.py",
+        "tests/test_refresh_controller.py",
+        "tests/test_watch_updates.py"
+      ],
+      "stdlib": true,
+      "distributions": [],
+      "provenance": {
+        "source": "sys.stdlib_module_names"
+      },
+      "classification": "stdlib"
+    },
+    {
+      "import": "symtable",
+      "files": [
+        "integration/renderer_scope.py"
+      ],
+      "stdlib": true,
+      "distributions": [],
+      "provenance": {
+        "source": "sys.stdlib_module_names"
+      },
+      "classification": "stdlib"
+    },
+    {
+      "import": "sys",
+      "files": [
+        "integration/apps_script_audit/labeled_run.py",
+        "integration/feedparser_audit/child.py",
+        "integration/feedparser_audit/runner.py",
+        "integration/geo_probe_process.py",
+        "integration/geo_sample_probe_child.py",
+        "scripts/package_manifest.py",
+        "tests/accounts/browser_http_fixture.py",
+        "tests/browser_brics_streams.py",
+        "tests/browser_compulsory_channels.py",
+        "tests/browser_country_page.py",
+        "tests/browser_dashboard_snapshots.py",
+        "tests/browser_digest_preview.py",
+        "tests/browser_event_digest.py",
+        "tests/browser_finder_nested.py",
+        "tests/browser_finder_network.py",
+        "tests/browser_finder_offline.py",
+        "tests/browser_finder_static.py",
+        "tests/browser_loaded_news.py",
+        "tests/browser_map.py",
+        "tests/browser_report_styles.py",
+        "tests/browser_sample_volume.py",
+        "tests/browser_stream_config.py",
+        "tests/browser_tariff_evidence.py",
+        "tests/browser_watch_updates.py",
+        "tests/browser_weekly.py",
+        "tests/digest_cold_probe.py",
+        "tests/geospatial/preview/make_payload.py",
+        "tests/geospatial/test_geospatial.py",
+        "tests/geospatial/test_map_route.py",
+        "tests/news_export/test_export.py",
+        "tests/news_export/test_export_route.py",
+        "tests/news_export/test_fixture_http.py",
+        "tests/news_export/test_fixture_serving.py",
+        "tests/test_collection_prepare.py",
+        "tests/test_digest_cold.py",
+        "tests/test_fixed_feedparser_audit.py",
+        "tests/test_geo_probe_process.py",
+        "tests/test_geo_read_factory.py",
+        "tests/test_page_watch_parser_budget.py",
+        "tests/test_preview_access.py",
+        "tests/test_preview_launcher.py",
+        "tests/test_security_review.py",
+        "tests/test_supplied_feed_fixture.py",
+        "tests/test_supplied_fulltext_fixture.py"
+      ],
+      "stdlib": true,
+      "distributions": [],
+      "provenance": {
+        "source": "sys.stdlib_module_names"
+      },
+      "classification": "stdlib"
+    },
+    {
+      "import": "tempfile",
+      "files": [
+        "integration/stream_disk.py",
+        "tests/accounts/browser_http_fixture.py",
+        "tests/geospatial/test_geospatial.py",
+        "tests/geospatial/test_map_route.py",
+        "tests/test_env_example.py",
+        "tests/test_finder_index.py",
+        "tests/test_storage_settings.py",
+        "tests/test_stream_disk.py"
+      ],
+      "stdlib": true,
+      "distributions": [],
+      "provenance": {
+        "source": "sys.stdlib_module_names"
+      },
+      "classification": "stdlib"
+    },
+    {
+      "import": "test_bridges",
+      "files": [
+        "tests/test_dashboard_stats.py",
+        "tests/test_workspace.py"
+      ],
+      "stdlib": false,
+      "distributions": [],
+      "provenance": {
+        "source": "baseline scoped file paths",
+        "paths": [
+          "tests/test_bridges.py"
+        ]
+      },
+      "classification": "local"
+    },
+    {
+      "import": "tests",
+      "files": [
+        "tests/accounts/test_reservation_terminal.py",
+        "tests/news_export/test_fixture_serving.py",
+        "tests/test_geo_event_composition.py",
+        "tests/test_geo_read_factory.py",
+        "tests/test_geo_sample_probe.py",
+        "tests/test_invite_expiry.py",
+        "tests/test_preview_launcher.py"
+      ],
+      "stdlib": false,
+      "distributions": [],
+      "provenance": {
+        "source": "baseline scoped file paths",
+        "paths": [
+          "tests/test_finder_index.py",
+          "tests/test_geo_probe_process.py",
+          "tests/test_tariff_evidence_plain.py",
+          "tests/browser_tariff_evidence.py",
+          "tests/test_event_reader.py",
+          "tests/test_security_review.py",
+          "tests/test_finder_nested.py",
+          "tests/test_fake_collection_writer.py",
+          "tests/test_env_example.py",
+          "tests/browser_finder_nested.py",
+          "tests/test_supplied_multi_feed.py",
+          "tests/browser_brics_streams.py",
+          "tests/test_agencia_parser.py",
+          "tests/test_storage_reader.py",
+          "tests/test_digest_preview_routes.py",
+          "tests/test_supplied_fulltext_fixture.py",
+          "tests/test_mongo_account_store.py",
+          "tests/test_loaded_news.py",
+          "tests/test_storage_settings.py",
+          "tests/test_weekly_routes.py",
+          "tests/test_file_audit.py",
+          "tests/test_shared_service_fixture.py",
+          "tests/test_shared_ledger_fixture.py",
+          "tests/test_live_news_ui.py",
+          "tests/test_watch_updates.py",
+          "tests/browser_compulsory_channels.py",
+          "tests/test_critical_stories.py",
+          "tests/test_finder_network.py",
+          "tests/test_preview_access.py",
+          "tests/browser_finder_network.py",
+          "tests/test_map_layers.py",
+          "tests/test_source_health.py",
+          "tests/test_branding.py",
+          "tests/test_geo_only_runtime.py",
+          "tests/test_cross_routes.py",
+          "tests/test_runtime.py",
+          "tests/test_dashboard_snapshots.py",
+          "tests/browser_watch_updates.py",
+          "tests/test_stream_revision.py",
+          "tests/__init__.py",
+          "tests/browser_digest_preview.py",
+          "tests/test_geo_sample_probe.py",
+          "tests/browser_finder_static.py",
+          "tests/test_bridges.py",
+          "tests/test_article_archive.py",
+          "tests/browser_country_page.py",
+          "tests/test_report_styles.py",
+          "tests/test_preview_launcher.py",
+          "tests/test_invite_expiry.py",
+          "tests/test_mail_bridge.py",
+          "tests/browser_stream_config.py",
+          "tests/test_compulsory_channels.py",
+          "tests/test_workspace.py",
+          "tests/test_sample_volume.py",
+          "tests/test_fixed_parser_pipeline.py",
+          "tests/test_stream_config.py",
+          "tests/test_geo_collector_contract.py",
+          "tests/test_scraper_policy.py",
+          "tests/browser_dashboard_snapshots.py",
+          "tests/browser_sample_volume.py",
+          "tests/test_supplied_collector_pipeline.py",
+          "tests/test_report_preview_frame.py",
+          "tests/test_project_reports.py",
+          "tests/test_country_page.py",
+          "tests/digest_cold_probe.py",
+          "tests/test_geo_read_factory.py",
+          "tests/test_finder_offline.py",
+          "tests/test_page_watch.py",
+          "tests/browser_finder_offline.py",
+          "tests/test_page_watch_contract.py",
+          "tests/test_private_news_fields.py",
+          "tests/browser_report_styles.py",
+          "tests/test_stream_disk.py",
+          "tests/test_refresh_controller.py",
+          "tests/test_country_signals.py",
+          "tests/test_geo_snapshot.py",
+          "tests/test_geo_article_writer.py",
+          "tests/browser_map.py",
+          "tests/test_site_parsers.py",
+          "tests/test_geo_queue_fixture.py",
+          "tests/test_fixed_feedparser_audit.py",
+          "tests/test_single_db_plan.py",
+          "tests/test_dashboard_stats.py",
+          "tests/test_original_dashboard_payloads.py",
+          "tests/test_retention_audit.py",
+          "tests/test_package_manifest.py",
+          "tests/test_original_reports.py",
+          "tests/browser_loaded_news.py",
+          "tests/test_loaded_charts.py",
+          "tests/test_collector_mail_fixture.py",
+          "tests/test_country_alerts.py",
+          "tests/test_collection_prepare.py",
+          "tests/test_offline_collection_cycle.py",
+          "tests/test_tariff_evidence.py",
+          "tests/test_single_db_runtime.py",
+          "tests/browser_weekly.py",
+          "tests/test_stream_fixture_app.py",
+          "tests/test_geo_rolling_breakdown.py",
+          "tests/test_youtube_links.py",
+          "tests/test_pagewatch_report_contract.py",
+          "tests/test_telegram_format_audit.py",
+          "tests/test_geo_probe_http.py",
+          "tests/test_rss_catalog.py",
+          "tests/test_country_signals_routes.py",
+          "tests/test_preservation.py",
+          "tests/test_apps_script_audit.py",
+          "tests/test_brics_streams.py",
+          "tests/test_page_watch_parser_budget.py",
+          "tests/browser_event_digest.py",
+          "tests/test_supplied_feed_fixture.py",
+          "tests/test_dashboard_model.py",
+          "tests/test_geo_event_composition.py",
+          "tests/test_pagewatch_report.py",
+          "tests/test_digest_cold.py",
+          "tests/weekly_report/__init__.py",
+          "tests/weekly_report/test_report.py",
+          "tests/geospatial/__init__.py",
+          "tests/geospatial/test_geospatial.py",
+          "tests/geospatial/test_map_route.py",
+          "tests/geospatial/preview/make_payload.py",
+          "tests/geonews_digest/__init__.py",
+          "tests/geonews_digest/test_digest.py",
+          "tests/accounts/__init__.py",
+          "tests/accounts/test_reservation_terminal.py",
+          "tests/accounts/test_hardening.py",
+          "tests/accounts/test_http_fixture.py",
+          "tests/accounts/test_merged_fixture.py",
+          "tests/accounts/test_accounts.py",
+          "tests/accounts/test_store_conformance.py",
+          "tests/accounts/browser_http_fixture.py",
+          "tests/news_export/test_keyset_plan.py",
+          "tests/news_export/test_original_contract.py",
+          "tests/news_export/test_export_route.py",
+          "tests/news_export/test_raw_pager.py",
+          "tests/news_export/__init__.py",
+          "tests/news_export/test_original_stream.py",
+          "tests/news_export/test_export.py",
+          "tests/news_export/test_fixture_serving.py",
+          "tests/news_export/test_fixture_http.py"
+        ]
+      },
+      "classification": "local"
+    },
+    {
+      "import": "threading",
+      "files": [
+        "integration/accounts/limiter.py",
+        "integration/accounts/mongo_store.py",
+        "integration/accounts/passwords.py",
+        "integration/accounts/shared_ledger_fixture.py",
+        "integration/accounts/shared_service_fixture.py",
+        "integration/accounts/store.py",
+        "integration/brics_streams.py",
+        "integration/geo_only_runtime.py",
+        "integration/geo_probe_http.py",
+        "integration/mail_bridge.py",
+        "integration/news_api.py",
+        "integration/news_export/fixture_http.py",
+        "integration/preview_access.py",
+        "tests/accounts/browser_http_fixture.py",
+        "tests/accounts/test_accounts.py",
+        "tests/accounts/test_hardening.py",
+        "tests/accounts/test_reservation_terminal.py",
+        "tests/accounts/test_store_conformance.py",
+        "tests/browser_brics_streams.py",
+        "tests/browser_compulsory_channels.py",
+        "tests/browser_country_page.py",
+        "tests/browser_dashboard_snapshots.py",
+        "tests/browser_digest_preview.py",
+        "tests/browser_finder_nested.py",
+        "tests/browser_finder_network.py",
+        "tests/browser_finder_offline.py",
+        "tests/browser_finder_static.py",
+        "tests/browser_loaded_news.py",
+        "tests/browser_map.py",
+        "tests/browser_sample_volume.py",
+        "tests/browser_stream_config.py",
+        "tests/browser_tariff_evidence.py",
+        "tests/browser_watch_updates.py",
+        "tests/browser_weekly.py",
+        "tests/news_export/test_fixture_serving.py",
+        "tests/test_geo_probe_http.py",
+        "tests/test_invite_expiry.py",
+        "tests/test_mongo_account_store.py",
+        "tests/test_preview_access.py",
+        "tests/test_shared_ledger_fixture.py",
+        "tests/test_shared_service_fixture.py",
+        "tests/test_weekly_routes.py"
+      ],
+      "stdlib": true,
+      "distributions": [],
+      "provenance": {
+        "source": "sys.stdlib_module_names"
+      },
+      "classification": "stdlib"
+    },
+    {
+      "import": "time",
+      "files": [
+        "integration/accounts/mongo_store.py",
+        "integration/feedparser_audit/runner.py",
+        "integration/geo_probe_http.py",
+        "integration/geo_probe_process.py",
+        "integration/news_export/export.py",
+        "integration/news_export/geo_snapshot.py",
+        "integration/news_export/original_stream.py",
+        "integration/preview_access.py",
+        "tests/geospatial/test_geospatial.py",
+        "tests/news_export/test_export.py",
+        "tests/news_export/test_fixture_serving.py",
+        "tests/test_geo_event_composition.py",
+        "tests/test_geo_probe_http.py",
+        "tests/test_geo_probe_process.py",
+        "tests/weekly_report/test_report.py"
+      ],
+      "stdlib": true,
+      "distributions": [],
+      "provenance": {
+        "source": "sys.stdlib_module_names"
+      },
+      "classification": "stdlib"
+    },
+    {
+      "import": "tracemalloc",
+      "files": [
+        "tests/test_tariff_evidence_plain.py"
+      ],
+      "stdlib": true,
+      "distributions": [],
+      "provenance": {
+        "source": "sys.stdlib_module_names"
+      },
+      "classification": "stdlib"
+    },
+    {
+      "import": "types",
+      "files": [
+        "integration/renderer_scope.py",
+        "tests/geospatial/test_map_route.py",
+        "tests/news_export/test_export.py",
+        "tests/news_export/test_original_contract.py",
+        "tests/test_geo_article_writer.py",
+        "tests/test_mongo_account_store.py"
+      ],
+      "stdlib": true,
+      "distributions": [],
+      "provenance": {
+        "source": "sys.stdlib_module_names"
+      },
+      "classification": "stdlib"
+    },
+    {
+      "import": "unicodedata",
+      "files": [
+        "integration/accounts/passwords.py",
+        "integration/accounts/validators.py",
+        "integration/brics_streams.py",
+        "integration/country_alerts.py",
+        "integration/dashboard_snapshots.py",
+        "integration/geonews_digest/_safe.py",
+        "integration/geospatial/_safe.py",
+        "integration/loaded_news.py",
+        "integration/news_export/export.py",
+        "integration/page_watch.py",
+        "integration/pagewatch_report.py",
+        "integration/rss_catalog/catalog.py",
+        "integration/tariff_evidence.py",
+        "integration/weekly_report/report.py"
+      ],
+      "stdlib": true,
+      "distributions": [],
+      "provenance": {
+        "source": "sys.stdlib_module_names"
+      },
+      "classification": "stdlib"
+    },
+    {
+      "import": "unittest",
+      "files": [
+        "tests/accounts/test_accounts.py",
+        "tests/accounts/test_hardening.py",
+        "tests/accounts/test_http_fixture.py",
+        "tests/accounts/test_merged_fixture.py",
+        "tests/accounts/test_reservation_terminal.py",
+        "tests/accounts/test_store_conformance.py",
+        "tests/digest_cold_probe.py",
+        "tests/geonews_digest/test_digest.py",
+        "tests/geospatial/test_geospatial.py",
+        "tests/geospatial/test_map_route.py",
+        "tests/news_export/test_export.py",
+        "tests/news_export/test_export_route.py",
+        "tests/news_export/test_fixture_http.py",
+        "tests/news_export/test_fixture_serving.py",
+        "tests/news_export/test_keyset_plan.py",
+        "tests/news_export/test_original_contract.py",
+        "tests/news_export/test_original_stream.py",
+        "tests/news_export/test_raw_pager.py",
+        "tests/test_agencia_parser.py",
+        "tests/test_apps_script_audit.py",
+        "tests/test_article_archive.py",
+        "tests/test_branding.py",
+        "tests/test_brics_streams.py",
+        "tests/test_bridges.py",
+        "tests/test_collection_prepare.py",
+        "tests/test_collector_mail_fixture.py",
+        "tests/test_compulsory_channels.py",
+        "tests/test_country_alerts.py",
+        "tests/test_country_page.py",
+        "tests/test_country_signals.py",
+        "tests/test_country_signals_routes.py",
+        "tests/test_critical_stories.py",
+        "tests/test_cross_routes.py",
+        "tests/test_dashboard_model.py",
+        "tests/test_dashboard_snapshots.py",
+        "tests/test_dashboard_stats.py",
+        "tests/test_digest_cold.py",
+        "tests/test_digest_preview_routes.py",
+        "tests/test_env_example.py",
+        "tests/test_event_reader.py",
+        "tests/test_fake_collection_writer.py",
+        "tests/test_file_audit.py",
+        "tests/test_finder_index.py",
+        "tests/test_finder_nested.py",
+        "tests/test_finder_network.py",
+        "tests/test_finder_offline.py",
+        "tests/test_fixed_feedparser_audit.py",
+        "tests/test_fixed_parser_pipeline.py",
+        "tests/test_geo_article_writer.py",
+        "tests/test_geo_collector_contract.py",
+        "tests/test_geo_event_composition.py",
+        "tests/test_geo_only_runtime.py",
+        "tests/test_geo_probe_http.py",
+        "tests/test_geo_probe_process.py",
+        "tests/test_geo_queue_fixture.py",
+        "tests/test_geo_read_factory.py",
+        "tests/test_geo_rolling_breakdown.py",
+        "tests/test_geo_sample_probe.py",
+        "tests/test_geo_snapshot.py",
+        "tests/test_invite_expiry.py",
+        "tests/test_live_news_ui.py",
+        "tests/test_loaded_charts.py",
+        "tests/test_loaded_news.py",
+        "tests/test_mail_bridge.py",
+        "tests/test_map_layers.py",
+        "tests/test_mongo_account_store.py",
+        "tests/test_offline_collection_cycle.py",
+        "tests/test_original_dashboard_payloads.py",
+        "tests/test_original_reports.py",
+        "tests/test_package_manifest.py",
+        "tests/test_page_watch.py",
+        "tests/test_page_watch_contract.py",
+        "tests/test_page_watch_parser_budget.py",
+        "tests/test_pagewatch_report.py",
+        "tests/test_pagewatch_report_contract.py",
+        "tests/test_preservation.py",
+        "tests/test_preview_access.py",
+        "tests/test_preview_launcher.py",
+        "tests/test_private_news_fields.py",
+        "tests/test_project_reports.py",
+        "tests/test_refresh_controller.py",
+        "tests/test_report_preview_frame.py",
+        "tests/test_report_styles.py",
+        "tests/test_retention_audit.py",
+        "tests/test_rss_catalog.py",
+        "tests/test_runtime.py",
+        "tests/test_sample_volume.py",
+        "tests/test_scraper_policy.py",
+        "tests/test_security_review.py",
+        "tests/test_shared_ledger_fixture.py",
+        "tests/test_shared_service_fixture.py",
+        "tests/test_single_db_plan.py",
+        "tests/test_single_db_runtime.py",
+        "tests/test_site_parsers.py",
+        "tests/test_source_health.py",
+        "tests/test_storage_reader.py",
+        "tests/test_storage_settings.py",
+        "tests/test_stream_config.py",
+        "tests/test_stream_disk.py",
+        "tests/test_stream_fixture_app.py",
+        "tests/test_stream_revision.py",
+        "tests/test_supplied_collector_pipeline.py",
+        "tests/test_supplied_feed_fixture.py",
+        "tests/test_supplied_fulltext_fixture.py",
+        "tests/test_supplied_multi_feed.py",
+        "tests/test_tariff_evidence.py",
+        "tests/test_tariff_evidence_plain.py",
+        "tests/test_telegram_format_audit.py",
+        "tests/test_watch_updates.py",
+        "tests/test_weekly_routes.py",
+        "tests/test_workspace.py",
+        "tests/test_youtube_links.py",
+        "tests/weekly_report/test_report.py"
+      ],
+      "stdlib": true,
+      "distributions": [],
+      "provenance": {
+        "source": "sys.stdlib_module_names"
+      },
+      "classification": "stdlib"
+    },
+    {
+      "import": "urllib",
+      "files": [
+        "integration/accounts/http_fixture.py",
+        "integration/accounts/merged_fixture.py",
+        "integration/agencia_parser.py",
+        "integration/branding_meta.py",
+        "integration/brics_streams.py",
+        "integration/country_alerts.py",
+        "integration/dashboard_snapshots.py",
+        "integration/feedparser_audit/child.py",
+        "integration/finder_links.py",
+        "integration/geo_queue_fixture.py",
+        "integration/geonews_digest/_safe.py",
+        "integration/geonews_digest/delivery.py",
+        "integration/geospatial/_safe.py",
+        "integration/map_layers.py",
+        "integration/news_api.py",
+        "integration/news_view.py",
+        "integration/page_watch.py",
+        "integration/preview_access.py",
+        "integration/rss_catalog/catalog.py",
+        "integration/scraper_policy.py",
+        "integration/site_parsers.py",
+        "integration/tariff_evidence.py",
+        "integration/weekly_report/_render.py",
+        "integration/weekly_report/report.py",
+        "tests/test_dashboard_stats.py",
+        "tests/test_geo_queue_fixture.py"
+      ],
+      "stdlib": true,
+      "distributions": [],
+      "provenance": {
+        "source": "sys.stdlib_module_names"
+      },
+      "classification": "stdlib"
+    },
+    {
+      "import": "warnings",
+      "files": [
+        "integration/supplied_feed_fixture.py"
+      ],
+      "stdlib": true,
+      "distributions": [],
+      "provenance": {
+        "source": "sys.stdlib_module_names"
+      },
+      "classification": "stdlib"
+    },
+    {
+      "import": "werkzeug",
+      "files": [
+        "integration/accounts/merged_fixture.py",
+        "integration/geo_probe_http.py",
+        "integration/news_export/fixture_http.py",
+        "integration/preview_access.py",
+        "tests/accounts/browser_http_fixture.py",
+        "tests/accounts/test_merged_fixture.py",
+        "tests/browser_brics_streams.py",
+        "tests/browser_compulsory_channels.py",
+        "tests/browser_country_page.py",
+        "tests/browser_dashboard_snapshots.py",
+        "tests/browser_digest_preview.py",
+        "tests/browser_finder_nested.py",
+        "tests/browser_finder_network.py",
+        "tests/browser_finder_offline.py",
+        "tests/browser_finder_static.py",
+        "tests/browser_loaded_news.py",
+        "tests/browser_map.py",
+        "tests/browser_sample_volume.py",
+        "tests/browser_stream_config.py",
+        "tests/browser_tariff_evidence.py",
+        "tests/browser_watch_updates.py",
+        "tests/browser_weekly.py",
+        "tests/news_export/test_fixture_http.py",
+        "tests/news_export/test_fixture_serving.py",
+        "tests/test_geo_only_runtime.py",
+        "tests/test_geo_probe_http.py",
+        "tests/test_preview_access.py",
+        "tests/test_runtime.py",
+        "tests/test_single_db_runtime.py"
+      ],
+      "stdlib": false,
+      "distributions": [
+        {
+          "name": "Werkzeug",
+          "version": "3.0.6",
+          "requires": [
+            "MarkupSafe>=2.1.1",
+            "watchdog>=2.3 ; extra == \"watchdog\""
+          ]
+        }
+      ],
+      "provenance": {
+        "source": "distribution files metadata",
+        "matching_files": {
+          "Werkzeug": [
+            "werkzeug/__init__.py",
+            "werkzeug/__pycache__/__init__.cpython-310.pyc",
+            "werkzeug/__pycache__/_internal.cpython-310.pyc",
+            "werkzeug/__pycache__/_reloader.cpython-310.pyc",
+            "werkzeug/__pycache__/exceptions.cpython-310.pyc",
+            "werkzeug/__pycache__/formparser.cpython-310.pyc",
+            "werkzeug/__pycache__/http.cpython-310.pyc",
+            "werkzeug/__pycache__/local.cpython-310.pyc",
+            "werkzeug/__pycache__/security.cpython-310.pyc",
+            "werkzeug/__pycache__/serving.cpython-310.pyc",
+            "werkzeug/__pycache__/test.cpython-310.pyc",
+            "werkzeug/__pycache__/testapp.cpython-310.pyc",
+            "werkzeug/__pycache__/urls.cpython-310.pyc",
+            "werkzeug/__pycache__/user_agent.cpython-310.pyc",
+            "werkzeug/__pycache__/utils.cpython-310.pyc",
+            "werkzeug/__pycache__/wsgi.cpython-310.pyc",
+            "werkzeug/_internal.py",
+            "werkzeug/_reloader.py",
+            "werkzeug/datastructures/__init__.py",
+            "werkzeug/datastructures/__pycache__/__init__.cpython-310.pyc",
+            "werkzeug/datastructures/__pycache__/accept.cpython-310.pyc",
+            "werkzeug/datastructures/__pycache__/auth.cpython-310.pyc",
+            "werkzeug/datastructures/__pycache__/cache_control.cpython-310.pyc",
+            "werkzeug/datastructures/__pycache__/csp.cpython-310.pyc",
+            "werkzeug/datastructures/__pycache__/etag.cpython-310.pyc",
+            "werkzeug/datastructures/__pycache__/file_storage.cpython-310.pyc",
+            "werkzeug/datastructures/__pycache__/headers.cpython-310.pyc",
+            "werkzeug/datastructures/__pycache__/mixins.cpython-310.pyc",
+            "werkzeug/datastructures/__pycache__/range.cpython-310.pyc",
+            "werkzeug/datastructures/__pycache__/structures.cpython-310.pyc",
+            "werkzeug/datastructures/accept.py",
+            "werkzeug/datastructures/accept.pyi",
+            "werkzeug/datastructures/auth.py",
+            "werkzeug/datastructures/cache_control.py",
+            "werkzeug/datastructures/cache_control.pyi",
+            "werkzeug/datastructures/csp.py",
+            "werkzeug/datastructures/csp.pyi",
+            "werkzeug/datastructures/etag.py",
+            "werkzeug/datastructures/etag.pyi",
+            "werkzeug/datastructures/file_storage.py",
+            "werkzeug/datastructures/file_storage.pyi",
+            "werkzeug/datastructures/headers.py",
+            "werkzeug/datastructures/headers.pyi",
+            "werkzeug/datastructures/mixins.py",
+            "werkzeug/datastructures/mixins.pyi",
+            "werkzeug/datastructures/range.py",
+            "werkzeug/datastructures/range.pyi",
+            "werkzeug/datastructures/structures.py",
+            "werkzeug/datastructures/structures.pyi",
+            "werkzeug/debug/__init__.py",
+            "werkzeug/debug/__pycache__/__init__.cpython-310.pyc",
+            "werkzeug/debug/__pycache__/console.cpython-310.pyc",
+            "werkzeug/debug/__pycache__/repr.cpython-310.pyc",
+            "werkzeug/debug/__pycache__/tbtools.cpython-310.pyc",
+            "werkzeug/debug/console.py",
+            "werkzeug/debug/repr.py",
+            "werkzeug/debug/shared/ICON_LICENSE.md",
+            "werkzeug/debug/shared/console.png",
+            "werkzeug/debug/shared/debugger.js",
+            "werkzeug/debug/shared/less.png",
+            "werkzeug/debug/shared/more.png",
+            "werkzeug/debug/shared/style.css",
+            "werkzeug/debug/tbtools.py",
+            "werkzeug/exceptions.py",
+            "werkzeug/formparser.py",
+            "werkzeug/http.py",
+            "werkzeug/local.py",
+            "werkzeug/middleware/__init__.py",
+            "werkzeug/middleware/__pycache__/__init__.cpython-310.pyc",
+            "werkzeug/middleware/__pycache__/dispatcher.cpython-310.pyc",
+            "werkzeug/middleware/__pycache__/http_proxy.cpython-310.pyc",
+            "werkzeug/middleware/__pycache__/lint.cpython-310.pyc",
+            "werkzeug/middleware/__pycache__/profiler.cpython-310.pyc",
+            "werkzeug/middleware/__pycache__/proxy_fix.cpython-310.pyc",
+            "werkzeug/middleware/__pycache__/shared_data.cpython-310.pyc",
+            "werkzeug/middleware/dispatcher.py",
+            "werkzeug/middleware/http_proxy.py",
+            "werkzeug/middleware/lint.py",
+            "werkzeug/middleware/profiler.py",
+            "werkzeug/middleware/proxy_fix.py",
+            "werkzeug/middleware/shared_data.py",
+            "werkzeug/py.typed",
+            "werkzeug/routing/__init__.py",
+            "werkzeug/routing/__pycache__/__init__.cpython-310.pyc",
+            "werkzeug/routing/__pycache__/converters.cpython-310.pyc",
+            "werkzeug/routing/__pycache__/exceptions.cpython-310.pyc",
+            "werkzeug/routing/__pycache__/map.cpython-310.pyc",
+            "werkzeug/routing/__pycache__/matcher.cpython-310.pyc",
+            "werkzeug/routing/__pycache__/rules.cpython-310.pyc",
+            "werkzeug/routing/converters.py",
+            "werkzeug/routing/exceptions.py",
+            "werkzeug/routing/map.py",
+            "werkzeug/routing/matcher.py",
+            "werkzeug/routing/rules.py",
+            "werkzeug/sansio/__init__.py",
+            "werkzeug/sansio/__pycache__/__init__.cpython-310.pyc",
+            "werkzeug/sansio/__pycache__/http.cpython-310.pyc",
+            "werkzeug/sansio/__pycache__/multipart.cpython-310.pyc",
+            "werkzeug/sansio/__pycache__/request.cpython-310.pyc",
+            "werkzeug/sansio/__pycache__/response.cpython-310.pyc",
+            "werkzeug/sansio/__pycache__/utils.cpython-310.pyc",
+            "werkzeug/sansio/http.py",
+            "werkzeug/sansio/multipart.py",
+            "werkzeug/sansio/request.py",
+            "werkzeug/sansio/response.py",
+            "werkzeug/sansio/utils.py",
+            "werkzeug/security.py",
+            "werkzeug/serving.py",
+            "werkzeug/test.py",
+            "werkzeug/testapp.py",
+            "werkzeug/urls.py",
+            "werkzeug/user_agent.py",
+            "werkzeug/utils.py",
+            "werkzeug/wrappers/__init__.py",
+            "werkzeug/wrappers/__pycache__/__init__.cpython-310.pyc",
+            "werkzeug/wrappers/__pycache__/request.cpython-310.pyc",
+            "werkzeug/wrappers/__pycache__/response.cpython-310.pyc",
+            "werkzeug/wrappers/request.py",
+            "werkzeug/wrappers/response.py",
+            "werkzeug/wsgi.py"
+          ]
+        }
+      },
+      "classification": "required_distribution"
+    },
+    {
+      "import": "xml",
+      "files": [
+        "integration/feedparser_audit/child.py"
+      ],
+      "stdlib": true,
+      "distributions": [],
+      "provenance": {
+        "source": "sys.stdlib_module_names"
+      },
+      "classification": "stdlib"
+    },
+    {
+      "import": "yaml",
+      "files": [
+        "integration/stream_config.py",
+        "integration/stream_revision.py",
+        "tests/test_stream_revision.py"
+      ],
+      "stdlib": false,
+      "distributions": [
+        {
+          "name": "PyYAML",
+          "version": "6.0.2",
+          "requires": []
+        }
+      ],
+      "provenance": {
+        "source": "packages_distributions",
+        "matching_files": {}
+      },
+      "classification": "required_distribution"
+    },
+    {
+      "import": "zlib",
+      "files": [
+        "integration/weekly_report/_pdf.py",
+        "tests/weekly_report/test_report.py"
+      ],
+      "stdlib": true,
+      "distributions": [],
+      "provenance": {
+        "source": "sys.stdlib_module_names"
+      },
+      "classification": "stdlib"
+    },
+    {
+      "import": "zoneinfo",
+      "files": [
+        "integration/geonews_digest/render.py",
+        "integration/weekly_report/report.py",
+        "tests/digest_cold_probe.py",
+        "tests/geonews_digest/test_digest.py"
+      ],
+      "stdlib": true,
+      "distributions": [],
+      "provenance": {
+        "source": "sys.stdlib_module_names"
+      },
+      "classification": "stdlib"
+    }
+  ],
+  "dynamic_import_files": [
+    "integration/country_alerts.py",
+    "tests/browser_sample_volume.py",
+    "tests/news_export/test_export.py",
+    "tests/news_export/test_original_contract.py",
+    "tests/test_geo_collector_contract.py",
+    "tests/test_geo_read_factory.py",
+    "tests/test_preview_launcher.py",
+    "tests/weekly_report/test_report.py"
+  ],
+  "source_baseline": {
+    "revision": "4d7f7f342140a144f429d03f82b94a3176f341c2",
+    "policy": "all recursive *.py in integration/tests/scripts at revision86; no relative-import roots (resolved as local), no __pycache__; increment87 audit/test files outside baseline",
+    "scopes": [
+      "integration",
+      "tests",
+      "scripts"
+    ],
+    "exclusions": [
+      "__pycache__",
+      "integration/dependency_audit/*",
+      "tests/test_dependency_audit.py"
+    ],
+    "files": [
+      {
+        "path": "integration/__init__.py",
+        "sha256": "5d961509258c047783dbe624ffaa01940143f0e09e8e19cf4e595372fd5c0a88"
+      },
+      {
+        "path": "integration/accounts/__init__.py",
+        "sha256": "b5c2db9c2b3c8c4115e44893b6a29319919200a9f39ffe8c05be8c9b2eb94c46"
+      },
+      {
+        "path": "integration/accounts/csrf.py",
+        "sha256": "83f9efa88b89f2571ee79f5c4d667b2f5be72bd39313110af8e6f9ec4f18d6ca"
+      },
+      {
+        "path": "integration/accounts/http_fixture.py",
+        "sha256": "0e41c2cedee4d4a92f06b9eecfd947f9da1c9c40265e8d05d11d23bf13463aa0"
+      },
+      {
+        "path": "integration/accounts/limiter.py",
+        "sha256": "816112e2b31c0864ca9493b9ccece1096b93d6c25918631250e238b12ec2a565"
+      },
+      {
+        "path": "integration/accounts/merged_fixture.py",
+        "sha256": "31c8e57628ccda84e852a09affb6e21888a18c260a0b74b34b51b0d7d215ffc7"
+      },
+      {
+        "path": "integration/accounts/mongo_store.py",
+        "sha256": "a2205dd7141bd0c7a07685602f538e14b899d199c8366bebd2fcbf88d9d1f52c"
+      },
+      {
+        "path": "integration/accounts/passwords.py",
+        "sha256": "748f863aeb3cacf20bca3c0c7efcc1e583e615db7404533ad6d693879b22208c"
+      },
+      {
+        "path": "integration/accounts/service.py",
+        "sha256": "7571c387db4ee7acc93e79c4290513569cbed57c4e8f62af1468143a30f1ea84"
+      },
+      {
+        "path": "integration/accounts/settings.py",
+        "sha256": "1f55a375a105ac272ccbef71e9eb3763e3bb13155ce68e80f305b00e178e2389"
+      },
+      {
+        "path": "integration/accounts/shared_ledger_fixture.py",
+        "sha256": "4ab0adeddef8e82ca9653547f214e4d1514c7f1a2821a35877f522354f737439"
+      },
+      {
+        "path": "integration/accounts/shared_service_fixture.py",
+        "sha256": "db7d9719e03b2a54951c37c3f522339997ad9bfc228d2cc5651dfbc55cebd7ac"
+      },
+      {
+        "path": "integration/accounts/store.py",
+        "sha256": "afd9d5c972aa38236b55d0cb90a7e68ce593046f442c685f3001699ce012cf0f"
+      },
+      {
+        "path": "integration/accounts/validators.py",
+        "sha256": "4aae0e598d9240d99ee41e4687c3a23fc35438b992009c24a7451410569872d4"
+      },
+      {
+        "path": "integration/agencia_parser.py",
+        "sha256": "255c3984d99111d1660fad653e75cd8d874bef1f8ae8da55864be8368ba396e4"
+      },
+      {
+        "path": "integration/apps_script_audit/labeled_run.py",
+        "sha256": "10688b7be0964a5f5ff36c0392c3d4aaad0e80127168a01b1642a207eacaf40d"
+      },
+      {
+        "path": "integration/article_archive.py",
+        "sha256": "f0ab086c622a6b6299c896d301b3a5dadecbc48f75f55dd7677e3efdb07706ee"
+      },
+      {
+        "path": "integration/branding_meta.py",
+        "sha256": "100d7085bb5e1d7b2701325efaf2efad0dfe39b37410757524a5aa51c8631463"
+      },
+      {
+        "path": "integration/brics_processing_offline.py",
+        "sha256": "0aa79d68b68f750b0064b0955fdd5b25e884173fee6722c90f6ccacf49861da7"
+      },
+      {
+        "path": "integration/brics_streams.py",
+        "sha256": "0add85dfd3b541b2d681daad0d21af4a6320dea89d8c9254baf9a308d9a89b10"
+      },
+      {
+        "path": "integration/collection_prepare.py",
+        "sha256": "2d0886b3126dfd4da4c7fa647ff414afbd27a6032204a8f9ad2be046f86c25b2"
+      },
+      {
+        "path": "integration/collector_mail_fixture.py",
+        "sha256": "3b2c7bd871656ac69bf380d0425132a0919fa7eda440bdf5467fe450dcc51873"
+      },
+      {
+        "path": "integration/country_alerts.py",
+        "sha256": "4f4a80e651ee97654f8d3592ebc66fe27eb6a386b9724310f568a62675dc9290"
+      },
+      {
+        "path": "integration/country_page.py",
+        "sha256": "cab75618848fe4066d59ba38f9edd5f2870773a21e8bde90f9a15c5f4c2e2faa"
+      },
+      {
+        "path": "integration/country_signals.py",
+        "sha256": "d1ef8e79a3dd9fc9d72dccbcc1a4e66e395cd1e802759d3435e0e8d935a91634"
+      },
+      {
+        "path": "integration/critical_stories.py",
+        "sha256": "133217d9751cf48f93d9f4bc230b2ee6666fbeb895eef53437202bd3882a3a33"
+      },
+      {
+        "path": "integration/dashboard_model.py",
+        "sha256": "2a771a65358b9f62bb014d614cf8c0dea07b048edd8c7be93e7d8c467209a4f0"
+      },
+      {
+        "path": "integration/dashboard_snapshots.py",
+        "sha256": "ce90cf7da68a6d51db42814251077d9f11f38b1f1f039df6fdc0a349b0a9a1a2"
+      },
+      {
+        "path": "integration/digest_preview.py",
+        "sha256": "4b492669e765a593ea54ffa66d5fcc6361be034f764c5054ba808f11cd6be30c"
+      },
+      {
+        "path": "integration/event_reader.py",
+        "sha256": "fbddedabef6ba54c3b47f70e94511310b69a6b7466f393a40088034e23d526df"
+      },
+      {
+        "path": "integration/fake_collection_writer.py",
+        "sha256": "f209fe293d3fab5702476682b9b7d3a659ddaea466dc3e9d88e52a56dbd05c64"
+      },
+      {
+        "path": "integration/feedparser_audit/child.py",
+        "sha256": "5b4fb2d61ecc33cfa6e2b31b645f72a9bcd3183eb5f5357186585853e9270fb6"
+      },
+      {
+        "path": "integration/feedparser_audit/corpus.py",
+        "sha256": "e7158b210f562b68ecd74bb79d26549779a80ff539c08e3409b5d7177ae9af5e"
+      },
+      {
+        "path": "integration/feedparser_audit/runner.py",
+        "sha256": "f394c55dcb2969151a3ddacfd6fc4c3711eb154fabedcfe6c2475e1fff3c058d"
+      },
+      {
+        "path": "integration/finder_index.py",
+        "sha256": "cb3a41af1a85a03e31770c2735a0b823a46c41971804189e68597ec602763265"
+      },
+      {
+        "path": "integration/finder_links.py",
+        "sha256": "7a5d02def15e5a03790edb6d7b11c9a922df4e4dbd3de2c309e3b188aee2453b"
+      },
+      {
+        "path": "integration/finder_nested.py",
+        "sha256": "8aed1a572e4b8d5d5580194937324bc0f168d1618c5bc3017cf90c23ed7a06d6"
+      },
+      {
+        "path": "integration/finder_network.py",
+        "sha256": "07fc045266659eadbefef1b52829c4e185ccdc70a3362fbd076a9d79719b3232"
+      },
+      {
+        "path": "integration/finder_offline.py",
+        "sha256": "1be81c458ef1cdd088abdad1df6623cadaf52ac8065ae279ebe0e997adca1b57"
+      },
+      {
+        "path": "integration/fixed_parser_pipeline.py",
+        "sha256": "53036dd4a705461c6683b847329543c67b5e3f8f14f9ad3855b892d03422cba6"
+      },
+      {
+        "path": "integration/geo_article_writer.py",
+        "sha256": "28379724081b15a961f30ac4bbbb7711aac8058b2b956392a77bbe960ebb54dd"
+      },
+      {
+        "path": "integration/geo_collector_contract.py",
+        "sha256": "a2c2047d37b8d12132af784c4ca9bab697a53492580e90e98a77261e6d965d9d"
+      },
+      {
+        "path": "integration/geo_only_runtime.py",
+        "sha256": "49cdb46fbffbf4b3cda0eb3598899585dcf2799228cb362a082bbc3b68d81834"
+      },
+      {
+        "path": "integration/geo_probe_http.py",
+        "sha256": "e32dd5d8fe0060655022f19133172749cf71729732b6889eb2af8884e970c318"
+      },
+      {
+        "path": "integration/geo_probe_process.py",
+        "sha256": "55fa50c21baa518e28165d2a5ac78bdaabc5ad894f9444812c7596dcb43ec2bd"
+      },
+      {
+        "path": "integration/geo_queue_fixture.py",
+        "sha256": "c3be7feaa65f7d2352709c1a6b091672659ccf233d424ad4f75e9205ef49ab81"
+      },
+      {
+        "path": "integration/geo_read_factory.py",
+        "sha256": "4fc0cbc49a5e9d8a388eef08466a5eb1d77902582522a40e65f360d1a018930b"
+      },
+      {
+        "path": "integration/geo_rolling_breakdown.py",
+        "sha256": "30e32b3fc0f61ec24cd4d5961d812eda8eb5ccd4c1d989a9c7a9f47602b11ec6"
+      },
+      {
+        "path": "integration/geo_sample_probe.py",
+        "sha256": "875990c2646571fbf5741000540d3211e63081d8c03af396d8fde0f343de39f7"
+      },
+      {
+        "path": "integration/geo_sample_probe_child.py",
+        "sha256": "fa0cf8aa447cb2b92a818c0feeb51440051c6a6450f9c74b6112e356674d0867"
+      },
+      {
+        "path": "integration/geonews_digest/__init__.py",
+        "sha256": "e4290966cf431433c192d3464e76009d7772867032f19d92792ca531a95bf3f5"
+      },
+      {
+        "path": "integration/geonews_digest/_safe.py",
+        "sha256": "ef9af1f0afb6623fba3855970b97edfefa017b3bff7a58bf826fc17368fc14e1"
+      },
+      {
+        "path": "integration/geonews_digest/delivery.py",
+        "sha256": "0eb4afbecb16f0c166303cb551ab075ce53d8f140ea1e9e323e03ac0b968c29e"
+      },
+      {
+        "path": "integration/geonews_digest/model.py",
+        "sha256": "581a56390f2bbd080a68acafc00418e94b9f7aafb803a4d087b802d09fec0389"
+      },
+      {
+        "path": "integration/geonews_digest/render.py",
+        "sha256": "560a4f2ead6b6211988ee3c4a0fc6ab04b7ddaccc0d46e94518a035e1c8cf2dd"
+      },
+      {
+        "path": "integration/geospatial/__init__.py",
+        "sha256": "be3d4bb979633c60e70cf5a8223a86c177915055cddf04e7b89969b1327e29db"
+      },
+      {
+        "path": "integration/geospatial/_safe.py",
+        "sha256": "39f3323c310fbdf0c041260e466d4f493673eeca04787e98575c374d0423948a"
+      },
+      {
+        "path": "integration/geospatial/features.py",
+        "sha256": "4892aad1e6279ddbbaf40a137c91c9b3d8fbef8c51edf3d63f292869abd215f0"
+      },
+      {
+        "path": "integration/geospatial/fixtures.py",
+        "sha256": "4c444c1508862a7cf979420f70109793ae784bfd6337298e569030cbc002a298"
+      },
+      {
+        "path": "integration/geospatial/payload.py",
+        "sha256": "55ecdd29e2c2fd15541672303584790191e4a636c8f07087a74ec9433cfffbc2"
+      },
+      {
+        "path": "integration/geospatial/response.py",
+        "sha256": "5692908ac290ec10d054ed742ea06b24393ff6a2632931337f6f0edbbba7c534"
+      },
+      {
+        "path": "integration/geospatial/ships.py",
+        "sha256": "eab86467b41cfbed6ba863c804663ef363bf573f9ff6b0d01b92c43156735ad7"
+      },
+      {
+        "path": "integration/html_safety.py",
+        "sha256": "a0bc8ddc593dec52ae915e4a6590def75bc25a1ea073ce68e19cbc5ad59dfa37"
+      },
+      {
+        "path": "integration/loaded_charts.py",
+        "sha256": "3a74702d675fe720b55402d129a9f042fda23a37ee59c06f6d70afc69ef37b2a"
+      },
+      {
+        "path": "integration/loaded_news.py",
+        "sha256": "dce14c2d4ec2573e9216d28fc097da3eade4a3e4425cd098b7fab38d86b3c49c"
+      },
+      {
+        "path": "integration/mail_bridge.py",
+        "sha256": "baa30b07294b26249e5fe826bfbe41a2000ac93bc5016d17a5b04c95a0508f03"
+      },
+      {
+        "path": "integration/map_layers.py",
+        "sha256": "57e7fdea3d799baa30b2bfa9771431cef9091bf886b471332ee7364e1f687ded"
+      },
+      {
+        "path": "integration/news_api.py",
+        "sha256": "66f03e63a0a0bbc0360f39861903231c0d8c3fd2429670d0bf791d2c313df511"
+      },
+      {
+        "path": "integration/news_export/__init__.py",
+        "sha256": "93eb53a354d5b4d92d0e3b6ace238c477bddd1c6b85a2b3cec30f215ab746f1f"
+      },
+      {
+        "path": "integration/news_export/export.py",
+        "sha256": "fad8c67bb915280cb895db79c553d60e137d9df339d791b8ad554d5ebad614a1"
+      },
+      {
+        "path": "integration/news_export/fixture_http.py",
+        "sha256": "14c1a0339e553462584137cac34d740f3565b411fab926d961cf4e3d5123a780"
+      },
+      {
+        "path": "integration/news_export/geo_snapshot.py",
+        "sha256": "3e73e4c4f45b439c6ccf59226fe106f82d01970651f743e92fd35c4c980915c3"
+      },
+      {
+        "path": "integration/news_export/keyset_plan.py",
+        "sha256": "516120452e7eacde7daec0a727a19c6803b4d0f3554990ee863761d6368174ca"
+      },
+      {
+        "path": "integration/news_export/original_contract.py",
+        "sha256": "7f46af666deae5793df9c066e2a7afbf38de6317e195c74cb438a4206802841e"
+      },
+      {
+        "path": "integration/news_export/original_stream.py",
+        "sha256": "73fd0b34cc5d770a44070f825fd1c2b28814d94f0a2fc86df38d858b9dcee30a"
+      },
+      {
+        "path": "integration/news_export/raw_pager.py",
+        "sha256": "5ced324a9dbacbe529dd7ba8f88f865c4584ede863132961a34deede1174640b"
+      },
+      {
+        "path": "integration/news_view.py",
+        "sha256": "d24256b4467b6acc81bbb4d9e0f689c42b52511443fe1fa0feb3725b06416b1f"
+      },
+      {
+        "path": "integration/offline_collection_cycle.py",
+        "sha256": "18c5a89dbf8d788c25c00d20d34ed6ad532b2396e8a2f4326decf3b2a0680d06"
+      },
+      {
+        "path": "integration/original_dashboard_payloads.py",
+        "sha256": "4bd03769cd1b612a5817f3c7740b2c89c593cf977adc32b279ab5303040f8d87"
+      },
+      {
+        "path": "integration/page_watch.py",
+        "sha256": "8709612dd2424494c6737763853117d599f3eb7a5f8bb9008ba73724174fd0eb"
+      },
+      {
+        "path": "integration/pagewatch_report.py",
+        "sha256": "f941eadb45a81cae8cc9096563fe474f21a7e9bf7b1b86a237b54e7e4d1c2626"
+      },
+      {
+        "path": "integration/preview_access.py",
+        "sha256": "b1251341be695cf24f537a63e3278da18e034ce5601f05fd12c02a4ad58e4c8e"
+      },
+      {
+        "path": "integration/preview_launcher.py",
+        "sha256": "a3db46d60c7348f25f7629ef36f784a1400b0eae9b8eb016f8563f79682a6f0d"
+      },
+      {
+        "path": "integration/private_router.py",
+        "sha256": "c9e18e7e5648e5328e987612e764cf398c3b995ce333afdcdce78431ece9d158"
+      },
+      {
+        "path": "integration/project_reports.py",
+        "sha256": "f01301b538b5a65c7d5501291045644be894cf7267f4301cc28997728db4e12c"
+      },
+      {
+        "path": "integration/public_news.py",
+        "sha256": "08a002863831a1e7cf9336e10b2f9d61aa1ce0ecf4b4367027dd34ed1dbd8145"
+      },
+      {
+        "path": "integration/relevance.py",
+        "sha256": "323fdec911b456c0a0aa57c2c650e1b703f7633a0fb55d59f982f99194a95604"
+      },
+      {
+        "path": "integration/renderer_scope.py",
+        "sha256": "b5cc8d3b8bce68a53b19ae9f28b14f1d1e6c5ac0046a9a2dcdf868b02ad7ba46"
+      },
+      {
+        "path": "integration/report_adapters.py",
+        "sha256": "af267f1950dc9fe0ed25757e1d3f380180239b7c89fa9bc6f0d872b8a1f7072a"
+      },
+      {
+        "path": "integration/report_preview_frame.py",
+        "sha256": "d5f553041aa1d017362b13a40ac089ea2bbdb9907aa9516afaaa0412a06e47df"
+      },
+      {
+        "path": "integration/report_styles.py",
+        "sha256": "a65de5a98d013d933af811a139fe0850569e9b632ffc941e9275e4faec067321"
+      },
+      {
+        "path": "integration/retention_audit.py",
+        "sha256": "e27fe8c17a3b05ebef25d784877b7562556cbbf7a9f28a25961db660aa8e34ac"
+      },
+      {
+        "path": "integration/rss_catalog/__init__.py",
+        "sha256": "471bc14d40ed6d05418c8d1de007c5c1386059715c183ca6554098ec93f199c9"
+      },
+      {
+        "path": "integration/rss_catalog/catalog.py",
+        "sha256": "4c22b421ec0c8e25ba6a96c9cd2b24038c1c8c930cd6e1f2a98ce07ff45bf9c9"
+      },
+      {
+        "path": "integration/runtime.py",
+        "sha256": "3cf336efd9ad14396e445edaf09452bdfb9255ad86fca2cdcc6ce4dd82d8094e"
+      },
+      {
+        "path": "integration/scraper_policy.py",
+        "sha256": "1a324d3310c0ffecb643a48c116e066221315be6ca012671614cfa53a547af60"
+      },
+      {
+        "path": "integration/single_db_plan.py",
+        "sha256": "33fafdffad6cc217f20d4fc5b355b7d50f6d2a39ff5060a15661f44d9bebf668"
+      },
+      {
+        "path": "integration/single_db_runtime.py",
+        "sha256": "afb572afb0661da8ba959b8b5c2cb3beab4fc560c6619112bbb23ed29d742948"
+      },
+      {
+        "path": "integration/site_parsers.py",
+        "sha256": "82c5ff957f7578ba28ff4d933558f214dd0b448c49a36872518e2c73fb6b76ca"
+      },
+      {
+        "path": "integration/site_scraper.py",
+        "sha256": "ca8ea55103c13506c032a164a1c3cd5baafa5456752535c962b2e4908a2fe558"
+      },
+      {
+        "path": "integration/source_health.py",
+        "sha256": "c6861935af722652489d2eee65023a8c7054484cddb585842e8f810d57d00e81"
+      },
+      {
+        "path": "integration/sqlite_reader.py",
+        "sha256": "581e60b90c337d8e056d131ca8fe5d7d3206a1f7fda5d998af76b12d16a3d4c4"
+      },
+      {
+        "path": "integration/storage_reader.py",
+        "sha256": "80cdbf0b41b09183e2675d8e4d8abf3a25535cb93f5cb6ec46084d0dfdd26a97"
+      },
+      {
+        "path": "integration/storage_settings.py",
+        "sha256": "1cc61c0abfec78a486babd2abbd173e1dc09e3e062d1a6204b03f2e3e7c5dcd9"
+      },
+      {
+        "path": "integration/story_links.py",
+        "sha256": "09aa82ec7d4bc1fa59120545ad14b4565aa5b0662002a1a3c1b84e65d9d9e525"
+      },
+      {
+        "path": "integration/stream_config.py",
+        "sha256": "2777adce27f068766a9af6ed00d9460c827ed1baf28ff00bc33aed7033e31755"
+      },
+      {
+        "path": "integration/stream_disk.py",
+        "sha256": "ecca84c39e56c96c67edde8f067f8a439dfe0d0332378823a2607bc6fdae79f8"
+      },
+      {
+        "path": "integration/stream_fixture_app.py",
+        "sha256": "cb522d927bfb1207170f96cb9a532288f724a7602d50cabbea13c22709db44df"
+      },
+      {
+        "path": "integration/stream_revision.py",
+        "sha256": "39f607f7b2ae8b81b185bc4dbc610259efa103f51f7bb22f350e06bc93c8f06a"
+      },
+      {
+        "path": "integration/supplied_collector_pipeline.py",
+        "sha256": "55c84358f42f4d08d00353522990d99a6083148fbae321fecfdf0af9e1097145"
+      },
+      {
+        "path": "integration/supplied_feed_fixture.py",
+        "sha256": "a955b1e5d2ab00d05f1674188ffddb94d6b3c5e82e1018fdc5f88097b4c46d15"
+      },
+      {
+        "path": "integration/supplied_fulltext_fixture.py",
+        "sha256": "ea69e0b6d0c4ba776062a7bed0f762accb2558fe462d6313cdab78865246747b"
+      },
+      {
+        "path": "integration/supplied_multi_feed.py",
+        "sha256": "ba4ced9b830062011949e4515da01e482629b17cdc91f9db23170c8c0ec7c24c"
+      },
+      {
+        "path": "integration/tariff_evidence.py",
+        "sha256": "cac8e46fade3005839a6a4f179a11675d35b855bbe11b8712b77e3431454b69c"
+      },
+      {
+        "path": "integration/taxonomy.py",
+        "sha256": "cc3d2a4e84ab863da50b77916a47b74cbd17d755d8cd8fcf8874498ad4d30002"
+      },
+      {
+        "path": "integration/telegram_format_audit.py",
+        "sha256": "67829caf451c731032ffd347456f82a0405424ca571a2d7c6490c10b57cbd7ba"
+      },
+      {
+        "path": "integration/weekly_report/__init__.py",
+        "sha256": "a29dae5559548f4364463ae45db9f70fde82707a16c41244ad6307ad4f1bba90"
+      },
+      {
+        "path": "integration/weekly_report/_metrics.py",
+        "sha256": "3a71b4a248a223d5772d20ca6d26437659cc4f6435ee46698403cff79eb2921c"
+      },
+      {
+        "path": "integration/weekly_report/_pdf.py",
+        "sha256": "f1bac997e22c9055cbcf1c9c71302cf67fe85a43caad73bc7f397156f05fb198"
+      },
+      {
+        "path": "integration/weekly_report/_render.py",
+        "sha256": "c1f7dfb7bffb01d2c110c926b4ab3b580425cbf6d7646aa9a425f576141233e6"
+      },
+      {
+        "path": "integration/weekly_report/report.py",
+        "sha256": "5efd22db000fc70763a9ce142f3b677b848a7053a3d97ccac27ccc21fb753d30"
+      },
+      {
+        "path": "integration/youtube_links.py",
+        "sha256": "d725d910b08cae5317c82f7b9742b0e499396cd9a9d8dfe7be4a7b3e4d958503"
+      },
+      {
+        "path": "scripts/audit_connections.py",
+        "sha256": "c52be3bbc75beeb32fba41515fac99f9104aeeb61e3b76b0b2797a0e62401920"
+      },
+      {
+        "path": "scripts/package_manifest.py",
+        "sha256": "1e4f99de1ecbc562e96b264a99973b723c22783a6fc39de8e29dffc232e3fd81"
+      },
+      {
+        "path": "tests/__init__.py",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "tests/accounts/__init__.py",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "tests/accounts/browser_http_fixture.py",
+        "sha256": "73055044391049441a8fe6b16b63e1e7ffead68121630d0f16fe5c3bcd930947"
+      },
+      {
+        "path": "tests/accounts/test_accounts.py",
+        "sha256": "e1a45f6d74036f5a848eec26795535689633accb72447ae9f2b8490e58211246"
+      },
+      {
+        "path": "tests/accounts/test_hardening.py",
+        "sha256": "48b00b44f907ba5b63ffbb34734ae42b8dcdea8f4369274973ab7c2852698210"
+      },
+      {
+        "path": "tests/accounts/test_http_fixture.py",
+        "sha256": "3a210c397ef54d3f80424d2646be199ffb8424b9cbc071bc160be3ea3891cd40"
+      },
+      {
+        "path": "tests/accounts/test_merged_fixture.py",
+        "sha256": "43bbc4d8169ef9c716b6b4d6cd83d8c8deb7231817db24e4d55b8303c622cac9"
+      },
+      {
+        "path": "tests/accounts/test_reservation_terminal.py",
+        "sha256": "e43dfc53f81e8e1a7865ba23fc10a937662f6cd8c39a87e14ce795eace139617"
+      },
+      {
+        "path": "tests/accounts/test_store_conformance.py",
+        "sha256": "3a46fd4738f2eb8a46edceea2bcd208eea6fdf9f4d9263aa949f87095325d541"
+      },
+      {
+        "path": "tests/browser_brics_streams.py",
+        "sha256": "76635cec97752e0d3c452e778b26e0a14d690a750b81fc66af51489f7dd598c2"
+      },
+      {
+        "path": "tests/browser_compulsory_channels.py",
+        "sha256": "a7fb379487a34c625d886c5c4d372f8931985ef72a382625868ea4c6c1e0a822"
+      },
+      {
+        "path": "tests/browser_country_page.py",
+        "sha256": "4bbb5fc2b0572b9b03e50d4ff23d04e69819b42151a42b06ab4158773072ab06"
+      },
+      {
+        "path": "tests/browser_dashboard_snapshots.py",
+        "sha256": "5a9ddf8b17e6ab5e9befac529e8595c50ed2b1be9b27769737bf68906e560cba"
+      },
+      {
+        "path": "tests/browser_digest_preview.py",
+        "sha256": "011b500bb9e75ba75b2b86c3e242bf30e4207071a9b086829c02d75317a62ca5"
+      },
+      {
+        "path": "tests/browser_event_digest.py",
+        "sha256": "a27b4a2c654538299e19e2324090ebbcb1c15d78804f14daf1bc123b93163163"
+      },
+      {
+        "path": "tests/browser_finder_nested.py",
+        "sha256": "63d9f07275328045908339615f48928e0ffcbeed7ce1f612d642a53519367a0e"
+      },
+      {
+        "path": "tests/browser_finder_network.py",
+        "sha256": "97b4fcaf1861f06c6752473786c60056153fc3d98839772c399677b301443120"
+      },
+      {
+        "path": "tests/browser_finder_offline.py",
+        "sha256": "66a6de4f67743d93c3570d8652698e3c21bb01f413c02b2a2f9845128f0b4789"
+      },
+      {
+        "path": "tests/browser_finder_static.py",
+        "sha256": "a3715feb82e530300f3e58550f772294ad1c738c3cd3e51b17364641d6b00d45"
+      },
+      {
+        "path": "tests/browser_loaded_news.py",
+        "sha256": "c8cfa550ab6c32e442d2b927009e594d4f1e0be7c536f83a13d7c8cca0d0ed12"
+      },
+      {
+        "path": "tests/browser_map.py",
+        "sha256": "3c360c1b3c0c2cee4c2610841bef27643011a481a14cd0c0bbb01264f6aad55e"
+      },
+      {
+        "path": "tests/browser_report_styles.py",
+        "sha256": "e8c5f581cfc3f96c8949b29d10b8c25d8182c4cd6caba0738fc00f7889a25bcd"
+      },
+      {
+        "path": "tests/browser_sample_volume.py",
+        "sha256": "4408f861b4c61ba1191d56b9288a8cea4f1ea5efedf7cb50f4daaa440e7309f2"
+      },
+      {
+        "path": "tests/browser_stream_config.py",
+        "sha256": "ba301e706542eef1d2f4a0e89e4a716c95d0a53e3cc79345d9c541b70da6c081"
+      },
+      {
+        "path": "tests/browser_tariff_evidence.py",
+        "sha256": "ceb7f2a41bf1decbf2948a38edd4be68f7aff85ed049025e7c62ab3c9c21218e"
+      },
+      {
+        "path": "tests/browser_watch_updates.py",
+        "sha256": "9ed845f92d7c43ee93df92525265f99c9198bf4ce58ea3689e8c167dc5061b59"
+      },
+      {
+        "path": "tests/browser_weekly.py",
+        "sha256": "5331e36a64282ccd13e54a874d4efc4b1777dd65b66b573d3f405084e55bd71d"
+      },
+      {
+        "path": "tests/digest_cold_probe.py",
+        "sha256": "1a801e91b8a6c2057331d98b39deba21d4972c44534b9630c8f6fb7f7eb3ff16"
+      },
+      {
+        "path": "tests/geonews_digest/__init__.py",
+        "sha256": "8c8f4e58b5581824c3ab9932c3b94abf31493161d06eab4e11f1565a4c3b8c74"
+      },
+      {
+        "path": "tests/geonews_digest/test_digest.py",
+        "sha256": "5cd8f7016915e24d85d8256136699b23c3d3d858b69ec93b446f4161ae799496"
+      },
+      {
+        "path": "tests/geospatial/__init__.py",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "tests/geospatial/preview/make_payload.py",
+        "sha256": "1c6d96524ae23c617af43a4ea2618a54eabba46336de2a668cb5b8f73da8afe0"
+      },
+      {
+        "path": "tests/geospatial/test_geospatial.py",
+        "sha256": "7f6bf59e7db1ce9e3d3ca203bd0c83e464d7284c331811096e4078363ce3b5e8"
+      },
+      {
+        "path": "tests/geospatial/test_map_route.py",
+        "sha256": "7945a2da38494363394d59c3655dced03e8a7feb3fe8a31240da51506594a14a"
+      },
+      {
+        "path": "tests/news_export/__init__.py",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "tests/news_export/test_export.py",
+        "sha256": "5947a024421eada728189d85ee80b57020e1ee471abf86d56f592679e4a3064c"
+      },
+      {
+        "path": "tests/news_export/test_export_route.py",
+        "sha256": "e8ff6b98073eedb24660967ad8d07b57a46792f7e668aa013af48a9c392d2e93"
+      },
+      {
+        "path": "tests/news_export/test_fixture_http.py",
+        "sha256": "5b5ded65e6c00cd55f7a71392d9a01bb0bde9c2045147ec4041cb93fb1a1fa53"
+      },
+      {
+        "path": "tests/news_export/test_fixture_serving.py",
+        "sha256": "d6743b4ca36b8a4d6ed975dc19bca048b25666bc91b981fbaf0c6de20d324d85"
+      },
+      {
+        "path": "tests/news_export/test_keyset_plan.py",
+        "sha256": "413f8f911c4dee5131f97c4b23ca59d8a11baded6c7272e1e5ea9347b89741e4"
+      },
+      {
+        "path": "tests/news_export/test_original_contract.py",
+        "sha256": "c9c75c0d717119b567a91b471782a91921282763b1edd122b7c257f251c6e062"
+      },
+      {
+        "path": "tests/news_export/test_original_stream.py",
+        "sha256": "bb0baf099a6af1dfe43d71d66f7153a08e7d978801bc8eda53ee0cbfd91d4af0"
+      },
+      {
+        "path": "tests/news_export/test_raw_pager.py",
+        "sha256": "239101cf19da8c2636f4e44635ca2a561148291848a3b680060d08d510df59f0"
+      },
+      {
+        "path": "tests/test_agencia_parser.py",
+        "sha256": "1d93647a48a3f6d2c88d7441273865b4eac3897c1f7d71eb54bc631ddb6971a8"
+      },
+      {
+        "path": "tests/test_apps_script_audit.py",
+        "sha256": "0d5d90ddf002870c80e3ef59da25590e310c67aa883a4b12eebd392a655b2c42"
+      },
+      {
+        "path": "tests/test_article_archive.py",
+        "sha256": "ee3229a5181ed29053071e83996a97038078d0d32b2ca3be66e3570eff0cadfc"
+      },
+      {
+        "path": "tests/test_branding.py",
+        "sha256": "ec04fee6d602819bc53ddef36e53d58b19131faa795263d5f5b859f03de92ee6"
+      },
+      {
+        "path": "tests/test_brics_streams.py",
+        "sha256": "9253ef6d64669c58a3026d0824077d45f1659df508c45b220e286405610a6e5f"
+      },
+      {
+        "path": "tests/test_bridges.py",
+        "sha256": "847cc2d86a32b5a3cf3cc37cc5a88488216c0ad5f52867aca277e69bbc37a920"
+      },
+      {
+        "path": "tests/test_collection_prepare.py",
+        "sha256": "d9c7f87033433a282d222bc5dc32bf04d183498e7e1357402bee2970d2efccee"
+      },
+      {
+        "path": "tests/test_collector_mail_fixture.py",
+        "sha256": "d70865b5e637e688807d6f2b45ffcc45609857cf66fb01dfbb198f7c86a10397"
+      },
+      {
+        "path": "tests/test_compulsory_channels.py",
+        "sha256": "17c07782f2e0ec0a4cd32aa83aee4748342150a345239d983bde40cf7ef431aa"
+      },
+      {
+        "path": "tests/test_country_alerts.py",
+        "sha256": "420b2f6a67a634559b1eab326de1a5d0c9a6c625b651ca4ed5e205a68a429cfe"
+      },
+      {
+        "path": "tests/test_country_page.py",
+        "sha256": "283a28f8a6cddcda792e95d3849de75a302ed34005e3128e3d93863117ccb938"
+      },
+      {
+        "path": "tests/test_country_signals.py",
+        "sha256": "699e87a1761071512481405283e721ffd7c9d47ed0e01b260447445e37aa127a"
+      },
+      {
+        "path": "tests/test_country_signals_routes.py",
+        "sha256": "cbb5e02d08fdc4e390c80214968984303a04f3072224f28aa171e7faff300314"
+      },
+      {
+        "path": "tests/test_critical_stories.py",
+        "sha256": "4667df586c67fee181e9435a50cf9717921a7abc56100c5915629cac69dfcb73"
+      },
+      {
+        "path": "tests/test_cross_routes.py",
+        "sha256": "3e33ddd46c2c18c67ff7f4ed29e01fc37bd0e8878199e3b6e2dd352f3169becd"
+      },
+      {
+        "path": "tests/test_dashboard_model.py",
+        "sha256": "04d0a456018e6b04c9132544bbb9de8b86e63310f60ac1164a24184870468a7f"
+      },
+      {
+        "path": "tests/test_dashboard_snapshots.py",
+        "sha256": "819bb3addd1653b107e3f99230089a0cca2094dfda44d0cf6c59da44b2065c92"
+      },
+      {
+        "path": "tests/test_dashboard_stats.py",
+        "sha256": "d9e2a6808f09e6b0043ba62dffd1ddb4df7240ca9b13ba30aaf8e7b1cfd4dd82"
+      },
+      {
+        "path": "tests/test_digest_cold.py",
+        "sha256": "8a6cee6ca08008fd6d9f84b0c784f59c8d6ccbab4e6d408f1d0dceaf2270240d"
+      },
+      {
+        "path": "tests/test_digest_preview_routes.py",
+        "sha256": "b171fed8fd837dc9d800b00fd17d13fcc6b26e8341ca2e8e31daecb7ba14378e"
+      },
+      {
+        "path": "tests/test_env_example.py",
+        "sha256": "aa3ecd70a6c7d48fdefc190de67e950048e01c8167b3c909787752e31537b544"
+      },
+      {
+        "path": "tests/test_event_reader.py",
+        "sha256": "eb836c397f588fcc1bef92d8fc28143c90f65eae7885607bc55782878243f505"
+      },
+      {
+        "path": "tests/test_fake_collection_writer.py",
+        "sha256": "cb8873fffeacf6d6cae5e69493492f79b01463c3eab4889b9615763e151ea0da"
+      },
+      {
+        "path": "tests/test_file_audit.py",
+        "sha256": "ee3d4fbbcf36e1acaa6bfa91d9f31b686e602459b26ef3d52c5ab8d8f6233b1d"
+      },
+      {
+        "path": "tests/test_finder_index.py",
+        "sha256": "591b3a5bff97a5f4631ff4c17a7e76f4c6bb24b06976d1cddf3eeb493ce3fadf"
+      },
+      {
+        "path": "tests/test_finder_nested.py",
+        "sha256": "4a1f8546e7f4831db81977ef766b3a788616f2131683e1ae0c6cf4a4a2f637da"
+      },
+      {
+        "path": "tests/test_finder_network.py",
+        "sha256": "6b48236705d3aad92490e62509f5aa9f544f085dd82ca4d7f657ce68ab78ec72"
+      },
+      {
+        "path": "tests/test_finder_offline.py",
+        "sha256": "089b837eead1a110cb4f4050a8360b1d036520e40b9b4f5f6069767a731c5fb0"
+      },
+      {
+        "path": "tests/test_fixed_feedparser_audit.py",
+        "sha256": "5c50b0b0af1a2aef73e87629880403123d17ca983dd554db73709e25b9cda8fc"
+      },
+      {
+        "path": "tests/test_fixed_parser_pipeline.py",
+        "sha256": "05f68bdf0f07c958212035135ad34ae8d09a16f25ac4d4aafeaf359194c11566"
+      },
+      {
+        "path": "tests/test_geo_article_writer.py",
+        "sha256": "cd596802291b4bf2243fc1101cb21a12c8029c4b93189e92554b756bb2278fdc"
+      },
+      {
+        "path": "tests/test_geo_collector_contract.py",
+        "sha256": "9681ef874637ba5ba3eb303382d03ebc400e105a649a8ccc0d8069670b4f8469"
+      },
+      {
+        "path": "tests/test_geo_event_composition.py",
+        "sha256": "6c63779165391da9070af11ac783ef036ab16b1e8831128159bda91722a49cfd"
+      },
+      {
+        "path": "tests/test_geo_only_runtime.py",
+        "sha256": "4f4ec866ba6aa7e53181dc7155ec2eac4df60746843f933831956bcdf4739dc1"
+      },
+      {
+        "path": "tests/test_geo_probe_http.py",
+        "sha256": "fe9a78f6d1e9422deff931546bc05326ed5eeb9362f6ad27e30354fa3241fb02"
+      },
+      {
+        "path": "tests/test_geo_probe_process.py",
+        "sha256": "4c392d195bba0451467acf75c0c9dd97e190475f852fc82ad625d8d3e9802f53"
+      },
+      {
+        "path": "tests/test_geo_queue_fixture.py",
+        "sha256": "5d4ab0ed44621d50137b98f89b4bc3711f6c5de05504243aded75d17a30d2a3d"
+      },
+      {
+        "path": "tests/test_geo_read_factory.py",
+        "sha256": "b44e71faa294692349d14acc8280dd9ea2be071fa25acc43c01dc9ebc0996ea7"
+      },
+      {
+        "path": "tests/test_geo_rolling_breakdown.py",
+        "sha256": "beda30407bf2b87309b05d78e236c0471649de26c63d2d3d424992863ba1ae29"
+      },
+      {
+        "path": "tests/test_geo_sample_probe.py",
+        "sha256": "089cb9966c4107ea93ee77fc4e542875c76cc51deded62e336ea4c2e30118922"
+      },
+      {
+        "path": "tests/test_geo_snapshot.py",
+        "sha256": "27e8215960ae99d0d5e2c3f2b4e0b94397247f9d417f01d32205669fea537d5d"
+      },
+      {
+        "path": "tests/test_invite_expiry.py",
+        "sha256": "0fe80389b413beb80a28cd38db16307f5eceb7b15151efef276200b48a26bc6a"
+      },
+      {
+        "path": "tests/test_live_news_ui.py",
+        "sha256": "5dd438d746d2dc0658e888139cf348fd7983a3e39affb8897c115d1e7da426fb"
+      },
+      {
+        "path": "tests/test_loaded_charts.py",
+        "sha256": "186b4ae784fd339d72cc79d2f04e74aa03db41d7912cb7c4cb4d471f2137193c"
+      },
+      {
+        "path": "tests/test_loaded_news.py",
+        "sha256": "70c1d9b0a5b9c83b122db36a955159163d26b17d6a48ae3142236ad3ad5a26f3"
+      },
+      {
+        "path": "tests/test_mail_bridge.py",
+        "sha256": "1a1eea1d13254e2e9e87c0a949fceb39720e242e2d3560882c5364c7315f4c19"
+      },
+      {
+        "path": "tests/test_map_layers.py",
+        "sha256": "64833ebac72836e2f4b2e86149863cb19d9883dff20dad61832f6da7a89fe834"
+      },
+      {
+        "path": "tests/test_mongo_account_store.py",
+        "sha256": "69c36e6c3fea5a172ec228656818407d9268737b97f29e44d7b6fab154456c14"
+      },
+      {
+        "path": "tests/test_offline_collection_cycle.py",
+        "sha256": "db5d9b91337e1ec4dbdf7c493e075340fd0e1d3c7a5cb7011b6ca49da4774383"
+      },
+      {
+        "path": "tests/test_original_dashboard_payloads.py",
+        "sha256": "33cda797467dc0bee47f3c8e0269ec8d8108aba5f8e755b0d55c00832317e04f"
+      },
+      {
+        "path": "tests/test_original_reports.py",
+        "sha256": "1d173e622c9d63e43e7569a17843475ceca38c65f2cc42beda90b3ba3468ecf9"
+      },
+      {
+        "path": "tests/test_package_manifest.py",
+        "sha256": "c2a2066f8a4d03264c9daca046e3600278f591f6ea3fbb4f55b3ba8a63780f46"
+      },
+      {
+        "path": "tests/test_page_watch.py",
+        "sha256": "0a9ec099c21e937d745e2124df210864243923022aac3d0c2c69c6dd1ee539c6"
+      },
+      {
+        "path": "tests/test_page_watch_contract.py",
+        "sha256": "b03dddaf8a43ea5946d62204c79dd9a8e3c7846a8bf5fe3c61cfa53afa88b3bc"
+      },
+      {
+        "path": "tests/test_page_watch_parser_budget.py",
+        "sha256": "dfa8b432358aeda393367b8714cee485b69efbbc2db3aa54577d3d3f18760e84"
+      },
+      {
+        "path": "tests/test_pagewatch_report.py",
+        "sha256": "d7d291266634a972fc632314d5b7af6542e97d3125518220b2cb817c14611250"
+      },
+      {
+        "path": "tests/test_pagewatch_report_contract.py",
+        "sha256": "1d50be85e535293e543ac69270e222e881506efbf6830d2547f423c7a492d385"
+      },
+      {
+        "path": "tests/test_preservation.py",
+        "sha256": "c5262ec2025af42818e100dab4a8ce55fc0613f3e56f8292631ee70c48199bd4"
+      },
+      {
+        "path": "tests/test_preview_access.py",
+        "sha256": "ce87b8a014095a1d995d22f0d86abb41b9be3fe9f83fc1540ea80a678ce1e516"
+      },
+      {
+        "path": "tests/test_preview_launcher.py",
+        "sha256": "9020d077b00f79b736d28f03569a21506d086088cbe2cbd4fcc241c365107dd0"
+      },
+      {
+        "path": "tests/test_private_news_fields.py",
+        "sha256": "955439872af7f01f9a6b710161dfdb05ac66fcd6172f9b0c85916bd24b36dce6"
+      },
+      {
+        "path": "tests/test_project_reports.py",
+        "sha256": "59a59dd575a26efdfc1f5aa09262eb7c1c3f8fa9ab0efcfa7983a9737db768c7"
+      },
+      {
+        "path": "tests/test_refresh_controller.py",
+        "sha256": "cf41f1d36268c4838ea31783560a63518291353672ec3b326457f8ac39c619fa"
+      },
+      {
+        "path": "tests/test_report_preview_frame.py",
+        "sha256": "b5cc4b6468230022cc15f9f2d085662c4eff5dfc9de5c10971ca140f290dec83"
+      },
+      {
+        "path": "tests/test_report_styles.py",
+        "sha256": "2cabde91f1e699adb69af3d4636b604e0428cc89b539102c57c4bdc1a8b9b67b"
+      },
+      {
+        "path": "tests/test_retention_audit.py",
+        "sha256": "ea7d34b9940cfec1043778ee9f696b5104e594b1aca943b412a1fd0270e525ba"
+      },
+      {
+        "path": "tests/test_rss_catalog.py",
+        "sha256": "915b124532c5d1b1f9ab2c1911879336a467b6fdfca162ef0bc016d8ccaef7d2"
+      },
+      {
+        "path": "tests/test_runtime.py",
+        "sha256": "46b564ef38afa23db58bd539510e1473d2dcde40382702356712f3ce10c965da"
+      },
+      {
+        "path": "tests/test_sample_volume.py",
+        "sha256": "03bacde7d62ca90ce577e2698c5841ea768ab96fae8bcbb43fa5e6dc81a082e1"
+      },
+      {
+        "path": "tests/test_scraper_policy.py",
+        "sha256": "238e745566bdcd339e7bdb2d1ea0f8a79a14b2e3e6cc7f2ff9a081a445b41e8f"
+      },
+      {
+        "path": "tests/test_security_review.py",
+        "sha256": "a914027a5703753b97b5a39071b962520bc86e6104bb65d2a088172eab65ec6a"
+      },
+      {
+        "path": "tests/test_shared_ledger_fixture.py",
+        "sha256": "7024e49ffc9dfb56b6bcc4bbd9a24073fcde634ac63f522ef794da67925625f3"
+      },
+      {
+        "path": "tests/test_shared_service_fixture.py",
+        "sha256": "6e01e9d829402463af5c4ca28b0db901da9876355d19a2053cf9d4d0aa49fdff"
+      },
+      {
+        "path": "tests/test_single_db_plan.py",
+        "sha256": "65aba38f096c62becf201e616fb5e8300c972dedbf593caac0a248106f604d2a"
+      },
+      {
+        "path": "tests/test_single_db_runtime.py",
+        "sha256": "7c8619c96f7264fcc004ef93ddccbad37301809d42434f2e76b74cdcfa7974b5"
+      },
+      {
+        "path": "tests/test_site_parsers.py",
+        "sha256": "47baaa59d9a049e757b7d6547349c963cba9607e6c76223037e440baab9f7954"
+      },
+      {
+        "path": "tests/test_source_health.py",
+        "sha256": "8d956101911904586e48b1f63bf94fb7c4497baa1a980e750955940d1a327914"
+      },
+      {
+        "path": "tests/test_storage_reader.py",
+        "sha256": "ad425907c1a8dace022c92d08880526fe224b15886ffe460e085605952938dfc"
+      },
+      {
+        "path": "tests/test_storage_settings.py",
+        "sha256": "dd38a82da40cebf309af60359b57272370626237fc712117f662e62d2df4ec85"
+      },
+      {
+        "path": "tests/test_stream_config.py",
+        "sha256": "fe6edd2f32f29aee1a12a6ec044a27b9d511691e4399631304bfb2d53acf3c4f"
+      },
+      {
+        "path": "tests/test_stream_disk.py",
+        "sha256": "82247bc90f6eff4df4f371b1d2a00251d862c346c621a1d6eb3442c9fa7637a0"
+      },
+      {
+        "path": "tests/test_stream_fixture_app.py",
+        "sha256": "905aaa33e8b4cef331e97ec72baadac0f7b02be77cfeb0be8519e266e34fe6b2"
+      },
+      {
+        "path": "tests/test_stream_revision.py",
+        "sha256": "8345a29e6a48fb855c61c2bfd1c8b185fb3d059648ad520df0a24fc3ab86ba85"
+      },
+      {
+        "path": "tests/test_supplied_collector_pipeline.py",
+        "sha256": "91e088e40fdce235ac05b72adb97139b5eb7b6e0c6914aa4517c0ab3754bdc87"
+      },
+      {
+        "path": "tests/test_supplied_feed_fixture.py",
+        "sha256": "9a26a4df17cffff38c612c888eb97be735115ee9c06056efd4299ccf2cdbf720"
+      },
+      {
+        "path": "tests/test_supplied_fulltext_fixture.py",
+        "sha256": "6853daa74c0ddccfb8da8b8c33567b65ee58ab23d85a6fe422fcf127098d29c4"
+      },
+      {
+        "path": "tests/test_supplied_multi_feed.py",
+        "sha256": "9c2ccdaa375d5a26af1edbc51ea87616ab51a38ed972df9dd581fcf1ff65a6e2"
+      },
+      {
+        "path": "tests/test_tariff_evidence.py",
+        "sha256": "034a3ab164508c2bddbbb4d89ec7db68f43b491a501c9c099b42e3552d70b276"
+      },
+      {
+        "path": "tests/test_tariff_evidence_plain.py",
+        "sha256": "593fba04a064fe669f26161d75dee2c4fdef7ea24e6204056c5732ecd440c329"
+      },
+      {
+        "path": "tests/test_telegram_format_audit.py",
+        "sha256": "9073451a50d209d3ec55c972f837e0d0dec302d346fb90f1d0672b8c4bc4430d"
+      },
+      {
+        "path": "tests/test_watch_updates.py",
+        "sha256": "084a30b793e34219b5ffbd6771c48b49f1874b3c4cb30b27c5b41ed40d99fd87"
+      },
+      {
+        "path": "tests/test_weekly_routes.py",
+        "sha256": "2638da026ae46f9c2af494a2808841932c5bf6e99bec9d8fe6061fb166d93b3a"
+      },
+      {
+        "path": "tests/test_workspace.py",
+        "sha256": "e6d86764b5a5942b55be700d8dfe155b09f341f61ce0abd92d26f5ba8819837a"
+      },
+      {
+        "path": "tests/test_youtube_links.py",
+        "sha256": "9a23b7a3a18e13d41ee2356e3b1e7e8e80a68d47061d4294fccb014bbd290bdb"
+      },
+      {
+        "path": "tests/weekly_report/__init__.py",
+        "sha256": "8c8f4e58b5581824c3ab9932c3b94abf31493161d06eab4e11f1565a4c3b8c74"
+      },
+      {
+        "path": "tests/weekly_report/test_report.py",
+        "sha256": "92770ad9325b0becc57f76e625e2ee7c8e1214ddfc8011df8a9b10ea842dbf6f"
+      }
+    ]
+  },
+  "unresolved": []
+}

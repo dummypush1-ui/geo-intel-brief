@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 1096,
+  "tests": 1103,
   "files": [
     {
       "path": ".env.example",
@@ -162,8 +162,8 @@
     },
     {
       "path": "integration/FEATURE_STATUS.md",
-      "bytes": 21020,
-      "sha256": "fc5abe6ab9bc85231e73b6c2102debcf85d658c7b8bea6bc4eee8dd103667dfd"
+      "bytes": 21582,
+      "sha256": "86abda4f901ae022e2c7a811bddfed341d101411ce7d1af39fb56d962696745e"
     },
     {
       "path": "integration/FINDER_NESTED_LIMITS.md",
@@ -604,6 +604,21 @@
       "path": "integration/dashboard_snapshots.py",
       "bytes": 7368,
       "sha256": "ce90cf7da68a6d51db42814251077d9f11f38b1f1f039df6fdc0a349b0a9a1a2"
+    },
+    {
+      "path": "integration/dependency_audit/README.md",
+      "bytes": 4241,
+      "sha256": "87630a55204eb318dfab114053b94266244f589a0711af2a4298492f5c8924ac"
+    },
+    {
+      "path": "integration/dependency_audit/audit.json",
+      "bytes": 18581,
+      "sha256": "bba964de36cfb52970b32c059aaaf772b15f161a79927b6d61a952ae5a106114"
+    },
+    {
+      "path": "integration/dependency_audit/import-inventory.json",
+      "bytes": 154026,
+      "sha256": "21d77d4e5f3d8b62afa8a00b22073fc7a4de84387a5884823c6daf091968d8a7"
     },
     {
       "path": "integration/digest_preview.py",
@@ -1666,6 +1681,11 @@
       "sha256": "40616b6a9d4fde07d580529d062c70f7b09907159ab7cbde647111681ba0617e"
     },
     {
+      "path": "requirements-offline-reviewed.candidate.txt",
+      "bytes": 2479,
+      "sha256": "1d6360b5d3e60775a43904a8a772f841b8e09d0db13d17f4fd4ad315d7f79901"
+    },
+    {
       "path": "requirements-staging.txt",
       "bytes": 96,
       "sha256": "459ac8205071b77f22bb60f658314a48dfbbc8907270633d56b61ca0da230742"
@@ -2596,6 +2616,11 @@
       "sha256": "d9e2a6808f09e6b0043ba62dffd1ddb4df7240ca9b13ba30aaf8e7b1cfd4dd82"
     },
     {
+      "path": "tests/test_dependency_audit.py",
+      "bytes": 6554,
+      "sha256": "b247dbe40449d96457d8965054f2daa293079edbbd200cddacd1000d4caa92b2"
+    },
+    {
       "path": "tests/test_digest_cold.py",
       "bytes": 466,
       "sha256": "8a6cee6ca08008fd6d9f84b0c784f59c8d6ccbab4e6d408f1d0dceaf2270240d"
@@ -2991,5 +3016,5 @@
       "sha256": "2ca27e9a8dae569cdeac42752ed1aed1afeff7f19282d3cc12c0aaa54a08bc04"
     }
   ],
-  "test_evidence_note": "Author full configured1096 PASS548+274+274 partitions,1skip/1expected. Independent6+existing11SAFE. Existing7fixedcases/suppliedpipeline only."
+  "test_evidence_note": "Author full configured1103 PASS551+276+276 partitions,1skip/1expected. Independent v3 SAFE blocked candidate; reviewer cache absent/119 baseline files unavailable. Fresh reproduction NOT ATTEMPTED, missing sgmllib wheel."
 }
