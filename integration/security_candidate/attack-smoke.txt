@@ -1,0 +1,25 @@
+import io,json,socket,ssl,asyncio
+# No live resolution, network or DB allowed in this bounded isolated child.
+def blocked(*a,**k):raise RuntimeError('network refused')
+socket.socket=blocked;socket.getaddrinfo=blocked;socket.create_connection=blocked
+from pymongo.uri_parser import parse_uri
+from pymongo.errors import InvalidURI
+from bson import BSON,has_c
+import pymongo,pypdf
+from pypdf.generic._image_inline import extract_inline__ascii85_decode,extract_inline__ascii_hex_decode
+from pypdf.errors import PdfReadError
+cases=[]
+for uri in ['mongodb://example.invalid%2Cevil.invalid%3A27017/','mongodb://example.invalid%2F27017/']:
+ try:parse_uri(uri)
+ except InvalidURI:cases.append('encoded_host_refused')
+ else:raise AssertionError('host injection accepted')
+assert parse_uri('mongodb://example.invalid:27017/')['nodelist']==[('example.invalid',27017)]
+for fn in [extract_inline__ascii85_decode,extract_inline__ascii_hex_decode]:
+ for b in [b'abc',b'aaaaaaaaaaaaaaaaaaaaaaaaa']:
+  assert len(b)<=25
+  try:fn(io.BytesIO(b))
+  except PdfReadError:cases.append('incomplete_inline_refused')
+  else:raise AssertionError('invalid stream accepted')
+x={'x':'a'*4096,'n':123,'rows':[1,2,3]};assert BSON.encode(x).decode()==x
+# Real overflow reproducer needs >2GiB; do not allocate it or claim exercised.
+print(json.dumps({'pymongo':pymongo.version,'pypdf':pypdf.__version__,'bson_c_backend':has_c(),'checks':cases,'bson_overflow_runtime':'NOT exercised >2GiB; upstream wider arithmetic patch source inspected; bounded BSON roundtrip only','network':'namespace + guarded interfaces, no DB'}))

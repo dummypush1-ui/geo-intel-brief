@@ -259,3 +259,19 @@ one service/limiter perstore/process required, multiworkerdefect unfixed.
 Serving with realMongo could write, not done/authorized. Selectednews reader
 shared, not personalized; no synced browserUI/accountpage/pixelchange delivered.
 No productionlogin/proxy/activation readiness; configured1119tests run, suiteOK559+280+280partitions,1expectedfailure/1skip; not freshsuiteproof.
+
+## Increment90: separate security candidate research, unselected
+
+Officialhashed25packagecandidateinstall/pipcheck succeeds, pymongo4.18.2 /
+pypdf6.19.0. Qualifyingcandidate1119uniqueIDs/runOK1expected/1optionalPDFskip
+in namespace with regressiononly4GiBvirtualRLIMIT_AS; best-effort50mssampled
+process-groupmonitor768MiB/128processes NOT enforcedaggregateboundary and
+notproofalldescendantcoverage. Default/attack1GiBunchanged. Originalconfigured
+1119runOK559+280+280,1expected/1skip. Failed/interrupted/accidentalhostattempts
+retainedandexcluded. ScopedindependentreviewSAFE, NOTproductionpinselection.
+28highprovideralerts=12distinctadvisories(10PDF/2Mongo), duplicatehistorical
+andpreservedmanifests; remaining3highssameBSONadvisory. Allseveritydirect/
+transitivecheck pending. ExactBSON2GiBoverflowNOTexercised, sourcepatchonly;
+no liveMongo/servertransactionproof. Productionpins/source/87/88unchanged,
+alertsNOTfixedinproduction. NoPRmerge/deploy/send/DBeffects/collectorstop.
+LICENSEexplicitlyapproved/committed separately; thirdpartytermsremain.

@@ -1,0 +1,7 @@
+import sys,json,hashlib
+from pathlib import Path
+sys.path.insert(0,'/tmp/feature-preserving-merge')
+from integration.dependency_build.runner import capture
+n=sys.argv[1]
+cmd=['/usr/bin/bwrap','--unshare-all','--die-with-parent','--new-session','--ro-bind','/usr','/usr','--ro-bind','/bin','/bin','--ro-bind','/lib','/lib','--ro-bind','/lib64','/lib64','--proc','/proc','--dev','/dev','--bind','/tmp/security90-env','/work','--ro-bind','/downloads/wheels68','/downloads/wheels68','--chdir','/work/tree','--clearenv','--setenv','PATH','/usr/bin','--setenv','HOME','/work','--setenv','TMPDIR','/work','--setenv','PYTHONNOUSERSITE','1','--setenv','PYTHONPATH','.:tests','/work/venv/bin/python','/work/run-full.py',n]
+r=capture(cmd,env={'PATH':'/usr/bin'},wall=75,cpu=60);o=r.pop('output');Path('/tmp/isolated90-part'+n+'.log').write_bytes(o);r['argv']=cmd;r['output_sha256']=hashlib.sha256(o).hexdigest();Path('/tmp/isolated90-part'+n+'.json').write_text(json.dumps(r,indent=2));print(r);print(o.decode(errors='replace')[-2000:])

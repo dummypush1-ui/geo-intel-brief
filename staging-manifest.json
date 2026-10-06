@@ -16,6 +16,11 @@
       "sha256": "ce9446fdae6598f86928fb1e0b35d5b77bb046d9bd15d612c3b64b75b89b2206"
     },
     {
+      "path": "LICENSE",
+      "bytes": 928,
+      "sha256": "c915bd1498ad0c00ad82dd6f2690aee521ea0873f0e3d1270c02514d3140345c"
+    },
+    {
       "path": "README.md",
       "bytes": 2663,
       "sha256": "a5632ccd20d0322a61526c3e277aabaeaabdcd9c13b52fc8cfdca3dc78462063"
@@ -162,8 +167,8 @@
     },
     {
       "path": "integration/FEATURE_STATUS.md",
-      "bytes": 23147,
-      "sha256": "047a7dc1408cf3ee66c8e1c283a556fb293a8518c3281c9a4f172e24aec9e076"
+      "bytes": 24204,
+      "sha256": "05f3ffa53c77001fa4e258837d79d92b39fa353fd169087777cc0ea8b60324f2"
     },
     {
       "path": "integration/FINDER_NESTED_LIMITS.md",
@@ -284,6 +289,11 @@
       "path": "integration/REPORT_STYLE_LIMITS.md",
       "bytes": 1141,
       "sha256": "6914cc0083abbf8dcc968f26fcb72098dfe286ec8407a5c5b619ebb714475f43"
+    },
+    {
+      "path": "integration/REQUESTED_FEATURES.md",
+      "bytes": 3903,
+      "sha256": "461a78a8c1610c6d33b2bed9496a2b109ca3ac9e02d7a0b4be2833076250eeda"
     },
     {
       "path": "integration/RETENTION_AUDIT_LIMITS.md",
@@ -1124,6 +1134,66 @@
       "path": "integration/scraper_rules.json",
       "bytes": 1355,
       "sha256": "d42f6aa42fbf1617ec288bb8441de1816997216cf5fa08cf1cb2d105943899e7"
+    },
+    {
+      "path": "integration/security_candidate/README.md",
+      "bytes": 2300,
+      "sha256": "f3a83bd887ce341d61cb4c5340637d408d8e22ca9c9f496af9bfdba4e322d635"
+    },
+    {
+      "path": "integration/security_candidate/advisory-third.txt",
+      "bytes": 76219,
+      "sha256": "8a5568252819fcb95f8b1a7c7d1dc936c0201b92f15d98238236ed85574cccef"
+    },
+    {
+      "path": "integration/security_candidate/attack-smoke.txt",
+      "bytes": 1586,
+      "sha256": "532149e8a9c05b84cabc0a19052182de3124c1f7eacde490da08e6fd78c05d81"
+    },
+    {
+      "path": "integration/security_candidate/chunk-runner.txt",
+      "bytes": 1029,
+      "sha256": "4de92dc00ec0c77d2c6f10825ad7515278b94e5bdb619171ddd56abf6104aeb5"
+    },
+    {
+      "path": "integration/security_candidate/chunk-selection.txt",
+      "bytes": 408,
+      "sha256": "c827d43bcb419dac181394c754036ae55f89eb9670f1da29488b762439cef19f"
+    },
+    {
+      "path": "integration/security_candidate/full-runner.txt",
+      "bytes": 1026,
+      "sha256": "c2a432ad6865f6723e0aa2d4d7fd45e4393d5e6f259c23a06335983c07c81bcc"
+    },
+    {
+      "path": "integration/security_candidate/receipt.json",
+      "bytes": 259710,
+      "sha256": "8b90cefac49a9fe6a92fd911f0b73581546a13511eec6a09c8e2024928c326d0"
+    },
+    {
+      "path": "integration/security_candidate/regression-coverage.json",
+      "bytes": 125548,
+      "sha256": "7da6be9f22212db7301909fd73b2c8e1707bc4d52a7a4f42561591d60039c308"
+    },
+    {
+      "path": "integration/security_candidate/regression-runner.txt",
+      "bytes": 1014,
+      "sha256": "cef494f39e2e3d006e9d97ed485475b3177e641308010bf2d5a09e7561cb14f6"
+    },
+    {
+      "path": "integration/security_candidate/regression30-runner.txt",
+      "bytes": 1024,
+      "sha256": "9ab3d20e22b0bda1dff3f41f8a2f5c63db73062dca939e28f89c634e08c070f7"
+    },
+    {
+      "path": "integration/security_candidate/regression_capture.txt",
+      "bytes": 2859,
+      "sha256": "5a7b861f121ab032b25e0d3a319b73e1add0afb22e2dec35cf644e659951e90c"
+    },
+    {
+      "path": "integration/security_candidate/requirements-security-candidate.txt",
+      "bytes": 2483,
+      "sha256": "16e9a9b331c186362cbcd4dc00f7a1cfb565963aed15e249075a8dbc8ac57bae"
     },
     {
       "path": "integration/single_db_plan.py",
@@ -3071,5 +3141,5 @@
       "sha256": "2ca27e9a8dae569cdeac42752ed1aed1afeff7f19282d3cc12c0aaa54a08bc04"
     }
   ],
-  "test_evidence_note": "Configured1119tests run, suiteOK559+280+280,1skip/1expected; NOTfreshfullproof. Independent7SAFE unselected HTTP composition; no UI/productionactivation/personalized reader."
+  "test_evidence_note": "Configuredoriginal1119runOK1expected/1skip; separateunselectedcandidate1119qualifyinguniqueIDs namespaceOK1expected/1skip,4GiBperprocessvirtual, best-effortsampledmonitorNOTaggregateboundary. IndependentSAFEresearchonly, no pinselection/securityoutcomeclosed."
 }

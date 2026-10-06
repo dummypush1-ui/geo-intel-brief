@@ -1,0 +1,7 @@
+import unittest,sys
+suite=unittest.TestLoader().discover('tests')
+def flatten(s):
+ for x in s:
+  if isinstance(x,unittest.TestSuite):yield from flatten(x)
+  else:yield x
+cases=list(flatten(suite));n=int(sys.argv[1]);part=cases[n*60:(n+1)*60];print('TOTAL',len(cases),'CHUNK',n,'COUNT',len(part),flush=True);r=unittest.TextTestRunner(verbosity=2).run(unittest.TestSuite(part));sys.exit(not r.wasSuccessful())
