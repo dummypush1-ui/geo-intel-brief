@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 1068,
+  "tests": 1075,
   "files": [
     {
       "path": ".env.example",
@@ -162,8 +162,8 @@
     },
     {
       "path": "integration/FEATURE_STATUS.md",
-      "bytes": 19363,
-      "sha256": "2e2eb1f77d071003e14931f3b2288a7250745ecf07d32993cccbb147f3b9555c"
+      "bytes": 19779,
+      "sha256": "ae5742a1d554879e43d5b06db6c8b93c4df4d1e58d3819f74b1f8cd56701933b"
     },
     {
       "path": "integration/FINDER_NESTED_LIMITS.md",
@@ -314,6 +314,11 @@
       "path": "integration/SUPPLIED_FULLTEXT_FIXTURE_LIMITS.md",
       "bytes": 3639,
       "sha256": "0921e7659ef804d821a502969ba4e021520d165e5bb5ecc917b2d11338d710d2"
+    },
+    {
+      "path": "integration/SUPPLIED_MULTI_FEED_LIMITS.md",
+      "bytes": 3109,
+      "sha256": "9c822dcf8bba27e0543efb0656dfc0b3e67efb033906515fc671630ac27f0120"
     },
     {
       "path": "integration/SUPPLIED_PIPELINE_LIMITS.md",
@@ -1094,6 +1099,11 @@
       "path": "integration/supplied_fulltext_fixture.py",
       "bytes": 7661,
       "sha256": "ea69e0b6d0c4ba776062a7bed0f762accb2558fe462d6313cdab78865246747b"
+    },
+    {
+      "path": "integration/supplied_multi_feed.py",
+      "bytes": 6430,
+      "sha256": "ba4ced9b830062011949e4515da01e482629b17cdc91f9db23170c8c0ec7c24c"
     },
     {
       "path": "integration/tariff_evidence.py",
@@ -2866,6 +2876,11 @@
       "sha256": "6853daa74c0ddccfb8da8b8c33567b65ee58ab23d85a6fe422fcf127098d29c4"
     },
     {
+      "path": "tests/test_supplied_multi_feed.py",
+      "bytes": 6224,
+      "sha256": "9c2ccdaa375d5a26af1edbc51ea87616ab51a38ed972df9dd581fcf1ff65a6e2"
+    },
+    {
       "path": "tests/test_tariff_evidence.py",
       "bytes": 4108,
       "sha256": "034a3ab164508c2bddbbb4d89ec7db68f43b491a501c9c099b42e3552d70b276"
@@ -2911,5 +2926,5 @@
       "sha256": "2ca27e9a8dae569cdeac42752ed1aed1afeff7f19282d3cc12c0aaa54a08bc04"
     }
   ],
-  "test_evidence_note": "Author full configured1068 PASS534+267+267 partitions,1skip/1expected. Independent8SAFE. Supplied pipeline only, no live collector."
+  "test_evidence_note": "Author full configured1075 PASS537+269+269 partitions,1skip/1expected. Independent7SAFE. Ordered supplied multi-feed only, coverage_verifiedfalse."
 }

@@ -215,3 +215,7 @@ Separate supplied entry fixture preserving original slice/filter/field precedenc
 ## Increment82: supplied feed/fulltext/original-doc pipeline
 
 Separate composition81->80->64 preserving stage restrictions and deterministic date deviation.8author+8independent focused PASS/SAFE after rawURL refinement; configured1068 PASS534+267+267 partitions,1expected/1skip. No real RSS/XML/fulltext/mail/Telegram/store or health/fullarticle proof.
+
+## Increment83: ordered supplied multi-feed global preparation
+
+Separate0..4suppliedfeeds total100entries, original-orderflatten then80/64globallyonce. Mixedfailedsource labels+coverage_verifiedfalse, no healthy/completeclaim.7author+7independentfocusedPASS/SAFE; configured1075 PASS537+269+269partitions,1expected/1skip. Originalduplicatecorroboration countsrecords, notverifiedindependentsources. No liveeffects.
