@@ -248,3 +248,14 @@ suite OK with1expectedfailure/1skip, not fresh-environment proof. Original87
 candidate immutable; source/cache/buildtool evidence author-local; single
 build no deterministicbyteclaim; lock not a delivered artifactbundle. No
 production/Render/Atlas/delivery/readiness claim.
+
+## Increment89: additive unselected account/session/settings HTTP composition
+
+7author+7independentfocused tests OK, SAFE scopedcomposition. Exact injected
+service/KDF/limiter/store/policy, private news/static/export/session guards,
+strictOrigin/CSRF/cookies, per-user settingsCAS/compulsoryRepublic tested with
+Memory/fakeMongo only. Collaborators trustedcode, not authenticated by types;
+one service/limiter perstore/process required, multiworkerdefect unfixed.
+Serving with realMongo could write, not done/authorized. Selectednews reader
+shared, not personalized; no synced browserUI/accountpage/pixelchange delivered.
+No productionlogin/proxy/activation readiness; configured1119tests run, suiteOK559+280+280partitions,1expectedfailure/1skip; not freshsuiteproof.

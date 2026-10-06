@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 1112,
+  "tests": 1119,
   "files": [
     {
       "path": ".env.example",
@@ -162,8 +162,8 @@
     },
     {
       "path": "integration/FEATURE_STATUS.md",
-      "bytes": 22378,
-      "sha256": "ee61a3753971805db8f8a1ca5097f48800b346b68bd6c19590ec6a6885c90ee9"
+      "bytes": 23147,
+      "sha256": "047a7dc1408cf3ee66c8e1c283a556fb293a8518c3281c9a4f172e24aec9e076"
     },
     {
       "path": "integration/FINDER_NESTED_LIMITS.md",
@@ -396,6 +396,11 @@
       "sha256": "7067979719048f144c1263b8ba360f23ad88b85613a2197ffe4baa7ea4e12c68"
     },
     {
+      "path": "integration/accounts/WIRED_HTTP_LIMITS.md",
+      "bytes": 3743,
+      "sha256": "232203717277d1e5a42a07ba0bb0dce3e2681c238326f531b5f48f93f8d84b65"
+    },
+    {
       "path": "integration/accounts/__init__.py",
       "bytes": 540,
       "sha256": "b5c2db9c2b3c8c4115e44893b6a29319919200a9f39ffe8c05be8c9b2eb94c46"
@@ -474,6 +479,11 @@
       "path": "integration/accounts/validators.py",
       "bytes": 2036,
       "sha256": "4aae0e598d9240d99ee41e4687c3a23fc35438b992009c24a7451410569872d4"
+    },
+    {
+      "path": "integration/accounts/wired_http.py",
+      "bytes": 11201,
+      "sha256": "f65c2dc66c7020b451892cccc65c9bf4c7893e6cab272498e4d1da3cb4951486"
     },
     {
       "path": "integration/agencia_parser.py",
@@ -2346,6 +2356,11 @@
       "sha256": "3a46fd4738f2eb8a46edceea2bcd208eea6fdf9f4d9263aa949f87095325d541"
     },
     {
+      "path": "tests/accounts/test_wired_http.py",
+      "bytes": 6820,
+      "sha256": "f9d544c177707b2fe843f02aeb27e69a0cf89c3d74bb7518aa0713a09ba2c988"
+    },
+    {
       "path": "tests/browser_brics_streams.py",
       "bytes": 1755,
       "sha256": "76635cec97752e0d3c452e778b26e0a14d690a750b81fc66af51489f7dd598c2"
@@ -2652,8 +2667,8 @@
     },
     {
       "path": "tests/test_dependency_audit.py",
-      "bytes": 9356,
-      "sha256": "0699b3c4f2eb9ba0a81ef9e46bb5a9c44418b194fc0e2d1873d4b68ad3ef61d8"
+      "bytes": 9437,
+      "sha256": "3804101d3a8cbeaa6e3177081bd1e607cc227cc01972ca8fda0ea55e83816d08"
     },
     {
       "path": "tests/test_dependency_build_runner.py",
@@ -3056,5 +3071,5 @@
       "sha256": "2ca27e9a8dae569cdeac42752ed1aed1afeff7f19282d3cc12c0aaa54a08bc04"
     }
   ],
-  "test_evidence_note": "Configured1112tests run, suiteOK1skip/1expected; NOTfreshfullproof. IndependentSAFE scopedbuild/installaudit. FreshfullsuiteBLOCKEDisolatedloopback. ExistingGithubsecurityfiles preserved separately, noPRmerged."
+  "test_evidence_note": "Configured1119tests run, suiteOK559+280+280,1skip/1expected; NOTfreshfullproof. Independent7SAFE unselected HTTP composition; no UI/productionactivation/personalized reader."
 }
