@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 1026,
+  "tests": 1039,
   "files": [
     {
       "path": ".env.example",
@@ -162,8 +162,8 @@
     },
     {
       "path": "integration/FEATURE_STATUS.md",
-      "bytes": 17625,
-      "sha256": "870811167ddec3b30f55d98009545cba6e09e4665ac2855c06ca696fc15b59f0"
+      "bytes": 18097,
+      "sha256": "61f1a05bd46ca3114ce14a85593a97890f011837e55d57669a584c62a8421581"
     },
     {
       "path": "integration/FINDER_NESTED_LIMITS.md",
@@ -361,6 +361,11 @@
       "sha256": "bd6275b950453abfb820ce5441f4560841a34ae79bdd4a78c5b1afec1d332979"
     },
     {
+      "path": "integration/accounts/SHARED_SERVICE_FIXTURE_LIMITS.md",
+      "bytes": 3281,
+      "sha256": "7067979719048f144c1263b8ba360f23ad88b85613a2197ffe4baa7ea4e12c68"
+    },
+    {
       "path": "integration/accounts/__init__.py",
       "bytes": 540,
       "sha256": "b5c2db9c2b3c8c4115e44893b6a29319919200a9f39ffe8c05be8c9b2eb94c46"
@@ -409,6 +414,11 @@
       "path": "integration/accounts/shared_ledger_fixture.py",
       "bytes": 8698,
       "sha256": "4ab0adeddef8e82ca9653547f214e4d1514c7f1a2821a35877f522354f737439"
+    },
+    {
+      "path": "integration/accounts/shared_service_fixture.py",
+      "bytes": 4619,
+      "sha256": "db7d9719e03b2a54951c37c3f522339997ad9bfc228d2cc5651dfbc55cebd7ac"
     },
     {
       "path": "integration/accounts/store.py",
@@ -2756,6 +2766,11 @@
       "sha256": "7024e49ffc9dfb56b6bcc4bbd9a24073fcde634ac63f522ef794da67925625f3"
     },
     {
+      "path": "tests/test_shared_service_fixture.py",
+      "bytes": 6578,
+      "sha256": "6e01e9d829402463af5c4ca28b0db901da9876355d19a2053cf9d4d0aa49fdff"
+    },
+    {
       "path": "tests/test_single_db_plan.py",
       "bytes": 936,
       "sha256": "65aba38f096c62becf201e616fb5e8300c972dedbf593caac0a248106f604d2a"
@@ -2851,5 +2866,5 @@
       "sha256": "2ca27e9a8dae569cdeac42752ed1aed1afeff7f19282d3cc12c0aaa54a08bc04"
     }
   ],
-  "test_evidence_note": "Configured author full suite 1026 OK; 1 skip/1 expected failure. Independent narrow review SAFE. Offline only."
+  "test_evidence_note": "Author full configured1039 PASS519+520 partitions,1skip/1expected. Independent13 focused SAFE. Offline synthetic only."
 }

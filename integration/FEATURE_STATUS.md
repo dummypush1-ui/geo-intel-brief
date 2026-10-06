@@ -199,3 +199,7 @@ This milestone is offline code/test status, not live activation.
 Separate shared same-process memory admission ledger, collision-safe retained generations, exact opaque ticket ownership, bounded atomic admission and terminal transitions. Old Limiter/AccountService unchanged; production multi-instance limitation still open. Full discovered1026 tests passed513/513 partitions,1skip/1expected. No durable/cross-process/service activation claim.
 Author full configured suite: 1026 tests OK, 1 skip/1 expected failure.
 This milestone is offline code/test status, not live activation.
+
+## Increment79: reviewed offline scope
+
+Separate closed synthetic service-control-flow handles on one same-process78 memory ledger.13author+13independent focused tests PASS/SAFE. Original service/limiter/store/Mongo/78 source pins unchanged. Session-before-settlement gap and finally first-error masking explicitly tested and retained. No production limiter/account/HTTP activation or real credentials. Full configured1039 suite passed519+520 partitions,1expected/1skip.
