@@ -193,3 +193,9 @@ This milestone is offline code/test status, not live activation.
 Timed invite contract with atomic account claim validation. Expiry evaluated at explicit post-hash admission time, not commit time. Legacy integer snapshots non-expiring. No real provisioning, account activation or writes. No-burn only claim refusal; later signup failures remain. Full discovered1011 tests run in505/506 partitions OK,1skip/1expected.
 Author full configured suite: 1011 tests OK, 1 skip/1 expected failure.
 This milestone is offline code/test status, not live activation.
+
+## Increment 78: reviewed offline scope
+
+Separate shared same-process memory admission ledger, collision-safe retained generations, exact opaque ticket ownership, bounded atomic admission and terminal transitions. Old Limiter/AccountService unchanged; production multi-instance limitation still open. Full discovered1026 tests passed513/513 partitions,1skip/1expected. No durable/cross-process/service activation claim.
+Author full configured suite: 1026 tests OK, 1 skip/1 expected failure.
+This milestone is offline code/test status, not live activation.
