@@ -207,3 +207,7 @@ Separate closed synthetic service-control-flow handles on one same-process78 mem
 ## Increment80: supplied-fulltext offline source-semantic preparation
 
 Separate private supplied download/extract outcome fixture preserves reviewed original<200 enrichment/strip/truncate/ellipsis and composes original lightweight docs. No real fetch/parser/import/threads/Telegram/durable backup; returned enriched text supplied, not verified/lossless.11author+11independent focused PASS/SAFE after category prevalidation refinement. Full configured1050 PASS525+262+263 partitions,1expected/1skip.
+
+## Increment81: supplied parsed-entry RSS source-semantic selection
+
+Separate supplied entry fixture preserving original slice/filter/field precedence/stripHTML and reviewed date parsing with explicit fixed-UTC default deviation. No live HTTP/XML/source health.10author+10independent focused PASS/SAFE; full configured1060 PASS530+265+265 partitions,1expected/1skip. No composition to80 or provider activation.
