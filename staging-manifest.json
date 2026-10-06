@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 1075,
+  "tests": 1083,
   "files": [
     {
       "path": ".env.example",
@@ -162,8 +162,8 @@
     },
     {
       "path": "integration/FEATURE_STATUS.md",
-      "bytes": 19779,
-      "sha256": "ae5742a1d554879e43d5b06db6c8b93c4df4d1e58d3819f74b1f8cd56701933b"
+      "bytes": 20212,
+      "sha256": "9f500db8ffbe46ef4ea19cc0150853636dad107e1dea2944952a0cb6ac8831be"
     },
     {
       "path": "integration/FINDER_NESTED_LIMITS.md",
@@ -329,6 +329,11 @@
       "path": "integration/TARIFF_EVIDENCE_LIMITS.md",
       "bytes": 4503,
       "sha256": "f8ffc5f123be528079985a9eec9c05d206f5ccab7b42ca3b54ebb17c7059ce16"
+    },
+    {
+      "path": "integration/TELEGRAM_FORMAT_AUDIT_LIMITS.md",
+      "bytes": 2427,
+      "sha256": "6eed50f278590e0417c2301a19c9c302ef1c3a3b0dd78be11220f84ecef1217a"
     },
     {
       "path": "integration/WATCH_UPDATES_LIMITS.md",
@@ -1114,6 +1119,11 @@
       "path": "integration/taxonomy.py",
       "bytes": 974,
       "sha256": "cc3d2a4e84ab863da50b77916a47b74cbd17d755d8cd8fcf8874498ad4d30002"
+    },
+    {
+      "path": "integration/telegram_format_audit.py",
+      "bytes": 4695,
+      "sha256": "67829caf451c731032ffd347456f82a0405424ca571a2d7c6490c10b57cbd7ba"
     },
     {
       "path": "integration/ui/brics_streams.css",
@@ -2891,6 +2901,11 @@
       "sha256": "593fba04a064fe669f26161d75dee2c4fdef7ea24e6204056c5732ecd440c329"
     },
     {
+      "path": "tests/test_telegram_format_audit.py",
+      "bytes": 3662,
+      "sha256": "9073451a50d209d3ec55c972f837e0d0dec302d346fb90f1d0672b8c4bc4430d"
+    },
+    {
       "path": "tests/test_watch_updates.py",
       "bytes": 2176,
       "sha256": "084a30b793e34219b5ffbd6771c48b49f1874b3c4cb30b27c5b41ed40d99fd87"
@@ -2926,5 +2941,5 @@
       "sha256": "2ca27e9a8dae569cdeac42752ed1aed1afeff7f19282d3cc12c0aaa54a08bc04"
     }
   ],
-  "test_evidence_note": "Author full configured1075 PASS537+269+269 partitions,1skip/1expected. Independent7SAFE. Ordered supplied multi-feed only, coverage_verifiedfalse."
+  "test_evidence_note": "Author full configured1083 PASS541+271+271 partitions,1skip/1expected. Independent8SAFE. Synthetic formatting audit NOTFORDELIVERY."
 }

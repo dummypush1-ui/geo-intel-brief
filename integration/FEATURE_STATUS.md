@@ -219,3 +219,7 @@ Separate composition81->80->64 preserving stage restrictions and deterministic d
 ## Increment83: ordered supplied multi-feed global preparation
 
 Separate0..4suppliedfeeds total100entries, original-orderflatten then80/64globallyonce. Mixedfailedsource labels+coverage_verifiedfalse, no healthy/completeclaim.7author+7independentfocusedPASS/SAFE; configured1075 PASS537+269+269partitions,1expected/1skip. Originalduplicatecorroboration countsrecords, notverifiedindependentsources. No liveeffects.
+
+## Increment84: private synthetic Telegram formatter/batch audit
+
+Source-native3500packingdiagnostic only, original record/batchtext+Python/UTF8/UTF16metrics, estimateunder-countgap and unsplitoversizedsingleflag. Caller syntheticassertionnotproof; NOTFORDELIVERY, no providerlimit/readiness/fullcontent/durabilityclaim.8author+8independentfocusedPASS/SAFE; configured1083 PASS541+271+271partitions,1expected/1skip. No liveeffects.
