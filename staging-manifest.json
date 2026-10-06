@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 990,
+  "tests": 1001,
   "files": [
     {
       "path": ".env.example",
@@ -121,6 +121,11 @@
       "sha256": "136661a40c3f662cca44b87fa2ccb5f2f0c94a725e01574de4271495c2d66331"
     },
     {
+      "path": "integration/COLLECTOR_MAIL_FIXTURE_LIMITS.md",
+      "bytes": 2429,
+      "sha256": "6e2d181d296dcfde55c6e66d148a036dfc0018dee458280732435208e8206cfd"
+    },
+    {
       "path": "integration/COMPULSORY_CHANNEL_LIMITS.md",
       "bytes": 901,
       "sha256": "3d781ed5a670b0a576e885e636b38d6b797a50e29d9be848a15b2e708bee2f3b"
@@ -157,8 +162,8 @@
     },
     {
       "path": "integration/FEATURE_STATUS.md",
-      "bytes": 16108,
-      "sha256": "c2411b4557655d55e730ed3a895bf12a73733ecc4514b35625171635880cc1af"
+      "bytes": 16536,
+      "sha256": "ece533687f49860be0e20dfe2e5e8d97617c2de7454327da5703107709512bbe"
     },
     {
       "path": "integration/FINDER_NESTED_LIMITS.md",
@@ -504,6 +509,11 @@
       "path": "integration/collection_prepare.py",
       "bytes": 2493,
       "sha256": "2d0886b3126dfd4da4c7fa647ff414afbd27a6032204a8f9ad2be046f86c25b2"
+    },
+    {
+      "path": "integration/collector_mail_fixture.py",
+      "bytes": 7280,
+      "sha256": "3b2c7bd871656ac69bf380d0425132a0919fa7eda440bdf5467fe450dcc51873"
     },
     {
       "path": "integration/country_alerts.py",
@@ -2416,6 +2426,11 @@
       "sha256": "d9c7f87033433a282d222bc5dc32bf04d183498e7e1357402bee2970d2efccee"
     },
     {
+      "path": "tests/test_collector_mail_fixture.py",
+      "bytes": 5259,
+      "sha256": "d70865b5e637e688807d6f2b45ffcc45609857cf66fb01dfbb198f7c86a10397"
+    },
+    {
       "path": "tests/test_compulsory_channels.py",
       "bytes": 2766,
       "sha256": "17c07782f2e0ec0a4cd32aa83aee4748342150a345239d983bde40cf7ef431aa"
@@ -2811,5 +2826,5 @@
       "sha256": "2ca27e9a8dae569cdeac42752ed1aed1afeff7f19282d3cc12c0aaa54a08bc04"
     }
   ],
-  "test_evidence_note": "Configured author full suite 990 OK; 1 skip/1 expected failure. Independent narrow review SAFE. Offline only."
+  "test_evidence_note": "Configured author full suite 1001 OK; 1 skip/1 expected failure. Independent narrow review SAFE. Offline only."
 }

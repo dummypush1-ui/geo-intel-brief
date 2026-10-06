@@ -181,3 +181,9 @@ This milestone is offline code/test status, not live activation.
 Private supplied synthetic supported-schema archive. Original summary only 300 chars, not full-body recovery. Exact closed producer field types; incremental budget and consistency digest. No Atlas proof, durable backup or secret detection inside accepted strings.
 Author full configured suite: 990 tests OK, 1 skip/1 expected failure.
 This milestone is offline code/test status, not live activation.
+
+## Increment 76: reviewed offline scope
+
+Separate offline collector-document and original Geo digest preview composition, independent supplied inputs and pinned dependencies. Whole-input bounds, visible scope notice. No fetch, send, write, mark or runtime wiring; no pixel/readiness claim.
+Author full configured suite: 1001 tests OK, 1 skip/1 expected failure.
+This milestone is offline code/test status, not live activation.
