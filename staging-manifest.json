@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 1090,
+  "tests": 1096,
   "files": [
     {
       "path": ".env.example",
@@ -162,8 +162,8 @@
     },
     {
       "path": "integration/FEATURE_STATUS.md",
-      "bytes": 20623,
-      "sha256": "d020166105cef6376f7badeb715bfcddf5a4ef6a77ed71fb2ad833eaed586727"
+      "bytes": 21020,
+      "sha256": "fc5abe6ab9bc85231e73b6c2102debcf85d658c7b8bea6bc4eee8dd103667dfd"
     },
     {
       "path": "integration/FINDER_NESTED_LIMITS.md",
@@ -189,6 +189,11 @@
       "path": "integration/FINDER_SNAPSHOT_NOTES.md",
       "bytes": 1029,
       "sha256": "f17380d3c633e8dc55248303f209bcda6805006b5354f63a3c7fdecaa06375e4"
+    },
+    {
+      "path": "integration/FIXED_PARSER_PIPELINE_LIMITS.md",
+      "bytes": 2570,
+      "sha256": "ecbc3c258a54805f7ce2b9d097fb14ff9b9cf84ad141cc0876ed185f27d4a681"
     },
     {
       "path": "integration/GEO_ARTICLE_WRITER_LIMITS.md",
@@ -674,6 +679,11 @@
       "path": "integration/finder_offline.py",
       "bytes": 3465,
       "sha256": "1be81c458ef1cdd088abdad1df6623cadaf52ac8065ae279ebe0e997adca1b57"
+    },
+    {
+      "path": "integration/fixed_parser_pipeline.py",
+      "bytes": 5238,
+      "sha256": "53036dd4a705461c6683b847329543c67b5e3f8f14f9ad3855b892d03422cba6"
     },
     {
       "path": "integration/geo_article_writer.py",
@@ -2641,6 +2651,11 @@
       "sha256": "5c50b0b0af1a2aef73e87629880403123d17ca983dd554db73709e25b9cda8fc"
     },
     {
+      "path": "tests/test_fixed_parser_pipeline.py",
+      "bytes": 4842,
+      "sha256": "05f68bdf0f07c958212035135ad34ae8d09a16f25ac4d4aafeaf359194c11566"
+    },
+    {
       "path": "tests/test_geo_article_writer.py",
       "bytes": 8753,
       "sha256": "cd596802291b4bf2243fc1101cb21a12c8029c4b93189e92554b756bb2278fdc"
@@ -2976,5 +2991,5 @@
       "sha256": "2ca27e9a8dae569cdeac42752ed1aed1afeff7f19282d3cc12c0aaa54a08bc04"
     }
   ],
-  "test_evidence_note": "Author full configured1090 PASS545+272+273 partitions,1skip/1expected. Independent7SAFE. Fixed synthetic parser only, no arbitraryXML/livecollector."
+  "test_evidence_note": "Author full configured1096 PASS548+274+274 partitions,1skip/1expected. Independent6+existing11SAFE. Existing7fixedcases/suppliedpipeline only."
 }

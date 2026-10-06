@@ -227,3 +227,7 @@ Source-native3500packingdiagnostic only, original record/batchtext+Python/UTF8/U
 ## Increment85: fixed public-synthetic real feedparser experiment
 
 SeveninternalhashpinnedRSS/Atom/bozocases, realfeedparser6.0.11/SDKpins+Expat2.4.7guardedLinuxchild; separateoriginalASToracle agrees. No callerXML/URL/path, no liveHTTP/sourcehealth or85composition80. PythonnetworkguardsnotOSisolation/noI/Oproof.7author+7independentfocusedPASS/SAFE; configured1090 PASS545+272+273partitions,1expected/1skip.
+
+## Increment86: fixed-seven-case parser/supplied-enrichment/document pipeline
+
+Wrapperonly existing85enums, runtimeonechild then80/64once. Suppliedsyntheticoutcomes/private, fixeddateoffsetspreserved, bozometadatanothealth/error.6author+6independentfocusedPASS/SAFE (plus11existing80); configured1096 PASS548+274+274partitions,1expected/1skip. No newXML/livecollector/DB/mail/Telegramactivation.
