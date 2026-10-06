@@ -1,0 +1,1068 @@
+{
+  "stages": {
+    "source_inspection": {
+      "status": "verified",
+      "sdist_sha256": "7868fb1c8bfa764c1ac563d3cf369c381d1325d36124933a726f29fcdaa812e9",
+      "members": [
+        {
+          "path": "sgmllib3k-1.0.0/PKG-INFO",
+          "bytes": 926,
+          "sha256": "01dbf4d6a1a5370fde2568d761e3418a1ecac1fe039c5d486265ffc3f3332823"
+        },
+        {
+          "path": "sgmllib3k-1.0.0/README",
+          "bytes": 446,
+          "sha256": "9ffcc3c846907fefc187aac938c27e4eca333b67f467ebd10ddb3d4a9b2733a2"
+        },
+        {
+          "path": "sgmllib3k-1.0.0/setup.cfg",
+          "bytes": 59,
+          "sha256": "063d04b462ef73e9d86e0b0ae49c4321b51984444a5a2a90aece1e0082b488ee"
+        },
+        {
+          "path": "sgmllib3k-1.0.0/setup.py",
+          "bytes": 611,
+          "sha256": "032f40b9673a557056595efebe21a51e3f70fb2da663d2e0c78fb15143be395b"
+        },
+        {
+          "path": "sgmllib3k-1.0.0/sgmllib.py",
+          "bytes": 17788,
+          "sha256": "9180791aa507111207d7c14f36db574a11fbedda257debfb9d030b273b773f44"
+        },
+        {
+          "path": "sgmllib3k-1.0.0/sgmllib3k.egg-info/dependency_links.txt",
+          "bytes": 1,
+          "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+        },
+        {
+          "path": "sgmllib3k-1.0.0/sgmllib3k.egg-info/PKG-INFO",
+          "bytes": 926,
+          "sha256": "01dbf4d6a1a5370fde2568d761e3418a1ecac1fe039c5d486265ffc3f3332823"
+        },
+        {
+          "path": "sgmllib3k-1.0.0/sgmllib3k.egg-info/SOURCES.txt",
+          "bytes": 158,
+          "sha256": "c508d2ca4769f6f7106f2802613c3db0adf00480d58b938cbaee959322d75ecf"
+        },
+        {
+          "path": "sgmllib3k-1.0.0/sgmllib3k.egg-info/top_level.txt",
+          "bytes": 8,
+          "sha256": "138669627fe1fb966c5c55dd1c39de94a5ee71b72069520d5f097aac67062bf3"
+        }
+      ],
+      "member_count": 11,
+      "total_bytes": 20923,
+      "rejected_types": "absolute/traversal/symlink/hardlink/device/other",
+      "setup_review": "only setuptools.setup + README read, one py_module sgmllib, no build helper/pyproject; reviewed exact setup.py/config/README/source before execution"
+    },
+    "isolation_probe": {
+      "status": "passed",
+      "argv": [
+        "/usr/bin/python3",
+        "-I",
+        "-c",
+        "import os,socket; assert not os.path.exists(\"/home/sandbox\");assert not os.path.exists(\"/downloads\");s=socket.socket();assert s.connect_ex((\"1.1.1.1\",443))!=0;print(\"host paths absent, external socket connect refused\")"
+      ],
+      "cwd": "/work",
+      "exit_code": 0,
+      "stop_reason": null,
+      "output_sha256": "31223c874d917ee93f0ca7eea0384e23844c2e4211c8de6979738ff53925d814",
+      "output_bytes": 51,
+      "wall_seconds": 0.021
+    },
+    "wheel_build": {
+      "status": "passed",
+      "argv": [
+        "/usr/bin/python3",
+        "-I",
+        "setup.py",
+        "bdist_wheel",
+        "--dist-dir",
+        "/work/artifacts"
+      ],
+      "cwd": "/work/source/sgmllib3k-1.0.0",
+      "exit_code": 0,
+      "stop_reason": null,
+      "output_sha256": "ea675a624c819c0fff2582ed75a17a03fbded0b8232c655c2d730882be300b00",
+      "output_bytes": 1374,
+      "wall_seconds": 0.506
+    },
+    "wheel_inspection": {
+      "status": "verified",
+      "filename": "sgmllib3k-1.0.0-py3-none-any.whl",
+      "sha256": "d697b1ce32621812e6fbf5d3dac57818192068f47e4b6f39bc76e14a8fb4c534",
+      "tags": [
+        "py3-none-any"
+      ],
+      "members": [
+        {
+          "path": "sgmllib.py",
+          "sha256": "9180791aa507111207d7c14f36db574a11fbedda257debfb9d030b273b773f44"
+        },
+        {
+          "path": "sgmllib3k-1.0.0.dist-info/METADATA",
+          "sha256": "80676dbf536f9b3240e0e67b6bbea96ef53d2397b9ec465126004b382747cd8c"
+        },
+        {
+          "path": "sgmllib3k-1.0.0.dist-info/WHEEL",
+          "sha256": "1b5e87e00dc87a84269cead8578b9e6462928e18a95f1f3373c9eef451a5bcc0"
+        },
+        {
+          "path": "sgmllib3k-1.0.0.dist-info/top_level.txt",
+          "sha256": "138669627fe1fb966c5c55dd1c39de94a5ee71b72069520d5f097aac67062bf3"
+        },
+        {
+          "path": "sgmllib3k-1.0.0.dist-info/RECORD",
+          "sha256": "9da2ad40bda594e7603da44eba80a88143cc852424df2b88066e5a72c4faba06"
+        }
+      ],
+      "dependencies": [],
+      "deterministic_bytes": "not claimed: single build"
+    },
+    "artifact_closure": {
+      "status": "verified",
+      "count": 25,
+      "previous24_rehashed": true,
+      "new_wheel_hash": "d697b1ce32621812e6fbf5d3dac57818192068f47e4b6f39bc76e14a8fb4c534"
+    },
+    "fresh_venv": {
+      "status": "passed",
+      "argv": [
+        "/usr/bin/python3",
+        "-I",
+        "-m",
+        "venv",
+        "/work/venv"
+      ],
+      "cwd": "/work",
+      "exit_code": 0,
+      "stop_reason": null,
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_bytes": 0,
+      "wall_seconds": 2.797
+    },
+    "offline_install": {
+      "status": "passed",
+      "argv": [
+        "/work/venv/bin/python",
+        "-I",
+        "-m",
+        "pip",
+        "install",
+        "--no-index",
+        "--no-cache-dir",
+        "--only-binary=:all:",
+        "--find-links",
+        "/work/artifacts",
+        "--require-hashes",
+        "-r",
+        "/work/complete-lock.txt"
+      ],
+      "cwd": "/work",
+      "exit_code": 0,
+      "stop_reason": null,
+      "output_sha256": "12a1992b3753b1182cce0e90ccfc5d351dd5b2eeef6e6065c529fde5c0fca3db",
+      "output_bytes": 2381,
+      "wall_seconds": 2.058
+    },
+    "pip_check": {
+      "status": "passed",
+      "argv": [
+        "/work/venv/bin/python",
+        "-I",
+        "-m",
+        "pip",
+        "check"
+      ],
+      "cwd": "/work",
+      "exit_code": 0,
+      "stop_reason": null,
+      "output_sha256": "9261363b733079a641c2e4cc9bc46ffa1d8336945a87f807b6cf68847dbc9b09",
+      "output_bytes": 30,
+      "wall_seconds": 0.436
+    },
+    "installed_metadata": {
+      "status": "passed",
+      "argv": [
+        "/work/venv/bin/python",
+        "-I",
+        "-c",
+        "import importlib.metadata as m,json,sys,xml.parsers.expat as e;print(json.dumps({\"packages\":sorted([[d.metadata[\"Name\"],d.version] for d in m.distributions()]),\"python\":sys.version,\"expat\":e.EXPAT_VERSION,\"no_system_site\":sys.prefix!=sys.base_prefix and not any(\"dist-packages\" in p for p in sys.path)}))"
+      ],
+      "cwd": "/work",
+      "exit_code": 0,
+      "stop_reason": null,
+      "output_sha256": "f720206351fa689ea09204674032d949c202b5bc40255aa2f7c5362325c4750a",
+      "output_bytes": 776,
+      "wall_seconds": 0.061
+    },
+    "sdk_smoke": {
+      "status": "passed",
+      "argv": [
+        "/work/venv/bin/python",
+        "-I",
+        "-c",
+        "import feedparser,sgmllib,dateutil.parser,xml.parsers.expat,json;print(json.dumps({\"feedparser\":feedparser.__version__,\"expat\":xml.parsers.expat.EXPAT_VERSION}))"
+      ],
+      "cwd": "/work",
+      "exit_code": 0,
+      "stop_reason": null,
+      "output_sha256": "18618a1ecf67bfb5d9af2910818b5b21eb26c0dcf65acabf2bbc8536da2f2d50",
+      "output_bytes": 49,
+      "wall_seconds": 0.073
+    },
+    "guarded_sdk_backend": {
+      "status": "passed",
+      "argv": [
+        "/work/venv/bin/python",
+        "-I",
+        "-c",
+        "import sys,runpy;sys.path.insert(0,\"/work/tree\");runpy.run_path(\"/work/tree/integration/feedparser_audit/child.py\",run_name=\"__main__\")"
+      ],
+      "cwd": "/work/tree",
+      "exit_code": 0,
+      "stop_reason": null,
+      "output_sha256": "7d9224fddca509f5874ddbe53e8046e7ee5c39efc70fd79400c46d32bfde4f0b",
+      "output_bytes": 847,
+      "wall_seconds": 0.093
+    },
+    "baseline87_immutable": {
+      "status": "verified",
+      "sha256": "1d6360b5d3e60775a43904a8a772f841b8e09d0db13d17f4fd4ad315d7f79901"
+    }
+  },
+  "scope": "separate offline build/install, no production activation",
+  "baseline87_sha256": "1d6360b5d3e60775a43904a8a772f841b8e09d0db13d17f4fd4ad315d7f79901",
+  "build_tools": {
+    "wheel": {
+      "version": "0.37.1",
+      "files": [
+        {
+          "path": "/usr/lib/python3/dist-packages/wheel/__init__.py",
+          "sha256": "c8b3aab046543da33754d28e33142b68b8020b217cab7935d0a6380b51e2fcba"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/wheel/__main__.py",
+          "sha256": "945f982cee217509a85ae87879665df182f553de5149d9bbeac34b0576b4be31"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/wheel/bdist_wheel.py",
+          "sha256": "daf7efde0fdbf01bd9e43a3d6e92c405dbbd75011cbe8310d5f957a4a6052435"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/wheel/cli/__init__.py",
+          "sha256": "1964a8194a5169b4dff1b93716c3533eb73916cafc60ebf6757e79898d96ede6"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/wheel/cli/convert.py",
+          "sha256": "ec5e2f8f6dc0d8e8210c35a7f605f657efd37973336b56b99c87a39851845093"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/wheel/cli/pack.py",
+          "sha256": "05faba2ab1e27192aba5b92d92b79e47121a5b0068cd43fdf49432d83f3e75d6"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/wheel/cli/unpack.py",
+          "sha256": "d155b34fb53fc727a74cfc0455abf1aaf75e7bddc63ef0051e747752ef756917"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/wheel/macosx_libfile.py",
+          "sha256": "5efa7e22b172449f514e122b3f17c4a5508319f96324f5914d98b2a2993bd212"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/wheel/metadata.py",
+          "sha256": "6f790f8599f6c360fdc1e9e096d5f99c621943711150e43953e2b9bc728f75e8"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/wheel/pkginfo.py",
+          "sha256": "191efa92ea50ce7d71f6c283697b84e81e85b19e0e91f46d1bba677655cfbd0e"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/wheel/util.py",
+          "sha256": "9a73599090a2f431cb23fab8953b9da03d265bdee1fc0a005a5ee9acd3cb5c97"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/wheel/vendored/__init__.py",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/wheel/vendored/packaging/__init__.py",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/wheel/vendored/packaging/_typing.py",
+          "sha256": "c79f44850e7b4cc4fe9134722d9576e4766f6061b06ee713a3a88a87f3b4b4cc"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/wheel/vendored/packaging/tags.py",
+          "sha256": "9e80ef03efaf54a54a960e3d5ccb99e7f1298bce635bb80c38a7e21ae276b2a5"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/wheel/wheelfile.py",
+          "sha256": "c99eaa22cff032e4c83b7e254f104fbdfe03454b3a78b2de87f5152b5b8018b4"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/wheel-0.37.1.egg-info/PKG-INFO",
+          "sha256": "98a7ecf555108a00c0170c5e4b0ef56593a4f8db170e94278b8b67ae9222a4fb"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/wheel-0.37.1.egg-info/dependency_links.txt",
+          "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/wheel-0.37.1.egg-info/entry_points.txt",
+          "sha256": "37c1db605493df2acd418781db05d60443d4845b04b4a3513da0851893f2ab27"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/wheel-0.37.1.egg-info/not-zip-safe",
+          "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/wheel-0.37.1.egg-info/requires.txt",
+          "sha256": "30fb757f626027ebe0cbd663ed8e6f1cfa2056bcc0f6a931c387541af1ab9ac0"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/wheel-0.37.1.egg-info/top_level.txt",
+          "sha256": "1f148121b804b2d30f7b87856b0840eba32af90607328a5756802771f8dbff57"
+        }
+      ],
+      "provenance": "post-build fallback: Debian metadata version; distribution.files empty; explicit installed package *.py and dist-info hashes"
+    },
+    "setuptools": {
+      "version": "59.6.0",
+      "files": [
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/__init__.py",
+          "sha256": "97b50ba3c8c693ee3ef236da726279f1c6294915f8b304b571c6c968954019d3"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/_deprecation_warning.py",
+          "sha256": "8d4f7e76d7efe9c2a6b5024e5cdf273f59a6ee038dc3990a12d88fb5bc276722"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/_distutils/__init__.py",
+          "sha256": "dd8b647da746a14e7b54c110164d9337231956e77590391a91640b856836166f"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/_distutils/_msvccompiler.py",
+          "sha256": "8d1d0933903524c9d9eb130389c4338575a05d3557b3595601e51ec42d73d7df"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/_distutils/archive_util.py",
+          "sha256": "a96fae886c187b14ef2b97be8927a5ff7d43b21c7e0aa4da9cd3caeac9f07fdf"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/_distutils/bcppcompiler.py",
+          "sha256": "3890d5a425265fa1fcbffee5575ce27d5d5f731f760abd9d862521ebdf3d5092"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/_distutils/ccompiler.py",
+          "sha256": "61b7ab9e5a46659a8a9dfcd949f27cd787c835c6bc7227198949418f250fc9a3"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/_distutils/cmd.py",
+          "sha256": "79ca3a2c0194b686cbb8f69fba19a02a09304512ff598f0a27861e0c21e9725b"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/_distutils/command/__init__.py",
+          "sha256": "d9303eae5343973788f9cb1b5875c58c60fcb8e62a00b31fc963a14f8f670ba8"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/_distutils/command/bdist.py",
+          "sha256": "db3e1eb9d465fe7ee6de51bd95e2f4218a9eb386ec9bc7347f17d9ba269f8cc8"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/_distutils/command/bdist_dumb.py",
+          "sha256": "053babf63708a69c8fecf89abe37ec93b623125aafc5e60eda7a54c8f3ce7a47"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/_distutils/command/bdist_msi.py",
+          "sha256": "11515060dfd7f84c5e78ff2099d57d25c20db2e506b0b254cfd69f314d11b7c7"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/_distutils/command/bdist_rpm.py",
+          "sha256": "8233b0db61a10d26dcab46ddab6e5c4dbfa7e875969b46d284b41a77f9a42789"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/_distutils/command/bdist_wininst.py",
+          "sha256": "88695a23e55f1251ce9de79ccca1d69d23796b5d3eec831c25a5ee47599d4b77"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/_distutils/command/build.py",
+          "sha256": "d4017e77137f365384ca8c9d073d7d030a5e5983d260266f38b25237f3dd6ad6"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/_distutils/command/build_clib.py",
+          "sha256": "6e05531e1dbc78b400d86930ebc6a602977f8fba90057e0c4c8fb34ef00afc9e"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/_distutils/command/build_ext.py",
+          "sha256": "2a0c69a29b83eaca9ea742ecba6307d798e85a287455d6e75e9626f844cd8e81"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/_distutils/command/build_py.py",
+          "sha256": "8577ac32b1ff7a9363e8af1252d25d8a98048acdc474808a799f1559efe775c9"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/_distutils/command/build_scripts.py",
+          "sha256": "bab767eb03f13cc5b974baa9a85919f1da9a146d6d7fd4e201aa3a53d2c2a042"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/_distutils/command/check.py",
+          "sha256": "e6a0ed23be5c719837b0022d41679a22ef32dc5477d783b8aebf529b3e07b04a"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/_distutils/command/clean.py",
+          "sha256": "d930ade3baeee2165933445f55f5188f96dba6272918b3f8421c398c1b6fa7d9"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/_distutils/command/config.py",
+          "sha256": "d9a4e3c30dcfc23301f3e6626c27b83fb07ea86d61335827feb257632c51cfa7"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/_distutils/command/install.py",
+          "sha256": "cd7fce213448b439cd02fd225635dd1558ad7f77faded1f32bf999d6c231b2e7"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/_distutils/command/install_data.py",
+          "sha256": "62118e0308778093ea17b7a6e57034ae6a51e36cf56cb87cd28a049730f252f9"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/_distutils/command/install_egg_info.py",
+          "sha256": "5a28d9edc1cc02434c302c2b67ef8aa2a57d33646d2e8b94e3ea926e20b0bfbd"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/_distutils/command/install_headers.py",
+          "sha256": "5d0ea27646c80dfaf59635c23b39ee55432f385a47067e9c2b45b3f6020cd9be"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/_distutils/command/install_lib.py",
+          "sha256": "f40a1f47e30ef6502d8f0c2eba40a9b5ea4e68910a3195b65478b2479854ec70"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/_distutils/command/install_scripts.py",
+          "sha256": "fc22d4790c06251718da48a4edaccf327e4876d0c2ae359d52f675921946e9c9"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/_distutils/command/py37compat.py",
+          "sha256": "ab346186f4e286ac7f3d966dd996040b18755f73a3db9e55a9ab737a560500ac"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/_distutils/command/register.py",
+          "sha256": "da36aaf7debcaedda9b91543071d476cd897bf6eee3a4f22744ff894f7ffdd53"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/_distutils/command/sdist.py",
+          "sha256": "aa8b498c03b3ca1263ab6fa80c89a3345aceb5a4a778414325307eb04935c275"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/_distutils/command/upload.py",
+          "sha256": "04b3b5c3b79202ab028c22d7b5ffc24554a3c05d569b2381c8654635d710f286"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/_distutils/config.py",
+          "sha256": "76d1e06e5c7d2617f2acac75f89ec9971c3f7fbb3c65b3c54228b65163136696"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/_distutils/core.py",
+          "sha256": "d2fec49a1f72d005bda380048df54c843c4acd31561715109f8eaca4548be7a8"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/_distutils/cygwinccompiler.py",
+          "sha256": "3214661771b4fb976807a5ea0ae342bc721772052f6be3ae943c094408d9cc76"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/_distutils/debug.py",
+          "sha256": "37a32b4c0a8aea5f52564ead5b0791d74f0f33c3a5eea3657f257e9c770b86c6"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/_distutils/dep_util.py",
+          "sha256": "1ae47d230fe3cd9464c9e989e475fcac1ff0446c642017019b5aa1e78afbce19"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/_distutils/dir_util.py",
+          "sha256": "5308413944dc57ae464f071ee123ee4d747c67cab72d811c9adb6a7066f46d8a"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/_distutils/dist.py",
+          "sha256": "062b9fe9c6bcba215f31271116c6142ad6f99de30fb712b146d5e7e74ff57f75"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/_distutils/errors.py",
+          "sha256": "62bead29919dcc1a0d8b9def06d8aad1427ffd7d390a6c5275026a3966b0e926"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/_distutils/extension.py",
+          "sha256": "6d36f74340a87af18a62fe5d5f596cfbe2e7f2d941d3e5043ac8bd070ce567eb"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/_distutils/fancy_getopt.py",
+          "sha256": "38fc69d82c478b5629fddd43f09c56e147aaf5f0bbd6d7a040569a7e1e7c1865"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/_distutils/file_util.py",
+          "sha256": "d2152a7c8b4dff1d83562851d0c1dd03828231508e3bc568072685a7f6ba3038"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/_distutils/filelist.py",
+          "sha256": "67d7f986f7a9667a67899d881660a75888ddbe25a8cecf2c6c04418566a3c283"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/_distutils/log.py",
+          "sha256": "8560667540b62bddbb41c56fdd110c5b71cc3dc97171c3d09e0c4b4ae517425d"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/_distutils/msvc9compiler.py",
+          "sha256": "5fadb707dda0d2ff00dc110cf6aa517f7f7a00477f85f8e47c35154cabb485c1"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/_distutils/msvccompiler.py",
+          "sha256": "aabb802de191abcf828ed8c4dad2d0f16dba42772171879d5b31667bc0316784"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/_distutils/py35compat.py",
+          "sha256": "fac935bc122c3a01fe0286e32186cafce12374917fe78525fc3d44884f5733f7"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/_distutils/py38compat.py",
+          "sha256": "208edd741c4e8a30bbb8d378cffe3a1d8523c184c960c3622c9a064e8ae6666d"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/_distutils/spawn.py",
+          "sha256": "e2e13d9375595a28f1cbb13f4657268753286a668f27cada8dd3416a02b18e05"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/_distutils/sysconfig.py",
+          "sha256": "9377f320dc77faa8e07b4b9d23a7c2d544120cf629306af1792b95f5c638ae65"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/_distutils/text_file.py",
+          "sha256": "3ecb8025e59d289a0b495ffa37a229079fb43daf382b32d4b9c24c1516b3c372"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/_distutils/unixccompiler.py",
+          "sha256": "bb649fb3a2d19aa42ec789d95b4f06c03b6814c75e77ac189e489a3b64ef282e"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/_distutils/util.py",
+          "sha256": "d2fec1ea722c0173f5d40ef1a92e850ba94501d688ab3c73fc2f9ab7868c720b"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/_distutils/version.py",
+          "sha256": "b3246f3f1b8c4319dfb69b8829e444fb610b43f64c0b0309fa8f227be971759a"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/_distutils/versionpredicate.py",
+          "sha256": "bf1e0d0f706d320c4547d899e3fb775856be35d20ac4ef2fb4e774b70069a717"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/_imp.py",
+          "sha256": "1e617dd486e2b517ec0f9cfe838ff099cb87f916a1c8838d6cf82208e160b730"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/_vendor/__init__.py",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/_vendor/more_itertools/__init__.py",
+          "sha256": "0bbb177df1d35ccdcffa268b3cf7ea7e60e8c4e7e540c24b70cede77da778da9"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/_vendor/more_itertools/more.py",
+          "sha256": "0e565af2fe898a15707d0e731e274e03ec43134a2b710214cb156709a5280ca1"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/_vendor/more_itertools/recipes.py",
+          "sha256": "524364aec672aa2c202c700d0539af3210af68d4af48d621c8ea73fc9739e436"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/_vendor/ordered_set.py",
+          "sha256": "75b68272cdbb77237d827316185e6703f06b567e90f8dae329826957dfdf801b"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/_vendor/packaging/__about__.py",
+          "sha256": "208447a4eb099494a0923ab5528781a0c4ea86f369de037d17231be4a7fc125e"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/_vendor/packaging/__init__.py",
+          "sha256": "6fd2a4e4c17b2b18612e07039a2516ba437e2dab561713dd36e8348e83e11d29"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/_vendor/packaging/_manylinux.py",
+          "sha256": "5dc6e25c1faa723bf76dca21a7a37df1332938fe3f8f79be88e03ca6d2b61966"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/_vendor/packaging/_musllinux.py",
+          "sha256": "cf9c9e1b5ca038fc78b94c8b76a8fea7c0e4e5405be47fdbd0d2235bdca8f280"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/_vendor/packaging/_structures.py",
+          "sha256": "4cc8808056dd50e3e621f0c87e21dcdca161489f24323a1fd904b923ed8dc90f"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/_vendor/packaging/markers.py",
+          "sha256": "96285182aa598cb33e256fafc652cfa94de49957bbf60f6fca9cb593199346e4"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/_vendor/packaging/requirements.py",
+          "sha256": "3a9774163aa074489693304bca8d682d4d038f4d6e205c1302700942bafa8f60"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/_vendor/packaging/specifiers.py",
+          "sha256": "319f9f61c34bdeeee936bb7eea0d8440eec06d15e48dcf923c46305cc41b2e67"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/_vendor/packaging/tags.py",
+          "sha256": "bc6c9b01441894f28c72e9335ffd9eeb97e669f9c516e31b0f6e676984c4c2d7"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/_vendor/packaging/utils.py",
+          "sha256": "7498de6addc14be4d89f546b505570b9f50c6ac6edccb7d8468cbf1d710d7854"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/_vendor/packaging/version.py",
+          "sha256": "fdf2d136b16bc5870755fca8f2f93d8fcb3a24cf0dff1b12c5516be91272728f"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/_vendor/pyparsing.py",
+          "sha256": "b66ae9fa5bbea8ed62ef967320de40d769ca4510f50a6e15a64fb92d1f6b8a6b"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/archive_util.py",
+          "sha256": "99a2436e8cd16c37923f0e77553d1c6ff212dd6d00a7bde5251f2d5fc4590f1d"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/build_meta.py",
+          "sha256": "84253be36be38171d8ea828f62db419227be9f80d534026b50e827d0efd5de77"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/command/__init__.py",
+          "sha256": "7bef1324e8a451edd2b747f0d9bda9f6ee440dd4b1979cc75012492a27db710f"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/command/alias.py",
+          "sha256": "d6c2d0c5970d87a7434290e69b81bb506193a25f379d8d4d4cf98d05b9b6b222"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/command/bdist_egg.py",
+          "sha256": "faea6207a7c5b66f1c412423d4b4435691b5f93d78dc3b170af5747e1d37bbb5"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/command/bdist_rpm.py",
+          "sha256": "3f1ae0a073cd6b0d8fc36a8d8e31c33c2f80cbf21a0db0aa3f777fe4df9c8f60"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/command/build_clib.py",
+          "sha256": "7d61d2146924d7454275d0560accef361a306c6f59f42657563436b92227a0eb"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/command/build_ext.py",
+          "sha256": "48d2b4e361df0767b394341b49544616a23520ce40e00b23535c295777e0b241"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/command/build_py.py",
+          "sha256": "73dd15d6754f12d6247727bec6fa3e078f15e512ef4a00fc24131f3ed51bb58c"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/command/develop.py",
+          "sha256": "e7f4acec435dd7f07f8d5318d6d179515ff2d57bba8db57300f1bca0a7a5b860"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/command/dist_info.py",
+          "sha256": "e6dea439fadd8002d3f8fde882cb3a3c5f64f8b7b27acb9ec9cba4ddd5326672"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/command/easy_install.py",
+          "sha256": "a17511a23213b8c98e43665c389fc82a49b96a1ca84f9b6703cf6367bd024ddb"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/command/egg_info.py",
+          "sha256": "e6b57d3c7e847a272cf71929cf1fa7b1304be784b54be05fd2bd65882b583d52"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/command/install.py",
+          "sha256": "5329e3141811cb21eb0d94550265eb5c6d2f0a1240331facc6738edc9a00cd5a"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/command/install_egg_info.py",
+          "sha256": "e33abf01dde313e11f7cf6abbb20c49efc54e9e7c1f9786bcddafc681e8b9fff"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/command/install_lib.py",
+          "sha256": "e332b49e2840030318228392d143812d929238205b5d73cab13ada3bf6bcaa69"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/command/install_scripts.py",
+          "sha256": "a348cdfdec7bc98624f16e5c97299314e5f090530acd6f6aff377d36971ec7b3"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/command/py36compat.py",
+          "sha256": "ef22d6cd08f5efd127c77a49f15d5c0c30b378b30531df5725794afa2653ab96"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/command/register.py",
+          "sha256": "924dc3c5709be655d3bea9e17f0c7683aabb8b06d49a04f25d409a068a013949"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/command/rotate.py",
+          "sha256": "4afb103dab1ecc8a233e3bcc9df92ace1f0fd14d2d0a3d1d69ccc5f2e7373503"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/command/saveopts.py",
+          "sha256": "cdaed00817108a628aae259ca0271b8713e3533df481207be33b932f8ef1a4fe"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/command/sdist.py",
+          "sha256": "da89c989d6013c5a5481c5fa2782a3657e629707221cf441f159080f961568bd"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/command/setopt.py",
+          "sha256": "a24c61a83d4d3359d095b4950c236fe8fed8ee0ebcd2c736afeb545bbc0f1f56"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/command/test.py",
+          "sha256": "a8663e1f1d513c29dd955876aecac4b39e3bf42826c51b2b11f9552ebf7c8d50"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/command/upload.py",
+          "sha256": "5d3dd81557d83c0980e6a8468347ae96e53df1fb714545be3f329c38330bc54b"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/command/upload_docs.py",
+          "sha256": "6dae643b279d0ffbbadb07a29ebc6aaa7be9b90bc122e6a65de8491bab40bced"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/config.py",
+          "sha256": "3be4ffdbcd7adea90479a5fc6cb82a24bb8e2d8babd79702dbfc6903444435f3"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/dep_util.py",
+          "sha256": "043c75064ccd427b6f001e1a972a476d6e54541ce3aad86cd34d0fad42f866a7"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/depends.py",
+          "sha256": "41840869daf90f02f13f3904ae136de6199186f1a15b1a1764c4570a6fe3710d"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/dist.py",
+          "sha256": "ef7bad7e5d0d1d0fd77e9e66dfec256e8ed8680df54bf76495e8793f71932b0b"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/errors.py",
+          "sha256": "b78466f397979bbd538b4f8f3b580040c44add5ecd377c75b5c6dcc34fb11922"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/extension.py",
+          "sha256": "34c338e978cd7557a559e99cd31f02c95280e4ab3a666df14d6480d924bac593"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/extern/__init__.py",
+          "sha256": "1e17fd5bbdd6022b70f5375125f0c86fa6058e62b9e8217ad5a7ddb35320d076"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/glob.py",
+          "sha256": "d686636df8c01d25db81d852b91e98194f232a86fd2fc36d126058a9c3d32d89"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/installer.py",
+          "sha256": "b3a0d07eca080812716d4a9b76e84e26d975a06d12e327a0442837100b348b73"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/launch.py",
+          "sha256": "4f23d3f887354f612762f18edba81f3513f8cac065ae1a5b4634315ac88ee35e"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/monkey.py",
+          "sha256": "d1edc77552971cbe35e4eee7a7e014aa11055cf3ee0dd24a6c8e3b72143f0c4e"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/msvc.py",
+          "sha256": "dcb2edf77f1ee8e47bc163f322f090bbb2c25994882aaa0a57ac37afc8d5de46"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/namespaces.py",
+          "sha256": "3cca8654f5cf610823513bc483d6c671c440908383ad0e8d9ac0e0fdfc04af02"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/package_index.py",
+          "sha256": "32a72d44cd8fc3df32260c32d094da7c5ce42ee338a2e0f57c03b6c786817cc4"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/py34compat.py",
+          "sha256": "29839deb26d1c63056f0d266603f2dfd4cb2566caca69157a87a452ddb251975"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/sandbox.py",
+          "sha256": "991f378be9aef99514ffb4da3206027914b2ce4aaff25a09fc647dc614b60c3c"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/unicode_utils.py",
+          "sha256": "68e385a38246c00b2206db46603b2a152ed8a9641e6768fa0d6882b9cb51ff4d"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/version.py",
+          "sha256": "a20fdcb9941bd1023aba429915f6563e5af51e02413cf9f6bceda6fdb23d6531"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/wheel.py",
+          "sha256": "d0ff2d4a4d74e6e17f51bfb7d0dd875365f6bfb30a0d2763a5e4254515b74a42"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools/windows_support.py",
+          "sha256": "e46adfa923f6f9d2c6268653ab683a7422a4c90c716b69f92108979490a86041"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools-59.6.0.egg-info/PKG-INFO",
+          "sha256": "0be37c52b0344a35195f241358d75216d5c7ed2a8c649ec881d8134833f62c4f"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools-59.6.0.egg-info/dependency_links.txt",
+          "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools-59.6.0.egg-info/entry_points.txt",
+          "sha256": "c299e12eb6edca4e21675a820b0e3c7024b1a103f350b32122e685aac07b1b14"
+        },
+        {
+          "path": "/usr/lib/python3/dist-packages/setuptools-59.6.0.egg-info/top_level.txt",
+          "sha256": "d44ba8e1f24c58f31cea21bc06bbe81f1e1ceb9167cc0eccbffa777a7d010ddb"
+        }
+      ],
+      "provenance": "post-build fallback: Debian metadata version; distribution.files empty; explicit installed package *.py and dist-info hashes"
+    }
+  },
+  "interpreter": {
+    "path": "/usr/bin/python3",
+    "sha256": "a2f33a6e006989270f4340528eb61f8f97366e00a5d1b602ac8672ea44fc56ae",
+    "version": "3.10.12 (main, Aug 31 2026, 10:18:17) [GCC 11.4.0]"
+  },
+  "sandbox": {
+    "mechanism": "bubblewrap unshare-all network/mount/user namespaces; only /usr,/lib,/lib64 read-only, scratch /work writable; /proc and /dev; no host home/credentials/project mounts",
+    "network": "separate network namespace no host network; not mere pip flags",
+    "environment": "clearenv PATH=/usr/bin HOME=/work/home TMPDIR=/work/tmp PYTHONNOUSERSITE=1 PIP_CONFIG_FILE=/dev/null PIP_NO_INDEX=1",
+    "limits": {
+      "cpu_seconds": 60,
+      "address_space_bytes": 1073741824,
+      "file_size_bytes": 67108864,
+      "wall_seconds": 120,
+      "combined_output_bytes": 1048576
+    },
+    "entrypoint": "/usr/bin/python3 -I setup.py bdist_wheel --dist-dir /work/artifacts; reviewed setup only"
+  },
+  "installed_metadata": {
+    "packages": [
+      [
+        "Flask",
+        "3.0.3"
+      ],
+      [
+        "Jinja2",
+        "3.1.6"
+      ],
+      [
+        "MarkupSafe",
+        "3.0.4"
+      ],
+      [
+        "PyYAML",
+        "6.0.2"
+      ],
+      [
+        "Werkzeug",
+        "3.0.6"
+      ],
+      [
+        "blinker",
+        "1.9.0"
+      ],
+      [
+        "certifi",
+        "2026.7.22"
+      ],
+      [
+        "charset-normalizer",
+        "3.5.2"
+      ],
+      [
+        "click",
+        "8.5.0"
+      ],
+      [
+        "dnspython",
+        "2.8.0"
+      ],
+      [
+        "feedparser",
+        "6.0.11"
+      ],
+      [
+        "gunicorn",
+        "22.0.0"
+      ],
+      [
+        "idna",
+        "3.20"
+      ],
+      [
+        "itsdangerous",
+        "2.2.0"
+      ],
+      [
+        "packaging",
+        "26.3"
+      ],
+      [
+        "pip",
+        "22.0.2"
+      ],
+      [
+        "pymongo",
+        "4.8.0"
+      ],
+      [
+        "pypdf",
+        "5.0.1"
+      ],
+      [
+        "python-dateutil",
+        "2.9.0.post0"
+      ],
+      [
+        "python-dotenv",
+        "1.0.1"
+      ],
+      [
+        "requests",
+        "2.32.3"
+      ],
+      [
+        "schedule",
+        "1.2.2"
+      ],
+      [
+        "setuptools",
+        "59.6.0"
+      ],
+      [
+        "sgmllib3k",
+        "1.0.0"
+      ],
+      [
+        "six",
+        "1.17.0"
+      ],
+      [
+        "typing_extensions",
+        "4.16.0"
+      ],
+      [
+        "urllib3",
+        "2.8.0"
+      ]
+    ],
+    "python": "3.10.12 (main, Aug 31 2026, 10:18:17) [GCC 11.4.0]",
+    "expat": "expat_2.4.7",
+    "no_system_site": true
+  },
+  "bootstrap_tools": {
+    "pip": "22.0.2",
+    "setuptools": "59.6.0"
+  },
+  "fresh_full_suite": "blocked: isolated network loopback down; bringing lo up returns RTNETLINK Operation not permitted, no host network fallback",
+  "orchestrator_sha256": "d2d3456576a74f52ef4640f21ba15c0c9e49ca9b7ee76659563fd0aaff159fa5",
+  "remaining": "independent closing review and backup pending",
+  "fallback_evidence": {
+    "command": "python3 /tmp/dependency88-fallback.py",
+    "script_sha256": "550a03753244289ebe65a0c9fe9b82ad64ba9a51e71ad678c9ba6840f48d2d0c",
+    "timing": "post-build receipt amendment; original executed-orchestrator does not include this fallback"
+  },
+  "orchestrator_evidence_note": "original executed code, comment corrected from read-only to writable; old wrapper retained as evidence, not reused",
+  "fresh_full_suite_parts": {
+    "0": {
+      "status": "blocked",
+      "exit_code": 2,
+      "stop_reason": "nonzero_exit",
+      "output_bytes": 43,
+      "wall_seconds": 0.007,
+      "output_sha256": "f40c6e569d17db3134a989d52353560f96e4230bb7fbbb173a6b5216e2760315",
+      "argv": [
+        "/usr/bin/bwrap",
+        "--unshare-all",
+        "--cap-add",
+        "CAP_NET_ADMIN",
+        "--die-with-parent",
+        "--new-session",
+        "--ro-bind",
+        "/usr",
+        "/usr",
+        "--ro-bind",
+        "/bin",
+        "/bin",
+        "--ro-bind",
+        "/sbin",
+        "/sbin",
+        "--ro-bind",
+        "/lib",
+        "/lib",
+        "--ro-bind",
+        "/lib64",
+        "/lib64",
+        "--proc",
+        "/proc",
+        "--dev",
+        "/dev",
+        "--bind",
+        "/tmp/dependency88-build",
+        "/work",
+        "--ro-bind",
+        "/downloads/wheels68",
+        "/downloads/wheels68",
+        "--chdir",
+        "/work/tree",
+        "--clearenv",
+        "--setenv",
+        "PATH",
+        "/usr/bin:/usr/sbin",
+        "--setenv",
+        "HOME",
+        "/work/home",
+        "--setenv",
+        "TMPDIR",
+        "/work/tmp",
+        "--setenv",
+        "PYTHONNOUSERSITE",
+        "1",
+        "--setenv",
+        "PYTHONPATH",
+        ".:tests",
+        "/usr/bin/bash",
+        "-c",
+        "/usr/sbin/ip link set lo up && exec /work/venv/bin/python /work/run-chunk.py \"$1\"",
+        "chunk",
+        "0"
+      ]
+    }
+  },
+  "fixed_capture_sha256": "93fbb595931ca13f69cc780a41d34d10f91fe1f833c4aa3b30072064a8a9047e",
+  "fresh_full_suite_interrupted": "first large partition outer tool deadline killed process; no receipt/totals, unverified, no process survived",
+  "fresh_test_runner_sha256": "06f4ec78f590d5feed2ecd499f3d11bae01c6a6d911b5f291b3a574c2792cab7",
+  "configured_full_suite": {
+    "status": "passed",
+    "interpreter": "/tmp/phase1-venv/bin/python",
+    "command": "PYTHONPATH=.:tests python split-full77.py 1; full80-chunks.py 1; full80-chunks.py 2 (unittest discovery partitions)",
+    "total": 1112,
+    "partitions": [
+      556,
+      278,
+      278
+    ],
+    "skips": 1,
+    "expected_failures": 1,
+    "note": "original configured environment, NOT fresh venv",
+    "log_hashes": {
+      "1": "b979eae2019f14dd2127c517ca4a8d2f24b64c0c53f38bbb34e588da11501de5",
+      "2a": "9394d723317e8e357e410227e00006b598ae8c09da9c01f2056de03cc832335c",
+      "2b": "b6a0015b50b32480968de0ba52c065ae763e7f300d7f0f30e5f107dbf69da348"
+    }
+  }
+}

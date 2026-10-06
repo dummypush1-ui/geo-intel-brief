@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 1103,
+  "tests": 1112,
   "files": [
     {
       "path": ".env.example",
@@ -162,8 +162,8 @@
     },
     {
       "path": "integration/FEATURE_STATUS.md",
-      "bytes": 21582,
-      "sha256": "86abda4f901ae022e2c7a811bddfed341d101411ce7d1af39fb56d962696745e"
+      "bytes": 22378,
+      "sha256": "ee61a3753971805db8f8a1ca5097f48800b346b68bd6c19590ec6a6885c90ee9"
     },
     {
       "path": "integration/FINDER_NESTED_LIMITS.md",
@@ -619,6 +619,41 @@
       "path": "integration/dependency_audit/import-inventory.json",
       "bytes": 154026,
       "sha256": "21d77d4e5f3d8b62afa8a00b22073fc7a4de84387a5884823c6daf091968d8a7"
+    },
+    {
+      "path": "integration/dependency_build/README.md",
+      "bytes": 3115,
+      "sha256": "7ab4f649af01c598d8891844db208838090c6ade8aa643ec2162bd388a627778"
+    },
+    {
+      "path": "integration/dependency_build/executed-orchestrator.txt",
+      "bytes": 9788,
+      "sha256": "d2d3456576a74f52ef4640f21ba15c0c9e49ca9b7ee76659563fd0aaff159fa5"
+    },
+    {
+      "path": "integration/dependency_build/fresh-suite-attempt.txt",
+      "bytes": 1558,
+      "sha256": "06f4ec78f590d5feed2ecd499f3d11bae01c6a6d911b5f291b3a574c2792cab7"
+    },
+    {
+      "path": "integration/dependency_build/receipt.json",
+      "bytes": 42620,
+      "sha256": "944d20515728bbb9b1961404a9dd7c17465ecfe7b752dfe2a1c75acdb779b672"
+    },
+    {
+      "path": "integration/dependency_build/requirements-offline-built.txt",
+      "bytes": 2481,
+      "sha256": "50d207593146b6f9bea02c1581f7ece142f11399c880bad83cbfcba17a40ef5a"
+    },
+    {
+      "path": "integration/dependency_build/runner.py",
+      "bytes": 2249,
+      "sha256": "93fbb595931ca13f69cc780a41d34d10f91fe1f833c4aa3b30072064a8a9047e"
+    },
+    {
+      "path": "integration/dependency_build/tool-hash-fallback.txt",
+      "bytes": 929,
+      "sha256": "550a03753244289ebe65a0c9fe9b82ad64ba9a51e71ad678c9ba6840f48d2d0c"
     },
     {
       "path": "integration/digest_preview.py",
@@ -2617,8 +2652,13 @@
     },
     {
       "path": "tests/test_dependency_audit.py",
-      "bytes": 6554,
-      "sha256": "b247dbe40449d96457d8965054f2daa293079edbbd200cddacd1000d4caa92b2"
+      "bytes": 9356,
+      "sha256": "0699b3c4f2eb9ba0a81ef9e46bb5a9c44418b194fc0e2d1873d4b68ad3ef61d8"
+    },
+    {
+      "path": "tests/test_dependency_build_runner.py",
+      "bytes": 1521,
+      "sha256": "f13a8034978717a0c25a7af1135625e92868476e619ca9d36cf728cebece5715"
     },
     {
       "path": "tests/test_digest_cold.py",
@@ -3016,5 +3056,5 @@
       "sha256": "2ca27e9a8dae569cdeac42752ed1aed1afeff7f19282d3cc12c0aaa54a08bc04"
     }
   ],
-  "test_evidence_note": "Author full configured1103 PASS551+276+276 partitions,1skip/1expected. Independent v3 SAFE blocked candidate; reviewer cache absent/119 baseline files unavailable. Fresh reproduction NOT ATTEMPTED, missing sgmllib wheel."
+  "test_evidence_note": "Configured1112tests run, suiteOK1skip/1expected; NOTfreshfullproof. IndependentSAFE scopedbuild/installaudit. FreshfullsuiteBLOCKEDisolatedloopback. ExistingGithubsecurityfiles preserved separately, noPRmerged."
 }

@@ -1,0 +1,74 @@
+import ast,email,hashlib,importlib.metadata as m,json,os,resource,selectors,shutil,signal,subprocess,tarfile,time,zipfile
+from pathlib import Path,PurePosixPath
+R=Path('/tmp/feature-preserving-merge');W=Path('/tmp/dependency88-build');A=json.loads((R/'integration/dependency_audit/audit.json').read_text());O=R/'integration/dependency_build';receipt={'stages':{},'scope':'separate offline build/install, no production activation','baseline87_sha256':hashlib.sha256((R/'requirements-offline-reviewed.candidate.txt').read_bytes()).hexdigest()}
+def sha(b):return hashlib.sha256(b).hexdigest()
+def save(): (O/'receipt.json').write_text(json.dumps(receipt,indent=2)+'\n')
+def safe(name):
+ p=PurePosixPath(name);assert not p.is_absolute() and name and '\\' not in name and all(x not in ('','..','.') for x in name.rstrip('/').split('/')),name
+ return p
+src=Path('/downloads/wheels68')/A['sdist_present']['filename'];assert sha(src.read_bytes())==A['sdist_present']['sha256']
+with tarfile.open(src) as t:
+ members=t.getmembers();assert len(members)<=32 and sum(x.size for x in members)<=100000
+ rec=[]
+ for x in members:
+  safe(x.name);assert x.isfile() or x.isdir(),x.name;assert x.name.startswith('sgmllib3k-1.0.0')
+  target=W/'source'/x.name
+  if x.isdir():target.mkdir(parents=True,exist_ok=True);continue
+  b=t.extractfile(x).read();assert len(b)==x.size;target.parent.mkdir(parents=True,exist_ok=True);target.write_bytes(b);rec.append({'path':x.name,'bytes':len(b),'sha256':sha(b)})
+receipt['stages']['source_inspection']={'status':'verified','sdist_sha256':sha(src.read_bytes()),'members':rec,'member_count':len(members),'total_bytes':sum(x.size for x in members),'rejected_types':'absolute/traversal/symlink/hardlink/device/other','setup_review':'only setuptools.setup + README read, one py_module sgmllib, no build helper/pyproject; reviewed exact setup.py/config/README/source before execution'}
+receipt['build_tools']={}
+for n in ['wheel','setuptools']:
+ d=m.distribution(n);receipt['build_tools'][n]={'version':d.version,'files':[{'path':str(p),'sha256':sha(d.locate_file(p).read_bytes())} for p in d.files or [] if d.locate_file(p).is_file() and str(p).endswith(('.py','METADATA','PKG-INFO'))]}
+assert receipt['build_tools']['wheel']['version']=='0.37.1' and receipt['build_tools']['setuptools']['version']=='59.6.0'
+receipt['interpreter']={'path':'/usr/bin/python3','sha256':sha(Path('/usr/bin/python3').resolve().read_bytes()),'version':subprocess.check_output(['/usr/bin/python3','-I','-c','import sys;print(sys.version)'],text=True).strip()}
+receipt['sandbox']={'mechanism':'bubblewrap unshare-all network/mount/user namespaces; only /usr,/lib,/lib64 read-only, scratch /work writable; /proc and /dev; no host home/credentials/project mounts','network':'separate network namespace no host network; not mere pip flags','environment':'clearenv PATH=/usr/bin HOME=/work/home TMPDIR=/work/tmp PYTHONNOUSERSITE=1 PIP_CONFIG_FILE=/dev/null PIP_NO_INDEX=1','limits':{'cpu_seconds':60,'address_space_bytes':1073741824,'file_size_bytes':67108864,'wall_seconds':120,'combined_output_bytes':1048576},'entrypoint':'/usr/bin/python3 -I setup.py bdist_wheel --dist-dir /work/artifacts; reviewed setup only'}
+(W/'artifacts').mkdir(exist_ok=True)
+def run(stage,argv,cwd='/work',stdin=b'',wall=120,cpu=60,envextra=()):
+ cmd=['/usr/bin/bwrap','--unshare-all','--die-with-parent','--new-session','--ro-bind','/usr','/usr','--ro-bind','/lib','/lib','--ro-bind','/lib64','/lib64','--proc','/proc','--dev','/dev','--bind',str(W),'/work','--chdir',cwd,'--clearenv','--setenv','PATH','/usr/bin','--setenv','HOME','/work/home','--setenv','TMPDIR','/work/tmp','--setenv','PYTHONNOUSERSITE','1','--setenv','PIP_CONFIG_FILE','/dev/null','--setenv','PIP_NO_INDEX','1']
+ for k,v in envextra:cmd+=['--setenv',k,v]
+ cmd+=argv
+ def limits():
+  resource.setrlimit(resource.RLIMIT_CPU,(cpu,cpu));resource.setrlimit(resource.RLIMIT_AS,(1073741824,1073741824));resource.setrlimit(resource.RLIMIT_FSIZE,(67108864,67108864))
+ p=subprocess.Popen(cmd,stdin=subprocess.PIPE,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,env={'PATH':'/usr/bin'},preexec_fn=limits,start_new_session=True);p.stdin.write(stdin);p.stdin.close();sel=selectors.DefaultSelector();sel.register(p.stdout,selectors.EVENT_READ);output=bytearray();start=time.monotonic();reason=None
+ while sel.get_map():
+  if time.monotonic()-start>wall:reason='wall_deadline';break
+  for key,mask in sel.select(.1):
+   b=os.read(key.fd,65536)
+   if b:output.extend(b)
+   else:sel.unregister(key.fileobj)
+  if len(output)>1048576:reason='output_cap';break
+ if reason:
+  try:os.killpg(p.pid,signal.SIGKILL)
+  except ProcessLookupError:pass
+ p.wait(timeout=5);sel.close();(W/(stage+'.log')).write_bytes(output[:1048576]);receipt['stages'][stage]={'status':'passed' if not reason and p.returncode==0 else 'blocked','argv':argv,'cwd':cwd,'exit_code':p.returncode,'stop_reason':reason,'output_sha256':sha(output[:1048576]),'output_bytes':min(len(output),1048576),'wall_seconds':round(time.monotonic()-start,3)};save();print(stage,receipt['stages'][stage]['status'],output.decode(errors='replace')[-500:],flush=True)
+ if reason or p.returncode:raise RuntimeError(stage+' blocked')
+ return output
+# Namespace/filesystem isolation check must succeed before executing package source.
+run('isolation_probe',['/usr/bin/python3','-I','-c','import os,socket; assert not os.path.exists("/home/sandbox");assert not os.path.exists("/downloads");s=socket.socket();assert s.connect_ex(("1.1.1.1",443))!=0;print("host paths absent, external socket connect refused")'])
+run('wheel_build',['/usr/bin/python3','-I','setup.py','bdist_wheel','--dist-dir','/work/artifacts'],cwd='/work/source/sgmllib3k-1.0.0')
+ws=list((W/'artifacts').glob('sgmllib3k*.whl'));assert len(ws)==1;p=ws[0]
+from packaging.tags import sys_tags
+from packaging.utils import parse_wheel_filename,canonicalize_name
+name,ver,build,tags=parse_wheel_filename(p.name);assert name=='sgmllib3k' and str(ver)=='1.0.0' and set(tags)&set(sys_tags())
+with zipfile.ZipFile(p) as z:
+ infos=z.infolist();assert len(infos)<=32 and sum(x.file_size for x in infos)<=100000
+ for x in infos:safe(x.filename);assert (x.external_attr>>16)&0o170000 not in (0o120000,0o060000,0o020000)
+ metas=[x.filename for x in infos if x.filename.endswith('.dist-info/METADATA')];assert len(metas)==1;meta=email.message_from_bytes(z.read(metas[0]));assert meta['Name']=='sgmllib3k' and meta['Version']=='1.0.0' and not meta.get_all('Requires-Dist',[])
+ assert sha(z.read('sgmllib.py'))==A['prerequisites']['sgmllib_source_hash'];wheel_members=[{'path':x.filename,'sha256':sha(z.read(x.filename))} for x in infos]
+receipt['stages']['wheel_inspection']={'status':'verified','filename':p.name,'sha256':sha(p.read_bytes()),'tags':sorted(map(str,tags)),'members':wheel_members,'dependencies':[],'deterministic_bytes':'not claimed: single build'}
+for x in A['artifacts']:
+ q=Path(A['explicit_cache'])/x['filename'];assert sha(q.read_bytes())==x['sha256'];shutil.copyfile(q,W/'artifacts'/q.name)
+receipt['stages']['artifact_closure']={'status':'verified','count':25,'previous24_rehashed':True,'new_wheel_hash':sha(p.read_bytes())}
+lock=(R/'requirements-offline-reviewed.candidate.txt').read_text().replace('# AUDITED CANDIDATE, NOT VERIFIED INSTALLABLE: missing wheel listed in audit.json','# Offline locally built artifact lock: see separate dependency_build receipt').replace('sgmllib3k==1.0.0 # MISSING WHEEL/HASH: audited candidate, not installable hashed closure','sgmllib3k==1.0.0 --hash=sha256:'+sha(p.read_bytes()))
+(W/'complete-lock.txt').write_text(lock);(O/'requirements-offline-built.txt').write_text(lock)
+run('fresh_venv',['/usr/bin/python3','-I','-m','venv','/work/venv'])
+run('offline_install',['/work/venv/bin/python','-I','-m','pip','install','--no-index','--no-cache-dir','--only-binary=:all:','--find-links','/work/artifacts','--require-hashes','-r','/work/complete-lock.txt'])
+run('pip_check',['/work/venv/bin/python','-I','-m','pip','check'])
+raw=run('installed_metadata',['/work/venv/bin/python','-I','-c','import importlib.metadata as m,json,sys,xml.parsers.expat as e;print(json.dumps({"packages":sorted([[d.metadata["Name"],d.version] for d in m.distributions()]),"python":sys.version,"expat":e.EXPAT_VERSION,"no_system_site":sys.prefix!=sys.base_prefix and not any("dist-packages" in p for p in sys.path)}))'])
+installed=json.loads(raw);assert installed['no_system_site'];found={canonicalize_name(n):v for n,v in installed['packages']};assert {k:v for k,v in found.items() if k not in ('pip','setuptools')}=={k:d['version'] for k,d in A['distributions'].items()};receipt['installed_metadata']=installed;receipt['bootstrap_tools']={k:v for k,v in found.items() if k in ('pip','setuptools')}
+# Copy writable source baseline for fixed guarded child and future isolated regression.
+shutil.copytree(R,W/'tree',ignore=shutil.ignore_patterns('__pycache__','.git'),dirs_exist_ok=True)
+run('sdk_smoke',['/work/venv/bin/python','-I','-c','import feedparser,sgmllib,dateutil.parser,xml.parsers.expat,json;print(json.dumps({"feedparser":feedparser.__version__,"expat":xml.parsers.expat.EXPAT_VERSION}))'])
+q=json.dumps({'case':'rss','cutoff':'2026-01-01T00:00:00+00:00','clock':'2026-01-03T00:00:00+00:00','max_items':10}).encode()
+run('guarded_sdk_backend',['/work/venv/bin/python','-I','-c','import sys,runpy;sys.path.insert(0,"/work/tree");runpy.run_path("/work/tree/integration/feedparser_audit/child.py",run_name="__main__")'],stdin=q,cwd='/work/tree')
+receipt['fresh_full_suite']='not attempted yet';receipt['stages']['baseline87_immutable']={'status':'verified','sha256':sha((R/'requirements-offline-reviewed.candidate.txt').read_bytes())};assert receipt['baseline87_sha256']==receipt['stages']['baseline87_immutable']['sha256'];save()

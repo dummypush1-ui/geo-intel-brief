@@ -1,0 +1,9 @@
+from pathlib import Path
+import json,hashlib,importlib.metadata as m
+p=Path('/tmp/feature-preserving-merge/integration/dependency_build/receipt.json');a=json.loads(p.read_text())
+for n in ('wheel','setuptools'):
+ d=m.distribution(n);paths=list((Path('/usr/lib/python3/dist-packages')/n).rglob('*.py'))+list(Path(d._path).glob('*'))
+ a['build_tools'][n]['files']=[{'path':str(x),'sha256':hashlib.sha256(x.read_bytes()).hexdigest()} for x in sorted(set(paths)) if x.is_file()]
+ a['build_tools'][n]['provenance']='post-build fallback: Debian metadata version; distribution.files empty; explicit installed package *.py and dist-info hashes'
+a['fallback_evidence']={'command':'python3 /tmp/dependency88-fallback.py','script_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'timing':'post-build receipt amendment; original executed-orchestrator does not include this fallback'}
+p.write_text(json.dumps(a,indent=2)+'\n')

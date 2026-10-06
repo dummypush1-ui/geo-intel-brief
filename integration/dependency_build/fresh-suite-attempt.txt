@@ -1,0 +1,7 @@
+import sys,json,hashlib,shutil
+from pathlib import Path
+sys.path.insert(0,'/tmp/feature-preserving-merge')
+from integration.dependency_build.runner import capture
+B=Path('/tmp/feature-preserving-merge/integration/dependency_build');W=Path('/tmp/dependency88-build');a=json.loads((B/'receipt.json').read_text());part=sys.argv[1]
+cmd=['/usr/bin/bwrap','--unshare-all','--cap-add','CAP_NET_ADMIN','--die-with-parent','--new-session','--ro-bind','/usr','/usr','--ro-bind','/bin','/bin','--ro-bind','/sbin','/sbin','--ro-bind','/lib','/lib','--ro-bind','/lib64','/lib64','--proc','/proc','--dev','/dev','--bind',str(W),'/work','--ro-bind','/downloads/wheels68','/downloads/wheels68','--chdir','/work/tree','--clearenv','--setenv','PATH','/usr/bin:/usr/sbin','--setenv','HOME','/work/home','--setenv','TMPDIR','/work/tmp','--setenv','PYTHONNOUSERSITE','1','--setenv','PYTHONPATH','.:tests','/usr/bin/bash','-c','/usr/sbin/ip link set lo up && exec /work/venv/bin/python /work/run-chunk.py "$1"','chunk',part]
+r=capture(cmd,env={'PATH':'/usr/bin'},wall=85,cpu=75);output=r.pop('output');Path('/tmp/fresh88-part'+part+'.log').write_bytes(output);r['output_sha256']=hashlib.sha256(output).hexdigest();r['argv']=cmd;a.setdefault('fresh_full_suite_parts',{})[part]=r;a['fresh_full_suite']='pending or blocked until all three parts passed';a['fixed_capture_sha256']=hashlib.sha256((B/'runner.py').read_bytes()).hexdigest();(B/'receipt.json').write_text(json.dumps(a,indent=2)+'\n');print(r);print(output.decode(errors='replace')[-1600:]);sys.exit(r['status']!='passed')

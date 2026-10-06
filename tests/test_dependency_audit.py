@@ -61,7 +61,23 @@ class Tests(unittest.TestCase):
     if isinstance(n,ast.ImportFrom) and not n.level and n.module:expected.setdefault(n.module.split('.')[0],set()).add(x['path'])
     if isinstance(n,ast.Call) and ((isinstance(n.func,ast.Name) and n.func.id=='__import__') or (isinstance(n.func,ast.Attribute) and n.func.attr in ['import_module','spec_from_file_location'])):dynamic.append(x['path'])
   self.assertEqual(paths,sorted(set(paths)))
-  actual=sorted(str(p.relative_to(ROOT)) for scope in b['scopes'] for p in (ROOT/scope).rglob('*.py') if '__pycache__' not in p.parts and str(p.relative_to(ROOT))!='tests/test_dependency_audit.py' and 'dependency_audit' not in p.parts)
+  actual=sorted(str(p.relative_to(ROOT)) for scope in b['scopes'] for p in (ROOT/scope).rglob('*.py') if '__pycache__' not in p.parts and str(p.relative_to(ROOT))!='tests/test_dependency_audit.py' and 'dependency_audit' not in p.parts and 'dependency_build' not in p.parts and str(p.relative_to(ROOT))!='tests/test_dependency_build_runner.py')
   self.assertEqual(actual,paths);self.assertEqual({r['import']:set(r['files']) for r in self.inv['inventory']},expected);self.assertEqual(self.inv['dynamic_import_files'],sorted(set(dynamic)))
  def test_prerequisite_xfail_absence_distinct(self):
   a=self.a;self.assertIn('UNSUPPORTED_two_limiter',a['expected_failure']);self.assertEqual(a['prerequisites']['expat'],'expat_2.4.7');self.assertEqual(len(a['optional_absent']),2);self.assertIn('not verified',a['fresh_sdk_backend'])
+
+class BuildReceiptTests(unittest.TestCase):
+ def setUp(self):
+  self.b=ROOT/'integration/dependency_build';self.r=json.loads((self.b/'receipt.json').read_text())
+ def test_separate_immutable_baseline(self):
+  self.assertEqual(hashlib.sha256((ROOT/'requirements-offline-reviewed.candidate.txt').read_bytes()).hexdigest(),self.r['baseline87_sha256']);self.assertIn('MISSING WHEEL/HASH',(ROOT/'requirements-offline-reviewed.candidate.txt').read_text());self.assertNotIn('MISSING WHEEL/HASH',(self.b/'requirements-offline-built.txt').read_text());self.assertEqual(hashlib.sha256((self.b/'executed-orchestrator.txt').read_bytes()).hexdigest(),self.r['orchestrator_sha256'])
+ def test_build_inputs_isolation_and_stage_outcomes(self):
+  s=self.r['stages'];self.assertEqual(s['source_inspection']['member_count'],11);self.assertEqual(s['source_inspection']['total_bytes'],20923);self.assertEqual(s['source_inspection']['sdist_sha256'],'7868fb1c8bfa764c1ac563d3cf369c381d1325d36124933a726f29fcdaa812e9');self.assertIn('bubblewrap',self.r['sandbox']['mechanism'])
+  for stage in ['isolation_probe','wheel_build','fresh_venv','offline_install','pip_check','installed_metadata','sdk_smoke','guarded_sdk_backend']:self.assertEqual(s[stage]['status'],'passed');self.assertEqual(s[stage]['exit_code'],0);self.assertIsNone(s[stage]['stop_reason'])
+  for n,v in [('wheel','0.37.1'),('setuptools','59.6.0')]:self.assertEqual(self.r['build_tools'][n]['version'],v);self.assertTrue(self.r['build_tools'][n]['files'])
+ def test_exact_complete_lock_installed_closure(self):
+  a=json.loads((BASE/'audit.json').read_text());w=self.r['stages']['wheel_inspection'];self.assertEqual(w['dependencies'],[]);self.assertIn('not claimed',w['deterministic_bytes']);self.assertEqual(self.r['stages']['artifact_closure']['count'],25)
+  lines=[l for l in (self.b/'requirements-offline-built.txt').read_text().splitlines() if l and not l.startswith('#')];self.assertEqual(len(lines),25)
+  for key,d in a['distributions'].items():
+   line=next(l for l in lines if l.split('==')[0]==d['name']);hashes=set(re.findall(r'--hash=sha256:([0-9a-f]{64})',line));self.assertEqual(hashes,{w['sha256']} if key=='sgmllib3k' else {x['sha256'] for x in a['artifacts'] if canonicalize_name(x['distribution'])==key});self.assertTrue(line.startswith(d['name']+'=='+d['version']+' '))
+  installed={canonicalize_name(n):v for n,v in self.r['installed_metadata']['packages']};self.assertEqual({k:v for k,v in installed.items() if k not in ('pip','setuptools')},{k:d['version'] for k,d in a['distributions'].items()});self.assertTrue(self.r['installed_metadata']['no_system_site']);self.assertEqual(self.r['installed_metadata']['expat'],'expat_2.4.7')
