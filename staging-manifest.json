@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 1039,
+  "tests": 1050,
   "files": [
     {
       "path": ".env.example",
@@ -162,8 +162,8 @@
     },
     {
       "path": "integration/FEATURE_STATUS.md",
-      "bytes": 18097,
-      "sha256": "61f1a05bd46ca3114ce14a85593a97890f011837e55d57669a584c62a8421581"
+      "bytes": 18597,
+      "sha256": "373e4af63331d8e8e4e3636e1b7a22d64f3fe25af99b1f7674d6f39b3bef685a"
     },
     {
       "path": "integration/FINDER_NESTED_LIMITS.md",
@@ -304,6 +304,11 @@
       "path": "integration/STREAM_REVISION_LIMITS.md",
       "bytes": 3513,
       "sha256": "ac5c8731800995d24ea21e32795784ab6aae03da4d2f7890eeaf2f8490d110e4"
+    },
+    {
+      "path": "integration/SUPPLIED_FULLTEXT_FIXTURE_LIMITS.md",
+      "bytes": 3639,
+      "sha256": "0921e7659ef804d821a502969ba4e021520d165e5bb5ecc917b2d11338d710d2"
     },
     {
       "path": "integration/TARIFF_EVIDENCE_LIMITS.md",
@@ -1064,6 +1069,11 @@
       "path": "integration/stream_revision.py",
       "bytes": 2399,
       "sha256": "39f607f7b2ae8b81b185bc4dbc610259efa103f51f7bb22f350e06bc93c8f06a"
+    },
+    {
+      "path": "integration/supplied_fulltext_fixture.py",
+      "bytes": 7661,
+      "sha256": "ea69e0b6d0c4ba776062a7bed0f762accb2558fe462d6313cdab78865246747b"
     },
     {
       "path": "integration/tariff_evidence.py",
@@ -2821,6 +2831,11 @@
       "sha256": "8345a29e6a48fb855c61c2bfd1c8b185fb3d059648ad520df0a24fc3ab86ba85"
     },
     {
+      "path": "tests/test_supplied_fulltext_fixture.py",
+      "bytes": 5936,
+      "sha256": "6853daa74c0ddccfb8da8b8c33567b65ee58ab23d85a6fe422fcf127098d29c4"
+    },
+    {
       "path": "tests/test_tariff_evidence.py",
       "bytes": 4108,
       "sha256": "034a3ab164508c2bddbbb4d89ec7db68f43b491a501c9c099b42e3552d70b276"
@@ -2866,5 +2881,5 @@
       "sha256": "2ca27e9a8dae569cdeac42752ed1aed1afeff7f19282d3cc12c0aaa54a08bc04"
     }
   ],
-  "test_evidence_note": "Author full configured1039 PASS519+520 partitions,1skip/1expected. Independent13 focused SAFE. Offline synthetic only."
+  "test_evidence_note": "Author full configured1050 PASS525+262+263 partitions,1skip/1expected. Independent11SAFE. Supplied text only, no live fulltext."
 }

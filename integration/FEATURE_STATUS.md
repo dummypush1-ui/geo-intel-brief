@@ -203,3 +203,7 @@ This milestone is offline code/test status, not live activation.
 ## Increment79: reviewed offline scope
 
 Separate closed synthetic service-control-flow handles on one same-process78 memory ledger.13author+13independent focused tests PASS/SAFE. Original service/limiter/store/Mongo/78 source pins unchanged. Session-before-settlement gap and finally first-error masking explicitly tested and retained. No production limiter/account/HTTP activation or real credentials. Full configured1039 suite passed519+520 partitions,1expected/1skip.
+
+## Increment80: supplied-fulltext offline source-semantic preparation
+
+Separate private supplied download/extract outcome fixture preserves reviewed original<200 enrichment/strip/truncate/ellipsis and composes original lightweight docs. No real fetch/parser/import/threads/Telegram/durable backup; returned enriched text supplied, not verified/lossless.11author+11independent focused PASS/SAFE after category prevalidation refinement. Full configured1050 PASS525+262+263 partitions,1expected/1skip.
