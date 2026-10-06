@@ -223,3 +223,7 @@ Separate0..4suppliedfeeds total100entries, original-orderflatten then80/64global
 ## Increment84: private synthetic Telegram formatter/batch audit
 
 Source-native3500packingdiagnostic only, original record/batchtext+Python/UTF8/UTF16metrics, estimateunder-countgap and unsplitoversizedsingleflag. Caller syntheticassertionnotproof; NOTFORDELIVERY, no providerlimit/readiness/fullcontent/durabilityclaim.8author+8independentfocusedPASS/SAFE; configured1083 PASS541+271+271partitions,1expected/1skip. No liveeffects.
+
+## Increment85: fixed public-synthetic real feedparser experiment
+
+SeveninternalhashpinnedRSS/Atom/bozocases, realfeedparser6.0.11/SDKpins+Expat2.4.7guardedLinuxchild; separateoriginalASToracle agrees. No callerXML/URL/path, no liveHTTP/sourcehealth or85composition80. PythonnetworkguardsnotOSisolation/noI/Oproof.7author+7independentfocusedPASS/SAFE; configured1090 PASS545+272+273partitions,1expected/1skip.

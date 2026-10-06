@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 1083,
+  "tests": 1090,
   "files": [
     {
       "path": ".env.example",
@@ -162,8 +162,8 @@
     },
     {
       "path": "integration/FEATURE_STATUS.md",
-      "bytes": 20212,
-      "sha256": "9f500db8ffbe46ef4ea19cc0150853636dad107e1dea2944952a0cb6ac8831be"
+      "bytes": 20623,
+      "sha256": "d020166105cef6376f7badeb715bfcddf5a4ef6a77ed71fb2ad833eaed586727"
     },
     {
       "path": "integration/FINDER_NESTED_LIMITS.md",
@@ -614,6 +614,36 @@
       "path": "integration/fake_collection_writer.py",
       "bytes": 3605,
       "sha256": "f209fe293d3fab5702476682b9b7d3a659ddaea466dc3e9d88e52a56dbd05c64"
+    },
+    {
+      "path": "integration/feedparser_audit/LIMITS.md",
+      "bytes": 3237,
+      "sha256": "755e8e7d392de3e5e2b1c26b15cafe950ce070f8221ac4463940cdaeaa5efb15"
+    },
+    {
+      "path": "integration/feedparser_audit/child.py",
+      "bytes": 5044,
+      "sha256": "5b4fb2d61ecc33cfa6e2b31b645f72a9bcd3183eb5f5357186585853e9270fb6"
+    },
+    {
+      "path": "integration/feedparser_audit/corpus-pins.json",
+      "bytes": 568,
+      "sha256": "e91ac2743f799cd59e9fcc663fcf75577cfa95bdf883081f1010104094fd1303"
+    },
+    {
+      "path": "integration/feedparser_audit/corpus.py",
+      "bytes": 1534,
+      "sha256": "e7158b210f562b68ecd74bb79d26549779a80ff539c08e3409b5d7177ae9af5e"
+    },
+    {
+      "path": "integration/feedparser_audit/runner.py",
+      "bytes": 4453,
+      "sha256": "f394c55dcb2969151a3ddacfd6fc4c3711eb154fabedcfe6c2475e1fff3c058d"
+    },
+    {
+      "path": "integration/feedparser_audit/sdk-pins.json",
+      "bytes": 2802,
+      "sha256": "9ba077de033c7f86ab15f4608e93f8a012b89a30500c91b64b5dbdc92d71ea58"
     },
     {
       "path": "integration/finder-news.js",
@@ -2606,6 +2636,11 @@
       "sha256": "089b837eead1a110cb4f4050a8360b1d036520e40b9b4f5f6069767a731c5fb0"
     },
     {
+      "path": "tests/test_fixed_feedparser_audit.py",
+      "bytes": 2874,
+      "sha256": "5c50b0b0af1a2aef73e87629880403123d17ca983dd554db73709e25b9cda8fc"
+    },
+    {
       "path": "tests/test_geo_article_writer.py",
       "bytes": 8753,
       "sha256": "cd596802291b4bf2243fc1101cb21a12c8029c4b93189e92554b756bb2278fdc"
@@ -2941,5 +2976,5 @@
       "sha256": "2ca27e9a8dae569cdeac42752ed1aed1afeff7f19282d3cc12c0aaa54a08bc04"
     }
   ],
-  "test_evidence_note": "Author full configured1083 PASS541+271+271 partitions,1skip/1expected. Independent8SAFE. Synthetic formatting audit NOTFORDELIVERY."
+  "test_evidence_note": "Author full configured1090 PASS545+272+273 partitions,1skip/1expected. Independent7SAFE. Fixed synthetic parser only, no arbitraryXML/livecollector."
 }
