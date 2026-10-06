@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 980,
+  "tests": 990,
   "files": [
     {
       "path": ".env.example",
@@ -106,6 +106,11 @@
       "sha256": "83a9704fdb322434e2505fb78f2c1f3a8ba158cc19e50dfe61b5cd22e69883b3"
     },
     {
+      "path": "integration/ARTICLE_ARCHIVE_LIMITS.md",
+      "bytes": 3432,
+      "sha256": "f449ed2efdcbbca2a76ec5e3aa920edb538486b7e5c86f6dba460dd1d9cc9994"
+    },
+    {
       "path": "integration/BRICS_STREAM_LIMITS.md",
       "bytes": 6961,
       "sha256": "61cebc64f4326d9d21772104280b8656a4ac2fd8b340601fe4297a099efc7ac9"
@@ -152,8 +157,8 @@
     },
     {
       "path": "integration/FEATURE_STATUS.md",
-      "bytes": 15666,
-      "sha256": "51ed33a77b6a8d31f5f67dcee441b47a5166c8d377a8e077e8430ea08cc9fe9d"
+      "bytes": 16108,
+      "sha256": "c2411b4557655d55e730ed3a895bf12a73733ecc4514b35625171635880cc1af"
     },
     {
       "path": "integration/FINDER_NESTED_LIMITS.md",
@@ -429,6 +434,11 @@
       "path": "integration/apps_script_audit/labeled_run.py",
       "bytes": 551,
       "sha256": "10688b7be0964a5f5ff36c0392c3d4aaad0e80127168a01b1642a207eacaf40d"
+    },
+    {
+      "path": "integration/article_archive.py",
+      "bytes": 8221,
+      "sha256": "f0ab086c622a6b6299c896d301b3a5dadecbc48f75f55dd7677e3efdb07706ee"
     },
     {
       "path": "integration/branding/apple-touch-icon.png",
@@ -2381,6 +2391,11 @@
       "sha256": "0d5d90ddf002870c80e3ef59da25590e310c67aa883a4b12eebd392a655b2c42"
     },
     {
+      "path": "tests/test_article_archive.py",
+      "bytes": 5144,
+      "sha256": "ee3229a5181ed29053071e83996a97038078d0d32b2ca3be66e3570eff0cadfc"
+    },
+    {
       "path": "tests/test_branding.py",
       "bytes": 2441,
       "sha256": "ec04fee6d602819bc53ddef36e53d58b19131faa795263d5f5b859f03de92ee6"
@@ -2796,5 +2811,5 @@
       "sha256": "2ca27e9a8dae569cdeac42752ed1aed1afeff7f19282d3cc12c0aaa54a08bc04"
     }
   ],
-  "test_evidence_note": "Configured author full suite 980 OK; 1 skip/1 expected failure. Independent narrow review SAFE. Offline only."
+  "test_evidence_note": "Configured author full suite 990 OK; 1 skip/1 expected failure. Independent narrow review SAFE. Offline only."
 }

@@ -175,3 +175,9 @@ This milestone is offline code/test status, not live activation.
 Pure supplied WGS84 map layers with layer-local refusal and global envelope budget, freshness labels. No live sources, map UI, tiles or geocoding.
 Author full configured suite: 980 tests OK, 1 skip/1 expected failure.
 This milestone is offline code/test status, not live activation.
+
+## Increment 75: reviewed offline scope
+
+Private supplied synthetic supported-schema archive. Original summary only 300 chars, not full-body recovery. Exact closed producer field types; incremental budget and consistency digest. No Atlas proof, durable backup or secret detection inside accepted strings.
+Author full configured suite: 990 tests OK, 1 skip/1 expected failure.
+This milestone is offline code/test status, not live activation.
