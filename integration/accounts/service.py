@@ -142,7 +142,7 @@ class AccountService:
                 self.limiter.refund(tok)
                 return {"ok": False, "error": "busy"}
             rec = {"uid": secrets.token_hex(16), "password": pw_hash, "created": self.clock(), "pwv": 0}
-            if self.store.create_account(u, rec, ih, self.max_users) != "ok":
+            if self.store.create_account(u, rec, ih, self.max_users, now=rec["created"]) != "ok":
                 self.limiter.fail(tok)
                 return generic
             rec["username"] = u

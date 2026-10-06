@@ -187,3 +187,9 @@ This milestone is offline code/test status, not live activation.
 Separate offline collector-document and original Geo digest preview composition, independent supplied inputs and pinned dependencies. Whole-input bounds, visible scope notice. No fetch, send, write, mark or runtime wiring; no pixel/readiness claim.
 Author full configured suite: 1001 tests OK, 1 skip/1 expected failure.
 This milestone is offline code/test status, not live activation.
+
+## Increment 77: reviewed offline scope
+
+Timed invite contract with atomic account claim validation. Expiry evaluated at explicit post-hash admission time, not commit time. Legacy integer snapshots non-expiring. No real provisioning, account activation or writes. No-burn only claim refusal; later signup failures remain. Full discovered1011 tests run in505/506 partitions OK,1skip/1expected.
+Author full configured suite: 1011 tests OK, 1 skip/1 expected failure.
+This milestone is offline code/test status, not live activation.

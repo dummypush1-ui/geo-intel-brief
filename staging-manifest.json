@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 1001,
+  "tests": 1011,
   "files": [
     {
       "path": ".env.example",
@@ -162,8 +162,8 @@
     },
     {
       "path": "integration/FEATURE_STATUS.md",
-      "bytes": 16536,
-      "sha256": "ece533687f49860be0e20dfe2e5e8d97617c2de7454327da5703107709512bbe"
+      "bytes": 17067,
+      "sha256": "85e26b37a886aefa51441a00cdcb18d39b16b0ec9ea03bc494c3f2079cc7e0dd"
     },
     {
       "path": "integration/FINDER_NESTED_LIMITS.md",
@@ -336,6 +336,11 @@
       "sha256": "97c8717037cd7c0ce6d6fcc27738de4e165b5bde70814238e3b198401be833d4"
     },
     {
+      "path": "integration/accounts/INVITE_EXPIRY_LIMITS.md",
+      "bytes": 2485,
+      "sha256": "15d7e55ac883f40cd8a89a7dbe273b612d4d5dd75b089c0ec91970cae34e254a"
+    },
+    {
       "path": "integration/accounts/MERGED_FIXTURE_LIMITS.md",
       "bytes": 2909,
       "sha256": "cd79cdec80e64bb132fd0a9ddc4f19e41d3a3311c789a9d409e39fed659d9f83"
@@ -377,8 +382,8 @@
     },
     {
       "path": "integration/accounts/mongo_store.py",
-      "bytes": 8432,
-      "sha256": "7e2618d61a19017b5140c92299a648ffceeeba246921b986761a4b6244eb7796"
+      "bytes": 8545,
+      "sha256": "a2205dd7141bd0c7a07685602f538e14b899d199c8366bebd2fcbf88d9d1f52c"
     },
     {
       "path": "integration/accounts/passwords.py",
@@ -387,8 +392,8 @@
     },
     {
       "path": "integration/accounts/service.py",
-      "bytes": 13575,
-      "sha256": "9c54cf9b76f0c691635da6a43d868ebc52c9ff115cadd6726592605c8fa8239f"
+      "bytes": 13595,
+      "sha256": "7571c387db4ee7acc93e79c4290513569cbed57c4e8f62af1468143a30f1ea84"
     },
     {
       "path": "integration/accounts/settings.py",
@@ -397,8 +402,8 @@
     },
     {
       "path": "integration/accounts/store.py",
-      "bytes": 7714,
-      "sha256": "5ae1f45078356e42cacadbcae705e5d34bac58aa62a9da0fd8b9c9befdca4644"
+      "bytes": 10338,
+      "sha256": "afd9d5c972aa38236b55d0cb90a7e68ce593046f442c685f3001699ce012cf0f"
     },
     {
       "path": "integration/accounts/ui/account.css",
@@ -2167,8 +2172,8 @@
     },
     {
       "path": "tests/accounts/test_reservation_terminal.py",
-      "bytes": 12933,
-      "sha256": "ef47ec262e461b0373be3cc90c08e92f6f195029ee401e47c4f2ed8d24170812"
+      "bytes": 12983,
+      "sha256": "e43dfc53f81e8e1a7865ba23fc10a937662f6cd8c39a87e14ce795eace139617"
     },
     {
       "path": "tests/accounts/test_store_conformance.py",
@@ -2586,6 +2591,11 @@
       "sha256": "27e8215960ae99d0d5e2c3f2b4e0b94397247f9d417f01d32205669fea537d5d"
     },
     {
+      "path": "tests/test_invite_expiry.py",
+      "bytes": 5938,
+      "sha256": "0fe80389b413beb80a28cd38db16307f5eceb7b15151efef276200b48a26bc6a"
+    },
+    {
       "path": "tests/test_live_news_ui.py",
       "bytes": 1215,
       "sha256": "5dd438d746d2dc0658e888139cf348fd7983a3e39affb8897c115d1e7da426fb"
@@ -2826,5 +2836,5 @@
       "sha256": "2ca27e9a8dae569cdeac42752ed1aed1afeff7f19282d3cc12c0aaa54a08bc04"
     }
   ],
-  "test_evidence_note": "Configured author full suite 1001 OK; 1 skip/1 expected failure. Independent narrow review SAFE. Offline only."
+  "test_evidence_note": "Configured author full suite 1011 OK; 1 skip/1 expected failure. Independent narrow review SAFE. Offline only."
 }

@@ -14,11 +14,28 @@ uses transactions or conditional/compare-and-set updates). The service relies on
 - delete_account / replace_password also remove or revoke the account's sessions in the same operation.
 - put_settings: compare-and-set on version as well.
 - update_attempts: read-modify-write of one limiter record (CAS retry loop in a real adapter)."""
-import copy, threading
+import copy, threading, math
+
+def epoch(value):
+    if type(value) not in (int,float) or not 0<=value<=4133980799.999999 or not math.isfinite(value): raise ValueError("Invalid epoch")
+    return value
+
+def invite_value(value):
+    if type(value) is int and 0<=value<=1000:return value
+    if type(value) is dict and len(value)==2 and all(type(k) is str for k in value) and set(value)=={"uses","expires_at"} and type(value["uses"]) is int and 0<=value["uses"]<=1000:
+        return {"uses":value["uses"],"expires_at":epoch(value["expires_at"])}
+    raise ValueError("Invalid invite state")
+
+def account_record(record):
+    if type(record) is not dict or len(record)>5 or any(type(k) is not str for k in record) or not {"uid","password","pwv"}<=set(record) or set(record)-{"uid","password","pwv","created","username"}:raise ValueError("Invalid account")
+    if any(type(record[k]) is not str or not 1<=len(record[k])<=512 for k in ("uid","password")) or type(record["pwv"]) is not int or not 0<=record["pwv"]<2**53:raise ValueError("Invalid account")
+    if "created" in record:epoch(record["created"])
+    if "username" in record and (type(record["username"]) is not str or len(record["username"])>128):raise ValueError("Invalid account")
+    return dict(record)
 
 
 class AccountStore:
-    def create_account(self, username, record, invite_hash, max_users): raise NotImplementedError   # -> ok|taken|invite|cap
+    def create_account(self, username, record, invite_hash, max_users, now=None): raise NotImplementedError   # -> ok|taken|invite|cap
     def get_user(self, username): raise NotImplementedError
     def delete_account(self, username, uid, pwv, session_hash, now): raise NotImplementedError      # -> bool (fenced)
     def replace_password(self, uid, pwv, new_hash, session_hash, now): raise NotImplementedError    # -> bool (fenced)
@@ -29,7 +46,7 @@ class AccountStore:
     def update_attempts(self, key, fn): raise NotImplementedError
     def get_attempts(self, key): raise NotImplementedError
     def delete_attempts(self, key): raise NotImplementedError
-    def add_invite(self, code_hash, uses=1): raise NotImplementedError
+    def add_invite(self, code_hash, uses=1, expires_at=None): raise NotImplementedError
     def get_settings(self, uid): raise NotImplementedError
     def put_settings(self, uid, doc, expected_version, session_hash, now): raise NotImplementedError  # -> bool (fenced)
     def purge(self, now): raise NotImplementedError
@@ -41,20 +58,24 @@ class MemoryStore(AccountStore):
         self.users, self.by_uid, self.sessions, self.attempts = {}, {}, {}, {}
         self.invites, self.settings = {}, {}
 
-    def create_account(self, username, record, invite_hash, max_users):
+    def create_account(self, username, record, invite_hash, max_users, now=None):
+        # Authorization is at supplied post-hash admission time, NOT commit time.
+        rec=account_record(record)
+        if type(username) is not str or not 1<=len(username)<=128 or type(max_users) is not int or not 0<=max_users<=10000:raise ValueError("Invalid claim")
+        if invite_hash is not None and (type(invite_hash) is not str or not 1<=len(invite_hash)<=512):raise ValueError("Invalid claim")
         with self._l:
-            if username in self.users:
-                return "taken"
-            if invite_hash is not None and self.invites.get(invite_hash, 0) <= 0:
-                return "invite"
-            if len(self.users) >= max_users:
-                return "cap"
+            value=invite_value(self.invites[invite_hash]) if invite_hash in self.invites else None
+            if type(value) is dict:epoch(now)
+            if username in self.users:return "taken"
+            if invite_hash is not None and (value is None or (value if type(value) is int else value['uses'])<=0 or type(value) is dict and value['expires_at']<=now):return "invite"
+            if len(self.users)>=max_users:return "cap"
+            if rec['uid'] in self.by_uid:raise ValueError("Duplicate account identity")
+            rec['username']=username
+            # All potentially failing caller validation/copy completed above.
             if invite_hash is not None:
-                self.invites[invite_hash] -= 1
-            rec = copy.deepcopy(record)
-            rec["username"] = username
-            self.users[username] = rec
-            self.by_uid[rec["uid"]] = username
+                self.invites[invite_hash]=value-1 if type(value) is int else dict(value,uses=value['uses']-1)
+            self.users[username]=rec
+            self.by_uid[rec['uid']]=username
             return "ok"
 
     def get_user(self, username):
@@ -146,9 +167,12 @@ class MemoryStore(AccountStore):
         with self._l:
             self.attempts.pop(key, None)
 
-    def add_invite(self, code_hash, uses=1):
+    def add_invite(self, code_hash, uses=1, expires_at=None):
+        if type(code_hash) is not str or not 1<=len(code_hash)<=512 or type(uses) is not int or not 1<=uses<=1000:raise ValueError("Invalid invite")
+        value=uses if expires_at is None else {'uses':uses,'expires_at':epoch(expires_at)}
         with self._l:
-            self.invites[code_hash] = int(uses)
+            if code_hash not in self.invites and len(self.invites)>=1000:raise ValueError("Invite capacity")
+            self.invites[code_hash]=value
 
     def get_settings(self, uid):
         with self._l:
@@ -165,7 +189,11 @@ class MemoryStore(AccountStore):
             return True
 
     def purge(self, now):
+        epoch(now)
         with self._l:
+            captured={k:invite_value(v) for k,v in self.invites.items()}
+            for k,v in captured.items():
+                if type(v) is dict and v["expires_at"]<=now:self.invites.pop(k,None)
             for h in [h for h, s in self.sessions.items() if s["expires"] <= now or s["idle_expires"] <= now]:
                 del self.sessions[h]
             for k in [k for k, a in self.attempts.items() if a.get("expires", 0) <= now]:

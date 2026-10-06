@@ -8,7 +8,7 @@ are required before live use. No clients, indexes, credentials or timers created
 """
 import json,math,threading,time
 from copy import deepcopy
-from .store import AccountStore,MemoryStore
+from .store import AccountStore,MemoryStore,invite_value
 
 TABLES=('users','by_uid','sessions','attempts','invites','settings')
 METHODS=('create_account','get_user','delete_account','replace_password','rehash_password','create_session','touch_session','delete_session','update_attempts','get_attempts','delete_attempts','add_invite','get_settings','put_settings','purge')
@@ -35,6 +35,7 @@ def _state(value):
  state=_copy(value)
  if type(state) is not dict or set(state)!=set(TABLES) or any(type(state[k]) is not dict for k in TABLES):raise ValueError()
  if len(state['users'])>50 or len(state['by_uid'])!=len(state['users']) or len(state['sessions'])>500 or len(state['attempts'])>10000 or len(state['invites'])>1000 or len(state['settings'])>50:raise ValueError()
+ for value in state['invites'].values():invite_value(value)
  for name,user in state['users'].items():
   if type(user) is not dict or user.get('username')!=name or type(user.get('uid')) is not str or state['by_uid'].get(user['uid'])!=name:raise ValueError()
  for uid,setting in state['settings'].items():
@@ -103,7 +104,7 @@ class MongoAccountStore(AccountStore):
   if invalid:raise MongoStoreInvalid('Account state limit or invalid input')
   if failed:raise MongoStoreUnavailable('Account store outcome unavailable; do not retry')
   return result
- def create_account(self,username,record,invite_hash,max_users):return self._operation('create_account',(username,record,invite_hash,max_users))
+ def create_account(self,username,record,invite_hash,max_users,now=None):return self._operation('create_account',(username,record,invite_hash,max_users,now))
  def get_user(self,username):return self._operation('get_user',(username,))
  def delete_account(self,username,uid,pwv,session_hash,now):return self._operation('delete_account',(username,uid,pwv,session_hash,now))
  def replace_password(self,uid,pwv,new_hash,session_hash,now):return self._operation('replace_password',(uid,pwv,new_hash,session_hash,now))
@@ -114,7 +115,7 @@ class MongoAccountStore(AccountStore):
  def update_attempts(self,key,fn):return self._operation('update_attempts',(key,fn))
  def get_attempts(self,key):return self._operation('get_attempts',(key,))
  def delete_attempts(self,key):return self._operation('delete_attempts',(key,))
- def add_invite(self,code_hash,uses=1):return self._operation('add_invite',(code_hash,uses))
+ def add_invite(self,code_hash,uses=1,expires_at=None):return self._operation('add_invite',(code_hash,uses,expires_at))
  def get_settings(self,uid):return self._operation('get_settings',(uid,))
  def put_settings(self,uid,doc,expected_version,session_hash,now):return self._operation('put_settings',(uid,doc,expected_version,session_hash,now))
  def purge(self,now):return self._operation('purge',(now,))

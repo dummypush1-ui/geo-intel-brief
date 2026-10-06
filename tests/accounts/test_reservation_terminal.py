@@ -85,7 +85,7 @@ class ReservationTests(unittest.TestCase):
    result=svc.login('unknown'+str(n),'wrong password',token,nonce,'client'+str(n),ORIGIN)
    self.assertEqual(result['error'],'invalid_credentials')
    self.assertEqual(len(svc.limiter._outstanding),0)
-  store.add_invite('unused',0)
+  store.invites['unused']=0  # Existing exhausted snapshot, not new provisioning
   for name,invite in (('bad!','invite-code-1'),('alice','short'),('alice','wrong-code-123')):
    token,nonce=pre(svc);svc.signup(name,PW,invite,token,nonce,'signup-client',ORIGIN)
    self.assertEqual(len(svc.limiter._outstanding),0)
