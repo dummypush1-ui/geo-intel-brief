@@ -163,3 +163,9 @@ collectorstop/cutover/realsends inferred from manualcheckpreparation.
 Closed memory account/workspace fixture; session checks, original gates unchanged. 390/1280 login/workspace/nav/logout pixels checked. Production accounts, shared limiter/recovery/invite expiry and settings sync remain blocked.
 Author full configured suite: 958 tests OK, 1 skip/1 expected failure.
 This milestone is offline code/test status, not live activation.
+
+## Increment 73: reviewed offline scope
+
+Pure copied-memory country alerts, explicit rebaseline, bounded dedupe/inbox/history. No polling/delivery/durable state or authenticated source claim. URL queries stripped; path/text secrets not detected.
+Author full configured suite: 970 tests OK, 1 skip/1 expected failure.
+This milestone is offline code/test status, not live activation.
