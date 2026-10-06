@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 1150,
+  "tests": 1166,
   "files": [
     {
       "path": ".env.example",
@@ -929,6 +929,31 @@
       "path": "integration/mail_bridge.py",
       "bytes": 3727,
       "sha256": "baa30b07294b26249e5fe826bfbe41a2000ac93bc5016d17a5b04c95a0508f03"
+    },
+    {
+      "path": "integration/manage_fixture95/LIMITS.md",
+      "bytes": 1574,
+      "sha256": "3655e88ddea3f152072f07b6bd87cffe888eb91a1ca42ef04a3af4cbd6771373"
+    },
+    {
+      "path": "integration/manage_fixture95/__init__.py",
+      "bytes": 64,
+      "sha256": "dc509786d24c50b057224d2e39571f0413156dc8c9d5b6c7d1e62d11defc8967"
+    },
+    {
+      "path": "integration/manage_fixture95/core.py",
+      "bytes": 5362,
+      "sha256": "ff63e951116a7ee634b3e9db1b2a4197349fd54422120334623f5403b287defc"
+    },
+    {
+      "path": "integration/manage_fixture95/evidence.json",
+      "bytes": 517,
+      "sha256": "11b6a2e786f45b7ec8c0487dd0c5da0a6180721c69aab9488e4a8521e2a4fce9"
+    },
+    {
+      "path": "integration/manage_fixture95/inventory.json",
+      "bytes": 558,
+      "sha256": "1c7ce5a9cec585df6bd91509768202561f95e9f94eac8fc70a4c907f07cbeeef"
     },
     {
       "path": "integration/map_layers.py",
@@ -2987,8 +3012,8 @@
     },
     {
       "path": "tests/test_dependency_audit.py",
-      "bytes": 9567,
-      "sha256": "69738096f3d52beaa6411a6786af4b937dd12cbf86addd3daa8a5d35468d75ad"
+      "bytes": 9682,
+      "sha256": "1c11c570807729674eea367034ff9a1aaf0abb0dd5f1d9cea4527a0c7c574e63"
     },
     {
       "path": "tests/test_dependency_build_runner.py",
@@ -3134,6 +3159,11 @@
       "path": "tests/test_mail_bridge.py",
       "bytes": 2240,
       "sha256": "1a1eea1d13254e2e9e87c0a949fceb39720e242e2d3560882c5364c7315f4c19"
+    },
+    {
+      "path": "tests/test_manage_fixture95.py",
+      "bytes": 5509,
+      "sha256": "2b5b47215ce285e7e30e5eb9004611b3d460c288338d06ee19b221dfeb326592"
     },
     {
       "path": "tests/test_map_layers.py",
@@ -3396,5 +3426,5 @@
       "sha256": "2ca27e9a8dae569cdeac42752ed1aed1afeff7f19282d3cc12c0aaa54a08bc04"
     }
   ],
-  "test_evidence_note": "94 intentionalsource security-maintenance,originalrequirementsrecoverable. Freshhashlocked25application+pip26.2.1/setuptools84 CPython3.10.12Linuxx86_64 full1150uniqueIDs suiteOK1expected1optionalPDFskip; originalconfigured1150OK. IndependentexactIDs/hashreview, not fullsuiteindependentrerun.18operationalIDrangefixesproposedproviderreindexpending,130historicalremainVISIBLEunchanged.757physicalSDKfiles;39exactOSVapp/bootstrap/vendorsnohits,time/ecosystemscopeonly. OptionalGeoGNews/trafilaturaINSTALLDEFAULToutside25lock;plainrequirementsNOTverifiedprofile. No deploy/buildroute/collector/client/DB/send/Finderchange."
+  "test_evidence_note": "95 partial4familyRAM-only managebackendfixture,notruntime/UI. Configured1166suiteOK583+291+292,1expected1optionalPDFskip. Independent15core/scopedhashreview,actualevidencepaths/hashmatchgit0fef9a2;16integratedtests. Only3exactadditive95Pythonpathsexcludedhistorical87AST;separateexactpath/hashinventory changedetectornotauthority. Historical87/88/90-94payloadsunchanged. Effectiveunwired_unknown/lastknownunknown/initialrequestunspecified; authsuppliedboundarynotproductionadminidentity. No activation/fetch/DB/send/deploy/Finderchange."
 }
