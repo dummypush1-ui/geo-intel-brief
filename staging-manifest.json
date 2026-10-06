@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 970,
+  "tests": 980,
   "files": [
     {
       "path": ".env.example",
@@ -152,8 +152,8 @@
     },
     {
       "path": "integration/FEATURE_STATUS.md",
-      "bytes": 15341,
-      "sha256": "2399f7d9514786f29507f2c2143eb68a40c6ced9c861797f48af926af6d84b8f"
+      "bytes": 15666,
+      "sha256": "51ed33a77b6a8d31f5f67dcee441b47a5166c8d377a8e077e8430ea08cc9fe9d"
     },
     {
       "path": "integration/FINDER_NESTED_LIMITS.md",
@@ -224,6 +224,11 @@
       "path": "integration/LIVE_NEWS_LIMITS.md",
       "bytes": 2611,
       "sha256": "678826c4012d5573c1aca79b347455f32986f87e72983d2aa2ffb178a3a7bf9c"
+    },
+    {
+      "path": "integration/MAP_LAYERS_LIMITS.md",
+      "bytes": 3084,
+      "sha256": "bd0ec31e0326b20cc83ca70f30ec46a4b73ff6d93a2f8b15448f405391b09d7a"
     },
     {
       "path": "integration/NEWS_PANEL_LIMITS.md",
@@ -744,6 +749,11 @@
       "path": "integration/mail_bridge.py",
       "bytes": 3727,
       "sha256": "baa30b07294b26249e5fe826bfbe41a2000ac93bc5016d17a5b04c95a0508f03"
+    },
+    {
+      "path": "integration/map_layers.py",
+      "bytes": 7178,
+      "sha256": "57e7fdea3d799baa30b2bfa9771431cef9091bf886b471332ee7364e1f687ded"
     },
     {
       "path": "integration/news_api.py",
@@ -2566,6 +2576,11 @@
       "sha256": "1a1eea1d13254e2e9e87c0a949fceb39720e242e2d3560882c5364c7315f4c19"
     },
     {
+      "path": "tests/test_map_layers.py",
+      "bytes": 7527,
+      "sha256": "64833ebac72836e2f4b2e86149863cb19d9883dff20dad61832f6da7a89fe834"
+    },
+    {
       "path": "tests/test_mongo_account_store.py",
       "bytes": 7599,
       "sha256": "69c36e6c3fea5a172ec228656818407d9268737b97f29e44d7b6fab154456c14"
@@ -2781,5 +2796,5 @@
       "sha256": "2ca27e9a8dae569cdeac42752ed1aed1afeff7f19282d3cc12c0aaa54a08bc04"
     }
   ],
-  "test_evidence_note": "Configured author full suite 970 OK; 1 skip/1 expected failure. Independent narrow review SAFE. Offline only."
+  "test_evidence_note": "Configured author full suite 980 OK; 1 skip/1 expected failure. Independent narrow review SAFE. Offline only."
 }

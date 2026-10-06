@@ -169,3 +169,9 @@ This milestone is offline code/test status, not live activation.
 Pure copied-memory country alerts, explicit rebaseline, bounded dedupe/inbox/history. No polling/delivery/durable state or authenticated source claim. URL queries stripped; path/text secrets not detected.
 Author full configured suite: 970 tests OK, 1 skip/1 expected failure.
 This milestone is offline code/test status, not live activation.
+
+## Increment 74: reviewed offline scope
+
+Pure supplied WGS84 map layers with layer-local refusal and global envelope budget, freshness labels. No live sources, map UI, tiles or geocoding.
+Author full configured suite: 980 tests OK, 1 skip/1 expected failure.
+This milestone is offline code/test status, not live activation.
