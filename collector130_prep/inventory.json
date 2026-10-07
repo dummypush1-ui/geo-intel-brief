@@ -1,0 +1,14 @@
+{
+  "scope": "inactive_composition130",
+  "files": {
+    "base_profile.py": "e1d56eb6de28da4b7dcb69d3d1bfd4d1b4b42c51c88283c35888dfdd2c28aaa2",
+    "extra_profile.py": "1fdfb5a6d6df0d6703753b7e1f5cba5624c9831d07d08a6779874456d38f695b",
+    "network_selection.py": "b30d691a63f65975a945a4da1c54f73c587468cbfbf822f7bba20a6563e9c16c",
+    "__init__.py": "a16356e98973c6c83859868c160c44a5c1c48bb2d8aad886abaeede90833d8d8",
+    "BOUNDED-COMPOSITION.md": "8bfad21858b2157ff42e5a8e560a97a5547bf40723db84f209625b7ebcb7ec63"
+  },
+  "excluded_exact": [
+    "test_composition.py",
+    "inventory.json"
+  ]
+}
