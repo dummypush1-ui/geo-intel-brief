@@ -1,0 +1,15 @@
+{
+  "review": "SAFE inactive supplied-cycle only, parent relayed verdict2026-10-07 22:05:51 IST",
+  "new_tests": 10,
+  "base_tests": 1166,
+  "prior_manifest_unchanged": 851,
+  "regression_tree": "actual full repo",
+  "production": "OFF",
+  "remaining_gates": [
+    "all_refused_unhealthy_alarm",
+    "wider_pins_TOCTOU",
+    "network_combined_deadline",
+    "entry_cap",
+    "checkpoint_writer_adapters"
+  ]
+}
