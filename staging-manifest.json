@@ -1672,18 +1672,18 @@
     },
     {
       "path": "integration/ui/workspace.css",
-      "bytes": 5294,
-      "sha256": "c6e15c552a245eb9d1a35b096166e6d932bd73115811b1ba67ce55b2cbba78c9"
+      "bytes": 10282,
+      "sha256": "b28527dcc6937028f2f4d018832cb14a9b2a582877e15290c76aafbfcca0a710"
     },
     {
       "path": "integration/ui/workspace.html",
-      "bytes": 5198,
-      "sha256": "53bd579a5b1078453b990271acb5157c4db35943df7748f76e1481bd96b0674d"
+      "bytes": 5474,
+      "sha256": "4b915edadf9538e6bf214707a9a4960d90c8e945076b3ece36a0b06b4c8b9531"
     },
     {
       "path": "integration/ui/workspace.js",
-      "bytes": 25306,
-      "sha256": "ad4ac10ca9ee8244794ad9bc62ab7768d494c80cd1105275dc801c77d03d2262"
+      "bytes": 31385,
+      "sha256": "0c808ca80a9c5635e162021ca0c07163a87184adf0f6f305fc8cebef5405fa16"
     },
     {
       "path": "integration/weekly_report/README.md",
@@ -3426,5 +3426,33 @@
       "sha256": "2ca27e9a8dae569cdeac42752ed1aed1afeff7f19282d3cc12c0aaa54a08bc04"
     }
   ],
-  "test_evidence_note": "95 partial4familyRAM-only managebackendfixture,notruntime/UI. Configured1166suiteOK583+291+292,1expected1optionalPDFskip. Independent15core/scopedhashreview,actualevidencepaths/hashmatchgit0fef9a2;16integratedtests. Only3exactadditive95Pythonpathsexcludedhistorical87AST;separateexactpath/hashinventory changedetectornotauthority. Historical87/88/90-94payloadsunchanged. Effectiveunwired_unknown/lastknownunknown/initialrequestunspecified; authsuppliedboundarynotproductionadminidentity. No activation/fetch/DB/send/deploy/Finderchange."
+  "test_evidence_note": "Geo-home UI-only structural port to existing guarded sample APIs. Current configured1166 unique tests in12chunks;1expected limiter defect/1existing optionalpikepdf skip. Basic profile realGunicorn/auth/route smoke beforeUI; revisedUI browser390/768/1280 withtab-sync/risklightdark. Independentv3SAFEconditionalfullsuite/hashreadback. NoDB/send/collector/deploy. IntentionalUIrevision, originalsource unchanged.",
+  "intentional_revisions": [
+    {
+      "scope": "geo-home UI-only structural port",
+      "baseline_commit": "785a3076cb3d7aa56fd907b3c76f2f133e548187",
+      "prior_entries": [
+        {
+          "path": "integration/ui/workspace.css",
+          "bytes": 5294,
+          "sha256": "c6e15c552a245eb9d1a35b096166e6d932bd73115811b1ba67ce55b2cbba78c9"
+        },
+        {
+          "path": "integration/ui/workspace.html",
+          "bytes": 5198,
+          "sha256": "53bd579a5b1078453b990271acb5157c4db35943df7748f76e1481bd96b0674d"
+        },
+        {
+          "path": "integration/ui/workspace.js",
+          "bytes": 25306,
+          "sha256": "ad4ac10ca9ee8244794ad9bc62ab7768d494c80cd1105275dc801c77d03d2262"
+        }
+      ],
+      "new_paths": [
+        "integration/ui/workspace.css",
+        "integration/ui/workspace.html",
+        "integration/ui/workspace.js"
+      ]
+    }
+  ]
 }
