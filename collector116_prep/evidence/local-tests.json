@@ -1,0 +1,15 @@
+{
+  "review": "SAFE inactive candidate only, parent relayed verdict2026-10-07 21:50:59 IST",
+  "base_tests": 1166,
+  "new_tests": 6,
+  "production": "OFF",
+  "live_fetch_called": false,
+  "full_repo_tree": "/tmp/save104-remote",
+  "remaining_gates": [
+    "combined_deadline",
+    "tampering_vs_source_outage",
+    "per_source_cycle_aggregate",
+    "optional_adapters",
+    "inherited114_115_gates"
+  ]
+}

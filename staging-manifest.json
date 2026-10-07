@@ -736,6 +736,41 @@
       "sha256": "8c176aea8fff662e57afa04fd0ba8882a0f8b0e4e99034d4c93a5205caad4131"
     },
     {
+      "path": "collector116_prep/NETWORK-COMPOSITION-DESIGN.md",
+      "bytes": 770,
+      "sha256": "d3d0a0900fe5a7719e24cec34c00bc0865dbbda87f7ecc5307ea0a8572e7643b"
+    },
+    {
+      "path": "collector116_prep/STAGE116.md",
+      "bytes": 1369,
+      "sha256": "222f3e3c54546cf846afe1dd46166f80a750e5c704c4e0a5704f7b5a4aec1fe0"
+    },
+    {
+      "path": "collector116_prep/__init__.py",
+      "bytes": 76,
+      "sha256": "8edd70ee781f3d9a2a0e7a879f26cdd0b276a70fcfbbe092167ac16b847fb95a"
+    },
+    {
+      "path": "collector116_prep/evidence/local-tests.json",
+      "bytes": 405,
+      "sha256": "791b08a5a418f6886ed342423506f14972b9a212f86241c4fc55024143c1c2ac"
+    },
+    {
+      "path": "collector116_prep/inventory116.json",
+      "bytes": 676,
+      "sha256": "ff11fad58dcd6e40dae100a9da31b08b79ded978ff684c834e67deea9a7403a1"
+    },
+    {
+      "path": "collector116_prep/network_selection.py",
+      "bytes": 2876,
+      "sha256": "59a24d7c853a45647ee4b0f2737770bcbe3781481de7184220ec589016cfcffa"
+    },
+    {
+      "path": "collector116_prep/test_network_selection.py",
+      "bytes": 2622,
+      "sha256": "e973a103c93a8bcbf166c3accbdc3d26d2c8d4e33b715fc2a5f6c8689d4cd7fd"
+    },
+    {
       "path": "compute-sancgap.mjs",
       "bytes": 5656,
       "sha256": "c61cb59ac916eb51e83368e5611a70a81111ff1a8f198dfb820a2ee849fd0df8"

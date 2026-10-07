@@ -1,0 +1,8 @@
+{
+  "collector116_prep/NETWORK-COMPOSITION-DESIGN.md": "d3d0a0900fe5a7719e24cec34c00bc0865dbbda87f7ecc5307ea0a8572e7643b",
+  "collector116_prep/STAGE116.md": "222f3e3c54546cf846afe1dd46166f80a750e5c704c4e0a5704f7b5a4aec1fe0",
+  "collector116_prep/__init__.py": "8edd70ee781f3d9a2a0e7a879f26cdd0b276a70fcfbbe092167ac16b847fb95a",
+  "collector116_prep/evidence/local-tests.json": "791b08a5a418f6886ed342423506f14972b9a212f86241c4fc55024143c1c2ac",
+  "collector116_prep/network_selection.py": "59a24d7c853a45647ee4b0f2737770bcbe3781481de7184220ec589016cfcffa",
+  "collector116_prep/test_network_selection.py": "e973a103c93a8bcbf166c3accbdc3d26d2c8d4e33b715fc2a5f6c8689d4cd7fd"
+}
