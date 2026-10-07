@@ -562,6 +562,21 @@
       "classification": "stdlib"
     },
     {
+      "import": "feature_finder_prep",
+      "files": [
+        "tests/browser_feature_finder.py",
+        "tests/test_feature_finder_prep.py"
+      ],
+      "stdlib": false,
+      "distributions": [],
+      "provenance": {
+        "paths": [
+          "feature_finder_prep/__init__.py"
+        ]
+      },
+      "classification": "local"
+    },
+    {
       "import": "feature_mail_prep",
       "files": [
         "tests/test_feature_mail_prep.py"
@@ -683,6 +698,18 @@
       "classification": "required_distribution"
     },
     {
+      "import": "functools",
+      "files": [
+        "tests/browser_feature_finder.py"
+      ],
+      "stdlib": true,
+      "distributions": [],
+      "provenance": {
+        "source": "sys.stdlib_module_names"
+      },
+      "classification": "stdlib"
+    },
+    {
       "import": "gzip",
       "files": [
         "integration/finder_index.py"
@@ -697,6 +724,7 @@
     {
       "import": "hashlib",
       "files": [
+        "feature_finder_prep/shell.py",
         "feature_mail_prep/cleanup.py",
         "feature_mail_prep/reports.py",
         "integration/accounts/csrf.py",
@@ -747,6 +775,7 @@
         "tests/test_country_alerts.py",
         "tests/test_cross_routes.py",
         "tests/test_fake_collection_writer.py",
+        "tests/test_feature_finder_prep.py",
         "tests/test_finder_index.py",
         "tests/test_finder_nested.py",
         "tests/test_geo_collector_contract.py",
@@ -815,6 +844,7 @@
       "import": "http",
       "files": [
         "integration/geonews_digest/delivery.py",
+        "tests/browser_feature_finder.py",
         "tests/geonews_digest/test_digest.py",
         "tests/news_export/test_fixture_serving.py"
       ],
@@ -828,6 +858,7 @@
     {
       "import": "importlib",
       "files": [
+        "tests/browser_feature_finder.py",
         "tests/geospatial/test_geospatial.py",
         "tests/news_export/test_export.py",
         "tests/test_collector122_inventory.py",
@@ -1310,6 +1341,7 @@
         "tests/browser_dashboard_snapshots.py",
         "tests/browser_digest_preview.py",
         "tests/browser_event_digest.py",
+        "tests/browser_feature_finder.py",
         "tests/browser_finder_nested.py",
         "tests/browser_finder_network.py",
         "tests/browser_finder_offline.py",
@@ -1483,6 +1515,7 @@
         "tests/browser_dashboard_snapshots.py",
         "tests/browser_digest_preview.py",
         "tests/browser_event_digest.py",
+        "tests/browser_feature_finder.py",
         "tests/browser_finder_nested.py",
         "tests/browser_finder_network.py",
         "tests/browser_finder_offline.py",
@@ -1508,6 +1541,7 @@
         "tests/test_compulsory_channels.py",
         "tests/test_digest_cold.py",
         "tests/test_env_example.py",
+        "tests/test_feature_finder_prep.py",
         "tests/test_feature_mail_prep.py",
         "tests/test_file_audit.py",
         "tests/test_finder_index.py",
@@ -1571,6 +1605,7 @@
         "tests/browser_dashboard_snapshots.py",
         "tests/browser_digest_preview.py",
         "tests/browser_event_digest.py",
+        "tests/browser_feature_finder.py",
         "tests/browser_finder_nested.py",
         "tests/browser_finder_network.py",
         "tests/browser_finder_offline.py",
@@ -1986,6 +2021,7 @@
         "tests/geonews_digest/test_digest.py",
         "tests/geospatial/test_geospatial.py",
         "tests/test_env_example.py",
+        "tests/test_feature_finder_prep.py",
         "tests/test_finder_nested.py",
         "tests/test_finder_offline.py",
         "tests/test_geo_only_runtime.py",
@@ -2214,6 +2250,7 @@
         "tests/test_compulsory_channels.py",
         "tests/test_digest_cold.py",
         "tests/test_env_example.py",
+        "tests/test_feature_finder_prep.py",
         "tests/test_finder_nested.py",
         "tests/test_fixed_feedparser_audit.py",
         "tests/test_geo_probe_process.py",
@@ -2257,6 +2294,7 @@
         "tests/browser_dashboard_snapshots.py",
         "tests/browser_digest_preview.py",
         "tests/browser_event_digest.py",
+        "tests/browser_feature_finder.py",
         "tests/browser_finder_nested.py",
         "tests/browser_finder_network.py",
         "tests/browser_finder_offline.py",
@@ -2304,6 +2342,7 @@
         "tests/geospatial/test_geospatial.py",
         "tests/geospatial/test_map_route.py",
         "tests/test_env_example.py",
+        "tests/test_feature_finder_prep.py",
         "tests/test_finder_index.py",
         "tests/test_storage_settings.py",
         "tests/test_stream_disk.py"
@@ -2516,6 +2555,7 @@
         "tests/browser_country_page.py",
         "tests/browser_dashboard_snapshots.py",
         "tests/browser_digest_preview.py",
+        "tests/browser_feature_finder.py",
         "tests/browser_finder_nested.py",
         "tests/browser_finder_network.py",
         "tests/browser_finder_offline.py",
@@ -2671,6 +2711,7 @@
         "tests/test_env_example.py",
         "tests/test_event_reader.py",
         "tests/test_fake_collection_writer.py",
+        "tests/test_feature_finder_prep.py",
         "tests/test_feature_mail_prep.py",
         "tests/test_file_audit.py",
         "tests/test_finder_index.py",
@@ -3055,7 +3096,8 @@
       "integration",
       "tests",
       "scripts",
-      "feature_mail_prep"
+      "feature_mail_prep",
+      "feature_finder_prep"
     ],
     "exclusions": [
       "__pycache__",
@@ -3063,6 +3105,14 @@
       "tests/test_dependency_audit.py"
     ],
     "files": [
+      {
+        "path": "feature_finder_prep/__init__.py",
+        "sha256": "f17162b13f703189eb654ad133138896eacc1a8405bc5e9088255e70408c9dc6"
+      },
+      {
+        "path": "feature_finder_prep/shell.py",
+        "sha256": "682bffaa3d62bb33cb616ce10b61a7e69169816813b29b3700b588609346212d"
+      },
       {
         "path": "feature_mail_prep/__init__.py",
         "sha256": "c182b5dabdc90dabde52ab79c5a637251425272edcda08e5b71544659365228f"
@@ -3632,6 +3682,10 @@
         "sha256": "a27b4a2c654538299e19e2324090ebbcb1c15d78804f14daf1bc123b93163163"
       },
       {
+        "path": "tests/browser_feature_finder.py",
+        "sha256": "90590ab3444424be0266977fc99a8307f04a55a2df135db41cc01029527327d8"
+      },
+      {
         "path": "tests/browser_finder_nested.py",
         "sha256": "63d9f07275328045908339615f48928e0ffcbeed7ce1f612d642a53519367a0e"
       },
@@ -3850,6 +3904,10 @@
       {
         "path": "tests/test_fake_collection_writer.py",
         "sha256": "cb8873fffeacf6d6cae5e69493492f79b01463c3eab4889b9615763e151ea0da"
+      },
+      {
+        "path": "tests/test_feature_finder_prep.py",
+        "sha256": "b866465273fe237e4c380d1f0201beabf10cb32424678510cc68152c3e0a54d4"
       },
       {
         "path": "tests/test_feature_mail_prep.py",

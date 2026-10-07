@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 1202,
+  "tests": 1208,
   "files": [
     {
       "path": ".env.example",
@@ -1376,6 +1376,16 @@
       "sha256": "94fbf4b2557a78f49bd05f92d22c419a65b206b82d7d76e03de370ecb6d4065e"
     },
     {
+      "path": "feature_finder_prep/__init__.py",
+      "bytes": 132,
+      "sha256": "f17162b13f703189eb654ad133138896eacc1a8405bc5e9088255e70408c9dc6"
+    },
+    {
+      "path": "feature_finder_prep/shell.py",
+      "bytes": 5198,
+      "sha256": "682bffaa3d62bb33cb616ce10b61a7e69169816813b29b3700b588609346212d"
+    },
+    {
       "path": "feature_mail_prep/__init__.py",
       "bytes": 128,
       "sha256": "c182b5dabdc90dabde52ab79c5a637251425272edcda08e5b71544659365228f"
@@ -1933,12 +1943,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 18581,
-      "sha256": "3083579eb3c6e6b42b0dd8a0e27aa9a3b30c7448711a55ee6bec14e60d966fe7"
+      "sha256": "3de69bb7cb97bb7ca761e444751a66c7cc401904d95140d1862db7f0c17057d2"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
-      "bytes": 157344,
-      "sha256": "447592eb6c98e0e89bb8a01b7e9f94c9ad6f0078e980475d144034de799205ec"
+      "bytes": 159213,
+      "sha256": "01c5d2bd5944cba232a54b0049f3e634878c16fd7b6e0584766c16f65676c303"
     },
     {
       "path": "integration/dependency_build/README.md",
@@ -4156,6 +4166,11 @@
       "sha256": "a27b4a2c654538299e19e2324090ebbcb1c15d78804f14daf1bc123b93163163"
     },
     {
+      "path": "tests/browser_feature_finder.py",
+      "bytes": 4801,
+      "sha256": "90590ab3444424be0266977fc99a8307f04a55a2df135db41cc01029527327d8"
+    },
+    {
       "path": "tests/browser_finder_nested.py",
       "bytes": 4685,
       "sha256": "63d9f07275328045908339615f48928e0ffcbeed7ce1f612d642a53519367a0e"
@@ -4484,6 +4499,11 @@
       "path": "tests/test_fake_collection_writer.py",
       "bytes": 2266,
       "sha256": "cb8873fffeacf6d6cae5e69493492f79b01463c3eab4889b9615763e151ea0da"
+    },
+    {
+      "path": "tests/test_feature_finder_prep.py",
+      "bytes": 3040,
+      "sha256": "b866465273fe237e4c380d1f0201beabf10cb32424678510cc68152c3e0a54d4"
     },
     {
       "path": "tests/test_feature_mail_prep.py",
