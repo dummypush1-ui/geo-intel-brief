@@ -1,0 +1,13 @@
+{
+  "review": "SAFE for inactive supplied-byte parser preparation",
+  "production": "OFF",
+  "tests": 9,
+  "local_kernel": "namespace/resource/fault checks verified locally only, not Render",
+  "mounts": "Broad read-only code exposure, not confidential-file/arbitrary-code containment",
+  "pins": "Python sources only; binary/stdlib/site startup/cache remain gates",
+  "real_network_fetch": false,
+  "original_feed_selection_composition": false,
+  "deployment_validation": false,
+  "bwrap_unavailable": "OSError; no fallback",
+  "hostile_corpus_fault_coverage": "Still needs expansion"
+}
