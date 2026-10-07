@@ -1,0 +1,8 @@
+{
+  "collector120_prep/GNEWS-DESIGN.md": "cd808783d98529871e7a59960b6fda5edbf42435685a7b009f20d43d9e92c0a5",
+  "collector120_prep/STAGE120.md": "f8b156a143dfc872d6a4db6617a6491c17dff9f0a59c49f03f2581c35600f711",
+  "collector120_prep/__init__.py": "5b30e48ce4bbc563b2d886a2b45dbbb0d99ce3eca5148865d64013f6c3f19a00",
+  "collector120_prep/evidence/local-tests.json": "438a0f4b6551c81b0d48149d2dde3947c1986c32b67d99c04d0bd4dd59bbe051",
+  "collector120_prep/gnews_supplied.py": "b04e17892d61ef476139afb8a0a2f69c9117e0453f922018529c9e18c72b31f6",
+  "collector120_prep/test_gnews_supplied.py": "98e0c84c00d9b3b6899695b15ee03ca4ee9fb68bda8c0158263b08efe8fe500b"
+}

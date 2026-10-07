@@ -1,0 +1,69 @@
+"""Inactive hash-pinned original GNews over supplied SDK outcomes. No clients."""
+import ast,hashlib
+from pathlib import Path
+from datetime import datetime,timezone
+from collector110_prep.input_budget import capture
+from collector115_prep.profile import compile_profile
+from intelligence.geo.processing.classifier import classify,strip_html
+from intelligence.geo.processing.dedupe import dedupe_articles
+ROOT=Path(__file__).resolve().parents[1]
+PIN='9b948cad40e0d450745f36378360f6c85989a257a3c50b383cb6de694d36c7af'
+class GNewsRefused(ValueError):pass
+class BackupHeld(ValueError):pass
+
+def prepare_supplied_gnews(settings,outcomes,*,clock,available=True):
+ p=compile_profile(settings)
+ for path,h in {'intelligence/geo/processing/classifier.py':'445842f362bca71455f562e6d405e6ee860deddb88bab64f56f522e7b67073f9','intelligence/geo/processing/dedupe.py':'8326042d8a2adccafc690f86c47cc9baa67240792ef90060750313c81fb7382e'}.items():
+  if hashlib.sha256((ROOT/path).read_bytes()).hexdigest()!=h:raise GNewsRefused('Processing source drift')
+ if type(clock)is not datetime or type(clock.tzinfo)is not timezone or type(available)is not bool:raise GNewsRefused('Exact clock/provider availability')
+ if type(outcomes)is not dict or len(outcomes)>3:raise GNewsRefused('Supplied SDK mapping')
+ if any(type(q)is not str or len(q)>2000 for q in outcomes):raise GNewsRefused('Exact bounded query')
+ records=capture({'outcome_records':[{'query':q,'outcome':o}for q,o in list(outcomes.items())]})['captured']['outcome_records']
+ bounded={r['query']:r['outcome']for r in records}
+ raw=(ROOT/'intelligence/geo/collectors/gnews_search.py').read_bytes()
+ if hashlib.sha256(raw).hexdigest()!=PIN:raise GNewsRefused('Original GNews drift')
+ config=(ROOT/'intelligence/geo/config.py').read_bytes()
+ if hashlib.sha256(config).hexdigest()!='f7fbf007954c6918fbe2e402863fa29f597fe5d5cb4d60d1001deca8896b21f3':raise GNewsRefused('Original config drift')
+ tree=ast.parse(config);group_node=next(n.value for n in tree.body if type(n)is ast.Assign and any(type(t)is ast.Name and t.id=='GNEWS_QUERY_GROUPS'for t in n.targets))
+ groups=ast.literal_eval(group_node);queries=[' OR '.join(g)for g in groups]
+ expected=set(queries)if p['source_flags']['ENABLE_GNEWS']and available else set()
+ if set(bounded)!=expected:raise GNewsRefused('Missing or unused query outcome')
+ for query,o in bounded.items():
+  if type(o)is not dict or set(o)!={'state','results'} or o['state']not in ('ok','error') or type(o['results'])is not list or len(o['results'])>100 or o['state']=='error'and o['results']:raise GNewsRefused('SDK outcome shape')
+  for r in o['results']:
+   if type(r)is not dict or set(r)-{'title','url','description','publisher'}:raise GNewsRefused('Closed SDK result')
+   if any(type(r.get(k,''))is not str for k in ('title','url','description')):raise GNewsRefused('Exact SDK strings')
+   pub=r.get('publisher',{})
+   if type(pub)is not dict or set(pub)-{'title'}or type(pub.get('title','Google News'))is not str:raise GNewsRefused('Publisher shape')
+ result={'scope':'inactive_original_gnews_supplied','state':'disabled_by_config','documents':[],
+         'query_trace':[],'backup':'disabled_by_config','network':False,'writes':False,'delivery':False,'production_ready':False,
+         'pending_gates':['real_gnews_sdk_transport_isolation','backup_adapter','source_health']}
+ if not p['source_flags']['ENABLE_GNEWS']:return result
+ defs=[n for n in ast.parse(raw).body if type(n)is ast.FunctionDef and n.name in ('collect','_build_queries')]
+ if len(defs)!=2:raise GNewsRefused('Original definitions')
+ for node in defs:
+  if node.decorator_list or any(isinstance(n,(ast.Import,ast.ImportFrom,ast.Global,ast.Nonlocal,ast.ClassDef,ast.With))for n in ast.walk(node)):raise GNewsRefused('Original AST structure')
+ class Clock:
+  @staticmethod
+  def now(tz):return clock.astimezone(tz)
+ class Client:
+  def __init__(self,**kwargs):result['client_config']=kwargs
+  def get_news(self,q):
+   result['query_trace'].append(q);o=bounded[q]
+   if o['state']=='error':raise ValueError('Supplied source error')
+   return o['results']
+ def backup(arts):
+  result['backup']='held_unwired';result['held_candidates']=capture({'candidates':arts})['captured']['candidates']
+  raise BackupHeld('Backup unwired')
+ def save(docs):result['documents']=capture({'documents':docs})['captured']['documents'];return len(docs)
+ log=[]
+ scope={'__builtins__':{'print':lambda *a:log.append(1),'set':set,'Exception':Exception},
+        'HAS_GNEWS':available,'GNews':Client,'GNEWS_LANGUAGE':'en','GNEWS_COUNTRY':'US','GNEWS_PERIOD':'1d','GNEWS_MAX_RESULTS':15,
+        'GNEWS_QUERY_GROUPS':groups,'DEDUPE_THRESHOLD':p['threshold'],'ACTIVE_CATEGORIES':p['active_categories'],
+        'ENABLE_TELEGRAM_BACKUP':p['source_flags']['ENABLE_TELEGRAM_BACKUP'],'classify':classify,'strip_html':strip_html,
+        'dedupe_articles':dedupe_articles,'attach_backup_refs':backup,'save_articles_bulk':save,'datetime':Clock,'timezone':timezone}
+ exec(compile(ast.Module(body=defs,type_ignores=[]),'original-supplied-gnews','exec'),scope)
+ try:scope['collect']();result['state']='prepared'if available else 'sdk_unavailable'
+ except BackupHeld:result['state']='held_before_backup'
+ result['coarse_source_error_count']=len(log)
+ return result

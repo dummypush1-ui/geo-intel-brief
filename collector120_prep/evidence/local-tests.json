@@ -1,0 +1,14 @@
+{
+  "review": "SAFE inactive GNews contract only, parent relayed verdict2026-10-07 22:23:12 IST",
+  "new_tests": 6,
+  "base_tests": 1166,
+  "prior_manifest_unchanged": 872,
+  "regression_tree": "actual full repo",
+  "production": "OFF",
+  "remaining_gates": [
+    "SDK_transport_isolation_URL_pins",
+    "backup_adapter_held",
+    "config_override_parity",
+    "runtime_source_health_deployment"
+  ]
+}
