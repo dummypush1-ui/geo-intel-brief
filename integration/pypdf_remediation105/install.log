@@ -1,0 +1,28 @@
+Looking in links: /tmp/pypdf105-build/artifacts
+Processing /tmp/pypdf105-build/artifacts/blinker-1.9.0-py3-none-any.whl
+Processing /tmp/pypdf105-build/artifacts/certifi-2026.7.22-py3-none-any.whl
+Processing /tmp/pypdf105-build/artifacts/charset_normalizer-3.5.2-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl
+Processing /tmp/pypdf105-build/artifacts/click-8.5.0-py3-none-any.whl
+Processing /tmp/pypdf105-build/artifacts/dnspython-2.8.0-py3-none-any.whl
+Processing /tmp/pypdf105-build/artifacts/feedparser-6.0.11-py3-none-any.whl
+Processing /tmp/pypdf105-build/artifacts/flask-3.0.3-py3-none-any.whl
+Processing /tmp/pypdf105-build/artifacts/gunicorn-22.0.0-py3-none-any.whl
+Processing /tmp/pypdf105-build/artifacts/idna-3.20-py3-none-any.whl
+Processing /tmp/pypdf105-build/artifacts/itsdangerous-2.2.0-py3-none-any.whl
+Processing /tmp/pypdf105-build/artifacts/jinja2-3.1.6-py3-none-any.whl
+Processing /tmp/pypdf105-build/artifacts/markupsafe-3.0.4-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl
+Processing /tmp/pypdf105-build/artifacts/packaging-26.3-py3-none-any.whl
+Processing /tmp/pypdf105-build/artifacts/pymongo-4.8.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+Processing /tmp/pypdf105-build/artifacts/pypdf-6.19.0-py3-none-any.whl
+Processing /tmp/pypdf105-build/artifacts/python_dateutil-2.9.0.post0-py2.py3-none-any.whl
+Processing /tmp/pypdf105-build/artifacts/python_dotenv-1.0.1-py3-none-any.whl
+Processing /tmp/pypdf105-build/artifacts/PyYAML-6.0.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+Processing /tmp/pypdf105-build/artifacts/requests-2.32.3-py3-none-any.whl
+Processing /tmp/pypdf105-build/artifacts/schedule-1.2.2-py3-none-any.whl
+Processing /tmp/pypdf105-build/artifacts/sgmllib3k-1.0.0-py3-none-any.whl
+Processing /tmp/pypdf105-build/artifacts/six-1.17.0-py2.py3-none-any.whl
+Processing /tmp/pypdf105-build/artifacts/typing_extensions-4.16.0-py3-none-any.whl
+Processing /tmp/pypdf105-build/artifacts/urllib3-2.8.0-py3-none-any.whl
+Processing /tmp/pypdf105-build/artifacts/werkzeug-3.0.6-py3-none-any.whl
+Installing collected packages: sgmllib3k, urllib3, typing_extensions, six, schedule, PyYAML, python-dotenv, packaging, MarkupSafe, itsdangerous, idna, feedparser, dnspython, click, charset-normalizer, certifi, blinker, Werkzeug, requests, python-dateutil, pypdf, pymongo, Jinja2, gunicorn, Flask
+Successfully installed Flask-3.0.3 Jinja2-3.1.6 MarkupSafe-3.0.4 PyYAML-6.0.2 Werkzeug-3.0.6 blinker-1.9.0 certifi-2026.7.22 charset-normalizer-3.5.2 click-8.5.0 dnspython-2.8.0 feedparser-6.0.11 gunicorn-22.0.0 idna-3.20 itsdangerous-2.2.0 packaging-26.3 pymongo-4.8.0 pypdf-6.19.0 python-dateutil-2.9.0.post0 python-dotenv-1.0.1 requests-2.32.3 schedule-1.2.2 sgmllib3k-1.0.0 six-1.17.0 typing_extensions-4.16.0 urllib3-2.8.0
