@@ -1,0 +1,8 @@
+{
+  "review": "SAFE inactive118 outcome fix, parent relayed verdict2026-10-07 22:17:05 IST",
+  "new_tests": 9,
+  "base_tests": 1166,
+  "prior_manifest_unchanged": 866,
+  "regression_tree": "actual full repo",
+  "production": "OFF"
+}

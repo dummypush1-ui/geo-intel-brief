@@ -846,6 +846,36 @@
       "sha256": "f399d26c1175e5a0f49df9233c5ece6418ea7923e733ed275024b08a02c7253b"
     },
     {
+      "path": "collector119_prep/STAGE119.md",
+      "bytes": 1070,
+      "sha256": "06b0cf7dc8a9298d27b6a97373eb40ca03f77838a3eb050599652620ad23e191"
+    },
+    {
+      "path": "collector119_prep/__init__.py",
+      "bytes": 61,
+      "sha256": "fd40efc6608531b93c9475b464d8832de612ecb0772196950da0a7fe4d9db62c"
+    },
+    {
+      "path": "collector119_prep/evidence/local-tests.json",
+      "bytes": 233,
+      "sha256": "0e77e8a08f3870c03615818c4223bfc4588edfd16490c1d5efbe17e3b4b54477"
+    },
+    {
+      "path": "collector119_prep/fulltext_composition.py",
+      "bytes": 2941,
+      "sha256": "7969fe1cf1f8009722a70cb7a21cbb8b9451ac0e7eb9efcda7c974f9caf7141a"
+    },
+    {
+      "path": "collector119_prep/inventory119.json",
+      "bytes": 561,
+      "sha256": "f7fdd09391f7632bcc11b2ba9081bd367c11668dd486b0f8a6bc6302da8d58e8"
+    },
+    {
+      "path": "collector119_prep/test_fulltext_composition.py",
+      "bytes": 3930,
+      "sha256": "8ee6b3365908703d520edef0b2d38c8a0dfac0ed9d7072f6225ba270d409eff3"
+    },
+    {
       "path": "compute-sancgap.mjs",
       "bytes": 5656,
       "sha256": "c61cb59ac916eb51e83368e5611a70a81111ff1a8f198dfb820a2ee849fd0df8"

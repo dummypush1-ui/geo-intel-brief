@@ -1,0 +1,7 @@
+{
+  "collector119_prep/STAGE119.md": "06b0cf7dc8a9298d27b6a97373eb40ca03f77838a3eb050599652620ad23e191",
+  "collector119_prep/__init__.py": "fd40efc6608531b93c9475b464d8832de612ecb0772196950da0a7fe4d9db62c",
+  "collector119_prep/evidence/local-tests.json": "0e77e8a08f3870c03615818c4223bfc4588edfd16490c1d5efbe17e3b4b54477",
+  "collector119_prep/fulltext_composition.py": "7969fe1cf1f8009722a70cb7a21cbb8b9451ac0e7eb9efcda7c974f9caf7141a",
+  "collector119_prep/test_fulltext_composition.py": "8ee6b3365908703d520edef0b2d38c8a0dfac0ed9d7072f6225ba270d409eff3"
+}
