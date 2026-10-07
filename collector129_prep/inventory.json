@@ -1,0 +1,12 @@
+{
+  "scope": "inactive_selection129",
+  "files": {
+    "supplied_feed.py": "5a221b5a655f74454325a86bc41c176d6ba07c749cce21f569072d443a5782df",
+    "SELECTION-DESIGN.md": "01ad52842ad924c0d2fa37d37f2a1fcecda07b96e053062b391b3b017d55491d",
+    "__init__.py": "093f5aa9c8926124fb7d96c28c7d41cda889990ec21ee651ef43f394354c0107"
+  },
+  "excluded_exact": [
+    "test_selection.py",
+    "inventory.json"
+  ]
+}

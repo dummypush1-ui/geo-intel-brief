@@ -1281,6 +1281,31 @@
       "sha256": "9180791aa507111207d7c14f36db574a11fbedda257debfb9d030b273b773f44"
     },
     {
+      "path": "collector129_prep/SELECTION-DESIGN.md",
+      "bytes": 1130,
+      "sha256": "01ad52842ad924c0d2fa37d37f2a1fcecda07b96e053062b391b3b017d55491d"
+    },
+    {
+      "path": "collector129_prep/__init__.py",
+      "bytes": 67,
+      "sha256": "093f5aa9c8926124fb7d96c28c7d41cda889990ec21ee651ef43f394354c0107"
+    },
+    {
+      "path": "collector129_prep/inventory.json",
+      "bytes": 403,
+      "sha256": "c3c842c9ec2a9cc4b0ae5043bdec4cce2a695e463d6677c2e57077cac677a2eb"
+    },
+    {
+      "path": "collector129_prep/supplied_feed.py",
+      "bytes": 7401,
+      "sha256": "5a221b5a655f74454325a86bc41c176d6ba07c749cce21f569072d443a5782df"
+    },
+    {
+      "path": "collector129_prep/test_selection.py",
+      "bytes": 2338,
+      "sha256": "c5fac9712bfca866426042656984cc095e2ae8d629b3145f78cfd88b4ed510ac"
+    },
+    {
       "path": "compute-sancgap.mjs",
       "bytes": 5656,
       "sha256": "c61cb59ac916eb51e83368e5611a70a81111ff1a8f198dfb820a2ee849fd0df8"
