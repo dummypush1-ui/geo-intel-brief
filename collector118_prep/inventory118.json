@@ -1,0 +1,8 @@
+{
+  "collector118_prep/FULLTEXT-DESIGN.md": "c434fb3ed213177992df42e1682d9c2ff332f4f026b038cc801bc27589f2cce5",
+  "collector118_prep/STAGE118.md": "e0fe25a0a1a53cb9faac2acf4483d418f58c0b1e68d33f7991ab88134a32f6b8",
+  "collector118_prep/__init__.py": "8616a27e22ff35205a466f652fe7879732ff8066e3e2036ea172bc4293643566",
+  "collector118_prep/evidence/local-tests.json": "07241ebdd4b40b2ac674bc49bde3553983ca62e9895cb9f65416a2581046a371",
+  "collector118_prep/fulltext_composition.py": "087f1e548db8641512d154fc6c39bd353cffa73b0870801f6fe8f9335c0cdb14",
+  "collector118_prep/test_fulltext_composition.py": "f399d26c1175e5a0f49df9233c5ece6418ea7923e733ed275024b08a02c7253b"
+}

@@ -1,0 +1,12 @@
+{
+  "review": "SAFE inactive supplied-fulltext only, parent relayed verdict2026-10-07 22:08:59 IST",
+  "new_tests": 6,
+  "base_tests": 1166,
+  "regression_tree": "actual full repo",
+  "production": "OFF",
+  "remaining_gates": [
+    "enabled_outcomes_over100_refused",
+    "real_extraction_url_policy_isolation_pins",
+    "gnews_telegram_adapters"
+  ]
+}
