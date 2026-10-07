@@ -1,0 +1,17 @@
+{
+  "review": "SAFE inactive candidate only, parent relayed verdict2026-10-07 21:40:58 IST",
+  "base_tests": 1166,
+  "new_tests": 21,
+  "previous_manifest_unchanged": 825,
+  "live_network_called": false,
+  "production": "OFF",
+  "remaining_gates": [
+    "unframed identity integrity",
+    "strict-header availability",
+    "broader dependency/runtime pins and TOCTOU",
+    "Render resource/isolation",
+    "parser112 wiring",
+    "framing-overhead limits",
+    "encoding/corpus/entry-cap parity"
+  ]
+}
