@@ -1052,6 +1052,7 @@
         "tests/test_tariff_evidence.py",
         "tests/test_tariff_evidence_plain.py",
         "tests/test_telegram_format_audit.py",
+        "tests/test_watchlist_public_fix.py",
         "tests/test_weekly_routes.py",
         "tests/test_workspace.py",
         "tests/test_youtube_links.py",
@@ -1561,6 +1562,7 @@
         "tests/test_stream_fixture_app.py",
         "tests/test_stream_revision.py",
         "tests/test_watch_updates.py",
+        "tests/test_watchlist_public_fix.py",
         "tests/weekly_report/test_report.py"
       ],
       "stdlib": true,
@@ -1635,6 +1637,20 @@
         "matching_files": {}
       },
       "classification": "excluded"
+    },
+    {
+      "import": "public_preview106",
+      "files": [
+        "tests/test_watchlist_public_fix.py"
+      ],
+      "stdlib": false,
+      "distributions": [],
+      "provenance": {
+        "paths": [
+          "public_preview106.py"
+        ]
+      },
+      "classification": "local"
     },
     {
       "import": "pymongo",
@@ -2781,6 +2797,7 @@
         "tests/test_tariff_evidence_plain.py",
         "tests/test_telegram_format_audit.py",
         "tests/test_watch_updates.py",
+        "tests/test_watchlist_public_fix.py",
         "tests/test_weekly_routes.py",
         "tests/test_workspace.py",
         "tests/test_youtube_links.py",
@@ -4184,6 +4201,10 @@
       {
         "path": "tests/test_watch_updates.py",
         "sha256": "084a30b793e34219b5ffbd6771c48b49f1874b3c4cb30b27c5b41ed40d99fd87"
+      },
+      {
+        "path": "tests/test_watchlist_public_fix.py",
+        "sha256": "f1b716df544614f01102649145139ef5beb29a9b82882306c8f9544e6a4c85df"
       },
       {
         "path": "tests/test_weekly_routes.py",

@@ -112,6 +112,12 @@ def build_public_live_preview(environ,client_factory=None,clock=time.monotonic):
  def home():return redirect('/workspace',302)
  @app.after_request
  def sample_notice(response):
+  if request.path=='/workspace/assets/countries.js' and response.status_code==200:
+   response.direct_passthrough=False
+   js=response.get_data(as_text=True)
+   seam="card.append(find,matches);$('country-stories').append(card);"
+   if js.count(seam)!=1:raise ValueError('Public country Finder action seam changed')
+   response.set_data(js.replace(seam,"/* Public Finder POST is unavailable; do not show its action. */$('country-stories').append(card);"))
   if request.path=='/workspace/assets/workspace.js' and response.status_code==200:
    response.direct_passthrough=False
    js=response.get_data(as_text=True)

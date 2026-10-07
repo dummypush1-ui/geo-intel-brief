@@ -17,7 +17,7 @@ READ_PATHS=frozenset(('/workspace','/workspace/countries','/workspace/map',
  '/api/news-export.csv','/workspace/manifest.webmanifest',
  '/workspace/finder/offline.html'))
 ASSETS=frozenset(('workspace.js','workspace.css',
- 'countries.js','countries.css','map.js','map.css','geo_map_ui.js','geo_map.css'))
+ 'countries.js','watch_updates.js','countries.css','map.js','map.css','geo_map_ui.js','geo_map.css'))
 BRANDING=frozenset(('favicon.ico','icon-48.png','icon-192.png','icon-512.png',
  'apple-touch-icon.png','og-image.png','logo.svg'))
 
@@ -48,6 +48,12 @@ def build_public_preview(environ,client_factory=None):
  def home():return redirect('/workspace',302)
  @app.after_request
  def sample_notice(response):
+  if request.path=='/workspace/assets/countries.js' and response.status_code==200:
+   response.direct_passthrough=False
+   js=response.get_data(as_text=True)
+   seam="card.append(find,matches);$('country-stories').append(card);"
+   if js.count(seam)!=1:raise ValueError('Public country Finder action seam changed')
+   response.set_data(js.replace(seam,"/* Public Finder POST is unavailable; do not show its action. */$('country-stories').append(card);"))
   if request.path=='/workspace' and response.status_code==200:
    response.direct_passthrough=False
    html=response.get_data(as_text=True)

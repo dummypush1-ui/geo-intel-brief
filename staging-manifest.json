@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 1208,
+  "tests": 1213,
   "files": [
     {
       "path": ".env.example",
@@ -1943,12 +1943,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 18581,
-      "sha256": "3de69bb7cb97bb7ca761e444751a66c7cc401904d95140d1862db7f0c17057d2"
+      "sha256": "4106afda35d8b8caa1360dd56aee1e9ee80530152dca178314784a67e8170cae"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
-      "bytes": 159213,
-      "sha256": "01c5d2bd5944cba232a54b0049f3e634878c16fd7b6e0584766c16f65676c303"
+      "bytes": 159803,
+      "sha256": "33748892910bf52badab796a7a08c867aef47324b480bc18993efd60b16f6eeb"
     },
     {
       "path": "integration/dependency_build/README.md",
@@ -3482,13 +3482,13 @@
     },
     {
       "path": "public_live107.py",
-      "bytes": 7909,
-      "sha256": "9f7039de85af1242f57e8a6ada59e09b3cc501131dbdfec4b47f02ac2ce857d6"
+      "bytes": 8364,
+      "sha256": "866875315099a29f8e9e7183e448285e6b370f78fc6b5fccb4d93b0d8b544871"
     },
     {
       "path": "public_preview106.py",
-      "bytes": 4310,
-      "sha256": "718a268b85044bb3269e2aa0b41db5e2eea5d64183362d8df793c815a6899dc1"
+      "bytes": 4784,
+      "sha256": "d63e2b37318d144b207e0d0cb4034b1ddd5df331241ef6d90a6a5f894c43920b"
     },
     {
       "path": "refresh.mjs",
@@ -4859,6 +4859,11 @@
       "path": "tests/test_watch_updates.py",
       "bytes": 2176,
       "sha256": "084a30b793e34219b5ffbd6771c48b49f1874b3c4cb30b27c5b41ed40d99fd87"
+    },
+    {
+      "path": "tests/test_watchlist_public_fix.py",
+      "bytes": 1716,
+      "sha256": "f1b716df544614f01102649145139ef5beb29a9b82882306c8f9544e6a4c85df"
     },
     {
       "path": "tests/test_weekly_routes.py",
