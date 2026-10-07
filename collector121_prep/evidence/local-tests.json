@@ -1,0 +1,13 @@
+{
+  "review": "SAFE inert synthetic contract only, parent relayed verdict2026-10-07 22:26:05 IST",
+  "new_tests": 7,
+  "base_tests": 1166,
+  "regression_tree": "actual full repo",
+  "production": "OFF",
+  "send_called": false,
+  "remaining_gates": [
+    "full_content_packing_loss_visibility",
+    "unknown_send_no_replay",
+    "real_owner_identity_provider_client_receipts_refwrite"
+  ]
+}

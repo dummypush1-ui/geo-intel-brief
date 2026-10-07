@@ -1,0 +1,7 @@
+{
+  "collector121_prep/STAGE121.md": "b0547fabe625cca9ab574ba94dd751e342d1f44fecea4d6a264346693083a3c8",
+  "collector121_prep/__init__.py": "a62feba14a6323b68e16c2e0fa8d4b699a0cb153719b36c8d6aa453a2ab624c0",
+  "collector121_prep/evidence/local-tests.json": "cee85d38b54665016531d7891a1916a35ddcda76ad60921088449b48883ee2d2",
+  "collector121_prep/telegram_supplied.py": "81a987991851eec3bc0a71042f98f6aef645248e0ccdabc48809549e464dabe5",
+  "collector121_prep/test_telegram_supplied.py": "38d44d0dc496aeb72677bdaf30a4cc285a289f5522b402df165b0611d8a89d41"
+}

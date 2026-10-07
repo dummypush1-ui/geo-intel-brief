@@ -911,6 +911,36 @@
       "sha256": "98e0c84c00d9b3b6899695b15ee03ca4ee9fb68bda8c0158263b08efe8fe500b"
     },
     {
+      "path": "collector121_prep/STAGE121.md",
+      "bytes": 1270,
+      "sha256": "b0547fabe625cca9ab574ba94dd751e342d1f44fecea4d6a264346693083a3c8"
+    },
+    {
+      "path": "collector121_prep/__init__.py",
+      "bytes": 62,
+      "sha256": "a62feba14a6323b68e16c2e0fa8d4b699a0cb153719b36c8d6aa453a2ab624c0"
+    },
+    {
+      "path": "collector121_prep/evidence/local-tests.json",
+      "bytes": 390,
+      "sha256": "cee85d38b54665016531d7891a1916a35ddcda76ad60921088449b48883ee2d2"
+    },
+    {
+      "path": "collector121_prep/inventory121.json",
+      "bytes": 555,
+      "sha256": "a351d0b4da29b7868d85863b541e13633b5874fdbb7bb76c582140a003e2906f"
+    },
+    {
+      "path": "collector121_prep/telegram_supplied.py",
+      "bytes": 4444,
+      "sha256": "81a987991851eec3bc0a71042f98f6aef645248e0ccdabc48809549e464dabe5"
+    },
+    {
+      "path": "collector121_prep/test_telegram_supplied.py",
+      "bytes": 1950,
+      "sha256": "38d44d0dc496aeb72677bdaf30a4cc285a289f5522b402df165b0611d8a89d41"
+    },
+    {
       "path": "compute-sancgap.mjs",
       "bytes": 5656,
       "sha256": "c61cb59ac916eb51e83368e5611a70a81111ff1a8f198dfb820a2ee849fd0df8"
