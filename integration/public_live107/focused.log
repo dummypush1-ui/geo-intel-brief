@@ -1,0 +1,21 @@
+test_cache60seconds_and_deepcopy (__main__.PublicLiveTests) ... ok
+test_cold_and_expired_cache_all_public_outputs (__main__.PublicLiveTests) ... ok
+test_default_sample_and_exact_gates (__main__.PublicLiveTests) ... ok
+test_failure503_latched_closed_sanitized (__main__.PublicLiveTests) ... [2026-10-07 15:09:28,889] WARNING in news_api: Read-only news unavailable: ValueError
+[2026-10-07 15:09:28,890] WARNING in news_api: Read-only news unavailable: ValueError
+ok
+test_live_notice_and_deny_private_writes (__main__.PublicLiveTests) ... ok
+test_mapping_uri_origin_fail_before_factory (__main__.PublicLiveTests) ... ok
+test_nested_display_objects_never_stringified (__main__.PublicLiveTests) ... ok
+test_oversized_injected_rows_fail_closed (__main__.PublicLiveTests) ... [2026-10-07 15:09:29,157] WARNING in news_api: Read-only news unavailable: ValueError
+ok
+test_projection_mapping_limit_timeout_and_public_fields (__main__.PublicLiveTests) ... ok
+test_real_factory_utc_tls_and_facade (__main__.PublicLiveTests) ... ok
+test_sanitizer_types_and_private_fields (__main__.PublicLiveTests) ... ok
+test_text_bounds_and_public_disabled_code_button (__main__.PublicLiveTests) ... ok
+test_zero_valid_articles_and_wronghost (__main__.PublicLiveTests) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.520s
+
+OK

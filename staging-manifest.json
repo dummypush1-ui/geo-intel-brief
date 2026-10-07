@@ -1171,6 +1171,31 @@
       "sha256": "f01301b538b5a65c7d5501291045644be894cf7267f4301cc28997728db4e12c"
     },
     {
+      "path": "integration/public_live107/README.md",
+      "bytes": 4593,
+      "sha256": "6bca798b7e0939d2c803749c00bb168434bdd99c21130d44d339c7d7456da1c4"
+    },
+    {
+      "path": "integration/public_live107/browser.json",
+      "bytes": 155,
+      "sha256": "f6495e01ad265b59ae29125271de039fe963aba7cc990f7050b28f2dce911029"
+    },
+    {
+      "path": "integration/public_live107/focused-tests.py.txt",
+      "bytes": 8807,
+      "sha256": "3f8a5a4b0d3ba1d19caf7b74687f5f031e419eeafa294af8802798b757d01fef"
+    },
+    {
+      "path": "integration/public_live107/focused.log",
+      "bytes": 1349,
+      "sha256": "f29036f9ffbc6507ee96258de9cfe117222a12fa78846ce4afe4a786b405e1bc"
+    },
+    {
+      "path": "integration/public_live107/full-regression.json",
+      "bytes": 106348,
+      "sha256": "999ae9987ccff752dffbd790c7a5fdce4e7953a6db77e552ce6403a41f020400"
+    },
+    {
       "path": "integration/public_news.py",
       "bytes": 1051,
       "sha256": "08a002863831a1e7cf9336e10b2f9d61aa1ce0ecf4b4367027dd34ed1dbd8145"
@@ -2144,6 +2169,11 @@
       "path": "proxy.js",
       "bytes": 20539,
       "sha256": "491250c724bdcdb6d3b44da03d31bf2adfa14163ef1b95e63f98925060f320cc"
+    },
+    {
+      "path": "public_live107.py",
+      "bytes": 7909,
+      "sha256": "9f7039de85af1242f57e8a6ada59e09b3cc501131dbdfec4b47f02ac2ce857d6"
     },
     {
       "path": "public_preview106.py",
@@ -3516,7 +3546,7 @@
       "sha256": "2ca27e9a8dae569cdeac42752ed1aed1afeff7f19282d3cc12c0aaa54a08bc04"
     }
   ],
-  "test_evidence_note": "public106:8focusedPASS; configured1166unique/run PASS, existing1xfail/1pikepdfskip. Mobile/desktop browser and offlineFinder PASS, pixels inspected. No live Render activation until operator switches. Historical105evidence unchanged.",
+  "test_evidence_note": "public107:13focusedPASS; configured1166unique/runPASS existing1xfail/1pikepdfskip. Fixturepublicnews browser/pixelsPASS. Actual publicDB activation requires operator disclosure/mapping/credential confirmations. Historical105/106evidence untouched.",
   "intentional_revisions": [
     {
       "scope": "geo-home UI-only structural port",

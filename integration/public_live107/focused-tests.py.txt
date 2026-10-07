@@ -1,0 +1,86 @@
+import unittest,copy,re
+from datetime import datetime,timezone
+from public_live107 import build_public_live_preview,create_public_geo_client
+BASE='https://preview.example'
+def env():return dict(PUBLIC_NEWS_READ_ENABLED='true',PREVIEW_PUBLIC_SAMPLE_ENABLED='true',PREVIEW_GEO_ONLY_ENABLED='true',PREVIEW_ACCESS_ENABLED='false',NEWS_READ_ENABLED='false',NEWS_EVENTS_READ_ENABLED='false',FINDER_NETWORK_PREVIEW_ENABLED='false',PREVIEW_ORIGIN=BASE,NEWS_STORE_MAPPING_VERIFIED='true',PUBLIC_NEWS_DISCLOSURE_VERIFIED='true',GEO_READONLY_CREDENTIAL_VERIFIED='true',GEO_MONGODB_URI='fixture-only')
+class Cursor:
+ def __init__(self,client):self.c=client
+ def sort(self,*v):self.c.calls.append(('sort',v));return self
+ def limit(self,*v):self.c.calls.append(('limit',v));return self
+ def max_time_ms(self,*v):self.c.calls.append(('max_time_ms',v));return self
+ def __iter__(self):
+  if self.c.fail:raise ValueError('secret-bearing simulated failure')
+  return iter(copy.deepcopy(self.c.rows))
+ def close(self):self.c.calls.append(('cursor_close',))
+class Client:
+ def __init__(self,rows=None):self.paths=[];self.calls=[];self.fail=False;self.closed=False;self.rows=rows if rows is not None else [dict(_id='PRIVATEID',id='OTHERID',url='https://example.com/story',title='Public article',summary='Public summary',source='Source',country='India',category='TRADE',created_at=datetime.now(timezone.utc),risk_level='HIGH',credibility='HIGH',score=4,emailed=True,telegram_url='https://private.example',password='secret')]
+ def __getitem__(self,k):self.paths.append(k);return self
+ def find(self,q,p):self.calls.append(('find',q,p));return Cursor(self)
+ def close(self):self.closed=True
+class PublicLiveTests(unittest.TestCase):
+ def app(self,c=None,clock=None):
+  c=c or Client();a=build_public_live_preview(env(),lambda *a,**k:c,**({'clock':clock}if clock else {}));return a,c
+ def test_nested_display_objects_never_stringified(self):
+  for field in ('summary','source','country','category','risk_level','credibility','score','published','created_at','collected_at'):
+   for hostile in ({'private_note':'review-only marker'},['review-only marker']):
+    c=Client();c.rows[0][field]=hostile;a,c=self.app(c);r=a.test_client().get('/api/news',base_url=BASE)
+    self.assertEqual(r.status_code,200);self.assertNotIn('review-only marker',r.text);self.assertNotIn('private_note',r.text)
+  for field in ('title','url'):
+   c=Client();c.rows[0][field]={'private_note':'review-only marker'};a,c=self.app(c);self.assertEqual(a.test_client().get('/api/news',base_url=BASE).json['items'],[])
+ def test_sanitizer_types_and_private_fields(self):
+  from public_live107 import sanitize_public_geo_rows
+  c=Client();c.rows[0].update(summary=None,source=123,country=True,score=float('nan'),category=['hidden'],created_at={'secret':'hidden'})
+  rows=sanitize_public_geo_rows(c.rows);self.assertEqual(rows[0],{'url':'https://example.com/story','title':'Public article','risk_level':'HIGH','credibility':'HIGH'})
+  self.assertEqual(sanitize_public_geo_rows([None,[],{'title':True,'url':'https://example.com'}]),[])
+ def test_text_bounds_and_public_disabled_code_button(self):
+  from public_live107 import sanitize_public_geo_rows
+  c=Client();c.rows[0].update(summary='x'*8001,source='x'*201,country='\ud800')
+  row=sanitize_public_geo_rows(c.rows)[0];self.assertNotIn('summary',row);self.assertNotIn('source',row);self.assertNotIn('country',row)
+  c.rows[0]['title']='x'*2049;self.assertEqual(sanitize_public_geo_rows(c.rows),[])
+  a,c=self.app();r=a.test_client().get('/workspace/assets/workspace.js',base_url=BASE);self.assertEqual(r.status_code,200);self.assertIn('Public exact-code lookup unavailable',r.text);self.assertNotIn("if(article.article_key && ['geo','brics'].includes(article.project)) {",r.text);r.close()
+ def test_cold_and_expired_cache_all_public_outputs(self):
+  endpoints=('/api/news','/api/news-stats','/api/dashboard-signals?project=geo','/api/sample-volume?project=geo','/api/critical-stories','/api/country-page?project=geo&country=India','/api/country-signals?country=India','/api/story-groups','/api/news-export.csv')
+  for endpoint in endpoints:
+   c=Client();clock=[0];c.rows[0]['summary']={'private_note':'NEVERPUBLICMARKER'};a,c=self.app(c,lambda:clock[0]);cl=a.test_client()
+   for moment in (0,61):
+    clock[0]=moment;r=cl.get(endpoint,base_url=BASE);self.assertEqual(r.status_code,200,endpoint);self.assertNotIn('NEVERPUBLICMARKER',r.text,(endpoint,moment));self.assertNotIn('private_note',r.text,(endpoint,moment));self.assertNotIn('PRIVATEID',r.text,(endpoint,moment))
+ def test_real_factory_utc_tls_and_facade(self):
+  from unittest.mock import patch
+  with patch('pymongo.MongoClient')as mongo:
+   client=create_public_geo_client('fixture-uri');kw=mongo.call_args.kwargs
+   self.assertTrue(kw['tz_aware']);self.assertTrue(kw['tls']);self.assertFalse(kw['connect']);self.assertFalse(kw['tlsAllowInvalidCertificates']);self.assertEqual(kw['maxPoolSize'],4)
+   self.assertFalse(hasattr(client['geo_intel']['articles'],'insert_one'))
+ def test_default_sample_and_exact_gates(self):
+  e=env();e['PUBLIC_NEWS_READ_ENABLED']='false';e.pop('GEO_MONGODB_URI');a=build_public_live_preview(e);self.assertEqual(a.test_client().get('/api/news',base_url=BASE).json['items'],[])
+  for k,v in env().items():
+   if k in ('GEO_MONGODB_URI','PREVIEW_ORIGIN'):continue
+   bad=env();bad[k]='TRUE'
+   with self.assertRaises(ValueError):build_public_live_preview(bad,lambda *a,**kw:(_ for _ in ()).throw(AssertionError('client')))
+  self.assertEqual(build_public_live_preview({}).test_client().get('/workspace').status_code,403)
+ def test_mapping_uri_origin_fail_before_factory(self):
+  for k,v in [('GEO_DATABASE','newsbot'),('GEO_ARTICLES_COLLECTION','events'),('GEO_MONGODB_URI',''),('PREVIEW_ORIGIN','http://preview.example')]:
+   e=env();e[k]=v
+   with self.assertRaises(ValueError):build_public_live_preview(e,lambda *a,**kw:(_ for _ in ()).throw(AssertionError('client')))
+ def test_projection_mapping_limit_timeout_and_public_fields(self):
+  a,c=self.app();r=a.test_client().get('/api/news',base_url=BASE);self.assertEqual(r.status_code,200);self.assertEqual(c.paths,['geo_intel','articles']);self.assertEqual(c.calls[0][1],{});p=c.calls[0][2];self.assertNotIn('password',p);self.assertNotIn('emailed',p);self.assertIn(('sort',('created_at',-1)),c.calls);self.assertIn(('limit',(100,)),c.calls);self.assertIn(('max_time_ms',(2000,)),c.calls);self.assertIn(('cursor_close',),c.calls)
+  row=r.json['items'][0];self.assertEqual(row['project'],'geo');self.assertEqual(row['title'],'Public article')
+  for k in ('_id','id','mongo_id','legacy_id','original_url','telegram_url','emailed','password'):self.assertNotIn(k,row)
+  self.assertNotIn('PRIVATEID',r.text);self.assertNotIn('secret',r.text)
+ def test_cache60seconds_and_deepcopy(self):
+  clock=[0];a,c=self.app(clock=lambda:clock[0]);cl=a.test_client();cl.get('/api/news',base_url=BASE);c.rows[0]['title']='Later';clock[0]=59;self.assertEqual(cl.get('/api/news',base_url=BASE).json['items'][0]['title'],'Public article');clock[0]=60;self.assertEqual(cl.get('/api/news',base_url=BASE).json['items'][0]['title'],'Later');self.assertEqual(sum(x[0]=='find'for x in c.calls),2)
+ def test_failure503_latched_closed_sanitized(self):
+  a,c=self.app();c.fail=True;cl=a.test_client()
+  for _ in range(2):
+   r=cl.get('/api/news',base_url=BASE);self.assertEqual(r.status_code,503);self.assertNotIn('items',r.json);self.assertNotIn('secret',r.text)
+  self.assertTrue(c.closed);self.assertEqual(sum(x[0]=='find'for x in c.calls),1)
+ def test_oversized_injected_rows_fail_closed(self):
+  a,c=self.app(Client([{}]*101));self.assertEqual(a.test_client().get('/api/news',base_url=BASE).status_code,503);self.assertTrue(c.closed)
+ def test_live_notice_and_deny_private_writes(self):
+  a,c=self.app();cl=a.test_client();r=cl.get('/workspace',base_url=BASE);self.assertEqual(r.status_code,200);self.assertIn('PUBLIC NEWS PREVIEW',r.text);self.assertIn('Latest up to 100',r.text);self.assertEqual(r.headers['X-Preview-Mode'],'public_geo_readonly');self.assertEqual(c.calls,[]);r.close()
+  for p in ('/login','/private-session','/workspace/finder/index.html','/api/export-full.csv','/api/weekly-report.pdf','/digest-data'):
+   self.assertEqual(cl.get(p,base_url=BASE).status_code,403,p)
+  for p in ('/api/brics/streams','/mark-emailed','/api/finder-context','/collect','/send-digest'):
+   self.assertEqual(cl.post(p,base_url=BASE,headers={'Origin':BASE},json={}).status_code,403,p)
+ def test_zero_valid_articles_and_wronghost(self):
+  a,c=self.app(Client([]));self.assertEqual(a.test_client().get('/api/news',base_url=BASE).json['items'],[]);self.assertEqual(a.test_client().get('/api/news',base_url='https://wrong.example').status_code,403)
+if __name__=='__main__':unittest.main(verbosity=2)
