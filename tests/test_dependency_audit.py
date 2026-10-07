@@ -4,14 +4,18 @@ from packaging.requirements import Requirement
 from packaging.utils import canonicalize_name,parse_wheel_filename
 from packaging.tags import sys_tags
 ROOT=Path(__file__).resolve().parents[1];BASE=ROOT/'integration/dependency_audit'
+def historical_lock(path):
+ row=json.loads((ROOT/'integration/pypdf_remediation105/historical-locks.json').read_text())['locks'][path]
+ raw=row['text'].encode();assert hashlib.sha256(raw).hexdigest()==row['sha256'];return raw
+
 class Tests(unittest.TestCase):
  def setUp(self):
   self.a=json.loads((BASE/'audit.json').read_text());self.inv=json.loads((BASE/'import-inventory.json').read_text())
  def test_candidate_explicit_missing(self):
   a=self.a;self.assertEqual(a['status'],'candidate_blocked_missing_cached_wheel');self.assertEqual([x['distribution'] for x in a['missing']],['sgmllib3k']);self.assertIn('not attempted',a['fresh_install']);self.assertEqual(len(a['distributions']),25)
-  s=(ROOT/'requirements-offline-reviewed.candidate.txt').read_text();self.assertIn('NOT VERIFIED INSTALLABLE',s);self.assertIn('sgmllib3k==1.0.0 # MISSING',s)
+  s=historical_lock('requirements-offline-reviewed.candidate.txt').decode();self.assertIn('NOT VERIFIED INSTALLABLE',s);self.assertIn('sgmllib3k==1.0.0 # MISSING',s)
  def test_exact_lock_artifact_hash_equality(self):
-  lines=[l for l in (ROOT/'requirements-offline-reviewed.candidate.txt').read_text().splitlines() if l and not l.startswith('#')];locks={}
+  lines=[l for l in historical_lock('requirements-offline-reviewed.candidate.txt').decode().splitlines() if l and not l.startswith('#')];locks={}
   for l in lines:
    name,version=l.split()[0].split('==');key=canonicalize_name(name);self.assertNotIn(key,locks);locks[key]=(version,set(re.findall(r'--hash=sha256:([0-9a-f]{64})',l)))
   self.assertEqual(set(locks),set(self.a['distributions']))
@@ -70,14 +74,14 @@ class BuildReceiptTests(unittest.TestCase):
  def setUp(self):
   self.b=ROOT/'integration/dependency_build';self.r=json.loads((self.b/'receipt.json').read_text())
  def test_separate_immutable_baseline(self):
-  self.assertEqual(hashlib.sha256((ROOT/'requirements-offline-reviewed.candidate.txt').read_bytes()).hexdigest(),self.r['baseline87_sha256']);self.assertIn('MISSING WHEEL/HASH',(ROOT/'requirements-offline-reviewed.candidate.txt').read_text());self.assertNotIn('MISSING WHEEL/HASH',(self.b/'requirements-offline-built.txt').read_text());self.assertEqual(hashlib.sha256((self.b/'executed-orchestrator.txt').read_bytes()).hexdigest(),self.r['orchestrator_sha256'])
+  self.assertEqual(hashlib.sha256(historical_lock('requirements-offline-reviewed.candidate.txt')).hexdigest(),self.r['baseline87_sha256']);self.assertIn('MISSING WHEEL/HASH',historical_lock('requirements-offline-reviewed.candidate.txt').decode());self.assertNotIn('MISSING WHEEL/HASH',historical_lock('integration/dependency_build/requirements-offline-built.txt').decode());self.assertEqual(hashlib.sha256((self.b/'executed-orchestrator.txt').read_bytes()).hexdigest(),self.r['orchestrator_sha256'])
  def test_build_inputs_isolation_and_stage_outcomes(self):
   s=self.r['stages'];self.assertEqual(s['source_inspection']['member_count'],11);self.assertEqual(s['source_inspection']['total_bytes'],20923);self.assertEqual(s['source_inspection']['sdist_sha256'],'7868fb1c8bfa764c1ac563d3cf369c381d1325d36124933a726f29fcdaa812e9');self.assertIn('bubblewrap',self.r['sandbox']['mechanism'])
   for stage in ['isolation_probe','wheel_build','fresh_venv','offline_install','pip_check','installed_metadata','sdk_smoke','guarded_sdk_backend']:self.assertEqual(s[stage]['status'],'passed');self.assertEqual(s[stage]['exit_code'],0);self.assertIsNone(s[stage]['stop_reason'])
   for n,v in [('wheel','0.37.1'),('setuptools','59.6.0')]:self.assertEqual(self.r['build_tools'][n]['version'],v);self.assertTrue(self.r['build_tools'][n]['files'])
  def test_exact_complete_lock_installed_closure(self):
   a=json.loads((BASE/'audit.json').read_text());w=self.r['stages']['wheel_inspection'];self.assertEqual(w['dependencies'],[]);self.assertIn('not claimed',w['deterministic_bytes']);self.assertEqual(self.r['stages']['artifact_closure']['count'],25)
-  lines=[l for l in (self.b/'requirements-offline-built.txt').read_text().splitlines() if l and not l.startswith('#')];self.assertEqual(len(lines),25)
+  lines=[l for l in historical_lock('integration/dependency_build/requirements-offline-built.txt').decode().splitlines() if l and not l.startswith('#')];self.assertEqual(len(lines),25)
   for key,d in a['distributions'].items():
    line=next(l for l in lines if l.split('==')[0]==d['name']);hashes=set(re.findall(r'--hash=sha256:([0-9a-f]{64})',line));self.assertEqual(hashes,{w['sha256']} if key=='sgmllib3k' else {x['sha256'] for x in a['artifacts'] if canonicalize_name(x['distribution'])==key});self.assertTrue(line.startswith(d['name']+'=='+d['version']+' '))
   installed={canonicalize_name(n):v for n,v in self.r['installed_metadata']['packages']};self.assertEqual({k:v for k,v in installed.items() if k not in ('pip','setuptools')},{k:d['version'] for k,d in a['distributions'].items()});self.assertTrue(self.r['installed_metadata']['no_system_site']);self.assertEqual(self.r['installed_metadata']['expat'],'expat_2.4.7')

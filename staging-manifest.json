@@ -627,8 +627,8 @@
     },
     {
       "path": "integration/dependency_audit/README.md",
-      "bytes": 4241,
-      "sha256": "87630a55204eb318dfab114053b94266244f589a0711af2a4298492f5c8924ac"
+      "bytes": 4525,
+      "sha256": "540c63d9ede5956d14aca3000844f6de576625ea5012b8ec05e940deb757b9f8"
     },
     {
       "path": "integration/dependency_audit/audit.json",
@@ -642,8 +642,8 @@
     },
     {
       "path": "integration/dependency_build/README.md",
-      "bytes": 3115,
-      "sha256": "7ab4f649af01c598d8891844db208838090c6ade8aa643ec2162bd388a627778"
+      "bytes": 3399,
+      "sha256": "a5677f5e86dd1dc6328f1b8b7cbca47cc35ca4752e07b54450c72ebfe9ec2fd4"
     },
     {
       "path": "integration/dependency_build/executed-orchestrator.txt",
@@ -662,8 +662,8 @@
     },
     {
       "path": "integration/dependency_build/requirements-offline-built.txt",
-      "bytes": 2481,
-      "sha256": "50d207593146b6f9bea02c1581f7ece142f11399c880bad83cbfcba17a40ef5a"
+      "bytes": 2609,
+      "sha256": "45baa21d7d33e1be9863b87047e0f1fa04c0bdc8e76406642dd82c4393312736"
     },
     {
       "path": "integration/dependency_build/runner.py",
@@ -1174,6 +1174,66 @@
       "path": "integration/public_news.py",
       "bytes": 1051,
       "sha256": "08a002863831a1e7cf9336e10b2f9d61aa1ce0ecf4b4367027dd34ed1dbd8145"
+    },
+    {
+      "path": "integration/pypdf_remediation105/README.md",
+      "bytes": 4024,
+      "sha256": "79d341bc0b0d34e3e91526cfb837ada42a94d18cfb129f9c14c178f0d1188867"
+    },
+    {
+      "path": "integration/pypdf_remediation105/artifacts.json",
+      "bytes": 11270,
+      "sha256": "20b8e2a2847c32251455a0b1bc62baaeae8e015ab4d86e54ab9770a09a01c6c0"
+    },
+    {
+      "path": "integration/pypdf_remediation105/build.json",
+      "bytes": 1062,
+      "sha256": "7ce24d4607313449eb0860ce0629bdc3b6490c83087bf9afbfe062dc629d5414"
+    },
+    {
+      "path": "integration/pypdf_remediation105/build.log",
+      "bytes": 1374,
+      "sha256": "ea675a624c819c0fff2582ed75a17a03fbded0b8232c655c2d730882be300b00"
+    },
+    {
+      "path": "integration/pypdf_remediation105/executed-build.py.txt",
+      "bytes": 942,
+      "sha256": "b3a6d59a2c6d5e9f729349cb9b9d5579a200897868276ee9111f4f9c6327ea32"
+    },
+    {
+      "path": "integration/pypdf_remediation105/focused-tests.py.txt",
+      "bytes": 3413,
+      "sha256": "f51a1c707423146aaa6347980a63e669ced89a5d3ca1e3b6ef420fa4805783cc"
+    },
+    {
+      "path": "integration/pypdf_remediation105/full-offline-regression.json",
+      "bytes": 106738,
+      "sha256": "bdc8ba9ab11f03c9a0cf31e2e373229c5bb2bfc601e8cc91781f408506abd9dd"
+    },
+    {
+      "path": "integration/pypdf_remediation105/full-staging-regression.json",
+      "bytes": 117068,
+      "sha256": "09421351d2d375a21098f73e891dbc52bf6fa1068e1adb4f321c9aaabdaacad1"
+    },
+    {
+      "path": "integration/pypdf_remediation105/historical-locks.json",
+      "bytes": 5435,
+      "sha256": "d22f4b57e11560e217ec5bfd9d1b22a79f750aa548496deaef6a959b61de92cb"
+    },
+    {
+      "path": "integration/pypdf_remediation105/install.log",
+      "bytes": 2847,
+      "sha256": "ec7f8bb038216cd5e4da6b9a0ad4c49ef84987088da32ecff49cf012d8a30c26"
+    },
+    {
+      "path": "integration/pypdf_remediation105/installed.json",
+      "bytes": 69040,
+      "sha256": "8e87ff887d44e1ebe881c22ab8c5f06e7fa794b8e0d1af7001296488a6e1150c"
+    },
+    {
+      "path": "integration/pypdf_remediation105/source.json",
+      "bytes": 1428,
+      "sha256": "f8f56973be80cd6c7832d5920974a399f60f097a449e3701d5ebcfe742ad1154"
     },
     {
       "path": "integration/relevance.py",
@@ -2072,8 +2132,8 @@
     },
     {
       "path": "requirements-offline-reviewed.candidate.txt",
-      "bytes": 2479,
-      "sha256": "1d6360b5d3e60775a43904a8a772f841b8e09d0db13d17f4fd4ad315d7f79901"
+      "bytes": 2607,
+      "sha256": "0b904e56b4a551ea778feedc5c14999be973fe05d87d5b498719edea43f156ed"
     },
     {
       "path": "requirements-staging.txt",
@@ -3012,8 +3072,8 @@
     },
     {
       "path": "tests/test_dependency_audit.py",
-      "bytes": 9682,
-      "sha256": "1c11c570807729674eea367034ff9a1aaf0abb0dd5f1d9cea4527a0c7c574e63"
+      "bytes": 9995,
+      "sha256": "8abf8bf18a49be6f94485f64362f29091dc62233d9d85f92e7abf75fc47e1fab"
     },
     {
       "path": "tests/test_dependency_build_runner.py",
@@ -3426,7 +3486,7 @@
       "sha256": "2ca27e9a8dae569cdeac42752ed1aed1afeff7f19282d3cc12c0aaa54a08bc04"
     }
   ],
-  "test_evidence_note": "Geo-home UI-only structural port to existing guarded sample APIs. Current configured1166 unique tests in12chunks;1expected limiter defect/1existing optionalpikepdf skip. Basic profile realGunicorn/auth/route smoke beforeUI; revisedUI browser390/768/1280 withtab-sync/risklightdark. Independentv3SAFEconditionalfullsuite/hashreadback. NoDB/send/collector/deploy. IntentionalUIrevision, originalsource unchanged.",
+  "test_evidence_note": "pypdf105: fresh offline profile1166unique PASS; configured staging1166unique PASS after one explicitly recorded manifest bookkeeping correction/chunk8 rerun. Each zero final failures/errors, one existing xfail and one existing optional pikepdf skip. Separate5current profile tests PASS. Runtime/UIunchanged.",
   "intentional_revisions": [
     {
       "scope": "geo-home UI-only structural port",
@@ -3452,6 +3512,36 @@
         "integration/ui/workspace.css",
         "integration/ui/workspace.html",
         "integration/ui/workspace.js"
+      ]
+    },
+    {
+      "scope": "pypdf105 superseding offline locks; original87/88 receiptJSONunchanged",
+      "prior_entries": [
+        {
+          "path": "requirements-offline-reviewed.candidate.txt",
+          "bytes": 2479,
+          "sha256": "1d6360b5d3e60775a43904a8a772f841b8e09d0db13d17f4fd4ad315d7f79901"
+        },
+        {
+          "path": "integration/dependency_build/requirements-offline-built.txt",
+          "bytes": 2481,
+          "sha256": "50d207593146b6f9bea02c1581f7ece142f11399c880bad83cbfcba17a40ef5a"
+        },
+        {
+          "path": "integration/dependency_audit/README.md",
+          "bytes": 4241,
+          "sha256": "87630a55204eb318dfab114053b94266244f589a0711af2a4298492f5c8924ac"
+        },
+        {
+          "path": "integration/dependency_build/README.md",
+          "bytes": 3115,
+          "sha256": "7ab4f649af01c598d8891844db208838090c6ade8aa643ec2162bd388a627778"
+        },
+        {
+          "path": "tests/test_dependency_audit.py",
+          "bytes": 9682,
+          "sha256": "1c11c570807729674eea367034ff9a1aaf0abb0dd5f1d9cea4527a0c7c574e63"
+        }
       ]
     }
   ]

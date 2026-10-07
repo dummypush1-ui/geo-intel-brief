@@ -1,0 +1,324 @@
+[
+  {
+    "name": "sgmllib3k",
+    "version": "1.0.0",
+    "filename": "sgmllib3k-1.0.0-py3-none-any.whl",
+    "sha256": "a16186785516975fd0f6f8f2a8c944cc0d832e061c9205ea904bf803ac25c0ad",
+    "requires_python": null,
+    "requires_dist": []
+  },
+  {
+    "name": "Jinja2",
+    "version": "3.1.6",
+    "filename": "jinja2-3.1.6-py3-none-any.whl",
+    "sha256": "85ece4451f492d0c13c5dd7c13a64681a86afae63a5f347908daf103ce6d2f67",
+    "requires_python": ">=3.7",
+    "requires_dist": [
+      "MarkupSafe>=2.0",
+      "Babel>=2.7 ; extra == \"i18n\""
+    ]
+  },
+  {
+    "name": "PyYAML",
+    "version": "6.0.2",
+    "filename": "PyYAML-6.0.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+    "sha256": "ec031d5d2feb36d1d1a24380e4db6d43695f3748343d99434e6f5f9156aaa2ed",
+    "requires_python": ">=3.8",
+    "requires_dist": []
+  },
+  {
+    "name": "pypdf",
+    "version": "6.19.0",
+    "filename": "pypdf-6.19.0-py3-none-any.whl",
+    "sha256": "7e5d6e730e7dae87d560a2cee218b852f6498c8be61966f3cd02ead971e48d14",
+    "requires_python": ">=3.9",
+    "requires_dist": [
+      "typing_extensions >= 4.0; python_version < '3.11'",
+      "cryptography>3.0 ; extra == \"crypto\"",
+      "PyCryptodome ; extra == \"cryptodome\"",
+      "flit ; extra == \"dev\"",
+      "pip-tools ; extra == \"dev\"",
+      "pre-commit ; extra == \"dev\"",
+      "pytest-cov ; extra == \"dev\"",
+      "pytest-socket ; extra == \"dev\"",
+      "pytest-timeout ; extra == \"dev\"",
+      "pytest-xdist ; extra == \"dev\"",
+      "wheel ; extra == \"dev\"",
+      "myst_parser ; extra == \"docs\"",
+      "sphinx ; extra == \"docs\"",
+      "sphinx_rtd_theme ; extra == \"docs\"",
+      "fonttools ; extra == \"fonts\"",
+      "arabic-reshaper ; extra == \"full\"",
+      "cryptography>3.0 ; extra == \"full\"",
+      "fonttools ; extra == \"full\"",
+      "Pillow>=8.0.0 ; extra == \"full\"",
+      "python-bidi ; extra == \"full\"",
+      "Pillow>=8.0.0 ; extra == \"image\"",
+      "arabic-reshaper ; extra == \"rtl-text\"",
+      "python-bidi ; extra == \"rtl-text\""
+    ]
+  },
+  {
+    "name": "idna",
+    "version": "3.20",
+    "filename": "idna-3.20-py3-none-any.whl",
+    "sha256": "ab7ae7122974553370f0bdb919e1a960b2cd1bc1ef0276416d896db81c14582c",
+    "requires_python": ">=3.9",
+    "requires_dist": [
+      "ruff >= 0.16.0 ; extra == \"all\"",
+      "mypy >= 1.11.2 ; extra == \"all\"",
+      "ty >= 0.0.37 ; extra == \"all\"",
+      "pytest >= 8.3.2 ; extra == \"all\"",
+      "hypothesis >= 6.141.1 ; extra == \"all\"",
+      "coverage >= 7.10.0 ; extra == \"all\""
+    ]
+  },
+  {
+    "name": "Werkzeug",
+    "version": "3.0.6",
+    "filename": "werkzeug-3.0.6-py3-none-any.whl",
+    "sha256": "1bc0c2310d2fbb07b1dd1105eba2f7af72f322e1e455f2f93c993bee8c8a5f17",
+    "requires_python": ">=3.8",
+    "requires_dist": [
+      "MarkupSafe>=2.1.1",
+      "watchdog>=2.3 ; extra == \"watchdog\""
+    ]
+  },
+  {
+    "name": "itsdangerous",
+    "version": "2.2.0",
+    "filename": "itsdangerous-2.2.0-py3-none-any.whl",
+    "sha256": "c6242fc49e35958c8b15141343aa660db5fc54d4f13a1db01a3f5891b98700ef",
+    "requires_python": ">=3.8",
+    "requires_dist": []
+  },
+  {
+    "name": "six",
+    "version": "1.17.0",
+    "filename": "six-1.17.0-py2.py3-none-any.whl",
+    "sha256": "4721f391ed90541fddacab5acf947aa0d3dc7d27b2e1e8eda2be8970586c3274",
+    "requires_python": ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*",
+    "requires_dist": []
+  },
+  {
+    "name": "charset-normalizer",
+    "version": "3.5.2",
+    "filename": "charset_normalizer-3.5.2-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+    "sha256": "8a893cc101149f80a653f82062ebc95b34525a2614382e1da5458fe7c6997249",
+    "requires_python": ">=3.7",
+    "requires_dist": []
+  },
+  {
+    "name": "python-dateutil",
+    "version": "2.9.0.post0",
+    "filename": "python_dateutil-2.9.0.post0-py2.py3-none-any.whl",
+    "sha256": "a8b2bc7bffae282281c8140a97d3aa9c14da0b136dfe83f850eea9a5f7470427",
+    "requires_python": "!=3.0.*,!=3.1.*,!=3.2.*,>=2.7",
+    "requires_dist": [
+      "six >=1.5"
+    ]
+  },
+  {
+    "name": "click",
+    "version": "8.5.0",
+    "filename": "click-8.5.0-py3-none-any.whl",
+    "sha256": "255bc9599cf7748b4b1a446ccc735421bd08a2ae529a8b88597d3de5664ee360",
+    "requires_python": ">=3.10",
+    "requires_dist": []
+  },
+  {
+    "name": "Flask",
+    "version": "3.0.3",
+    "filename": "flask-3.0.3-py3-none-any.whl",
+    "sha256": "34e815dfaa43340d1d15a5c3a02b8476004037eb4840b34910c6e21679d288f3",
+    "requires_python": ">=3.8",
+    "requires_dist": [
+      "Werkzeug>=3.0.0",
+      "Jinja2>=3.1.2",
+      "itsdangerous>=2.1.2",
+      "click>=8.1.3",
+      "blinker>=1.6.2",
+      "importlib-metadata>=3.6.0; python_version < '3.10'",
+      "asgiref>=3.2 ; extra == \"async\"",
+      "python-dotenv ; extra == \"dotenv\""
+    ]
+  },
+  {
+    "name": "blinker",
+    "version": "1.9.0",
+    "filename": "blinker-1.9.0-py3-none-any.whl",
+    "sha256": "ba0efaa9080b619ff2f3459d1d500c57bddea4a6b424b60a91141db6fd2f08bc",
+    "requires_python": ">=3.9",
+    "requires_dist": []
+  },
+  {
+    "name": "gunicorn",
+    "version": "22.0.0",
+    "filename": "gunicorn-22.0.0-py3-none-any.whl",
+    "sha256": "350679f91b24062c86e386e198a15438d53a7a8207235a78ba1b53df4c4378d9",
+    "requires_python": ">=3.7",
+    "requires_dist": [
+      "packaging",
+      "importlib-metadata ; python_version < \"3.8\"",
+      "eventlet !=0.36.0,>=0.24.1 ; extra == 'eventlet'",
+      "gevent >=1.4.0 ; extra == 'gevent'",
+      "setproctitle ; extra == 'setproctitle'",
+      "gevent ; extra == 'testing'",
+      "eventlet ; extra == 'testing'",
+      "coverage ; extra == 'testing'",
+      "pytest ; extra == 'testing'",
+      "pytest-cov ; extra == 'testing'",
+      "tornado >=0.2 ; extra == 'tornado'"
+    ]
+  },
+  {
+    "name": "typing_extensions",
+    "version": "4.16.0",
+    "filename": "typing_extensions-4.16.0-py3-none-any.whl",
+    "sha256": "481caa481374e813c1b176ada14e97f1f67a4539ce9cfeb3f350d78d6370c2e8",
+    "requires_python": ">=3.9",
+    "requires_dist": []
+  },
+  {
+    "name": "MarkupSafe",
+    "version": "3.0.4",
+    "filename": "markupsafe-3.0.4-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+    "sha256": "d1aca03ede943eb80ab3d63bb082c84b7aab85ea83bd0fd0c200260945fb49d9",
+    "requires_python": ">=3.9",
+    "requires_dist": []
+  },
+  {
+    "name": "requests",
+    "version": "2.32.3",
+    "filename": "requests-2.32.3-py3-none-any.whl",
+    "sha256": "70761cfe03c773ceb22aa2f671b4757976145175cdfca038c02654d061d6dcc6",
+    "requires_python": ">=3.8",
+    "requires_dist": [
+      "charset-normalizer <4,>=2",
+      "idna <4,>=2.5",
+      "urllib3 <3,>=1.21.1",
+      "certifi >=2017.4.17",
+      "PySocks !=1.5.7,>=1.5.6 ; extra == 'socks'",
+      "chardet <6,>=3.0.2 ; extra == 'use_chardet_on_py3'"
+    ]
+  },
+  {
+    "name": "schedule",
+    "version": "1.2.2",
+    "filename": "schedule-1.2.2-py3-none-any.whl",
+    "sha256": "5bef4a2a0183abf44046ae0d164cadcac21b1db011bdd8102e4a0c1e91e06a7d",
+    "requires_python": ">=3.7",
+    "requires_dist": [
+      "pytz ; extra == 'timezone'"
+    ]
+  },
+  {
+    "name": "pymongo",
+    "version": "4.8.0",
+    "filename": "pymongo-4.8.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+    "sha256": "aec2b9088cdbceb87e6ca9c639d0ff9b9d083594dda5ca5d3c4f6774f4c81b33",
+    "requires_python": ">=3.8",
+    "requires_dist": [
+      "dnspython<3.0.0,>=1.16.0",
+      "pymongo-auth-aws<2.0.0,>=1.1.0; extra == 'aws'",
+      "furo==2023.9.10; extra == 'docs'",
+      "readthedocs-sphinx-search~=0.3; extra == 'docs'",
+      "sphinx-rtd-theme<3,>=2; extra == 'docs'",
+      "sphinx<8,>=5.3; extra == 'docs'",
+      "sphinxcontrib-shellcheck<2,>=1; extra == 'docs'",
+      "certifi; (os_name == 'nt' or sys_platform == 'darwin') and extra == 'encryption'",
+      "pymongo-auth-aws<2.0.0,>=1.1.0; extra == 'encryption'",
+      "pymongocrypt<2.0.0,>=1.6.0; extra == 'encryption'",
+      "pykerberos; (os_name != 'nt') and extra == 'gssapi'",
+      "winkerberos>=0.5.0; (os_name == 'nt') and extra == 'gssapi'",
+      "certifi; (os_name == 'nt' or sys_platform == 'darwin') and extra == 'ocsp'",
+      "cryptography>=2.5; extra == 'ocsp'",
+      "pyopenssl>=17.2.0; extra == 'ocsp'",
+      "requests<3.0.0; extra == 'ocsp'",
+      "service-identity>=18.1.0; extra == 'ocsp'",
+      "python-snappy; extra == 'snappy'",
+      "pytest>=7; extra == 'test'",
+      "zstandard; extra == 'zstd'"
+    ]
+  },
+  {
+    "name": "python-dotenv",
+    "version": "1.0.1",
+    "filename": "python_dotenv-1.0.1-py3-none-any.whl",
+    "sha256": "f7b63ef50f1b690dddf550d03497b66d609393b40b564ed0d674909a68ebf16a",
+    "requires_python": ">=3.8",
+    "requires_dist": [
+      "click >=5.0 ; extra == 'cli'"
+    ]
+  },
+  {
+    "name": "feedparser",
+    "version": "6.0.11",
+    "filename": "feedparser-6.0.11-py3-none-any.whl",
+    "sha256": "0be7ee7b395572b19ebeb1d6aafb0028dee11169f1c934e0ed67d54992f4ad45",
+    "requires_python": ">=3.6",
+    "requires_dist": [
+      "sgmllib3k"
+    ]
+  },
+  {
+    "name": "packaging",
+    "version": "26.3",
+    "filename": "packaging-26.3-py3-none-any.whl",
+    "sha256": "d7193f7c8e4e93f444fde0262bf90af30e16fa0ad0ad44cb553c87339b23cd1c",
+    "requires_python": ">=3.9",
+    "requires_dist": []
+  },
+  {
+    "name": "dnspython",
+    "version": "2.8.0",
+    "filename": "dnspython-2.8.0-py3-none-any.whl",
+    "sha256": "01d9bbc4a2d76bf0db7c1f729812ded6d912bd318d3b1cf81d30c0f845dbf3af",
+    "requires_python": ">=3.10",
+    "requires_dist": [
+      "black>=25.1.0; extra == 'dev'",
+      "coverage>=7.0; extra == 'dev'",
+      "flake8>=7; extra == 'dev'",
+      "hypercorn>=0.17.0; extra == 'dev'",
+      "mypy>=1.17; extra == 'dev'",
+      "pylint>=3; extra == 'dev'",
+      "pytest-cov>=6.2.0; extra == 'dev'",
+      "pytest>=8.4; extra == 'dev'",
+      "quart-trio>=0.12.0; extra == 'dev'",
+      "sphinx-rtd-theme>=3.0.0; extra == 'dev'",
+      "sphinx>=8.2.0; extra == 'dev'",
+      "twine>=6.1.0; extra == 'dev'",
+      "wheel>=0.45.0; extra == 'dev'",
+      "cryptography>=45; extra == 'dnssec'",
+      "h2>=4.2.0; extra == 'doh'",
+      "httpcore>=1.0.0; extra == 'doh'",
+      "httpx>=0.28.0; extra == 'doh'",
+      "aioquic>=1.2.0; extra == 'doq'",
+      "idna>=3.10; extra == 'idna'",
+      "trio>=0.30; extra == 'trio'",
+      "wmi>=1.5.1; (platform_system == 'Windows') and extra == 'wmi'"
+    ]
+  },
+  {
+    "name": "urllib3",
+    "version": "2.8.0",
+    "filename": "urllib3-2.8.0-py3-none-any.whl",
+    "sha256": "0cf3cae568d36aa9576b28dfb35f11328f1cb974ca7647d9475ebb86c75ac6e3",
+    "requires_python": ">=3.10",
+    "requires_dist": [
+      "brotli>=1.2.0; (platform_python_implementation == 'CPython') and extra == 'brotli'",
+      "brotlicffi>=1.2.0.0; (platform_python_implementation != 'CPython') and extra == 'brotli'",
+      "h2<5,>=4; extra == 'h2'",
+      "pysocks!=1.5.7,<2.0,>=1.5.6; extra == 'socks'",
+      "backports-zstd>=1.0.0; (python_version < '3.14') and extra == 'zstd'"
+    ]
+  },
+  {
+    "name": "certifi",
+    "version": "2026.7.22",
+    "filename": "certifi-2026.7.22-py3-none-any.whl",
+    "sha256": "62f22742b58a1a33014a2b6b706588a8d7e2a88ae7bd1a6ebe8c992928483775",
+    "requires_python": ">=3.7",
+    "requires_dist": []
+  }
+]

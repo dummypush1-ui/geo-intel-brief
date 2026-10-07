@@ -1,3 +1,7 @@
+## Historical receipt, superseded current lock
+
+This document and its JSON receipt describe historical increment87/88, not the current lock. Current pypdf105 supersession: ../pypdf_remediation105/README.md. Original lock bytes/hashes remain in historical-locks.json and git d8f8902.
+
 # Separate offline build and fresh-install experiment
 
 Increment88, separate from immutable87 blocked audit. Receipt records source

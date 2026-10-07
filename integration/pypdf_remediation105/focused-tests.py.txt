@@ -1,0 +1,34 @@
+import unittest,json,hashlib,zipfile,email
+from pathlib import Path
+from packaging.requirements import Requirement
+from packaging.utils import canonicalize_name
+ROOT=Path('/tmp/boot99/tree');B=ROOT/'integration/pypdf_remediation105';W=Path('/tmp/pypdf105-build/artifacts')
+class CurrentProfileTests(unittest.TestCase):
+ def setUp(self):self.art=json.loads((B/'artifacts.json').read_text());self.hist=json.loads((B/'historical-locks.json').read_text())['locks']
+ def test_current_two_lock_pypdf_exact_and_other_changes_closed(self):
+  for p,old in self.hist.items():
+   self.assertEqual(hashlib.sha256(old['text'].encode()).hexdigest(),old['sha256']);current=(ROOT/p).read_text();self.assertIn('pypdf==6.19.0 --hash=sha256:7e5d6e730e7dae87d560a2cee218b852f6498c8be61966f3cd02ead971e48d14',current);self.assertNotIn('pypdf==5.0.1',current)
+   before=[x for x in old['text'].splitlines()if x and not x.startswith('#')];after=[x for x in current.splitlines()if x and not x.startswith('#')];self.assertEqual(len(before),len(after));diff=[(a,b)for a,b in zip(before,after)if a!=b];self.assertEqual(len(diff),2 if 'built' in p else 1);self.assertTrue(all(a.startswith(('pypdf==','sgmllib3k=='))for a,b in diff))
+ def test_artifact_bytes_complete_metadata_and_active_edges(self):
+  self.assertEqual(len(self.art),25);names={canonicalize_name(x['name']):x for x in self.art};self.assertEqual(len(names),25)
+  for x in self.art:
+   p=W/x['filename'];self.assertEqual(hashlib.sha256(p.read_bytes()).hexdigest(),x['sha256'])
+   with zipfile.ZipFile(p)as z:m=email.message_from_bytes(z.read(next(n for n in z.namelist()if n.endswith('.dist-info/METADATA'))))
+   self.assertEqual(m['Name'],x['name']);self.assertEqual(m['Version'],x['version'])
+   for req in x['requires_dist']:
+    q=Requirement(req)
+    if q.marker is None or q.marker.evaluate({'extra':''}):self.assertIn(names[canonicalize_name(q.name)]['version'],q.specifier)
+ def test_actual_built_lock_hashes_and_candidate_uninstallable(self):
+  lines=[x for x in (ROOT/'integration/dependency_build/requirements-offline-built.txt').read_text().splitlines()if x and not x.startswith('#')];self.assertEqual(len(lines),25)
+  for x in self.art:self.assertTrue(any(l.lower().startswith(x['name'].lower()+'=='+x['version']+' ')and x['sha256']in l for l in lines))
+  self.assertIn('MISSING WHEEL/HASH',(ROOT/'requirements-offline-reviewed.candidate.txt').read_text())
+ def test_new_build_success_and_old_receipt_immutable(self):
+  b=json.loads((B/'build.json').read_text());self.assertEqual(b['status'],'passed');self.assertEqual(b['exit_code'],0);self.assertIsNone(b['stop_reason']);self.assertIn('--unshare-all',b['argv']);self.assertIn('--clearenv',b['argv'])
+  old=json.loads((ROOT/'integration/dependency_build/receipt.json').read_text());self.assertEqual(old['baseline87_sha256'],self.hist['requirements-offline-reviewed.candidate.txt']['sha256'])
+ def test_installed_closure_physical_package_pins(self):
+  import importlib.metadata as meta
+  record=json.loads((B/'installed.json').read_text());self.assertTrue(record['no_system_site']);self.assertEqual(len(record['packages']),25)
+  for p in record['packages']:
+   d=meta.distribution(p['name']);self.assertEqual(d.version,p['version'])
+   for name,h in p['physical_py_hashes'].items():self.assertEqual(hashlib.sha256(d.locate_file(name).read_bytes()).hexdigest(),h)
+if __name__=='__main__':unittest.main(verbosity=2)

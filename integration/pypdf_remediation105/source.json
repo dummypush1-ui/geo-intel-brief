@@ -1,0 +1,47 @@
+[
+  {
+    "path": "sgmllib3k-1.0.0/PKG-INFO",
+    "bytes": 926,
+    "sha256": "01dbf4d6a1a5370fde2568d761e3418a1ecac1fe039c5d486265ffc3f3332823"
+  },
+  {
+    "path": "sgmllib3k-1.0.0/README",
+    "bytes": 446,
+    "sha256": "9ffcc3c846907fefc187aac938c27e4eca333b67f467ebd10ddb3d4a9b2733a2"
+  },
+  {
+    "path": "sgmllib3k-1.0.0/setup.cfg",
+    "bytes": 59,
+    "sha256": "063d04b462ef73e9d86e0b0ae49c4321b51984444a5a2a90aece1e0082b488ee"
+  },
+  {
+    "path": "sgmllib3k-1.0.0/setup.py",
+    "bytes": 611,
+    "sha256": "032f40b9673a557056595efebe21a51e3f70fb2da663d2e0c78fb15143be395b"
+  },
+  {
+    "path": "sgmllib3k-1.0.0/sgmllib.py",
+    "bytes": 17788,
+    "sha256": "9180791aa507111207d7c14f36db574a11fbedda257debfb9d030b273b773f44"
+  },
+  {
+    "path": "sgmllib3k-1.0.0/sgmllib3k.egg-info/dependency_links.txt",
+    "bytes": 1,
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+  },
+  {
+    "path": "sgmllib3k-1.0.0/sgmllib3k.egg-info/PKG-INFO",
+    "bytes": 926,
+    "sha256": "01dbf4d6a1a5370fde2568d761e3418a1ecac1fe039c5d486265ffc3f3332823"
+  },
+  {
+    "path": "sgmllib3k-1.0.0/sgmllib3k.egg-info/SOURCES.txt",
+    "bytes": 158,
+    "sha256": "c508d2ca4769f6f7106f2802613c3db0adf00480d58b938cbaee959322d75ecf"
+  },
+  {
+    "path": "sgmllib3k-1.0.0/sgmllib3k.egg-info/top_level.txt",
+    "bytes": 8,
+    "sha256": "138669627fe1fb966c5c55dd1c39de94a5ee71b72069520d5f097aac67062bf3"
+  }
+]
