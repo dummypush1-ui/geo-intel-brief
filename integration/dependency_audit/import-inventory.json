@@ -219,6 +219,22 @@
       "classification": "stdlib"
     },
     {
+      "import": "collector122_prep",
+      "files": [
+        "tests/test_collector122_packing.py",
+        "tests/test_collector122_receipt_state.py",
+        "tests/test_collector122_validation.py"
+      ],
+      "stdlib": false,
+      "distributions": [],
+      "provenance": {
+        "paths": [
+          "collector122_prep/__init__.py"
+        ]
+      },
+      "classification": "local"
+    },
+    {
       "import": "concurrent",
       "files": [
         "tests/test_mail_bridge.py"
@@ -267,6 +283,7 @@
         "tests/accounts/test_store_conformance.py",
         "tests/test_article_archive.py",
         "tests/test_collection_prepare.py",
+        "tests/test_collector122_validation.py",
         "tests/test_collector_mail_fixture.py",
         "tests/test_country_alerts.py",
         "tests/test_country_signals.py",
@@ -704,6 +721,8 @@
         "tests/test_apps_script_audit.py",
         "tests/test_article_archive.py",
         "tests/test_branding.py",
+        "tests/test_collector122_inventory.py",
+        "tests/test_collector122_packing.py",
         "tests/test_country_alerts.py",
         "tests/test_cross_routes.py",
         "tests/test_fake_collection_writer.py",
@@ -790,6 +809,7 @@
       "files": [
         "tests/geospatial/test_geospatial.py",
         "tests/news_export/test_export.py",
+        "tests/test_collector122_inventory.py",
         "tests/test_geo_probe_http.py",
         "tests/test_geo_read_factory.py",
         "tests/test_geo_sample_probe.py",
@@ -1284,6 +1304,7 @@
         "tests/test_apps_script_audit.py",
         "tests/test_article_archive.py",
         "tests/test_branding.py",
+        "tests/test_collector122_inventory.py",
         "tests/test_compulsory_channels.py",
         "tests/test_country_alerts.py",
         "tests/test_event_reader.py",
@@ -1992,6 +2013,7 @@
     {
       "import": "scripts",
       "files": [
+        "tests/test_collector122_inventory.py",
         "tests/test_file_audit.py",
         "tests/test_package_manifest.py"
       ],
@@ -2597,6 +2619,10 @@
         "tests/test_brics_streams.py",
         "tests/test_bridges.py",
         "tests/test_collection_prepare.py",
+        "tests/test_collector122_inventory.py",
+        "tests/test_collector122_packing.py",
+        "tests/test_collector122_receipt_state.py",
+        "tests/test_collector122_validation.py",
         "tests/test_collector_mail_fixture.py",
         "tests/test_compulsory_channels.py",
         "tests/test_country_alerts.py",
@@ -2982,6 +3008,7 @@
     "tests/browser_sample_volume.py",
     "tests/news_export/test_export.py",
     "tests/news_export/test_original_contract.py",
+    "tests/test_collector122_inventory.py",
     "tests/test_geo_collector_contract.py",
     "tests/test_geo_read_factory.py",
     "tests/test_preview_launcher.py",
@@ -3696,6 +3723,22 @@
       {
         "path": "tests/test_collection_prepare.py",
         "sha256": "d9c7f87033433a282d222bc5dc32bf04d183498e7e1357402bee2970d2efccee"
+      },
+      {
+        "path": "tests/test_collector122_inventory.py",
+        "sha256": "20765d62669c45b9fc9508689ab45753a498838dac9a152afa76f2c014c764db"
+      },
+      {
+        "path": "tests/test_collector122_packing.py",
+        "sha256": "908cfa68ecb78b3aaaa885e8c710baa5b3da6ecc64b22976f66a3a033b545d09"
+      },
+      {
+        "path": "tests/test_collector122_receipt_state.py",
+        "sha256": "24c4c2b8ee8addaa08678eb8df04850cf54e6419d5a87bb332a2c65501de85d6"
+      },
+      {
+        "path": "tests/test_collector122_validation.py",
+        "sha256": "d3a47b4dd2b7b8bf46e550709edf076379b350f943fef736844486ce38eebbc1"
       },
       {
         "path": "tests/test_collector_mail_fixture.py",

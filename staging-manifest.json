@@ -941,6 +941,26 @@
       "sha256": "38d44d0dc496aeb72677bdaf30a4cc285a289f5522b402df165b0611d8a89d41"
     },
     {
+      "path": "collector122_prep/TELEGRAM-SAFE-PACKING-DESIGN.md",
+      "bytes": 1751,
+      "sha256": "33c819405ec9cda57b8bb5bf67c87b3d1e28f1f8b313630b0b8acbc01970def7"
+    },
+    {
+      "path": "collector122_prep/__init__.py",
+      "bytes": 78,
+      "sha256": "58cd53c1be2e396c6d951970b5ac4fc382ba36d8d28d6890f469caf60eb058e7"
+    },
+    {
+      "path": "collector122_prep/packing.py",
+      "bytes": 3003,
+      "sha256": "66f57e7cb3afb6c5ea27ec30c6f0927476f0d15180942930b3ed17d39d991f07"
+    },
+    {
+      "path": "collector122_prep/receipt_state.py",
+      "bytes": 5684,
+      "sha256": "a96ed00877297c61dc50c0c2d9eb6f10cd87705f741bce12fe36ec7f2086122f"
+    },
+    {
       "path": "compute-sancgap.mjs",
       "bytes": 5656,
       "sha256": "c61cb59ac916eb51e83368e5611a70a81111ff1a8f198dfb820a2ee849fd0df8"
@@ -1518,12 +1538,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 18581,
-      "sha256": "bba964de36cfb52970b32c059aaaf772b15f161a79927b6d61a952ae5a106114"
+      "sha256": "d1d69935c5a2716dd934118aff80b0492b18dc364125d3e04b1462a393bf2adb"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
-      "bytes": 154026,
-      "sha256": "21d77d4e5f3d8b62afa8a00b22073fc7a4de84387a5884823c6daf091968d8a7"
+      "bytes": 155593,
+      "sha256": "5db42970cdfaca37b7c71618e963a626220d6c135069be83c58ed745c2e2c158"
     },
     {
       "path": "integration/dependency_build/README.md",
@@ -3959,6 +3979,26 @@
       "path": "tests/test_collection_prepare.py",
       "bytes": 2603,
       "sha256": "d9c7f87033433a282d222bc5dc32bf04d183498e7e1357402bee2970d2efccee"
+    },
+    {
+      "path": "tests/test_collector122_inventory.py",
+      "bytes": 864,
+      "sha256": "20765d62669c45b9fc9508689ab45753a498838dac9a152afa76f2c014c764db"
+    },
+    {
+      "path": "tests/test_collector122_packing.py",
+      "bytes": 1400,
+      "sha256": "908cfa68ecb78b3aaaa885e8c710baa5b3da6ecc64b22976f66a3a033b545d09"
+    },
+    {
+      "path": "tests/test_collector122_receipt_state.py",
+      "bytes": 1553,
+      "sha256": "24c4c2b8ee8addaa08678eb8df04850cf54e6419d5a87bb332a2c65501de85d6"
+    },
+    {
+      "path": "tests/test_collector122_validation.py",
+      "bytes": 2250,
+      "sha256": "d3a47b4dd2b7b8bf46e550709edf076379b350f943fef736844486ce38eebbc1"
     },
     {
       "path": "tests/test_collector_mail_fixture.py",
