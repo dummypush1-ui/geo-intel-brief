@@ -1,0 +1,16 @@
+{
+  "review": "SAFE inactive composition only, parent relayed verdict2026-10-07 21:48:01 IST",
+  "new_tests": 14,
+  "base_tests": 1166,
+  "prior_manifest_unchanged": 835,
+  "live_network_called": false,
+  "production": "OFF",
+  "regression_tree": "actual full /tmp/save104-remote",
+  "remaining_gates": [
+    "per_source_failure_continuation",
+    "extra_feed_parity",
+    "real114 wire_evidence",
+    "real_database",
+    "network_parser_wiring"
+  ]
+}

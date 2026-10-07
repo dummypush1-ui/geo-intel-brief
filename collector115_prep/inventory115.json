@@ -1,0 +1,10 @@
+{
+  "collector115_prep/PROFILE-DESIGN.md": "735e24136b4d4ccdc0b54d951ce75bb7a79d27be13d2ecf82271d9d37bc915bb",
+  "collector115_prep/STAGE115.md": "e1be5ed44b6281e541a045c0d2ddcfd03f330bd1e6036146856a099d3f992a2f",
+  "collector115_prep/__init__.py": "658d76f7a2aa2d1d2f00f503cab0bd60315fd9d142ba31572b66605353473fa9",
+  "collector115_prep/composition.py": "de0c1cdd3c116810a45eb08c9ebd4102232fc3cf198950670d9e0e903110ff4c",
+  "collector115_prep/evidence/local-tests.json": "26e23843266a2d7d40aa42a8054ae4aa4ad4724d62eb37bd2e16f758eb4a430b",
+  "collector115_prep/profile.py": "f928afc1a70ce79889865fa6bcd6522054ab3f479a857cfdaf04978177a14d94",
+  "collector115_prep/test_composition.py": "32b99b09bc6fdbe1f402dbd0aef3c3aca2125e0d4062e24247445ea47a52180d",
+  "collector115_prep/test_profile.py": "8c176aea8fff662e57afa04fd0ba8882a0f8b0e4e99034d4c93a5205caad4131"
+}
