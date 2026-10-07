@@ -1,0 +1,162 @@
+{
+  "scope": "non-live migration research, current merged main source comparisons for web/Code.gs/rss; remainder preserved local pins require original live repo reconciliation",
+  "sources": [
+    {
+      "path": "intelligence/geo/web.py",
+      "bytes": 10997,
+      "sha256": "7931165782766d4b6d05ac1207045e158d0ecaa15baf0b6f30d4abe0ba346dfc",
+      "functions": [
+        "_db_check",
+        "_authorized",
+        "_run_collect_job",
+        "health",
+        "collect",
+        "collect_status",
+        "send_digest",
+        "digest_data",
+        "mark_emailed_route",
+        "critical",
+        "weekly",
+        "dashboard",
+        "export_csv",
+        "cleanup_old"
+      ]
+    },
+    {
+      "path": "intelligence/geo/config.py",
+      "bytes": 7266,
+      "sha256": "f7fbf007954c6918fbe2e402863fa29f597fe5d5cb4d60d1001deca8896b21f3",
+      "functions": []
+    },
+    {
+      "path": "intelligence/geo/database.py",
+      "bytes": 8376,
+      "sha256": "4b045c167947a4bed6a5456267430b239751bef551a0794b2e652b2cbc2058c4",
+      "functions": [
+        "connect",
+        "init_db",
+        "_now_iso",
+        "save_article",
+        "save_articles_bulk",
+        "update_telegram_refs",
+        "save_event",
+        "recent_articles",
+        "total_article_count",
+        "latest_collection_time",
+        "unemailed_articles",
+        "mark_emailed",
+        "get_articles_older_than",
+        "delete_articles",
+        "upcoming_events",
+        "critical_since",
+        "weekly_top_articles",
+        "category_counts",
+        "top_countries"
+      ]
+    },
+    {
+      "path": "intelligence/geo/scheduler.py",
+      "bytes": 4820,
+      "sha256": "84225c8b4e5da7731dc43a92d5c011cf5144290f50b5e6d07ecbdb574c80b90f",
+      "functions": [
+        "_step",
+        "_send_with_retry",
+        "run_daily_cycle",
+        "run_weekly_cycle",
+        "main"
+      ]
+    },
+    {
+      "path": "intelligence/geo/apps_script/Code.gs",
+      "bytes": 12753,
+      "sha256": "f23159b30f263e3a34cae29879900d73b23f6cf64fc6958f12712b7df484026a"
+    },
+    {
+      "path": "intelligence/geo/collectors/rss.py",
+      "bytes": 9305,
+      "sha256": "337475c6a38dedecfdf5a25fab753df14e274b18c8d8788af431939067898f73",
+      "functions": [
+        "_enrich_with_full_text",
+        "_fetch_feed",
+        "collect"
+      ]
+    },
+    {
+      "path": "intelligence/geo/collectors/gnews_search.py",
+      "bytes": 3352,
+      "sha256": "9b948cad40e0d450745f36378360f6c85989a257a3c50b383cb6de694d36c7af",
+      "functions": [
+        "_build_queries",
+        "collect"
+      ]
+    },
+    {
+      "path": "intelligence/geo/collectors/events.py",
+      "bytes": 155,
+      "sha256": "4adb1ddb80a6483f445d3130664eb8924285aca5b267548ba2b42a6171238c11",
+      "functions": [
+        "seed_events"
+      ]
+    },
+    {
+      "path": "intelligence/geo/processing/classifier.py",
+      "bytes": 3220,
+      "sha256": "445842f362bca71455f562e6d405e6ee860deddb88bab64f56f522e7b67073f9",
+      "functions": [
+        "strip_html",
+        "classify",
+        "parse_date"
+      ]
+    },
+    {
+      "path": "intelligence/geo/processing/dedupe.py",
+      "bytes": 2461,
+      "sha256": "8326042d8a2adccafc690f86c47cc9baa67240792ef90060750313c81fb7382e",
+      "functions": [
+        "_similar",
+        "dedupe_articles"
+      ]
+    },
+    {
+      "path": "intelligence/geo/processing/extract.py",
+      "bytes": 821,
+      "sha256": "42aa24d7cb788d45ee5c22e0c4c45ffe901d32fff3ab82227575ffc299eee44a",
+      "functions": [
+        "extract_full_text"
+      ]
+    },
+    {
+      "path": "intelligence/geo/reports/telegram_backup.py",
+      "bytes": 4696,
+      "sha256": "0a0f7f0dcf7955e8e8a7cf1981f8669fc63180f0f2c18152131c9dc211de0b0c",
+      "functions": [
+        "_api",
+        "_permalink",
+        "_format_full_record",
+        "_split_into_batches",
+        "attach_backup_refs"
+      ]
+    },
+    {
+      "path": "intelligence/geo/requirements.txt",
+      "bytes": 678,
+      "sha256": "b7a552a11ce6bcfca8963db1565f39ca6d8775320e49a71dbceb182f2bd7360e"
+    },
+    {
+      "path": "integration/geo_article_writer.py",
+      "bytes": 7311,
+      "sha256": "28379724081b15a961f30ac4bbbb7711aac8058b2b956392a77bbe960ebb54dd",
+      "functions": []
+    },
+    {
+      "path": "integration/geo_collector_contract.py",
+      "bytes": 6433,
+      "sha256": "a2c2047d37b8d12132af784c4ca9bab697a53492580e90e98a77261e6d965d9d",
+      "functions": [
+        "_original_documents",
+        "prepare_geo_documents",
+        "run_geo_fixture_cycle"
+      ]
+    }
+  ]
+}

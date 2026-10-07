@@ -1,0 +1,26 @@
+test_auth_never_optional (test_job_contract.ContractTests) ... ok
+test_expired_lease_never_frees_claim (test_job_contract.ContractTests) ... ok
+test_explicit_uncertainty_keeps_profile_ownership (test_job_contract.ContractTests) ... ok
+test_nonce_idempotent_no_reexecute (test_job_contract.ContractTests) ... ok
+test_reject_extra_fields_and_clock (test_job_contract.ContractTests) ... ok
+test_single_profile_parallel_claim (test_job_contract.ContractTests) ... ok
+test_stale_fence_no_mutation (test_job_contract.ContractTests) ... ok
+test_transition_sequence_and_aggregate_only (test_job_contract.ContractTests) ... ok
+test_write_uncertainty_not_safe_retry (test_job_contract.ContractTests) ... ok
+test_auth_precedes_ledger_and_malformed (test_durable.Tests) ... ok
+test_bound_request (test_durable.Tests) ... ok
+test_endpoint_receipt_no_secret (test_durable.Tests) ... ok
+test_expiry_never_steals_or_heartbeats (test_durable.Tests) ... ok
+test_harmless_health (test_durable.Tests) ... ok
+test_nested_schema_and_backward_clock_refused (test_durable.Tests) ... ok
+test_parallel_multi_adapter_exclusion (test_durable.Tests) ... ok
+test_reinstantiated_adapter_retains_active_replay (test_durable.Tests) ... ok
+test_status_auth_precedes_store_and_sanitizes (test_durable.Tests) ... ok
+test_terminal_replay_and_fence_progression (test_durable.Tests) ... ok
+test_uncertain_write_latches_profile (test_durable.Tests) ... ok
+test_wrong_fingerprint (test_durable.Tests) ... ok
+
+----------------------------------------------------------------------
+Ran 21 tests in 0.021s
+
+OK

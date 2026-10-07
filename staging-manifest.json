@@ -56,6 +56,161 @@
       "sha256": "2fcd5b7bb232984ddda433d2356a75b403f406d8ea0045e7de0cd3d1c21a9ea8"
     },
     {
+      "path": "collector108_prep/ASSESSMENT.md",
+      "bytes": 2969,
+      "sha256": "c988139e64018bb23bd492f6e10f56b85dfd7702fd38400f9da059d38fc5035e"
+    },
+    {
+      "path": "collector108_prep/DEPENDENCY-SECURITY-PLAN.md",
+      "bytes": 2733,
+      "sha256": "1d808710cc26057d06bdd895fe7d7a308da0d3aabb8ccc386fefa9ae452b47c1"
+    },
+    {
+      "path": "collector108_prep/FREE-TOPOLOGY.md",
+      "bytes": 2046,
+      "sha256": "5493fb0d08ba64c7c098e8a4c3e1d90cedb67f1cb4ca2bead95a2085a72c11e7"
+    },
+    {
+      "path": "collector108_prep/JOB-CONTRACT.md",
+      "bytes": 2814,
+      "sha256": "5a8687804c7bb9e3fbbfd29bf0d0ed932ac813a970c59b5117b4b01b47b0ea3a"
+    },
+    {
+      "path": "collector108_prep/README.md",
+      "bytes": 1241,
+      "sha256": "e5dbd9852a941e361212e357b212d1793ff788b5ddd4d7861b00249414dca24f"
+    },
+    {
+      "path": "collector108_prep/RECOVERY-GATES.md",
+      "bytes": 1616,
+      "sha256": "d6d9747534837c053ea519f83beec35df18a090fd9ffd05b8f9c93f17958608f"
+    },
+    {
+      "path": "collector108_prep/SOURCES.md",
+      "bytes": 619,
+      "sha256": "a03a90cfe7a820ae876ecec7afc099259a93122547030f55246b6b606bd50c73"
+    },
+    {
+      "path": "collector108_prep/__init__.py",
+      "bytes": 68,
+      "sha256": "a7f3684e36df7757e4b7797c4bdda3205446cce94a07e9e7e31eee09b7dcf974"
+    },
+    {
+      "path": "collector108_prep/collection_only.gs",
+      "bytes": 2800,
+      "sha256": "fa3196352a03be4a1a680af1f8588560dc44fc58f76e213ffbfce2999e336191"
+    },
+    {
+      "path": "collector108_prep/durable_ledger.py",
+      "bytes": 6680,
+      "sha256": "fb5b2601435ab4ff18bae0ddb9ca30dd7bad5272eae06a02950236e894a4bde3"
+    },
+    {
+      "path": "collector108_prep/endpoint.py",
+      "bytes": 2411,
+      "sha256": "7cc56ec100a2c1dbd83eddff54119f1afee440d0ac563c2a2be7981f110a3814"
+    },
+    {
+      "path": "collector108_prep/evidence/chunk0.json",
+      "bytes": 8890,
+      "sha256": "e396b740c4a0a0710e94b023f7ace5867ed0fd1f09e10808c28b102da2133f9a"
+    },
+    {
+      "path": "collector108_prep/evidence/chunk1.json",
+      "bytes": 8999,
+      "sha256": "fa6959d166bda97b9565009e045421158defca0522a25f08e47c8b92eccff6d5"
+    },
+    {
+      "path": "collector108_prep/evidence/chunk10.json",
+      "bytes": 8774,
+      "sha256": "5f29c38124169f75188baa3a69a9683916820f625d33c4c39a3d84c932fa6fb2"
+    },
+    {
+      "path": "collector108_prep/evidence/chunk11.json",
+      "bytes": 5260,
+      "sha256": "a551f3ded9cb38f1bdda30acc16a2aec678646795b38fed5fc22a9fde136c1c4"
+    },
+    {
+      "path": "collector108_prep/evidence/chunk2.json",
+      "bytes": 8162,
+      "sha256": "f27fffba9574b8c289684461f46bca21df5ee1b26794e7a3d2e696fe01638dc1"
+    },
+    {
+      "path": "collector108_prep/evidence/chunk3.json",
+      "bytes": 8986,
+      "sha256": "781d90bc125fc3f27aa8aaf7ceb424b9c2d1b7d402361a68cac107f20b0c3f54"
+    },
+    {
+      "path": "collector108_prep/evidence/chunk4.json",
+      "bytes": 9218,
+      "sha256": "8aafc92284eb790b73c08d478e13f93730374a8f033a6ad7a0fd781ffc28937d"
+    },
+    {
+      "path": "collector108_prep/evidence/chunk5.json",
+      "bytes": 8672,
+      "sha256": "42205c1c8ac35290a9b1d07653ae4bfd333be2036506f6f84a1090debbec8582"
+    },
+    {
+      "path": "collector108_prep/evidence/chunk6.json",
+      "bytes": 8346,
+      "sha256": "9a52de1e344dc2df38196ae96bb4be1b4716ec2a5e616ea541ff6e50e1fb42ce"
+    },
+    {
+      "path": "collector108_prep/evidence/chunk7.json",
+      "bytes": 7999,
+      "sha256": "4d7ace1ab74ad01dfda3c4e3548973d1699d8d4b49ed4ace0252bc4c8170d347"
+    },
+    {
+      "path": "collector108_prep/evidence/chunk8.json",
+      "bytes": 9415,
+      "sha256": "f390fafd17430b24c503a2652241a782cf4e086205a2ff61b9616bae3238c6b1"
+    },
+    {
+      "path": "collector108_prep/evidence/chunk9.json",
+      "bytes": 8358,
+      "sha256": "9673314e84f3397ac869443711884ca0cb2370f1fe5785391c122d1afbfb0ca0"
+    },
+    {
+      "path": "collector108_prep/evidence/script.log",
+      "bytes": 174,
+      "sha256": "3f27e74929e11b5cc0c63b0d816198abc3dc0a708ae98db84e8d17f15a59942d"
+    },
+    {
+      "path": "collector108_prep/evidence/subset.log",
+      "bytes": 1566,
+      "sha256": "78202549942977e02c6852cfebcd38f07d1f8eccf707d23408743060eef85b76"
+    },
+    {
+      "path": "collector108_prep/job_contract.py",
+      "bytes": 3060,
+      "sha256": "a65c74128b371cb201ba3dbf8e674553797cbd2b2a412ac50d413010b4df7703"
+    },
+    {
+      "path": "collector108_prep/original-reconciliation.json",
+      "bytes": 3513,
+      "sha256": "836d25a547fe7378e11617c921cf286af3d6e9329f163c2171cba81c7398616c"
+    },
+    {
+      "path": "collector108_prep/source-inventory.json",
+      "bytes": 4556,
+      "sha256": "a8c6fa349f973a57e536f3371043077cd30c177d67df7330789f99d4c5460431"
+    },
+    {
+      "path": "collector108_prep/test_apps_script.js",
+      "bytes": 2190,
+      "sha256": "a2bac77075e97088005075a8c7c61efc7a688b1a09bbea67c088c167aaf5ac34"
+    },
+    {
+      "path": "collector108_prep/test_durable.py",
+      "bytes": 5029,
+      "sha256": "1d71c0cec0e9a33b0d602e82195483bb77fec1a39a01aa4f431028c8222d0b21"
+    },
+    {
+      "path": "collector108_prep/test_job_contract.py",
+      "bytes": 3438,
+      "sha256": "a37aa19fef667a7b476990d132033fead1aaee587c54d76bfa405d6477fb1953"
+    },
+    {
       "path": "compute-sancgap.mjs",
       "bytes": 5656,
       "sha256": "c61cb59ac916eb51e83368e5611a70a81111ff1a8f198dfb820a2ee849fd0df8"
@@ -3603,6 +3758,13 @@
           "sha256": "1c11c570807729674eea367034ff9a1aaf0abb0dd5f1d9cea4527a0c7c574e63"
         }
       ]
+    },
+    {
+      "increment": "108",
+      "state": "inactive_partial_collector_contracts_only",
+      "tests": "1166 existing +21 focused +Node PASS",
+      "changes": "collector108_prep only; no runtime/trigger/DB/network/client execution",
+      "limits": "Source/recovery/checkpoints/drive unfinished"
     }
   ]
 }
