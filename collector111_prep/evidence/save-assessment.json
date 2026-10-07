@@ -1,0 +1,10 @@
+{
+  "review": "SAFE for inactive composition preparation",
+  "production": "OFF",
+  "focused_tests": 32,
+  "configured_concerns_local_bson_fake": "Not real Mongo capability/role/index/TTL or process-restart article-write recovery",
+  "store": "Injected110 only",
+  "atomic_article_fencing": false,
+  "network_parser_integration": false,
+  "production_mounting": false
+}

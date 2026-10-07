@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 1225,
+  "tests": 1257,
   "files": [
     {
       "path": ".env.example",
@@ -344,6 +344,51 @@
       "path": "collector110_prep/test_input_budget.py",
       "bytes": 1688,
       "sha256": "984d3d1a035fc5f1df3e1bdbb9c4633df2c3542eab894b1165e421948c90d06c"
+    },
+    {
+      "path": "collector111_prep/STAGE111.md",
+      "bytes": 1532,
+      "sha256": "8e51e80592128b69b55a5f8908a63e4519962e75e8d2da069338174bc752a911"
+    },
+    {
+      "path": "collector111_prep/__init__.py",
+      "bytes": 63,
+      "sha256": "eca110e2db7775c4848a3a4eb186e74231383dfb7781a70bd8c9df50f5492c9c"
+    },
+    {
+      "path": "collector111_prep/drive_durable.py",
+      "bytes": 7086,
+      "sha256": "07f080d27b1b0ec7be134779d86d163c5eb24b68feb503f53a041bbe4c8d81f2"
+    },
+    {
+      "path": "collector111_prep/evidence/save-assessment.json",
+      "bytes": 370,
+      "sha256": "150c2a33a9e9622f03bdcd2bc65f7571c929de1fc3463c6ae2366809254a033f"
+    },
+    {
+      "path": "collector111_prep/inventory111.json",
+      "bytes": 874,
+      "sha256": "66b2fcd4ca4c6306d58e1fffd9744d4d3a5591defcd8cd9fa5a9db74db39f149"
+    },
+    {
+      "path": "collector111_prep/test_drive.py",
+      "bytes": 3403,
+      "sha256": "ffd3ac35687cbfa59b4413ea9898dbd58204eaae6a950cddbe0ae50c7813fb62"
+    },
+    {
+      "path": "collector111_prep/test_drive_durable.py",
+      "bytes": 3157,
+      "sha256": "aadecc953d89a821a341ab8b593c6b98e63087c2962ed4c0e6931803eadc559e"
+    },
+    {
+      "path": "collector111_prep/test_engine_chain.py",
+      "bytes": 3855,
+      "sha256": "94662b6240dc559635e41c5b28f141e73435b8f1f9a8a71f7572d724e7ee427b"
+    },
+    {
+      "path": "collector111_prep/test_safety.py",
+      "bytes": 6194,
+      "sha256": "063d7d14c680b11fbc6bf988483d563d8dca913296795d80712d05ba4aa815f1"
     },
     {
       "path": "compute-sancgap.mjs",
