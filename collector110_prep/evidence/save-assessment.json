@@ -1,0 +1,12 @@
+{
+  "review": "SAFE for inactive bounded-input/checkpoint-store preparation only",
+  "production": "OFF",
+  "configured_concerns": "Not proof of server capability, role or authority",
+  "real_mongo_index_ttl_deployment_validation": false,
+  "capture": "Conservative resource contract, not process deadline/isolation/BSON total-size proof",
+  "wired_into_109": false,
+  "production_restart_recovery": false,
+  "article_fencing": false,
+  "focused_tests": 21,
+  "bson_boundary_roundtrip": "Local real BSON codec at both signed-int64 boundaries, not live server"
+}
