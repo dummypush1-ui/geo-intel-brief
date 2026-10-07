@@ -1,0 +1,53 @@
+import unittest,re,sys,os
+from unittest.mock import patch
+from werkzeug.security import generate_password_hash
+from public_preview106 import build_public_preview,READ_PATHS,ASSETS,BRANDING
+BASE='https://preview.example'
+def env():return dict(PREVIEW_PUBLIC_SAMPLE_ENABLED='true',PREVIEW_GEO_ONLY_ENABLED='true',PREVIEW_ACCESS_ENABLED='false',NEWS_READ_ENABLED='false',NEWS_EVENTS_READ_ENABLED='false',FINDER_NETWORK_PREVIEW_ENABLED='false',PREVIEW_ORIGIN=BASE)
+class PublicPreviewTests(unittest.TestCase):
+ def test_default_denied_and_bad_flags(self):
+  self.assertEqual(build_public_preview({}).test_client().get('/workspace').status_code,403)
+  for v in ('TRUE','1','',True):
+   with self.assertRaises(ValueError):build_public_preview({'PREVIEW_PUBLIC_SAMPLE_ENABLED':v})
+ def test_no_secret_required_and_no_client(self):
+  with patch('pymongo.MongoClient',side_effect=AssertionError('client')),patch('socket.socket',side_effect=AssertionError('network')),patch('requests.get',side_effect=AssertionError('fetch')):
+   a=build_public_preview(env());self.assertEqual(a.extensions['read_only_news_clients'],[])
+   self.assertEqual(a.test_client().get('/api/news',base_url=BASE).json['items'],[])
+  with self.assertRaises(ValueError):build_public_preview(env(),lambda:None)
+ def test_reject_private_and_live_flags(self):
+  for k in ('PREVIEW_ACCESS_ENABLED','NEWS_READ_ENABLED','NEWS_EVENTS_READ_ENABLED','FINDER_NETWORK_PREVIEW_ENABLED'):
+   for v in ('true','TRUE','1'):
+    e=env();e[k]=v
+    with self.assertRaises(ValueError):build_public_preview(e)
+  e=env();e['PREVIEW_GEO_ONLY_ENABLED']='false'
+  with self.assertRaises(ValueError):build_public_preview(e)
+ def test_canonical_origin_and_wrong_host(self):
+  for o in ('http://preview.example','https://user@preview.example','https://preview.example/a','https://preview.example:443','https://PREVIEW.example'):
+   e=env();e['PREVIEW_ORIGIN']=o
+   with self.assertRaises(ValueError):build_public_preview(e)
+  self.assertEqual(build_public_preview(env()).test_client().get('/workspace',base_url='https://wrong.example').status_code,403)
+ def test_home_label_offline_finder_and_headers(self):
+  c=build_public_preview(env()).test_client();r=c.get('/',base_url=BASE);self.assertEqual(r.status_code,302);self.assertEqual(r.location,'/workspace')
+  r=c.get('/workspace',base_url=BASE);self.assertEqual(r.status_code,200);self.assertIn('PUBLIC SAMPLE PREVIEW',r.text);self.assertIn('No stored news or private data',r.text);self.assertIn('src="/workspace/finder/offline.html"',r.text);self.assertNotIn('src="/workspace/finder/index.html"',r.text);self.assertNotIn('/workspace/weekly',r.text);self.assertNotIn('data-view="live"',r.text);self.assertNotIn('src="/workspace/assets/live_news.js"',r.text);self.assertEqual(r.headers['Cache-Control'],'no-store');self.assertEqual(r.headers['X-Preview-Mode'],'public_empty_sample');self.assertIn("script-src 'self'",r.headers['Content-Security-Policy']);self.assertNotIn('Set-Cookie',r.headers)
+ def test_explicit_reads_and_assets(self):
+  c=build_public_preview(env()).test_client()
+  for p in ('/workspace','/workspace/countries','/workspace/map','/api/news','/api/news-stats','/api/critical-stories','/api/source-health','/api/map-data','/api/story-groups','/api/news-export.csv','/workspace/manifest.webmanifest','/workspace/finder/offline.html'):
+   r=c.get(p,base_url=BASE);self.assertEqual(r.status_code,200,p);r.close()
+  for name in ASSETS:
+   r=c.get('/workspace/assets/'+name,base_url=BASE);self.assertEqual(r.status_code,200,name);r.close()
+  for name in BRANDING:
+   r=c.get('/workspace/branding/'+name,base_url=BASE);self.assertEqual(r.status_code,200,name);r.close()
+  r=c.get('/workspace/finder/offline.html',base_url=BASE);self.assertNotIn('localStorage',r.text);r.close()
+ def test_mutations_private_heavy_and_unknown_denied(self):
+  c=build_public_preview(env()).test_client()
+  for rule in c.application.url_map.iter_rules():
+   if '<'in rule.rule:continue
+   if rule.rule not in READ_PATHS|{'/','/health'}:self.assertEqual(c.get(rule.rule,base_url=BASE).status_code,403,rule.rule)
+  for p in ('/login','/logout','/private-session','/api/weekly-report.pdf','/workspace/finder/index.html','/api/export-full.csv','/digest-data','/mark-emailed','/send-digest','/collect','/unknown','/workspace/assets/weekly.js','/workspace/assets/live_news.js','/workspace/assets/live_channels.js','/workspace/branding/unknown'):
+   self.assertEqual(c.get(p,base_url=BASE).status_code,403,p)
+  for method in ('POST','PUT','DELETE','OPTIONS'):
+   for p in ('/workspace','/api/news','/critical','/weekly','/api/brics/streams','/api/finder-context','/api/related-news'):
+    self.assertEqual(c.open(p,method=method,base_url=BASE,headers={'Origin':BASE}).status_code,403,(method,p))
+ def test_rollback_private_login_unchanged(self):
+  e=dict(PREVIEW_PUBLIC_SAMPLE_ENABLED='false',PREVIEW_GEO_ONLY_ENABLED='true',PREVIEW_ACCESS_ENABLED='true',PREVIEW_ORIGIN=BASE,PREVIEW_PASSWORD_HASH=generate_password_hash('fixture-password'),PREVIEW_SESSION_KEY='a'*64);c=build_public_preview(e).test_client();self.assertEqual(c.get('/workspace',base_url=BASE).status_code,403);t=re.search(r'name="csrf" value="([^"]+)"',c.get('/login',base_url=BASE).text)[1];r=c.post('/login',base_url=BASE,headers={'Origin':BASE},data={'csrf':t,'password':'fixture-password'});self.assertEqual(r.status_code,303);self.assertEqual(c.get('/workspace',base_url=BASE).status_code,200)
+if __name__=='__main__':unittest.main(verbosity=2)

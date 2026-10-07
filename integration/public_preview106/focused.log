@@ -1,0 +1,19 @@
+test_canonical_origin_and_wrong_host (__main__.PublicPreviewTests) ... ok
+test_default_denied_and_bad_flags (__main__.PublicPreviewTests) ... ok
+test_explicit_reads_and_assets (__main__.PublicPreviewTests) ... ok
+test_home_label_offline_finder_and_headers (__main__.PublicPreviewTests) ... /usr/lib/python3.10/unittest/case.py:549: ResourceWarning: unclosed file <_io.BufferedReader name='/tmp/boot99/tree/integration/ui/workspace.html'>
+  method()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+ok
+test_mutations_private_heavy_and_unknown_denied (__main__.PublicPreviewTests) ... ok
+test_no_secret_required_and_no_client (__main__.PublicPreviewTests) ... ok
+test_reject_private_and_live_flags (__main__.PublicPreviewTests) ... ok
+test_rollback_private_login_unchanged (__main__.PublicPreviewTests) ... /tmp/boot99/tree/integration/public_preview106/focused-tests.py.txt:52: ResourceWarning: unclosed file <_io.BufferedReader name='/tmp/boot99/tree/integration/ui/workspace.html'>
+  e=dict(PREVIEW_PUBLIC_SAMPLE_ENABLED='false',PREVIEW_GEO_ONLY_ENABLED='true',PREVIEW_ACCESS_ENABLED='true',PREVIEW_ORIGIN=BASE,PREVIEW_PASSWORD_HASH=generate_password_hash('fixture-password'),PREVIEW_SESSION_KEY='a'*64);c=build_public_preview(e).test_client();self.assertEqual(c.get('/workspace',base_url=BASE).status_code,403);t=re.search(r'name="csrf" value="([^"]+)"',c.get('/login',base_url=BASE).text)[1];r=c.post('/login',base_url=BASE,headers={'Origin':BASE},data={'csrf':t,'password':'fixture-password'});self.assertEqual(r.status_code,303);self.assertEqual(c.get('/workspace',base_url=BASE).status_code,200)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 6.955s
+
+OK

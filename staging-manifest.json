@@ -1176,6 +1176,31 @@
       "sha256": "08a002863831a1e7cf9336e10b2f9d61aa1ce0ecf4b4367027dd34ed1dbd8145"
     },
     {
+      "path": "integration/public_preview106/README.md",
+      "bytes": 2333,
+      "sha256": "efc931919b43c1125f0908d737a0cf291aa65b356f1b8aae0d14aa2f46c578af"
+    },
+    {
+      "path": "integration/public_preview106/browser.json",
+      "bytes": 155,
+      "sha256": "e0073daccc90494643aaa7d783f40dc9148394f55ba4a46c28298640376c847e"
+    },
+    {
+      "path": "integration/public_preview106/focused-tests.py.txt",
+      "bytes": 5488,
+      "sha256": "631398de427a49ed39f8cd38b0bca2bc5e11f2ed03972530b208e735699f8f7c"
+    },
+    {
+      "path": "integration/public_preview106/focused.log",
+      "bytes": 1804,
+      "sha256": "5c3c09a9be4876e86bfab49e047a57b555f2312200ac97b93a761cd479908430"
+    },
+    {
+      "path": "integration/public_preview106/full-regression.json",
+      "bytes": 106370,
+      "sha256": "f228e17ff82d7fac7c1549c1c7ea3935669d4c871b41f7e0876c3db4838ceea7"
+    },
+    {
       "path": "integration/pypdf_remediation105/README.md",
       "bytes": 4024,
       "sha256": "79d341bc0b0d34e3e91526cfb837ada42a94d18cfb129f9c14c178f0d1188867"
@@ -2119,6 +2144,11 @@
       "path": "proxy.js",
       "bytes": 20539,
       "sha256": "491250c724bdcdb6d3b44da03d31bf2adfa14163ef1b95e63f98925060f320cc"
+    },
+    {
+      "path": "public_preview106.py",
+      "bytes": 4310,
+      "sha256": "718a268b85044bb3269e2aa0b41db5e2eea5d64183362d8df793c815a6899dc1"
     },
     {
       "path": "refresh.mjs",
@@ -3486,7 +3516,7 @@
       "sha256": "2ca27e9a8dae569cdeac42752ed1aed1afeff7f19282d3cc12c0aaa54a08bc04"
     }
   ],
-  "test_evidence_note": "pypdf105: fresh offline profile1166unique PASS; configured staging1166unique PASS after one explicitly recorded manifest bookkeeping correction/chunk8 rerun. Each zero final failures/errors, one existing xfail and one existing optional pikepdf skip. Separate5current profile tests PASS. Runtime/UIunchanged.",
+  "test_evidence_note": "public106:8focusedPASS; configured1166unique/run PASS, existing1xfail/1pikepdfskip. Mobile/desktop browser and offlineFinder PASS, pixels inspected. No live Render activation until operator switches. Historical105evidence unchanged.",
   "intentional_revisions": [
     {
       "scope": "geo-home UI-only structural port",
