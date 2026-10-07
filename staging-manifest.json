@@ -1061,6 +1061,31 @@
       "sha256": "35654588391f810e2e402ac8a15aa6dd3bd91a11c03e8d1f623deac6a13d904d"
     },
     {
+      "path": "collector127_prep/EXTRA-COMPOSITION.md",
+      "bytes": 446,
+      "sha256": "079420abc117f8e2fad733aef031a814cca947feaac078008dd833ea9d01c45b"
+    },
+    {
+      "path": "collector127_prep/__init__.py",
+      "bytes": 78,
+      "sha256": "2215c2bf086cef3b96ce75f47b1c508e8b586d1fcc6915e846fbe99bed78f6bd"
+    },
+    {
+      "path": "collector127_prep/network_selection.py",
+      "bytes": 3339,
+      "sha256": "fee3543878c4ac498165ad84d359deb27c151820e8c2efe628906117ed97f183"
+    },
+    {
+      "path": "collector127_prep/test_budget.py",
+      "bytes": 2602,
+      "sha256": "4a33f7177f4ef7d0e896eb0508277dc3172db45b4ee699537278b858bed71d65"
+    },
+    {
+      "path": "collector127_prep/test_extras.py",
+      "bytes": 1625,
+      "sha256": "701714dd229083ad28c8fe9191b842a94aebf2370cf40da280b26764e20ddc8f"
+    },
+    {
       "path": "compute-sancgap.mjs",
       "bytes": 5656,
       "sha256": "c61cb59ac916eb51e83368e5611a70a81111ff1a8f198dfb820a2ee849fd0df8"
