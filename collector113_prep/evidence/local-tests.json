@@ -1,0 +1,12 @@
+{
+  "production": "OFF",
+  "base_tests": 1166,
+  "new_tests": 17,
+  "parser112_tests": 9,
+  "previous_manifest_unchanged": 816,
+  "real_network": false,
+  "dns_tls_proof": false,
+  "review": "SAFE inactive scope including explicit192.88.99.0/24 delta, parent relayed independent verdict2026-10-07 21:33:11 IST",
+  "note": "Initial chunk8 manifest mismatch fixed by regeneration; chunk8 rerun passed.",
+  "address_delta_tests": "17 PASS after explicit /24 deny"
+}
