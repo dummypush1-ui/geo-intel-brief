@@ -986,6 +986,41 @@
       "sha256": "2038fa20d654f8e8f4157632fa3fe52cff0e673c4804c567a0b0f943905e4903"
     },
     {
+      "path": "collector124_prep/FRAMING-DESIGN.md",
+      "bytes": 1275,
+      "sha256": "5a5539be5f6cb082344c871ff54c5de211856f46a2f02fead44d87469bee9edf"
+    },
+    {
+      "path": "collector124_prep/__init__.py",
+      "bytes": 81,
+      "sha256": "5ee7a06e1a38a0427daeea60c368b81ac86333ed703f957c868f05cf5e5e4308"
+    },
+    {
+      "path": "collector124_prep/connector.py",
+      "bytes": 6357,
+      "sha256": "a8713839ccb0b25b0f5e683451b2886f119f0e788b80b4493b0e647d92652f58"
+    },
+    {
+      "path": "collector124_prep/runner.py",
+      "bytes": 4487,
+      "sha256": "e4ebe39eecb27528601e5b4b67b810b9e487d0af3a64f8bcf7deb1e7f7b36280"
+    },
+    {
+      "path": "collector124_prep/test_framing.py",
+      "bytes": 2800,
+      "sha256": "1be39f5e3d0e2d262a61d39458f8daeaab0b636cb43de27348d909583030ac95"
+    },
+    {
+      "path": "collector124_prep/test_runner.py",
+      "bytes": 2368,
+      "sha256": "1ab99c7fdd80c01457b851237c5c8a1b601aed88f249f29e2c1321ab3eb6b266"
+    },
+    {
+      "path": "collector124_prep/worker.py",
+      "bytes": 1266,
+      "sha256": "a76a03022b899e5dd193a5603776677119a2bceb4a462d159990d5c24219e728"
+    },
+    {
       "path": "compute-sancgap.mjs",
       "bytes": 5656,
       "sha256": "c61cb59ac916eb51e83368e5611a70a81111ff1a8f198dfb820a2ee849fd0df8"
