@@ -1,0 +1,22 @@
+test_bozo_remains_visible_not_health (collector113_prep.test_composition.Tests) ... ok
+test_catalog_source_drift (collector113_prep.test_composition.Tests) ... ok
+test_original_default_catalog_without_import_effects (collector113_prep.test_composition.Tests) ... ok
+test_original_limit_and_fixed_date_fallback (collector113_prep.test_composition.Tests) ... ok
+test_parser_refuses_before_selection (collector113_prep.test_composition.Tests) ... ok
+test_policy_refuses_before_parser (collector113_prep.test_composition.Tests) ... ok
+test_supplied_gzip_to_isolated_parser_to_original_selection (collector113_prep.test_composition.Tests) ... ok
+test_bad_compression_no_partial_success (collector113_prep.test_transport.Tests) ... ok
+test_bomb_at_cap_and_over_cap (collector113_prep.test_transport.Tests) ... ok
+test_endpoint_plan_retains_hostname (collector113_prep.test_transport.Tests) ... ok
+test_expired_mid_stream_and_empty (collector113_prep.test_transport.Tests) ... ok
+test_identity_and_split_compression (collector113_prep.test_transport.Tests) ... ok
+test_private_mixed_and_special_dns_refused (collector113_prep.test_transport.Tests) ... ok
+test_rebinding_peer_refused (collector113_prep.test_transport.Tests) ... ok
+test_status_redirect_and_header_rules (collector113_prep.test_transport.Tests) ... ok
+test_unlisted_and_nonstandard_origin_refused (collector113_prep.test_transport.Tests) ... ok
+test_wire_and_chunk_limits (collector113_prep.test_transport.Tests) ... ok
+
+----------------------------------------------------------------------
+Ran 17 tests in 0.700s
+
+OK

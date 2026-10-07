@@ -18,6 +18,7 @@
         "tests/news_export/test_original_contract.py",
         "tests/test_collector_mail_fixture.py",
         "tests/test_env_example.py",
+        "tests/test_feature_mail_prep.py",
         "tests/test_fixed_parser_pipeline.py",
         "tests/test_geo_collector_contract.py",
         "tests/test_geo_queue_fixture.py",
@@ -199,6 +200,7 @@
     {
       "import": "collections",
       "files": [
+        "feature_mail_prep/reports.py",
         "integration/accounts/limiter.py",
         "integration/country_page.py",
         "integration/country_signals.py",
@@ -359,6 +361,8 @@
     {
       "import": "datetime",
       "files": [
+        "feature_mail_prep/cleanup.py",
+        "feature_mail_prep/reports.py",
         "integration/accounts/service.py",
         "integration/article_archive.py",
         "integration/collector_mail_fixture.py",
@@ -424,6 +428,7 @@
         "tests/test_dashboard_model.py",
         "tests/test_digest_preview_routes.py",
         "tests/test_event_reader.py",
+        "tests/test_feature_mail_prep.py",
         "tests/test_fixed_feedparser_audit.py",
         "tests/test_fixed_parser_pipeline.py",
         "tests/test_geo_article_writer.py",
@@ -557,6 +562,20 @@
       "classification": "stdlib"
     },
     {
+      "import": "feature_mail_prep",
+      "files": [
+        "tests/test_feature_mail_prep.py"
+      ],
+      "stdlib": false,
+      "distributions": [],
+      "provenance": {
+        "paths": [
+          "feature_mail_prep/__init__.py"
+        ]
+      },
+      "classification": "local"
+    },
+    {
       "import": "feedparser",
       "files": [
         "integration/feedparser_audit/child.py"
@@ -678,6 +697,8 @@
     {
       "import": "hashlib",
       "files": [
+        "feature_mail_prep/cleanup.py",
+        "feature_mail_prep/reports.py",
         "integration/accounts/csrf.py",
         "integration/accounts/limiter.py",
         "integration/accounts/passwords.py",
@@ -825,6 +846,7 @@
     {
       "import": "integration",
       "files": [
+        "feature_mail_prep/reports.py",
         "integration/accounts/merged_fixture.py",
         "integration/agencia_parser.py",
         "integration/brics_streams.py",
@@ -935,6 +957,7 @@
         "tests/test_env_example.py",
         "tests/test_event_reader.py",
         "tests/test_fake_collection_writer.py",
+        "tests/test_feature_mail_prep.py",
         "tests/test_finder_index.py",
         "tests/test_finder_nested.py",
         "tests/test_finder_network.py",
@@ -1236,6 +1259,7 @@
     {
       "import": "ipaddress",
       "files": [
+        "feature_mail_prep/reports.py",
         "integration/dashboard_snapshots.py",
         "integration/rss_catalog/catalog.py"
       ],
@@ -1249,6 +1273,8 @@
     {
       "import": "json",
       "files": [
+        "feature_mail_prep/cleanup.py",
+        "feature_mail_prep/reports.py",
         "integration/accounts/http_fixture.py",
         "integration/accounts/merged_fixture.py",
         "integration/accounts/mongo_store.py",
@@ -1343,6 +1369,7 @@
     {
       "import": "math",
       "files": [
+        "feature_mail_prep/reports.py",
         "integration/accounts/mongo_store.py",
         "integration/accounts/shared_ledger_fixture.py",
         "integration/accounts/store.py",
@@ -1481,6 +1508,7 @@
         "tests/test_compulsory_channels.py",
         "tests/test_digest_cold.py",
         "tests/test_env_example.py",
+        "tests/test_feature_mail_prep.py",
         "tests/test_file_audit.py",
         "tests/test_finder_index.py",
         "tests/test_finder_nested.py",
@@ -1914,6 +1942,8 @@
     {
       "import": "re",
       "files": [
+        "feature_mail_prep/cleanup.py",
+        "feature_mail_prep/reports.py",
         "integration/accounts/csrf.py",
         "integration/accounts/merged_fixture.py",
         "integration/accounts/passwords.py",
@@ -2104,13 +2134,15 @@
     {
       "import": "socket",
       "files": [
+        "feature_mail_prep/reports.py",
         "integration/feedparser_audit/child.py",
         "tests/accounts/test_accounts.py",
         "tests/digest_cold_probe.py",
         "tests/geonews_digest/test_digest.py",
         "tests/geospatial/test_geospatial.py",
         "tests/news_export/test_export.py",
-        "tests/news_export/test_fixture_serving.py"
+        "tests/news_export/test_fixture_serving.py",
+        "tests/test_feature_mail_prep.py"
       ],
       "stdlib": true,
       "distributions": [],
@@ -2639,6 +2671,7 @@
         "tests/test_env_example.py",
         "tests/test_event_reader.py",
         "tests/test_fake_collection_writer.py",
+        "tests/test_feature_mail_prep.py",
         "tests/test_file_audit.py",
         "tests/test_finder_index.py",
         "tests/test_finder_nested.py",
@@ -2722,6 +2755,7 @@
     {
       "import": "urllib",
       "files": [
+        "feature_mail_prep/reports.py",
         "integration/accounts/http_fixture.py",
         "integration/accounts/merged_fixture.py",
         "integration/agencia_parser.py",
@@ -3020,7 +3054,8 @@
     "scopes": [
       "integration",
       "tests",
-      "scripts"
+      "scripts",
+      "feature_mail_prep"
     ],
     "exclusions": [
       "__pycache__",
@@ -3028,6 +3063,18 @@
       "tests/test_dependency_audit.py"
     ],
     "files": [
+      {
+        "path": "feature_mail_prep/__init__.py",
+        "sha256": "c182b5dabdc90dabde52ab79c5a637251425272edcda08e5b71544659365228f"
+      },
+      {
+        "path": "feature_mail_prep/cleanup.py",
+        "sha256": "f8647b71f04c692c6ad4baa0b475d194a547e2e21fca190945e8145459410cb6"
+      },
+      {
+        "path": "feature_mail_prep/reports.py",
+        "sha256": "3384a036c28d8f8ab0f685a34ae564d7a6a5e880af3acffe3ec0b3adddf611f4"
+      },
       {
         "path": "integration/__init__.py",
         "sha256": "5d961509258c047783dbe624ffaa01940143f0e09e8e19cf4e595372fd5c0a88"
@@ -3803,6 +3850,10 @@
       {
         "path": "tests/test_fake_collection_writer.py",
         "sha256": "cb8873fffeacf6d6cae5e69493492f79b01463c3eab4889b9615763e151ea0da"
+      },
+      {
+        "path": "tests/test_feature_mail_prep.py",
+        "sha256": "87d2fa7e7e12deea37b97062be3a0cdc9667c742594348523bd5da9364139256"
       },
       {
         "path": "tests/test_file_audit.py",

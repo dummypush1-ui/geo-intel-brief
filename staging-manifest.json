@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 1166,
+  "tests": 1202,
   "files": [
     {
       "path": ".env.example",
@@ -1376,6 +1376,21 @@
       "sha256": "94fbf4b2557a78f49bd05f92d22c419a65b206b82d7d76e03de370ecb6d4065e"
     },
     {
+      "path": "feature_mail_prep/__init__.py",
+      "bytes": 128,
+      "sha256": "c182b5dabdc90dabde52ab79c5a637251425272edcda08e5b71544659365228f"
+    },
+    {
+      "path": "feature_mail_prep/cleanup.py",
+      "bytes": 2714,
+      "sha256": "f8647b71f04c692c6ad4baa0b475d194a547e2e21fca190945e8145459410cb6"
+    },
+    {
+      "path": "feature_mail_prep/reports.py",
+      "bytes": 9945,
+      "sha256": "3384a036c28d8f8ab0f685a34ae564d7a6a5e880af3acffe3ec0b3adddf611f4"
+    },
+    {
       "path": "gemini.mjs",
       "bytes": 3579,
       "sha256": "17d77b90537a9547e76408c1da1bc0a848719649cdd0fddd5b50464b0761163f"
@@ -1918,12 +1933,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 18581,
-      "sha256": "d1d69935c5a2716dd934118aff80b0492b18dc364125d3e04b1462a393bf2adb"
+      "sha256": "3083579eb3c6e6b42b0dd8a0e27aa9a3b30c7448711a55ee6bec14e60d966fe7"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
-      "bytes": 155593,
-      "sha256": "5db42970cdfaca37b7c71618e963a626220d6c135069be83c58ed745c2e2c158"
+      "bytes": 157344,
+      "sha256": "447592eb6c98e0e89bb8a01b7e9f94c9ad6f0078e980475d144034de799205ec"
     },
     {
       "path": "integration/dependency_build/README.md",
@@ -4469,6 +4484,11 @@
       "path": "tests/test_fake_collection_writer.py",
       "bytes": 2266,
       "sha256": "cb8873fffeacf6d6cae5e69493492f79b01463c3eab4889b9615763e151ea0da"
+    },
+    {
+      "path": "tests/test_feature_mail_prep.py",
+      "bytes": 8245,
+      "sha256": "87d2fa7e7e12deea37b97062be3a0cdc9667c742594348523bd5da9364139256"
     },
     {
       "path": "tests/test_file_audit.py",
