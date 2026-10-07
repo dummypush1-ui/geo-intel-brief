@@ -1,0 +1,34 @@
+{
+  "scope": "inactive_fixture_and_preparation_only",
+  "review": "SAFE for inactive scope; not production approval",
+  "production_collection": "OFF",
+  "process_restart_durability": false,
+  "atomic_external_article_fencing": false,
+  "base_regression": {
+    "run": 1166,
+    "pass": true,
+    "source": "final packaged repository, twelve chunks"
+  },
+  "new_package_tests": {
+    "run": 38,
+    "pass": true
+  },
+  "old108_tests": {
+    "run": 21,
+    "pass": true
+  },
+  "node": "old108 and new wiring assertions PASS",
+  "preservation": "all 739 previous manifest hashes unchanged",
+  "remaining": [
+    "aggregate byte/depth/time bounds",
+    "streaming/decompression/DNS policy",
+    "RSS/XML sandbox",
+    "real Mongo majority+journal and durable checkpoints",
+    "source flags including fulltext/GNews/Telegram backup",
+    "complete service mounting including submission/health/drive",
+    "actual Apps Script triggers",
+    "article reconciliation and fence-aware live writes",
+    "explicit live cutover approval"
+  ],
+  "layout": "collector109_prep package and wiring subpackage; no production entrypoint imports"
+}

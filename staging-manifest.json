@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 1166,
+  "tests": 1204,
   "files": [
     {
       "path": ".env.example",
@@ -209,6 +209,101 @@
       "path": "collector108_prep/test_job_contract.py",
       "bytes": 3438,
       "sha256": "a37aa19fef667a7b476990d132033fead1aaee587c54d76bfa405d6477fb1953"
+    },
+    {
+      "path": "collector109_prep/ENGINE-STAGE.md",
+      "bytes": 3050,
+      "sha256": "fea006f35f89fe53c1aba7f661109ac2a6d121fa7c2189be6cb9fb736f19e5a9"
+    },
+    {
+      "path": "collector109_prep/__init__.py",
+      "bytes": 49,
+      "sha256": "456503a6316d161d29c87338be30ef90aedcebd48a1474bb3b7122bf71a3c676"
+    },
+    {
+      "path": "collector109_prep/checkpoint.py",
+      "bytes": 3025,
+      "sha256": "61089c5c5572a064b148a3942d3b07d6fb7fd921fd0a095e68accc3db9b472f2"
+    },
+    {
+      "path": "collector109_prep/drive.py",
+      "bytes": 6349,
+      "sha256": "432e4cff52120f08b20120ccba44801256deb7d4fc4e8c4cfb63450a61d2bfa5"
+    },
+    {
+      "path": "collector109_prep/evidence/save-assessment.json",
+      "bytes": 1131,
+      "sha256": "d7dc3a3c8d32aa87d55cba3fdcda3e5d1958e8a5e9044c2a706eb96670fc64f4"
+    },
+    {
+      "path": "collector109_prep/fetch_stage.py",
+      "bytes": 2539,
+      "sha256": "9f0eb844cf97b9f0c05ab4dde1b861f474ffe6ac744ec489abc62e9483942d88"
+    },
+    {
+      "path": "collector109_prep/fixture_support.py",
+      "bytes": 653,
+      "sha256": "200c893ccbda6efc4cc52ec61657b98d2c13990bc67b0a0a00e2b7bf1f9e894e"
+    },
+    {
+      "path": "collector109_prep/inventory109.json",
+      "bytes": 2007,
+      "sha256": "3a1c31d34c424b3126b456ad4c241c58b4008df95793fd54f6ae30f7fc65540a"
+    },
+    {
+      "path": "collector109_prep/test_drive.py",
+      "bytes": 3361,
+      "sha256": "94089b51908029a8b1a36e3ee1bd91a7e4ede9e0e7fa65388325150c998621a9"
+    },
+    {
+      "path": "collector109_prep/test_engine_chain.py",
+      "bytes": 3813,
+      "sha256": "eba016ccff7aa2e3b0bbfcfc1d28930b06462511a4e1753392dc317676b1a238"
+    },
+    {
+      "path": "collector109_prep/test_fetch_stage.py",
+      "bytes": 1811,
+      "sha256": "5e343f257909a79f8b06088be404456dc271abbac19631f89d816dd5c55b8a0e"
+    },
+    {
+      "path": "collector109_prep/test_safety.py",
+      "bytes": 6144,
+      "sha256": "d23569bbf8afaee2b9a09dadf9a2b07b930cc670cbbaa7ad4c58006c1d7fdcdd"
+    },
+    {
+      "path": "collector109_prep/wiring/WIRING-STAGE.md",
+      "bytes": 1651,
+      "sha256": "8f480d4c8770d26bca6c743ded1ab46b181007b723d7c1d7853df9a47fadb96f"
+    },
+    {
+      "path": "collector109_prep/wiring/__init__.py",
+      "bytes": 42,
+      "sha256": "e45c0d740f814cf65cb090d660b9d7f9f0e281c98952e9fdc64b4a8e6a527f0d"
+    },
+    {
+      "path": "collector109_prep/wiring/collection_drive109.gs",
+      "bytes": 3393,
+      "sha256": "0ce30c97a71dc4ef23feb53443bda0256c9b2ff8e90727a6c4105a6925b714f3"
+    },
+    {
+      "path": "collector109_prep/wiring/collection_only.gs",
+      "bytes": 2800,
+      "sha256": "fa3196352a03be4a1a680af1f8588560dc44fc58f76e213ffbfce2999e336191"
+    },
+    {
+      "path": "collector109_prep/wiring/endpoint_drive.py",
+      "bytes": 3512,
+      "sha256": "dc6f36ff5d1a525ddf469ca23fbf4dcebea0274f459db94bdf29f62bba88e122"
+    },
+    {
+      "path": "collector109_prep/wiring/test_drive_script.js",
+      "bytes": 2631,
+      "sha256": "c926ac62775d005d833fcfb58c7752bb6bdb27f9b0ba925ca96160d4ab654e41"
+    },
+    {
+      "path": "collector109_prep/wiring/test_endpoint_drive.py",
+      "bytes": 2814,
+      "sha256": "314d752df3da0fde8f0346bfdadee7076d5254267fd049ecd29f390d79c444ad"
     },
     {
       "path": "compute-sancgap.mjs",
@@ -2026,11 +2121,6 @@
       "sha256": "936a244b97187892bc9cd889d2b2d465742cf2c424af777c0ff91fd4bfb822f7"
     },
     {
-      "path": "intelligence/brics/config.py",
-      "bytes": 2671,
-      "sha256": "2419339566c5946dd0daeae7147eba7a49dffdd379b3c34769d6d62860afc82d"
-    },
-    {
       "path": "intelligence/brics/config/sources.yaml",
       "bytes": 5886,
       "sha256": "8de2ecee36e058ff76d84a39b0ee588aa936fd171156ea28f2a997250159f309"
@@ -2039,6 +2129,11 @@
       "path": "intelligence/brics/config/streams.yaml",
       "bytes": 712,
       "sha256": "65c676f7112813ac6196e859ecf88dd0a866118b9ad5801dd8982b2ea9afc0dd"
+    },
+    {
+      "path": "intelligence/brics/config.py",
+      "bytes": 2671,
+      "sha256": "2419339566c5946dd0daeae7147eba7a49dffdd379b3c34769d6d62860afc82d"
     },
     {
       "path": "intelligence/brics/config_check.py",
@@ -2176,14 +2271,14 @@
       "sha256": "87779b824769bf2b2ab6294838249f9431ae3890405050987870b3e474c6afd1"
     },
     {
-      "path": "intelligence/geo/config.py",
-      "bytes": 7266,
-      "sha256": "f7fbf007954c6918fbe2e402863fa29f597fe5d5cb4d60d1001deca8896b21f3"
-    },
-    {
       "path": "intelligence/geo/config/sources.example.yaml",
       "bytes": 708,
       "sha256": "a97e256c6bf2bc4518336ff38507c4837f206a32f1e09aecbd9777e913794440"
+    },
+    {
+      "path": "intelligence/geo/config.py",
+      "bytes": 7266,
+      "sha256": "f7fbf007954c6918fbe2e402863fa29f597fe5d5cb4d60d1001deca8896b21f3"
     },
     {
       "path": "intelligence/geo/config_check.py",
@@ -3699,72 +3794,6 @@
       "path": "vendor/pako-inflate.min.js",
       "bytes": 22682,
       "sha256": "2ca27e9a8dae569cdeac42752ed1aed1afeff7f19282d3cc12c0aaa54a08bc04"
-    }
-  ],
-  "test_evidence_note": "public107:13focusedPASS; configured1166unique/runPASS existing1xfail/1pikepdfskip. Fixturepublicnews browser/pixelsPASS. Actual publicDB activation requires operator disclosure/mapping/credential confirmations. Historical105/106evidence untouched.",
-  "intentional_revisions": [
-    {
-      "scope": "geo-home UI-only structural port",
-      "baseline_commit": "785a3076cb3d7aa56fd907b3c76f2f133e548187",
-      "prior_entries": [
-        {
-          "path": "integration/ui/workspace.css",
-          "bytes": 5294,
-          "sha256": "c6e15c552a245eb9d1a35b096166e6d932bd73115811b1ba67ce55b2cbba78c9"
-        },
-        {
-          "path": "integration/ui/workspace.html",
-          "bytes": 5198,
-          "sha256": "53bd579a5b1078453b990271acb5157c4db35943df7748f76e1481bd96b0674d"
-        },
-        {
-          "path": "integration/ui/workspace.js",
-          "bytes": 25306,
-          "sha256": "ad4ac10ca9ee8244794ad9bc62ab7768d494c80cd1105275dc801c77d03d2262"
-        }
-      ],
-      "new_paths": [
-        "integration/ui/workspace.css",
-        "integration/ui/workspace.html",
-        "integration/ui/workspace.js"
-      ]
-    },
-    {
-      "scope": "pypdf105 superseding offline locks; original87/88 receiptJSONunchanged",
-      "prior_entries": [
-        {
-          "path": "requirements-offline-reviewed.candidate.txt",
-          "bytes": 2479,
-          "sha256": "1d6360b5d3e60775a43904a8a772f841b8e09d0db13d17f4fd4ad315d7f79901"
-        },
-        {
-          "path": "integration/dependency_build/requirements-offline-built.txt",
-          "bytes": 2481,
-          "sha256": "50d207593146b6f9bea02c1581f7ece142f11399c880bad83cbfcba17a40ef5a"
-        },
-        {
-          "path": "integration/dependency_audit/README.md",
-          "bytes": 4241,
-          "sha256": "87630a55204eb318dfab114053b94266244f589a0711af2a4298492f5c8924ac"
-        },
-        {
-          "path": "integration/dependency_build/README.md",
-          "bytes": 3115,
-          "sha256": "7ab4f649af01c598d8891844db208838090c6ade8aa643ec2162bd388a627778"
-        },
-        {
-          "path": "tests/test_dependency_audit.py",
-          "bytes": 9682,
-          "sha256": "1c11c570807729674eea367034ff9a1aaf0abb0dd5f1d9cea4527a0c7c574e63"
-        }
-      ]
-    },
-    {
-      "increment": "108",
-      "state": "inactive_partial_collector_contracts_only",
-      "tests": "1166 existing +21 focused +Node PASS",
-      "changes": "collector108_prep only; no runtime/trigger/DB/network/client execution",
-      "limits": "Source/recovery/checkpoints/drive unfinished"
     }
   ]
 }

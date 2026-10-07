@@ -1,0 +1,20 @@
+{
+  "collector109_prep/ENGINE-STAGE.md": "fea006f35f89fe53c1aba7f661109ac2a6d121fa7c2189be6cb9fb736f19e5a9",
+  "collector109_prep/__init__.py": "456503a6316d161d29c87338be30ef90aedcebd48a1474bb3b7122bf71a3c676",
+  "collector109_prep/checkpoint.py": "61089c5c5572a064b148a3942d3b07d6fb7fd921fd0a095e68accc3db9b472f2",
+  "collector109_prep/drive.py": "432e4cff52120f08b20120ccba44801256deb7d4fc4e8c4cfb63450a61d2bfa5",
+  "collector109_prep/evidence/save-assessment.json": "d7dc3a3c8d32aa87d55cba3fdcda3e5d1958e8a5e9044c2a706eb96670fc64f4",
+  "collector109_prep/fetch_stage.py": "9f0eb844cf97b9f0c05ab4dde1b861f474ffe6ac744ec489abc62e9483942d88",
+  "collector109_prep/fixture_support.py": "200c893ccbda6efc4cc52ec61657b98d2c13990bc67b0a0a00e2b7bf1f9e894e",
+  "collector109_prep/test_drive.py": "94089b51908029a8b1a36e3ee1bd91a7e4ede9e0e7fa65388325150c998621a9",
+  "collector109_prep/test_engine_chain.py": "eba016ccff7aa2e3b0bbfcfc1d28930b06462511a4e1753392dc317676b1a238",
+  "collector109_prep/test_fetch_stage.py": "5e343f257909a79f8b06088be404456dc271abbac19631f89d816dd5c55b8a0e",
+  "collector109_prep/test_safety.py": "d23569bbf8afaee2b9a09dadf9a2b07b930cc670cbbaa7ad4c58006c1d7fdcdd",
+  "collector109_prep/wiring/WIRING-STAGE.md": "8f480d4c8770d26bca6c743ded1ab46b181007b723d7c1d7853df9a47fadb96f",
+  "collector109_prep/wiring/__init__.py": "e45c0d740f814cf65cb090d660b9d7f9f0e281c98952e9fdc64b4a8e6a527f0d",
+  "collector109_prep/wiring/collection_drive109.gs": "0ce30c97a71dc4ef23feb53443bda0256c9b2ff8e90727a6c4105a6925b714f3",
+  "collector109_prep/wiring/collection_only.gs": "fa3196352a03be4a1a680af1f8588560dc44fc58f76e213ffbfce2999e336191",
+  "collector109_prep/wiring/endpoint_drive.py": "dc6f36ff5d1a525ddf469ca23fbf4dcebea0274f459db94bdf29f62bba88e122",
+  "collector109_prep/wiring/test_drive_script.js": "c926ac62775d005d833fcfb58c7752bb6bdb27f9b0ba925ca96160d4ab654e41",
+  "collector109_prep/wiring/test_endpoint_drive.py": "314d752df3da0fde8f0346bfdadee7076d5254267fd049ecd29f390d79c444ad"
+}
