@@ -289,6 +289,7 @@
         "tests/test_collector_mail_fixture.py",
         "tests/test_country_alerts.py",
         "tests/test_country_signals.py",
+        "tests/test_feature_related_prep.py",
         "tests/test_fixed_parser_pipeline.py",
         "tests/test_geo_collector_contract.py",
         "tests/test_invite_expiry.py",
@@ -591,6 +592,20 @@
       "classification": "local"
     },
     {
+      "import": "feature_related_prep",
+      "files": [
+        "tests/test_feature_related_prep.py"
+      ],
+      "stdlib": false,
+      "distributions": [],
+      "provenance": {
+        "paths": [
+          "feature_related_prep/__init__.py"
+        ]
+      },
+      "classification": "local"
+    },
+    {
       "import": "feedparser",
       "files": [
         "integration/feedparser_audit/child.py"
@@ -727,6 +742,7 @@
         "feature_finder_prep/shell.py",
         "feature_mail_prep/cleanup.py",
         "feature_mail_prep/reports.py",
+        "feature_related_prep/hybrid.py",
         "integration/accounts/csrf.py",
         "integration/accounts/limiter.py",
         "integration/accounts/passwords.py",
@@ -878,6 +894,7 @@
       "import": "integration",
       "files": [
         "feature_mail_prep/reports.py",
+        "feature_related_prep/hybrid.py",
         "integration/accounts/merged_fixture.py",
         "integration/agencia_parser.py",
         "integration/brics_streams.py",
@@ -1307,6 +1324,7 @@
       "files": [
         "feature_mail_prep/cleanup.py",
         "feature_mail_prep/reports.py",
+        "feature_related_prep/hybrid.py",
         "integration/accounts/http_fixture.py",
         "integration/accounts/merged_fixture.py",
         "integration/accounts/mongo_store.py",
@@ -1403,6 +1421,7 @@
       "import": "math",
       "files": [
         "feature_mail_prep/reports.py",
+        "feature_related_prep/hybrid.py",
         "integration/accounts/mongo_store.py",
         "integration/accounts/shared_ledger_fixture.py",
         "integration/accounts/store.py",
@@ -1995,6 +2014,7 @@
       "files": [
         "feature_mail_prep/cleanup.py",
         "feature_mail_prep/reports.py",
+        "feature_related_prep/hybrid.py",
         "integration/accounts/csrf.py",
         "integration/accounts/merged_fixture.py",
         "integration/accounts/passwords.py",
@@ -2729,6 +2749,7 @@
         "tests/test_fake_collection_writer.py",
         "tests/test_feature_finder_prep.py",
         "tests/test_feature_mail_prep.py",
+        "tests/test_feature_related_prep.py",
         "tests/test_file_audit.py",
         "tests/test_finder_index.py",
         "tests/test_finder_nested.py",
@@ -3114,7 +3135,8 @@
       "tests",
       "scripts",
       "feature_mail_prep",
-      "feature_finder_prep"
+      "feature_finder_prep",
+      "feature_related_prep"
     ],
     "exclusions": [
       "__pycache__",
@@ -3141,6 +3163,14 @@
       {
         "path": "feature_mail_prep/reports.py",
         "sha256": "3384a036c28d8f8ab0f685a34ae564d7a6a5e880af3acffe3ec0b3adddf611f4"
+      },
+      {
+        "path": "feature_related_prep/__init__.py",
+        "sha256": "e0f19d36461f0b9ea5f281d93e32aeeb57f1b8889c5bc265a8686e23f0d34d7d"
+      },
+      {
+        "path": "feature_related_prep/hybrid.py",
+        "sha256": "a2cdb3de16b156e73268975534573d26874e1f8f78abc75555ecc808a0605a7f"
       },
       {
         "path": "integration/__init__.py",
@@ -3929,6 +3959,10 @@
       {
         "path": "tests/test_feature_mail_prep.py",
         "sha256": "87d2fa7e7e12deea37b97062be3a0cdc9667c742594348523bd5da9364139256"
+      },
+      {
+        "path": "tests/test_feature_related_prep.py",
+        "sha256": "6efe1bcc636fd47822bd38841aed9dc858d9bdab5bfe7730223def3e2299a4be"
       },
       {
         "path": "tests/test_file_audit.py",
