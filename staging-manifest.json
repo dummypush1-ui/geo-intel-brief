@@ -56,6 +56,31 @@
       "sha256": "c14aa1e1736dc500d72e09c94b236acb82a915b0d5a81b6529b9e0c723a05663"
     },
     {
+      "path": "checks/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "checks/test_collector_facade.py",
+      "bytes": 2484,
+      "sha256": "d0133c2346a9552356005a759cf2efe83aaa8c22a17cf5a04b07e2718c28024a"
+    },
+    {
+      "path": "checks/test_production_entry.py",
+      "bytes": 1920,
+      "sha256": "be5f0a1618fee099a8998726b3ef3b59d5527cb1754c5ff60c7c8ea207ce75e0"
+    },
+    {
+      "path": "checks/test_source_drift.py",
+      "bytes": 1733,
+      "sha256": "d56ffb5de4d524ce61fc7ca960da6e62121e0370de5f870a08e9a3870c504f6b"
+    },
+    {
+      "path": "collector.py",
+      "bytes": 2060,
+      "sha256": "8e8280cb3d0adab8911bc3aa96b4f1511284d0a2b7531dd9db1b622256610018"
+    },
+    {
       "path": "collector108_prep/ASSESSMENT.md",
       "bytes": 2969,
       "sha256": "c988139e64018bb23bd492f6e10f56b85dfd7702fd38400f9da059d38fc5035e"
@@ -3751,6 +3776,11 @@
       "sha256": "61a55dd6bc7d033383d37f7d347dc52cb3db37bbcf18b713c6829c134aa92f34"
     },
     {
+      "path": "production_entry.py",
+      "bytes": 2209,
+      "sha256": "a80c851325bae05c38d6727fd9a05612a4fe89f392e0e0dcfa94fa3f1a19e462"
+    },
+    {
       "path": "proxy.js",
       "bytes": 20259,
       "sha256": "3204714a8df243e4df389f3e40264f72c52b0dfc0e0b40eea082c96bdccf8e94"
@@ -3834,6 +3864,11 @@
       "path": "sitemap.xml",
       "bytes": 246,
       "sha256": "324fa14acc53ccacdd64f04e31464ef0ff83f7081f7cefc56bc8ef98b5c657ab"
+    },
+    {
+      "path": "source_drift.py",
+      "bytes": 2160,
+      "sha256": "8de2a0f8f45f55d000ed67810e93669120cccb02e8ff99a6cd8d7347460e9f3b"
     },
     {
       "path": "src/add.ts",
