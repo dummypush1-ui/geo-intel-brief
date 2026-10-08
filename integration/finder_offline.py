@@ -3,12 +3,12 @@ import re,hashlib,base64
 from integration.branding_meta import HeadTags
 from integration.finder_network import manual_ships_shell
 
-DATA_NAME='data.17204075ad25.js'
+DATA_NAME='data.d6d1b417562b.js'
 PWA_REGISTER="""if ('serviceWorker' in navigator && location.protocol === 'https:' && location.hostname === 'finder-hsn-codee.onrender.com') {
     window.addEventListener('load', function () { navigator.serviceWorker.register('./sw.js').catch(function () {}); });
   }"""
 
-OFFLINE_SHA='cfc66f0e2234812bb7400e9f541f50f5ed951c449dbc8628140579582a3985fc'
+OFFLINE_SHA='2491a5a38160f4f4c676c246f69b2454c5e4d7048ce4b22480b1c1e0d60c613d'
 
 def shell(original):
  if hashlib.sha256(original.encode()).hexdigest()!=OFFLINE_SHA:raise ValueError('Offline source requires review')

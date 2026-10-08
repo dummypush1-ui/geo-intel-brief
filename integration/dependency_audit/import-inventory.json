@@ -17,6 +17,7 @@
         "tests/collection_outcomes/test_callers.py",
         "tests/geonews_digest/test_digest.py",
         "tests/news_export/test_original_contract.py",
+        "tests/test_build_provenance150.py",
         "tests/test_collector_mail_fixture.py",
         "tests/test_env_example.py",
         "tests/test_feature_mail_prep.py",
@@ -826,6 +827,7 @@
         "tests/test_apps_script_audit.py",
         "tests/test_article_archive.py",
         "tests/test_branding.py",
+        "tests/test_build_provenance150.py",
         "tests/test_bulk147_inventory.py",
         "tests/test_classifier146_inventory.py",
         "tests/test_collector122_inventory.py",
@@ -1438,6 +1440,7 @@
         "tests/test_apps_script_audit.py",
         "tests/test_article_archive.py",
         "tests/test_branding.py",
+        "tests/test_build_provenance150.py",
         "tests/test_bulk147_inventory.py",
         "tests/test_classifier146_inventory.py",
         "tests/test_collector122_inventory.py",
@@ -1621,6 +1624,7 @@
         "tests/news_export/test_original_contract.py",
         "tests/test_apps_script_audit.py",
         "tests/test_branding.py",
+        "tests/test_build_provenance150.py",
         "tests/test_bulk147_inventory.py",
         "tests/test_classifier146_inventory.py",
         "tests/test_compulsory_channels.py",
@@ -2135,6 +2139,7 @@
         "tests/accounts/test_merged_fixture.py",
         "tests/geonews_digest/test_digest.py",
         "tests/geospatial/test_geospatial.py",
+        "tests/test_build_provenance150.py",
         "tests/test_env_example.py",
         "tests/test_feature_finder_prep.py",
         "tests/test_finder_nested.py",
@@ -2361,6 +2366,7 @@
         "tests/geospatial/test_geospatial.py",
         "tests/news_export/test_fixture_http.py",
         "tests/test_apps_script_audit.py",
+        "tests/test_build_provenance150.py",
         "tests/test_collection_prepare.py",
         "tests/test_compulsory_channels.py",
         "tests/test_digest_cold.py",
@@ -2815,6 +2821,7 @@
         "tests/test_branding.py",
         "tests/test_brics_streams.py",
         "tests/test_bridges.py",
+        "tests/test_build_provenance150.py",
         "tests/test_bulk147_inventory.py",
         "tests/test_classifier146_inventory.py",
         "tests/test_collection_prepare.py",
@@ -3261,7 +3268,7 @@
       },
       {
         "path": "feature_finder_prep/shell.py",
-        "sha256": "682bffaa3d62bb33cb616ce10b61a7e69169816813b29b3700b588609346212d"
+        "sha256": "dc1d6db222c2bd7e5312fa8321c4c8a7c06d4a819f4d7a50402a5f989786a5ed"
       },
       {
         "path": "feature_mail_mount/__init__.py",
@@ -3473,7 +3480,7 @@
       },
       {
         "path": "integration/finder_offline.py",
-        "sha256": "1be81c458ef1cdd088abdad1df6623cadaf52ac8065ae279ebe0e997adca1b57"
+        "sha256": "fe22a2f0f5877339e5d8ee2771ec72b7489b7d0f7c70f93ac99b3d2631fb1b9d"
       },
       {
         "path": "integration/fixed_parser_pipeline.py",
@@ -3893,7 +3900,7 @@
       },
       {
         "path": "tests/browser_finder_offline.py",
-        "sha256": "66a6de4f67743d93c3570d8652698e3c21bb01f413c02b2a2f9845128f0b4789"
+        "sha256": "c0b4242b4edefed352b537cd30efd8dd3b3591eaeee37997d9f8464310e8c922"
       },
       {
         "path": "tests/browser_finder_static.py",
@@ -4038,6 +4045,10 @@
       {
         "path": "tests/test_bridges.py",
         "sha256": "847cc2d86a32b5a3cf3cc37cc5a88488216c0ad5f52867aca277e69bbc37a920"
+      },
+      {
+        "path": "tests/test_build_provenance150.py",
+        "sha256": "af6af29b4c3aad3259ec829c4fbc1c330faa3327bcf56340a1f00487cbea8507"
       },
       {
         "path": "tests/test_bulk147_inventory.py",

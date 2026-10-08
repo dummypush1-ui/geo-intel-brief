@@ -105,6 +105,16 @@ const doc = `<!doctype html>
 <style>
 ${css}
 </style>
+<link rel="icon" href="/branding/favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="icon" type="image/png" sizes="48x48" href="/branding/icon-48.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/branding/apple-touch-icon.png">
+<meta property="og:image" content="https://finder-hsn-codee.onrender.com/branding/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Worldwide HSN Code Finder">
+<meta name="twitter:description" content="Trade-code finder with official code descriptions and duty context.">
+<meta name="twitter:image" content="https://finder-hsn-codee.onrender.com/branding/og-image.png">
 </head>
 <body>
 <div id="root"></div>
