@@ -30,12 +30,12 @@ class Tests(unittest.TestCase):
         self.assertEqual(row['source'],'Fixture')
         self.assertEqual(row['published'],D)
         self.assertFalse(r['writes']);self.assertFalse(r['network'])
-    def test_original_limit_and_fixed_date_fallback(self):
+    def test_original_limit_and_invalid_date_held(self):
         self.assertEqual(self.select(max_items=1)['selection']['selected_count'],1)
         blob=b'<rss><channel><item><title>Trade</title><link>https://example.com/a</link><pubDate>bad</pubDate></item></channel></rss>'
         r=self.select(blob)['selection']
-        self.assertEqual(r['date_fallback_count'],1)
-        self.assertEqual(r['candidates'][0]['published'],D)
+        self.assertEqual(r['date_fallback_count'],0)
+        self.assertEqual(r['candidates'],[])
     def test_bozo_remains_visible_not_health(self):
         r=self.select(b'<rss><channel><item><title>Trade</title><link>https://example.com/a</link></item>')
         self.assertTrue(r['parser_bozo'])

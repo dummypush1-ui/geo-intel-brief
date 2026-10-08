@@ -4,7 +4,7 @@ from .fulltext_composition import prepare_enriched_cycle,EnrichmentRefused
 from collector115_prep.profile import compile_profile
 D=datetime(2026,1,1,tzinfo=timezone.utc)
 F=compile_profile({})['feeds']
-RSS=b'<rss><channel><item><title>Tariff trade</title><link>https://example.com/a</link><description>short</description></item></channel></rss>'
+RSS=b'<rss><channel><item><title>Tariff trade</title><link>https://example.com/a</link><description>short</description><pubDate>Thu, 01 Jan 2026 00:00:00 GMT</pubDate></item></channel></rss>'
 def proof(blob):return {'bytes':blob,'input_sha256':hashlib.sha256(blob).hexdigest(),'wire_bytes':len(blob)}
 class Tests(unittest.TestCase):
  def test_disabled_original_default(self):
@@ -33,7 +33,7 @@ class OutcomeBudgetTests(unittest.TestCase):
    items=[]
    for n in range(group*40,min(count,(group+1)*40)):
     u='https://example.com/a'+str(n)
-    items.append('<item><title>Trade '+str(n)+'</title><link>'+u+'</link><description>short</description></item>')
+    items.append('<item><title>Trade '+str(n)+'</title><link>'+u+'</link><description>short</description><pubDate>Thu, 01 Jan 2026 00:00:00 GMT</pubDate></item>')
     outcomes[u]={'download':'text','extract':'text','text':'fulltext trade '+str(n)}
    blob=('<rss><channel>'+''.join(items)+'</channel></rss>').encode()
    evidence[feeds[group][1]]=proof(blob)

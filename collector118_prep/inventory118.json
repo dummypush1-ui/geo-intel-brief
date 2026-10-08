@@ -4,5 +4,5 @@
   "collector118_prep/__init__.py": "8616a27e22ff35205a466f652fe7879732ff8066e3e2036ea172bc4293643566",
   "collector118_prep/evidence/local-tests.json": "07241ebdd4b40b2ac674bc49bde3553983ca62e9895cb9f65416a2581046a371",
   "collector118_prep/fulltext_composition.py": "087f1e548db8641512d154fc6c39bd353cffa73b0870801f6fe8f9335c0cdb14",
-  "collector118_prep/test_fulltext_composition.py": "f399d26c1175e5a0f49df9233c5ece6418ea7923e733ed275024b08a02c7253b"
+  "collector118_prep/test_fulltext_composition.py": "ba3943f7dcdbc7220a7c6483784bd5f32eebe12da29a9037b74f5ced973960c0"
 }
