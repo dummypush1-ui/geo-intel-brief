@@ -1,8 +1,9 @@
+import {classifyGeminiError} from './updater_runtime/gemini-error.mjs';
 // Minimal Gemini client for the refresh worker (mirrors the app's model chain).
 const GEMINI_MODELS = ['gemini-3.8-flash', 'gemini-3.7-flash', 'gemini-3.6-flash', 'gemini-3.5-flash-lite', 'gemini-3.1-flash-lite', 'gemini-2.5-flash-lite', 'gemini-2.5-flash'];
 
 export async function geminiPost(apiKey, body) {
-  let quotaHit = false;
+  let quotaHit = false, serviceHit = false;
   for (const m of GEMINI_MODELS) {
     let res, data;
     try {
@@ -14,14 +15,16 @@ export async function geminiPost(apiKey, body) {
       data = await res.json().catch(() => ({}));
     } catch { throw new Error('no connection to Gemini'); }
     if (res.ok) return { data, model: m };
-    const msg = (data && data.error && data.error.message) || ('Gemini API error ' + res.status);
-    if (res.status === 400 && /key|api/i.test(msg)) throw new Error('GEMINI_API_KEY not accepted: ' + msg);
-    if (res.status === 403) throw new Error('GEMINI_API_KEY refused: ' + msg);
-    if (res.status === 429) { quotaHit = true; continue; }
-    if (res.status === 404 || /not found|no longer|deprecated|not supported|unavailable|retired/i.test(msg)) continue;
-    throw new Error('Gemini failed: ' + msg);
+    const kind=classifyGeminiError(res.status,data);
+    if(kind==='invalid_key')throw new Error('GEMINI_API_KEY invalid or expired');
+    if(kind==='permission_denied')throw new Error('Gemini permission denied');
+    if(kind==='quota'){quotaHit=true;continue;}
+    if(kind==='model_missing')continue;
+    if(kind==='service_unavailable'){serviceHit=true;continue;}
+    if(kind==='invalid_request')throw new Error('Gemini request validation failed');
+    throw new Error('Gemini request failed');
   }
-  throw new Error(quotaHit ? 'Gemini quota exhausted on all models' : 'no Gemini model available');
+  throw new Error(quotaHit ? 'Gemini quota exhausted on all models' : serviceHit ? 'Gemini service unavailable' : 'no Gemini model available');
 }
 
 const stripTags = (s) => s.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();

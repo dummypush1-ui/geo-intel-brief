@@ -1477,8 +1477,8 @@
     },
     {
       "path": "gemini.mjs",
-      "bytes": 3579,
-      "sha256": "17d77b90537a9547e76408c1da1bc0a848719649cdd0fddd5b50464b0761163f"
+      "bytes": 3703,
+      "sha256": "517c78de2c990b393ee0d5137034823fd56ecc3e73eb226e1914d621f0fd8c69"
     },
     {
       "path": "icon-192.png",
@@ -5131,6 +5131,11 @@
       "sha256": "dc7fcfe35c135684cfdd9b629db765a391fa3e1e91edffd4f4c17e07ff9c4318"
     },
     {
+      "path": "tests/updater_runtime/test_gemini_error.mjs",
+      "bytes": 1891,
+      "sha256": "6f4b6192aea174d82d9619fc04c21c7b3e06f2580187beba1031112621d818e3"
+    },
+    {
       "path": "tests/updater_runtime/test_public_status.cjs",
       "bytes": 943,
       "sha256": "94607ce9cc199c08cb38500c62ca1a165850fe6e6fb374856dca614616bd5510"
@@ -5144,6 +5149,11 @@
       "path": "tests/weekly_report/test_report.py",
       "bytes": 22221,
       "sha256": "92770ad9325b0becc57f76e625e2ee7c8e1214ddfc8011df8a9b10ea842dbf6f"
+    },
+    {
+      "path": "updater_runtime/gemini-error.mjs",
+      "bytes": 655,
+      "sha256": "bba43129418e78d68afee50d44e9bf9b56d1b7e64a82448f3d490f6b50e00e06"
     },
     {
       "path": "updater_runtime/public-status.cjs",
