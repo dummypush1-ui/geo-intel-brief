@@ -1,0 +1,83 @@
+name: Manual runtime build evidence
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: runtime-build-review
+  cancel-in-progress: false
+jobs:
+  build-evidence:
+    if: github.repository == 'dummypush1-ui/geo-intel-brief'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - name: Read approved repository revision
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+          fetch-depth: 1
+      - name: Refuse missing or changed reviewed input bundle
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import hashlib,json,re
+          from pathlib import Path
+          root=Path('runtime_build').resolve()
+          # This anchor file is reviewed source, never a dispatch/request parameter.
+          anchor=(root/'inputs.sha256').read_text().strip()
+          if re.fullmatch('[0-9a-f]{64}',anchor) is None:raise SystemExit('Missing reviewed input anchor')
+          raw=(root/'inputs-manifest.json').read_bytes()
+          if len(raw)>1048576 or hashlib.sha256(raw).hexdigest()!=anchor:raise SystemExit('Input manifest anchor mismatch')
+          m=json.loads(raw)
+          if type(m)is not dict or set(m)!={'scope','files'} or m['scope']!='reviewed_build_inputs':raise SystemExit('Input manifest shape')
+          if type(m['files'])is not dict or not 1<=len(m['files'])<=10000:raise SystemExit('Input file bound')
+          actual=set()
+          for p in root.rglob('*'):
+           if p.is_symlink():raise SystemExit('No input symlinks')
+           if p.is_file() and p.relative_to(root).as_posix() not in ('inputs.sha256','inputs-manifest.json'):actual.add(p.relative_to(root).as_posix())
+          if actual!=set(m['files']):raise SystemExit('Exact input file set required')
+          total=0
+          for name,h in m['files'].items():
+           if type(name)is not str or name.startswith('/') or '\\' in name or any(x in ('','.','..')for x in name.split('/')):raise SystemExit('Input path shape')
+           if type(h)is not str or re.fullmatch('[0-9a-f]{64}',h)is None:raise SystemExit('Input hash shape')
+           p=root/name;size=p.stat().st_size;total+=size
+           if size>67108864 or total>268435456:raise SystemExit('Build input byte bound')
+           if hashlib.sha256(p.read_bytes()).hexdigest()!=h:raise SystemExit('Input bytes changed')
+          for n in ('Dockerfile.candidate','network-launcher.c','build-args.json','inputs/apt.sources','inputs/application.lock'):
+           if n not in actual:raise SystemExit('Required reviewed input missing: '+n)
+          print('Reviewed input hashes verified')
+          PY
+      - name: Build candidate image only
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p evidence
+          python3 - <<'PY'
+          import json,re,subprocess
+          from pathlib import Path
+          a=json.loads(Path('runtime_build/build-args.json').read_text())
+          keys={'REVIEWED_APT_SOURCES_SHA256','GCC_VERSION','LIBC6_DEV_VERSION','BWRAP_VERSION'}
+          if type(a)is not dict or set(a)!=keys or any(type(v)is not str or re.fullmatch('[A-Za-z0-9.+:~_-]{1,128}',v)is None for v in a.values()):raise SystemExit('Exact public package build args required')
+          args=['docker','build','--platform','linux/amd64','--pull','--network','default','--progress','plain','--tag','runtime-review:local','--file','runtime_build/Dockerfile.candidate']
+          for k in sorted(a):args.extend(['--build-arg',k+'='+a[k]])
+          args.append('runtime_build')
+          with Path('evidence/build.log').open('wb') as log:
+           try:r=subprocess.run(args,stdout=log,stderr=subprocess.STDOUT,timeout=1800)
+           except subprocess.TimeoutExpired:raise SystemExit('Build wall timeout')
+          if Path('evidence/build.log').stat().st_size>4194304:
+           Path('evidence/build.log').unlink();raise SystemExit('Build log exceeds reviewed artifact budget')
+          if r.returncode:raise SystemExit('Candidate build failed; no runtime/deploy')
+          Path('evidence/image-inspect.json').write_bytes(subprocess.check_output(['docker','image','inspect','runtime-review:local'],timeout=30))
+          receipt={'scope':'build_only_not_runtime_acceptance','commit':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),'runtime_executed':False,'image_pushed':False,'render_verified':False,'closure_verified':False,'runtime_ready':False}
+          Path('evidence/build-receipt.json').write_text(json.dumps(receipt,indent=2))
+          PY
+      - name: Upload small public evidence only
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: runtime-build-evidence
+          path: evidence/
+          if-no-files-found: error
+          retention-days: 1
+          compression-level: 6
