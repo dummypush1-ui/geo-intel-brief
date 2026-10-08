@@ -3566,6 +3566,11 @@
       "sha256": "a5db615b74bb21c4bcfac59cde71edd97379621914421d3ea2b3ab765c7bc62b"
     },
     {
+      "path": "intelligence/geo/collectors/EXTRA-FEEDS-ATTRIBUTION-PLAN.md",
+      "bytes": 2470,
+      "sha256": "34709192eb06b524c6089f9fb3f0ba7dbac2df9a34f41562160c0eee0c683e05"
+    },
+    {
       "path": "intelligence/geo/collectors/__init__.py",
       "bytes": 0,
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
@@ -3574,6 +3579,11 @@
       "path": "intelligence/geo/collectors/events.py",
       "bytes": 155,
       "sha256": "4adb1ddb80a6483f445d3130664eb8924285aca5b267548ba2b42a6171238c11"
+    },
+    {
+      "path": "intelligence/geo/collectors/extra_feeds.py",
+      "bytes": 5973,
+      "sha256": "7ea2ee1fdb80702ec21e3bb63a2b191f0ea52b9e87126e5de8e70124d8f94dbd"
     },
     {
       "path": "intelligence/geo/collectors/gnews_search.py",
