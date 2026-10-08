@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 1230,
+  "tests": 1258,
   "files": [
     {
       "path": ".env.example",
@@ -1386,6 +1386,41 @@
       "sha256": "682bffaa3d62bb33cb616ce10b61a7e69169816813b29b3700b588609346212d"
     },
     {
+      "path": "feature_mail_mount/DESIGN.md",
+      "bytes": 3883,
+      "sha256": "887b7551d3fe662f389d4bf9ab0110f047a1877d4c089c4e59262ff3aeb11a2c"
+    },
+    {
+      "path": "feature_mail_mount/__init__.py",
+      "bytes": 125,
+      "sha256": "581ead85e1f5472ed8d6a11e44a5c49580aa0aade1b806ef4a521692eaa2b3e4"
+    },
+    {
+      "path": "feature_mail_mount/bridge.gs",
+      "bytes": 5432,
+      "sha256": "c1851a96f40089ad5bfbf9ee35c39fdd3b21f87ff3a514b1b9225b4e7f59c199"
+    },
+    {
+      "path": "feature_mail_mount/http.py",
+      "bytes": 2637,
+      "sha256": "0ea303f1184e2c203f9f5e06ef06637ae80a2336243191397a3f68fe642f7124"
+    },
+    {
+      "path": "feature_mail_mount/reports.py",
+      "bytes": 5688,
+      "sha256": "cc85b535edb50f3d1a3f41e198fe4606add2b0aa5ccc18ec2c30e00dee08afa2"
+    },
+    {
+      "path": "feature_mail_mount/store.py",
+      "bytes": 11810,
+      "sha256": "d425883b8f22a2530dda2e6fe9b28bed7036c88bb1e842748b2b277040f843a8"
+    },
+    {
+      "path": "feature_mail_mount/test_bridge.js",
+      "bytes": 3211,
+      "sha256": "f04e0d4664eb0c140ac3560d907344667d30c70907efe6216b2ea63dcf310727"
+    },
+    {
       "path": "feature_mail_prep/__init__.py",
       "bytes": 128,
       "sha256": "c182b5dabdc90dabde52ab79c5a637251425272edcda08e5b71544659365228f"
@@ -1953,12 +1988,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 18581,
-      "sha256": "262a4a100d9a8b98a2f12d8bedc7d99307aa52096ef41faf13aa412597995f54"
+      "sha256": "b6e783992d56a635f8fcbbe55dd8d28ac3e0ee365e3c1bf16cbb1e42edcf0269"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
-      "bytes": 160908,
-      "sha256": "3ced1ce956d934697ff1c96b949e8cbd309632df7a6ecc0ae0a570b7caabbe5f"
+      "bytes": 162898,
+      "sha256": "307adcb2376f4c67a3bab96f24b257bfcae5abd235f94882c2e4483bc9a838ef"
     },
     {
       "path": "integration/dependency_build/README.md",
@@ -4514,6 +4549,11 @@
       "path": "tests/test_feature_finder_prep.py",
       "bytes": 3040,
       "sha256": "b866465273fe237e4c380d1f0201beabf10cb32424678510cc68152c3e0a54d4"
+    },
+    {
+      "path": "tests/test_feature_mail_mount.py",
+      "bytes": 14696,
+      "sha256": "ecd196aa7b338854522dfe17aea842c11e072fd2a608654dce59b574310fc9e5"
     },
     {
       "path": "tests/test_feature_mail_prep.py",
