@@ -851,6 +851,7 @@
         "tests/test_protocol145_inventory.py",
         "tests/test_publication151_inventory.py",
         "tests/test_report_preview_frame.py",
+        "tests/test_sanctions152.py",
         "tests/test_security_review.py",
         "tests/test_shared_service_fixture.py",
         "tests/test_stream_config.py",
@@ -1466,6 +1467,7 @@
         "tests/test_publication151_inventory.py",
         "tests/test_retention_audit.py",
         "tests/test_rss_catalog.py",
+        "tests/test_sanctions152.py",
         "tests/test_scraper_policy.py",
         "tests/test_tariff_evidence_plain.py"
       ],
@@ -1656,6 +1658,7 @@
         "tests/test_refresh149_gate.py",
         "tests/test_refresh_controller.py",
         "tests/test_rss_catalog.py",
+        "tests/test_sanctions152.py",
         "tests/test_scraper_policy.py",
         "tests/test_security_review.py",
         "tests/test_shared_service_fixture.py",
@@ -2394,6 +2397,7 @@
         "tests/test_preview_access.py",
         "tests/test_refresh149_gate.py",
         "tests/test_refresh_controller.py",
+        "tests/test_sanctions152.py",
         "tests/test_table_edit151.py",
         "tests/test_watch_updates.py"
       ],
@@ -2921,6 +2925,7 @@
         "tests/test_rss_catalog.py",
         "tests/test_runtime.py",
         "tests/test_sample_volume.py",
+        "tests/test_sanctions152.py",
         "tests/test_scraper_policy.py",
         "tests/test_security_review.py",
         "tests/test_shared_ledger_fixture.py",
@@ -4408,6 +4413,10 @@
       {
         "path": "tests/test_sample_volume.py",
         "sha256": "03bacde7d62ca90ce577e2698c5841ea768ab96fae8bcbb43fa5e6dc81a082e1"
+      },
+      {
+        "path": "tests/test_sanctions152.py",
+        "sha256": "930c8b520ee8e732dcf79afd23e7a299552fd57a30f64382ded204ed506d9e71"
       },
       {
         "path": "tests/test_scraper_policy.py",

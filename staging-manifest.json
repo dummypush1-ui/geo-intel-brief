@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 1382,
+  "tests": 1384,
   "files": [
     {
       "path": ".env.example",
@@ -47,8 +47,8 @@
     },
     {
       "path": "automate.mjs",
-      "bytes": 4509,
-      "sha256": "4f444600c14aec5cf3c4db32aba0a08d6b1af6df64a948ea5010adfe5d1bfdeb"
+      "bytes": 4527,
+      "sha256": "aa0a3ea5e571a700b6fc608cc40cfe6baaefc9d4990416434822b41796c52e8f"
     },
     {
       "path": "build.mjs",
@@ -2053,12 +2053,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 18581,
-      "sha256": "9d8b146adb0b41938bc7527c3faf861573b26b54d54cb8f01254edd1e9b28137"
+      "sha256": "09f31a0f7f589e775498e33a24067df585b1a12dc95f07af22eaec95647ef2b1"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
-      "bytes": 172137,
-      "sha256": "59d599f18ea5d6a815d35b0af28c69cf327283738400e6f2c3180942044a84e2"
+      "bytes": 172475,
+      "sha256": "0c6f9ad2461960520abf5d034dac1bc0658d21b30ade354e9b806ba2a0b146b6"
     },
     {
       "path": "integration/dependency_build/README.md",
@@ -3667,8 +3667,8 @@
     },
     {
       "path": "sanctions-refresh.mjs",
-      "bytes": 3764,
-      "sha256": "c0e9cbec3a31ee281d88b601062dc3c7aae7557bfbf98cb7f60c1a162495467c"
+      "bytes": 6897,
+      "sha256": "4b97c180da8a20a18bc54c1a285dbab38a3626f05be65f34b8dae7d09fe43f7b"
     },
     {
       "path": "scripts/audit_connections.py",
@@ -5041,6 +5041,11 @@
       "sha256": "03bacde7d62ca90ce577e2698c5841ea768ab96fae8bcbb43fa5e6dc81a082e1"
     },
     {
+      "path": "tests/test_sanctions152.py",
+      "bytes": 600,
+      "sha256": "930c8b520ee8e732dcf79afd23e7a299552fd57a30f64382ded204ed506d9e71"
+    },
+    {
       "path": "tests/test_scraper_policy.py",
       "bytes": 1869,
       "sha256": "238e745566bdcd339e7bdb2d1ea0f8a79a14b2e3e6cc7f2ff9a081a445b41e8f"
@@ -5211,6 +5216,11 @@
       "sha256": "46bdb9c59f7aa261c7f1747bbf55fe0c28459e90b5c3565646ec6cfb25fa7286"
     },
     {
+      "path": "tests/updater_runtime/test_sanctions_policy.mjs",
+      "bytes": 4703,
+      "sha256": "e940a82a76f44886a24789960f774152eed19b5dc5c31dafd203573e56f02c79"
+    },
+    {
       "path": "tests/updater_runtime/test_table_edit.mjs",
       "bytes": 2930,
       "sha256": "27e98e10106dbcab9fa4c311765d529d48a6bcd9a576a77dba2a2bfc2e3082b5"
@@ -5236,6 +5246,11 @@
       "sha256": "47c4cb916dabcafe8aa24d4a9a1a56c5eec7ec83a4f22849d45048c6139f9485"
     },
     {
+      "path": "updater_runtime/SANCTIONS-POLICY.md",
+      "bytes": 2259,
+      "sha256": "3a4db077b4cb3f2be56f1351986f9f8015d830fc089d8e014be1edf9a26c3f42"
+    },
+    {
       "path": "updater_runtime/TABLE-EDIT.md",
       "bytes": 1307,
       "sha256": "da4074ee5f0e54e41446df5b14ace984ee8f5b7564bfd718a53303bc959fe537"
@@ -5254,6 +5269,16 @@
       "path": "updater_runtime/refresh-bundle.mjs",
       "bytes": 5679,
       "sha256": "bf8b852d6024b1a9c627434add5dfa0cd3a4217bd744d8075c9bd22acb4d822e"
+    },
+    {
+      "path": "updater_runtime/sanctions-policy.mjs",
+      "bytes": 1060,
+      "sha256": "56003bbf9d7f07e44c9f9f8c428be8a534db59e79636cc83d5638ee45eca3bc3"
+    },
+    {
+      "path": "updater_runtime/sanctions152-inventory.json",
+      "bytes": 624,
+      "sha256": "c480ba17d3d44dc2ab247679230954e2d949010ac2a217a348fa96039c74945d"
     },
     {
       "path": "updater_runtime/table-edit.mjs",

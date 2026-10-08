@@ -17,8 +17,8 @@ const sr = await step('sanctions', refreshSanctions);
 if (sr) {
   const HP = 'state/health.json', h = fs.existsSync(HP) ? JSON.parse(fs.readFileSync(HP, 'utf8')) : {};
   for (const [l, v] of Object.entries(sr)) {
-    h[l] = v.startsWith('updated') ? 0 : Math.min((h[l] || 0) + 1, 8);
-    if (h[l] === 7) await issue('Sanctions ' + l + ' not refreshing for 7 days', v);
+    h[l] = v.state === 'updated' ? 0 : Math.min((h[l] || 0) + 1, 8);
+    if (h[l] === 7) await issue('Sanctions ' + l + ' not refreshing for 7 attempts', JSON.stringify(v));
   }
   fs.writeFileSync(HP, JSON.stringify(h) + '\n');
 }
