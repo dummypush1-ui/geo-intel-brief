@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 1359,
+  "tests": 1361,
   "files": [
     {
       "path": ".env.example",
@@ -2048,12 +2048,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 18581,
-      "sha256": "90c16f005cfa752209c5fa9160c2b340e140c38bcaa7390aa28a2575aab301f6"
+      "sha256": "b99966e862dfff51cbc2ecafd5adfcabda07e3e6b64efa2f626b353d6c89cf52"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
-      "bytes": 169686,
-      "sha256": "eedf32bf899ac78495a9abc74e7d59067eeade1006c373ae37f586659f25956a"
+      "bytes": 169960,
+      "sha256": "b780e34a8c49398ce06b72ae99a8929389b63ed95b8f1e4f34d27680198d1dc1"
     },
     {
       "path": "integration/dependency_build/README.md",
@@ -3622,8 +3622,8 @@
     },
     {
       "path": "refresh.mjs",
-      "bytes": 8916,
-      "sha256": "40616b6a9d4fde07d580529d062c70f7b09907159ab7cbde647111681ba0617e"
+      "bytes": 9283,
+      "sha256": "b82c8e0137e77f18258afa79d30194f4a74c1e49a137cfa1a0beebe30014d611"
     },
     {
       "path": "requirements-future-deploy.lock",
@@ -4956,6 +4956,11 @@
       "sha256": "b6d28e16fa04f5c740a3a7f8a2f4d04f111f1a1f75444c58f8ddb405eba30acf"
     },
     {
+      "path": "tests/test_refresh149_gate.py",
+      "bytes": 675,
+      "sha256": "52164791fccf004c56324368455da51258d920db41a4b397785e6d4233531b36"
+    },
+    {
       "path": "tests/test_refresh_controller.py",
       "bytes": 347,
       "sha256": "cf41f1d36268c4838ea31783560a63518291353672ec3b326457f8ac39c619fa"
@@ -5141,6 +5146,16 @@
       "sha256": "94607ce9cc199c08cb38500c62ca1a165850fe6e6fb374856dca614616bd5510"
     },
     {
+      "path": "tests/updater_runtime/test_refresh_bundle.mjs",
+      "bytes": 5348,
+      "sha256": "d1447351c824ed4a84e71d7e5dff9ab5a064b5423e8e4434c4d5a711218adf8d"
+    },
+    {
+      "path": "tests/updater_runtime/test_refresh_preflight.mjs",
+      "bytes": 687,
+      "sha256": "46bdb9c59f7aa261c7f1747bbf55fe0c28459e90b5c3565646ec6cfb25fa7286"
+    },
+    {
       "path": "tests/weekly_report/__init__.py",
       "bytes": 26,
       "sha256": "8c8f4e58b5581824c3ab9932c3b94abf31493161d06eab4e11f1565a4c3b8c74"
@@ -5151,6 +5166,11 @@
       "sha256": "92770ad9325b0becc57f76e625e2ee7c8e1214ddfc8011df8a9b10ea842dbf6f"
     },
     {
+      "path": "updater_runtime/REFRESH-BUNDLE.md",
+      "bytes": 2095,
+      "sha256": "47c4cb916dabcafe8aa24d4a9a1a56c5eec7ec83a4f22849d45048c6139f9485"
+    },
+    {
       "path": "updater_runtime/gemini-error.mjs",
       "bytes": 655,
       "sha256": "bba43129418e78d68afee50d44e9bf9b56d1b7e64a82448f3d490f6b50e00e06"
@@ -5159,6 +5179,11 @@
       "path": "updater_runtime/public-status.cjs",
       "bytes": 809,
       "sha256": "2b1321dea6f3fb8f36f157070f5665cc1561079d7ba47b57d30a4d37a5d3eaa5"
+    },
+    {
+      "path": "updater_runtime/refresh-bundle.mjs",
+      "bytes": 5679,
+      "sha256": "bf8b852d6024b1a9c627434add5dfa0cd3a4217bd744d8075c9bd22acb4d822e"
     },
     {
       "path": "vendor/pako-inflate.min.js",

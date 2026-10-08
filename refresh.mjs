@@ -6,9 +6,13 @@
 //   - GST rates (CBIC publishes no stable machine-readable feed; manual update)
 //   - sanctions lists (formats vary; manual update - see README)
 // If trade values change, it rebuilds the hosted shell, versioned dataset and offline copy, then commits them back
-// to this repo via the GitHub API, which auto-redeploys the Render static site.
+// to this repo via one non-force Git tree update. Deployment is configured separately.
+// DRY makes no source/generated/Git writes; configured provider reads can still run.
 import fs from 'fs';
 import zlib from 'zlib';
+import path from 'node:path';
+import {execFileSync} from 'node:child_process';
+import {buildBundle, readBase, commitBundle} from './updater_runtime/refresh-bundle.mjs';
 import { cleanDescriptions } from './gemini.mjs';
 
 const KEY = process.env.COMTRADE_KEY || '';
@@ -60,27 +64,13 @@ async function gh(method, path, body) {
   return res.json();
 }
 
-async function commitFiles(files, message) {
-  const ref = await gh('GET', `/repos/${REPO}/git/ref/heads/${BRANCH}`);
-  const baseSha = ref.object.sha;
-  const baseCommit = await gh('GET', `/repos/${REPO}/git/commits/${baseSha}`);
-  const tree = [];
-  for (const f of files) {
-    const blob = await gh('POST', `/repos/${REPO}/git/blobs`, { content: Buffer.from(f.content, 'utf8').toString('base64'), encoding: 'base64' });
-    tree.push({ path: f.path, mode: '100644', type: 'blob', sha: blob.sha });
-  }
-  const newTree = await gh('POST', `/repos/${REPO}/git/trees`, { base_tree: baseCommit.tree.sha, tree });
-  const commit = await gh('POST', `/repos/${REPO}/git/commits`, { message, tree: newTree.sha, parents: [baseSha] });
-  await gh('PATCH', `/repos/${REPO}/git/refs/heads/${BRANCH}`, { sha: commit.sha });
-  return commit.sha;
-}
 
 
-function readDataset() {
+function readDataset(root) {
   let b64 = '';
-  const files = fs.readdirSync('src').filter((f) => /^datachunk\d+\.ts$/.test(f)).length;
+  const files = fs.readdirSync(path.join(root, 'src')).filter((f) => /^datachunk\d+\.ts$/.test(f)).length;
   for (let n = 0; n < files; n++) {
-    const t = fs.readFileSync(`src/datachunk${n}.ts`, 'utf8');
+    const t = fs.readFileSync(path.join(root, `src/datachunk${n}.ts`), 'utf8');
     const m = t.match(/"([A-Za-z0-9+/=]+)"/);
     if (!m) throw new Error(`datachunk${n}.ts unreadable`);
     b64 += m[1];
@@ -88,16 +78,15 @@ function readDataset() {
   return JSON.parse(zlib.gunzipSync(Buffer.from(b64, 'base64')).toString('utf8'));
 }
 
-function writeDataset(rows) {
+function writeDataset(rows, root) {
   const b64 = zlib.gzipSync(Buffer.from(JSON.stringify(rows), 'utf8'), { level: 9 }).toString('base64');
-  const CHUNKS = Math.max(66, fs.readdirSync('src').filter((f) => /^datachunk\d+\.ts$/.test(f)).length);
+  const CHUNKS = Math.max(66, fs.readdirSync(path.join(root, 'src')).filter((f) => /^datachunk\d+\.ts$/.test(f)).length);
   const step = Math.ceil(b64.length / CHUNKS);
   const files = [];
   for (let n = 0; n < CHUNKS; n++) {
     const content = `export const CHUNK${n} = "${b64.slice(n * step, (n + 1) * step)}";\n`;
     const file = `src/datachunk${n}.ts`;
-    if (!fs.existsSync(file) || fs.readFileSync(file, 'utf8') !== content) {
-      fs.writeFileSync(file, content);
+    if (!fs.existsSync(path.join(root,file)) || fs.readFileSync(path.join(root,file), 'utf8') !== content) {
       files.push({ path: file, content });
     }
   }
@@ -106,8 +95,8 @@ function writeDataset(rows) {
 
 // AI-assisted cleanup of description markup artifacts (e.g. Brazil NCM rows
 // with literal "<i>...</i>"). Returns { changedFiles, report } or null.
-async function cleanupDescriptions() {
-  const rows = readDataset();
+async function cleanupDescriptions(root) {
+  const rows = readDataset(root);
   const dirtySet = new Set();
   for (const r of rows) if (typeof r[2] === 'string' && /<[a-zA-Z/][^>]*>/.test(r[2])) dirtySet.add(r[2]);
   if (!dirtySet.size) return null;
@@ -119,11 +108,25 @@ async function cleanupDescriptions() {
   }
   if (!applied) return null;
   const report = `${applied} descriptions cleaned (${dirty.length} distinct; ${ai} AI-proposed and content-verified). ${note}`;
-  return { changedFiles: writeDataset(rows), report };
+  return { changedFiles: writeDataset(rows, root), report };
 }
 
-export async function runRefresh() {
-  if (!KEY) { log('COMTRADE_KEY not set - skipping trade refresh'); return { skipped: 'no key' }; }
+export async function runRefresh({root = process.cwd(), build} = {}) {
+  if (!KEY) { log("COMTRADE_KEY not set - skipping trade refresh"); return { skipped: "no key" }; }
+  const checkout = () => {
+    try {
+      return {
+        head:execFileSync('git',['rev-parse','HEAD'],{cwd:root,encoding:'utf8',stdio:['ignore','pipe','pipe']}).trim(),
+        dirty:execFileSync('git',['status','--porcelain','--untracked-files=no'],{cwd:root,encoding:'utf8',stdio:['ignore','pipe','pipe']}).trim(),
+      };
+    } catch { throw new Error('Refresh requires a Git checkout with HEAD; re-pull/redeploy before enabling publication'); }
+  };
+  let base = null;
+  if (!DRY && TOKEN && REPO) {
+    const {head,dirty} = checkout();
+    base = await readBase(gh, REPO, BRANCH);
+    if (head !== base.sha || dirty) throw new Error("Clean checkout must match remote base");
+  }
   const thisYear = new Date().getFullYear();
   let year = null, m = null, x = null;
   for (const y of [thisYear - 1, thisYear - 2]) {
@@ -140,35 +143,34 @@ export async function runRefresh() {
   let tradeChanged = false;
   if (year) {
     const next = renderTradevalues(m, x, year);
-    const prev = fs.readFileSync('src/tradevalues.ts', 'utf8');
+    const prev = fs.readFileSync(path.join(root,'src/tradevalues.ts'), 'utf8');
     const same = (a, b) => a.replace(/Baked [\d-]+\./, '') === b.replace(/Baked [\d-]+\./, '');
     if (same(next, prev)) log('trade values unchanged (year ' + year + ')');
     else {
       tradeChanged = true;
       log('trade values CHANGED (baking year ' + year + ')');
-      fs.writeFileSync('src/tradevalues.ts', next);
       commitQueue.push({ path: 'src/tradevalues.ts', content: next });
       const appPath = 'src/app.js';
-      let app = fs.readFileSync(appPath, 'utf8');
+      let app = fs.readFileSync(path.join(root,appPath), 'utf8');
       const appNext = app.replace(/const TRADE_YEAR = \d+;/, 'const TRADE_YEAR = ' + year + ';');
-      if (appNext !== app) { fs.writeFileSync(appPath, appNext); commitQueue.push({ path: appPath, content: appNext }); log('TRADE_YEAR label updated to ' + year); }
+      if (appNext !== app) { commitQueue.push({ path: appPath, content: appNext }); log('TRADE_YEAR label updated to ' + year); }
       messages.push('India trade values ' + year + ' (UN Comtrade)');
     }
   }
   let cleanReport = null;
   try {
-    const c = await cleanupDescriptions();
+    const c = await cleanupDescriptions(root);
     if (c) { cleanReport = c.report; commitQueue.push(...c.changedFiles); messages.push('AI-assisted description cleanup (Gemini, content-verified)'); }
   } catch (e) { log('description cleanup failed (skipping):', e.message); }
   if (!commitQueue.length) return { changed: false, year, cleanup: cleanReport };
-  if (DRY) { log('RENDER_DRY=1 - not writing'); return { changed: true, year, dry: true, tradeChanged, cleanup: cleanReport }; }
-  const { execSync } = await import('child_process');
-  execSync('node build.mjs', { stdio: 'inherit' });
-  for (const path of ['index.html', 'offline.html', ...fs.readdirSync('.').filter((f) => /^data\.[0-9a-f]{12}\.js$/.test(f))]) {
-    commitQueue.push({ path, content: fs.readFileSync(path, 'utf8') });
-  }
-  if (!TOKEN || !REPO) { log('GITHUB_TOKEN/GITHUB_REPO not set - rebuilt locally only'); return { changed: true, year, committed: false, cleanup: cleanReport }; }
-  const sha = await commitFiles(commitQueue, 'Data refresh: ' + messages.join('; '));
+  if (DRY) { log('RENDER_DRY=1 - no source/build/Git writes; configured fetch/AI reads still run'); return { changed: true, year, dry: true, tradeChanged, cleanup: cleanReport }; }
+  // Build in a disposable snapshot, never overwrite source or local generated files.
+  const oldData = base ? base.oldData : fs.readdirSync(root).filter(f => /^data\.[0-9a-f]{12}\.js$/.test(f));
+  const files = buildBundle(root, commitQueue, oldData, build);
+  if (!TOKEN || !REPO) { log('GITHUB_TOKEN/GITHUB_REPO not set - prepared only'); return { changed:true,year,committed:false,prepared:true,cleanup:cleanReport }; }
+  const {head:headBeforePublish,dirty:dirtyBeforePublish} = checkout();
+  if (headBeforePublish !== base.sha || dirtyBeforePublish) throw new Error('Checkout changed; refresh held');
+  const sha = await commitBundle(gh, REPO, BRANCH, base, files, 'Data refresh: ' + messages.join('; '));
   log('committed', sha, '- Render will auto-redeploy');
   return { changed: true, year, committed: true, sha, tradeChanged, cleanup: cleanReport };
 }
