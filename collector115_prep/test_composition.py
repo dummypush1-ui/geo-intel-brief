@@ -51,11 +51,12 @@ class ChainTests(unittest.TestCase):
   blob=b'<rss><channel><item><title>No link</title></item><item><title>Trade</title><link>https://example.com/a</link></item></channel></rss>'
   r=compose_supplied({'MAX_ITEMS_PER_FEED':'1'}, {url:proof(blob)},clock=D)
   self.assertEqual(r['candidates'],[])
- def test_unknown_timezone_visible_fallback(self):
+ def test_unknown_timezone_held_without_fallback(self):
   url=compile_profile({})['feeds'][0][1]
   blob=b'<rss><channel><item><title>Trade</title><link>https://example.com/a</link><pubDate>Jan 1 2026 01:00 XYZ</pubDate></item></channel></rss>'
   r=compose_supplied({}, {url:proof(blob)},clock=D)
-  self.assertEqual(r['source_states'][0]['date_fallbacks'],1)
+  self.assertEqual(r['source_states'][0]['date_fallbacks'],0)
+  self.assertEqual(r['candidates'],[])
  def test_supplied_order_cannot_override_catalog(self):
   feeds=compile_profile({})['feeds'];r=compose_supplied({}, {feeds[1][1]:proof(),feeds[0][1]:proof()},clock=D)
   self.assertEqual([a['source']for a in r['candidates']],['BBC World','BBC Business'])

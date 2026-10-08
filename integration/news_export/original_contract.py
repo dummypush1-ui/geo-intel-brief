@@ -18,7 +18,7 @@ DEFAULT_CRITICAL=('attack','explosion','resign','coup','ceasefire','sanctions')
 # No original modules are imported, and no environment config is read.
 # Geo HTTP auth/deletion changed in P0; export_csv body remains unchanged.
 SOURCE_PINS={
- 'intelligence/geo/web.py':'9c487d9469828a209fd07f1e2904ea5667d63ce2c0ba08d5a1d6ba5b21f70277',
+ 'intelligence/geo/web.py':'8e78a29cb8c3d11fa12ad9a713c9e26ca67c36deb780b2aa5cadee485c120443',
  'intelligence/brics/web.py':'1adebf8baaea16ee305afb16fd21717c5abf0635279a7dbedfa985ff21fe5997',
  'intelligence/brics/processing/classifier.py':'66ca3047bf14d69f13267b80b794b7cda3d2d41b8a301ce0c641e5c7697ce0fd'}
 

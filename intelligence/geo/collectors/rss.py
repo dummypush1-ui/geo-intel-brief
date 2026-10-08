@@ -2,6 +2,8 @@ import feedparser
 import requests
 from datetime import datetime, timezone, timedelta
 from concurrent.futures import ThreadPoolExecutor
+from threading import Lock
+from integration.publication_dates.policy import publication_date, HOLD_STATES
 from intelligence.geo.config import (MAX_ITEMS_PER_FEED, LOOKBACK_HOURS, ENABLE_FULL_TEXT,
                      FULL_TEXT_MAX_CHARS, FULL_TEXT_WORKERS, DEDUPE_THRESHOLD,
                      ACTIVE_CATEGORIES, ENABLE_TELEGRAM_BACKUP, REQUEST_TIMEOUT)
@@ -9,6 +11,20 @@ from intelligence.geo.processing.classifier import classify, parse_date, strip_h
 from intelligence.geo.processing.extract import extract_full_text
 from intelligence.geo.processing.dedupe import dedupe_articles
 from intelligence.geo.database import save_articles_bulk, ArticleWriteOutcomeError
+
+_date_hold_lock = Lock()
+_date_holds = {state: 0 for state in HOLD_STATES}
+
+def record_date_hold(state):
+    # Fixed-label cumulative counters only, no raw feed input/URLs.
+    if state not in _date_holds:
+        raise ValueError('Closed publication date state required')
+    with _date_hold_lock:
+        _date_holds[state] += 1
+
+def date_hold_counts():
+    with _date_hold_lock:
+        return dict(_date_holds)
 
 # Deduplicated source list: major news, official/multilateral bodies,
 # think-tank & academic research feeds, and sanctions/trade-law trackers.
@@ -86,6 +102,7 @@ def _fetch_feed(feed_spec, cutoff):
     now genuinely gives up after REQUEST_TIMEOUT seconds like every other
     HTTP call in this project."""
     source, url, credibility = feed_spec
+    observed_at = datetime.now(timezone.utc)
     out = []
     try:
         resp = requests.get(url, timeout=REQUEST_TIMEOUT, headers=_HEADERS)
@@ -97,7 +114,10 @@ def _fetch_feed(feed_spec, cutoff):
             summary = strip_html(entry.get("summary", entry.get("description", "")))
             if not title or not link:
                 continue
-            published = parse_date(entry.get("published", entry.get("updated", "")))
+            published, date_state = publication_date(entry.get("published", entry.get("updated", "")), observed_at)
+            if published is None:
+                record_date_hold(date_state)
+                continue
             if published < cutoff:
                 continue
             out.append({

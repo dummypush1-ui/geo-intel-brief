@@ -1,3 +1,4 @@
+from integration.publication_dates.policy import publication_date
 import unittest,copy,ast,re
 from datetime import datetime,timezone,timedelta
 from unittest.mock import patch
@@ -58,7 +59,7 @@ class Tests(unittest.TestCase):
    def __enter__(self):return self
    def __exit__(self,*a):pass
    def map(self,fn,rows):return map(fn,rows)
-  scope={'requests':Requests(),'feedparser':Feed(),'REQUEST_TIMEOUT':20,'MAX_ITEMS_PER_FEED':50,'dateparser':DP(),'datetime':Clock,'timezone':timezone,'re':re,'HAS_TRAFILATURA':True,'ENABLE_FULL_TEXT':True,'FULL_TEXT_MAX_CHARS':700,'FULL_TEXT_WORKERS':1,'trafilatura':Provider(),'ThreadPoolExecutor':Executor,'classify':classify,'dedupe_articles':dedupe_articles,'DEDUPE_THRESHOLD':.85,'ACTIVE_CATEGORIES':['TRADE'],'feeds':[(b['feed'][0],str(i),b['feed'][2]) for i,b in enumerate(batches)],'cutoff':D-timedelta(days=1),'candidates':[]}
+  scope={'requests':Requests(),'feedparser':Feed(),'REQUEST_TIMEOUT':20,'MAX_ITEMS_PER_FEED':50,'publication_date':publication_date,'record_date_hold':lambda state:None,'dateparser':DP(),'datetime':Clock,'timezone':timezone,'re':re,'HAS_TRAFILATURA':True,'ENABLE_FULL_TEXT':True,'FULL_TEXT_MAX_CHARS':700,'FULL_TEXT_WORKERS':1,'trafilatura':Provider(),'ThreadPoolExecutor':Executor,'classify':classify,'dedupe_articles':dedupe_articles,'DEDUPE_THRESHOLD':.85,'ACTIVE_CATEGORIES':['TRADE'],'feeds':[(b['feed'][0],str(i),b['feed'][2]) for i,b in enumerate(batches)],'cutoff':D-timedelta(days=1),'candidates':[]}
   for p,names in [('intelligence/geo/collectors/rss.py',('_fetch_feed','_enrich_with_full_text')),('intelligence/geo/processing/classifier.py',('strip_html','parse_date')),('intelligence/geo/processing/extract.py',('extract_full_text',))]:
    tree=ast.parse((ROOT/p).read_bytes());defs.extend(n for n in tree.body if isinstance(n,ast.FunctionDef) and n.name in names)
    for n in tree.body:

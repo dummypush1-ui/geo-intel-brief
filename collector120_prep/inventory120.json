@@ -3,6 +3,6 @@
   "collector120_prep/STAGE120.md": "f8b156a143dfc872d6a4db6617a6491c17dff9f0a59c49f03f2581c35600f711",
   "collector120_prep/__init__.py": "5b30e48ce4bbc563b2d886a2b45dbbb0d99ce3eca5148865d64013f6c3f19a00",
   "collector120_prep/evidence/local-tests.json": "438a0f4b6551c81b0d48149d2dde3947c1986c32b67d99c04d0bd4dd59bbe051",
-  "collector120_prep/gnews_supplied.py": "cd12838956c67d08219b879b3be22c69fa68fe357c5b332c515dcdf9f120775a",
+  "collector120_prep/gnews_supplied.py": "382b8c3227de8c7009ab4a6f3d5f08c6ae08fe390287dfdee55699e0d285c503",
   "collector120_prep/test_gnews_supplied.py": "e4ca7c9ac04f0d070810eca42ab138d62fc87216f08e03a6bdeb05b779f29d0c"
 }

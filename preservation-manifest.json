@@ -81,10 +81,11 @@
       "source_path": "web.py",
       "path": "intelligence/geo/web.py",
       "source_sha256": "eb0312abeead1d445dddf0d621c6f03ad4d699027db48cbdc527493101358c47",
-      "sha256": "9c487d9469828a209fd07f1e2904ea5667d63ce2c0ba08d5a1d6ba5b21f70277",
+      "sha256": "8e78a29cb8c3d11fa12ad9a713c9e26ca67c36deb780b2aa5cadee485c120443",
       "changes": [
         "root imports namespaced only",
-        "bulk147 candidate pending final independent review: driver outcomes, held legacy backup, explicit status/labels; no live activation"
+        "bulk147 candidate pending final independent review: driver outcomes, held legacy backup, explicit status/labels; no live activation",
+        "date151 candidate: strict publication evidence, no now fallback, non-durable hold counters; independent final review pending"
       ],
       "prior_preserved_sha256": "7931165782766d4b6d05ac1207045e158d0ecaa15baf0b6f30d4abe0ba346dfc"
     },
@@ -116,9 +117,10 @@
       "source_path": "processing/classifier.py",
       "path": "intelligence/geo/processing/classifier.py",
       "source_sha256": "445842f362bca71455f562e6d405e6ee860deddb88bab64f56f522e7b67073f9",
-      "sha256": "7c23324b2cbbc3b05f5e118a29456e0616e56146417bbbec65c5daf0559f38f0",
+      "sha256": "5a87baba3a28b778d0d6b7a3091129e94a618c45ae346a99e13204790f2787ac",
       "changes": [
-        "Reviewed classifier146 token/phrase, explicit stems/plurals/demonyms; intentional original substring-parity exception, no live activation"
+        "Reviewed classifier146 token/phrase, explicit stems/plurals/demonyms; intentional original substring-parity exception, no live activation",
+        "date151 candidate: strict publication evidence, no now fallback, non-durable hold counters; independent final review pending"
       ],
       "prior_preserved_sha256": "445842f362bca71455f562e6d405e6ee860deddb88bab64f56f522e7b67073f9"
     },
@@ -267,10 +269,11 @@
       "source_path": "collectors/rss.py",
       "path": "intelligence/geo/collectors/rss.py",
       "source_sha256": "f4caa621437ce4295029dc37db7ccda70a9aeb1fba2f59f7ea20f2f07517763b",
-      "sha256": "a7cbdeac2e7645e2477ecf64a9ad9cbf00d1ccf71b18235228d75ccaca3cbd41",
+      "sha256": "a882d01629181b8a14f1d6a2b9a695f3acd7aab83aae7a80165349689f84daef",
       "changes": [
         "root imports namespaced only",
-        "bulk147 candidate pending final independent review: driver outcomes, held legacy backup, explicit status/labels; no live activation"
+        "bulk147 candidate pending final independent review: driver outcomes, held legacy backup, explicit status/labels; no live activation",
+        "date151 candidate: strict publication evidence, no now fallback, non-durable hold counters; independent final review pending"
       ],
       "prior_preserved_sha256": "337475c6a38dedecfdf5a25fab753df14e274b18c8d8788af431939067898f73"
     },

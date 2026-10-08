@@ -132,6 +132,14 @@ def _collection_outcome(value):
     return dict(value)
 
 
+def _publication_holds(value):
+    # Closed process-cumulative diagnostic, not durable quarantine storage.
+    keys = {'missing', 'invalid', 'incomplete', 'naive_timezone', 'unknown_timezone', 'future'}
+    if type(value) is not dict or set(value) != keys or any(type(n) is not int or n < 0 for n in value.values()):
+        raise ValueError('Invalid publication hold counters')
+    return {'scope': 'cumulative_since_process_start', 'counts': dict(value)}
+
+
 def _run_collect_job():
     try:
         rss = _collection_outcome(collect_rss(EXTRA_RSS_FEEDS))
@@ -151,6 +159,12 @@ def _run_collect_job():
         _collect_status["last_result"] = {"state": "failed", "error": "collection_failed",
                                           "backup": "held_pending_durable_adapter"}
     finally:
+        try:
+            diagnostic = _publication_holds(_service('collectors.rss', 'date_hold_counts'))
+        except Exception:
+            diagnostic = {'scope': 'unavailable'}
+        if type(_collect_status.get('last_result')) is dict:
+            _collect_status['last_result']['publication_date_holds'] = diagnostic
         _collect_status["running"] = False
         _collect_status["last_finished"] = datetime.now(timezone.utc).isoformat()
 

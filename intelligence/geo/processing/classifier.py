@@ -2,6 +2,7 @@ from integration.text_matching.matcher import contains, country_contains
 import re
 from dateutil import parser as dateparser
 from datetime import datetime, timezone
+from integration.publication_dates.policy import publication_date
 
 _TAG_RE = re.compile(r"<[^>]+>")
 _ENTITY_MAP = {"&nbsp;": " ", "&amp;": "&", "&lt;": "<", "&gt;": ">",
@@ -42,8 +43,5 @@ def classify(title, summary):
     return category, score, level, country
 
 def parse_date(value):
-    try:
-        dt = dateparser.parse(value) if value else datetime.now(timezone.utc)
-        return dt if dt.tzinfo else dt.replace(tzinfo=timezone.utc)
-    except Exception:
-        return datetime.now(timezone.utc)
+    """Compatibility API: unknown/naive/incomplete/future dates are not fresh."""
+    return publication_date(value, datetime.now(timezone.utc))[0]

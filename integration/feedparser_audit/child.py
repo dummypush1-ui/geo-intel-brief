@@ -11,6 +11,7 @@ from datetime import datetime,timezone
 from dateutil import parser
 from integration.supplied_feed_fixture import prepare_supplied_feed,_DateParser,_Clock,PINS,ROOT as SOURCE_ROOT
 from integration.feedparser_audit.corpus import CORPUS
+from integration.publication_dates.policy import publication_date
 from integration.supplied_fulltext_fixture import Budget
 base=Path(__file__).parent
 assert feedparser.__version__=='6.0.11'
@@ -48,7 +49,7 @@ class Requests:
  def get(self,*a,**kw):return Response()
 class Feed:
  def parse(self,b):return feedparser.parse(io.BytesIO(b))
-definitions=[];scope={'requests':Requests(),'feedparser':Feed(),'REQUEST_TIMEOUT':20,'MAX_ITEMS_PER_FEED':q['max_items'],'dateparser':_DateParser(clock),'datetime':_Clock(clock),'timezone':timezone,'re':re,'print':lambda *a:None}
+definitions=[];scope={'publication_date':publication_date,'record_date_hold':lambda state:None,'requests':Requests(),'feedparser':Feed(),'REQUEST_TIMEOUT':20,'MAX_ITEMS_PER_FEED':q['max_items'],'dateparser':_DateParser(clock),'datetime':_Clock(clock),'timezone':timezone,'re':re,'print':lambda *a:None}
 for p,names in [('intelligence/geo/collectors/rss.py',('_fetch_feed',)),('intelligence/geo/processing/classifier.py',('strip_html','parse_date'))]:
  b=(ROOT/p).read_bytes();assert hashlib.sha256(b).hexdigest()==PINS[p];tree=ast.parse(b);definitions.extend(n for n in tree.body if isinstance(n,ast.FunctionDef) and n.name in names)
  for n in tree.body:

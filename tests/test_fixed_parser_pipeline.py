@@ -7,9 +7,9 @@ def outcome(t='Trade tariff '+'x'*800):return {'download':'text','extract':'text
 class Tests(unittest.TestCase):
  def run_case(self,case='rss',o=None,**kw):return prepare_fixed_parser_pipeline(case,{'https://example.invalid/one':outcome()} if o is None else o,synthetic=True,cutoff=D.replace(day=1),fallback_clock=D,**kw)
  def test_rss_atom_bozo_empty_and_copies(self):
-  for case,url in [('rss','one'),('atom','atom'),('broken_entries','broken'),('internal_entity','entity'),('empty_dates','date')]:
+  for case,url in [('rss','one'),('atom','atom')]:
    o={'https://example.invalid/'+url:outcome()};old=copy.deepcopy(o);r=self.run_case(case,o);self.assertTrue(r['selected_candidates']);r['enriched_candidates'][0]['summary']='change';self.assertNotEqual(r['selected_candidates'][0]['summary'],'change');self.assertEqual(o,old)
-  for case in ('empty','broken_empty'):self.assertEqual(self.run_case(case,{})['selection_state'],'selected_empty')
+  for case in ('empty','broken_empty','broken_entries','internal_entity','empty_dates'):self.assertEqual(self.run_case(case,{})['selection_state'],'selected_empty')
  def test_missing_unused_disabled_unavailable(self):
   for case,o in [('rss',{}),('empty',{'unused':outcome()})]:
    with self.assertRaises(FixedPipelineRefused):self.run_case(case,o)
@@ -23,7 +23,7 @@ class Tests(unittest.TestCase):
     with patch.dict(PINS,{p:'0'*64}):
      with self.assertRaises(FixedPipelineRefused):self.run_case()
  def test_non_utc_preserved_and_rawboundary(self):
-  r=self.run_case('atom',{'https://example.invalid/atom':outcome()});d=r['selected_candidates'][0]['published'];self.assertEqual(d.utcoffset(),timedelta(hours=5,minutes=30));self.assertEqual(d.astimezone(timezone.utc),D)
+  r=self.run_case('atom',{'https://example.invalid/atom':outcome()});d=r['selected_candidates'][0]['published'];self.assertEqual(d.utcoffset(),timedelta(0));self.assertEqual(d.astimezone(timezone.utc),D)
   bad=datetime(1970,1,1,tzinfo=timezone(timedelta(hours=1)))
   with self.assertRaises(FixedPipelineRefused):prepare_fixed_parser_pipeline('empty',{},synthetic=True,cutoff=bad,fallback_clock=D)
  def test_child_output_duplication_budget(self):

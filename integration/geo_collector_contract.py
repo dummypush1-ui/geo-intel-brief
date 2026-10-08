@@ -12,9 +12,9 @@ from integration.fake_collection_writer import plain
 from dateutil.tz import tzutc,tzoffset,tzlocal
 
 ROOT=Path(__file__).resolve().parents[1]
-RSS_PIN='a7cbdeac2e7645e2477ecf64a9ad9cbf00d1ccf71b18235228d75ccaca3cbd41'
+RSS_PIN='a882d01629181b8a14f1d6a2b9a695f3acd7aab83aae7a80165349689f84daef'
 
-PROCESSING_PINS={'intelligence/geo/processing/classifier.py':'7c23324b2cbbc3b05f5e118a29456e0616e56146417bbbec65c5daf0559f38f0','intelligence/geo/processing/dedupe.py':'8326042d8a2adccafc690f86c47cc9baa67240792ef90060750313c81fb7382e'}
+PROCESSING_PINS={'intelligence/geo/processing/classifier.py':'5a87baba3a28b778d0d6b7a3091129e94a618c45ae346a99e13204790f2787ac','intelligence/geo/processing/dedupe.py':'8326042d8a2adccafc690f86c47cc9baa67240792ef90060750313c81fb7382e'}
 def _original_documents(candidates,categories,threshold):
  for path,pin in PROCESSING_PINS.items():
   if hashlib.sha256((ROOT/path).read_bytes()).hexdigest()!=pin:raise ValueError('Original processing source review required')

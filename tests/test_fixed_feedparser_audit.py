@@ -8,10 +8,10 @@ class Tests(unittest.TestCase):
  def test_corpus_real_parser_bozo_oracle(self):
   for case in CASES:
    r=self.run_case(case);self.assertTrue(r['oracle_equal']);self.assertEqual(r['network_guard_checks'],3);self.assertFalse(r['network'])
-  self.assertTrue(self.run_case('broken_entries')['bozo']);self.assertTrue(self.run_case('broken_entries')['candidates']);self.assertTrue(self.run_case('broken_empty')['bozo']);self.assertFalse(self.run_case('broken_empty')['candidates'])
+  self.assertTrue(self.run_case('broken_entries')['bozo']);self.assertFalse(self.run_case('broken_entries')['candidates']);self.assertTrue(self.run_case('broken_empty')['bozo']);self.assertFalse(self.run_case('broken_empty')['candidates'])
  def test_atom_rss_presence_values(self):
   r=self.run_case('atom');self.assertIn('தமிழ்',r['candidates'][0]['title']);self.assertIn('summary',r['field_presence'][0]);self.assertEqual(r['candidates'][0]['summary'],'Trade content')
-  r=self.run_case('empty_dates');self.assertEqual(r['candidates'][0]['published'],D.isoformat())
+  r=self.run_case('empty_dates');self.assertEqual(r['candidates'],[])
  def test_invalid_no_spawn_hooks(self):
   class Text(str):
    def __hash__(self):raise AssertionError('hook')

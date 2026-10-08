@@ -1,6 +1,7 @@
 """Original feed selection over supplied parsed entries, never requests/feedparser."""
 import ast,hashlib,re,math,warnings
 from datetime import datetime,timezone
+from integration.publication_dates.policy import publication_date
 from pathlib import Path
 import dateutil
 from dateutil import parser
@@ -8,7 +9,7 @@ from dateutil.parser import UnknownTimezoneWarning
 from dateutil.tz import tzutc,tzoffset,tzlocal
 from integration.supplied_fulltext_fixture import Budget,FulltextRefused
 ROOT=Path(__file__).resolve().parents[1]
-PINS={'intelligence/geo/collectors/rss.py':'a7cbdeac2e7645e2477ecf64a9ad9cbf00d1ccf71b18235228d75ccaca3cbd41','intelligence/geo/processing/classifier.py':'7c23324b2cbbc3b05f5e118a29456e0616e56146417bbbec65c5daf0559f38f0'}
+PINS={'intelligence/geo/collectors/rss.py':'a882d01629181b8a14f1d6a2b9a695f3acd7aab83aae7a80165349689f84daef','intelligence/geo/processing/classifier.py':'5a87baba3a28b778d0d6b7a3091129e94a618c45ae346a99e13204790f2787ac'}
 class FeedRefused(ValueError):pass
 def _date(d):
  if type(d) is not datetime or type(d.tzinfo) not in (timezone,tzutc,tzoffset,tzlocal):raise FeedRefused('fixture reviewed aware date')
@@ -27,7 +28,7 @@ def _source():
   if hashlib.sha256(b).hexdigest()!=h:raise FeedRefused('reviewed source drift')
   sources[p]=ast.parse(b)
  rss=sources['intelligence/geo/collectors/rss.py'];cl=sources['intelligence/geo/processing/classifier.py'];defs=[]
- for tree,name,names,attrs in [(rss,'_fetch_feed',{'feed_spec','cutoff','source','url','credibility','out','resp','requests','REQUEST_TIMEOUT','_HEADERS','feedparser','feed','entry','MAX_ITEMS_PER_FEED','title','link','summary','strip_html','published','parse_date','Exception','exc','print'},{'get','raise_for_status','parse','content','entries','strip','append'}),(cl,'strip_html',{'text','_TAG_RE','entity','replacement','_ENTITY_MAP','re'},{'sub','items','replace','strip'}),(cl,'parse_date',{'value','dt','dateparser','datetime','timezone','Exception'},{'parse','now','utc','tzinfo','replace'})]:
+ for tree,name,names,attrs in [(rss,'_fetch_feed',{'feed_spec','cutoff','source','url','credibility','out','resp','requests','REQUEST_TIMEOUT','_HEADERS','feedparser','feed','entry','MAX_ITEMS_PER_FEED','title','link','summary','strip_html','published','parse_date','publication_date','date_state','observed_at','datetime','timezone','record_date_hold','Exception','exc','print'},{'get','raise_for_status','parse','content','entries','strip','append','now','utc'}),(cl,'strip_html',{'text','_TAG_RE','entity','replacement','_ENTITY_MAP','re'},{'sub','items','replace','strip'}),(cl,'parse_date',{'value','publication_date','datetime','timezone'},{'parse','now','utc','tzinfo','replace'})]:
   node=next(n for n in tree.body if type(n) is ast.FunctionDef and n.name==name)
   if node.decorator_list:raise FeedRefused('reviewed AST')
   for n in ast.walk(node):
@@ -76,12 +77,13 @@ def prepare_supplied_feed(feed,entries,*,cutoff,fallback_clock,max_items=50,time
    if type(entry) is not dict or len(entry)>6 or any(type(k) is not str for k in entry) or set(entry)-{'title','link','summary','description','published','updated'}:raise FeedRefused('closed supplied entry')
    row={k:_text(v) for k,v in entry.items()};budget.take(row);rows.append(row)
  except FulltextRefused:raise FeedRefused('fixture input budget') from None
+ holds={}
  definitions,headers,entities,tag=_source();req=_Requests(http_mode);fp=_FeedParser(rows,parser_mode);dp=_DateParser(fixed);log_count=[]
- scope={'__builtins__':{'Exception':Exception,'print':lambda *a:log_count.append(1)},'requests':req,'feedparser':fp,'REQUEST_TIMEOUT':timeout,'MAX_ITEMS_PER_FEED':max_items,'_HEADERS':headers,'_TAG_RE':tag,'_ENTITY_MAP':entities,'re':re,'dateparser':dp,'datetime':_Clock(fixed),'timezone':timezone}
+ scope={'__builtins__':{'Exception':Exception,'print':lambda *a:log_count.append(1)},'requests':req,'feedparser':fp,'REQUEST_TIMEOUT':timeout,'MAX_ITEMS_PER_FEED':max_items,'_HEADERS':headers,'_TAG_RE':tag,'_ENTITY_MAP':entities,'re':re,'publication_date':publication_date,'record_date_hold':lambda state:holds.__setitem__(state,holds.get(state,0)+1),'dateparser':dp,'datetime':_Clock(fixed),'timezone':timezone}
  exec(compile(ast.Module(body=definitions,type_ignores=[]),'reviewed-supplied-feed','exec'),scope)
  out=scope['_fetch_feed'](spec,cut)
  for row in out:row['published']=_date(row['published'])
  try:
   b=Budget();b.take(out);b.take(req.trace)
  except FulltextRefused:raise FeedRefused('fixture output budget') from None
- return {'state':'supplied_parsed_entry_selection_only','scope':'PRIVATE supplied entries, no live HTTP/XML/health proof','candidates':out,'trace':req.trace,'input_count':len(rows),'selected_count':len(out),'parser_calls':fp.calls,'declared_source_mode':'error' if log_count else 'ok','coarse_errors':['supplied_source_error'] if log_count else [],'date_fallback_count':dp.fallbacks,'date_policy':'partial dates use supplied UTC default; unknown zones fallback unverified','dateutil_version':dateutil.__version__,'network':False,'writes':False,'delivery':False}
+ return {'state':'supplied_parsed_entry_selection_only','scope':'PRIVATE supplied entries, no live HTTP/XML/health proof','candidates':out,'trace':req.trace,'input_count':len(rows),'selected_count':len(out),'parser_calls':fp.calls,'declared_source_mode':'error' if log_count else 'ok','coarse_errors':['supplied_source_error'] if log_count else [],'date_fallback_count':0,'publication_date_holds':holds,'date_policy':'strict aware complete publication; unknown/naive/future held, never now','dateutil_version':dateutil.__version__,'network':False,'writes':False,'delivery':False}

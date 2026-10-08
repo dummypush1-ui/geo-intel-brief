@@ -2,7 +2,7 @@
   {
     "path": "web.py",
     "original_sha256": "eb0312abeead1d445dddf0d621c6f03ad4d699027db48cbdc527493101358c47",
-    "preserved_sha256": "9c487d9469828a209fd07f1e2904ea5667d63ce2c0ba08d5a1d6ba5b21f70277",
+    "preserved_sha256": "8e78a29cb8c3d11fa12ad9a713c9e26ca67c36deb780b2aa5cadee485c120443",
     "byte_identical": false,
     "ast_same_except_namespace": false,
     "intentional_change": "Reviewed bulk147 outcomes/held backup/status or P0 config auth comment; original hash retained"
@@ -17,7 +17,7 @@
   {
     "path": "collectors/rss.py",
     "original_sha256": "f4caa621437ce4295029dc37db7ccda70a9aeb1fba2f59f7ea20f2f07517763b",
-    "preserved_sha256": "a7cbdeac2e7645e2477ecf64a9ad9cbf00d1ccf71b18235228d75ccaca3cbd41",
+    "preserved_sha256": "a882d01629181b8a14f1d6a2b9a695f3acd7aab83aae7a80165349689f84daef",
     "byte_identical": false,
     "ast_same_except_namespace": false,
     "intentional_change": "Reviewed bulk147 outcomes/held backup/status or P0 config auth comment; original hash retained"
@@ -63,7 +63,7 @@
   {
     "path": "processing/classifier.py",
     "original_sha256": "445842f362bca71455f562e6d405e6ee860deddb88bab64f56f522e7b67073f9",
-    "preserved_sha256": "7c23324b2cbbc3b05f5e118a29456e0616e56146417bbbec65c5daf0559f38f0",
+    "preserved_sha256": "5a87baba3a28b778d0d6b7a3091129e94a618c45ae346a99e13204790f2787ac",
     "byte_identical": false,
     "ast_same_except_namespace": false,
     "intentional_change": "Reviewed classifier146 token/phrase matching; original hash retained"

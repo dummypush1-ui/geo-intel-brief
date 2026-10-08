@@ -7,7 +7,7 @@ from .supplied_collector_pipeline import _snapshot,PipelineRefused,PINS as BASE_
 from .supplied_fulltext_fixture import Budget,FulltextRefused
 from .supplied_feed_fixture import FeedRefused,_date
 ROOT=Path(__file__).resolve().parents[1]
-PINS=dict(BASE_PINS)|{'integration/supplied_collector_pipeline.py':'c1d477e875b2a625a8c00c641bd8e0314a7112f9f9057213ebc338a612c69b44'}
+PINS=dict(BASE_PINS)|{'integration/supplied_collector_pipeline.py':'cd791259239c08ec66753db6fdaed07ca07500402c4973485f436cc11d64e8cc'}
 class MultiFeedRefused(ValueError):pass
 def _validate(batches,outcomes,categories,cutoff,fallback_clock,threshold,enabled,available,max_chars,max_items,timeout):
  if type(batches) is not list or len(batches)>4 or type(outcomes) is not dict or len(outcomes)>100:raise MultiFeedRefused('raw containers')

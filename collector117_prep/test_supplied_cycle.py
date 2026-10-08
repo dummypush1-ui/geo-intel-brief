@@ -4,12 +4,12 @@ from unittest.mock import patch
 from .supplied_cycle import compose_cycle,CycleRefused
 from collector115_prep.profile import compile_profile
 D=datetime(2026,1,1,tzinfo=timezone.utc)
-RSS=b'<rss><channel><item><title>Trade</title><link>https://example.com/a</link></item></channel></rss>'
+RSS=b'<rss><channel><item><title>Trade</title><link>https://example.com/a</link><pubDate>Thu, 01 Jan 2026 00:00:00 GMT</pubDate></item></channel></rss>'
 F=compile_profile({})['feeds']
 def proof(b):return {'bytes':b,'input_sha256':hashlib.sha256(b).hexdigest(),'wire_bytes':len(b)}
 class Tests(unittest.TestCase):
  def test_bad_source_continues_next(self):
-  r=compose_cycle({}, {F[0][1]:proof(b'<!DOCTYPE rss>'+RSS),F[1][1]:proof(RSS)},clock=D)
+  r=compose_cycle({}, {F[0][1]:proof(b'<!DOCTYPE rss SYSTEM "https://example.com/external">'+RSS),F[1][1]:proof(RSS)},clock=D)
   self.assertEqual(r['refused_count'],1);self.assertEqual(len(r['candidates']),1);self.assertEqual(r['candidates'][0]['source'],'BBC Business');self.assertEqual(len(r['source_states']),25)
  def test_missing_never_healthy(self):
   r=compose_cycle({}, {},clock=D);self.assertFalse(r['all_sources_healthy_verified']);self.assertTrue(all(x['state']=='not_supplied'for x in r['source_states']))

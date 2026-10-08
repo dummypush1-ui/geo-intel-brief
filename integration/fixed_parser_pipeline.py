@@ -7,7 +7,7 @@ from .supplied_fulltext_fixture import Budget,FulltextRefused,PINS as BASE_PINS
 from .supplied_feed_fixture import _date,FeedRefused
 from .supplied_collector_pipeline import _snapshot,PipelineRefused
 ROOT=Path(__file__).resolve().parents[1]
-PINS=dict(BASE_PINS)|{'integration/feedparser_audit/runner.py':'f394c55dcb2969151a3ddacfd6fc4c3711eb154fabedcfe6c2475e1fff3c058d','integration/supplied_feed_fixture.py':'ab67713a8a28f27e43d4c70fc2e9d434150ab89788f1db4c9d738ba38c5155ea','integration/supplied_fulltext_fixture.py':'1e9f825e002eb9643ea71064859abe9709fa8c874bac5206b6fe34de11c4b8d3','integration/supplied_collector_pipeline.py':'c1d477e875b2a625a8c00c641bd8e0314a7112f9f9057213ebc338a612c69b44'}
+PINS=dict(BASE_PINS)|{'integration/feedparser_audit/runner.py':'6de3e28af80928e0e34812bb699d13b935887b12b5153d85bc507ad8bc1e576e','integration/supplied_feed_fixture.py':'3205c4241b6d1d2633b0821dba1e7d08a2112ca442ce69a0c2e3e9cab7d735a5','integration/supplied_fulltext_fixture.py':'2134359525bdee3d361042c6d08eaa7f5a051d652201cbaf77fbf6188042de24','integration/supplied_collector_pipeline.py':'cd791259239c08ec66753db6fdaed07ca07500402c4973485f436cc11d64e8cc'}
 PINS.update({'integration/feedparser_audit/'+p:h for p,h in FILE_PINS.items()})
 class FixedPipelineRefused(ValueError):pass
 def prepare_fixed_parser_pipeline(case,outcomes,*,synthetic=False,cutoff,fallback_clock,categories=('TRADE',),threshold=.85,enabled=True,available=True,max_chars=700,max_items=50):

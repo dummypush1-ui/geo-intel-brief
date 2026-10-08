@@ -17,6 +17,7 @@
         "tests/collection_outcomes/test_callers.py",
         "tests/geonews_digest/test_digest.py",
         "tests/news_export/test_original_contract.py",
+        "tests/publication_dates/test_policy.py",
         "tests/test_build_provenance150.py",
         "tests/test_collector_mail_fixture.py",
         "tests/test_env_example.py",
@@ -416,6 +417,7 @@
         "integration/original_dashboard_payloads.py",
         "integration/page_watch.py",
         "integration/preview_access.py",
+        "integration/publication_dates/policy.py",
         "integration/renderer_scope.py",
         "integration/retention_audit.py",
         "integration/rss_catalog/catalog.py",
@@ -440,6 +442,7 @@
         "tests/geospatial/preview/make_payload.py",
         "tests/geospatial/test_geospatial.py",
         "tests/news_export/test_keyset_plan.py",
+        "tests/publication_dates/test_policy.py",
         "tests/test_article_archive.py",
         "tests/test_collector_mail_fixture.py",
         "tests/test_country_signals.py",
@@ -487,6 +490,7 @@
         "integration/feedparser_audit/child.py",
         "integration/fixed_parser_pipeline.py",
         "integration/geo_collector_contract.py",
+        "integration/publication_dates/policy.py",
         "integration/supplied_collector_pipeline.py",
         "integration/supplied_feed_fixture.py",
         "integration/supplied_multi_feed.py",
@@ -845,6 +849,7 @@
         "tests/test_preservation.py",
         "tests/test_private_news_fields.py",
         "tests/test_protocol145_inventory.py",
+        "tests/test_publication151_inventory.py",
         "tests/test_report_preview_frame.py",
         "tests/test_security_review.py",
         "tests/test_shared_service_fixture.py",
@@ -1039,6 +1044,7 @@
         "tests/news_export/test_original_contract.py",
         "tests/news_export/test_original_stream.py",
         "tests/news_export/test_raw_pager.py",
+        "tests/publication_dates/test_policy.py",
         "tests/test_agencia_parser.py",
         "tests/test_article_archive.py",
         "tests/test_branding.py",
@@ -1437,6 +1443,7 @@
         "tests/geospatial/test_geospatial.py",
         "tests/geospatial/test_map_route.py",
         "tests/news_export/test_fixture_http.py",
+        "tests/publication_dates/test_policy.py",
         "tests/test_apps_script_audit.py",
         "tests/test_article_archive.py",
         "tests/test_branding.py",
@@ -1456,6 +1463,7 @@
         "tests/test_page_watch_parser_budget.py",
         "tests/test_preservation.py",
         "tests/test_protocol145_inventory.py",
+        "tests/test_publication151_inventory.py",
         "tests/test_retention_audit.py",
         "tests/test_rss_catalog.py",
         "tests/test_scraper_policy.py",
@@ -1549,6 +1557,7 @@
         "tests/digest_cold_probe.py",
         "tests/geospatial/test_geospatial.py",
         "tests/news_export/test_export.py",
+        "tests/publication_dates/test_policy.py",
         "tests/test_digest_cold.py",
         "tests/test_geo_probe_process.py",
         "tests/test_geo_read_factory.py",
@@ -1622,6 +1631,7 @@
         "tests/news_export/test_export_route.py",
         "tests/news_export/test_fixture_http.py",
         "tests/news_export/test_original_contract.py",
+        "tests/publication_dates/test_policy.py",
         "tests/test_apps_script_audit.py",
         "tests/test_branding.py",
         "tests/test_build_provenance150.py",
@@ -1642,6 +1652,7 @@
         "tests/test_preservation.py",
         "tests/test_preview_launcher.py",
         "tests/test_protocol145_inventory.py",
+        "tests/test_publication151_inventory.py",
         "tests/test_refresh149_gate.py",
         "tests/test_refresh_controller.py",
         "tests/test_rss_catalog.py",
@@ -2125,6 +2136,7 @@
         "integration/news_export/original_contract.py",
         "integration/page_watch.py",
         "integration/preview_access.py",
+        "integration/publication_dates/policy.py",
         "integration/relevance.py",
         "integration/report_styles.py",
         "integration/rss_catalog/catalog.py",
@@ -2366,6 +2378,7 @@
         "tests/accounts/browser_http_fixture.py",
         "tests/geospatial/test_geospatial.py",
         "tests/news_export/test_fixture_http.py",
+        "tests/publication_dates/test_policy.py",
         "tests/test_apps_script_audit.py",
         "tests/test_build_provenance150.py",
         "tests/test_collection_prepare.py",
@@ -2440,6 +2453,7 @@
         "tests/news_export/test_export_route.py",
         "tests/news_export/test_fixture_http.py",
         "tests/news_export/test_fixture_serving.py",
+        "tests/publication_dates/test_policy.py",
         "tests/test_collection_prepare.py",
         "tests/test_digest_cold.py",
         "tests/test_fixed_feedparser_audit.py",
@@ -2817,6 +2831,7 @@
         "tests/news_export/test_original_contract.py",
         "tests/news_export/test_original_stream.py",
         "tests/news_export/test_raw_pager.py",
+        "tests/publication_dates/test_policy.py",
         "tests/test_agencia_parser.py",
         "tests/test_apps_script_audit.py",
         "tests/test_article_archive.py",
@@ -2897,6 +2912,7 @@
         "tests/test_private_news_fields.py",
         "tests/test_project_reports.py",
         "tests/test_protocol145_inventory.py",
+        "tests/test_publication151_inventory.py",
         "tests/test_refresh149_gate.py",
         "tests/test_refresh_controller.py",
         "tests/test_report_preview_frame.py",
@@ -3407,7 +3423,7 @@
       },
       {
         "path": "integration/collector_mail_fixture.py",
-        "sha256": "051098ebd9b5354d5a53d8469eef87b8db5464176c6fd735f1f92582b62bbbe9"
+        "sha256": "66dc1a2737c1e4a939ff635c42d0cef9508d498f2f1b58fa57b89f21ab9ebc63"
       },
       {
         "path": "integration/country_alerts.py",
@@ -3455,7 +3471,7 @@
       },
       {
         "path": "integration/feedparser_audit/child.py",
-        "sha256": "5b4fb2d61ecc33cfa6e2b31b645f72a9bcd3183eb5f5357186585853e9270fb6"
+        "sha256": "933a7a15546640eabe398b700ab3f7ae0b80a5fec2100b10d98d72025684bb7f"
       },
       {
         "path": "integration/feedparser_audit/corpus.py",
@@ -3463,7 +3479,7 @@
       },
       {
         "path": "integration/feedparser_audit/runner.py",
-        "sha256": "f394c55dcb2969151a3ddacfd6fc4c3711eb154fabedcfe6c2475e1fff3c058d"
+        "sha256": "6de3e28af80928e0e34812bb699d13b935887b12b5153d85bc507ad8bc1e576e"
       },
       {
         "path": "integration/finder_index.py",
@@ -3487,7 +3503,7 @@
       },
       {
         "path": "integration/fixed_parser_pipeline.py",
-        "sha256": "7e79029dbb02261f979a3575397bf58209e0d60bd3dac21a5319926694a02a1f"
+        "sha256": "d24a09e28153a424b543b0e5b5edeb7ebe707521ba712bd610de86a6f1aa7316"
       },
       {
         "path": "integration/geo_article_writer.py",
@@ -3495,7 +3511,7 @@
       },
       {
         "path": "integration/geo_collector_contract.py",
-        "sha256": "3d35ed17b5df48b580a705100cf1e0aaa596f8fb948d12c128d6f00be2022f3d"
+        "sha256": "f2bc6c906633e06aba66b21a54901a634279e2d336cfa9d5697d134691292f49"
       },
       {
         "path": "integration/geo_only_runtime.py",
@@ -3623,7 +3639,7 @@
       },
       {
         "path": "integration/news_export/original_contract.py",
-        "sha256": "1f5cf9205419add55999a54e802cc5028590a907acaa6f81401ec755f159663e"
+        "sha256": "f902c7a7d885cd8b3c2f6dc8ec2ca90e799f7749f2e4521fcbcdf82d357a01cd"
       },
       {
         "path": "integration/news_export/original_stream.py",
@@ -3672,6 +3688,10 @@
       {
         "path": "integration/public_news.py",
         "sha256": "08a002863831a1e7cf9336e10b2f9d61aa1ce0ecf4b4367027dd34ed1dbd8145"
+      },
+      {
+        "path": "integration/publication_dates/policy.py",
+        "sha256": "2a7141d125b5fe22795927801222f3e83476275370c2d319cd78e3875dd52815"
       },
       {
         "path": "integration/relevance.py",
@@ -3767,19 +3787,19 @@
       },
       {
         "path": "integration/supplied_collector_pipeline.py",
-        "sha256": "c1d477e875b2a625a8c00c641bd8e0314a7112f9f9057213ebc338a612c69b44"
+        "sha256": "cd791259239c08ec66753db6fdaed07ca07500402c4973485f436cc11d64e8cc"
       },
       {
         "path": "integration/supplied_feed_fixture.py",
-        "sha256": "ab67713a8a28f27e43d4c70fc2e9d434150ab89788f1db4c9d738ba38c5155ea"
+        "sha256": "3205c4241b6d1d2633b0821dba1e7d08a2112ca442ce69a0c2e3e9cab7d735a5"
       },
       {
         "path": "integration/supplied_fulltext_fixture.py",
-        "sha256": "1e9f825e002eb9643ea71064859abe9709fa8c874bac5206b6fe34de11c4b8d3"
+        "sha256": "2134359525bdee3d361042c6d08eaa7f5a051d652201cbaf77fbf6188042de24"
       },
       {
         "path": "integration/supplied_multi_feed.py",
-        "sha256": "22ac2ab7573f087f4b6931ac1ad1777e814fa01c78ad26f7c9d9cb0a3d247e1b"
+        "sha256": "75354af2cf01802cd9a81e94d21d99b4d62734451fa3f28f3a097507c16a1e96"
       },
       {
         "path": "integration/tariff_evidence.py",
@@ -4026,6 +4046,14 @@
         "sha256": "239101cf19da8c2636f4e44635ca2a561148291848a3b680060d08d510df59f0"
       },
       {
+        "path": "tests/publication_dates/__init__.py",
+        "sha256": "222a8cd374241dbbaeca8f60a6e49d21e0be7d4e41906192b9d564cf8e4140c0"
+      },
+      {
+        "path": "tests/publication_dates/test_policy.py",
+        "sha256": "27e5fd469d71c8c933d3d46405fe92edab259e92b4fc1ba00743e6b564b47fb8"
+      },
+      {
         "path": "tests/test_agencia_parser.py",
         "sha256": "1d93647a48a3f6d2c88d7441273865b4eac3897c1f7d71eb54bc631ddb6971a8"
       },
@@ -4195,11 +4223,11 @@
       },
       {
         "path": "tests/test_fixed_feedparser_audit.py",
-        "sha256": "5c50b0b0af1a2aef73e87629880403123d17ca983dd554db73709e25b9cda8fc"
+        "sha256": "87bde311d97bbaafd2765be44e680aa8af4bf30c1e336a8819fec8e3c7a2db20"
       },
       {
         "path": "tests/test_fixed_parser_pipeline.py",
-        "sha256": "05f68bdf0f07c958212035135ad34ae8d09a16f25ac4d4aafeaf359194c11566"
+        "sha256": "4ae02b740fd13a02226bd3c355f41f3a0feb530387d83b979891c51fa18f909f"
       },
       {
         "path": "tests/test_geo_article_writer.py",
@@ -4207,7 +4235,7 @@
       },
       {
         "path": "tests/test_geo_collector_contract.py",
-        "sha256": "9681ef874637ba5ba3eb303382d03ebc400e105a649a8ccc0d8069670b4f8469"
+        "sha256": "e3e61bcfc3f432f4afb6f4516b7a6844a79bff576a5ee55f4fdc7bab0721a13b"
       },
       {
         "path": "tests/test_geo_event_composition.py",
@@ -4323,7 +4351,7 @@
       },
       {
         "path": "tests/test_preservation.py",
-        "sha256": "fc2ce941fa1a6f2c8856c133a8f2e35267dff3d0824e2da4ddd6bb8b9b387b3e"
+        "sha256": "61b694dc06b7d62af39d609cdbfd9859feb3424b268a96cea5785dd5a21d2b82"
       },
       {
         "path": "tests/test_preview_access.py",
@@ -4344,6 +4372,10 @@
       {
         "path": "tests/test_protocol145_inventory.py",
         "sha256": "b6d28e16fa04f5c740a3a7f8a2f4d04f111f1a1f75444c58f8ddb405eba30acf"
+      },
+      {
+        "path": "tests/test_publication151_inventory.py",
+        "sha256": "837f9d993d368d40844b97cc67c1448c34ddea6f2c5bb89ef2fad39215a78bd2"
       },
       {
         "path": "tests/test_refresh149_gate.py",
@@ -4435,11 +4467,11 @@
       },
       {
         "path": "tests/test_supplied_collector_pipeline.py",
-        "sha256": "91e088e40fdce235ac05b72adb97139b5eb7b6e0c6914aa4517c0ab3754bdc87"
+        "sha256": "2c34a0462a8e8713bf014db9fcb513ff5c200caa5bbef3957f8f47466e2f2f25"
       },
       {
         "path": "tests/test_supplied_feed_fixture.py",
-        "sha256": "9a26a4df17cffff38c612c888eb97be735115ee9c06056efd4299ccf2cdbf720"
+        "sha256": "83155897087d80ec8c08f4a012d146561fff5a586819847c809994884e93741c"
       },
       {
         "path": "tests/test_supplied_fulltext_fixture.py",
@@ -4447,7 +4479,7 @@
       },
       {
         "path": "tests/test_supplied_multi_feed.py",
-        "sha256": "9c2ccdaa375d5a26af1edbc51ea87616ab51a38ed972df9dd581fcf1ff65a6e2"
+        "sha256": "bc1d9be9141dac383309d6ef48854893cdfe3dc0d5bc7b9ad0ec3e659d24f2e6"
       },
       {
         "path": "tests/test_table_edit151.py",

@@ -5,7 +5,7 @@ from datetime import datetime,timezone
 from integration.supplied_feed_fixture import _date,FeedRefused
 BASE=Path(__file__).parent;ROOT=BASE.parents[1]
 from integration.supplied_fulltext_fixture import Budget,FulltextRefused
-FILE_PINS={'child.py': '5b4fb2d61ecc33cfa6e2b31b645f72a9bcd3183eb5f5357186585853e9270fb6', 'corpus.py': 'e7158b210f562b68ecd74bb79d26549779a80ff539c08e3409b5d7177ae9af5e', 'corpus-pins.json': 'e91ac2743f799cd59e9fcc663fcf75577cfa95bdf883081f1010104094fd1303', 'sdk-pins.json': '9ba077de033c7f86ab15f4608e93f8a012b89a30500c91b64b5dbdc92d71ea58'}
+FILE_PINS={'child.py': '933a7a15546640eabe398b700ab3f7ae0b80a5fec2100b10d98d72025684bb7f', 'corpus.py': 'e7158b210f562b68ecd74bb79d26549779a80ff539c08e3409b5d7177ae9af5e', 'corpus-pins.json': 'e91ac2743f799cd59e9fcc663fcf75577cfa95bdf883081f1010104094fd1303', 'sdk-pins.json': '9ba077de033c7f86ab15f4608e93f8a012b89a30500c91b64b5dbdc92d71ea58'}
 class ParserRefused(ValueError):pass
 CASES=frozenset(('rss','atom','empty','broken_entries','broken_empty','internal_entity','empty_dates'))
 def run_fixed_parser(case,*,cutoff,fallback_clock,max_items=50):

@@ -44,7 +44,7 @@ class Tests(unittest.TestCase):
 
  def test_original_parsed_date_offset_differential(self):
   from intelligence.geo.processing.classifier import parse_date
-  for value in ('Mon, 05 Oct 2026 12:00:00 GMT','Mon, 05 Oct 2026 12:00:00 +0530','2026-10-05T12:00:00','2026-10-05T12:00:00Z'):
+  for value in ('Mon, 05 Oct 2026 12:00:00 GMT','Mon, 05 Oct 2026 12:00:00 +0530','2026-10-05T12:00:00Z'):
    parsed=parse_date(value);a=row();a['published']=parsed
    d=prepare_geo_documents([a],['TRADE'],.85)['documents'][0]
    self.assertEqual(d['published'],parsed.isoformat())

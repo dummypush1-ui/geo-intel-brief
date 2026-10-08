@@ -3,7 +3,7 @@ import ast,hashlib,math,json
 from datetime import datetime,timezone
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
-PINS={'intelligence/geo/collectors/rss.py':'a7cbdeac2e7645e2477ecf64a9ad9cbf00d1ccf71b18235228d75ccaca3cbd41','intelligence/geo/processing/extract.py':'42aa24d7cb788d45ee5c22e0c4c45ffe901d32fff3ab82227575ffc299eee44a','integration/geo_collector_contract.py':'3d35ed17b5df48b580a705100cf1e0aaa596f8fb948d12c128d6f00be2022f3d','intelligence/geo/processing/classifier.py':'7c23324b2cbbc3b05f5e118a29456e0616e56146417bbbec65c5daf0559f38f0','intelligence/geo/processing/dedupe.py':'8326042d8a2adccafc690f86c47cc9baa67240792ef90060750313c81fb7382e','integration/fake_collection_writer.py':'f209fe293d3fab5702476682b9b7d3a659ddaea466dc3e9d88e52a56dbd05c64'}
+PINS={'intelligence/geo/collectors/rss.py':'a882d01629181b8a14f1d6a2b9a695f3acd7aab83aae7a80165349689f84daef','intelligence/geo/processing/extract.py':'42aa24d7cb788d45ee5c22e0c4c45ffe901d32fff3ab82227575ffc299eee44a','integration/geo_collector_contract.py':'f2bc6c906633e06aba66b21a54901a634279e2d336cfa9d5697d134691292f49','intelligence/geo/processing/classifier.py':'5a87baba3a28b778d0d6b7a3091129e94a618c45ae346a99e13204790f2787ac','intelligence/geo/processing/dedupe.py':'8326042d8a2adccafc690f86c47cc9baa67240792ef90060750313c81fb7382e','integration/fake_collection_writer.py':'f209fe293d3fab5702476682b9b7d3a659ddaea466dc3e9d88e52a56dbd05c64'}
 class FulltextRefused(ValueError):pass
 class Budget:
  def __init__(self):self.nodes=0;self.size=0

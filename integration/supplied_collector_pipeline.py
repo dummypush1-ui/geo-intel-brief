@@ -7,7 +7,7 @@ from .supplied_fulltext_fixture import Budget,FulltextRefused,PINS as BASE_PINS
 from .supplied_feed_fixture import FeedRefused,_date
 ROOT=Path(__file__).resolve().parents[1]
 class PipelineRefused(ValueError):pass
-PINS=dict(BASE_PINS)|{'integration/supplied_feed_fixture.py': 'ab67713a8a28f27e43d4c70fc2e9d434150ab89788f1db4c9d738ba38c5155ea', 'integration/supplied_fulltext_fixture.py': '1e9f825e002eb9643ea71064859abe9709fa8c874bac5206b6fe34de11c4b8d3'}
+PINS=dict(BASE_PINS)|{'integration/supplied_feed_fixture.py': '3205c4241b6d1d2633b0821dba1e7d08a2112ca442ce69a0c2e3e9cab7d735a5', 'integration/supplied_fulltext_fixture.py': '2134359525bdee3d361042c6d08eaa7f5a051d652201cbaf77fbf6188042de24'}
 def _snapshot(v,depth=0):
  if depth>4:raise PipelineRefused('fixture depth')
  if type(v) in (str,bool,int,float,type(None),datetime):return v
