@@ -2911,6 +2911,26 @@
       "sha256": "532149e8a9c05b84cabc0a19052182de3124c1f7eacde490da08e6fd78c05d81"
     },
     {
+      "path": "integration/security_candidate/bump158/README.md",
+      "bytes": 740,
+      "sha256": "d1320e50a638ca7c2a825ec7f5ecfbffd74862dbce7b1e2c453f0787080fde37"
+    },
+    {
+      "path": "integration/security_candidate/bump158/install.txt",
+      "bytes": 6192,
+      "sha256": "b161476cd21c38f7d00338421de096851fd976c8910c0a1d51c4db4c48860a9b"
+    },
+    {
+      "path": "integration/security_candidate/bump158/pip-check.txt",
+      "bytes": 30,
+      "sha256": "9261363b733079a641c2e4cc9bc46ffa1d8336945a87f807b6cf68847dbc9b09"
+    },
+    {
+      "path": "integration/security_candidate/bump158/receipt.json",
+      "bytes": 3373,
+      "sha256": "8b799593ed80dab93f2c00bbbb6795eec5849c30eda349984a7373bbb154fc6c"
+    },
+    {
       "path": "integration/security_candidate/chunk-runner.txt",
       "bytes": 1029,
       "sha256": "4de92dc00ec0c77d2c6f10825ad7515278b94e5bdb619171ddd56abf6104aeb5"
@@ -2953,7 +2973,7 @@
     {
       "path": "integration/security_candidate/requirements-security-candidate.txt",
       "bytes": 2483,
-      "sha256": "16e9a9b331c186362cbcd4dc00f7a1cfb565963aed15e249075a8dbc8ac57bae"
+      "sha256": "d5854702bb8ab3482e56743b6919730c9bc4e4dd3e74a4422780dc315cea35c0"
     },
     {
       "path": "integration/security_candidate91/README.md",

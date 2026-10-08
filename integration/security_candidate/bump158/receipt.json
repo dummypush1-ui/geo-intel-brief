@@ -1,0 +1,142 @@
+{
+  "status": "hashed_install_pip_check_and_regression_pass",
+  "candidate_lock_sha256": "d5854702bb8ab3482e56743b6919730c9bc4e4dd3e74a4422780dc315cea35c0",
+  "python": "3.10.12 (main, Aug 31 2026, 10:18:17) [GCC 11.4.0]",
+  "bootstrap": [
+    {
+      "name": "pip",
+      "version": "22.0.2"
+    },
+    {
+      "name": "setuptools",
+      "version": "59.6.0"
+    }
+  ],
+  "installed": [
+    {
+      "name": "blinker",
+      "version": "1.9.0"
+    },
+    {
+      "name": "certifi",
+      "version": "2026.7.22"
+    },
+    {
+      "name": "charset-normalizer",
+      "version": "3.5.2"
+    },
+    {
+      "name": "click",
+      "version": "8.5.0"
+    },
+    {
+      "name": "dnspython",
+      "version": "2.8.0"
+    },
+    {
+      "name": "feedparser",
+      "version": "6.0.11"
+    },
+    {
+      "name": "Flask",
+      "version": "3.1.3"
+    },
+    {
+      "name": "gunicorn",
+      "version": "23.0.0"
+    },
+    {
+      "name": "idna",
+      "version": "3.20"
+    },
+    {
+      "name": "itsdangerous",
+      "version": "2.2.0"
+    },
+    {
+      "name": "Jinja2",
+      "version": "3.1.6"
+    },
+    {
+      "name": "MarkupSafe",
+      "version": "3.0.4"
+    },
+    {
+      "name": "packaging",
+      "version": "26.3"
+    },
+    {
+      "name": "pip",
+      "version": "22.0.2"
+    },
+    {
+      "name": "pymongo",
+      "version": "4.18.2"
+    },
+    {
+      "name": "pypdf",
+      "version": "6.19.0"
+    },
+    {
+      "name": "python-dateutil",
+      "version": "2.9.0.post0"
+    },
+    {
+      "name": "python-dotenv",
+      "version": "1.2.4"
+    },
+    {
+      "name": "PyYAML",
+      "version": "6.0.2"
+    },
+    {
+      "name": "requests",
+      "version": "2.34.2"
+    },
+    {
+      "name": "schedule",
+      "version": "1.2.2"
+    },
+    {
+      "name": "setuptools",
+      "version": "59.6.0"
+    },
+    {
+      "name": "sgmllib3k",
+      "version": "1.0.0"
+    },
+    {
+      "name": "six",
+      "version": "1.17.0"
+    },
+    {
+      "name": "typing_extensions",
+      "version": "4.16.0"
+    },
+    {
+      "name": "urllib3",
+      "version": "2.8.0"
+    },
+    {
+      "name": "Werkzeug",
+      "version": "3.1.9"
+    }
+  ],
+  "sgmllib_input": {
+    "metadata_url": "https://pypi.org/pypi/sgmllib3k/1.0.0/json",
+    "filename": "sgmllib3k-1.0.0.tar.gz",
+    "file_url": "https://files.pythonhosted.org/packages/9e/bd/3704a8c3e0942d711c1299ebf7b9091930adae6675d7c8f476a7ce48653c/sgmllib3k-1.0.0.tar.gz",
+    "sha256": "7868fb1c8bfa764c1ac563d3cf369c381d1325d36124933a726f29fcdaa812e9"
+  },
+  "build_gap": "Legacy setup.py install uses unpinned bootstrap setuptools/pip. App downloaded inputs were hash checked; build chain is not hash-pinned or independently attested. No historical receipt relabeled.",
+  "gunicorn_input": {
+    "metadata_url": "https://pypi.org/pypi/gunicorn/23.0.0/json",
+    "file_url": "https://files.pythonhosted.org/packages/cb/7d/6dac2a6e1eba33ee43f318edbed4ff29151a49b5d37f080aad1e6469bca4/gunicorn-23.0.0-py3-none-any.whl",
+    "filename": "gunicorn-23.0.0-py3-none-any.whl",
+    "sha256": "ec400d38950de4dfd418cff8328b2c8faed0edb0d517d3394e457c317908ca4d"
+  },
+  "validation_base": "2382e2ea57139786e283f5d04417ccefd43ab222",
+  "root_tests": 1444,
+  "collector_tests": 285,
+  "regression_log_scope": "Fresh bumped environment, clean export, 2 skips/1 expected failure; final current-base rerun required before landing"
+}
