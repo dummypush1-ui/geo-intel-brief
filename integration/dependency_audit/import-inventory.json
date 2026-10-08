@@ -270,6 +270,7 @@
     {
       "import": "copy",
       "files": [
+        "feature_finder_prep/mount_policy.py",
         "feature_mail_mount/store.py",
         "feature_related_prep/calibration.py",
         "integration/accounts/mongo_store.py",
@@ -294,6 +295,7 @@
         "tests/test_collector_mail_fixture.py",
         "tests/test_country_alerts.py",
         "tests/test_country_signals.py",
+        "tests/test_feature_finder_mount_policy.py",
         "tests/test_feature_mail_mount.py",
         "tests/test_feature_related_calibration.py",
         "tests/test_feature_related_prep.py",
@@ -576,6 +578,7 @@
       "import": "feature_finder_prep",
       "files": [
         "tests/browser_feature_finder.py",
+        "tests/test_feature_finder_mount_policy.py",
         "tests/test_feature_finder_prep.py"
       ],
       "stdlib": false,
@@ -2048,6 +2051,7 @@
     {
       "import": "re",
       "files": [
+        "feature_finder_prep/mount_policy.py",
         "feature_mail_mount/store.py",
         "feature_mail_prep/cleanup.py",
         "feature_mail_prep/reports.py",
@@ -2787,6 +2791,7 @@
         "tests/test_env_example.py",
         "tests/test_event_reader.py",
         "tests/test_fake_collection_writer.py",
+        "tests/test_feature_finder_mount_policy.py",
         "tests/test_feature_finder_prep.py",
         "tests/test_feature_mail_mount.py",
         "tests/test_feature_mail_prep.py",
@@ -3190,6 +3195,10 @@
       {
         "path": "feature_finder_prep/__init__.py",
         "sha256": "f17162b13f703189eb654ad133138896eacc1a8405bc5e9088255e70408c9dc6"
+      },
+      {
+        "path": "feature_finder_prep/mount_policy.py",
+        "sha256": "83a747740b8f6dcd9a74a680195823939be0236e989bf96559b9af31c64e3205"
       },
       {
         "path": "feature_finder_prep/shell.py",
@@ -4014,6 +4023,10 @@
       {
         "path": "tests/test_fake_collection_writer.py",
         "sha256": "cb8873fffeacf6d6cae5e69493492f79b01463c3eab4889b9615763e151ea0da"
+      },
+      {
+        "path": "tests/test_feature_finder_mount_policy.py",
+        "sha256": "11625653db430c04a9f4fb024a2af4649dc211a154ca37201a35d14bb711d6ca"
       },
       {
         "path": "tests/test_feature_finder_prep.py",
