@@ -1,37 +1,17 @@
-"""Web entry point for Render deployment.
+"""Legacy Geo HTTP entry point.
 
-This does NOT change any collection, scoring, or filtering logic — it just
-exposes your existing app.py functions over HTTP so Google Apps Script can
-trigger them on a schedule (since Render's free tier has no built-in cron
-and sleeps without traffic).
-
-Routes (all require ?key=TRIGGER_SECRET, except /health):
-  GET  /health          -> 200 OK, used to keep the free instance awake
-  POST /collect         -> runs RSS + (optional) Google News + events
-                            collection. Full records are backed up to
-                            Telegram as part of this step if
-                            ENABLE_TELEGRAM_BACKUP=true.
-  POST /send-digest     -> builds the digest and emails it via SMTP directly
-  GET  /digest-data     -> returns the digest as JSON (for Apps Script to
-                            build and send the email itself via Gmail,
-                            avoiding Render's outbound SMTP issues)
-  POST /critical        -> checks + sends the instant critical alert
-  POST /weekly          -> sends the weekly trend summary
-  GET  /dashboard       -> full browser dashboard: every saved article
-                            (full record, not just metadata), events
-                            calendar, and stats (open in a browser with
-                            ?key=YOUR_TRIGGER_SECRET on the end)
-  GET  /export.csv      -> downloads every article as a CSV file
-  POST /cleanup-old     -> deletes MongoDB metadata older than
-                            METADATA_CLEANUP_AFTER_DAYS. Nothing is lost --
-                            the full record already lives permanently in
-                            the Telegram backup channel from collection time.
+Protected routes require X-Trigger-Secret. Query-string keys are rejected;
+mutations are POST-only. /health is public and does not initialize storage.
+Cleanup remains disabled until a separately reviewed retention implementation.
+No collectors, report senders or database clients load before authorization.
 """
 import os
 import io
 import csv
 import threading
 import logging
+import hmac
+import importlib
 from datetime import datetime, timezone
 from flask import Flask, request, jsonify, Response
 
@@ -39,46 +19,81 @@ from intelligence.geo.config import (ENABLE_GNEWS, EXTRA_RSS_FEEDS, TRIGGER_SECR
                      UPCOMING_DAYS, ACTIVE_CATEGORIES,
                      ENABLE_CRITICAL_ALERTS, ENABLE_WEEKLY_REPORT,
                      ENABLE_METADATA_CLEANUP)
-from intelligence.geo.config_check import check_config
-from intelligence.geo.database import init_db, recent_articles, upcoming_events
-from intelligence.geo.collectors.rss import collect as collect_rss
-from intelligence.geo.collectors.gnews_search import collect as collect_gnews
-from intelligence.geo.collectors.events import seed_events
-from intelligence.geo.reports.email_report import send as send_email_smtp, build_html, build_digest, mark_sent
-from intelligence.geo.reports.critical_alert import send_if_critical
-from intelligence.geo.reports.weekly_report import send as send_weekly
-from intelligence.geo.reports.dashboard import build_dashboard_html
-from intelligence.geo.reports.metadata_cleanup import cleanup as cleanup_old_metadata
+def _service(module, name, *args, **kwargs):
+    return getattr(importlib.import_module("intelligence.geo." + module), name)(*args, **kwargs)
+
+def init_db(*args, **kwargs):
+    return _service('database', 'init_db', *args, **kwargs)
+
+def recent_articles(*args, **kwargs):
+    return _service('database', 'recent_articles', *args, **kwargs)
+
+def upcoming_events(*args, **kwargs):
+    return _service('database', 'upcoming_events', *args, **kwargs)
+
+def collect_rss(*args, **kwargs):
+    return _service('collectors.rss', 'collect', *args, **kwargs)
+
+def collect_gnews(*args, **kwargs):
+    return _service('collectors.gnews_search', 'collect', *args, **kwargs)
+
+def seed_events(*args, **kwargs):
+    return _service('collectors.events', 'seed_events', *args, **kwargs)
+
+def send_email_smtp(*args, **kwargs):
+    return _service('reports.email_report', 'send', *args, **kwargs)
+
+def build_html(*args, **kwargs):
+    return _service('reports.email_report', 'build_html', *args, **kwargs)
+
+def build_digest(*args, **kwargs):
+    return _service('reports.email_report', 'build_digest', *args, **kwargs)
+
+def mark_sent(*args, **kwargs):
+    return _service('reports.email_report', 'mark_sent', *args, **kwargs)
+
+def send_if_critical(*args, **kwargs):
+    return _service('reports.critical_alert', 'send_if_critical', *args, **kwargs)
+
+def send_weekly(*args, **kwargs):
+    return _service('reports.weekly_report', 'send', *args, **kwargs)
+
+def build_dashboard_html(*args, **kwargs):
+    return _service('reports.dashboard', 'build_dashboard_html', *args, **kwargs)
 
 logging.basicConfig(level=logging.INFO)
 log = logging.getLogger("web")
 
 app = Flask(__name__)
 
-# Log config problems clearly instead of letting a missing MONGODB_URI or
-# email var crash the whole app with a confusing raw traceback later. We
-# still try to start (so /health works even if something's misconfigured),
-# but MongoDB-dependent routes will fail with a clear message.
-check_config(require_email=True)
-
-try:
-    init_db()
-    _db_ready = True
-except Exception as exc:
-    log.error("MongoDB init failed at startup — check MONGODB_URI. %s", exc)
-    _db_ready = False
+_db_ready = False
 
 
 def _db_check():
+    global _db_ready
     if not _db_ready:
-        return jsonify(error="Database not connected — check MONGODB_URI in Render's environment variables."), 500
+        try:
+            init_db()
+            _db_ready = True
+        except Exception:
+            log.error("Database initialization failed")
+            return jsonify(error="Database unavailable"), 503
     return None
 
 
 def _authorized():
-    if not TRIGGER_SECRET:
-        return True  # not set -> no auth (only fine for local testing)
-    return request.args.get("key") == TRIGGER_SECRET
+    secret = TRIGGER_SECRET
+    supplied = request.headers.get("X-Trigger-Secret", "")
+    return (isinstance(secret, str) and bool(secret.strip())
+            and "key" not in request.args
+            and hmac.compare_digest(supplied.encode("utf-8"), secret.encode("utf-8")))
+
+
+@app.before_request
+def _protect_routes():
+    if request.endpoint and request.endpoint != "health" and not _authorized():
+        return jsonify(error="unauthorized"), 401
+    return None
 
 
 # Background job state for /collect. Collection (RSS + Google News +
@@ -119,7 +134,7 @@ def health():
     return jsonify(status="ok")
 
 
-@app.route("/collect", methods=["GET", "POST"])
+@app.route("/collect", methods=["POST"])
 def collect():
     if not _authorized():
         return jsonify(error="unauthorized"), 401
@@ -143,7 +158,7 @@ def collect_status():
     return jsonify(_collect_status)
 
 
-@app.route("/send-digest", methods=["GET", "POST"])
+@app.route("/send-digest", methods=["POST"])
 def send_digest():
     """Sends the email directly from Render via SMTP (Option B: keep it
     simple). If Render's SMTP keeps failing, use /digest-data instead and
@@ -193,7 +208,7 @@ def mark_emailed_route():
     return jsonify(marked=len(object_ids))
 
 
-@app.route("/critical", methods=["GET", "POST"])
+@app.route("/critical", methods=["POST"])
 def critical():
     if not _authorized():
         return jsonify(error="unauthorized"), 401
@@ -205,7 +220,7 @@ def critical():
     return jsonify(sent=bool(n), count=n or 0)
 
 
-@app.route("/weekly", methods=["GET", "POST"])
+@app.route("/weekly", methods=["POST"])
 def weekly():
     if not _authorized():
         return jsonify(error="unauthorized"), 401
@@ -220,13 +235,13 @@ def weekly():
 @app.route("/dashboard")
 def dashboard():
     if not _authorized():
-        return "Unauthorized — add ?key=YOUR_TRIGGER_SECRET to the URL.", 401
+        return "Unauthorized", 401
     if (err := _db_check()):
         return err
     limit = request.args.get("limit", default=100000, type=int)
     category = request.args.get("category") or None
     sort_by = request.args.get("sort_by", default="score")
-    html_out = build_dashboard_html(limit=limit, category=category, trigger_key=TRIGGER_SECRET, sort_by=sort_by)
+    html_out = build_dashboard_html(limit=limit, category=category, trigger_key="", sort_by=sort_by)
     return Response(html_out, mimetype="text/html")
 
 
@@ -255,19 +270,11 @@ def export_csv():
                      headers={"Content-Disposition": f"attachment; filename={fname}"})
 
 
-@app.route("/cleanup-old", methods=["GET", "POST"])
+@app.route("/cleanup-old", methods=["POST"])
 def cleanup_old():
-    """Deletes MongoDB metadata older than METADATA_CLEANUP_AFTER_DAYS.
-    Nothing is lost: the full record for every article already lives
-    permanently in the Telegram backup channel from collection time."""
-    if not _authorized():
-        return jsonify(error="unauthorized"), 401
-    if (err := _db_check()):
-        return err
-    if not ENABLE_METADATA_CLEANUP:
-        return jsonify(skipped="ENABLE_METADATA_CLEANUP is false")
-    result = cleanup_old_metadata()
-    return jsonify(result)
+    """Deletion is blocked even with a valid trigger secret and enabled flag."""
+    return jsonify(deleted=0, held=True,
+                   reason="retention_policy_not_implemented"), 403
 
 
 if __name__ == "__main__":

@@ -31,8 +31,6 @@
  *                                      unless you set this.
  *       WEEKLY_DAY                 -> default MONDAY (MONDAY..SUNDAY)
  *       WEEKLY_TIME                -> default 09:00
- *       CLEANUP_DAY_OF_MONTH       -> default 1
- *       CLEANUP_TIME                -> default 03:00
  *       KEEPALIVE_INTERVAL_MIN     -> default 10
  *       COLLECT_INTERVAL_MIN       -> default 30
  *       CRITICAL_CHECK_INTERVAL_MIN -> default 30
@@ -91,17 +89,27 @@ function _readWeekDay(propName, defaultDay) {
   return ScriptApp.WeekDay[raw] || ScriptApp.WeekDay[defaultDay];
 }
 
-function _renderUrl(path) {
+// Query credentials are no longer supported. No secrets in URLs or HTML.
+function _renderFetch(path, options) {
   const base = _props().getProperty('RENDER_BASE_URL');
-  const key = _props().getProperty('TRIGGER_SECRET');
-  const sep = path.indexOf('?') === -1 ? '?' : '&';
-  return base + path + sep + 'key=' + encodeURIComponent(key);
+  const secret = _props().getProperty('TRIGGER_SECRET');
+  if (typeof base !== 'string' || !/^https:\/\/[a-z0-9.-]+(?::443)?\/?$/.test(base))
+    throw new Error('Canonical HTTPS Render origin required');
+  if (typeof secret !== 'string' || !secret.trim())
+    throw new Error('Non-empty trigger credential required');
+  if (typeof path !== 'string' || !/^\/[a-z-]+$/.test(path))
+    throw new Error('Fixed Render route required');
+  const opts = Object.assign({}, options || {});
+  opts.headers = Object.assign({}, opts.headers || {}, {'X-Trigger-Secret': secret});
+  // Never follow a redirect carrying the credential to another origin.
+  opts.followRedirects = false;
+  return UrlFetchApp.fetch(base.replace(/\/$/, '') + path, opts);
 }
 
 /** Cheap ping, just to stop the free Render instance from sleeping. */
 function keepAlive() {
   try {
-    UrlFetchApp.fetch(_renderUrl('/health'), { muteHttpExceptions: true });
+    _renderFetch('/health', { muteHttpExceptions: true });
   } catch (e) {
     Logger.log('keepAlive failed: ' + e);
   }
@@ -112,7 +120,7 @@ function keepAlive() {
  * ENABLE_TELEGRAM_BACKUP=true in Render's environment variables. */
 function runCollect() {
   try {
-    UrlFetchApp.fetch(_renderUrl('/collect'), {
+    _renderFetch('/collect', {
       method: 'post',
       muteHttpExceptions: true,
     });
@@ -125,7 +133,7 @@ function runCollect() {
  * time listed in DIGEST_TIMES. */
 function sendDigest() {
   const emailTo = _props().getProperty('EMAIL_TO');
-  const resp = UrlFetchApp.fetch(_renderUrl('/digest-data'), {
+  const resp = _renderFetch('/digest-data', {
     method: 'get',
     muteHttpExceptions: true,
   });
@@ -163,7 +171,7 @@ function sendDigest() {
   // silently vanishing.
   if (data.article_ids && data.article_ids.length) {
     try {
-      UrlFetchApp.fetch(_renderUrl('/mark-emailed'), {
+      _renderFetch('/mark-emailed', {
         method: 'post',
         contentType: 'application/json',
         payload: JSON.stringify({ article_ids: data.article_ids }),
@@ -179,7 +187,7 @@ function sendDigest() {
  * CRITICAL_CHECK_INTERVAL_MIN minutes. */
 function checkCritical() {
   try {
-    UrlFetchApp.fetch(_renderUrl('/critical'), {
+    _renderFetch('/critical', {
       method: 'post',
       muteHttpExceptions: true,
     });
@@ -191,7 +199,7 @@ function checkCritical() {
 /** Sends the weekly trend report. Runs on WEEKLY_DAY at WEEKLY_TIME. */
 function sendWeekly() {
   try {
-    UrlFetchApp.fetch(_renderUrl('/weekly'), {
+    _renderFetch('/weekly', {
       method: 'post',
       muteHttpExceptions: true,
     });
@@ -200,19 +208,9 @@ function sendWeekly() {
   }
 }
 
-/** Deletes MongoDB metadata older than METADATA_CLEANUP_AFTER_DAYS (set in
- * Render's environment variables). Nothing is lost — full records already
- * live permanently in the Telegram backup channel from collection time.
- * Runs monthly on CLEANUP_DAY_OF_MONTH. */
+/** Cleanup is held. No requests or deletion until retention is implemented. */
 function cleanupOld() {
-  try {
-    UrlFetchApp.fetch(_renderUrl('/cleanup-old'), {
-      method: 'post',
-      muteHttpExceptions: true,
-    });
-  } catch (e) {
-    Logger.log('cleanupOld failed: ' + e);
-  }
+  Logger.log('cleanupOld held: retention policy not implemented');
 }
 
 /** Run this once by hand to install every timer. Safe to re-run — always
@@ -228,8 +226,6 @@ function setupTriggers() {
   const digestTimes = _readDigestTimes();
   const weeklyDay = _readWeekDay('WEEKLY_DAY', 'MONDAY');
   const weeklyTime = _readTime('WEEKLY_TIME', '09:00');
-  const cleanupDay = _readInt('CLEANUP_DAY_OF_MONTH', 1);
-  const cleanupTime = _readTime('CLEANUP_TIME', '03:00');
 
   // 1. Keep Render awake — light ping.
   ScriptApp.newTrigger('keepAlive').timeBased().everyMinutes(keepAliveMin).create();
@@ -264,14 +260,12 @@ function setupTriggers() {
   ScriptApp.newTrigger('sendWeekly').timeBased()
       .onWeekDay(weeklyDay).atHour(weeklyTime.hour).nearMinute(weeklyTime.minute).create();
 
-  // 6. Monthly MongoDB metadata cleanup (Telegram backup is unaffected).
-  ScriptApp.newTrigger('cleanupOld').timeBased()
-      .onMonthDay(cleanupDay).atHour(cleanupTime.hour).nearMinute(cleanupTime.minute).create();
+  // No cleanup trigger: deletion is held pending retention implementation.
 
   Logger.log(`Triggers installed: keep-alive/${keepAliveMin}min, collect/${collectMin}min, ` +
       `critical-check/${criticalMin}min, digests ${digestScheduleDesc}, ` +
       `weekly on day ${weeklyDay} at ${weeklyTime.hour}:${weeklyTime.minute}, ` +
-      `cleanup monthly on day ${cleanupDay} at ${cleanupTime.hour}:${cleanupTime.minute}.`);
+      `cleanup disabled pending retention policy.`);
 }
 
 /**
@@ -282,7 +276,7 @@ function setupTriggers() {
  * comes from Render/MongoDB/Telegram; this changes nothing about the data.
  */
 function doGet(e) {
-  const resp = UrlFetchApp.fetch(_renderUrl('/dashboard'), { muteHttpExceptions: true });
+  const resp = _renderFetch('/dashboard', { muteHttpExceptions: true });
   if (resp.getResponseCode() !== 200) {
     return HtmlService.createHtmlOutput(
       '<p>Could not load dashboard from Render (HTTP ' + resp.getResponseCode() + '). ' +

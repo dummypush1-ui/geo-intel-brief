@@ -2,7 +2,7 @@
 // Trusted-source harness, NOT isolation. Host mock constructors expose process. No no-I/O guarantee.
 const fs=require('fs'),vm=require('vm'),crypto=require('crypto'),assert=require('assert');
 const source=fs.readFileSync('intelligence/geo/apps_script/Code.gs','utf8');
-const PIN='f23159b30f263e3a34cae29879900d73b23f6cf64fc6958f12712b7df484026a';
+const PIN='a5db615b74bb21c4bcfac59cde71edd97379621914421d3ea2b3ab765c7bc62b';
 assert.equal(crypto.createHash('sha256').update(source).digest('hex'),PIN,'source pin changed');
 function harness(opts={}) {
  const events=[],props={RENDER_BASE_URL:'https://fixture.invalid',TRIGGER_SECRET:'DUMMY_NON_SECRET',EMAIL_TO:'fixture@example.invalid',...(opts.props||{})};
@@ -12,7 +12,7 @@ function harness(opts={}) {
   UrlFetchApp:{fetch:(url,options)=>{
    if(!url.startsWith('https://fixture.invalid/'))throw Error('UNMOCKED_IO');
    const parsed=new URL(url),route=parsed.pathname;
-   assert.equal(parsed.searchParams.get('key'),'DUMMY_NON_SECRET');assert.equal(parsed.searchParams.size,1);
+   assert.equal(parsed.searchParams.size,0);assert.equal(options.headers['X-Trigger-Secret'],'DUMMY_NON_SECRET');assert.equal(options.followRedirects,false);
    if(route==='/mark-emailed'){assert.equal(options.method,'post');assert.equal(options.contentType,'application/json');const p=JSON.parse(options.payload);assert(Array.isArray(p.article_ids));assert(p.article_ids.every(x=>/^fixture-\d+$/.test(x)));}
    else assert(options.method===undefined||options.method==='get');
    assert.equal(options.muteHttpExceptions,true);

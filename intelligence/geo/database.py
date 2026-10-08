@@ -170,14 +170,12 @@ def get_articles_older_than(days):
 
 
 def delete_articles(article_ids):
-    """Deletes the given articles by _id. Only ever called AFTER they've
-    been successfully archived to Telegram — never deletes unarchived
-    data."""
-    if not article_ids:
-        return 0
-    db = connect()
-    result = db.articles.delete_many({"_id": {"$in": list(article_ids)}})
-    return result.deleted_count
+    """Fail closed: no authenticated retention implementation exists yet.
+
+    This low-level boundary blocks callers bypassing metadata_cleanup. Caller
+    IDs, Telegram links and a feature flag cannot authorize destructive work.
+    """
+    raise PermissionError("Article deletion disabled: retention policy not implemented")
 
 
 def upcoming_events(days=90):

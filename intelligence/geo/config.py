@@ -39,7 +39,7 @@ WEEKLY_REPORT_DAY = os.getenv("WEEKLY_REPORT_DAY", "monday").lower()
 # ---------- web trigger (Render + Apps Script) ----------
 # Shared-secret so random people on the internet can't hit your Render URL
 # and trigger collection/email themselves. Apps Script sends this as
-# ?key=... on every request.
+# X-Trigger-Secret header on every request. Query-string keys are rejected.
 TRIGGER_SECRET = os.getenv("TRIGGER_SECRET", "")
 
 # Render sets this automatically for every deployed service — used to

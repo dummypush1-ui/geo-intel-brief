@@ -22,6 +22,7 @@
         "tests/test_fixed_parser_pipeline.py",
         "tests/test_geo_collector_contract.py",
         "tests/test_geo_queue_fixture.py",
+        "tests/test_legacy_geo_p0.py",
         "tests/test_preservation.py",
         "tests/test_security_review.py",
         "tests/test_stream_revision.py",
@@ -916,6 +917,7 @@
         "tests/test_geo_probe_http.py",
         "tests/test_geo_read_factory.py",
         "tests/test_geo_sample_probe.py",
+        "tests/test_legacy_geo_p0.py",
         "tests/test_preview_launcher.py"
       ],
       "stdlib": true,
@@ -1609,6 +1611,7 @@
         "tests/test_finder_nested.py",
         "tests/test_finder_offline.py",
         "tests/test_geo_queue_fixture.py",
+        "tests/test_legacy_geo_p0.py",
         "tests/test_preservation.py",
         "tests/test_preview_launcher.py",
         "tests/test_refresh_controller.py",
@@ -2822,6 +2825,7 @@
         "tests/test_geo_sample_probe.py",
         "tests/test_geo_snapshot.py",
         "tests/test_invite_expiry.py",
+        "tests/test_legacy_geo_p0.py",
         "tests/test_live_news_ui.py",
         "tests/test_loaded_charts.py",
         "tests/test_loaded_news.py",
@@ -3179,6 +3183,7 @@
     "tests/test_collector122_inventory.py",
     "tests/test_geo_collector_contract.py",
     "tests/test_geo_read_factory.py",
+    "tests/test_legacy_geo_p0.py",
     "tests/test_preview_launcher.py",
     "tests/weekly_report/test_report.py"
   ],
@@ -3342,7 +3347,7 @@
       },
       {
         "path": "integration/collector_mail_fixture.py",
-        "sha256": "3b2c7bd871656ac69bf380d0425132a0919fa7eda440bdf5467fe450dcc51873"
+        "sha256": "e85fcfe5e4a90c29e8a2fa78e042426085c9998bd760f51a2ccc5e6376c4d433"
       },
       {
         "path": "integration/country_alerts.py",
@@ -3558,7 +3563,7 @@
       },
       {
         "path": "integration/news_export/original_contract.py",
-        "sha256": "7f46af666deae5793df9c066e2a7afbf38de6317e195c74cb438a4206802841e"
+        "sha256": "a1722679131f0ab2c6306da2c4f8ebe833b0630550feda60620831249c22610e"
       },
       {
         "path": "integration/news_export/original_stream.py",
@@ -4147,6 +4152,10 @@
       {
         "path": "tests/test_invite_expiry.py",
         "sha256": "0fe80389b413beb80a28cd38db16307f5eceb7b15151efef276200b48a26bc6a"
+      },
+      {
+        "path": "tests/test_legacy_geo_p0.py",
+        "sha256": "0fe511cd094ada9c91173fa38ae13dfb81c0309587a4e5d09423a25ba5181b4f"
       },
       {
         "path": "tests/test_live_news_ui.py",

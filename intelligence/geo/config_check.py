@@ -8,8 +8,12 @@ import sys
 from intelligence.geo import config as cfg
 
 
-def check_config(require_email=True):
+def check_config(require_email=True, require_web=False):
     problems = []
+
+    if require_web and not cfg.TRIGGER_SECRET.strip():
+        problems.append("TRIGGER_SECRET must be non-empty for the web profile; protected routes deny missing credentials.")
+
 
     if not cfg.MONGODB_URI:
         problems.append(
@@ -64,14 +68,8 @@ def check_config(require_email=True):
             "no full copy anywhere."
         )
 
-    if cfg.ENABLE_METADATA_CLEANUP and not cfg.ENABLE_TELEGRAM_BACKUP:
-        problems.append(
-            "ENABLE_METADATA_CLEANUP=true but ENABLE_TELEGRAM_BACKUP=false — "
-            "cleanup permanently deletes MongoDB records on the assumption "
-            "a full copy already exists on Telegram. With backup off, "
-            "enabling cleanup would destroy data with no copy anywhere. "
-            "Turn on ENABLE_TELEGRAM_BACKUP first, or leave cleanup off."
-        )
+    if cfg.ENABLE_METADATA_CLEANUP:
+        problems.append("Metadata cleanup is disabled pending an authenticated complete-backup and owner-retention implementation.")
 
     if problems:
         print("Configuration problem(s) found:\n")

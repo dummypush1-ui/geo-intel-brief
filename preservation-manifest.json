@@ -9,10 +9,12 @@
       "source_path": "database.py",
       "path": "intelligence/geo/database.py",
       "source_sha256": "c07a5dacb008b8407e22e194b34ea81d97ec5b41ecc8414a347a444edb80002c",
-      "sha256": "4b045c167947a4bed6a5456267430b239751bef551a0794b2e652b2cbc2058c4",
+      "sha256": "7c55ae5fed58199bf8eb9cded94bb6eafa19eeb370eb1d03151c5aa69feaa176",
       "changes": [
-        "root imports namespaced only"
-      ]
+        "root imports namespaced only",
+        "Reviewed P0 candidate: header-only fail-closed legacy HTTP auth and unconditional article-deletion hold; no live activation"
+      ],
+      "prior_preserved_sha256": "4b045c167947a4bed6a5456267430b239751bef551a0794b2e652b2cbc2058c4"
     },
     {
       "source_repo": "geonews",
@@ -35,8 +37,11 @@
       "source_path": "config.py",
       "path": "intelligence/geo/config.py",
       "source_sha256": "f7fbf007954c6918fbe2e402863fa29f597fe5d5cb4d60d1001deca8896b21f3",
-      "sha256": "f7fbf007954c6918fbe2e402863fa29f597fe5d5cb4d60d1001deca8896b21f3",
-      "changes": []
+      "sha256": "42d014d1b5134a24c10ccafdc23200e2b91a4ea19fa6466091beb97e8043e5cb",
+      "changes": [
+        "Reviewed P0 candidate: header-only fail-closed legacy HTTP auth and unconditional article-deletion hold; no live activation"
+      ],
+      "prior_preserved_sha256": "f7fbf007954c6918fbe2e402863fa29f597fe5d5cb4d60d1001deca8896b21f3"
     },
     {
       "source_repo": "geonews",
@@ -54,10 +59,12 @@
       "source_path": "config_check.py",
       "path": "intelligence/geo/config_check.py",
       "source_sha256": "2ad3a17325320907f6d6da7246bc569b1601b86f43aa2782dcd9fc679f3bd4f4",
-      "sha256": "da6527e3a8cb1c8fcf9e9679c48dd47f2c48d44f6a9c571a3820ae74cef4aae9",
+      "sha256": "79b9723aa6a9c3eb479bd4cdf8f7d2d781ae8c78be812b9e72eca1c0fcbcb50a",
       "changes": [
-        "root imports namespaced only"
-      ]
+        "root imports namespaced only",
+        "Reviewed P0 candidate: header-only fail-closed legacy HTTP auth and unconditional article-deletion hold; no live activation"
+      ],
+      "prior_preserved_sha256": "da6527e3a8cb1c8fcf9e9679c48dd47f2c48d44f6a9c571a3820ae74cef4aae9"
     },
     {
       "source_repo": "geonews",
@@ -74,10 +81,12 @@
       "source_path": "web.py",
       "path": "intelligence/geo/web.py",
       "source_sha256": "eb0312abeead1d445dddf0d621c6f03ad4d699027db48cbdc527493101358c47",
-      "sha256": "7931165782766d4b6d05ac1207045e158d0ecaa15baf0b6f30d4abe0ba346dfc",
+      "sha256": "3d83ca84984f5c01c0a8c53d02ae5a92e976e53f19f87f8b238a31d9c42a2cb3",
       "changes": [
-        "root imports namespaced only"
-      ]
+        "root imports namespaced only",
+        "Reviewed P0 candidate: header-only fail-closed legacy HTTP auth and unconditional article-deletion hold; no live activation"
+      ],
+      "prior_preserved_sha256": "7931165782766d4b6d05ac1207045e158d0ecaa15baf0b6f30d4abe0ba346dfc"
     },
     {
       "source_repo": "geonews",
@@ -94,8 +103,13 @@
       "source_path": "apps_script/Code.gs",
       "path": "intelligence/geo/apps_script/Code.gs",
       "source_sha256": "f23159b30f263e3a34cae29879900d73b23f6cf64fc6958f12712b7df484026a",
-      "sha256": "f23159b30f263e3a34cae29879900d73b23f6cf64fc6958f12712b7df484026a",
-      "changes": []
+      "sha256": "a5db615b74bb21c4bcfac59cde71edd97379621914421d3ea2b3ab765c7bc62b",
+      "changes": [
+        "Reviewed P0 candidate: header-only fail-closed legacy HTTP auth and unconditional article-deletion hold; no live activation",
+        "Reviewed P0 candidate: header-only fail-closed legacy HTTP auth and unconditional article-deletion hold; no live activation",
+        "Reviewed P0 candidate: header-only fail-closed legacy HTTP auth and unconditional article-deletion hold; no live activation"
+      ],
+      "prior_preserved_sha256": "f23159b30f263e3a34cae29879900d73b23f6cf64fc6958f12712b7df484026a"
     },
     {
       "source_repo": "geonews",
@@ -126,10 +140,12 @@
       "source_path": "reports/metadata_cleanup.py",
       "path": "intelligence/geo/reports/metadata_cleanup.py",
       "source_sha256": "45bed7190a122bb2b37a9564fe1a38f191d1237cfc81dfd66b64cd9ddefcabe3",
-      "sha256": "b43faa83b82255883ef0f33cab4b75c040abc5c8d0ac94eea0b020f8e9854985",
+      "sha256": "993e92e748b0f7a2fb9a3a80a147bbf10d461850968b7546eb23e7a1a4d2a170",
       "changes": [
-        "root imports namespaced only"
-      ]
+        "root imports namespaced only",
+        "Reviewed P0 candidate: header-only fail-closed legacy HTTP auth and unconditional article-deletion hold; no live activation"
+      ],
+      "prior_preserved_sha256": "b43faa83b82255883ef0f33cab4b75c040abc5c8d0ac94eea0b020f8e9854985"
     },
     {
       "source_repo": "geonews",

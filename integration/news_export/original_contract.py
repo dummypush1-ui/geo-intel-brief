@@ -15,8 +15,9 @@ GEO_FIELDS=('title','source','category','risk_level','score','credibility','coun
 BRICS_FIELDS=('title','url','source','country','category','published','collected_at','corroborated_by')
 DEFAULT_CRITICAL=('attack','explosion','resign','coup','ceasefire','sanctions')
 # No original modules are imported, and no environment config is read.
+# Geo HTTP auth/deletion changed in P0; export_csv body remains unchanged.
 SOURCE_PINS={
- 'intelligence/geo/web.py':'7931165782766d4b6d05ac1207045e158d0ecaa15baf0b6f30d4abe0ba346dfc',
+ 'intelligence/geo/web.py':'3d83ca84984f5c01c0a8c53d02ae5a92e976e53f19f87f8b238a31d9c42a2cb3',
  'intelligence/brics/web.py':'1adebf8baaea16ee305afb16fd21717c5abf0635279a7dbedfa985ff21fe5997',
  'intelligence/brics/processing/classifier.py':'349a322ecc525671617bcdeaa60d5c3fb6547988fb736e361d74d673f27ba76a'}
 

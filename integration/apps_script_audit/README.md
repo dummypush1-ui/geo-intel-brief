@@ -1,3 +1,16 @@
+# Legacy Apps Script audit after P0 header migration
+
+The reviewed source intentionally differs from the preserved original: fixed
+HTTPS origin, header-only auth, redirects refused, cleanup request/trigger held.
+The source pin in audit.js covers these exact new bytes. Historical send/mark,
+trigger-rebuild and parsing defects remain explicit canaries, not fixed claims.
+No Google script, properties, triggers or deployment was changed. Node VM mocks
+are a trusted-code harness, not an isolation boundary. Companion auth tests are
+in tests/legacy_geo/test_auth.cjs; seven route shapes use header credentials.
+Real Google/Render behavior and migration of existing installations are unverified.
+
+## Historical original-source audit (superseded auth transport/pin)
+
 # Original Apps Script offline compatibility audit
 
 Every result is offline, not production and not receipt proof. Original Code.gs unchanged. SourceSHA256 f23159b30f263e3a34cae29879900d73b23f6cf64fc6958f12712b7df484026a checked every childrun; source is preserved local copy, originating sourcecommit not independently verified here. Script compiles in NodeVM with only fake Google services, no direct require/process/fetch globals, but host-created mocks expose their host Function constructor and process via it. VM not a hostile-code security boundary; only hashpinned reviewed original code. Host Node process has normal filesystem/network powers and host mock constructor escape can expose them to original code. This is NOT an isolation or no-I/O guarantee. Only trusted exact-hash reviewed source may run; no unknown code or arbitrary scenario scripts. The escape self-test probes typeof process without I/O. child10s timeout, individualVM1000ms. Fake fetch throws on unmocked destinations/routes/responses, fake routes perform no actual requests, but no guarantee against host escape. Original routines may catch that failure, as source behavior; selftest proves directunmockedcall throws. No environment credentials loaded. Fixture addresses example.invalid and keyDUMMY_NON_SECRET only, never report them. Report logs content discarded; action kinds/counts only.
