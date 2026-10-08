@@ -1,6 +1,7 @@
 // Tiny zero-dependency web service: keeps the daily refresh loop alive on a
 // free Render web service. UptimeRobot pings GET / every 5 min to prevent sleep.
 const http = require('http');
+const {publicResult} = require('./updater_runtime/public-status.cjs');
 
 let lastRun = null;
 let lastResult = null;
@@ -11,9 +12,9 @@ async function tick() {
   running = true;
   try {
     const { runRefresh } = await import('./refresh.mjs');
-    lastResult = await runRefresh();
+    lastResult = publicResult(await runRefresh());
   } catch (e) {
-    lastResult = { error: String(e && e.message || e) };
+    lastResult = publicResult(null,true);
   }
   lastRun = new Date().toISOString();
   running = false;
