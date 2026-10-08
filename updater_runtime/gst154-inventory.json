@@ -1,0 +1,11 @@
+{
+  "ai-agent.mjs": "d7af8136e0fba8417df7686d3010004f6a212a5fdce9bffc2894f232a8f1ec17",
+  "apply-gst.mjs": "7d7f6321692ff682d20e8896dfb45a9d4205a6d26369a3db3cb2bda0472fccb5",
+  "updater_runtime/gst-grounding.mjs": "37898f6ae5b357f6be20958747e7306852574d4ea211f4feeda41f1fd0f1e8e8",
+  "updater_runtime/pdf-extract.mjs": "534bb3720878a5e24d5f39257c73390ae68dd461c7ea1caa8e30447da93aaefd",
+  "updater_runtime/pdf-build-input.json": "7863a74613a5f909daf6cd6adfd65ebc037383f0c23d1bdbdf5c7211ce4705dd",
+  "updater_runtime/GST-GROUNDING.md": "3302711e30dd93c611faa54ad3d5b9fbc80cb8fcba0f12545d65b18599d9918b",
+  "tests/updater_runtime/test_gst_grounding.mjs": "bf3394f8c10e42360ea7a452d520e3b5151791db467de8e209ba6f82d60e6843",
+  "tests/updater_runtime/test_draft_reject.mjs": "10cde7fa16bc733a3315928f461e196174ab59455fedf6a45fa8bc337999f045",
+  "tests/test_gst154.py": "78adf50fd64283877b4d355d2532b7ffb4e25392c565f7656773e6431dbfa619"
+}

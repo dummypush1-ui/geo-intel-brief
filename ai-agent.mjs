@@ -1,7 +1,8 @@
 // AI jobs. Rule: AI proposes, code verifies. Nothing unverified is ever written.
 import fs from 'fs';
 import zlib from 'zlib';
-import { execSync } from 'child_process';
+import {extractNotificationPdf} from './updater_runtime/pdf-extract.mjs';
+import {groundGst} from './updater_runtime/gst-grounding.mjs';
 import { geminiPost } from './gemini.mjs';
 import {appendAliases,validateGstChange} from './updater_runtime/table-edit.mjs';
 const KEY = process.env.GEMINI_API_KEY || '';
@@ -40,23 +41,25 @@ export async function expandAliases(askFn = ask, D = null) {
 }
 
 // JOB 2 - GST: read NEW IGST rate notifications and PROPOSE changes (never edits gstmap.ts directly).
-// Grounding: each proposed code and rate must literally appear in the notification text.
+// Grounding: one explicit code/rate/description row, with context retained for review.
 // The workflow turns state/gst-proposal.json into a Pull Request for you to approve.
 export async function draftGst(askFn = ask, fetchFn = fetch) {
   if (!KEY && askFn === ask) return 'skipped: no GEMINI_API_KEY';
   const SEEN = 'state/gst-seen.json';
-  const page = await (await fetchFn(IN_URL, { headers: { 'User-Agent': 'hsn-finder-updater' } })).text();
+  const page = await (await fetchFn(IN_URL, { headers: { 'User-Agent': 'hsn-finder-updater' },signal:AbortSignal.timeout(20000) })).text();
   const links = [...page.matchAll(/<a[^>]+href="([^"]+\.pdf)"[^>]*>([\s\S]*?)<\/a>/gi)]
     .map((m) => ({ url: new URL(m[1], IN_URL).href, text: m[2].replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim() }))
     .filter((l) => /integrated tax\s*\(rate\)/i.test(l.text));
   if (!fs.existsSync(SEEN)) { fs.writeFileSync(SEEN, JSON.stringify({ seen: links.map((l) => l.url) }) + '\n'); return 'baseline: ' + links.length + ' notifications marked as already known'; }
   const st = JSON.parse(fs.readFileSync(SEEN, 'utf8')), fresh = links.filter((l) => !st.seen.includes(l.url)).slice(0, 3);
   if (!fresh.length) return 'no new notifications';
-  const changes = [], srcs = []; let rejected = 0;
+  const changes = [], srcs = [], held = []; let rejected = 0;
   for (const l of fresh) {
-    fs.writeFileSync('/tmp/n.pdf', Buffer.from(await (await fetchFn(l.url)).arrayBuffer()));
-    const text = execSync('pdftotext -layout /tmp/n.pdf -', { maxBuffer: 5e7 }).toString(), rows = text.split('\n').map((x) => x.replace(/[\s.]/g, ''));
-    const out = await askFn('From this Indian GST notification text, list every GOODS rate entry with an HS code. Only what is explicitly stated. JSON: [{"code":"digits only, 2-8 digits","rate":"like 18%","description":"short"}]\n\n' + text.slice(0, 90000));
+    const response=await fetchFn(l.url,{signal:AbortSignal.timeout(20000)});if(response.ok===false)throw new Error('Notification PDF HTTP failure');
+    if(Number(response.headers?.get('content-length')||0)>10*1024*1024)throw new Error('PDF response too large');
+    let bytes;if(response.body){const chunks=[];let size=0;for await(const chunk of response.body){size+=chunk.byteLength;if(size>10*1024*1024)throw new Error('PDF response too large');chunks.push(Buffer.from(chunk));}bytes=Buffer.concat(chunks);}else bytes=Buffer.from(await response.arrayBuffer());
+    let text;try{text=extractNotificationPdf(bytes);}catch(e){throw new Error('GST notice held for PDF review: '+l.url+' ('+e.message+')');}
+    const out = await askFn('From this Indian GST notification text, list every GOODS rate entry with an HS code. Only what is explicitly stated. JSON: [{"code":"digits only, 2-8 digits","rate":"like 18%","description":"exact description from the same row, excluding code/rate"}]\n\n' + text.slice(0, 90000));
     for (const c of Array.isArray(out) ? out : []) {
       let candidate,code,rate;
       try {
@@ -64,15 +67,20 @@ export async function draftGst(askFn = ask, fetchFn = fetch) {
         candidate=validateGstChange({code,rate,description:String(c.description || '').slice(0,200),source:l.url},[l.url]);
       }
       catch { rejected++; continue; }
-      // grounding: the code and its rate (with a % sign) must appear on the same table row or within the next 2 lines
-      const rx = new RegExp('(^|\\D)' + rate.replace('%', '').replace('.', '\\.') + '%');
-      const raw = text.split('\n'), hit = rows.some((r, i) => r.includes(code) && rx.test(raw.slice(i, i + 3).join(' ').replace(/\s+%/g, '%')));
-      if (!hit) { rejected++; continue; }
-      changes.push(candidate);
+      const grounded=groundGst(candidate,text);
+      if(grounded.state!=='row_matched_pending_review'){rejected++;held.push({candidate,source:l.url,...grounded});continue;}
+      changes.push({...candidate,evidence:grounded.evidence,review_required:true});
     }
     srcs.push(l.url); st.seen.push(l.url);
   }
+  if(srcs.length){
+    const file='state/gst-proposal.json';let proposal={state:'manual_review_required',sources:[],changes:[],held:[]};
+    if(fs.existsSync(file)){proposal=JSON.parse(fs.readFileSync(file,'utf8'));if(proposal.state!=='manual_review_required'||!Array.isArray(proposal.sources)||!Array.isArray(proposal.changes)||!Array.isArray(proposal.held))throw new Error('Existing GST proposal requires operator archive before replacement');}
+    // Existing pending sources are immutable until operator review.
+    const freshSources=srcs.filter(s=>!proposal.sources.includes(s));
+    proposal.sources.push(...freshSources);proposal.changes.push(...changes.filter(c=>freshSources.includes(c.source)));proposal.held.push(...held.filter(c=>freshSources.includes(c.source)));
+    const tmp=file+'.tmp';fs.writeFileSync(tmp,JSON.stringify(proposal,null,1));fs.renameSync(tmp,file);
+  }
   fs.writeFileSync(SEEN, JSON.stringify(st) + '\n');
-  if (changes.length) fs.writeFileSync('state/gst-proposal.json', JSON.stringify({ sources: srcs, changes }, null, 1));
-  return changes.length + ' verified proposals from ' + srcs.length + ' notifications (' + rejected + ' AI items rejected for invalid schema or unmatched grounding)';
+  return changes.length + ' row-matched proposals pending review from ' + srcs.length + ' notifications (' + rejected + ' AI items rejected for invalid schema or unmatched grounding)';
 }

@@ -843,6 +843,7 @@
         "tests/test_finder_index.py",
         "tests/test_finder_nested.py",
         "tests/test_geo_collector_contract.py",
+        "tests/test_gst154.py",
         "tests/test_map_layers.py",
         "tests/test_package_manifest.py",
         "tests/test_page_watch_contract.py",
@@ -1460,6 +1461,7 @@
         "tests/test_geo_probe_http.py",
         "tests/test_geo_probe_process.py",
         "tests/test_geo_sample_probe.py",
+        "tests/test_gst154.py",
         "tests/test_package_manifest.py",
         "tests/test_page_watch_parser_budget.py",
         "tests/test_preservation.py",
@@ -1650,6 +1652,7 @@
         "tests/test_finder_nested.py",
         "tests/test_finder_offline.py",
         "tests/test_geo_queue_fixture.py",
+        "tests/test_gst154.py",
         "tests/test_legacy_geo_p0.py",
         "tests/test_preservation.py",
         "tests/test_preview_launcher.py",
@@ -2393,6 +2396,7 @@
         "tests/test_finder_nested.py",
         "tests/test_fixed_feedparser_audit.py",
         "tests/test_geo_probe_process.py",
+        "tests/test_gst154.py",
         "tests/test_page_watch_parser_budget.py",
         "tests/test_preview_access.py",
         "tests/test_refresh149_gate.py",
@@ -2891,6 +2895,7 @@
         "tests/test_geo_rolling_breakdown.py",
         "tests/test_geo_sample_probe.py",
         "tests/test_geo_snapshot.py",
+        "tests/test_gst154.py",
         "tests/test_invite_expiry.py",
         "tests/test_legacy_bulk_outcome.py",
         "tests/test_legacy_geo_p0.py",
@@ -4277,6 +4282,10 @@
       {
         "path": "tests/test_geo_snapshot.py",
         "sha256": "27e8215960ae99d0d5e2c3f2b4e0b94397247f9d417f01d32205669fea537d5d"
+      },
+      {
+        "path": "tests/test_gst154.py",
+        "sha256": "78adf50fd64283877b4d355d2532b7ffb4e25392c565f7656773e6431dbfa619"
       },
       {
         "path": "tests/test_invite_expiry.py",

@@ -1,0 +1,8 @@
+{
+  "tool": "pdftotext",
+  "provider": "Poppler",
+  "version": "22.02.0",
+  "required_for": "GST notification proposal extraction",
+  "activation": false,
+  "policy": "Exact binary version checked at runtime; missing/drifted tool fails before proposals or seen-state updates. Deployment package installation remains a separate readiness step."
+}
