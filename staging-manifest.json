@@ -22,8 +22,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 2663,
-      "sha256": "a5632ccd20d0322a61526c3e277aabaeaabdcd9c13b52fc8cfdca3dc78462063"
+      "bytes": 6903,
+      "sha256": "25efebbd8b00c36a1ee9b70413d68578e055df626381829fa857f98b8b2affc4"
     },
     {
       "path": "REVIEW.md",
@@ -1394,6 +1394,31 @@
       "path": "data.d6d1b417562b.js",
       "bytes": 19364453,
       "sha256": "d6d1b417562bad99e7b434605d63966772749d573375fb10d74ee52cb6bb82f6"
+    },
+    {
+      "path": "docs/ARCHITECTURE.md",
+      "bytes": 5057,
+      "sha256": "7696df95607ba9c1ac336487d017356ceb8dfb75399382348682adff61e52bf9"
+    },
+    {
+      "path": "docs/CLAIM-SOURCES.md",
+      "bytes": 5023,
+      "sha256": "36f6e2def0d45e809000d32a77287b46f7ad9e17ddb326bbdbabe44844403599"
+    },
+    {
+      "path": "docs/CONFIGURATION.md",
+      "bytes": 5705,
+      "sha256": "fe5094a65d09a06aaabdeb702de2781fd4a8138e64ef80e6539f54352b4887cd"
+    },
+    {
+      "path": "docs/FOLDER-PLAN.md",
+      "bytes": 3111,
+      "sha256": "08be5c1db2b1890d0283328fcf8aa1e005e99591ab9238f2496c7e16407513b1"
+    },
+    {
+      "path": "docs/TEST-GATES.md",
+      "bytes": 2565,
+      "sha256": "390a4f958a911f95652ee9f9146f583656094d4b6daf8b1fb10c5f49093f28ab"
     },
     {
       "path": "feature_carrier_prep/__init__.py",
