@@ -271,6 +271,7 @@
       "import": "copy",
       "files": [
         "feature_mail_mount/store.py",
+        "feature_related_prep/calibration.py",
         "integration/accounts/mongo_store.py",
         "integration/accounts/shared_ledger_fixture.py",
         "integration/accounts/store.py",
@@ -294,6 +295,7 @@
         "tests/test_country_alerts.py",
         "tests/test_country_signals.py",
         "tests/test_feature_mail_mount.py",
+        "tests/test_feature_related_calibration.py",
         "tests/test_feature_related_prep.py",
         "tests/test_fixed_parser_pipeline.py",
         "tests/test_geo_collector_contract.py",
@@ -617,6 +619,7 @@
     {
       "import": "feature_related_prep",
       "files": [
+        "tests/test_feature_related_calibration.py",
         "tests/test_feature_related_prep.py"
       ],
       "stdlib": false,
@@ -1451,6 +1454,7 @@
       "import": "math",
       "files": [
         "feature_mail_prep/reports.py",
+        "feature_related_prep/calibration.py",
         "feature_related_prep/hybrid.py",
         "integration/accounts/mongo_store.py",
         "integration/accounts/shared_ledger_fixture.py",
@@ -2047,6 +2051,7 @@
         "feature_mail_mount/store.py",
         "feature_mail_prep/cleanup.py",
         "feature_mail_prep/reports.py",
+        "feature_related_prep/calibration.py",
         "feature_related_prep/hybrid.py",
         "integration/accounts/csrf.py",
         "integration/accounts/merged_fixture.py",
@@ -2785,6 +2790,7 @@
         "tests/test_feature_finder_prep.py",
         "tests/test_feature_mail_mount.py",
         "tests/test_feature_mail_prep.py",
+        "tests/test_feature_related_calibration.py",
         "tests/test_feature_related_prep.py",
         "tests/test_file_audit.py",
         "tests/test_finder_index.py",
@@ -3220,6 +3226,10 @@
       {
         "path": "feature_related_prep/__init__.py",
         "sha256": "e0f19d36461f0b9ea5f281d93e32aeeb57f1b8889c5bc265a8686e23f0d34d7d"
+      },
+      {
+        "path": "feature_related_prep/calibration.py",
+        "sha256": "6289150795e17c8b7ad28e5becedfe88f8533769e8d76098054b0009d9d6c7e7"
       },
       {
         "path": "feature_related_prep/hybrid.py",
@@ -4016,6 +4026,10 @@
       {
         "path": "tests/test_feature_mail_prep.py",
         "sha256": "87d2fa7e7e12deea37b97062be3a0cdc9667c742594348523bd5da9364139256"
+      },
+      {
+        "path": "tests/test_feature_related_calibration.py",
+        "sha256": "8039486c308466334a0f22f9d281b82e2ecd7d9a7f92f3eb79a11617c64ff223"
       },
       {
         "path": "tests/test_feature_related_prep.py",

@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 1258,
+  "tests": 1270,
   "files": [
     {
       "path": ".env.example",
@@ -1436,9 +1436,19 @@
       "sha256": "3384a036c28d8f8ab0f685a34ae564d7a6a5e880af3acffe3ec0b3adddf611f4"
     },
     {
+      "path": "feature_related_prep/ADJUDICATION-DESIGN.md",
+      "bytes": 2907,
+      "sha256": "ba9d85e6fdc5d4fe3adcb432b1a20611ff3e720cc8c9a1b1c3d1e9b4e05366e9"
+    },
+    {
       "path": "feature_related_prep/__init__.py",
       "bytes": 126,
       "sha256": "e0f19d36461f0b9ea5f281d93e32aeeb57f1b8889c5bc265a8686e23f0d34d7d"
+    },
+    {
+      "path": "feature_related_prep/calibration.py",
+      "bytes": 4226,
+      "sha256": "6289150795e17c8b7ad28e5becedfe88f8533769e8d76098054b0009d9d6c7e7"
     },
     {
       "path": "feature_related_prep/hybrid.py",
@@ -1988,12 +1998,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 18581,
-      "sha256": "b6e783992d56a635f8fcbbe55dd8d28ac3e0ee365e3c1bf16cbb1e42edcf0269"
+      "sha256": "a9bb49211af1b9a8d826880f08bc010f8f492a2a8c0f65a12a4b9d049a44ecf1"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
-      "bytes": 162898,
-      "sha256": "307adcb2376f4c67a3bab96f24b257bfcae5abd235f94882c2e4483bc9a838ef"
+      "bytes": 163518,
+      "sha256": "3e3e3b4826ca36b40b89853e7834e5be96d9660b66977e1dfacec72ede7f48dc"
     },
     {
       "path": "integration/dependency_build/README.md",
@@ -4559,6 +4569,11 @@
       "path": "tests/test_feature_mail_prep.py",
       "bytes": 8245,
       "sha256": "87d2fa7e7e12deea37b97062be3a0cdc9667c742594348523bd5da9364139256"
+    },
+    {
+      "path": "tests/test_feature_related_calibration.py",
+      "bytes": 3316,
+      "sha256": "8039486c308466334a0f22f9d281b82e2ecd7d9a7f92f3eb79a11617c64ff223"
     },
     {
       "path": "tests/test_feature_related_prep.py",
