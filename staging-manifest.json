@@ -1561,6 +1561,86 @@
       "sha256": "a2cdb3de16b156e73268975534573d26874e1f8f78abc75555ecc808a0605a7f"
     },
     {
+      "path": "feature_world_views/__init__.py",
+      "bytes": 126,
+      "sha256": "696696a195b9626aef86b688c2b9419bd7a52e96e185fd12e3a67e6994d308bc"
+    },
+    {
+      "path": "feature_world_views/detail.py",
+      "bytes": 1247,
+      "sha256": "29f727a5485fb5b5bc598e7fa4f77f11aa826d2160df74ddd441da0156afc3b9"
+    },
+    {
+      "path": "feature_world_views/export.py",
+      "bytes": 947,
+      "sha256": "7a6bb2509a75ceb544af892888b5c27e6a3e9dd8ac2fed89dffbe4c6dfda26a1"
+    },
+    {
+      "path": "feature_world_views/filters.py",
+      "bytes": 2044,
+      "sha256": "9b1d0464b55470151f7d87e84a04364b1a3a69d6cfaa753dd6a4ad6b1f822928"
+    },
+    {
+      "path": "feature_world_views/fixtures.py",
+      "bytes": 753,
+      "sha256": "bccfcacace0b2f5a1abc40a666d268069ef1e9029940e051e98ed715b9858c73"
+    },
+    {
+      "path": "feature_world_views/inventory.json",
+      "bytes": 4858,
+      "sha256": "817663f6eb8b865f5752668fd25704a1d23daeafd9ec395b4148a7c73c1354f3"
+    },
+    {
+      "path": "feature_world_views/model.py",
+      "bytes": 2538,
+      "sha256": "bac9fe5239d6a9b21aaa8780c35146ee69509c992c45fd5d77c3f8fe023b44d4"
+    },
+    {
+      "path": "feature_world_views/routes.py",
+      "bytes": 3838,
+      "sha256": "c9d7a89b4914cb5ee4984074196b806f13b6095fe4b7990ba279763b337a5cb9"
+    },
+    {
+      "path": "feature_world_views/test_detail.py",
+      "bytes": 1285,
+      "sha256": "8d9ec46a8f0346577ce073b60bce8581b5d23597a5a877ee7fbdaf59f008af40"
+    },
+    {
+      "path": "feature_world_views/test_export.py",
+      "bytes": 1593,
+      "sha256": "01773b6999fdcec71dff78d535ad59d81e47a964302f057434fe9bf275fb24ac"
+    },
+    {
+      "path": "feature_world_views/test_filters.py",
+      "bytes": 1680,
+      "sha256": "ae0e67fd84e364a8ee53c9590ae89385c6de1eb9c8bf4a4d4255a5ef03a2061a"
+    },
+    {
+      "path": "feature_world_views/test_inventory.py",
+      "bytes": 2732,
+      "sha256": "04b69b5efebef898db65f8bde09f68a08e18f9a73ff03ef4df5c5b7411de340a"
+    },
+    {
+      "path": "feature_world_views/test_world.py",
+      "bytes": 3790,
+      "sha256": "4071bef5768d3ec04cae97efabc4cc05c5bf68d56eed2136bf60163809b5be94"
+    },
+    {
+      "path": "feature_world_views/ui/world.css",
+      "bytes": 2118,
+      "sha256": "8ff1d41e4168ad1dfd93889e6d8ae634a444379d361b392a56e7f3a24ad12fdc"
+    },
+    {
+      "path": "feature_world_views/ui/world.html",
+      "bytes": 1798,
+      "sha256": "f343a4f9b0f6611158138f61f5a93846fe9a9d27e6a53010063fe9c9e9f033d4"
+    },
+    {
+      "path": "feature_world_views/ui/world.js",
+      "bytes": 5916,
+      "sha256": "696ba06e65f16ce6eb3bcc56630fe520609959a41e8633770478b3aff96aeece"
+    },
+    {
       "path": "gemini.mjs",
       "bytes": 3703,
       "sha256": "517c78de2c990b393ee0d5137034823fd56ecc3e73eb226e1914d621f0fd8c69"
