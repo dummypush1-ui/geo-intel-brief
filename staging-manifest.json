@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 1282,
+  "tests": 1294,
   "files": [
     {
       "path": ".env.example",
@@ -1401,6 +1401,11 @@
       "sha256": "887b7551d3fe662f389d4bf9ab0110f047a1877d4c089c4e59262ff3aeb11a2c"
     },
     {
+      "path": "feature_mail_mount/OPERATIONS-CONTRACT.md",
+      "bytes": 4933,
+      "sha256": "7caf965f748eceb7dc904b68f3af5089cf38ec261fd5a87fca5599075de5d140"
+    },
+    {
       "path": "feature_mail_mount/__init__.py",
       "bytes": 125,
       "sha256": "581ead85e1f5472ed8d6a11e44a5c49580aa0aade1b806ef4a521692eaa2b3e4"
@@ -1414,6 +1419,11 @@
       "path": "feature_mail_mount/http.py",
       "bytes": 2637,
       "sha256": "0ea303f1184e2c203f9f5e06ef06637ae80a2336243191397a3f68fe642f7124"
+    },
+    {
+      "path": "feature_mail_mount/operations.py",
+      "bytes": 5814,
+      "sha256": "71f6cdd32071e14c40f87f0a374817d4da17d8e3c71631716fd0281fee9103ca"
     },
     {
       "path": "feature_mail_mount/reports.py",
@@ -2008,12 +2018,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 18581,
-      "sha256": "65e24552bb8c8f68f30751db41bbcf22e2fc9c1c2a46fedb07683b87ad9c67a9"
+      "sha256": "4c354bca938c52aa454c08550d6295efd45f7bd57104f04535041c8066a94c9d"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
-      "bytes": 164091,
-      "sha256": "b5cfb5dcfbb0f35986a44c9791eb3f8e1038f9e7fa5519b662cca158e6beedd4"
+      "bytes": 164566,
+      "sha256": "0503f4029ba5ea4576eb4b5cfffc85563557e1cc0781ba7aa3fa1d07d7d39842"
     },
     {
       "path": "integration/dependency_build/README.md",
@@ -4709,6 +4719,11 @@
       "path": "tests/test_mail_bridge.py",
       "bytes": 2240,
       "sha256": "1a1eea1d13254e2e9e87c0a949fceb39720e242e2d3560882c5364c7315f4c19"
+    },
+    {
+      "path": "tests/test_mail_operations.py",
+      "bytes": 3569,
+      "sha256": "4cd325ba9576354c67d385d241b6c284376111c4d04c297fa1e6f1a5e5b030d2"
     },
     {
       "path": "tests/test_manage_fixture95.py",

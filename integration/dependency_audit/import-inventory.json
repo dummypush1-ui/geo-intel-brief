@@ -593,7 +593,8 @@
     {
       "import": "feature_mail_mount",
       "files": [
-        "tests/test_feature_mail_mount.py"
+        "tests/test_feature_mail_mount.py",
+        "tests/test_mail_operations.py"
       ],
       "stdlib": false,
       "distributions": [],
@@ -2052,6 +2053,7 @@
       "import": "re",
       "files": [
         "feature_finder_prep/mount_policy.py",
+        "feature_mail_mount/operations.py",
         "feature_mail_mount/store.py",
         "feature_mail_prep/cleanup.py",
         "feature_mail_prep/reports.py",
@@ -2820,6 +2822,7 @@
         "tests/test_loaded_charts.py",
         "tests/test_loaded_news.py",
         "tests/test_mail_bridge.py",
+        "tests/test_mail_operations.py",
         "tests/test_map_layers.py",
         "tests/test_mongo_account_store.py",
         "tests/test_offline_collection_cycle.py",
@@ -3150,6 +3153,7 @@
     {
       "import": "zoneinfo",
       "files": [
+        "feature_mail_mount/operations.py",
         "integration/geonews_digest/render.py",
         "integration/weekly_report/report.py",
         "tests/digest_cold_probe.py",
@@ -3211,6 +3215,10 @@
       {
         "path": "feature_mail_mount/http.py",
         "sha256": "0ea303f1184e2c203f9f5e06ef06637ae80a2336243191397a3f68fe642f7124"
+      },
+      {
+        "path": "feature_mail_mount/operations.py",
+        "sha256": "71f6cdd32071e14c40f87f0a374817d4da17d8e3c71631716fd0281fee9103ca"
       },
       {
         "path": "feature_mail_mount/reports.py",
@@ -4139,6 +4147,10 @@
       {
         "path": "tests/test_mail_bridge.py",
         "sha256": "1a1eea1d13254e2e9e87c0a949fceb39720e242e2d3560882c5364c7315f4c19"
+      },
+      {
+        "path": "tests/test_mail_operations.py",
+        "sha256": "4cd325ba9576354c67d385d241b6c284376111c4d04c297fa1e6f1a5e5b030d2"
       },
       {
         "path": "tests/test_map_layers.py",
