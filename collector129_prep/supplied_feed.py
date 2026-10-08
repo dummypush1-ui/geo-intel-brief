@@ -15,7 +15,7 @@ class Budget:
   except ValueError:raise FulltextRefused('Bounded aggregate captured inputs')from None
   self.values.append(value)
 ROOT=Path(__file__).resolve().parents[1]
-PINS={'intelligence/geo/collectors/rss.py':'337475c6a38dedecfdf5a25fab753df14e274b18c8d8788af431939067898f73','intelligence/geo/processing/classifier.py':'7c23324b2cbbc3b05f5e118a29456e0616e56146417bbbec65c5daf0559f38f0'}
+PINS={'intelligence/geo/collectors/rss.py':'a7cbdeac2e7645e2477ecf64a9ad9cbf00d1ccf71b18235228d75ccaca3cbd41','intelligence/geo/processing/classifier.py':'7c23324b2cbbc3b05f5e118a29456e0616e56146417bbbec65c5daf0559f38f0'}
 class FeedRefused(ValueError):pass
 def _date(d):
  if type(d) is not datetime or type(d.tzinfo) not in (timezone,tzutc,tzoffset,tzlocal):raise FeedRefused('fixture reviewed aware date')

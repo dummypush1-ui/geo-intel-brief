@@ -10,7 +10,7 @@ def outcomes():return {q:{'state':'ok','results':[{'title':'Trade tariff','url':
 class Tests(unittest.TestCase):
  def test_default_disabled(self):self.assertEqual(prepare_supplied_gnews({}, {},clock=D)['state'],'disabled_by_config')
  def test_enabled_backup_held_not_fake_sent(self):
-  r=prepare_supplied_gnews({'ENABLE_GNEWS':'true'},outcomes(),clock=D);self.assertEqual(r['state'],'held_before_backup');self.assertEqual(r['documents'],[]);self.assertEqual(len(r['held_candidates']),1)
+  r=prepare_supplied_gnews({'ENABLE_GNEWS':'true'},outcomes(),clock=D);self.assertEqual(r['state'],'prepared');self.assertEqual(len(r['documents']),1);self.assertEqual(r['backup'],'held_pending_durable_adapter');self.assertNotIn('held_candidates',r)
  def test_original_queries_seen_title_and_docs(self):
   r=prepare_supplied_gnews({'ENABLE_GNEWS':'true','ENABLE_TELEGRAM_BACKUP':'false'},outcomes(),clock=D)
   self.assertEqual(r['query_trace'],Q);self.assertEqual(len(r['documents']),1);self.assertEqual(r['documents'][0]['credibility'],'MEDIUM');self.assertEqual(r['documents'][0]['summary'],'trade tariff')

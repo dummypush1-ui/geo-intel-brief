@@ -8,9 +8,7 @@ from intelligence.geo.config import (MAX_ITEMS_PER_FEED, LOOKBACK_HOURS, ENABLE_
 from intelligence.geo.processing.classifier import classify, parse_date, strip_html
 from intelligence.geo.processing.extract import extract_full_text
 from intelligence.geo.processing.dedupe import dedupe_articles
-from intelligence.geo.reports.telegram_backup import attach_backup_refs
-from intelligence.geo.database import save_articles_bulk, update_telegram_refs
-import threading
+from intelligence.geo.database import save_articles_bulk, ArticleWriteOutcomeError
 
 # Deduplicated source list: major news, official/multilateral bodies,
 # think-tank & academic research feeds, and sanctions/trade-law trackers.
@@ -143,24 +141,13 @@ def collect(extra_feeds=None):
     candidates = dedupe_articles(candidates, threshold=DEDUPE_THRESHOLD, score_key="score")
     candidates = [a for a in candidates if a["category"] in ACTIVE_CATEGORIES]
 
-    # MongoDB write happens FIRST and is what /collect waits for -- this is
-    # the fast path (one bulk round-trip). Telegram backup used to run
-    # synchronously right here before this fix, which could push a single
-    # /collect request past Render's own reverse-proxy timeout (separate
-    # from and not fixable via gunicorn's --timeout) whenever several
-    # message batches were needed or Telegram was slow to respond -- that
-    # was causing 502 Bad Gateway on every /collect call. Telegram backup
-    # now happens in a background thread AFTER this function has already
-    # returned its result to the caller, so /collect's response time is no
-    # longer coupled to Telegram's latency at all.
+    # Automatic backup is held until exact per-record durable outbox is wired.
     docs = [{
         "title": art["title"], "url": art["url"], "source": art["source"],
         "credibility": art.get("credibility", "MEDIUM"),
         "corroboration": art.get("corroboration", 1),
         "category": art["category"],
-        # Short preview only -- full text lives in the Telegram backup
-        # message (telegram_url below, filled in later by the background
-        # thread), not duplicated here.
+        # Full record retention/outbox adapter is a separate held requirement.
         "summary": art["summary"][:300],
         "telegram_message_id": None,
         "telegram_url": "",
@@ -168,16 +155,10 @@ def collect(extra_feeds=None):
         "risk_level": art["risk_level"], "country": art["country"],
     } for art in candidates]
 
-    saved_count = save_articles_bulk(docs)
-
-    if ENABLE_TELEGRAM_BACKUP and candidates:
-        def _backup_in_background(arts):
-            try:
-                backed_up = attach_backup_refs(arts)
-                update_telegram_refs(backed_up)
-            except Exception as exc:
-                print(f"[TELEGRAM BACKUP] background thread error: {exc}")
-
-        threading.Thread(target=_backup_in_background, args=(candidates,), daemon=True).start()
-
-    return saved_count
+    try:
+        return save_articles_bulk(docs)
+    except ArticleWriteOutcomeError as exc:
+        # Closed operational state, never infer article identities or backup work.
+        return {key: exc.outcome[key] for key in (
+            'state', 'attempted', 'inserted_count', 'duplicate_count',
+            'failed_count', 'uncertain_count', 'retry_safe')}

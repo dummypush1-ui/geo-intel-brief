@@ -14,8 +14,7 @@ from intelligence.geo.config import (GNEWS_LANGUAGE, GNEWS_COUNTRY, GNEWS_PERIOD
                      ACTIVE_CATEGORIES, ENABLE_TELEGRAM_BACKUP)
 from intelligence.geo.processing.classifier import classify, strip_html
 from intelligence.geo.processing.dedupe import dedupe_articles
-from intelligence.geo.reports.telegram_backup import attach_backup_refs
-from intelligence.geo.database import save_articles_bulk
+from intelligence.geo.database import save_articles_bulk, ArticleWriteOutcomeError
 
 try:
     from gnews import GNews
@@ -68,11 +67,7 @@ def collect():
 
     candidates = dedupe_articles(candidates, threshold=DEDUPE_THRESHOLD, score_key="score")
 
-    # Full record -> Telegram (source of truth for complete content).
-    # MongoDB below only keeps a short preview + a link back to this.
-    if ENABLE_TELEGRAM_BACKUP:
-        candidates = attach_backup_refs(candidates)
-
+    # No pre-write Telegram send. Exact durable per-record adapter is not wired.
     # One bulk write instead of one insert_one() round-trip per article --
     # same reasoning as collectors/rss.py.
     docs = [{
@@ -82,4 +77,10 @@ def collect():
         "telegram_url": art.get("telegram_url", ""),
     } for art in candidates]
 
-    return save_articles_bulk(docs)
+    try:
+        return save_articles_bulk(docs)
+    except ArticleWriteOutcomeError as exc:
+        return {key: exc.outcome[key] for key in (
+            'state', 'attempted', 'inserted_count', 'duplicate_count',
+            'failed_count', 'uncertain_count', 'retry_safe')}
+

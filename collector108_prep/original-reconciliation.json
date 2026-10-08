@@ -2,9 +2,10 @@
   {
     "path": "web.py",
     "original_sha256": "eb0312abeead1d445dddf0d621c6f03ad4d699027db48cbdc527493101358c47",
-    "preserved_sha256": "7931165782766d4b6d05ac1207045e158d0ecaa15baf0b6f30d4abe0ba346dfc",
+    "preserved_sha256": "9c487d9469828a209fd07f1e2904ea5667d63ce2c0ba08d5a1d6ba5b21f70277",
     "byte_identical": false,
-    "ast_same_except_namespace": true
+    "ast_same_except_namespace": false,
+    "intentional_change": "Reviewed bulk147 outcomes/held backup/status or P0 config auth comment; original hash retained"
   },
   {
     "path": "apps_script/Code.gs",
@@ -16,16 +17,18 @@
   {
     "path": "collectors/rss.py",
     "original_sha256": "f4caa621437ce4295029dc37db7ccda70a9aeb1fba2f59f7ea20f2f07517763b",
-    "preserved_sha256": "337475c6a38dedecfdf5a25fab753df14e274b18c8d8788af431939067898f73",
+    "preserved_sha256": "a7cbdeac2e7645e2477ecf64a9ad9cbf00d1ccf71b18235228d75ccaca3cbd41",
     "byte_identical": false,
-    "ast_same_except_namespace": true
+    "ast_same_except_namespace": false,
+    "intentional_change": "Reviewed bulk147 outcomes/held backup/status or P0 config auth comment; original hash retained"
   },
   {
     "path": "config.py",
     "original_sha256": "f7fbf007954c6918fbe2e402863fa29f597fe5d5cb4d60d1001deca8896b21f3",
-    "preserved_sha256": "f7fbf007954c6918fbe2e402863fa29f597fe5d5cb4d60d1001deca8896b21f3",
-    "byte_identical": true,
-    "ast_same_except_namespace": true
+    "preserved_sha256": "42d014d1b5134a24c10ccafdc23200e2b91a4ea19fa6466091beb97e8043e5cb",
+    "byte_identical": false,
+    "ast_same_except_namespace": false,
+    "intentional_change": "Reviewed bulk147 outcomes/held backup/status or P0 config auth comment; original hash retained"
   },
   {
     "path": "requirements.txt",
@@ -37,16 +40,18 @@
   {
     "path": "database.py",
     "original_sha256": "c07a5dacb008b8407e22e194b34ea81d97ec5b41ecc8414a347a444edb80002c",
-    "preserved_sha256": "4b045c167947a4bed6a5456267430b239751bef551a0794b2e652b2cbc2058c4",
+    "preserved_sha256": "20c0a8cd38db1b4a8f73b3482bc8b695a689323ca109e9430e475236a9dc9fd1",
     "byte_identical": false,
-    "ast_same_except_namespace": true
+    "ast_same_except_namespace": false,
+    "intentional_change": "Reviewed bulk147 outcomes/held backup/status or P0 config auth comment; original hash retained"
   },
   {
     "path": "collectors/gnews_search.py",
     "original_sha256": "ee0b8a83750d8159356a153c01b9147cdd17d3ea638ee3caa07d9d275eafc20d",
-    "preserved_sha256": "9b948cad40e0d450745f36378360f6c85989a257a3c50b383cb6de694d36c7af",
+    "preserved_sha256": "b2d2ba35db61a47993d1bb3a50b2677e02e677f1a3758756eb514033d457bcdc",
     "byte_identical": false,
-    "ast_same_except_namespace": true
+    "ast_same_except_namespace": false,
+    "intentional_change": "Reviewed bulk147 outcomes/held backup/status or P0 config auth comment; original hash retained"
   },
   {
     "path": "collectors/events.py",

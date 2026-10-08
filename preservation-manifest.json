@@ -9,10 +9,10 @@
       "source_path": "database.py",
       "path": "intelligence/geo/database.py",
       "source_sha256": "c07a5dacb008b8407e22e194b34ea81d97ec5b41ecc8414a347a444edb80002c",
-      "sha256": "7c55ae5fed58199bf8eb9cded94bb6eafa19eeb370eb1d03151c5aa69feaa176",
+      "sha256": "20c0a8cd38db1b4a8f73b3482bc8b695a689323ca109e9430e475236a9dc9fd1",
       "changes": [
         "root imports namespaced only",
-        "Reviewed P0 candidate: header-only fail-closed legacy HTTP auth and unconditional article-deletion hold; no live activation"
+        "bulk147 candidate pending final independent review: driver outcomes, held legacy backup, explicit status/labels; no live activation"
       ],
       "prior_preserved_sha256": "4b045c167947a4bed6a5456267430b239751bef551a0794b2e652b2cbc2058c4"
     },
@@ -81,10 +81,10 @@
       "source_path": "web.py",
       "path": "intelligence/geo/web.py",
       "source_sha256": "eb0312abeead1d445dddf0d621c6f03ad4d699027db48cbdc527493101358c47",
-      "sha256": "3d83ca84984f5c01c0a8c53d02ae5a92e976e53f19f87f8b238a31d9c42a2cb3",
+      "sha256": "9c487d9469828a209fd07f1e2904ea5667d63ce2c0ba08d5a1d6ba5b21f70277",
       "changes": [
         "root imports namespaced only",
-        "Reviewed P0 candidate: header-only fail-closed legacy HTTP auth and unconditional article-deletion hold; no live activation"
+        "bulk147 candidate pending final independent review: driver outcomes, held legacy backup, explicit status/labels; no live activation"
       ],
       "prior_preserved_sha256": "7931165782766d4b6d05ac1207045e158d0ecaa15baf0b6f30d4abe0ba346dfc"
     },
@@ -215,10 +215,12 @@
       "source_path": "reports/dashboard.py",
       "path": "intelligence/geo/reports/dashboard.py",
       "source_sha256": "ade8fc1ccfd08070ae28862570030e26b82c1b55de3d147b6e935a08ae7b6c09",
-      "sha256": "8faf0fcaf062ee0e90929d5ed6249c4962c2e2b8b2e330d61e8cdab362ecfa18",
+      "sha256": "52bb0bcc2d5b3285d58bec385ba76bbf371ac35b4a023a6e8f486b31378cb9b1",
       "changes": [
-        "root imports namespaced only"
-      ]
+        "root imports namespaced only",
+        "bulk147 candidate pending final independent review: driver outcomes, held legacy backup, explicit status/labels; no live activation"
+      ],
+      "prior_preserved_sha256": "8faf0fcaf062ee0e90929d5ed6249c4962c2e2b8b2e330d61e8cdab362ecfa18"
     },
     {
       "source_repo": "geonews",
@@ -235,10 +237,12 @@
       "source_path": "collectors/gnews_search.py",
       "path": "intelligence/geo/collectors/gnews_search.py",
       "source_sha256": "ee0b8a83750d8159356a153c01b9147cdd17d3ea638ee3caa07d9d275eafc20d",
-      "sha256": "9b948cad40e0d450745f36378360f6c85989a257a3c50b383cb6de694d36c7af",
+      "sha256": "b2d2ba35db61a47993d1bb3a50b2677e02e677f1a3758756eb514033d457bcdc",
       "changes": [
-        "root imports namespaced only"
-      ]
+        "root imports namespaced only",
+        "bulk147 candidate pending final independent review: driver outcomes, held legacy backup, explicit status/labels; no live activation"
+      ],
+      "prior_preserved_sha256": "9b948cad40e0d450745f36378360f6c85989a257a3c50b383cb6de694d36c7af"
     },
     {
       "source_repo": "geonews",
@@ -263,10 +267,12 @@
       "source_path": "collectors/rss.py",
       "path": "intelligence/geo/collectors/rss.py",
       "source_sha256": "f4caa621437ce4295029dc37db7ccda70a9aeb1fba2f59f7ea20f2f07517763b",
-      "sha256": "337475c6a38dedecfdf5a25fab753df14e274b18c8d8788af431939067898f73",
+      "sha256": "a7cbdeac2e7645e2477ecf64a9ad9cbf00d1ccf71b18235228d75ccaca3cbd41",
       "changes": [
-        "root imports namespaced only"
-      ]
+        "root imports namespaced only",
+        "bulk147 candidate pending final independent review: driver outcomes, held legacy backup, explicit status/labels; no live activation"
+      ],
+      "prior_preserved_sha256": "337475c6a38dedecfdf5a25fab753df14e274b18c8d8788af431939067898f73"
     },
     {
       "source_repo": "geonews",

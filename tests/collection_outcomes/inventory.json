@@ -1,0 +1,12 @@
+{
+  "files": {
+    "tests/collection_outcomes/__init__.py": "56a2abada406f4a4c03d6784f90c936d13eaf425b09a51ab4f18b3447bb9a756",
+    "tests/collection_outcomes/test_callers.py": "0055ed7a75d720040807b2bf7c2e464b4953048269c5c5b9e17908272908dd5f",
+    "tests/collection_outcomes/test_status.py": "079e556d520c4701bc8885baed43cfcbfc909af9f6874b218a935220266f30c4",
+    "tests/test_legacy_bulk_outcome.py": "a26b02a898ed2de311b482b69ce80cea8afdfa43d16765d987c37287ddd89fc1"
+  },
+  "excluded_exact": [
+    "tests/collection_outcomes/inventory.json",
+    "tests/test_bulk147_inventory.py"
+  ]
+}

@@ -7,9 +7,9 @@ from collector115_prep.profile import compile_profile
 from intelligence.geo.processing.classifier import classify,strip_html
 from intelligence.geo.processing.dedupe import dedupe_articles
 ROOT=Path(__file__).resolve().parents[1]
-PIN='9b948cad40e0d450745f36378360f6c85989a257a3c50b383cb6de694d36c7af'
+PIN='b2d2ba35db61a47993d1bb3a50b2677e02e677f1a3758756eb514033d457bcdc'
 class GNewsRefused(ValueError):pass
-class BackupHeld(ValueError):pass
+class SuppliedWriteOutcomeError(ValueError):pass
 
 def prepare_supplied_gnews(settings,outcomes,*,clock,available=True):
  p=compile_profile(settings)
@@ -23,7 +23,7 @@ def prepare_supplied_gnews(settings,outcomes,*,clock,available=True):
  raw=(ROOT/'intelligence/geo/collectors/gnews_search.py').read_bytes()
  if hashlib.sha256(raw).hexdigest()!=PIN:raise GNewsRefused('Original GNews drift')
  config=(ROOT/'intelligence/geo/config.py').read_bytes()
- if hashlib.sha256(config).hexdigest()!='f7fbf007954c6918fbe2e402863fa29f597fe5d5cb4d60d1001deca8896b21f3':raise GNewsRefused('Original config drift')
+ if hashlib.sha256(config).hexdigest()!='42d014d1b5134a24c10ccafdc23200e2b91a4ea19fa6466091beb97e8043e5cb':raise GNewsRefused('Original config drift')
  tree=ast.parse(config);group_node=next(n.value for n in tree.body if type(n)is ast.Assign and any(type(t)is ast.Name and t.id=='GNEWS_QUERY_GROUPS'for t in n.targets))
  groups=ast.literal_eval(group_node);queries=[' OR '.join(g)for g in groups]
  expected=set(queries)if p['source_flags']['ENABLE_GNEWS']and available else set()
@@ -36,7 +36,7 @@ def prepare_supplied_gnews(settings,outcomes,*,clock,available=True):
    pub=r.get('publisher',{})
    if type(pub)is not dict or set(pub)-{'title'}or type(pub.get('title','Google News'))is not str:raise GNewsRefused('Publisher shape')
  result={'scope':'inactive_original_gnews_supplied','state':'disabled_by_config','documents':[],
-         'query_trace':[],'backup':'disabled_by_config','network':False,'writes':False,'delivery':False,'production_ready':False,
+         'query_trace':[],'backup':'held_pending_durable_adapter','network':False,'writes':False,'delivery':False,'production_ready':False,
          'pending_gates':['real_gnews_sdk_transport_isolation','backup_adapter','source_health']}
  if not p['source_flags']['ENABLE_GNEWS']:return result
  defs=[n for n in ast.parse(raw).body if type(n)is ast.FunctionDef and n.name in ('collect','_build_queries')]
@@ -52,18 +52,14 @@ def prepare_supplied_gnews(settings,outcomes,*,clock,available=True):
    result['query_trace'].append(q);o=bounded[q]
    if o['state']=='error':raise ValueError('Supplied source error')
    return o['results']
- def backup(arts):
-  result['backup']='held_unwired';result['held_candidates']=capture({'candidates':arts})['captured']['candidates']
-  raise BackupHeld('Backup unwired')
  def save(docs):result['documents']=capture({'documents':docs})['captured']['documents'];return len(docs)
  log=[]
  scope={'__builtins__':{'print':lambda *a:log.append(1),'set':set,'Exception':Exception},
         'HAS_GNEWS':available,'GNews':Client,'GNEWS_LANGUAGE':'en','GNEWS_COUNTRY':'US','GNEWS_PERIOD':'1d','GNEWS_MAX_RESULTS':15,
         'GNEWS_QUERY_GROUPS':groups,'DEDUPE_THRESHOLD':p['threshold'],'ACTIVE_CATEGORIES':p['active_categories'],
         'ENABLE_TELEGRAM_BACKUP':p['source_flags']['ENABLE_TELEGRAM_BACKUP'],'classify':classify,'strip_html':strip_html,
-        'dedupe_articles':dedupe_articles,'attach_backup_refs':backup,'save_articles_bulk':save,'datetime':Clock,'timezone':timezone}
+        'ArticleWriteOutcomeError':SuppliedWriteOutcomeError,'dedupe_articles':dedupe_articles,'save_articles_bulk':save,'datetime':Clock,'timezone':timezone}
  exec(compile(ast.Module(body=defs,type_ignores=[]),'original-supplied-gnews','exec'),scope)
- try:scope['collect']();result['state']='prepared'if available else 'sdk_unavailable'
- except BackupHeld:result['state']='held_before_backup'
+ scope['collect']();result['state']='prepared'if available else 'sdk_unavailable'
  result['coarse_source_error_count']=len(log)
  return result

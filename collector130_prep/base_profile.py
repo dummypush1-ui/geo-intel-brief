@@ -3,7 +3,7 @@ import ast,hashlib,math
 from pathlib import Path
 from collector113_prep.feed_composition import original_catalog
 ROOT=Path(__file__).resolve().parents[1]
-CONFIG_PIN='f7fbf007954c6918fbe2e402863fa29f597fe5d5cb4d60d1001deca8896b21f3'
+CONFIG_PIN='42d014d1b5134a24c10ccafdc23200e2b91a4ea19fa6466091beb97e8043e5cb'
 class ProfileRefused(ValueError):pass
 
 def defaults():

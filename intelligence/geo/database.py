@@ -53,31 +53,57 @@ def save_article(a):
         return False
 
 
+class ArticleWriteOutcomeError(RuntimeError):
+    """A partial or unknown batch is not a general-success count or retry permit."""
+    def __init__(self, outcome):
+        self.outcome = dict(outcome)
+        super().__init__("Article write requires reconciliation; automatic retry is unsafe")
+
+
 def save_articles_bulk(articles):
-    """Inserts many articles in ONE round-trip to MongoDB instead of one
-    insert_one() call per article -- this is what collectors/rss.py uses
-    now, since sequential per-article round-trips were the slowest step in
-    a collection cycle once feed fetching was already threaded (each
-    round-trip pays full network latency to Atlas). ordered=False means
-    Mongo keeps inserting the rest of the batch even after hitting a
-    duplicate url, instead of stopping at the first one -- so a batch of
-    30 articles where 5 are already-seen duplicates still saves the other
-    25 in this same single call. Returns the count of articles actually
-    inserted (duplicates don't count, same semantics as calling
-    save_article() in a loop)."""
+    """Return only driver-confirmed all-success or URL-duplicate-only inserts.
+
+    Validation errors raise with a redacted partial outcome. Network,
+    write-concern and malformed receipts raise unknown, never inferred success.
+    Caller records are copied; no driver retry or caller mutation occurs here.
+    """
+    if type(articles) is not list or any(type(a) is not dict for a in articles):
+        raise ValueError("Plain article batch required")
     if not articles:
         return 0
-    db = connect()
-    for doc in articles:
-        doc.setdefault("created_at", _now_iso())
+    from copy import deepcopy
+    from integration.geo_article_writer import GeoArticleWriter
+    documents = deepcopy(articles)
+    stamp = _now_iso()
+    for doc in documents:
+        doc.setdefault("created_at", stamp)
+    attempted = len(documents)
     try:
-        result = db.articles.insert_many(articles, ordered=False)
-        return len(result.inserted_ids)
-    except BulkWriteError as bwe:
-        # Some documents inserted, some failed (almost always duplicate
-        # urls colliding with the unique index) -- count is total attempted
-        # minus how many actually errored out.
-        return len(articles) - len(bwe.details.get("writeErrors", []))
+        db = connect()
+        insert = db.articles.insert_many
+    except Exception:
+        raise ArticleWriteOutcomeError(GeoArticleWriter._uncertain(attempted)) from None
+    try:
+        result = insert(documents, ordered=False)
+    except BulkWriteError as exc:
+        try:
+            outcome = GeoArticleWriter._bulk_outcome(exc.details, attempted)
+        except Exception:
+            outcome = GeoArticleWriter._uncertain(attempted)
+        if outcome["state"] == "duplicates":
+            return outcome["inserted_count"]
+        raise ArticleWriteOutcomeError(outcome) from None
+    except Exception:
+        raise ArticleWriteOutcomeError(GeoArticleWriter._uncertain(attempted)) from None
+    # Exceptions while reading a receipt are not command-error proof.
+    try:
+        acknowledged = result.acknowledged
+        ids = result.inserted_ids
+        if acknowledged is not True or type(ids) is not list or len(ids) != attempted:
+            raise ValueError()
+    except Exception:
+        raise ArticleWriteOutcomeError(GeoArticleWriter._uncertain(attempted)) from None
+    return attempted
 
 
 def update_telegram_refs(articles):

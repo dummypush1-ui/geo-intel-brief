@@ -48,7 +48,7 @@ header p{margin:8px 0 0;font-size:13px;opacity:0.85}
 .barrow .cnt{width:30px;text-align:right;color:#718096}
 .event-date{display:inline-block;background:#2b6cb0;color:white;font-size:11px;font-weight:700;padding:2px 8px;border-radius:4px;margin-right:8px}
 .searchbox{width:100%;padding:10px 14px;font-size:14px;border:1px solid #cbd5e0;border-radius:8px;margin-bottom:16px;box-sizing:border-box}
-.footer-note{text-align:center;font-size:12px;color:#a0aec0;margin:20px 0}
+.footer-note{text-align:center;font-size:12px;color:#4a5568;margin:20px 0}
 """
 
 
@@ -178,9 +178,9 @@ def build_dashboard_html(limit=100000, category=None, trigger_key=None, sort_by=
     body.append("</div></div>")
 
     body.append(f'<p class="footer-note">Showing {len(articles)} of {total_in_db} total articles in MongoDB'
-                f'{" for category " + html.escape(category) if category else ""} \u2014 full record shown for each. '
-                f'{"A private Telegram channel also keeps an off-site backup copy of every record." if ENABLE_TELEGRAM_BACKUP else "Enable ENABLE_TELEGRAM_BACKUP for an off-site backup copy."} '
-                f'{"Metadata older than " + str(METADATA_CLEANUP_AFTER_DAYS) + " days is periodically cleaned up (backup copy stays on Telegram)." if ENABLE_METADATA_CLEANUP else "Metadata cleanup is currently off."}</p>')
+                f'{" for category " + html.escape(category) if category else ""} - stored preview shown for each. '
+                'Automatic Telegram backup is paused pending a durable per-record adapter. '
+                'Metadata deletion is held; flags and stored links do not prove a complete backup.</p>')
 
     body.append("""<script>
     function filterArticles() {

@@ -14,6 +14,7 @@
         "integration/supplied_fulltext_fixture.py",
         "integration/telegram_format_audit.py",
         "scripts/audit_connections.py",
+        "tests/collection_outcomes/test_callers.py",
         "tests/geonews_digest/test_digest.py",
         "tests/news_export/test_original_contract.py",
         "tests/test_collector_mail_fixture.py",
@@ -822,6 +823,7 @@
         "tests/test_apps_script_audit.py",
         "tests/test_article_archive.py",
         "tests/test_branding.py",
+        "tests/test_bulk147_inventory.py",
         "tests/test_classifier146_inventory.py",
         "tests/test_collector122_inventory.py",
         "tests/test_collector122_packing.py",
@@ -913,12 +915,14 @@
       "import": "importlib",
       "files": [
         "tests/browser_feature_finder.py",
+        "tests/collection_outcomes/test_status.py",
         "tests/geospatial/test_geospatial.py",
         "tests/news_export/test_export.py",
         "tests/test_collector122_inventory.py",
         "tests/test_geo_probe_http.py",
         "tests/test_geo_read_factory.py",
         "tests/test_geo_sample_probe.py",
+        "tests/test_legacy_bulk_outcome.py",
         "tests/test_legacy_geo_p0.py",
         "tests/test_preview_launcher.py",
         "tests/text_matching/test_matching.py"
@@ -1428,6 +1432,7 @@
         "tests/test_apps_script_audit.py",
         "tests/test_article_archive.py",
         "tests/test_branding.py",
+        "tests/test_bulk147_inventory.py",
         "tests/test_classifier146_inventory.py",
         "tests/test_collector122_inventory.py",
         "tests/test_compulsory_channels.py",
@@ -1597,6 +1602,8 @@
         "tests/browser_tariff_evidence.py",
         "tests/browser_watch_updates.py",
         "tests/browser_weekly.py",
+        "tests/collection_outcomes/test_callers.py",
+        "tests/collection_outcomes/test_status.py",
         "tests/geonews_digest/test_digest.py",
         "tests/geospatial/preview/make_payload.py",
         "tests/geospatial/test_geospatial.py",
@@ -1607,6 +1614,7 @@
         "tests/news_export/test_original_contract.py",
         "tests/test_apps_script_audit.py",
         "tests/test_branding.py",
+        "tests/test_bulk147_inventory.py",
         "tests/test_classifier146_inventory.py",
         "tests/test_compulsory_channels.py",
         "tests/test_digest_cold.py",
@@ -1735,6 +1743,7 @@
         "integration/runtime.py",
         "tests/test_geo_article_writer.py",
         "tests/test_geo_sample_probe.py",
+        "tests/test_legacy_bulk_outcome.py",
         "tests/test_mongo_account_store.py"
       ],
       "stdlib": false,
@@ -2728,6 +2737,7 @@
         "tests/news_export/test_original_contract.py",
         "tests/test_feature_mail_mount.py",
         "tests/test_geo_article_writer.py",
+        "tests/test_legacy_bulk_outcome.py",
         "tests/test_mongo_account_store.py",
         "tests/text_matching/test_matching.py"
       ],
@@ -2773,6 +2783,8 @@
         "tests/accounts/test_merged_fixture.py",
         "tests/accounts/test_reservation_terminal.py",
         "tests/accounts/test_store_conformance.py",
+        "tests/collection_outcomes/test_callers.py",
+        "tests/collection_outcomes/test_status.py",
         "tests/digest_cold_probe.py",
         "tests/geonews_digest/test_digest.py",
         "tests/geospatial/test_geospatial.py",
@@ -2791,6 +2803,7 @@
         "tests/test_branding.py",
         "tests/test_brics_streams.py",
         "tests/test_bridges.py",
+        "tests/test_bulk147_inventory.py",
         "tests/test_classifier146_inventory.py",
         "tests/test_collection_prepare.py",
         "tests/test_collector122_inventory.py",
@@ -2839,6 +2852,7 @@
         "tests/test_geo_sample_probe.py",
         "tests/test_geo_snapshot.py",
         "tests/test_invite_expiry.py",
+        "tests/test_legacy_bulk_outcome.py",
         "tests/test_legacy_geo_p0.py",
         "tests/test_live_news_ui.py",
         "tests/test_loaded_charts.py",
@@ -3193,11 +3207,13 @@
   "dynamic_import_files": [
     "integration/country_alerts.py",
     "tests/browser_sample_volume.py",
+    "tests/collection_outcomes/test_status.py",
     "tests/news_export/test_export.py",
     "tests/news_export/test_original_contract.py",
     "tests/test_collector122_inventory.py",
     "tests/test_geo_collector_contract.py",
     "tests/test_geo_read_factory.py",
+    "tests/test_legacy_bulk_outcome.py",
     "tests/test_legacy_geo_p0.py",
     "tests/test_preview_launcher.py",
     "tests/text_matching/test_matching.py",
@@ -3363,7 +3379,7 @@
       },
       {
         "path": "integration/collector_mail_fixture.py",
-        "sha256": "3a2b296404a7a2da4f18d99e2dde97c1a52226b88db65947e4c17277704d342e"
+        "sha256": "051098ebd9b5354d5a53d8469eef87b8db5464176c6fd735f1f92582b62bbbe9"
       },
       {
         "path": "integration/country_alerts.py",
@@ -3443,7 +3459,7 @@
       },
       {
         "path": "integration/fixed_parser_pipeline.py",
-        "sha256": "3d9d1e90cc84965dde071f522c71a502c57e31363c84f3a9b6743f863f0ff1e7"
+        "sha256": "7e79029dbb02261f979a3575397bf58209e0d60bd3dac21a5319926694a02a1f"
       },
       {
         "path": "integration/geo_article_writer.py",
@@ -3451,7 +3467,7 @@
       },
       {
         "path": "integration/geo_collector_contract.py",
-        "sha256": "ddd1cac24fb1a6d4ccb595eafa5939fb2d627ce043af6bbe6cb7b9f18c926299"
+        "sha256": "3d35ed17b5df48b580a705100cf1e0aaa596f8fb948d12c128d6f00be2022f3d"
       },
       {
         "path": "integration/geo_only_runtime.py",
@@ -3579,7 +3595,7 @@
       },
       {
         "path": "integration/news_export/original_contract.py",
-        "sha256": "faca8eb042251dbbb31d02d24835e0a65662a37b631984ddb9f5e848ea28e67e"
+        "sha256": "1f5cf9205419add55999a54e802cc5028590a907acaa6f81401ec755f159663e"
       },
       {
         "path": "integration/news_export/original_stream.py",
@@ -3723,19 +3739,19 @@
       },
       {
         "path": "integration/supplied_collector_pipeline.py",
-        "sha256": "6ba618d6f77872fd60a9055891183b8b50647aa924ad62851eda4dc9e10aeb4a"
+        "sha256": "c1d477e875b2a625a8c00c641bd8e0314a7112f9f9057213ebc338a612c69b44"
       },
       {
         "path": "integration/supplied_feed_fixture.py",
-        "sha256": "a1323229c2571f05f9010e646afd292e994f7177b625c85c9909c6a75ee3fdb2"
+        "sha256": "ab67713a8a28f27e43d4c70fc2e9d434150ab89788f1db4c9d738ba38c5155ea"
       },
       {
         "path": "integration/supplied_fulltext_fixture.py",
-        "sha256": "37476da31e8f595adfa48336b72477fd6e62bf5db16d03d8b2cc07591cff8a14"
+        "sha256": "1e9f825e002eb9643ea71064859abe9709fa8c874bac5206b6fe34de11c4b8d3"
       },
       {
         "path": "integration/supplied_multi_feed.py",
-        "sha256": "1d49b72089d5d24843485080b48c4db85f6d9fe2398c34c7520162c66bfa335a"
+        "sha256": "22ac2ab7573f087f4b6931ac1ad1777e814fa01c78ad26f7c9d9cb0a3d247e1b"
       },
       {
         "path": "integration/tariff_evidence.py",
@@ -3898,6 +3914,18 @@
         "sha256": "5331e36a64282ccd13e54a874d4efc4b1777dd65b66b573d3f405084e55bd71d"
       },
       {
+        "path": "tests/collection_outcomes/__init__.py",
+        "sha256": "56a2abada406f4a4c03d6784f90c936d13eaf425b09a51ab4f18b3447bb9a756"
+      },
+      {
+        "path": "tests/collection_outcomes/test_callers.py",
+        "sha256": "0055ed7a75d720040807b2bf7c2e464b4953048269c5c5b9e17908272908dd5f"
+      },
+      {
+        "path": "tests/collection_outcomes/test_status.py",
+        "sha256": "079e556d520c4701bc8885baed43cfcbfc909af9f6874b218a935220266f30c4"
+      },
+      {
         "path": "tests/digest_cold_probe.py",
         "sha256": "1a801e91b8a6c2057331d98b39deba21d4972c44534b9630c8f6fb7f7eb3ff16"
       },
@@ -3984,6 +4012,10 @@
       {
         "path": "tests/test_bridges.py",
         "sha256": "847cc2d86a32b5a3cf3cc37cc5a88488216c0ad5f52867aca277e69bbc37a920"
+      },
+      {
+        "path": "tests/test_bulk147_inventory.py",
+        "sha256": "cbb7be73cf5e4244bce18fdbc0afb98f1dc2d099ca8daf52a5f963775a55f44a"
       },
       {
         "path": "tests/test_classifier146_inventory.py",
@@ -4176,6 +4208,10 @@
       {
         "path": "tests/test_invite_expiry.py",
         "sha256": "0fe80389b413beb80a28cd38db16307f5eceb7b15151efef276200b48a26bc6a"
+      },
+      {
+        "path": "tests/test_legacy_bulk_outcome.py",
+        "sha256": "a26b02a898ed2de311b482b69ce80cea8afdfa43d16765d987c37287ddd89fc1"
       },
       {
         "path": "tests/test_legacy_geo_p0.py",

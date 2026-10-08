@@ -97,7 +97,7 @@ def _protect_routes():
 
 
 # Background job state for /collect. Collection (RSS + Google News +
-# Telegram backup) can take longer than gunicorn's/Render's request
+# paused backup) can take longer than gunicorn's/Render's request
 # timeout, so /collect now kicks the work off in a background thread and
 # returns immediately instead of blocking the HTTP request until it's
 # done. Poll /collect-status to see progress and the final result.
@@ -110,20 +110,46 @@ _collect_status = {
 _collect_lock = threading.Lock()
 
 
+def _collection_outcome(value):
+    """Closed status, never a partial dictionary masquerading as insert count."""
+    if type(value) is int and value >= 0:
+        return {"state": "confirmed", "inserted_count": value}
+    keys = {"state", "attempted", "inserted_count", "duplicate_count",
+            "failed_count", "uncertain_count", "retry_safe"}
+    if type(value) is not dict or set(value) != keys:
+        raise ValueError("Invalid collection outcome")
+    if value["state"] not in ("partial", "uncertain") or value["retry_safe"] is not False:
+        raise ValueError("Invalid collection state")
+    if type(value["attempted"]) is not int or value["attempted"] < 0:
+        raise ValueError("Invalid attempted count")
+    if value["state"] == "uncertain":
+        if any(value[k] is not None for k in ("inserted_count", "duplicate_count", "failed_count")) or type(value["uncertain_count"]) is not int or value["uncertain_count"] != value["attempted"]:
+            raise ValueError("Unknown counts must not be inferred")
+    else:
+        counts = [value[k] for k in ("inserted_count", "duplicate_count", "failed_count", "uncertain_count")]
+        if any(type(n) is not int or n < 0 for n in counts) or sum(counts) != value["attempted"] or counts[-1] != 0:
+            raise ValueError("Invalid partial counts")
+    return dict(value)
+
+
 def _run_collect_job():
     try:
-        new_rss = collect_rss(EXTRA_RSS_FEEDS)
-        new_gnews = collect_gnews() if ENABLE_GNEWS else 0
+        rss = _collection_outcome(collect_rss(EXTRA_RSS_FEEDS))
+        gnews = _collection_outcome(collect_gnews()) if ENABLE_GNEWS else {"state": "disabled", "inserted_count": 0}
         new_events = seed_events()
+        if type(new_events) is not int or new_events < 0:
+            raise ValueError("Invalid event count")
+        states = {rss["state"], gnews["state"]}
+        state = "uncertain" if "uncertain" in states else "partial" if "partial" in states else "confirmed"
         _collect_status["last_result"] = {
-            "new_rss_articles": new_rss,
-            "new_gnews_articles": new_gnews,
-            "new_events": new_events,
-            "error": None,
+            "state": state, "rss": rss, "gnews": gnews, "new_events": new_events,
+            "backup": "held_pending_durable_adapter", "error": None,
         }
-    except Exception as exc:
-        log.exception("Background /collect job failed")
-        _collect_status["last_result"] = {"error": str(exc)}
+    except Exception:
+        # Do not expose provider/driver credentials or raw exception text.
+        log.error("Background collection failed")
+        _collect_status["last_result"] = {"state": "failed", "error": "collection_failed",
+                                          "backup": "held_pending_durable_adapter"}
     finally:
         _collect_status["running"] = False
         _collect_status["last_finished"] = datetime.now(timezone.utc).isoformat()
