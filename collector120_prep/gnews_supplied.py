@@ -13,7 +13,7 @@ class BackupHeld(ValueError):pass
 
 def prepare_supplied_gnews(settings,outcomes,*,clock,available=True):
  p=compile_profile(settings)
- for path,h in {'intelligence/geo/processing/classifier.py':'445842f362bca71455f562e6d405e6ee860deddb88bab64f56f522e7b67073f9','intelligence/geo/processing/dedupe.py':'8326042d8a2adccafc690f86c47cc9baa67240792ef90060750313c81fb7382e'}.items():
+ for path,h in {'intelligence/geo/processing/classifier.py':'7c23324b2cbbc3b05f5e118a29456e0616e56146417bbbec65c5daf0559f38f0','intelligence/geo/processing/dedupe.py':'8326042d8a2adccafc690f86c47cc9baa67240792ef90060750313c81fb7382e'}.items():
   if hashlib.sha256((ROOT/path).read_bytes()).hexdigest()!=h:raise GNewsRefused('Processing source drift')
  if type(clock)is not datetime or type(clock.tzinfo)is not timezone or type(available)is not bool:raise GNewsRefused('Exact clock/provider availability')
  if type(outcomes)is not dict or len(outcomes)>3:raise GNewsRefused('Supplied SDK mapping')

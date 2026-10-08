@@ -1,3 +1,4 @@
+from integration.text_matching.matcher import contains
 """Simple keyword classifier — swap in an LLM/API call later if you want
 smarter tagging; this keeps the template dependency-free by default."""
 from intelligence.brics import config as C
@@ -14,7 +15,7 @@ KEYWORDS = {
 def classify(article):
     text = (article.get("title", "") + " " + article.get("summary", "")).lower()
     for cat, words in KEYWORDS.items():
-        if any(w in text for w in words):
+        if any(contains(text, w) for w in words):
             return cat
     return "GENERAL"
 
@@ -30,7 +31,7 @@ def classify_all(articles):
 
 def is_critical(article):
     text = (article.get("title", "") + " " + article.get("summary", "")).lower()
-    return any(kw.strip().lower() in text for kw in C.CRITICAL_KEYWORDS)
+    return any(contains(text, kw.strip()) for kw in C.CRITICAL_KEYWORDS)
 
 
 # Being published by a BRICS-country outlet does NOT make a story
@@ -57,10 +58,10 @@ DIPLOMATIC_TERMS = [
 
 def is_brics_relevant(article):
     text = (article.get("title", "") + " " + article.get("summary", "")).lower()
-    if any(kw in text for kw in STRONG_SIGNALS):
+    if any(contains(text, kw) for kw in STRONG_SIGNALS):
         return True
-    has_leader = any(kw in text for kw in LEADER_NAMES)
-    has_diplomatic_term = any(kw in text for kw in DIPLOMATIC_TERMS)
+    has_leader = any(contains(text, kw) for kw in LEADER_NAMES)
+    has_diplomatic_term = any(contains(text, kw) for kw in DIPLOMATIC_TERMS)
     return has_leader and has_diplomatic_term
 
 

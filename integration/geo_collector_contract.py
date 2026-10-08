@@ -14,7 +14,7 @@ from dateutil.tz import tzutc,tzoffset,tzlocal
 ROOT=Path(__file__).resolve().parents[1]
 RSS_PIN='337475c6a38dedecfdf5a25fab753df14e274b18c8d8788af431939067898f73'
 
-PROCESSING_PINS={'intelligence/geo/processing/classifier.py':'445842f362bca71455f562e6d405e6ee860deddb88bab64f56f522e7b67073f9','intelligence/geo/processing/dedupe.py':'8326042d8a2adccafc690f86c47cc9baa67240792ef90060750313c81fb7382e'}
+PROCESSING_PINS={'intelligence/geo/processing/classifier.py':'7c23324b2cbbc3b05f5e118a29456e0616e56146417bbbec65c5daf0559f38f0','intelligence/geo/processing/dedupe.py':'8326042d8a2adccafc690f86c47cc9baa67240792ef90060750313c81fb7382e'}
 def _original_documents(candidates,categories,threshold):
  for path,pin in PROCESSING_PINS.items():
   if hashlib.sha256((ROOT/path).read_bytes()).hexdigest()!=pin:raise ValueError('Original processing source review required')

@@ -10,6 +10,8 @@ class OriginalContracts(unittest.TestCase):
    def __init__(self,body,**kw):self.body=body
   scope={'request':SimpleNamespace(args=args),'csv':csv,'io':io,'Response':Response,'_authorized':lambda:True,'_db_check':lambda:None,'recent_articles':lambda limit:rows[:limit], 'get_store':lambda:SimpleNamespace(recent=lambda limit:rows[:limit]),'is_critical':lambda r:any(k in (r.get('title','')+' '+r.get('summary','')).lower() for k in ('attack','explosion','resign','coup','ceasefire','sanctions')),'datetime':__import__('datetime')}
   if project=='brics':
+   from integration.text_matching.matcher import contains
+   scope['contains']=contains
    predicate=next(n for n in ast.parse((ROOT/'intelligence/brics/processing/classifier.py').read_text()).body if isinstance(n,ast.FunctionDef) and n.name=='is_critical');scope['C']=SimpleNamespace(CRITICAL_KEYWORDS=['attack','explosion','resign','coup','ceasefire','sanctions']);exec(compile(ast.Module(body=[predicate],type_ignores=[]),'original critical predicate','exec'),scope)
   exec(compile(ast.Module(body=[node],type_ignores=[]),'original reviewed export','exec'),scope)
   return scope['export_csv']().body.encode()
@@ -48,3 +50,11 @@ class OriginalContracts(unittest.TestCase):
   with self.assertRaises(ExportRequestError):original_snapshot([{'title':'x'*1000}]*10,'geo',max_bytes=1024)
   with self.assertRaises(ExportRequestError):original_snapshot([object()],'brics',stamp='bad')
   with self.assertRaises(ValueError):original_snapshot([],'geo',max_bytes=True)
+
+ def test_brics_critical_matching_differential(self):
+  rows=[{'title':t,'summary':''}for t in ('software award','attacked convoy','resignation','attackers','resignations')]
+  args={'critical_only':'yes'}
+  body,_,_=original_snapshot(rows,'brics',args)
+  self.assertEqual(body,self.oracle('brics',rows,args))
+  self.assertIn(b'attacked convoy',body);self.assertIn(b'resignation',body)
+  self.assertNotIn(b'attackers',body);self.assertNotIn(b'resignations',body)

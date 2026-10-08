@@ -1,3 +1,4 @@
+from integration.text_matching.matcher import contains, country_contains
 import re
 from dateutil import parser as dateparser
 from datetime import datetime, timezone
@@ -33,11 +34,11 @@ COUNTRIES = ["United States","China","India","Russia","Ukraine","Iran","Israel",
 
 def classify(title, summary):
     text = f"{title} {summary}".lower()
-    scores = {k: sum(1 for w in words if w in text) for k, words in RULES.items()}
+    scores = {k: sum(1 for w in words if contains(text, w)) for k, words in RULES.items()}
     category = max(scores, key=scores.get) if max(scores.values()) else "GENERAL"
-    score = min(100, sum(scores.values()) * 2 + sum(5 for w in HIGH_IMPACT if w in text))
+    score = min(100, sum(scores.values()) * 2 + sum(5 for w in HIGH_IMPACT if contains(text, w)))
     level = "CRITICAL" if score >= 30 else "HIGH" if score >= 20 else "MODERATE" if score >= 10 else "LOW"
-    country = next((c for c in COUNTRIES if c.lower() in text), "")
+    country = next((c for c in COUNTRIES if country_contains(text, c)), "")
     return category, score, level, country
 
 def parse_date(value):

@@ -1,0 +1,12 @@
+{
+  "scope": "reviewed_classifier146",
+  "files": {
+    "integration/text_matching/matcher.py": "eb9bdc9b113d36da34702ed724ea857ebcfc9649131fdeafe7add3138d2db607",
+    "tests/text_matching/test_matching.py": "dc7fcfe35c135684cfdd9b629db765a391fa3e1e91edffd4f4c17e07ff9c4318",
+    "tests/text_matching/__init__.py": "79ec697cbf8a07e3ce6284d35cbe4f78e88d4870c9f0a1df1edafcb0e325e6f8"
+  },
+  "excluded_exact": [
+    "integration/text_matching/inventory.json",
+    "tests/test_classifier146_inventory.py"
+  ]
+}

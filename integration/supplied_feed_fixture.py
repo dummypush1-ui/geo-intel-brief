@@ -8,7 +8,7 @@ from dateutil.parser import UnknownTimezoneWarning
 from dateutil.tz import tzutc,tzoffset,tzlocal
 from integration.supplied_fulltext_fixture import Budget,FulltextRefused
 ROOT=Path(__file__).resolve().parents[1]
-PINS={'intelligence/geo/collectors/rss.py':'337475c6a38dedecfdf5a25fab753df14e274b18c8d8788af431939067898f73','intelligence/geo/processing/classifier.py':'445842f362bca71455f562e6d405e6ee860deddb88bab64f56f522e7b67073f9'}
+PINS={'intelligence/geo/collectors/rss.py':'337475c6a38dedecfdf5a25fab753df14e274b18c8d8788af431939067898f73','intelligence/geo/processing/classifier.py':'7c23324b2cbbc3b05f5e118a29456e0616e56146417bbbec65c5daf0559f38f0'}
 class FeedRefused(ValueError):pass
 def _date(d):
  if type(d) is not datetime or type(d.tzinfo) not in (timezone,tzutc,tzoffset,tzlocal):raise FeedRefused('fixture reviewed aware date')

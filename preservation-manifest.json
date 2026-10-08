@@ -116,8 +116,11 @@
       "source_path": "processing/classifier.py",
       "path": "intelligence/geo/processing/classifier.py",
       "source_sha256": "445842f362bca71455f562e6d405e6ee860deddb88bab64f56f522e7b67073f9",
-      "sha256": "445842f362bca71455f562e6d405e6ee860deddb88bab64f56f522e7b67073f9",
-      "changes": []
+      "sha256": "7c23324b2cbbc3b05f5e118a29456e0616e56146417bbbec65c5daf0559f38f0",
+      "changes": [
+        "Reviewed classifier146 token/phrase, explicit stems/plurals/demonyms; intentional original substring-parity exception, no live activation"
+      ],
+      "prior_preserved_sha256": "445842f362bca71455f562e6d405e6ee860deddb88bab64f56f522e7b67073f9"
     },
     {
       "source_repo": "geonews",
@@ -391,10 +394,12 @@
       "source_path": "processing/classifier.py",
       "path": "intelligence/brics/processing/classifier.py",
       "source_sha256": "391346ec8201797ab8a814be68c9f9979d3e37930174deefacce1b8e2c136e95",
-      "sha256": "349a322ecc525671617bcdeaa60d5c3fb6547988fb736e361d74d673f27ba76a",
+      "sha256": "66ca3047bf14d69f13267b80b794b7cda3d2d41b8a301ce0c641e5c7697ce0fd",
       "changes": [
-        "root imports namespaced only"
-      ]
+        "root imports namespaced only",
+        "Reviewed classifier146 token/phrase, explicit stems/plurals/demonyms; intentional original substring-parity exception, no live activation"
+      ],
+      "prior_preserved_sha256": "349a322ecc525671617bcdeaa60d5c3fb6547988fb736e361d74d673f27ba76a"
     },
     {
       "source_repo": "BRICS-",

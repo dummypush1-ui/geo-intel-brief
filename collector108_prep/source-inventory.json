@@ -100,13 +100,14 @@
     },
     {
       "path": "intelligence/geo/processing/classifier.py",
-      "bytes": 3220,
-      "sha256": "445842f362bca71455f562e6d405e6ee860deddb88bab64f56f522e7b67073f9",
+      "bytes": 3317,
+      "sha256": "7c23324b2cbbc3b05f5e118a29456e0616e56146417bbbec65c5daf0559f38f0",
       "functions": [
         "strip_html",
         "classify",
         "parse_date"
-      ]
+      ],
+      "reviewed_change": "classifier146 token/phrase matching"
     },
     {
       "path": "intelligence/geo/processing/dedupe.py",

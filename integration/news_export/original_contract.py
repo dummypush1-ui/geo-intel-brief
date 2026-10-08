@@ -9,6 +9,7 @@ import csv
 import io
 import re
 from .export import csv_cell, ExportRequestError, CELL_LIMIT
+from integration.text_matching.matcher import contains
 
 GEO_FIELDS=('title','source','category','risk_level','score','credibility','country',
             'corroboration','published','created_at','url','summary')
@@ -19,7 +20,7 @@ DEFAULT_CRITICAL=('attack','explosion','resign','coup','ceasefire','sanctions')
 SOURCE_PINS={
  'intelligence/geo/web.py':'3d83ca84984f5c01c0a8c53d02ae5a92e976e53f19f87f8b238a31d9c42a2cb3',
  'intelligence/brics/web.py':'1adebf8baaea16ee305afb16fd21717c5abf0635279a7dbedfa985ff21fe5997',
- 'intelligence/brics/processing/classifier.py':'349a322ecc525671617bcdeaa60d5c3fb6547988fb736e361d74d673f27ba76a'}
+ 'intelligence/brics/processing/classifier.py':'66ca3047bf14d69f13267b80b794b7cda3d2d41b8a301ce0c641e5c7697ce0fd'}
 
 def original_snapshot(rows,project,args=None,*,stamp='20000101_000000',critical_keywords=DEFAULT_CRITICAL,max_bytes=20*1024*1024):
  """Return bytes, headers and metadata. No live source or production activation.
@@ -68,7 +69,7 @@ def original_snapshot(rows,project,args=None,*,stamp='20000101_000000',critical_
    if args.get('country','').strip() and text('country').lower()!=args['country'].strip().lower():continue
    q=args.get('q','').strip().lower()
    if q and q not in (text('title')+' '+text('source')+' '+text('country')).lower():continue
-   if args.get('critical_only') in ('1','true','yes') and not any(k.strip().lower() in (text('title')+' '+text('summary')).lower() for k in critical_keywords):continue
+   if args.get('critical_only') in ('1','true','yes') and not any(contains(text('title')+' '+text('summary'), k.strip()) for k in critical_keywords):continue
   selected.append(clean)
  buf=io.StringIO(newline='');writer=csv.writer(buf);writer.writerow(fields)
  output=bytearray(buf.getvalue().encode());cell_cut=False

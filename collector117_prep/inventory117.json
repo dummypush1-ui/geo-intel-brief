@@ -2,7 +2,7 @@
   "collector117_prep/CYCLE-DESIGN.md": "e940ebf21e3f1d192d0107924e4b9a26b80f2fd708da234efc924d71c707a729",
   "collector117_prep/STAGE117.md": "1511183970de78945ccba2588c62b3e8c08470722613d940b9aef0b1fb32bddb",
   "collector117_prep/__init__.py": "254fec15dbcd655523bede3a0c003377660bcfe7e8030397f70da4aad3a5a4f5",
-  "collector117_prep/dependency-pins.json": "efa58fc4d6ec5214c1c4f8221dad80cbde6fe09b3ebf244e875edbda80a267dd",
+  "collector117_prep/dependency-pins.json": "cb639007e37167c63f81e8e20a0ad7a55ebc4253ca522ef9440a6aad476ff4bc",
   "collector117_prep/evidence/local-tests.json": "13666f74834515f66b0af639792db0f883fe6c2ffaa522679f40437f167f9397",
   "collector117_prep/supplied_cycle.py": "c53e7159d0d8a3aa4a67882c39e7fe26dc0ef2381944e6cf6be553a9705d6292",
   "collector117_prep/test_supplied_cycle.py": "e9b05678aa78465521337a56401e05d09c8d1215115e6e5ff84ae155c3c0f2a0"
