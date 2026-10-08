@@ -3567,8 +3567,18 @@
     },
     {
       "path": "proxy.js",
-      "bytes": 20416,
-      "sha256": "55ac85cc532e5449ba5e57b6dc6693567499f3d0ff38c3d1fd92143a6504387f"
+      "bytes": 20259,
+      "sha256": "3204714a8df243e4df389f3e40264f72c52b0dfc0e0b40eea082c96bdccf8e94"
+    },
+    {
+      "path": "proxy_runtime/ais-frame.cjs",
+      "bytes": 593,
+      "sha256": "b6e4e7872417b7a49368a5e2a8145dc60fd1424026c10520d8beb6cb817f2f3d"
+    },
+    {
+      "path": "proxy_runtime/lifecycle.cjs",
+      "bytes": 4646,
+      "sha256": "43339447a3ae3b143ab90cb6fae4bae3d7ad457a0cfadd96fce34054b1599b11"
     },
     {
       "path": "proxy_runtime/rate-policy.cjs",
@@ -4449,6 +4459,21 @@
       "path": "tests/news_refresh_test.mjs",
       "bytes": 1052,
       "sha256": "24b9372e196cb78371662905a0892f89a2ad6beef7949a0caa7dd2dd21436c14"
+    },
+    {
+      "path": "tests/proxy_runtime/test_ais_frame.cjs",
+      "bytes": 706,
+      "sha256": "78f90127ab3dd476d42cce7fb86daf90f835bb7eaf0c499f95998a2a2ef4ec16"
+    },
+    {
+      "path": "tests/proxy_runtime/test_ais_proxy.cjs",
+      "bytes": 1937,
+      "sha256": "8aa4aa55cc3ece864de44d9ad43f21d7557c3fd4452a06ccbe2533988fbc9c01"
+    },
+    {
+      "path": "tests/proxy_runtime/test_lifecycle.cjs",
+      "bytes": 4664,
+      "sha256": "399492f4a5383fe076b5574ea717023522e215cec29e941045cf403165f4196e"
     },
     {
       "path": "tests/proxy_runtime/test_rate.cjs",

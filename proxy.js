@@ -182,56 +182,39 @@ setInterval(() => {
   for (const [k, v] of aisShips) if (v.seen < cut) aisShips.delete(k);
 }, 300e3);
 
-let aisBackoff = 1000;
-let aisLiveWs = null;
-process.on('SIGTERM', () => { try { if (aisLiveWs) aisLiveWs.close(1000, 'shutdown'); } catch (e) { } setTimeout(() => process.exit(0), 500); });
-function aisConnect() {
-  if (!AIS_KEY || typeof WebSocket !== 'function') return;
-  let ws;
-  try { ws = new WebSocket(AIS_URL); aisLiveWs = ws; } catch (e) { return aisRetry(); }
-  ws.onopen = () => {
-    aisBackoff = 1000;
-    aisConnected = true;
-    console.log('aisstream connected, subscribing to', AIS_BOXES.length, 'port boxes');
-    ws.send(JSON.stringify({ APIKey: AIS_KEY, BoundingBoxes: AIS_BOXES, MessageTypes: ['PositionReport', 'ShipStaticData'] }));
-  };
-  ws.onmessage = async (ev) => {
-    aisLastMsgAt = Date.now();
-    aisMsgCount++;
-    try {
-      let d = ev.data;
-      if (typeof d !== 'string') {
-        if (d && typeof d.text === 'function') d = await d.text();
-        else if (d instanceof ArrayBuffer) d = Buffer.from(d).toString('utf8');
-        else if (ArrayBuffer.isView(d)) d = Buffer.from(d.buffer, d.byteOffset, d.byteLength).toString('utf8');
-        else d = String(d);
-      }
-      const m = JSON.parse(d);
-      aisLastFrameType = m.MessageType || 'unknown';
-      if (!m.MetaData || !m.MetaData.MMSI) {
-        aisErrFrames++;
-        aisLastFrameNote = String(d).replace(/[A-Za-z0-9]{20,}/g, '[redacted]').slice(0, 160);
-      }
-      aisUpsert(m);
-    } catch (e) { aisErrFrames++; aisLastFrameNote = 'unparseable ' + Object.prototype.toString.call(ev.data); }
-  };
-  ws.onclose = (ev) => { aisConnected = false; aisCloseCount++; aisLastCloseAt = Date.now(); aisLastCloseCode = ev && ev.code ? ev.code : 0; console.log('aisstream closed', aisLastCloseCode, 'attempt', aisCloseCount); aisRetry(); };
-  ws.onerror = () => { aisErrCount++; aisLastErrAt = Date.now(); try { ws.close(); } catch (e) { } };
-}
-function aisRetry() {
-  aisConnected = false;
-  setTimeout(aisConnect, aisBackoff);
-  aisBackoff = Math.min(aisBackoff * 2, 60000);
-}
-// Watchdog: a quiet socket is a dead socket - reconnect after 6 silent minutes.
-setInterval(() => {
-  if (aisConnected && aisLastMsgAt && Date.now() - aisLastMsgAt > 6 * 60e3) {
-    console.log('aisstream quiet for 6 min - reconnecting');
-    aisConnected = false;
-    aisConnect();
+const {createLifecycle} = require('./proxy_runtime/lifecycle.cjs');
+const {validateFrame,decodeFrame} = require('./proxy_runtime/ais-frame.cjs');
+let aisDecodeTimeouts = 0, aisPayloadRejects = 0, aisQueueOverflows = 0, aisHandshakeTimeouts = 0;
+const aisLifecycle = createLifecycle({
+ makeSocket: () => { const ws = new WebSocket(AIS_URL); ws.binaryType = 'arraybuffer'; return ws; },
+ subscribe: ws => ws.send(JSON.stringify({ APIKey: AIS_KEY, BoundingBoxes: AIS_BOXES, MessageTypes: ['PositionReport', 'ShipStaticData'] })),
+ validateFrame, decode: decodeFrame,
+ onMessage: d => {
+  aisLastMsgAt = Date.now(); aisMsgCount++;
+  try {
+   const m = JSON.parse(d); aisLastFrameType = m.MessageType || 'unknown';
+   if (!m.MetaData || !m.MetaData.MMSI) {
+    aisErrFrames++; aisLastFrameNote = String(d).replace(/[A-Za-z0-9]{20,}/g, '[redacted]').slice(0,160);
+   }
+   aisUpsert(m);
+  } catch { aisErrFrames++; aisLastFrameNote = 'unparseable bounded frame'; }
+ },
+ onState: (state,detail) => {
+  if (state !== 'message_rejected') aisConnected = state === 'connected';
+  if (state === 'closed') { aisCloseCount++; aisLastCloseAt = Date.now(); aisLastCloseCode = detail.code; }
+  if (state === 'decode_timeout') aisDecodeTimeouts++;
+  if (state === 'payload_rejected') aisPayloadRejects++;
+  if (state === 'decode_queue_full') aisQueueOverflows++;
+  if (state === 'handshake_timeout') aisHandshakeTimeouts++;
+  if (state !== 'connected' && state !== 'stopped' && state !== 'closed') {
+   aisErrCount++; aisLastErrAt = Date.now(); console.warn('aisstream lifecycle', state);
   }
-}, 60e3);
-aisConnect();
+ },
+ setTimer: setTimeout, clearTimer: clearTimeout,
+});
+const aisWatchdogTimer = setInterval(() => aisLifecycle.watchdog(), 60e3);
+process.on('SIGTERM', () => { clearInterval(aisWatchdogTimer); aisLifecycle.shutdown(); setTimeout(() => process.exit(0),500); });
+if (AIS_KEY && typeof WebSocket === 'function') aisLifecycle.connect();
 
 function aisPublicShip(r) {
   return {
@@ -287,6 +270,8 @@ http.createServer(async (req, res) => {
         closes: aisCloseCount || undefined, lastCloseCode: aisLastCloseCode || undefined,
         lastCloseAgoSec: aisLastCloseAt ? Math.round((Date.now() - aisLastCloseAt) / 1000) : undefined,
         wsErrors: aisErrCount || undefined,
+        decodeTimeouts: aisDecodeTimeouts || undefined, payloadRejects: aisPayloadRejects || undefined,
+        decodeQueueOverflows: aisQueueOverflows || undefined, handshakeTimeouts: aisHandshakeTimeouts || undefined,
         lastFrameNote: aisLastFrameNote || undefined,
         note: typeof WebSocket !== 'function' ? 'node >= 22 required for the ais feed' : undefined,
       },

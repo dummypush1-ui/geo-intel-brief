@@ -1,0 +1,10 @@
+'use strict';
+const assert=require('node:assert/strict');const {validateFrame,decodeFrame,MAX_FRAME_BYTES}=require('../../proxy_runtime/ais-frame.cjs');
+assert(validateFrame({data:'{}'}));assert.equal(decodeFrame({data:'{}'}),'{}');
+const a=new Uint8Array([123,125]).buffer;assert(validateFrame({data:a}));assert.equal(decodeFrame({data:a}),'{}');
+assert(!validateFrame({data:'x'.repeat(MAX_FRAME_BYTES+1)}));
+assert(!validateFrame({data:'é'.repeat(MAX_FRAME_BYTES)}));
+assert(!validateFrame({data:new ArrayBuffer(MAX_FRAME_BYTES+1)}));
+assert(!validateFrame({data:{text:()=>Promise.resolve('{}')}}));
+assert.throws(()=>decodeFrame({data:{toString:()=>'{ }'}}));
+console.log('8 frame assertions passed');
