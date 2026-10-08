@@ -1,0 +1,115 @@
+{
+  "files": [
+    {
+      "path": "feature_carrier_prep/__init__.py",
+      "sha256": "9869b468ba453232ebe197ae2c6ae3e75476fdf4baafdc40ff6c34c5cc56f461"
+    },
+    {
+      "path": "feature_carrier_prep/api.py",
+      "sha256": "f8002251066c1526d7e757104342bde140ab1657208cb191492d03a6a0188263"
+    },
+    {
+      "path": "feature_carrier_prep/evidence.py",
+      "sha256": "bb71c167f9d128268d0eaebe484982ded49ffb6da6200cc552c7c3345ef4a32c"
+    },
+    {
+      "path": "feature_carrier_prep/models.py",
+      "sha256": "1052ec1185ec7b13bd0eb69967f5eecd9d966f1c05142109a6507d67fd753de8"
+    },
+    {
+      "path": "feature_carrier_prep/news_context.py",
+      "sha256": "8fa3d26de634354c419eaaf1d32693dda2b5fa2c2df6f8fc19d4f37ec723b2e6"
+    },
+    {
+      "path": "feature_carrier_prep/preview.py",
+      "sha256": "313ad1047ba0fb23485af021a03c7666b5231c57954ab4b535977a3199743684"
+    },
+    {
+      "path": "feature_carrier_prep/registry.py",
+      "sha256": "03fd8ea0ccbc35b04009ce444a96b9aadae693de69103dccaf72d09dba1b8e1e"
+    },
+    {
+      "path": "feature_carrier_prep/route_catalog.py",
+      "sha256": "983b1545696335177aec42118fe0a3dce5bbaf937f81708bf7cd22decee04390"
+    },
+    {
+      "path": "feature_carrier_prep/static/carrier.css",
+      "sha256": "5f1c26b35f53c9e1d20d5e54e7b61a8aeb2ef75cf1d718bbfed95774a8637e9b"
+    },
+    {
+      "path": "feature_carrier_prep/static/carrier.js",
+      "sha256": "d2b87a66bc26407ead08b0e553c3a23c15f7f265573292ee95e345b4b3bb8250"
+    },
+    {
+      "path": "feature_carrier_prep/timeline.py",
+      "sha256": "8e32eae4a61ab1a2d07b21f71adda29f3417a733813cd97e7fd278c1ce79e8e4"
+    },
+    {
+      "path": "feature_carrier_prep/ui.py",
+      "sha256": "d15fd88828d1ea677986142645bf4b19ec3feacf2a534c4be17942a7b207a7b2"
+    },
+    {
+      "path": "tests/test_carrier_boundary.py",
+      "sha256": "53d0d4375ea72a258653e816d1625cc9a04307a6b3da3a3702f09c10f88d6fb3"
+    },
+    {
+      "path": "tests/test_carrier_core.py",
+      "sha256": "016fa21ce7537ebce05b4197212c0c456441f37ad3effcba15ce7ef6d7bee762"
+    }
+  ],
+  "imports": {
+    "contextlib": [
+      "tests/test_carrier_boundary.py",
+      "tests/test_carrier_core.py"
+    ],
+    "copy": [
+      "tests/test_carrier_boundary.py",
+      "tests/test_carrier_core.py"
+    ],
+    "datetime": [
+      "feature_carrier_prep/models.py"
+    ],
+    "feature_carrier_prep": [
+      "tests/test_carrier_boundary.py"
+    ],
+    "flask": [
+      "feature_carrier_prep/api.py",
+      "tests/test_carrier_boundary.py"
+    ],
+    "importlib": [
+      "tests/test_carrier_core.py"
+    ],
+    "integration": [
+      "feature_carrier_prep/api.py",
+      "feature_carrier_prep/news_context.py",
+      "feature_carrier_prep/preview.py",
+      "tests/test_carrier_boundary.py"
+    ],
+    "ipaddress": [
+      "feature_carrier_prep/models.py"
+    ],
+    "pathlib": [
+      "feature_carrier_prep/api.py"
+    ],
+    "re": [
+      "feature_carrier_prep/models.py",
+      "feature_carrier_prep/news_context.py",
+      "tests/test_carrier_boundary.py"
+    ],
+    "socket": [
+      "tests/test_carrier_core.py"
+    ],
+    "tests": [
+      "tests/test_carrier_boundary.py"
+    ],
+    "unittest": [
+      "tests/test_carrier_boundary.py",
+      "tests/test_carrier_core.py"
+    ],
+    "werkzeug": [
+      "tests/test_carrier_boundary.py"
+    ]
+  },
+  "scope": "carrier_additive_fixture_separate_from_historical87",
+  "notes": "tests/test_carrier_inventory.py is intentionally outside its own hash list to avoid recursive self-hashing; it is covered by staging-manifest.json"
+}
