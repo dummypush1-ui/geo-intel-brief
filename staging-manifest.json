@@ -3652,8 +3652,8 @@
     },
     {
       "path": "sanctions-refresh.mjs",
-      "bytes": 3856,
-      "sha256": "7b5c58f63b609143312f5c79d0cb1e53f4c6d2eea9eed545885eef9b6ed6b9e8"
+      "bytes": 3764,
+      "sha256": "c0e9cbec3a31ee281d88b601062dc3c7aae7557bfbf98cb7f60c1a162495467c"
     },
     {
       "path": "scripts/audit_connections.py",
@@ -5171,6 +5171,11 @@
       "sha256": "46bdb9c59f7aa261c7f1747bbf55fe0c28459e90b5c3565646ec6cfb25fa7286"
     },
     {
+      "path": "tests/updater_runtime/test_xml_entities.mjs",
+      "bytes": 471,
+      "sha256": "68fdbd8d15a6aceddb3b63ee6cc8b4c2c624fdc00f3454706bf62ad4052908bc"
+    },
+    {
       "path": "tests/weekly_report/__init__.py",
       "bytes": 26,
       "sha256": "8c8f4e58b5581824c3ab9932c3b94abf31493161d06eab4e11f1565a4c3b8c74"
@@ -5199,6 +5204,11 @@
       "path": "updater_runtime/refresh-bundle.mjs",
       "bytes": 5679,
       "sha256": "bf8b852d6024b1a9c627434add5dfa0cd3a4217bd744d8075c9bd22acb4d822e"
+    },
+    {
+      "path": "updater_runtime/xml-entities.mjs",
+      "bytes": 649,
+      "sha256": "10370a36bef546732ac495a4b18a28fa1a3b272cf7b66f3800ee95b272053210"
     },
     {
       "path": "vendor/pako-inflate.min.js",

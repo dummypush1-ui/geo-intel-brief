@@ -2,8 +2,9 @@
 // UFLPA rows (HTML page, no feed) are kept as-is and watched by monitor.mjs.
 // Safety: a list is replaced only if the new row count is within +/-15% of the old one.
 import fs from 'fs';
+import {decodeXmlEntities} from './updater_runtime/xml-entities.mjs';
 const FILE = 'src/sanctions.ts';
-const dec = (s) => s.replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&apos;/g, "'").replace(/&#(\d+);/g, (_, n) => String.fromCharCode(+n));
+const dec = decodeXmlEntities;
 const tag = (x, t) => { const m = x.match(new RegExp('<' + t + '>([^<]*)</' + t + '>')); return m ? dec(m[1]).trim() : ''; };
 async function get(url) {
   const r = await fetch(url, { headers: { 'User-Agent': 'hsn-finder-updater' }, signal: AbortSignal.timeout(120000) });
