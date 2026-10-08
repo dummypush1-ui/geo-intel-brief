@@ -258,16 +258,9 @@ const ROUTES = [
 ];
 
 // Lean abuse cap: 60 AI calls per 10 minutes per IP (a full report is 1-3 calls).
-const HITS = new Map();
-const WINDOW = 10 * 60 * 1000, MAX = 60;
-function rateOk(ip) {
-  const now = Date.now();
-  let a = HITS.get(ip);
-  if (!a || now - a.t > WINDOW) { a = { t: now, n: 0 }; HITS.set(ip, a); }
-  a.n++;
-  if (HITS.size > 5000) HITS.clear();
-  return a.n <= MAX;
-}
+const {createLimiter} = require('./proxy_runtime/rate-policy.cjs');
+const rateLimiter = createLimiter();
+function rateOk(ip) { return rateLimiter.allow(ip); }
 
 function send(res, status, body, extra) {
   const headers = Object.assign({ 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }, extra || {});

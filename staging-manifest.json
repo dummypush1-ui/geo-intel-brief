@@ -3567,8 +3567,13 @@
     },
     {
       "path": "proxy.js",
-      "bytes": 20539,
-      "sha256": "491250c724bdcdb6d3b44da03d31bf2adfa14163ef1b95e63f98925060f320cc"
+      "bytes": 20416,
+      "sha256": "55ac85cc532e5449ba5e57b6dc6693567499f3d0ff38c3d1fd92143a6504387f"
+    },
+    {
+      "path": "proxy_runtime/rate-policy.cjs",
+      "bytes": 1326,
+      "sha256": "27739a6e4f759b7b85f0d9ba84df36dd0a48bc3cf7a6a554c4f9ad45d74f3617"
     },
     {
       "path": "public_live107.py",
@@ -4444,6 +4449,11 @@
       "path": "tests/news_refresh_test.mjs",
       "bytes": 1052,
       "sha256": "24b9372e196cb78371662905a0892f89a2ad6beef7949a0caa7dd2dd21436c14"
+    },
+    {
+      "path": "tests/proxy_runtime/test_rate.cjs",
+      "bytes": 1518,
+      "sha256": "6fd2911d07a2d08010b912de06581f1e1035564924dde9f66d6603de1a4e4ecd"
     },
     {
       "path": "tests/test_agencia_parser.py",
