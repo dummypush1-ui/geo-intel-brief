@@ -1,6 +1,6 @@
 {
   "sanctions-refresh.mjs": "4b97c180da8a20a18bc54c1a285dbab38a3626f05be65f34b8dae7d09fe43f7b",
-  "automate.mjs": "aa0a3ea5e571a700b6fc608cc40cfe6baaefc9d4990416434822b41796c52e8f",
+  "automate.mjs": "aca6f2adac98c63c8e9d4ed848842a594236bdeadd62349718474f5ab850613c",
   "updater_runtime/sanctions-policy.mjs": "56003bbf9d7f07e44c9f9f8c428be8a534db59e79636cc83d5638ee45eca3bc3",
   "updater_runtime/SANCTIONS-POLICY.md": "3a4db077b4cb3f2be56f1351986f9f8015d830fc089d8e014be1edf9a26c3f42",
   "tests/updater_runtime/test_sanctions_policy.mjs": "e940a82a76f44886a24789960f774152eed19b5dc5c31dafd203573e56f02c79",

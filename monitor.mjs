@@ -2,6 +2,7 @@
 // (filters page noise) before a GitHub Issue "Source changed: X" is opened.
 import fs from 'fs';
 import crypto from 'crypto';
+import {ensureIssue}from './updater_runtime/github-issue.mjs';
 const STATE = 'state/sources.json';
 const app = fs.readFileSync('src/app.js', 'utf8');
 const sources = [...app.matchAll(/tag: '(\w+)', name: '([^']+)'.*?url: '([^']+)'/g)].map((m) => ({ id: m[1], name: m[2], url: m[3] }));
@@ -55,36 +56,37 @@ async function sig(url, id) {
   if (v) return 'h:' + v;
   return 's:' + crypto.createHash('sha256').update(norm((await r.text()).slice(0, 2e6))).digest('hex');
 }
-export async function issue(title, body) {
-  const T = process.env.GITHUB_TOKEN, R = process.env.GITHUB_REPOSITORY;
-  if (!T || !R) return console.log('ISSUE (no token):', title);
-  const h = { Authorization: 'Bearer ' + T, Accept: 'application/vnd.github+json', 'User-Agent': 'hsn-finder-updater' };
-  const open = await (await fetch(`https://api.github.com/repos/${R}/issues?state=open&per_page=100`, { headers: h })).json();
-  if (Array.isArray(open) && open.some((i) => i.title === title)) return;
-  await fetch(`https://api.github.com/repos/${R}/issues`, { method: 'POST', headers: h, body: JSON.stringify({ title, body }) });
-}
-export async function monitor() {
-  const st = fs.existsSync(STATE) ? JSON.parse(fs.readFileSync(STATE, 'utf8')) : {};
-  const report = { changed: [], unreachable: [], baseline: 0 };
-  for (const s of sources) {
+export async function issue(title,body,options){return ensureIssue(title,body,options);}
+export async function monitor({stateFile=STATE,sourceList=sources,signature=sig,issueFn=issue,clock=()=>new Date()}={}) {
+  const st = fs.existsSync(stateFile) ? JSON.parse(fs.readFileSync(stateFile, 'utf8')) : {};
+  const report = { changed: [], unreachable: [], baseline: 0,issue_health:[] };
+  const notify=async(e,id,title,body)=>{
+    e.pending_issues ||= [];if(!e.pending_issues.some(p=>p.title===title))e.pending_issues.push({title,body});
+    let result;try{result=await issueFn(title,body);}catch{result={state:'failed',reason:'invalid_issue_request',retry_safe:true};}
+    report.issue_health.push({id,title,...result});e.issue_state=result.state;
+    if(['created','existing'].includes(result.state))e.pending_issues=e.pending_issues.filter(p=>p.title!==title);
+  };
+  for (const s of sourceList) {
     const e = (st[s.id] = st[s.id] || {});
     try {
-      const g = await sig(s.url, s.id); e.fails = 0;
+      if(e.pending_issue){e.pending_issues ||= [];if(!e.pending_issues.some(p=>p.title===e.pending_issue.title))e.pending_issues.push(e.pending_issue);delete e.pending_issue;}
+      for(const pending of [...(e.pending_issues||[])])await notify(e,s.id,pending.title,pending.body);
+      const g = await signature(s.url, s.id); e.fails = 0;
       if (['US', 'UK', 'BR'].includes(s.id) && !e.sig?.startsWith('d:')) { e.sig = g; e.cand = null; e.n = 0; report.baseline++; continue; }
       if (!e.sig) { e.sig = g; report.baseline++; }
       else if (g === e.sig) { e.cand = null; e.n = 0; }
-      else if (g === e.cand) { e.n++; if (e.n >= 2) { e.sig = g; e.cand = null; e.n = 0; e.changedAt = new Date().toISOString().slice(0, 10); report.changed.push(s.id);
+      else if (g === e.cand) { e.n++; if (e.n >= 2) { e.sig = g; e.cand = null; e.n = 0; e.changedAt = clock().toISOString().slice(0, 10); report.changed.push(s.id);
         const note = ['US', 'UK', 'BR'].includes(s.id)
           ? 'The official code/description or core-duty data changed'
           : 'The official source page signature changed; this does not prove the bundled tariff rates are stale';
-        await issue('Source changed: ' + s.name, `${note} (${e.changedAt}).\n${s.url}\n\nReview exact source changes before updating the app.`); } }
+        await notify(e,s.id,'Source changed: ' + s.name, `${note} (${e.changedAt}).\n${s.url}\n\nReview exact source changes before updating the app.`); } }
       else { e.cand = g; e.n = 1; }
     } catch (err) {
       e.fails = Math.min((e.fails || 0) + 1, 8); report.unreachable.push(s.id);
-      if (e.fails === 7) await issue('Source unreachable for 7 days: ' + s.name, s.url + '\n' + err.message);
+      if (e.fails === 7) await notify(e,s.id,'Source unreachable for 7 attempts: ' + s.name, s.url + '\n' + err.message);
     }
   }
-  fs.mkdirSync('state', { recursive: true });
-  fs.writeFileSync(STATE, JSON.stringify(st, null, 1) + '\n');
+  const dir=(await import('node:path')).dirname(stateFile);fs.mkdirSync(dir,{recursive:true});
+  const tmp=stateFile+'.tmp';fs.writeFileSync(tmp,JSON.stringify(st,null,1)+'\n');fs.renameSync(tmp,stateFile);
   return report;
 }

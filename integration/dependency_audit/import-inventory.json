@@ -845,6 +845,7 @@
         "tests/test_geo_collector_contract.py",
         "tests/test_gst154.py",
         "tests/test_map_layers.py",
+        "tests/test_monitor155.py",
         "tests/test_package_manifest.py",
         "tests/test_page_watch_contract.py",
         "tests/test_preservation.py",
@@ -1462,6 +1463,7 @@
         "tests/test_geo_probe_process.py",
         "tests/test_geo_sample_probe.py",
         "tests/test_gst154.py",
+        "tests/test_monitor155.py",
         "tests/test_package_manifest.py",
         "tests/test_page_watch_parser_budget.py",
         "tests/test_preservation.py",
@@ -1654,6 +1656,7 @@
         "tests/test_geo_queue_fixture.py",
         "tests/test_gst154.py",
         "tests/test_legacy_geo_p0.py",
+        "tests/test_monitor155.py",
         "tests/test_preservation.py",
         "tests/test_preview_launcher.py",
         "tests/test_protocol145_inventory.py",
@@ -2397,6 +2400,7 @@
         "tests/test_fixed_feedparser_audit.py",
         "tests/test_geo_probe_process.py",
         "tests/test_gst154.py",
+        "tests/test_monitor155.py",
         "tests/test_page_watch_parser_budget.py",
         "tests/test_preview_access.py",
         "tests/test_refresh149_gate.py",
@@ -2906,6 +2910,7 @@
         "tests/test_mail_operations.py",
         "tests/test_map_layers.py",
         "tests/test_mongo_account_store.py",
+        "tests/test_monitor155.py",
         "tests/test_offline_collection_cycle.py",
         "tests/test_original_dashboard_payloads.py",
         "tests/test_original_reports.py",
@@ -4326,6 +4331,10 @@
       {
         "path": "tests/test_mongo_account_store.py",
         "sha256": "69c36e6c3fea5a172ec228656818407d9268737b97f29e44d7b6fab154456c14"
+      },
+      {
+        "path": "tests/test_monitor155.py",
+        "sha256": "a99a1dac7ab037f056b640f5e778a019c64b47278be37c6fba14952f78334083"
       },
       {
         "path": "tests/test_offline_collection_cycle.py",
