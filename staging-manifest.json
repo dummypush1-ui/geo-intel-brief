@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 1389,
+  "tests": 1422,
   "files": [
     {
       "path": ".env.example",
@@ -2053,12 +2053,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 18581,
-      "sha256": "cc5cd699669aebeeeb43be82222ab5c6d853036b4c2a4f033919b80452e85fc9"
+      "sha256": "06604d68084226f6346f3ab49a23a44a30ac82dc73c68e9412e6013845b35405"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
-      "bytes": 173103,
-      "sha256": "22dc36e08f8165c965d54e8c925f1070b76685d056bb270f6a57038f7cb4c181"
+      "bytes": 174587,
+      "sha256": "f67f03c1a1c8abbdc2bcf7a1a859f89ccd5f0f31f5837c1e67c7059447ca4144"
     },
     {
       "path": "integration/dependency_build/README.md",
@@ -2334,6 +2334,51 @@
       "path": "integration/html_safety.py",
       "bytes": 1615,
       "sha256": "a0bc8ddc593dec52ae915e4a6590def75bc25a1ea073ce68e19cbc5ad59dfa37"
+    },
+    {
+      "path": "integration/india_open_data/README.md",
+      "bytes": 5484,
+      "sha256": "cdf6cac8e8952e990fedb421116ce3b78e218eb8976c3fb2fbc78b142de826a5"
+    },
+    {
+      "path": "integration/india_open_data/SOURCES.md",
+      "bytes": 3385,
+      "sha256": "ec57c5934cdd26d41e02daded900f885f42aacae5f00537d5669f69c87bc2b68"
+    },
+    {
+      "path": "integration/india_open_data/__init__.py",
+      "bytes": 110,
+      "sha256": "fd370a7fa4e32cec9c5b00427eee99dc747ec45da687a7f89334b46d00403ff6"
+    },
+    {
+      "path": "integration/india_open_data/core.py",
+      "bytes": 13896,
+      "sha256": "91d22fee67de361916d575956b4e228b844167a189158bbe4bc229604cfbd31c"
+    },
+    {
+      "path": "integration/india_open_data/data_layer.py",
+      "bytes": 3737,
+      "sha256": "8a288163d264d53ade91c77013cf7dc949746e342fba716c2fb6126787ea92be"
+    },
+    {
+      "path": "integration/india_open_data/focused-tests.log",
+      "bytes": 2918,
+      "sha256": "a1a3d42dda0a9dc37ff2ebba889eda387f897db3f631ef6f34fcff6ab08bbb9b"
+    },
+    {
+      "path": "integration/india_open_data/inventory.json",
+      "bytes": 1564,
+      "sha256": "af74387b4b10805f0c5f3a681133f662fe96ebe1fb64e32175167445123d7706"
+    },
+    {
+      "path": "integration/india_open_data/review-receipt.json",
+      "bytes": 2311,
+      "sha256": "85639a2d9551e57bc6d3ae4f17584b32a27c643a6e452e67aee9e3b71a4b0b76"
+    },
+    {
+      "path": "integration/india_open_data/transport.py",
+      "bytes": 4067,
+      "sha256": "bb7f001a022fba74eea84ba03a4a96c96b91a95a401efe8e51f3a347e866d313"
     },
     {
       "path": "integration/loaded_charts.py",
@@ -4491,6 +4536,31 @@
       "sha256": "8e6d55edceb294a63859ae8a13aaa09d52298296229ff70fc380b1bfe8c00c5b"
     },
     {
+      "path": "tests/india_open_data/__init__.py",
+      "bytes": 85,
+      "sha256": "1fa6951ce2eb0e808c265c3056e5e683969c5aa7ad05d2a374a915817ac3377d"
+    },
+    {
+      "path": "tests/india_open_data/fixtures.py",
+      "bytes": 927,
+      "sha256": "b7eee9a7835deccfb7fcc05235057a618ebfe3038fc46adf27aa8a7413a19aaf"
+    },
+    {
+      "path": "tests/india_open_data/test_core.py",
+      "bytes": 8127,
+      "sha256": "2962c1d7dd8090741cb0141558cfc893620f9f01f2a3aec12c6e2039052ead37"
+    },
+    {
+      "path": "tests/india_open_data/test_data_layer.py",
+      "bytes": 2038,
+      "sha256": "08d3eff4d23b6afd6ba465b37eb570446dbb4903d4b3e57fbd34caf8bcc22f7b"
+    },
+    {
+      "path": "tests/india_open_data/test_transport.py",
+      "bytes": 4437,
+      "sha256": "00b97e0889049b8854c2d51e80362610d40e211ffcd93cfa6ad83e204ed906ce"
+    },
+    {
       "path": "tests/legacy_geo/test_auth.cjs",
       "bytes": 1892,
       "sha256": "014417e876847d06ab117fd9d10318a886776ebf373f26734a2640a605052d39"
@@ -4707,8 +4777,8 @@
     },
     {
       "path": "tests/test_dependency_audit.py",
-      "bytes": 9995,
-      "sha256": "8abf8bf18a49be6f94485f64362f29091dc62233d9d85f92e7abf75fc47e1fab"
+      "bytes": 10225,
+      "sha256": "58ae5a8a8109b69ccea5111f1aad25348f26fccac35414f196e4c4aad052ad0b"
     },
     {
       "path": "tests/test_dependency_build_runner.py",
@@ -4929,6 +4999,11 @@
       "path": "tests/test_nilgiri_watch_fixture.py",
       "bytes": 8098,
       "sha256": "d81f63cf5014057e2cbbad85fbd98ff6c5a52fc87244d25e4de337296935edcf"
+    },
+    {
+      "path": "tests/test_niti_data_inventory.py",
+      "bytes": 2048,
+      "sha256": "4bcad1f9ab5009b02221f73bfc9f6ba718acb3aec9fe51fc381d4cbae131fd66"
     },
     {
       "path": "tests/test_offline_collection_cycle.py",

@@ -1,0 +1,37 @@
+{
+  "base": "739107f95affa02d828e72005991586025278538",
+  "revision": "r3",
+  "candidate_existing_files_changed": [],
+  "mandatory_landing_existing_metadata_changes": [
+    "staging-manifest.json",
+    "integration/dependency_audit/import-inventory.json",
+    "integration/dependency_audit/audit.json"
+  ],
+  "mandatory_landing_existing_test_changes": [
+    "tests/test_dependency_audit.py"
+  ],
+  "new_path_count": 15,
+  "focused_tests": 31,
+  "exact_inventory_tests": 2,
+  "historical_ast_consistency_test": 1,
+  "landing_overlay_exclusions_applied_and_passed": true,
+  "full_suite": "not_run",
+  "new_dependencies": [],
+  "files": {
+    "integration/india_open_data/README.md": "cdf6cac8e8952e990fedb421116ce3b78e218eb8976c3fb2fbc78b142de826a5",
+    "integration/india_open_data/SOURCES.md": "ec57c5934cdd26d41e02daded900f885f42aacae5f00537d5669f69c87bc2b68",
+    "integration/india_open_data/__init__.py": "fd370a7fa4e32cec9c5b00427eee99dc747ec45da687a7f89334b46d00403ff6",
+    "integration/india_open_data/core.py": "91d22fee67de361916d575956b4e228b844167a189158bbe4bc229604cfbd31c",
+    "integration/india_open_data/data_layer.py": "8a288163d264d53ade91c77013cf7dc949746e342fba716c2fb6126787ea92be",
+    "integration/india_open_data/focused-tests.log": "a1a3d42dda0a9dc37ff2ebba889eda387f897db3f631ef6f34fcff6ab08bbb9b",
+    "integration/india_open_data/inventory.json": "af74387b4b10805f0c5f3a681133f662fe96ebe1fb64e32175167445123d7706",
+    "integration/india_open_data/transport.py": "bb7f001a022fba74eea84ba03a4a96c96b91a95a401efe8e51f3a347e866d313",
+    "tests/india_open_data/__init__.py": "1fa6951ce2eb0e808c265c3056e5e683969c5aa7ad05d2a374a915817ac3377d",
+    "tests/india_open_data/fixtures.py": "b7eee9a7835deccfb7fcc05235057a618ebfe3038fc46adf27aa8a7413a19aaf",
+    "tests/india_open_data/test_core.py": "2962c1d7dd8090741cb0141558cfc893620f9f01f2a3aec12c6e2039052ead37",
+    "tests/india_open_data/test_data_layer.py": "08d3eff4d23b6afd6ba465b37eb570446dbb4903d4b3e57fbd34caf8bcc22f7b",
+    "tests/india_open_data/test_transport.py": "00b97e0889049b8854c2d51e80362610d40e211ffcd93cfa6ad83e204ed906ce",
+    "tests/test_niti_data_inventory.py": "4bcad1f9ab5009b02221f73bfc9f6ba718acb3aec9fe51fc381d4cbae131fd66"
+  },
+  "hash_domain": "delivered new files except this self-referencing receipt"
+}

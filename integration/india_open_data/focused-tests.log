@@ -1,0 +1,38 @@
+test_atomic_candidate_and_no_mutation (tests.india_open_data.test_core.CoreTests) ... ok
+test_bounds_and_non_scalar (tests.india_open_data.test_core.CoreTests) ... ok
+test_dated_not_fresh (tests.india_open_data.test_core.CoreTests) ... ok
+test_disabled_never_transport (tests.india_open_data.test_core.CoreTests) ... ok
+test_duplicates_hold (tests.india_open_data.test_core.CoreTests) ... ok
+test_export_success_and_sanitized_failure (tests.india_open_data.test_core.CoreTests) ... ok
+test_id_is_deterministic_not_payload_or_value (tests.india_open_data.test_core.CoreTests) ... ok
+test_import_provenance_and_dates (tests.india_open_data.test_core.CoreTests) ... ok
+test_json_import (tests.india_open_data.test_core.CoreTests) ... ok
+test_malformed_exports (tests.india_open_data.test_core.CoreTests) ... ok
+test_missing_not_zero (tests.india_open_data.test_core.CoreTests) ... ok
+test_numeric_no_guesses_and_precision (tests.india_open_data.test_core.CoreTests) ... ok
+test_ogd_changed_total_repeated_page_and_budget (tests.india_open_data.test_core.CoreTests) ... ok
+test_ogd_decimal_string_metadata (tests.india_open_data.test_core.CoreTests) ... ok
+test_ogd_failures_no_partial_records (tests.india_open_data.test_core.CoreTests) ... ok
+test_ogd_pages (tests.india_open_data.test_core.CoreTests) ... ok
+test_reuse_gate (tests.india_open_data.test_core.CoreTests) ... ok
+test_spec_schema_urls (tests.india_open_data.test_core.CoreTests) ... ok
+test_detached_input_and_output (tests.india_open_data.test_data_layer.LayerTests) ... ok
+test_exact_filters_not_substring (tests.india_open_data.test_data_layer.LayerTests) ... ok
+test_limits_and_input_validation (tests.india_open_data.test_data_layer.LayerTests) ... ok
+test_missing_and_empty_distinct (tests.india_open_data.test_data_layer.LayerTests) ... ok
+test_plan_only_isolated_no_ddl (tests.india_open_data.test_data_layer.LayerTests) ... ok
+test_compressed_oversize_empty_mismatch (tests.india_open_data.test_transport.TransportTests) ... ok
+test_connection_failure_closes_and_does_not_expose_params (tests.india_open_data.test_transport.TransportTests) ... ok
+test_dns_error_sanitized (tests.india_open_data.test_transport.TransportTests) ... ok
+test_full_ogd_url_never_copied_to_provenance (tests.india_open_data.test_transport.TransportTests) ... ok
+test_no_key_other_host_or_extra_parameters (tests.india_open_data.test_transport.TransportTests) ... ok
+test_non_public_and_mixed_dns (tests.india_open_data.test_transport.TransportTests) ... ok
+test_status_no_retries (tests.india_open_data.test_transport.TransportTests) ... ok
+test_success_no_redirect_no_proxy (tests.india_open_data.test_transport.TransportTests) ... ok
+
+----------------------------------------------------------------------
+Ran 31 tests in 0.039s
+
+OK
+
+Separate landing-overlay verification: exact-path inventory 2 PASS; historical87 source_manifest_and_ast_inventory_consistency 1 PASS.

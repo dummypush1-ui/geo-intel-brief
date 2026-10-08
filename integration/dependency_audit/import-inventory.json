@@ -289,6 +289,8 @@
         "integration/fake_collection_writer.py",
         "integration/geo_article_writer.py",
         "integration/geo_collector_contract.py",
+        "integration/india_open_data/core.py",
+        "integration/india_open_data/data_layer.py",
         "integration/mail_bridge.py",
         "integration/news_view.py",
         "integration/public_news.py",
@@ -336,6 +338,7 @@
     {
       "import": "csv",
       "files": [
+        "integration/india_open_data/core.py",
         "integration/loaded_news.py",
         "integration/news_export/export.py",
         "integration/news_export/fixture_http.py",
@@ -409,6 +412,7 @@
         "integration/geonews_digest/render.py",
         "integration/geospatial/response.py",
         "integration/geospatial/ships.py",
+        "integration/india_open_data/core.py",
         "integration/loaded_charts.py",
         "integration/map_layers.py",
         "integration/news_api.py",
@@ -517,7 +521,8 @@
     {
       "import": "decimal",
       "files": [
-        "integration/country_signals.py"
+        "integration/country_signals.py",
+        "integration/india_open_data/core.py"
       ],
       "stdlib": true,
       "distributions": [],
@@ -805,6 +810,7 @@
         "integration/fixed_parser_pipeline.py",
         "integration/geo_collector_contract.py",
         "integration/geo_queue_fixture.py",
+        "integration/india_open_data/core.py",
         "integration/mail_bridge.py",
         "integration/map_layers.py",
         "integration/news_api.py",
@@ -914,6 +920,7 @@
       "import": "http",
       "files": [
         "integration/geonews_digest/delivery.py",
+        "integration/india_open_data/transport.py",
         "tests/browser_feature_finder.py",
         "tests/geonews_digest/test_digest.py",
         "tests/news_export/test_fixture_serving.py"
@@ -1346,6 +1353,7 @@
         "integration/accounts/merged_fixture.py",
         "integration/feedparser_audit/child.py",
         "integration/finder_index.py",
+        "integration/india_open_data/core.py",
         "integration/loaded_news.py",
         "integration/news_export/export.py",
         "integration/news_export/fixture_http.py",
@@ -1375,6 +1383,7 @@
       "files": [
         "feature_mail_prep/reports.py",
         "integration/dashboard_snapshots.py",
+        "integration/india_open_data/transport.py",
         "integration/rss_catalog/catalog.py"
       ],
       "stdlib": true,
@@ -1410,6 +1419,7 @@
         "integration/geo_queue_fixture.py",
         "integration/geo_sample_probe_child.py",
         "integration/geospatial/response.py",
+        "integration/india_open_data/core.py",
         "integration/mail_bridge.py",
         "integration/map_layers.py",
         "integration/news_api.py",
@@ -2138,6 +2148,9 @@
         "integration/geonews_digest/delivery.py",
         "integration/geospatial/_safe.py",
         "integration/html_safety.py",
+        "integration/india_open_data/core.py",
+        "integration/india_open_data/data_layer.py",
+        "integration/india_open_data/transport.py",
         "integration/map_layers.py",
         "integration/news_api.py",
         "integration/news_export/export.py",
@@ -2314,6 +2327,7 @@
       "files": [
         "feature_mail_prep/reports.py",
         "integration/feedparser_audit/child.py",
+        "integration/india_open_data/transport.py",
         "tests/accounts/test_accounts.py",
         "tests/digest_cold_probe.py",
         "tests/geonews_digest/test_digest.py",
@@ -2345,7 +2359,8 @@
     {
       "import": "ssl",
       "files": [
-        "integration/geonews_digest/delivery.py"
+        "integration/geonews_digest/delivery.py",
+        "integration/india_open_data/transport.py"
       ],
       "stdlib": true,
       "distributions": [],
@@ -2990,6 +3005,8 @@
         "integration/geonews_digest/_safe.py",
         "integration/geonews_digest/delivery.py",
         "integration/geospatial/_safe.py",
+        "integration/india_open_data/core.py",
+        "integration/india_open_data/transport.py",
         "integration/map_layers.py",
         "integration/news_api.py",
         "integration/news_view.py",
@@ -3611,6 +3628,22 @@
       {
         "path": "integration/html_safety.py",
         "sha256": "a0bc8ddc593dec52ae915e4a6590def75bc25a1ea073ce68e19cbc5ad59dfa37"
+      },
+      {
+        "path": "integration/india_open_data/__init__.py",
+        "sha256": "fd370a7fa4e32cec9c5b00427eee99dc747ec45da687a7f89334b46d00403ff6"
+      },
+      {
+        "path": "integration/india_open_data/core.py",
+        "sha256": "91d22fee67de361916d575956b4e228b844167a189158bbe4bc229604cfbd31c"
+      },
+      {
+        "path": "integration/india_open_data/data_layer.py",
+        "sha256": "8a288163d264d53ade91c77013cf7dc949746e342fba716c2fb6126787ea92be"
+      },
+      {
+        "path": "integration/india_open_data/transport.py",
+        "sha256": "bb7f001a022fba74eea84ba03a4a96c96b91a95a401efe8e51f3a347e866d313"
       },
       {
         "path": "integration/loaded_charts.py",
