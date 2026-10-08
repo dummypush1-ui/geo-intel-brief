@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 1294,
+  "tests": 1306,
   "files": [
     {
       "path": ".env.example",
@@ -2011,6 +2011,21 @@
       "sha256": "ce90cf7da68a6d51db42814251077d9f11f38b1f1f039df6fdc0a349b0a9a1a2"
     },
     {
+      "path": "integration/db_contract/CONTRACT.md",
+      "bytes": 4970,
+      "sha256": "22dc5dc4265771e5928604c4c829baca943d2958b030288cd49f5962686d4cb5"
+    },
+    {
+      "path": "integration/db_contract/__init__.py",
+      "bytes": 117,
+      "sha256": "b7fda267ca45baecc80a75f2bd1d8e2f537da99e1ac3c2d53a1530aedea3723c"
+    },
+    {
+      "path": "integration/db_contract/plan.py",
+      "bytes": 5045,
+      "sha256": "8e2525920e1e5c8f212be7ab870f16003ea04cccd55d20bdad14ba779d77c2eb"
+    },
+    {
       "path": "integration/dependency_audit/README.md",
       "bytes": 4525,
       "sha256": "540c63d9ede5956d14aca3000844f6de576625ea5012b8ec05e940deb757b9f8"
@@ -2018,12 +2033,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 18581,
-      "sha256": "4c354bca938c52aa454c08550d6295efd45f7bd57104f04535041c8066a94c9d"
+      "sha256": "bb6f7d3e88bff9ef259776a24b8da7812340d14e6c882957704e4131845b202b"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
-      "bytes": 164566,
-      "sha256": "0503f4029ba5ea4576eb4b5cfffc85563557e1cc0781ba7aa3fa1d07d7d39842"
+      "bytes": 165183,
+      "sha256": "af0231cced2f37ef30d1440d1fa39659e290fcb7a005f090daaa9069131db6c5"
     },
     {
       "path": "integration/dependency_build/README.md",
@@ -4539,6 +4554,11 @@
       "path": "tests/test_dashboard_stats.py",
       "bytes": 1209,
       "sha256": "d9e2a6808f09e6b0043ba62dffd1ddb4df7240ca9b13ba30aaf8e7b1cfd4dd82"
+    },
+    {
+      "path": "tests/test_db_contract.py",
+      "bytes": 3532,
+      "sha256": "61dc634ce74b5b43d5a4737253627c916b0959b7df35ccc5a2a6b1db9023473b"
     },
     {
       "path": "tests/test_dependency_audit.py",

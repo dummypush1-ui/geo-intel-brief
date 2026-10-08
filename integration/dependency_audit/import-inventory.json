@@ -278,6 +278,7 @@
         "integration/accounts/store.py",
         "integration/brics_streams.py",
         "integration/collection_prepare.py",
+        "integration/db_contract/plan.py",
         "integration/fake_collection_writer.py",
         "integration/geo_article_writer.py",
         "integration/geo_collector_contract.py",
@@ -1036,6 +1037,7 @@
         "tests/test_dashboard_model.py",
         "tests/test_dashboard_snapshots.py",
         "tests/test_dashboard_stats.py",
+        "tests/test_db_contract.py",
         "tests/test_digest_preview_routes.py",
         "tests/test_env_example.py",
         "tests/test_event_reader.py",
@@ -2069,6 +2071,7 @@
         "integration/brics_streams.py",
         "integration/country_alerts.py",
         "integration/dashboard_snapshots.py",
+        "integration/db_contract/plan.py",
         "integration/feedparser_audit/child.py",
         "integration/finder_index.py",
         "integration/finder_links.py",
@@ -2788,6 +2791,7 @@
         "tests/test_dashboard_model.py",
         "tests/test_dashboard_snapshots.py",
         "tests/test_dashboard_stats.py",
+        "tests/test_db_contract.py",
         "tests/test_digest_cold.py",
         "tests/test_digest_preview_routes.py",
         "tests/test_env_example.py",
@@ -3363,6 +3367,14 @@
       {
         "path": "integration/dashboard_snapshots.py",
         "sha256": "ce90cf7da68a6d51db42814251077d9f11f38b1f1f039df6fdc0a349b0a9a1a2"
+      },
+      {
+        "path": "integration/db_contract/__init__.py",
+        "sha256": "b7fda267ca45baecc80a75f2bd1d8e2f537da99e1ac3c2d53a1530aedea3723c"
+      },
+      {
+        "path": "integration/db_contract/plan.py",
+        "sha256": "8e2525920e1e5c8f212be7ab870f16003ea04cccd55d20bdad14ba779d77c2eb"
       },
       {
         "path": "integration/digest_preview.py",
@@ -4011,6 +4023,10 @@
       {
         "path": "tests/test_dashboard_stats.py",
         "sha256": "d9e2a6808f09e6b0043ba62dffd1ddb4df7240ca9b13ba30aaf8e7b1cfd4dd82"
+      },
+      {
+        "path": "tests/test_db_contract.py",
+        "sha256": "61dc634ce74b5b43d5a4737253627c916b0959b7df35ccc5a2a6b1db9023473b"
       },
       {
         "path": "tests/test_digest_cold.py",
