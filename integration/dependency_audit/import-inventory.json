@@ -1653,6 +1653,7 @@
         "tests/test_stream_disk.py",
         "tests/test_stream_fixture_app.py",
         "tests/test_stream_revision.py",
+        "tests/test_table_edit151.py",
         "tests/test_watch_updates.py",
         "tests/test_watchlist_public_fix.py",
         "tests/text_matching/test_matching.py",
@@ -2380,6 +2381,7 @@
         "tests/test_preview_access.py",
         "tests/test_refresh149_gate.py",
         "tests/test_refresh_controller.py",
+        "tests/test_table_edit151.py",
         "tests/test_watch_updates.py"
       ],
       "stdlib": true,
@@ -2921,6 +2923,7 @@
         "tests/test_supplied_feed_fixture.py",
         "tests/test_supplied_fulltext_fixture.py",
         "tests/test_supplied_multi_feed.py",
+        "tests/test_table_edit151.py",
         "tests/test_tariff_evidence.py",
         "tests/test_tariff_evidence_plain.py",
         "tests/test_telegram_format_audit.py",
@@ -4445,6 +4448,10 @@
       {
         "path": "tests/test_supplied_multi_feed.py",
         "sha256": "9c2ccdaa375d5a26af1edbc51ea87616ab51a38ed972df9dd581fcf1ff65a6e2"
+      },
+      {
+        "path": "tests/test_table_edit151.py",
+        "sha256": "cc93a29f3c69aee4f21f449338c76146ff4b92cd6d01ec672844a576e1d15822"
       },
       {
         "path": "tests/test_tariff_evidence.py",

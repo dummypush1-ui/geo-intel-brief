@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 1365,
+  "tests": 1367,
   "files": [
     {
       "path": ".env.example",
@@ -37,13 +37,13 @@
     },
     {
       "path": "ai-agent.mjs",
-      "bytes": 5690,
-      "sha256": "ae79318cab5cbdc80e1e4c866f4cd695ece8aea9ed18d449b98753245c567884"
+      "bytes": 5788,
+      "sha256": "34ca196c4e29475869e4c50863d52977f1473a332ae35b785136563f09070225"
     },
     {
       "path": "apply-gst.mjs",
-      "bytes": 1080,
-      "sha256": "3aadee2eaf4f69c98f6cc7488e26de23472d457a7ca380cdb5c3b38bdeec31cf"
+      "bytes": 932,
+      "sha256": "b1c47ddc63e0d56e378cd3067d549392037e914e819475aeb1802bf4750bf06d"
     },
     {
       "path": "automate.mjs",
@@ -2053,12 +2053,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 18581,
-      "sha256": "8341bb0900bb08ebafb6dfbaf2150ec206fe7ef2ca11f43bed6d3ac76bbfff56"
+      "sha256": "395a83c24e1a26c1d1c13f71a0207c6682882d741dcc8e0d985ead1de0c9d9a6"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
-      "bytes": 170430,
-      "sha256": "aa3289a2ccae0806e2dfea1bcda349c932b75eb675cc1e287c5bfb8b341bd758"
+      "bytes": 170696,
+      "sha256": "5045c7b1f3cd7387c5bf0e28e8253ea5b417af9557f760f53b91d14b0b32a1e7"
     },
     {
       "path": "integration/dependency_build/README.md",
@@ -5101,6 +5101,11 @@
       "sha256": "9c2ccdaa375d5a26af1edbc51ea87616ab51a38ed972df9dd581fcf1ff65a6e2"
     },
     {
+      "path": "tests/test_table_edit151.py",
+      "bytes": 615,
+      "sha256": "cc93a29f3c69aee4f21f449338c76146ff4b92cd6d01ec672844a576e1d15822"
+    },
+    {
       "path": "tests/test_tariff_evidence.py",
       "bytes": 4108,
       "sha256": "034a3ab164508c2bddbbb4d89ec7db68f43b491a501c9c099b42e3552d70b276"
@@ -5151,6 +5156,11 @@
       "sha256": "dc7fcfe35c135684cfdd9b629db765a391fa3e1e91edffd4f4c17e07ff9c4318"
     },
     {
+      "path": "tests/updater_runtime/test_draft_reject.mjs",
+      "bytes": 1868,
+      "sha256": "9d98f8e0ad0548848f09e7b62c6b8c5cb9df73b22e83d50f93b63219fc994bf4"
+    },
+    {
       "path": "tests/updater_runtime/test_gemini_error.mjs",
       "bytes": 1891,
       "sha256": "6f4b6192aea174d82d9619fc04c21c7b3e06f2580187beba1031112621d818e3"
@@ -5169,6 +5179,11 @@
       "path": "tests/updater_runtime/test_refresh_preflight.mjs",
       "bytes": 687,
       "sha256": "46bdb9c59f7aa261c7f1747bbf55fe0c28459e90b5c3565646ec6cfb25fa7286"
+    },
+    {
+      "path": "tests/updater_runtime/test_table_edit.mjs",
+      "bytes": 2930,
+      "sha256": "27e98e10106dbcab9fa4c311765d529d48a6bcd9a576a77dba2a2bfc2e3082b5"
     },
     {
       "path": "tests/updater_runtime/test_xml_entities.mjs",
@@ -5191,6 +5206,11 @@
       "sha256": "47c4cb916dabcafe8aa24d4a9a1a56c5eec7ec83a4f22849d45048c6139f9485"
     },
     {
+      "path": "updater_runtime/TABLE-EDIT.md",
+      "bytes": 1307,
+      "sha256": "da4074ee5f0e54e41446df5b14ace984ee8f5b7564bfd718a53303bc959fe537"
+    },
+    {
       "path": "updater_runtime/gemini-error.mjs",
       "bytes": 655,
       "sha256": "bba43129418e78d68afee50d44e9bf9b56d1b7e64a82448f3d490f6b50e00e06"
@@ -5204,6 +5224,11 @@
       "path": "updater_runtime/refresh-bundle.mjs",
       "bytes": 5679,
       "sha256": "bf8b852d6024b1a9c627434add5dfa0cd3a4217bd744d8075c9bd22acb4d822e"
+    },
+    {
+      "path": "updater_runtime/table-edit.mjs",
+      "bytes": 4470,
+      "sha256": "12a3f9f8c9e8a7452ee88e843eedd23c83a2c5787d2b3e1a165da1369ad87d56"
     },
     {
       "path": "updater_runtime/xml-entities.mjs",

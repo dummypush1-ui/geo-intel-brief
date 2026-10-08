@@ -1,13 +1,11 @@
-// Applies state/gst-proposal.json to src/gstmap.ts and writes the PR description.
-import fs from 'fs';
-const P = JSON.parse(fs.readFileSync('state/gst-proposal.json', 'utf8'));
-let g = fs.readFileSync('src/gstmap.ts', 'utf8'); const lines = [];
-for (const c of P.changes) {
-  const re = new RegExp('^  "' + c.code + '": \\[[^\\n]*\\],?$', 'm'), row = `  "${c.code}": ["${c.rate}", ${JSON.stringify(c.description || 'See notification')}],`;
-  const m = g.match(re);
-  lines.push(`- \`${c.code}\`: ${m ? m[0].match(/\["([^"]+)"/)[1] + ' -> ' : 'NEW -> '}**${c.rate}** (${c.description})`);
-  g = m ? g.replace(re, row) : g.replace(/\n\};\s*$/, '\n' + row + '\n};\n');
-}
-fs.writeFileSync('src/gstmap.ts', g);
-fs.writeFileSync('/tmp/pr-body.md', '## AI-drafted GST changes - REVIEW BEFORE MERGING\nEvery code and rate below was found literally in the official notification text, but AI may still mis-read context (exemptions, conditions).\n\n' + lines.join('\n') + '\n\nSources:\n' + P.sources.map((s) => '- ' + s).join('\n') + '\n');
-console.log(lines.length + ' changes applied');
+// Apply a reviewed proposal locally for a PR; never commits rates automatically.
+import fs from 'node:fs';
+import {applyGst} from './updater_runtime/table-edit.mjs';
+const proposal=JSON.parse(fs.readFileSync('state/gst-proposal.json','utf8'));
+const result=applyGst(fs.readFileSync('src/gstmap.ts','utf8'),proposal);
+const lines=result.lines.map(c=>`- \`${c.code}\`: ${c.previous===null?'NEW':c.previous} -> **${c.rate}** (${c.description})`);
+const body='## AI-drafted GST changes - REVIEW BEFORE MERGING\nLiteral code/rate matches do not prove tax context or scope. Manually check exemptions and conditions before merging.\n\n'+lines.join('\n')+'\n\nSources:\n'+proposal.sources.map(s=>'- '+s).join('\n')+'\n';
+// All table/description/schema/count checks complete before any output write.
+fs.writeFileSync('src/gstmap.ts',result.source);
+fs.writeFileSync('/tmp/pr-body.md',body);
+console.log(result.applied+' changes applied');

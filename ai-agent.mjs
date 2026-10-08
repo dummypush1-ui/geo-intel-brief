@@ -3,6 +3,7 @@ import fs from 'fs';
 import zlib from 'zlib';
 import { execSync } from 'child_process';
 import { geminiPost } from './gemini.mjs';
+import {appendAliases,validateGstChange} from './updater_runtime/table-edit.mjs';
 const KEY = process.env.GEMINI_API_KEY || '';
 const IN_URL = 'https://cbic-gst.gov.in/gst-goods-services-rates.html';
 export const ask = async (prompt) => {
@@ -30,11 +31,12 @@ export async function expandAliases(askFn = ask, D = null) {
     const sets = (Array.isArray(e.sets) ? e.sets : []).filter((s) => Array.isArray(s) && s.length >= 1 && s.length <= 3 && s.every((w) => /^[a-z]{3,20}$/.test(w))).slice(0, 4);
     const good = sets.filter((s) => { const n = D.reduce((c, d) => c + (s.every((w) => d.includes(w)) ? 1 : 0), 0); return n >= 1 && n <= 3000; });
     if (!good.length || good.length < sets.length) continue;
-    add.push(`  '${term}': ${JSON.stringify(good).replace(/"/g, "'")},`); have.add(term);
+    add.push({term,sets:good}); have.add(term);
   }
   if (!add.length) return 'no valid aliases proposed';
-  fs.writeFileSync(f, t.replace(/\n\};\s*$/, '\n' + add.join('\n') + '\n};\n'));
-  return 'added ' + add.length + ' aliases';
+  const result=appendAliases(t,add);
+  fs.writeFileSync(f,result.source);
+  return 'added '+result.added+' aliases';
 }
 
 // JOB 2 - GST: read NEW IGST rate notifications and PROPOSE changes (never edits gstmap.ts directly).
@@ -56,17 +58,21 @@ export async function draftGst(askFn = ask, fetchFn = fetch) {
     const text = execSync('pdftotext -layout /tmp/n.pdf -', { maxBuffer: 5e7 }).toString(), rows = text.split('\n').map((x) => x.replace(/[\s.]/g, ''));
     const out = await askFn('From this Indian GST notification text, list every GOODS rate entry with an HS code. Only what is explicitly stated. JSON: [{"code":"digits only, 2-8 digits","rate":"like 18%","description":"short"}]\n\n' + text.slice(0, 90000));
     for (const c of Array.isArray(out) ? out : []) {
-      const code = String(c.code || '').replace(/\D/g, ''), rate = String(c.rate || '').trim();
-      if (!/^\d{2,8}$/.test(code) || !/^\d+(\.\d+)?%$/.test(rate)) continue;
+      let candidate,code,rate;
+      try {
+        code=String(c.code || '').replace(/\D/g,'');rate=String(c.rate || '').trim();
+        candidate=validateGstChange({code,rate,description:String(c.description || '').slice(0,200),source:l.url},[l.url]);
+      }
+      catch { rejected++; continue; }
       // grounding: the code and its rate (with a % sign) must appear on the same table row or within the next 2 lines
       const rx = new RegExp('(^|\\D)' + rate.replace('%', '').replace('.', '\\.') + '%');
       const raw = text.split('\n'), hit = rows.some((r, i) => r.includes(code) && rx.test(raw.slice(i, i + 3).join(' ').replace(/\s+%/g, '%')));
       if (!hit) { rejected++; continue; }
-      changes.push({ code, rate, description: String(c.description || '').slice(0, 200), source: l.url });
+      changes.push(candidate);
     }
     srcs.push(l.url); st.seen.push(l.url);
   }
   fs.writeFileSync(SEEN, JSON.stringify(st) + '\n');
   if (changes.length) fs.writeFileSync('state/gst-proposal.json', JSON.stringify({ sources: srcs, changes }, null, 1));
-  return changes.length + ' verified proposals from ' + srcs.length + ' notifications (' + rejected + ' AI items rejected as not found in the text)';
+  return changes.length + ' verified proposals from ' + srcs.length + ' notifications (' + rejected + ' AI items rejected for invalid schema or unmatched grounding)';
 }
