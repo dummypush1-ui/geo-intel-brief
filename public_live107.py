@@ -140,4 +140,15 @@ def build_public_live_preview(environ,client_factory=None,clock=time.monotonic):
  app.extensions.update(preview_launcher_mode='public_geo_readonly',read_only_news_clients=[client],stored_news_projects=('geo',),geo_events_read_enabled=False)
  return app
 
-app=build_public_live_preview(dict(os.environ))
+def guarded_public_app(environ,build=build_public_live_preview):
+ """Edge guard (rate limit, input checks, honeypots) around the reviewed app.
+ Off by default: EDGE_GUARD_ENABLED must be true. Needs the Render proxy topology
+ (single appended X-Forwarded-For hop) confirmed first. Counters are per worker."""
+ from integration.edge_guard import install_edge_guard,edge_limits_from_env
+ from integration.security_headers import install_security_headers
+ app=build(environ)
+ if environ.get('SECURITY_HEADERS_ENABLED','true').strip().lower()!='false':install_security_headers(app)
+ limits=edge_limits_from_env(environ)
+ return app if limits is None else install_edge_guard(app,**limits)
+
+app=guarded_public_app(dict(os.environ))

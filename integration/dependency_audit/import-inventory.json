@@ -214,6 +214,7 @@
         "integration/country_page.py",
         "integration/country_signals.py",
         "integration/dashboard_model.py",
+        "integration/edge_guard.py",
         "integration/geo_rolling_breakdown.py",
         "integration/geonews_digest/model.py",
         "integration/geonews_digest/render.py",
@@ -677,12 +678,16 @@
       "files": [
         "feature_mail_mount/http.py",
         "integration/accounts/http_fixture.py",
+        "integration/edge_guard.py",
         "integration/geo_probe_http.py",
         "integration/news_api.py",
         "integration/news_export/fixture_http.py",
         "integration/preview_access.py",
+        "integration/security_headers.py",
         "tests/digest_cold_probe.py",
-        "tests/test_feature_mail_mount.py"
+        "tests/test_edge_guard.py",
+        "tests/test_feature_mail_mount.py",
+        "tests/test_security_headers.py"
       ],
       "stdlib": false,
       "distributions": [
@@ -1073,6 +1078,7 @@
         "tests/test_dashboard_stats.py",
         "tests/test_db_contract.py",
         "tests/test_digest_preview_routes.py",
+        "tests/test_edge_guard.py",
         "tests/test_env_example.py",
         "tests/test_event_reader.py",
         "tests/test_fake_collection_writer.py",
@@ -1120,6 +1126,7 @@
         "tests/test_runtime.py",
         "tests/test_sample_volume.py",
         "tests/test_scraper_policy.py",
+        "tests/test_security_headers.py",
         "tests/test_security_review.py",
         "tests/test_shared_ledger_fixture.py",
         "tests/test_shared_service_fixture.py",
@@ -1466,6 +1473,7 @@
         "tests/test_collector122_inventory.py",
         "tests/test_compulsory_channels.py",
         "tests/test_country_alerts.py",
+        "tests/test_edge_guard.py",
         "tests/test_event_reader.py",
         "tests/test_file_audit.py",
         "tests/test_finder_nested.py",
@@ -1495,6 +1503,7 @@
     {
       "import": "logging",
       "files": [
+        "integration/edge_guard.py",
         "integration/geo_sample_probe_child.py"
       ],
       "stdlib": true,
@@ -1575,6 +1584,7 @@
         "tests/news_export/test_export.py",
         "tests/publication_dates/test_policy.py",
         "tests/test_digest_cold.py",
+        "tests/test_edge_guard.py",
         "tests/test_geo_probe_process.py",
         "tests/test_geo_read_factory.py",
         "tests/test_geo_sample_probe.py",
@@ -1655,6 +1665,7 @@
         "tests/test_classifier146_inventory.py",
         "tests/test_compulsory_channels.py",
         "tests/test_digest_cold.py",
+        "tests/test_edge_guard.py",
         "tests/test_env_example.py",
         "tests/test_feature_finder_prep.py",
         "tests/test_feature_mail_mount.py",
@@ -2138,6 +2149,7 @@
         "integration/country_alerts.py",
         "integration/dashboard_snapshots.py",
         "integration/db_contract/plan.py",
+        "integration/edge_guard.py",
         "integration/feedparser_audit/child.py",
         "integration/finder_index.py",
         "integration/finder_links.py",
@@ -2408,6 +2420,7 @@
         "tests/test_collection_prepare.py",
         "tests/test_compulsory_channels.py",
         "tests/test_digest_cold.py",
+        "tests/test_edge_guard.py",
         "tests/test_env_example.py",
         "tests/test_feature_finder_prep.py",
         "tests/test_feature_mail_mount.py",
@@ -2483,6 +2496,7 @@
         "tests/publication_dates/test_policy.py",
         "tests/test_collection_prepare.py",
         "tests/test_digest_cold.py",
+        "tests/test_edge_guard.py",
         "tests/test_fixed_feedparser_audit.py",
         "tests/test_geo_probe_process.py",
         "tests/test_geo_read_factory.py",
@@ -2536,6 +2550,20 @@
         ]
       },
       "classification": "local"
+    },
+    {
+      "import": "test_edge_guard",
+      "files": [
+        "tests/test_security_headers.py"
+      ],
+      "stdlib": false,
+      "distributions": [],
+      "classification": "local",
+      "provenance": {
+        "paths": [
+          "tests/test_edge_guard.py"
+        ]
+      }
     },
     {
       "import": "tests",
@@ -2706,6 +2734,7 @@
         "integration/accounts/shared_service_fixture.py",
         "integration/accounts/store.py",
         "integration/brics_streams.py",
+        "integration/edge_guard.py",
         "integration/geo_only_runtime.py",
         "integration/geo_probe_http.py",
         "integration/mail_bridge.py",
@@ -2754,6 +2783,7 @@
       "import": "time",
       "files": [
         "integration/accounts/mongo_store.py",
+        "integration/edge_guard.py",
         "integration/feedparser_audit/runner.py",
         "integration/geo_probe_http.py",
         "integration/geo_probe_process.py",
@@ -2887,6 +2917,7 @@
         "tests/test_db_contract.py",
         "tests/test_digest_cold.py",
         "tests/test_digest_preview_routes.py",
+        "tests/test_edge_guard.py",
         "tests/test_env_example.py",
         "tests/test_event_reader.py",
         "tests/test_fake_collection_writer.py",
@@ -2952,6 +2983,7 @@
         "tests/test_sample_volume.py",
         "tests/test_sanctions152.py",
         "tests/test_scraper_policy.py",
+        "tests/test_security_headers.py",
         "tests/test_security_review.py",
         "tests/test_shared_ledger_fixture.py",
         "tests/test_shared_service_fixture.py",
@@ -2999,6 +3031,7 @@
         "integration/brics_streams.py",
         "integration/country_alerts.py",
         "integration/dashboard_snapshots.py",
+        "integration/edge_guard.py",
         "integration/feedparser_audit/child.py",
         "integration/finder_links.py",
         "integration/geo_queue_fixture.py",
@@ -3494,6 +3527,10 @@
         "sha256": "4b492669e765a593ea54ffa66d5fcc6361be034f764c5054ba808f11cd6be30c"
       },
       {
+        "path": "integration/edge_guard.py",
+        "sha256": "6f167e863f81b5529bc84220cf5b4c1f2a09555d76eb99019df6e3c688d9d1f3"
+      },
+      {
         "path": "integration/event_reader.py",
         "sha256": "fbddedabef6ba54c3b47f70e94511310b69a6b7466f393a40088034e23d526df"
       },
@@ -3780,6 +3817,10 @@
       {
         "path": "integration/scraper_policy.py",
         "sha256": "1a324d3310c0ffecb643a48c116e066221315be6ca012671614cfa53a547af60"
+      },
+      {
+        "path": "integration/security_headers.py",
+        "sha256": "6042de3d9baa4276e9504c767c5a69b831c099ac87a4b1203295ee716533fa27"
       },
       {
         "path": "integration/single_db_plan.py",
@@ -4214,6 +4255,10 @@
         "sha256": "b171fed8fd837dc9d800b00fd17d13fcc6b26e8341ca2e8e31daecb7ba14378e"
       },
       {
+        "path": "tests/test_edge_guard.py",
+        "sha256": "50b2c841303f12093ff1b5db2849da261c5b7eb453ed3bbf21a52b62da3a1c79"
+      },
+      {
         "path": "tests/test_env_example.py",
         "sha256": "aa3ecd70a6c7d48fdefc190de67e950048e01c8167b3c909787752e31537b544"
       },
@@ -4472,6 +4517,10 @@
       {
         "path": "tests/test_scraper_policy.py",
         "sha256": "238e745566bdcd339e7bdb2d1ea0f8a79a14b2e3e6cc7f2ff9a081a445b41e8f"
+      },
+      {
+        "path": "tests/test_security_headers.py",
+        "sha256": "cb0ffba4a3338f9d77899e9a838b4b0397f2659abf9f74ca7f3a54f7fcde637b"
       },
       {
         "path": "tests/test_security_review.py",

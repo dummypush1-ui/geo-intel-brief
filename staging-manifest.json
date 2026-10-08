@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 1444,
+  "tests": 1469,
   "files": [
     {
       "path": ".env.example",
@@ -2223,12 +2223,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 18581,
-      "sha256": "06604d68084226f6346f3ab49a23a44a30ac82dc73c68e9412e6013845b35405"
+      "sha256": "561f54c778b339e356caf7d0c4a35e4eb987261aab3b96479d18a8b9b56f3a3b"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
-      "bytes": 174587,
-      "sha256": "f67f03c1a1c8abbdc2bcf7a1a859f89ccd5f0f31f5837c1e67c7059447ca4144"
+      "bytes": 176195,
+      "sha256": "15af757e18b46637bc0a0298b7114daf72e420c8d98b5ca61122e7dd2fac0731"
     },
     {
       "path": "integration/dependency_build/README.md",
@@ -2269,6 +2269,11 @@
       "path": "integration/digest_preview.py",
       "bytes": 3404,
       "sha256": "4b492669e765a593ea54ffa66d5fcc6361be034f764c5054ba808f11cd6be30c"
+    },
+    {
+      "path": "integration/edge_guard.py",
+      "bytes": 6576,
+      "sha256": "6f167e863f81b5529bc84220cf5b4c1f2a09555d76eb99019df6e3c688d9d1f3"
     },
     {
       "path": "integration/event_reader.py",
@@ -3191,6 +3196,11 @@
       "sha256": "52b72a27a68c2310511b71bb11ee3c2bd7414ce9d865199351c4785b86d50f92"
     },
     {
+      "path": "integration/security_headers.py",
+      "bytes": 1351,
+      "sha256": "6042de3d9baa4276e9504c767c5a69b831c099ac87a4b1203295ee716533fa27"
+    },
+    {
       "path": "integration/security_maintenance94/DEPLOY-CONTRACT.md",
       "bytes": 1747,
       "sha256": "be8849c197919ba09a3d61544cca8b1b2b2b334fc77a274da7fa2bb43214b724"
@@ -3882,8 +3892,8 @@
     },
     {
       "path": "public_live107.py",
-      "bytes": 8364,
-      "sha256": "866875315099a29f8e9e7183e448285e6b370f78fc6b5fccb4d93b0d8b544871"
+      "bytes": 9042,
+      "sha256": "0ab23a0d47207c69fcaafdeeb591daad758081995ddc128d644c9c14fe9b1e45"
     },
     {
       "path": "public_preview106.py",
@@ -5021,6 +5031,11 @@
       "sha256": "b171fed8fd837dc9d800b00fd17d13fcc6b26e8341ca2e8e31daecb7ba14378e"
     },
     {
+      "path": "tests/test_edge_guard.py",
+      "bytes": 8153,
+      "sha256": "50b2c841303f12093ff1b5db2849da261c5b7eb453ed3bbf21a52b62da3a1c79"
+    },
+    {
       "path": "tests/test_env_example.py",
       "bytes": 1989,
       "sha256": "aa3ecd70a6c7d48fdefc190de67e950048e01c8167b3c909787752e31537b544"
@@ -5359,6 +5374,11 @@
       "path": "tests/test_scraper_policy.py",
       "bytes": 1869,
       "sha256": "238e745566bdcd339e7bdb2d1ea0f8a79a14b2e3e6cc7f2ff9a081a445b41e8f"
+    },
+    {
+      "path": "tests/test_security_headers.py",
+      "bytes": 2881,
+      "sha256": "cb0ffba4a3338f9d77899e9a838b4b0397f2659abf9f74ca7f3a54f7fcde637b"
     },
     {
       "path": "tests/test_security_review.py",
