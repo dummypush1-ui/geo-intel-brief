@@ -25,6 +25,7 @@
         "tests/test_geo_queue_fixture.py",
         "tests/test_legacy_geo_p0.py",
         "tests/test_preservation.py",
+        "tests/test_protocol145_inventory.py",
         "tests/test_security_review.py",
         "tests/test_stream_revision.py",
         "tests/test_supplied_collector_pipeline.py",
@@ -281,6 +282,7 @@
         "integration/accounts/store.py",
         "integration/brics_streams.py",
         "integration/collection_prepare.py",
+        "integration/collection_receipts/protocol.py",
         "integration/db_contract/plan.py",
         "integration/fake_collection_writer.py",
         "integration/geo_article_writer.py",
@@ -787,6 +789,7 @@
         "integration/accounts/shared_ledger_fixture.py",
         "integration/accounts/shared_service_fixture.py",
         "integration/article_archive.py",
+        "integration/collection_receipts/protocol.py",
         "integration/collector_mail_fixture.py",
         "integration/country_alerts.py",
         "integration/fake_collection_writer.py",
@@ -839,6 +842,7 @@
         "tests/test_page_watch_contract.py",
         "tests/test_preservation.py",
         "tests/test_private_news_fields.py",
+        "tests/test_protocol145_inventory.py",
         "tests/test_report_preview_frame.py",
         "tests/test_security_review.py",
         "tests/test_shared_service_fixture.py",
@@ -1019,6 +1023,7 @@
         "tests/browser_tariff_evidence.py",
         "tests/browser_watch_updates.py",
         "tests/browser_weekly.py",
+        "tests/collection_receipts/test_protocol.py",
         "tests/digest_cold_probe.py",
         "tests/geonews_digest/test_digest.py",
         "tests/geospatial/preview/make_payload.py",
@@ -1382,6 +1387,7 @@
         "integration/accounts/settings.py",
         "integration/accounts/shared_ledger_fixture.py",
         "integration/article_archive.py",
+        "integration/collection_receipts/protocol.py",
         "integration/country_alerts.py",
         "integration/dashboard_snapshots.py",
         "integration/event_reader.py",
@@ -1446,6 +1452,7 @@
         "tests/test_package_manifest.py",
         "tests/test_page_watch_parser_budget.py",
         "tests/test_preservation.py",
+        "tests/test_protocol145_inventory.py",
         "tests/test_retention_audit.py",
         "tests/test_rss_catalog.py",
         "tests/test_scraper_policy.py",
@@ -1630,6 +1637,7 @@
         "tests/test_legacy_geo_p0.py",
         "tests/test_preservation.py",
         "tests/test_preview_launcher.py",
+        "tests/test_protocol145_inventory.py",
         "tests/test_refresh_controller.py",
         "tests/test_rss_catalog.py",
         "tests/test_scraper_policy.py",
@@ -2090,6 +2098,7 @@
         "integration/article_archive.py",
         "integration/branding_meta.py",
         "integration/brics_streams.py",
+        "integration/collection_receipts/protocol.py",
         "integration/country_alerts.py",
         "integration/dashboard_snapshots.py",
         "integration/db_contract/plan.py",
@@ -2785,6 +2794,7 @@
         "tests/accounts/test_store_conformance.py",
         "tests/collection_outcomes/test_callers.py",
         "tests/collection_outcomes/test_status.py",
+        "tests/collection_receipts/test_protocol.py",
         "tests/digest_cold_probe.py",
         "tests/geonews_digest/test_digest.py",
         "tests/geospatial/test_geospatial.py",
@@ -2875,6 +2885,7 @@
         "tests/test_preview_launcher.py",
         "tests/test_private_news_fields.py",
         "tests/test_project_reports.py",
+        "tests/test_protocol145_inventory.py",
         "tests/test_refresh_controller.py",
         "tests/test_report_preview_frame.py",
         "tests/test_report_styles.py",
@@ -3376,6 +3387,10 @@
       {
         "path": "integration/collection_prepare.py",
         "sha256": "2d0886b3126dfd4da4c7fa647ff414afbd27a6032204a8f9ad2be046f86c25b2"
+      },
+      {
+        "path": "integration/collection_receipts/protocol.py",
+        "sha256": "0d287ddf6117579d3c4875cd4c5a419a8e837dd4411954c03726c99d555a9f9c"
       },
       {
         "path": "integration/collector_mail_fixture.py",
@@ -3926,6 +3941,14 @@
         "sha256": "079e556d520c4701bc8885baed43cfcbfc909af9f6874b218a935220266f30c4"
       },
       {
+        "path": "tests/collection_receipts/__init__.py",
+        "sha256": "c506d572a238d735bff0efb7521c10cb384505e4cff008f8b7263429e6cc2c25"
+      },
+      {
+        "path": "tests/collection_receipts/test_protocol.py",
+        "sha256": "ae678b866c61eec7b2ff1d2527344b4c3e9a86afcd1deb280c8374ca359dbe46"
+      },
+      {
         "path": "tests/digest_cold_probe.py",
         "sha256": "1a801e91b8a6c2057331d98b39deba21d4972c44534b9630c8f6fb7f7eb3ff16"
       },
@@ -4300,6 +4323,10 @@
       {
         "path": "tests/test_project_reports.py",
         "sha256": "59a59dd575a26efdfc1f5aa09262eb7c1c3f8fa9ab0efcfa7983a9737db768c7"
+      },
+      {
+        "path": "tests/test_protocol145_inventory.py",
+        "sha256": "b6d28e16fa04f5c740a3a7f8a2f4d04f111f1a1f75444c58f8ddb405eba30acf"
       },
       {
         "path": "tests/test_refresh_controller.py",

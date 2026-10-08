@@ -1,0 +1,13 @@
+{
+  "scope": "inert_receipt_protocol145",
+  "files": {
+    "integration/collection_receipts/protocol.py": "0d287ddf6117579d3c4875cd4c5a419a8e837dd4411954c03726c99d555a9f9c",
+    "integration/collection_receipts/CONTRACT.md": "3aed8015514872a454f30c7c62dc2a717abb3a84fa8a227231d6a3d789537842",
+    "tests/collection_receipts/test_protocol.py": "ae678b866c61eec7b2ff1d2527344b4c3e9a86afcd1deb280c8374ca359dbe46",
+    "tests/collection_receipts/__init__.py": "c506d572a238d735bff0efb7521c10cb384505e4cff008f8b7263429e6cc2c25"
+  },
+  "excluded_exact": [
+    "integration/collection_receipts/inventory.json",
+    "tests/test_protocol145_inventory.py"
+  ]
+}

@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 1348,
+  "tests": 1359,
   "files": [
     {
       "path": ".env.example",
@@ -1971,6 +1971,21 @@
       "sha256": "2d0886b3126dfd4da4c7fa647ff414afbd27a6032204a8f9ad2be046f86c25b2"
     },
     {
+      "path": "integration/collection_receipts/CONTRACT.md",
+      "bytes": 2527,
+      "sha256": "3aed8015514872a454f30c7c62dc2a717abb3a84fa8a227231d6a3d789537842"
+    },
+    {
+      "path": "integration/collection_receipts/inventory.json",
+      "bytes": 652,
+      "sha256": "09db32f81c55fd655a9b95d029ca9f9c6db4908c19d64a8e5bcd411df12d52eb"
+    },
+    {
+      "path": "integration/collection_receipts/protocol.py",
+      "bytes": 6981,
+      "sha256": "0d287ddf6117579d3c4875cd4c5a419a8e837dd4411954c03726c99d555a9f9c"
+    },
+    {
       "path": "integration/collector_mail_fixture.py",
       "bytes": 7280,
       "sha256": "051098ebd9b5354d5a53d8469eef87b8db5464176c6fd735f1f92582b62bbbe9"
@@ -2033,12 +2048,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 18581,
-      "sha256": "990e253e2d8badb7eeee204fbe3f54863cc0ed690b2e5dc374776c927668c5ca"
+      "sha256": "90c16f005cfa752209c5fa9160c2b340e140c38bcaa7390aa28a2575aab301f6"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
-      "bytes": 168478,
-      "sha256": "cb69d33c3e68c6908f791b27564fa9117d20a8c5643f0c14326504578de32bad"
+      "bytes": 169686,
+      "sha256": "eedf32bf899ac78495a9abc74e7d59067eeade1006c373ae37f586659f25956a"
     },
     {
       "path": "integration/dependency_build/README.md",
@@ -4366,6 +4381,16 @@
       "sha256": "079e556d520c4701bc8885baed43cfcbfc909af9f6874b218a935220266f30c4"
     },
     {
+      "path": "tests/collection_receipts/__init__.py",
+      "bytes": 51,
+      "sha256": "c506d572a238d735bff0efb7521c10cb384505e4cff008f8b7263429e6cc2c25"
+    },
+    {
+      "path": "tests/collection_receipts/test_protocol.py",
+      "bytes": 2916,
+      "sha256": "ae678b866c61eec7b2ff1d2527344b4c3e9a86afcd1deb280c8374ca359dbe46"
+    },
+    {
       "path": "tests/digest_cold_probe.py",
       "bytes": 2789,
       "sha256": "1a801e91b8a6c2057331d98b39deba21d4972c44534b9630c8f6fb7f7eb3ff16"
@@ -4924,6 +4949,11 @@
       "path": "tests/test_project_reports.py",
       "bytes": 1015,
       "sha256": "59a59dd575a26efdfc1f5aa09262eb7c1c3f8fa9ab0efcfa7983a9737db768c7"
+    },
+    {
+      "path": "tests/test_protocol145_inventory.py",
+      "bytes": 1024,
+      "sha256": "b6d28e16fa04f5c740a3a7f8a2f4d04f111f1a1f75444c58f8ddb405eba30acf"
     },
     {
       "path": "tests/test_refresh_controller.py",
