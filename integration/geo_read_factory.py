@@ -8,6 +8,7 @@ class ReadCursor:
  __slots__=('_cursor',)
  def __init__(self,cursor):self._cursor=cursor
  def sort(self,*args):self._cursor.sort(*args);return self
+ def batch_size(self,n):self._cursor.batch_size(n);return self
  def limit(self,n):self._cursor.limit(n);return self
  def max_time_ms(self,n):self._cursor.max_time_ms(n);return self
  def __iter__(self):return self

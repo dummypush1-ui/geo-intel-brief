@@ -55,6 +55,9 @@ def create_public_geo_client(uri,*,serverSelectionTimeoutMS=5000,connect=False):
 
 def build_public_live_preview(environ,client_factory=None,clock=time.monotonic):
  if type(environ) is not dict or any(type(k)is not str or type(v)is not str for k,v in environ.items()):raise ValueError('Plain environment strings required')
+ pages_flag=environ.get('PUBLIC_NEWS_FULL_PAGES_ENABLED','false')
+ if pages_flag not in ('true','false'):raise ValueError('Exact full pages flag required')
+ if pages_flag=='true' and environ.get('PUBLIC_NEWS_READ_ENABLED','false')!='true':raise ValueError('Whole-store pages require reviewed public live reads')
  flag=environ.get('PUBLIC_NEWS_READ_ENABLED','false')
  if flag not in ('true','false'):raise ValueError('Exact public news flag required')
  if flag=='false':return build_public_preview(environ,client_factory=client_factory)
@@ -107,7 +110,14 @@ def build_public_live_preview(environ,client_factory=None,clock=time.monotonic):
     except Exception:pass
     raise ValueError('Public Geo read unavailable')from None
   finally:lock.release()
- app=create_app(reader=read,authorize=allow,allowed_origin=origin)
+ pages=None
+ if pages_flag=='true':
+  from integration.news_pages import WholeGeoPages
+  pages=WholeGeoPages(client['geo_intel']['articles'],sanitize_public_geo_rows,verified=True)
+  import atexit
+  atexit.register(pages.close)
+ app=create_app(reader=read,authorize=allow,allowed_origin=origin,full_news_pages=pages)
+ app.extensions['whole_news_pages']=pages
  @app.get('/')
  def home():return redirect('/workspace',302)
  @app.after_request

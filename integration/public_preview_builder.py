@@ -11,7 +11,7 @@ from integration.preview_launcher import build_preview
 from integration.news_api import create_app
 
 READ_PATHS=frozenset(('/workspace','/workspace/countries','/workspace/map',
- '/api/news','/api/news-stats','/api/dashboard-signals','/api/dashboard-snapshots',
+ '/api/news','/api/news-page','/api/news-stats','/api/dashboard-signals','/api/dashboard-snapshots',
  '/api/sample-volume','/api/critical-stories','/api/source-health',
  '/api/country-page','/api/country-signals','/api/map-data','/api/story-groups',
  '/api/news-export.csv','/workspace/manifest.webmanifest',

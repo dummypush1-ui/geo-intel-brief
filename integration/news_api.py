@@ -28,7 +28,7 @@ from integration.finder_offline import shell as offline_shell,opt_in as offline_
 from integration.news_export import snapshot_export,stream_export,guarded,parse_args as parse_export_args,ExportRequestError,ExportUnavailable
 from integration.digest_preview import preview as digest_preview
 
-def create_app(reader=None,authorize=None,finder_context_reader=None,finder_base=None,finder_index_verified=False,allowed_origin=None,branding_public_base=None,dashboard_snapshot_reader=None,source_health_snapshot=None,tariff_evidence_snapshot=None,finder_network_preview_enabled=False,full_export_pager=None,brics_stream_fixture=None):
+def create_app(reader=None,authorize=None,finder_context_reader=None,finder_base=None,finder_index_verified=False,allowed_origin=None,branding_public_base=None,dashboard_snapshot_reader=None,source_health_snapshot=None,tariff_evidence_snapshot=None,finder_network_preview_enabled=False,full_export_pager=None,brics_stream_fixture=None,full_news_pages=None):
  if brics_stream_fixture is not None:
   from integration.brics_streams import FixtureStreams
   if type(brics_stream_fixture) is not FixtureStreams:raise ValueError('Exact fixture-only store required')
@@ -281,6 +281,23 @@ def create_app(reader=None,authorize=None,finder_context_reader=None,finder_base
   except ValueError:return jsonify(error='Invalid project or sort'),400
   result['items']=[public_row(r) for r in result['items']]
   return jsonify(result)
+ @app.get('/api/news-page')
+ def news_page():
+  from integration.news_pages import validate,PageExpired,PageBusy,PageUnavailable
+  allowed={'project','q','category','country','sort','limit','cursor'}
+  if set(request.args)-allowed or any(len(request.args.getlist(k))!=1 for k in request.args):return jsonify(error='Exact single page parameters required'),400
+  raw=request.args.get('limit','25')
+  if not re.fullmatch(r'[1-9][0-9]{0,2}',raw):return jsonify(error='Limit 1 to100 required'),400
+  filters={'project':request.args.get('project','geo'),'query':request.args.get('q',''),'category':request.args.get('category',''),'country':request.args.get('country',''),'sort':request.args.get('sort','newest')}
+  token=request.args.get('cursor','')
+  try:validate(filters,int(raw),token)
+  except ValueError:return jsonify(error='Invalid news page request'),400
+  if full_news_pages is None:return jsonify(error='Whole-store paging disabled',state='full_pages_unwired'),503
+  try:return jsonify(full_news_pages.page(filters,int(raw),token))
+  except PageExpired:return jsonify(error='News cursor expired or changed; refresh to restart'),409
+  except PageBusy:return jsonify(error='News paging busy'),429,{'Retry-After':'5'}
+  except (PageUnavailable,Exception):
+   app.logger.warning('Whole-store page unavailable');return jsonify(error='Whole-store page unavailable'),503
  @app.get('/api/news-export.csv')
  def news_export():
   try:result=selected_news()

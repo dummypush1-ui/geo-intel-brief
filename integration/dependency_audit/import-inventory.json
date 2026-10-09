@@ -66,6 +66,18 @@
       "classification": "stdlib"
     },
     {
+      "import": "atexit",
+      "stdlib": true,
+      "distributions": [],
+      "classification": "stdlib",
+      "provenance": {
+        "source": "sys.stdlib_module_names"
+      },
+      "files": [
+        "integration/public_live_builder.py"
+      ]
+    },
+    {
       "import": "base64",
       "files": [
         "integration/accounts/passwords.py",
@@ -349,6 +361,7 @@
         "integration/india_open_data/core.py",
         "integration/india_open_data/data_layer.py",
         "integration/mail_bridge.py",
+        "integration/news_pages.py",
         "integration/news_view.py",
         "integration/public_live_builder.py",
         "integration/public_news.py",
@@ -1074,6 +1087,7 @@
         "integration/map_layers.py",
         "integration/news_api.py",
         "integration/news_export/original_contract.py",
+        "integration/news_pages.py",
         "integration/news_view.py",
         "integration/offline_collection_cycle.py",
         "integration/original_dashboard_payloads.py",
@@ -1195,6 +1209,7 @@
         "tests/test_map_layers.py",
         "tests/test_mongo_account_store.py",
         "tests/test_news182.py",
+        "tests/test_news_pages185.py",
         "tests/test_offline_collection_cycle.py",
         "tests/test_original_dashboard_payloads.py",
         "tests/test_original_reports.py",
@@ -2316,6 +2331,7 @@
         "integration/news_export/export.py",
         "integration/news_export/keyset_plan.py",
         "integration/news_export/original_contract.py",
+        "integration/news_pages.py",
         "integration/page_watch.py",
         "integration/preview_access.py",
         "integration/public_live_builder.py",
@@ -2421,6 +2437,7 @@
         "integration/accounts/service.py",
         "integration/accounts/shared_ledger_fixture.py",
         "integration/geo_probe_http.py",
+        "integration/news_pages.py",
         "integration/preview_access.py"
       ],
       "stdlib": true,
@@ -2900,6 +2917,7 @@
         "integration/mail_bridge.py",
         "integration/news_api.py",
         "integration/news_export/fixture_http.py",
+        "integration/news_pages.py",
         "integration/preview_access.py",
         "integration/public_live_builder.py",
         "tests/accounts/browser_http_fixture.py",
@@ -2953,6 +2971,7 @@
         "integration/news_export/export.py",
         "integration/news_export/geo_snapshot.py",
         "integration/news_export/original_stream.py",
+        "integration/news_pages.py",
         "integration/preview_access.py",
         "integration/public_live_builder.py",
         "tests/geospatial/test_geospatial.py",
@@ -3133,6 +3152,7 @@
         "tests/test_mongo_account_store.py",
         "tests/test_monitor155.py",
         "tests/test_news182.py",
+        "tests/test_news_pages185.py",
         "tests/test_offline_collection_cycle.py",
         "tests/test_original_dashboard_payloads.py",
         "tests/test_original_reports.py",
@@ -3811,7 +3831,7 @@
       },
       {
         "path": "integration/geo_read_factory.py",
-        "sha256": "4fc0cbc49a5e9d8a388eef08466a5eb1d77902582522a40e65f360d1a018930b"
+        "sha256": "8cd150bfa168e0d831afe77e542f6422372ff923eb7ad8fc44a730f3e804a0da"
       },
       {
         "path": "integration/geo_rolling_breakdown.py",
@@ -3911,7 +3931,7 @@
       },
       {
         "path": "integration/news_api.py",
-        "sha256": "7308f25c49f715072414a2ba5ebdab72bf2e29f348372b6692be29160a1203d9"
+        "sha256": "36cdf293dc67d0f574cccd16a3f17ba0528ad634727ca3780b12814a9fd4362e"
       },
       {
         "path": "integration/news_export/__init__.py",
@@ -3944,6 +3964,10 @@
       {
         "path": "integration/news_export/raw_pager.py",
         "sha256": "5ced324a9dbacbe529dd7ba8f88f865c4584ede863132961a34deede1174640b"
+      },
+      {
+        "path": "integration/news_pages.py",
+        "sha256": "3004e1f374ab065a61d320f76e09a8fc991faf7b487fd53ce5453bb1189684e9"
       },
       {
         "path": "integration/news_view.py",
@@ -3983,7 +4007,7 @@
       },
       {
         "path": "integration/public_live_builder.py",
-        "sha256": "148b97a7ba5622d28268f5ed7d0732d6e264465df25a102f68e8e2415afe84de"
+        "sha256": "0b5b77f8f1b8ee3dbdadd903d1a1a7529e33c98cb878d8ef8ebb38e190f847d1"
       },
       {
         "path": "integration/public_news.py",
@@ -3991,7 +4015,7 @@
       },
       {
         "path": "integration/public_preview_builder.py",
-        "sha256": "395d68696e529367e2118880d18361f27926a1984c3917a0421138190fe97815"
+        "sha256": "f4456151b1f2275171a44bc7a422b54a5f56014ea462a65dfb35424080af624a"
       },
       {
         "path": "integration/publication_dates/policy.py",
@@ -4680,6 +4704,10 @@
       {
         "path": "tests/test_news182.py",
         "sha256": "c08c4d9addf5844607a287848cb8ed9220de0baf57a92aea5100fb41449a5279"
+      },
+      {
+        "path": "tests/test_news_pages185.py",
+        "sha256": "59ddde9d0853668b1cedaac67cf616d97d2818caabc548a49f6ff9b0ee7ee393"
       },
       {
         "path": "tests/test_offline_collection_cycle.py",
