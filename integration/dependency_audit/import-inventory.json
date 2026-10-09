@@ -272,6 +272,91 @@
       "classification": "stdlib"
     },
     {
+      "import": "collector108_prep",
+      "files": [
+        "integration/collector197_orchestrator.py",
+        "tests/test_collector197a.py"
+      ],
+      "stdlib": false,
+      "distributions": [],
+      "classification": "local",
+      "provenance": {
+        "source": "197a reviewed local adapter import",
+        "paths": [
+          "collector108_prep/__init__.py",
+          "collector108_prep/durable_ledger.py",
+          "collector108_prep/endpoint.py",
+          "collector108_prep/job_contract.py",
+          "collector108_prep/test_durable.py",
+          "collector108_prep/test_job_contract.py"
+        ]
+      }
+    },
+    {
+      "import": "collector109_prep",
+      "files": [
+        "integration/collector197_orchestrator.py",
+        "tests/test_collector197a.py"
+      ],
+      "stdlib": false,
+      "distributions": [],
+      "classification": "local",
+      "provenance": {
+        "source": "197a reviewed local adapter import",
+        "paths": [
+          "collector109_prep/__init__.py",
+          "collector109_prep/checkpoint.py",
+          "collector109_prep/drive.py",
+          "collector109_prep/fetch_stage.py",
+          "collector109_prep/fixture_support.py",
+          "collector109_prep/test_drive.py",
+          "collector109_prep/test_engine_chain.py",
+          "collector109_prep/test_fetch_stage.py",
+          "collector109_prep/test_safety.py"
+        ]
+      }
+    },
+    {
+      "import": "collector110_prep",
+      "files": [
+        "integration/collector197_orchestrator.py",
+        "tests/test_collector197a.py"
+      ],
+      "stdlib": false,
+      "distributions": [],
+      "classification": "local",
+      "provenance": {
+        "source": "197a reviewed local adapter import",
+        "paths": [
+          "collector110_prep/__init__.py",
+          "collector110_prep/durable_checkpoint.py",
+          "collector110_prep/input_budget.py",
+          "collector110_prep/test_durable_checkpoint.py",
+          "collector110_prep/test_input_budget.py"
+        ]
+      }
+    },
+    {
+      "import": "collector111_prep",
+      "files": [
+        "integration/collector197_orchestrator.py"
+      ],
+      "stdlib": false,
+      "distributions": [],
+      "classification": "local",
+      "provenance": {
+        "source": "197a reviewed local adapter import",
+        "paths": [
+          "collector111_prep/__init__.py",
+          "collector111_prep/drive_durable.py",
+          "collector111_prep/test_drive.py",
+          "collector111_prep/test_drive_durable.py",
+          "collector111_prep/test_engine_chain.py",
+          "collector111_prep/test_safety.py"
+        ]
+      }
+    },
+    {
       "import": "collector113_prep",
       "stdlib": false,
       "distributions": [],
@@ -396,6 +481,7 @@
         "tests/test_article_archive.py",
         "tests/test_collection_prepare.py",
         "tests/test_collector122_validation.py",
+        "tests/test_collector197a.py",
         "tests/test_collector_mail_fixture.py",
         "tests/test_country_alerts.py",
         "tests/test_country_signals.py",
@@ -459,6 +545,7 @@
       "files": [
         "integration/accounts/limiter.py",
         "integration/accounts/shared_ledger_fixture.py",
+        "integration/collector197_config.py",
         "integration/geonews_digest/delivery.py",
         "integration/geonews_digest/model.py",
         "integration/mail_bridge.py",
@@ -482,6 +569,7 @@
         "feature_mail_prep/reports.py",
         "integration/accounts/service.py",
         "integration/article_archive.py",
+        "integration/collector197_orchestrator.py",
         "integration/collector_mail_fixture.py",
         "integration/country_alerts.py",
         "integration/country_signals.py",
@@ -546,6 +634,7 @@
         "tests/publication_dates/test_policy.py",
         "tests/test_api_v1_187.py",
         "tests/test_article_archive.py",
+        "tests/test_collector197a.py",
         "tests/test_collector_mail_fixture.py",
         "tests/test_country_signals.py",
         "tests/test_critical_stories.py",
@@ -1088,6 +1177,7 @@
         "integration/brics_processing_offline.py",
         "integration/brics_streams.py",
         "integration/collection_prepare.py",
+        "integration/collector197_orchestrator.py",
         "integration/collector_mail_fixture.py",
         "integration/country_page.py",
         "integration/critical_stories.py",
@@ -1194,6 +1284,7 @@
         "tests/test_bridges.py",
         "tests/test_channels171.py",
         "tests/test_collection_prepare.py",
+        "tests/test_collector197a.py",
         "tests/test_collector_mail_fixture.py",
         "tests/test_copy191.py",
         "tests/test_copy195.py",
@@ -2995,6 +3086,7 @@
         "tests/browser_watch_updates.py",
         "tests/browser_weekly.py",
         "tests/news_export/test_fixture_serving.py",
+        "tests/test_collector197a.py",
         "tests/test_db181.py",
         "tests/test_geo_probe_http.py",
         "tests/test_invite_expiry.py",
@@ -3016,6 +3108,7 @@
       "files": [
         "integration/accounts/mongo_store.py",
         "integration/bounded_rss/driver.py",
+        "integration/collector197_orchestrator.py",
         "integration/edge_guard.py",
         "integration/feedparser_audit/runner.py",
         "integration/geo_probe_http.py",
@@ -3062,6 +3155,7 @@
         "tests/news_export/test_export.py",
         "tests/news_export/test_original_contract.py",
         "tests/test_channels171.py",
+        "tests/test_collector197a.py",
         "tests/test_feature_mail_mount.py",
         "tests/test_geo_article_writer.py",
         "tests/test_legacy_bulk_outcome.py",
@@ -3144,6 +3238,7 @@
         "tests/test_collector122_packing.py",
         "tests/test_collector122_receipt_state.py",
         "tests/test_collector122_validation.py",
+        "tests/test_collector197a.py",
         "tests/test_collector_mail_fixture.py",
         "tests/test_compulsory_channels.py",
         "tests/test_comtrade178.py",
@@ -3775,6 +3870,14 @@
       {
         "path": "integration/collection_receipts/protocol.py",
         "sha256": "0d287ddf6117579d3c4875cd4c5a419a8e837dd4411954c03726c99d555a9f9c"
+      },
+      {
+        "path": "integration/collector197_config.py",
+        "sha256": "eab36cafe3774aa1bf33327e6eefa10b368e984c3f617ee3aae063199e87499f"
+      },
+      {
+        "path": "integration/collector197_orchestrator.py",
+        "sha256": "fe9f768feabb8b4e40e49867c1e26685d218f8717c7b86b59b30a78b50efd46f"
       },
       {
         "path": "integration/collector_mail_fixture.py",
@@ -4539,6 +4642,10 @@
       {
         "path": "tests/test_collector122_validation.py",
         "sha256": "d3a47b4dd2b7b8bf46e550709edf076379b350f943fef736844486ce38eebbc1"
+      },
+      {
+        "path": "tests/test_collector197a.py",
+        "sha256": "0b332f537f47039b4a4a4c2df5cc42470d7635c640bbab021cc8333eaa4600b1"
       },
       {
         "path": "tests/test_collector_mail_fixture.py",
