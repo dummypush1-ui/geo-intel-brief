@@ -586,6 +586,7 @@
         "tests/test_pagewatch_report_contract.py",
         "tests/test_replay199a.py",
         "tests/test_replay199b.py",
+        "tests/test_replay199ca.py",
         "tests/test_rss_catalog.py",
         "tests/test_shared_ledger_fixture.py",
         "tests/test_shared_service_fixture.py",
@@ -1165,6 +1166,7 @@
         "integration/page_watch.py",
         "integration/renderer_scope.py",
         "integration/replay199_adapters.py",
+        "integration/replay199_broker.py",
         "integration/replay199_schema.py",
         "integration/retention_audit.py",
         "integration/stream_config.py",
@@ -1387,6 +1389,7 @@
         "integration/relevance.py",
         "integration/renderer_scope.py",
         "integration/replay199_adapters.py",
+        "integration/replay199_broker.py",
         "integration/replay199_core.py",
         "integration/replay199_preflight.py",
         "integration/replay199_schema.py",
@@ -1538,6 +1541,7 @@
         "tests/test_query_validation188.py",
         "tests/test_replay199a.py",
         "tests/test_replay199b.py",
+        "tests/test_replay199ca.py",
         "tests/test_report_preview_frame.py",
         "tests/test_report_styles.py",
         "tests/test_retention_audit.py",
@@ -1885,6 +1889,7 @@
         "integration/news_export/fixture_http.py",
         "integration/news_export/geo_snapshot.py",
         "integration/news_export/raw_pager.py",
+        "integration/replay199_broker.py",
         "integration/replay199_schema.py",
         "integration/retention_audit.py",
         "integration/supplied_fulltext_fixture.py",
@@ -2217,6 +2222,7 @@
         "tests/test_refresh_controller.py",
         "tests/test_replay199a.py",
         "tests/test_replay199b.py",
+        "tests/test_replay199ca.py",
         "tests/test_rss177.py",
         "tests/test_rss_catalog.py",
         "tests/test_sanctions152.py",
@@ -3070,6 +3076,7 @@
         "tests/test_proxy164.py",
         "tests/test_refresh149_gate.py",
         "tests/test_refresh_controller.py",
+        "tests/test_replay199ca.py",
         "tests/test_sanctions152.py",
         "tests/test_ships179.py",
         "tests/test_table_edit151.py",
@@ -3242,7 +3249,8 @@
         "tests/test_mail166.py",
         "tests/test_preview_launcher.py",
         "tests/test_replay199a.py",
-        "tests/test_replay199b.py"
+        "tests/test_replay199b.py",
+        "tests/test_replay199ca.py"
       ],
       "stdlib": false,
       "distributions": [],
@@ -3718,6 +3726,7 @@
         "tests/test_refresh_controller.py",
         "tests/test_replay199a.py",
         "tests/test_replay199b.py",
+        "tests/test_replay199ca.py",
         "tests/test_report_preview_frame.py",
         "tests/test_report_styles.py",
         "tests/test_retention_audit.py",
@@ -3851,6 +3860,7 @@
         "integration/geo_probe_http.py",
         "integration/news_export/fixture_http.py",
         "integration/preview_access.py",
+        "integration/replay199_broker.py",
         "tests/accounts/browser_http_fixture.py",
         "tests/accounts/test_merged_fixture.py",
         "tests/browser_brics_streams.py",
@@ -3877,6 +3887,7 @@
         "tests/test_geo_only_runtime.py",
         "tests/test_geo_probe_http.py",
         "tests/test_preview_access.py",
+        "tests/test_replay199ca.py",
         "tests/test_runtime.py",
         "tests/test_single_db_runtime.py"
       ],
@@ -4719,6 +4730,10 @@
       {
         "path": "integration/replay199_adapters.py",
         "sha256": "6fa6c22bc6180964a6d52b0d5a475f1e9cec567515a2eaa73f79267d9e6b3dba"
+      },
+      {
+        "path": "integration/replay199_broker.py",
+        "sha256": "4509f501ea2be68a0cfacd5f158e2684b27cb007f086c64f5caecf849773257f"
       },
       {
         "path": "integration/replay199_core.py",
@@ -5603,6 +5618,10 @@
       {
         "path": "tests/test_replay199b.py",
         "sha256": "88e1ed8eab927796ad0823d650b0c9ed572181b380680d3bddbded5ed29adab4"
+      },
+      {
+        "path": "tests/test_replay199ca.py",
+        "sha256": "eaf011dac78b3bcdb22d9132c2ceb8bef79c70c9e81ce17cfaf0547c15ce936d"
       },
       {
         "path": "tests/test_report_preview_frame.py",
