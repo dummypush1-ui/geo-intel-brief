@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 1571,
+  "tests": 1575,
   "files": [
     {
       "path": ".env.example",
@@ -1696,6 +1696,11 @@
       "sha256": "e3c1be23fe526f1a60304fdaae55a8da34711387767f312d96b3efb4c6dc1031"
     },
     {
+      "path": "integration/API-V1-187.md",
+      "bytes": 1203,
+      "sha256": "09d8476aa78eb79521c46998aa644a1eb53b31680bec1c12cfe6db05a57902a0"
+    },
+    {
       "path": "integration/ARTICLE_ARCHIVE_LIMITS.md",
       "bytes": 3432,
       "sha256": "f449ed2efdcbbca2a76ec5e3aa920edb538486b7e5c86f6dba460dd1d9cc9994"
@@ -2096,6 +2101,11 @@
       "sha256": "255c3984d99111d1660fad653e75cd8d874bef1f8ae8da55864be8368ba396e4"
     },
     {
+      "path": "integration/api_v1.py",
+      "bytes": 869,
+      "sha256": "fe50346ab7d5deb6f9b16d8470b95647953b6c9caee5574bd73c6c2faf06600c"
+    },
+    {
       "path": "integration/apps_script_audit/README.md",
       "bytes": 6775,
       "sha256": "5948049385be05306a3cc6df2b05bfcef1fd9b52b82863c0731e985ab5ba440f"
@@ -2338,12 +2348,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 18581,
-      "sha256": "22f6497e3357a0bbfa459146236b145b2287d81810d6f0d7e4c3325e035c1354"
+      "sha256": "783a456103044665a617c0424a7a266e675c7a50601dac081c3562761ac7cbbb"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
-      "bytes": 187521,
-      "sha256": "123e4cbc0dd820a3b52d628d439874039e7af47baddcee0a24fe986bf83a4181"
+      "bytes": 187918,
+      "sha256": "298b87f8d77a75a261e9db5f2a1c46f91ffd0dd4acb74877a89b9bdda3d710de"
     },
     {
       "path": "integration/dependency_build/README.md",
@@ -2727,8 +2737,8 @@
     },
     {
       "path": "integration/news_api.py",
-      "bytes": 26527,
-      "sha256": "106fa82f8f7a50f30bac4e3e7cc06bd985c0af224c7f03d18d676373b2690657"
+      "bytes": 26598,
+      "sha256": "13893dff1770d006462eee0cfa562406454ebb60036a0c24cb2295882662c4d8"
     },
     {
       "path": "integration/news_export/FIXTURE_HTTP_LIMITS.md",
@@ -3002,8 +3012,8 @@
     },
     {
       "path": "integration/public_preview_builder.py",
-      "bytes": 4774,
-      "sha256": "6e35a0b0f5fc85cdf441b0c46939b2f5f2e413f8a342ffc5902561ffca90db05"
+      "bytes": 4914,
+      "sha256": "b5e816e03bd6d51949291103bfb4302fa5f4dd14ca1027032d55eea319cb6d74"
     },
     {
       "path": "integration/publication_dates/CONTRACT.md",
@@ -5109,6 +5119,11 @@
       "path": "tests/test_agencia_parser.py",
       "bytes": 3584,
       "sha256": "1d93647a48a3f6d2c88d7441273865b4eac3897c1f7d71eb54bc631ddb6971a8"
+    },
+    {
+      "path": "tests/test_api_v1_187.py",
+      "bytes": 3575,
+      "sha256": "dd49fc23a2cee11d27e10da5a6ccb9e9ad53bd8e4d0f40deec4a14fdf6c35f65"
     },
     {
       "path": "tests/test_apps_script_audit.py",

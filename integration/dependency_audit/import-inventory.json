@@ -520,6 +520,7 @@
         "tests/geospatial/test_geospatial.py",
         "tests/news_export/test_keyset_plan.py",
         "tests/publication_dates/test_policy.py",
+        "tests/test_api_v1_187.py",
         "tests/test_article_archive.py",
         "tests/test_collector_mail_fixture.py",
         "tests/test_country_signals.py",
@@ -1157,6 +1158,7 @@
         "tests/news_export/test_raw_pager.py",
         "tests/publication_dates/test_policy.py",
         "tests/test_agencia_parser.py",
+        "tests/test_api_v1_187.py",
         "tests/test_article_archive.py",
         "tests/test_backup184.py",
         "tests/test_branding.py",
@@ -3078,6 +3080,7 @@
         "tests/news_export/test_raw_pager.py",
         "tests/publication_dates/test_policy.py",
         "tests/test_agencia_parser.py",
+        "tests/test_api_v1_187.py",
         "tests/test_apps_script_audit.py",
         "tests/test_article_archive.py",
         "tests/test_backup184.py",
@@ -3678,6 +3681,10 @@
         "sha256": "255c3984d99111d1660fad653e75cd8d874bef1f8ae8da55864be8368ba396e4"
       },
       {
+        "path": "integration/api_v1.py",
+        "sha256": "fe50346ab7d5deb6f9b16d8470b95647953b6c9caee5574bd73c6c2faf06600c"
+      },
+      {
         "path": "integration/apps_script_audit/labeled_run.py",
         "sha256": "10688b7be0964a5f5ff36c0392c3d4aaad0e80127168a01b1642a207eacaf40d"
       },
@@ -3935,7 +3942,7 @@
       },
       {
         "path": "integration/news_api.py",
-        "sha256": "106fa82f8f7a50f30bac4e3e7cc06bd985c0af224c7f03d18d676373b2690657"
+        "sha256": "13893dff1770d006462eee0cfa562406454ebb60036a0c24cb2295882662c4d8"
       },
       {
         "path": "integration/news_export/__init__.py",
@@ -4019,7 +4026,7 @@
       },
       {
         "path": "integration/public_preview_builder.py",
-        "sha256": "6e35a0b0f5fc85cdf441b0c46939b2f5f2e413f8a342ffc5902561ffca90db05"
+        "sha256": "b5e816e03bd6d51949291103bfb4302fa5f4dd14ca1027032d55eea319cb6d74"
       },
       {
         "path": "integration/publication_dates/policy.py",
@@ -4400,6 +4407,10 @@
       {
         "path": "tests/test_agencia_parser.py",
         "sha256": "1d93647a48a3f6d2c88d7441273865b4eac3897c1f7d71eb54bc631ddb6971a8"
+      },
+      {
+        "path": "tests/test_api_v1_187.py",
+        "sha256": "dd49fc23a2cee11d27e10da5a6ccb9e9ad53bd8e4d0f40deec4a14fdf6c35f65"
       },
       {
         "path": "tests/test_apps_script_audit.py",

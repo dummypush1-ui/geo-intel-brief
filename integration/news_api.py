@@ -379,6 +379,8 @@ def create_app(reader=None,authorize=None,finder_context_reader=None,finder_base
   return jsonify(items=out[:100])
  @app.get('/dashboard')
  def dashboard():return jsonify(state='Private dashboard UI requires Phase 2 login'),503
+ from integration.api_v1 import install as install_v1
+ install_v1(app)
  return app
 
 # Preserve integration.news_api:app without constructing a fixture during imports.
