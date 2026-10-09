@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 2066,
+  "tests": 2074,
   "files": [
     {
       "path": ".env.example",
@@ -1816,6 +1816,11 @@
       "sha256": "a834549638b2a31765a5781655b041c722188e5a62e0d4c7228de881b04df2a7"
     },
     {
+      "path": "integration/EXISTING-SCHEMA215.md",
+      "bytes": 3619,
+      "sha256": "f8e57056114b2f6f4607aa24280dbf637149a7b4ac9e637c411a4f8955868e8b"
+    },
+    {
       "path": "integration/EXPORT_DIGEST_LIMITS.md",
       "bytes": 3157,
       "sha256": "95f9029499f75d2138ebe320ddb1accd7ad7690799dacaee9feb2d5b0b02bc1c"
@@ -2698,12 +2703,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 18581,
-      "sha256": "d4518576afce5eab04bceacfa9da62ce64d0e7be09252f94fbbf9effa2b4b1a8"
+      "sha256": "c2edd38fad046538af92cb7ca05759adc7b69426872c2ce07908f0fde47d8504"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
-      "bytes": 241521,
-      "sha256": "c45a77924e757cf1126d5f33c29968b0d8ab748ebfc6867fd305c5982fc02631"
+      "bytes": 242272,
+      "sha256": "204e49c3b8787d344b68ae1f4cbc868a1abcc95b0e2c52f09fe663db5d2ad3f4"
     },
     {
       "path": "integration/dependency_build/README.md",
@@ -2769,6 +2774,11 @@
       "path": "integration/event_reader.py",
       "bytes": 2907,
       "sha256": "fbddedabef6ba54c3b47f70e94511310b69a6b7466f393a40088034e23d526df"
+    },
+    {
+      "path": "integration/existing_schema215.py",
+      "bytes": 1637,
+      "sha256": "0d59e1be1887db0e20932ef7b7acbaa8e15b56097ba62c561402585a0a7da8ea"
     },
     {
       "path": "integration/fake_collection_writer.py",
@@ -6104,6 +6114,11 @@
       "path": "tests/test_events210.py",
       "bytes": 2224,
       "sha256": "bd00bd52428fc70f78746ef1fec47503460cf7ffd145102754a5bd1c106735f7"
+    },
+    {
+      "path": "tests/test_existing_schema215.py",
+      "bytes": 6245,
+      "sha256": "d60c609cce1597995e7b05fc501ff07f6af8f82409482a4ec406ee6318587108"
     },
     {
       "path": "tests/test_factory176.py",

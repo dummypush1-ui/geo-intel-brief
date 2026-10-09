@@ -24,6 +24,7 @@
         "tests/test_collector197ea.py",
         "tests/test_collector_mail_fixture.py",
         "tests/test_env_example.py",
+        "tests/test_existing_schema215.py",
         "tests/test_feature_mail_prep.py",
         "tests/test_fixed_parser_pipeline.py",
         "tests/test_geo_collector_contract.py",
@@ -563,6 +564,7 @@
         "integration/db_contract/plan.py",
         "integration/db_contract/query_plan.py",
         "integration/digest_windows193.py",
+        "integration/existing_schema215.py",
         "integration/fake_collection_writer.py",
         "integration/finder198_budget.py",
         "integration/finder198_ops.py",
@@ -610,6 +612,7 @@
         "tests/test_country_alerts.py",
         "tests/test_country_signals.py",
         "tests/test_digest_render203.py",
+        "tests/test_existing_schema215.py",
         "tests/test_feature_finder_mount_policy.py",
         "tests/test_feature_mail_mount.py",
         "tests/test_feature_related_calibration.py",
@@ -1269,6 +1272,7 @@
         "tests/test_context_excerpt208.py",
         "tests/test_country_alerts.py",
         "tests/test_cross_routes.py",
+        "tests/test_existing_schema215.py",
         "tests/test_fake_collection_writer.py",
         "tests/test_feature_finder_prep.py",
         "tests/test_finder198bb.py",
@@ -1455,6 +1459,7 @@
         "integration/digest_dates202.py",
         "integration/digest_preview.py",
         "integration/digest_render203.py",
+        "integration/existing_schema215.py",
         "integration/feedparser_audit/child.py",
         "integration/feedparser_audit/runner.py",
         "integration/finder198_auth.py",
@@ -1627,6 +1632,7 @@
         "tests/test_env_example.py",
         "tests/test_event_reader.py",
         "tests/test_events210.py",
+        "tests/test_existing_schema215.py",
         "tests/test_factory176.py",
         "tests/test_fake_collection_writer.py",
         "tests/test_feature_mail_prep.py",
@@ -2115,6 +2121,7 @@
         "tests/test_country_alerts.py",
         "tests/test_edge_guard.py",
         "tests/test_event_reader.py",
+        "tests/test_existing_schema215.py",
         "tests/test_file_audit.py",
         "tests/test_finder198a.py",
         "tests/test_finder198bb.py",
@@ -2387,6 +2394,7 @@
         "tests/test_edge_guard.py",
         "tests/test_env_example.py",
         "tests/test_events210.py",
+        "tests/test_existing_schema215.py",
         "tests/test_feature_finder_prep.py",
         "tests/test_feature_mail_mount.py",
         "tests/test_feature_mail_prep.py",
@@ -3193,6 +3201,7 @@
         "tests/news_export/test_export.py",
         "tests/news_export/test_fixture_serving.py",
         "tests/test_collector197b_connector.py",
+        "tests/test_existing_schema215.py",
         "tests/test_feature_mail_prep.py",
         "tests/test_finder198bb.py",
         "tests/test_smtp_caller213.py",
@@ -3924,6 +3933,7 @@
         "tests/test_env_example.py",
         "tests/test_event_reader.py",
         "tests/test_events210.py",
+        "tests/test_existing_schema215.py",
         "tests/test_factory176.py",
         "tests/test_fake_collection_writer.py",
         "tests/test_feature_finder_mount_policy.py",
@@ -4748,6 +4758,10 @@
       {
         "path": "integration/event_reader.py",
         "sha256": "fbddedabef6ba54c3b47f70e94511310b69a6b7466f393a40088034e23d526df"
+      },
+      {
+        "path": "integration/existing_schema215.py",
+        "sha256": "0d59e1be1887db0e20932ef7b7acbaa8e15b56097ba62c561402585a0a7da8ea"
       },
       {
         "path": "integration/fake_collection_writer.py",
@@ -5808,6 +5822,10 @@
       {
         "path": "tests/test_events210.py",
         "sha256": "bd00bd52428fc70f78746ef1fec47503460cf7ffd145102754a5bd1c106735f7"
+      },
+      {
+        "path": "tests/test_existing_schema215.py",
+        "sha256": "d60c609cce1597995e7b05fc501ff07f6af8f82409482a4ec406ee6318587108"
       },
       {
         "path": "tests/test_factory176.py",
