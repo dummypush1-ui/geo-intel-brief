@@ -1016,6 +1016,7 @@
         "integration/geo_rolling_breakdown.py",
         "integration/geo_sample_probe.py",
         "integration/geo_sample_probe_child.py",
+        "integration/geonews_digest/delivery.py",
         "integration/html_safety.py",
         "integration/loaded_charts.py",
         "integration/loaded_news.py",
@@ -1165,6 +1166,7 @@
         "tests/test_single_db_plan.py",
         "tests/test_single_db_runtime.py",
         "tests/test_site_parsers.py",
+        "tests/test_smtp174.py",
         "tests/test_source_health.py",
         "tests/test_storage165.py",
         "tests/test_storage_reader.py",
@@ -1580,6 +1582,7 @@
         "integration/news_export/original_stream.py",
         "integration/preview_access.py",
         "integration/retention_audit.py",
+        "integration/smtp_policy.py",
         "integration/supplied_collector_pipeline.py",
         "integration/supplied_feed_fixture.py",
         "integration/supplied_fulltext_fixture.py",
@@ -2387,7 +2390,8 @@
       "import": "smtplib",
       "files": [
         "integration/geonews_digest/delivery.py",
-        "tests/digest_cold_probe.py"
+        "tests/digest_cold_probe.py",
+        "tests/test_smtp174.py"
       ],
       "stdlib": true,
       "distributions": [],
@@ -3062,6 +3066,7 @@
         "tests/test_single_db_plan.py",
         "tests/test_single_db_runtime.py",
         "tests/test_site_parsers.py",
+        "tests/test_smtp174.py",
         "tests/test_source_health.py",
         "tests/test_storage165.py",
         "tests/test_storage_reader.py",
@@ -3711,7 +3716,7 @@
       },
       {
         "path": "integration/geonews_digest/delivery.py",
-        "sha256": "0eb4afbecb16f0c166303cb551ab075ce53d8f140ea1e9e323e03ac0b968c29e"
+        "sha256": "527be6ca3a1a42d3e384195f57cfd899940f84f0f72fc25c3a1f7ea9a46985e1"
       },
       {
         "path": "integration/geonews_digest/model.py",
@@ -3924,6 +3929,10 @@
       {
         "path": "integration/site_scraper.py",
         "sha256": "ca8ea55103c13506c032a164a1c3cd5baafa5456752535c962b2e4908a2fe558"
+      },
+      {
+        "path": "integration/smtp_policy.py",
+        "sha256": "30ffa0ce3db826dca43c16e1de86e766ad528c92d07c3e480e9052b2aa991b8f"
       },
       {
         "path": "integration/source_health.py",
@@ -4660,6 +4669,10 @@
       {
         "path": "tests/test_site_parsers.py",
         "sha256": "47baaa59d9a049e757b7d6547349c963cba9607e6c76223037e440baab9f7954"
+      },
+      {
+        "path": "tests/test_smtp174.py",
+        "sha256": "81f3bbd9c2cec228d500360d552aeb16d6857c616c95aa92d023682fe36c4762"
       },
       {
         "path": "tests/test_source_health.py",

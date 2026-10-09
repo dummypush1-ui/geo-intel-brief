@@ -11,6 +11,7 @@ return values.
 """
 import http.client
 import re
+from integration.smtp_policy import transport_plan
 import smtplib
 import ssl
 import urllib.error
@@ -56,9 +57,10 @@ def _recipients(to):
 
 # ------------------------------------------------------------ transports
 
-def smtp_sender(*, enabled=False, host, port=465, user, password, mail_from, mail_to, timeout=30):
-    """-> sender(subject, html) using SMTP over SSL (geonews email_report.send)."""
+def smtp_sender(*, enabled=False, host, port=465, user, password, mail_from, mail_to, timeout=30, tls_mode="implicit_tls", profile="geo"):
+    """DefaultOFF sender with explicit TLS mode/port, no plaintext fallback."""
     _need_enabled(enabled)
+    plan = transport_plan(profile, tls_mode, port, timeout)
     to = _recipients(mail_to)
     frm = _check_header(mail_from, "mail_from")
     if not _EMAIL_RE.match(frm):
@@ -71,7 +73,16 @@ def smtp_sender(*, enabled=False, host, port=465, user, password, mail_from, mai
         msg["To"] = ", ".join(to)
         msg.attach(MIMEText(html_body, "html", "utf-8"))
         try:
-            with smtplib.SMTP_SSL(host, port, context=ssl.create_default_context(), timeout=timeout) as server:
+            context = ssl.create_default_context()
+            if plan['mode'] == 'implicit_tls':
+                connection = smtplib.SMTP_SSL(host, port, context=context, timeout=timeout)
+            else:
+                connection = smtplib.SMTP(host, port, timeout=timeout)
+            with connection as server:
+                if plan['mode'] == 'starttls':
+                    server.ehlo()
+                    server.starttls(context=context)
+                    server.ehlo()
                 server.login(user, password)
                 server.sendmail(frm, to, msg.as_string())
         except (smtplib.SMTPException, OSError) as exc:
