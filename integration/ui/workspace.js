@@ -1,3 +1,4 @@
+import {newsScrollController} from './news_scroll.js';
 /* Copyright (c) 2026 Push. No key or live endpoint in this client. */
 const byId = id => document.getElementById(id);
 let active = 'finder', relatedId = 0, newsId = 0, statsId = 0, signalsId = 0, snapshotsId = 0, volumeId = 0, lastContext = '';
@@ -6,8 +7,8 @@ const SYS_COUNTRY = {IN:'India',US:'United States',EU:'European Union',UK:'Unite
 function safeLink(value) {
   try { const u = new URL(value); return ['https:','http:'].includes(u.protocol) && !u.username && !u.password ? u.href : null; } catch { return null; }
 }
-function render(container, items) {
-  container.replaceChildren();
+function render(container, items, append = false) {
+  if(!append)container.replaceChildren();
   for (const item of items) {
     const article = item.article || item, url = safeLink(article.url);
     if (!url) continue;
@@ -48,7 +49,41 @@ async function request(url, options) {
   if (!response.ok) throw new Error('News is unavailable. Finder remains separate.');
   const data = await response.json(); return Array.isArray(data.items) ? data.items : [];
 }
+const fullPages = byId('news-view').dataset.fullNewsPages === 'true';
+let shownNews=0,removedNews=0;
+const scrollNews=newsScrollController({
+ async fetchPage(filters,cursor,signal){
+  const p=new URLSearchParams({...filters,limit:'25'});if(cursor)p.set('cursor',cursor);
+  const r=await fetch('/api/news-page?'+p,{credentials:'same-origin',cache:'no-store',signal});
+  if(r.status===409)throw new Error('News read expired or changed. Refresh to restart.');
+  if(r.status===429)throw new Error('News is busy. Refresh to retry after a short pause.');
+  if(!r.ok)throw new Error('Whole-store news unavailable. Refresh to restart.');
+  return r.json();
+ },
+ onPage(items,{first}){
+  const box=byId('news-results');if(first){box.replaceChildren();shownNews=removedNews=0;}
+  render(box,items,true);shownNews+=items.length;
+  // Bound live DOM without imposing a bound on store traversal. Preserve visual
+  // position by compensating for removed cards above the viewport.
+  let removedHeight=0;
+  while(box.children.length>200){const card=box.firstElementChild;removedHeight+=card.getBoundingClientRect().height+parseFloat(getComputedStyle(card).marginBottom||0)+parseFloat(getComputedStyle(card).marginTop||0);card.remove();removedNews++;}
+  if(removedHeight)window.scrollBy(0,-removedHeight);
+  const notice=byId('news-trim-notice');notice.hidden=!removedNews;notice.textContent=removedNews?`${removedNews} earlier cards left the display window. Refresh to start over.`:'';
+  byId('news-status').textContent=`Read ${shownNews} matching stories so far. Total unknown; source can change.`;
+ },
+ onState(text,{busy,canLoad}){if(text)byId('news-scroll-status').textContent=text;byId('news-load-more').disabled=!canLoad;byId('news-results').setAttribute('aria-busy',String(busy));}
+});
+byId('news-load-more').addEventListener('click',()=>scrollNews.more());
+if('IntersectionObserver'in window){
+ const observer=new IntersectionObserver(entries=>{if(fullPages && active==='geo' && entries.some(e=>e.isIntersecting))scrollNews.more();},{rootMargin:'0px 0px 300px 0px'});
+ observer.observe(byId('news-scroll-sentinel'));
+}
 async function readNews() {
+ if(fullPages && active==='geo'){
+  ++newsId;byId('news-scroll-sentinel').hidden=false;byId('news-status').textContent='Loading whole-store read...';byId('news-results').replaceChildren();byId('news-trim-notice').hidden=true;readVolume(active);
+  return scrollNews.reset({q:byId('news-query').value,project:active,category:byId('news-category').value,country:byId('news-country').value,sort:byId('news-sort').value});
+ }
+
   const id = ++newsId, project = active;
   byId('news-status').textContent = 'Loading news...'; byId('news-results').replaceChildren();readVolume(project);
   try {
@@ -59,6 +94,7 @@ async function readNews() {
   } catch (error) { if (id === newsId) byId('news-status').textContent = error.message; }
 }
 for (const button of document.querySelectorAll('[data-view]')) button.addEventListener('click', () => {
+  scrollNews.cancel();byId('news-scroll-sentinel').hidden=true;
   active = button.dataset.view;
   for (const other of document.querySelectorAll('[data-view]')) other.setAttribute('aria-pressed',String(other === button));
   byId('finder-view').hidden = active !== 'finder'; byId('news-view').hidden = active !== 'geo';byId('live-view').hidden=active!=='live';byId('channels-view').hidden=active!=='channels';

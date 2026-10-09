@@ -1,0 +1,11 @@
+import assert from 'node:assert/strict';import {newsScrollController} from '../integration/ui/news_scroll.js';
+const token='a'.repeat(43),token2='b'.repeat(43),data=(next=token)=>({scope:'whole_geo_store_cursor',consistency:'mutable_read_not_snapshot',items:[{title:'one'}],next_cursor:next});
+let pending=[],calls=[],pages=[],states=[];
+const c=newsScrollController({fetchPage:(f,t,s)=>{calls.push({f,t,s});return new Promise((resolve,reject)=>pending.push({resolve,reject}));},onPage:(p,s)=>pages.push({p,s}),onState:(t,s)=>states.push({t,s})});
+let first=c.reset({q:'first'});assert.equal(calls.length,1);assert.equal(await c.more(),false);pending.shift().resolve(data());await first;assert.equal(pages.length,1);
+let more=c.more();assert.equal(calls[1].t,token);pending.shift().resolve(data(token2));await more;assert.equal(pages[1].s.first,false);
+let old=c.more();let newer=c.reset({q:'new'});assert.equal(calls[2].s.aborted,true);pending.shift().resolve(data(null));await old;assert.equal(pages.length,2);pending.shift().resolve(data(null));await newer;assert.equal(pages.length,3);assert.equal(await c.more(),false);
+first=c.reset({q:'empty'});pending.shift().resolve({...data(),items:[]});await first;assert.equal(states.at(-1).s.canLoad,true);more=c.more();pending.shift().reject(new Error('expired409'));await more;assert.equal(await c.more(),false);assert(states.some(s=>s.t==='expired409'));
+first=c.reset({q:'bad'});pending.shift().resolve({...data(),scope:'private'});await first;assert.equal(await c.more(),false);
+first=c.reset({q:'cancel'});c.cancel();pending.shift().resolve(data());await first;assert.equal(pages.length,4);
+console.log('serial append reset/abort stale/EOF empty-page/manual error-lock and schema validation PASS');

@@ -137,6 +137,7 @@ def build_public_live_preview(environ,client_factory=None,clock=time.monotonic):
   if request.path=='/workspace' and response.status_code==200:
    response.direct_passthrough=False
    html=response.get_data(as_text=True)
+   if pages is not None:html=html.replace('Geo news dashboard. Collection, mail and scraper remain off.','Public read-only Geo news. Scroll the whole article store; totals unknown and source can change. Summary panels and CSV remain latest100 sample. Collection, mail and scraper remain off.')
    html=html.replace('GEO INTEL MONITOR · PRIVATE PREVIEW','GEO INTEL MONITOR · PUBLIC NEWS PREVIEW')
    html=html.replace('Geo news dashboard. Collection, mail and scraper remain off.','Public read-only Geo news. Latest up to 100 stored articles, refreshed on demand at most once per minute. Not whole-database totals. Collection, mail and scraper remain off.')
    html=html.replace('src="/workspace/finder/index.html"','src="/workspace/finder/offline.html"')

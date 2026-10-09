@@ -1210,6 +1210,7 @@
         "tests/test_mongo_account_store.py",
         "tests/test_news182.py",
         "tests/test_news_pages185.py",
+        "tests/test_news_scroll186.py",
         "tests/test_offline_collection_cycle.py",
         "tests/test_original_dashboard_payloads.py",
         "tests/test_original_reports.py",
@@ -1820,6 +1821,7 @@
         "tests/test_mail166.py",
         "tests/test_monitor155.py",
         "tests/test_news182.py",
+        "tests/test_news_scroll186.py",
         "tests/test_preservation.py",
         "tests/test_preview_launcher.py",
         "tests/test_protocol145_inventory.py",
@@ -2602,6 +2604,7 @@
         "tests/test_geo_probe_process.py",
         "tests/test_gst154.py",
         "tests/test_monitor155.py",
+        "tests/test_news_scroll186.py",
         "tests/test_page_watch_parser_budget.py",
         "tests/test_preview_access.py",
         "tests/test_proxy164.py",
@@ -3153,6 +3156,7 @@
         "tests/test_monitor155.py",
         "tests/test_news182.py",
         "tests/test_news_pages185.py",
+        "tests/test_news_scroll186.py",
         "tests/test_offline_collection_cycle.py",
         "tests/test_original_dashboard_payloads.py",
         "tests/test_original_reports.py",
@@ -3931,7 +3935,7 @@
       },
       {
         "path": "integration/news_api.py",
-        "sha256": "36cdf293dc67d0f574cccd16a3f17ba0528ad634727ca3780b12814a9fd4362e"
+        "sha256": "106fa82f8f7a50f30bac4e3e7cc06bd985c0af224c7f03d18d676373b2690657"
       },
       {
         "path": "integration/news_export/__init__.py",
@@ -4007,7 +4011,7 @@
       },
       {
         "path": "integration/public_live_builder.py",
-        "sha256": "0b5b77f8f1b8ee3dbdadd903d1a1a7529e33c98cb878d8ef8ebb38e190f847d1"
+        "sha256": "4fd7750ea83288bafff4fc40563c24762b58a89fbfe1140ba29b7e65d9f24f35"
       },
       {
         "path": "integration/public_news.py",
@@ -4015,7 +4019,7 @@
       },
       {
         "path": "integration/public_preview_builder.py",
-        "sha256": "f4456151b1f2275171a44bc7a422b54a5f56014ea462a65dfb35424080af624a"
+        "sha256": "6e35a0b0f5fc85cdf441b0c46939b2f5f2e413f8a342ffc5902561ffca90db05"
       },
       {
         "path": "integration/publication_dates/policy.py",
@@ -4708,6 +4712,10 @@
       {
         "path": "tests/test_news_pages185.py",
         "sha256": "59ddde9d0853668b1cedaac67cf616d97d2818caabc548a49f6ff9b0ee7ee393"
+      },
+      {
+        "path": "tests/test_news_scroll186.py",
+        "sha256": "2d117f639470aa87f566a10c4fc7051d6a4716aa21805a08e8ead6632493265d"
       },
       {
         "path": "tests/test_offline_collection_cycle.py",
