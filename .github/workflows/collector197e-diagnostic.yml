@@ -1,0 +1,28 @@
+name: Collector197e read-only diagnostic
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  diagnostic:
+    if: github.repository == 'dummypush1-ui/geo-intel-brief' && github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: c1697b2e6bb5386ef0f2023e3bd8f4b83d468d30
+          persist-credentials: false
+      - name: Install bounded diagnostic dependencies
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo -n apt-get update
+          sudo -n apt-get install -y bubblewrap
+          python3 -m venv .collector-job-env
+          .collector-job-env/bin/python -m pip install --require-hashes -r requirements-future-deploy.lock
+      - name: Disposable aggregate guard diagnostics only
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo -n /bin/bash integration/collector197_job_diagnostic.sh --diagnose
