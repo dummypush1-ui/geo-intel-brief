@@ -25,6 +25,12 @@ def build_production_app(environ, public_builder=None, *, runtime_evidence=None,
     bad = [k for k in _UNWIRED_SWITCHES if environ.get(k, 'false') != 'false']
     if bad:
         raise ValueError('Component not wired in production entry: ' + ', '.join(bad))
+    probe_flag=environ.get('COLLECTOR_HOST_PROBE_ENABLED','false')
+    if probe_flag not in ('false','true'):raise ValueError('Exact host probe switch required')
+    probe_app=None
+    if probe_flag=='true':
+        from integration.collector197_host_probe import create_host_probe
+        probe_app=create_host_probe(environ)
     flag=environ.get('COLLECTION_ENABLED','false')
     if flag not in ('false','true'):raise ValueError('Exact collection switch required')
     collector=None
@@ -46,6 +52,12 @@ def build_production_app(environ, public_builder=None, *, runtime_evidence=None,
         from integration.collector197_dispatcher import CollectorDispatcher
         app.wsgi_app=CollectorDispatcher(app.wsgi_app,collector.wsgi_app)
         app.extensions['collector_close']=collector.extensions['collector_close']
+    if probe_app is not None:
+        original=app.wsgi_app
+        def probe_dispatch(env,start_response):
+            if env.get('PATH_INFO')=='/api/collector-host-probe':return probe_app.wsgi_app(env,start_response)
+            return original(env,start_response)
+        app.wsgi_app=probe_dispatch
     comps = {k: dict(v) for k, v in COMPONENTS.items()}
     for v in comps.values():
         # 'wired' = code path exists in this entry; gate_state = actual env switch (default 'false').

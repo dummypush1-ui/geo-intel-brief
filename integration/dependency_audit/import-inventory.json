@@ -950,6 +950,7 @@
       "files": [
         "feature_mail_mount/http.py",
         "integration/accounts/http_fixture.py",
+        "integration/collector197_host_probe.py",
         "integration/collector197_http.py",
         "integration/edge_guard.py",
         "integration/geo_probe_http.py",
@@ -964,6 +965,7 @@
         "tests/test_edge_guard.py",
         "tests/test_factory176.py",
         "tests/test_feature_mail_mount.py",
+        "tests/test_host197da.py",
         "tests/test_mail166.py",
         "tests/test_security_headers.py"
       ],
@@ -1054,6 +1056,18 @@
         "source": "sys.stdlib_module_names"
       },
       "classification": "stdlib"
+    },
+    {
+      "import": "gc",
+      "stdlib": true,
+      "distributions": [],
+      "classification": "stdlib",
+      "provenance": {
+        "source": "sys.stdlib_module_names"
+      },
+      "files": [
+        "integration/collector197_host_probe.py"
+      ]
     },
     {
       "import": "gzip",
@@ -1176,6 +1190,7 @@
         "integration/accounts/limiter.py",
         "integration/accounts/passwords.py",
         "integration/accounts/shared_ledger_fixture.py",
+        "integration/collector197_host_probe.py",
         "integration/collector197_http.py",
         "integration/geo_probe_http.py",
         "integration/preview_access.py",
@@ -1426,6 +1441,7 @@
         "tests/test_geo_rolling_breakdown.py",
         "tests/test_geo_sample_probe.py",
         "tests/test_geo_snapshot.py",
+        "tests/test_host197da.py",
         "tests/test_invite_expiry.py",
         "tests/test_links170.py",
         "tests/test_live_news_ui.py",
@@ -1765,6 +1781,7 @@
         "integration/collector197_coordinator_child.py",
         "integration/collector197_coverage.py",
         "integration/collector197_feed_child.py",
+        "integration/collector197_host_probe.py",
         "integration/collector197_http.py",
         "integration/collector197_parser.py",
         "integration/collector197_supervisor.py",
@@ -1940,6 +1957,7 @@
         "integration/collector197_coordinator.py",
         "integration/collector197_coordinator_child.py",
         "integration/collector197_feed_child.py",
+        "integration/collector197_host_probe.py",
         "integration/collector197_parser.py",
         "integration/collector197_supervisor.py",
         "integration/feedparser_audit/child.py",
@@ -1998,6 +2016,7 @@
         "integration/collector197_coordinator.py",
         "integration/collector197_coordinator_child.py",
         "integration/collector197_feed_child.py",
+        "integration/collector197_host_probe.py",
         "integration/collector197_parser.py",
         "integration/collector197_supervisor.py",
         "integration/collector_mail_fixture.py",
@@ -2146,6 +2165,18 @@
       "classification": "optional_absent"
     },
     {
+      "import": "platform",
+      "stdlib": true,
+      "distributions": [],
+      "classification": "stdlib",
+      "provenance": {
+        "source": "sys.stdlib_module_names"
+      },
+      "files": [
+        "integration/collector197_host_probe.py"
+      ]
+    },
+    {
       "import": "playwright",
       "files": [
         "tests/accounts/browser_http_fixture.py",
@@ -2199,7 +2230,8 @@
       },
       "files": [
         "tests/test_collector197c.py",
-        "tests/test_factory176.py"
+        "tests/test_factory176.py",
+        "tests/test_host197da.py"
       ]
     },
     {
@@ -2778,6 +2810,7 @@
       "files": [
         "integration/collector197_coordinator.py",
         "integration/collector197_coordinator_child.py",
+        "integration/collector197_host_probe.py",
         "integration/collector197_parser.py",
         "integration/collector197_supervisor.py"
       ]
@@ -2876,6 +2909,7 @@
       "files": [
         "integration/apps_script_audit/labeled_run.py",
         "integration/collector197_coordinator.py",
+        "integration/collector197_host_probe.py",
         "integration/collector197_parser.py",
         "integration/collector197_supervisor.py",
         "integration/feedparser_audit/runner.py",
@@ -2984,6 +3018,7 @@
         "tests/test_fixed_feedparser_audit.py",
         "tests/test_geo_probe_process.py",
         "tests/test_geo_read_factory.py",
+        "tests/test_host197da.py",
         "tests/test_page_watch_parser_budget.py",
         "tests/test_preview_access.py",
         "tests/test_preview_launcher.py",
@@ -3222,6 +3257,7 @@
         "integration/accounts/shared_service_fixture.py",
         "integration/accounts/store.py",
         "integration/brics_streams.py",
+        "integration/collector197_host_probe.py",
         "integration/edge_guard.py",
         "integration/geo_only_runtime.py",
         "integration/geo_probe_http.py",
@@ -3302,6 +3338,7 @@
         "tests/test_geo_event_composition.py",
         "tests/test_geo_probe_http.py",
         "tests/test_geo_probe_process.py",
+        "tests/test_host197da.py",
         "tests/weekly_report/test_report.py"
       ],
       "stdlib": true,
@@ -3475,6 +3512,7 @@
         "tests/test_geo_sample_probe.py",
         "tests/test_geo_snapshot.py",
         "tests/test_gst154.py",
+        "tests/test_host197da.py",
         "tests/test_indexes192.py",
         "tests/test_invite_expiry.py",
         "tests/test_legacy_bulk_outcome.py",
@@ -4083,6 +4121,10 @@
       {
         "path": "integration/collector197_feed_child.py",
         "sha256": "84e0ebf31bdf7a1c5a35addcf9f124c8f4427a6652d9639b64246abf8da5545e"
+      },
+      {
+        "path": "integration/collector197_host_probe.py",
+        "sha256": "5515e043570c4de3a9d69f1c150694c30c6483e0952518e50aa68f69fac0614d"
       },
       {
         "path": "integration/collector197_http.py",
@@ -5107,6 +5149,10 @@
       {
         "path": "tests/test_gst154.py",
         "sha256": "78adf50fd64283877b4d355d2532b7ffb4e25392c565f7656773e6431dbfa619"
+      },
+      {
+        "path": "tests/test_host197da.py",
+        "sha256": "29ebf9181fb2a2b492d661a5906b1fa7a0d642f9cf67cc20a43434e1eb399ab5"
       },
       {
         "path": "tests/test_indexes192.py",
