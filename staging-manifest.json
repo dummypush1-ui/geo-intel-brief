@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 1708,
+  "tests": 1721,
   "files": [
     {
       "path": ".env.example",
@@ -1801,6 +1801,11 @@
       "sha256": "05f3ffa53c77001fa4e258837d79d92b39fa353fd169087777cc0ea8b60324f2"
     },
     {
+      "path": "integration/FINDER198A.md",
+      "bytes": 3298,
+      "sha256": "85e619e6ed305602bd9d5b229681e8509b02d53e3b51313b6d7af5445bcb220e"
+    },
+    {
       "path": "integration/FINDER_NESTED_LIMITS.md",
       "bytes": 5934,
       "sha256": "fae0cd7ffdc87848c2b41df262c84ccf4b0a34c8ab8e36b723858b0bd0574f7b"
@@ -2513,12 +2518,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 18581,
-      "sha256": "84b643431329e2959b1c36772e7919c21c1b16a20f3d07055d19bc16ad465e16"
+      "sha256": "8acc41a313cb115120e0280879aeb425ae2a0132d3cf8888a5a897bfc1319f2f"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
-      "bytes": 208604,
-      "sha256": "c2890dbea268b8aa145666ec68c82c837697922a786be791b04d2538616bc7b8"
+      "bytes": 209590,
+      "sha256": "d285f9eb55b80cd53ca0d9e06014bcb41730ea955d7e0a9dbb6f0087517d2500"
     },
     {
       "path": "integration/dependency_build/README.md",
@@ -2614,6 +2619,11 @@
       "path": "integration/finder-news.js",
       "bytes": 1291,
       "sha256": "10ac4d49cc219f23ab4b8ca81b98b91de95bfc9cbdf825638972cf1c929a82ba"
+    },
+    {
+      "path": "integration/finder198_auth.py",
+      "bytes": 5557,
+      "sha256": "a7dea07cf26a1699947091d7cc36db29bbf18c70dcc3dac24e67e6d8a3595fc8"
     },
     {
       "path": "integration/finder_index.py",
@@ -5629,6 +5639,11 @@
       "path": "tests/test_file_audit.py",
       "bytes": 771,
       "sha256": "ee3d4fbbcf36e1acaa6bfa91d9f31b686e602459b26ef3d52c5ab8d8f6233b1d"
+    },
+    {
+      "path": "tests/test_finder198a.py",
+      "bytes": 5985,
+      "sha256": "8403d4352f41d6bdbaad3d88070fdac32eaf31cc918cfb8fd3b2659ef253e023"
     },
     {
       "path": "tests/test_finder_index.py",
