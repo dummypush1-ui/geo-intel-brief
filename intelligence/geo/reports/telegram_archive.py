@@ -17,6 +17,7 @@ One-time setup (same bot as ENABLE_TELEGRAM, or a separate one):
 """
 import json
 import requests
+from integration.news_view import safe_url
 from datetime import datetime
 from intelligence.geo.config import TELEGRAM_BOT_TOKEN, TELEGRAM_ARCHIVE_CHAT_ID, ARCHIVE_AFTER_DAYS
 from intelligence.geo.database import get_articles_older_than, delete_articles
@@ -54,7 +55,7 @@ def _pin_message(message_id):
 def _format_article_line(a):
     return (f"• [{a.get('risk_level','')}] {a.get('title','')[:120]}\n"
             f"  {a.get('source','')} · {a.get('category','')} · {a.get('published','')[:10]}\n"
-            f"  {a.get('url','')}")
+            f"  {safe_url(a.get('url')) or '[link omitted]'}")
 
 
 def _build_batches(articles):

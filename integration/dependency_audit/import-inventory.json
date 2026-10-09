@@ -19,6 +19,7 @@
         "tests/news_export/test_original_contract.py",
         "tests/publication_dates/test_policy.py",
         "tests/test_build_provenance150.py",
+        "tests/test_channels171.py",
         "tests/test_collector_mail_fixture.py",
         "tests/test_env_example.py",
         "tests/test_feature_mail_prep.py",
@@ -1016,6 +1017,7 @@
         "integration/renderer_scope.py",
         "integration/report_adapters.py",
         "integration/report_preview_frame.py",
+        "integration/retention_audit.py",
         "integration/runtime.py",
         "integration/scraper_policy.py",
         "integration/single_db_runtime.py",
@@ -1074,6 +1076,7 @@
         "tests/test_branding.py",
         "tests/test_brics_streams.py",
         "tests/test_bridges.py",
+        "tests/test_channels171.py",
         "tests/test_collection_prepare.py",
         "tests/test_collector_mail_fixture.py",
         "tests/test_country_alerts.py",
@@ -1301,6 +1304,7 @@
       "files": [
         "integration/collection_prepare.py",
         "integration/geo_collector_contract.py",
+        "tests/test_channels171.py",
         "tests/test_dashboard167.py",
         "tests/test_digest_preview_routes.py",
         "tests/test_fixed_parser_pipeline.py",
@@ -1677,6 +1681,7 @@
         "tests/test_branding.py",
         "tests/test_build_provenance150.py",
         "tests/test_bulk147_inventory.py",
+        "tests/test_channels171.py",
         "tests/test_classifier146_inventory.py",
         "tests/test_compulsory_channels.py",
         "tests/test_digest_cold.py",
@@ -2845,6 +2850,7 @@
         "tests/geospatial/test_map_route.py",
         "tests/news_export/test_export.py",
         "tests/news_export/test_original_contract.py",
+        "tests/test_channels171.py",
         "tests/test_feature_mail_mount.py",
         "tests/test_geo_article_writer.py",
         "tests/test_legacy_bulk_outcome.py",
@@ -2917,6 +2923,7 @@
         "tests/test_bridges.py",
         "tests/test_build_provenance150.py",
         "tests/test_bulk147_inventory.py",
+        "tests/test_channels171.py",
         "tests/test_classifier146_inventory.py",
         "tests/test_collection_prepare.py",
         "tests/test_collector122_inventory.py",
@@ -3834,7 +3841,7 @@
       },
       {
         "path": "integration/retention_audit.py",
-        "sha256": "e27fe8c17a3b05ebef25d784877b7562556cbbf7a9f28a25961db660aa8e34ac"
+        "sha256": "04a7d25b94b2c5b137f553ee2e8dbd544696f485b5de2fe0e6c87e30450d6fd9"
       },
       {
         "path": "integration/rss_catalog/__init__.py",
@@ -4207,6 +4214,10 @@
       {
         "path": "tests/test_bulk147_inventory.py",
         "sha256": "cbb7be73cf5e4244bce18fdbc0afb98f1dc2d099ca8daf52a5f963775a55f44a"
+      },
+      {
+        "path": "tests/test_channels171.py",
+        "sha256": "e9b2aaba36178ed3b84a61af98e8f65e088f2f471ca03c31c6ef4c5025edad27"
       },
       {
         "path": "tests/test_classifier146_inventory.py",

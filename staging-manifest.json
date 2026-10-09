@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 1502,
+  "tests": 1504,
   "files": [
     {
       "path": ".env.example",
@@ -2263,12 +2263,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 18581,
-      "sha256": "a4316d5286ef3a93dc3c0d822565f581ff437772f92d71ed17a59e01b0480c39"
+      "sha256": "64ca76cd42af145f47e50ae6ce82f745380be8ce92564520950f6c239804023b"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
-      "bytes": 178158,
-      "sha256": "917c6d1e11972946239fed64708e4974ca2871d080a7eca0d7af6a515b5f6b2f"
+      "bytes": 178569,
+      "sha256": "a29fe249828097da097bd7cba8403c767f0f6d81299fe144a6ba3f5ac286a812"
     },
     {
       "path": "integration/dependency_build/README.md",
@@ -3007,8 +3007,8 @@
     },
     {
       "path": "integration/retention_audit.py",
-      "bytes": 6818,
-      "sha256": "e27fe8c17a3b05ebef25d784877b7562556cbbf7a9f28a25961db660aa8e34ac"
+      "bytes": 6881,
+      "sha256": "04a7d25b94b2c5b137f553ee2e8dbd544696f485b5de2fe0e6c87e30450d6fd9"
     },
     {
       "path": "integration/rss_catalog/README.md",
@@ -3837,8 +3837,8 @@
     },
     {
       "path": "intelligence/geo/reports/telegram_archive.py",
-      "bytes": 4380,
-      "sha256": "20cd3dea4bd102435bb9f8c37470bc772329ec4a2702b089de96761ab1acc298"
+      "bytes": 4450,
+      "sha256": "643bc27e2bfc65210fa3f3f065835269951e0e7ff69e6266e5c8b35e8994f684"
     },
     {
       "path": "intelligence/geo/reports/telegram_backup.py",
@@ -3847,8 +3847,8 @@
     },
     {
       "path": "intelligence/geo/reports/telegram_report.py",
-      "bytes": 2436,
-      "sha256": "27f2310cf28019025b8d3b40472b2ff1dc84c08fce9ec649cce1cd526843c7c8"
+      "bytes": 2242,
+      "sha256": "73d68e4dfef3efd3c6839b0ef585377d47fd272013fc438c82a65f5a64aacec9"
     },
     {
       "path": "intelligence/geo/reports/weekly_report.py",
@@ -3912,8 +3912,8 @@
     },
     {
       "path": "preservation-manifest.json",
-      "bytes": 26001,
-      "sha256": "01148fd0c44a83df4c42d6050ed61b63871a1876a3f6a81b731e087df23d1d35"
+      "bytes": 26273,
+      "sha256": "b2962c704427d7b8218ae8ab183fe5a3194c49280e6294531ab5d1e1014bccff"
     },
     {
       "path": "production_entry.py",
@@ -4994,6 +4994,11 @@
       "path": "tests/test_carrier_inventory.py",
       "bytes": 1112,
       "sha256": "e2ee43a8286618d1c73c11950683941fb296585316c153042b5ec74c498a876b"
+    },
+    {
+      "path": "tests/test_channels171.py",
+      "bytes": 1927,
+      "sha256": "e9b2aaba36178ed3b84a61af98e8f65e088f2f471ca03c31c6ef4c5025edad27"
     },
     {
       "path": "tests/test_classifier146_inventory.py",

@@ -5,9 +5,10 @@ are fixture-local only. Original pure formatters loaded with exact source pins.
 """
 import ast,hashlib,json,math
 from pathlib import Path
+from integration.news_view import safe_url
 from datetime import datetime,timezone,timedelta
 ROOT=Path(__file__).resolve().parents[1]
-PINS={'backup': ('intelligence/geo/reports/telegram_backup.py', '0a0f7f0dcf7955e8e8a7cf1981f8669fc63180f0f2c18152131c9dc211de0b0c', ('_format_full_record', '_split_into_batches')), 'summary': ('intelligence/geo/reports/telegram_archive.py', '20cd3dea4bd102435bb9f8c37470bc772329ec4a2702b089de96761ab1acc298', ('_format_article_line', '_build_batches'))}
+PINS={'backup': ('intelligence/geo/reports/telegram_backup.py', '0a0f7f0dcf7955e8e8a7cf1981f8669fc63180f0f2c18152131c9dc211de0b0c', ('_format_full_record', '_split_into_batches')), 'summary': ('intelligence/geo/reports/telegram_archive.py', '643bc27e2bfc65210fa3f3f065835269951e0e7ff69e6266e5c8b35e8994f684', ('_format_article_line', '_build_batches'))}
 FIELDS={'title','summary','source','category','published','url','country','risk_level','score','credibility','corroboration','created_at','telegram_url'}
 
 def _functions(kind):
@@ -15,7 +16,7 @@ def _functions(kind):
  if hashlib.sha256(source).hexdigest()!=pin:raise ValueError('Original formatter changed')
  tree=ast.parse(source);selected=[n for n in tree.body if type(n) is ast.FunctionDef and n.name in names]
  if {n.name for n in selected}!=set(names) or any(type(n) in (ast.Import,ast.ImportFrom) for f in selected for n in ast.walk(f)):raise ValueError('Pure formatter required')
- scope={'__builtins__':{'len':len,'enumerate':enumerate},'TELEGRAM_MSG_LIMIT':3500}
+ scope={'safe_url':safe_url,'__builtins__':{'len':len,'enumerate':enumerate},'TELEGRAM_MSG_LIMIT':3500}
  exec(compile(ast.Module(body=selected,type_ignores=[]),path,'exec'),scope)
  return scope
 

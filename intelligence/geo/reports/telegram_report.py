@@ -3,10 +3,7 @@
 More reliable than CallMeBot/WhatsApp: official Bot API, no rate-limited
 free-tier quirks, no per-message re-verification.
 
-NOTE on the dashboard link included below: it embeds your TRIGGER_SECRET
-in the URL. Only safe if your Telegram chat/channel is private — don't
-enable this if the chat could be seen by people you don't want accessing
-the dashboard.
+Dashboard links carrying trigger secrets are never included in report text.
 
 One-time setup:
   1. Message @BotFather on Telegram, send /newbot, follow prompts.
@@ -16,6 +13,8 @@ One-time setup:
      read your chat id from the JSON -> TELEGRAM_CHAT_ID in .env.
 """
 import requests
+from integration.news_view import safe_url
+from integration.geonews_digest.render import _md, _md_url, _cut
 from intelligence.geo.config import TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID, UPCOMING_DAYS, DASHBOARD_BASE_URL, TRIGGER_SECRET
 from intelligence.geo.database import recent_articles, upcoming_events
 
@@ -25,24 +24,21 @@ def build_message(limit=8):
     events = upcoming_events(UPCOMING_DAYS)[:3]
 
     lines = ["*Global Geopolitical Intelligence*", ""]
-    if DASHBOARD_BASE_URL and TRIGGER_SECRET:
-        lines.append(f"📊 [View full dashboard]({DASHBOARD_BASE_URL}/dashboard?key={TRIGGER_SECRET})")
-        lines.append("")
     if events:
         lines.append("*Upcoming:*")
         for e in events:
-            lines.append(f"- {e['name'][:70]} ({e['event_date']})")
+            lines.append(f"- {_md(e['name'][:70])} ({e['event_date']})")
         lines.append("")
 
     lines.append("*Top developments:*")
     for i, a in enumerate(articles, 1):
-        lines.append(f"{i}. [{a['risk_level']}] {a['title'][:80]}")
-        lines.append(f"   _{a['source']}_ - {a['url']}")
+        lines.append(f"{i}. [{a['risk_level']}] {_md(a['title'][:80])}")
+        lines.append(f"   _{_md(a['source'])}_ - {_md_url(safe_url(a['url'])) if safe_url(a['url']) else '[link omitted]'}")
     if not articles:
         lines.append("No high-relevance items this cycle.")
 
     msg = "\n".join(lines)
-    return msg[:4000] + "\n\n...(truncated)" if len(msg) > 4000 else msg
+    return _cut(msg, 4000)
 
 
 def send():

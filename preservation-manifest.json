@@ -205,9 +205,10 @@
       "source_path": "reports/telegram_archive.py",
       "path": "intelligence/geo/reports/telegram_archive.py",
       "source_sha256": "b2ee538a1cc813612e2b704444fe1ac0ed5e9673aee2059dfe4870f801461202",
-      "sha256": "20cd3dea4bd102435bb9f8c37470bc772329ec4a2702b089de96761ab1acc298",
+      "sha256": "643bc27e2bfc65210fa3f3f065835269951e0e7ff69e6266e5c8b35e8994f684",
       "changes": [
-        "root imports namespaced only"
+        "root imports namespaced only",
+        "channels171 article URL scheme/credentials/control filtering, secret dashboard removed, legacy Markdown escaped; source only"
       ]
     },
     {
@@ -215,9 +216,10 @@
       "source_path": "reports/telegram_report.py",
       "path": "intelligence/geo/reports/telegram_report.py",
       "source_sha256": "444cbcf1c0cdf5bd6d4c8e908003a0bc4b3cc917011d8775e668f805c4772e15",
-      "sha256": "27f2310cf28019025b8d3b40472b2ff1dc84c08fce9ec649cce1cd526843c7c8",
+      "sha256": "73d68e4dfef3efd3c6839b0ef585377d47fd272013fc438c82a65f5a64aacec9",
       "changes": [
-        "root imports namespaced only"
+        "root imports namespaced only",
+        "channels171 article URL scheme/credentials/control filtering, secret dashboard removed, legacy Markdown escaped; source only"
       ]
     },
     {
