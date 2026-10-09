@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 1847,
+  "tests": 1855,
   "files": [
     {
       "path": ".env.example",
@@ -1976,6 +1976,11 @@
       "sha256": "c1b50249beb1509444cd94d78cb0aed832469b607ffb9608ba7976bc348b0d1a"
     },
     {
+      "path": "integration/REPLAY199CC.md",
+      "bytes": 2481,
+      "sha256": "e53f402652ffd2939aa70a8dba3b7037d7a7baba679033145be68938814bdea9"
+    },
+    {
       "path": "integration/REPORT_PREVIEW_FRAME_LIMITS.md",
       "bytes": 1594,
       "sha256": "e3a81eab0783cd0d48dc6ccb7d8d0a4763ac5972457463a7f2f75eca067cbd13"
@@ -2578,12 +2583,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 18581,
-      "sha256": "fed742c4e86370d981c11a3c39282b2382cf5d1655fb026f16af3b0ac3aa464d"
+      "sha256": "a99e6fabf78e7efa9d1d2ebbc705bf78c769fec5597d5d512be54986a464458d"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
-      "bytes": 220823,
-      "sha256": "6cec96b9db0116dd7da523d74a6460f5b420b3908446c1d2c53b75b667aa4f1a"
+      "bytes": 221542,
+      "sha256": "9868503e818118c208d4a5bc740a0ecf3542557184f9eaab738fd2a6413f9dc0"
     },
     {
       "path": "integration/dependency_build/README.md",
@@ -3414,6 +3419,11 @@
       "path": "integration/replay199_collector.py",
       "bytes": 7816,
       "sha256": "b4ad33cb04ed1b0915e251fab8924915fc30ede3a3023168f729b5a03287be9d"
+    },
+    {
+      "path": "integration/replay199_composition.py",
+      "bytes": 3248,
+      "sha256": "3b0bd19bd804a4ad74a6aff2d3e27284d6f664e3bd9d51b99a35372b51e7fdfd"
     },
     {
       "path": "integration/replay199_core.py",
@@ -6159,6 +6169,11 @@
       "path": "tests/test_replay199cb.py",
       "bytes": 6921,
       "sha256": "643729a4718a28e46128bb724cd53124861e886b823acd0e09b8e6f598784957"
+    },
+    {
+      "path": "tests/test_replay199cc.py",
+      "bytes": 5629,
+      "sha256": "904f955bffdb171b180a154de1ea91c5f166a4d4f9696b7efa4d50aac31fc439"
     },
     {
       "path": "tests/test_report_preview_frame.py",

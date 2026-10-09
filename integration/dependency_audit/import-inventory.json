@@ -591,6 +591,7 @@
         "tests/test_replay199b.py",
         "tests/test_replay199ca.py",
         "tests/test_replay199cb.py",
+        "tests/test_replay199cc.py",
         "tests/test_rss_catalog.py",
         "tests/test_shared_ledger_fixture.py",
         "tests/test_shared_service_fixture.py",
@@ -1249,6 +1250,7 @@
         "integration/collector197_http.py",
         "integration/geo_probe_http.py",
         "integration/preview_access.py",
+        "integration/replay199_composition.py",
         "integration/stream_revision.py"
       ],
       "stdlib": true,
@@ -1398,6 +1400,7 @@
         "integration/replay199_adapters.py",
         "integration/replay199_broker.py",
         "integration/replay199_collector.py",
+        "integration/replay199_composition.py",
         "integration/replay199_core.py",
         "integration/replay199_preflight.py",
         "integration/replay199_schema.py",
@@ -1551,6 +1554,7 @@
         "tests/test_replay199b.py",
         "tests/test_replay199ca.py",
         "tests/test_replay199cb.py",
+        "tests/test_replay199cc.py",
         "tests/test_report_preview_frame.py",
         "tests/test_report_styles.py",
         "tests/test_retention_audit.py",
@@ -1899,6 +1903,7 @@
         "integration/news_export/geo_snapshot.py",
         "integration/news_export/raw_pager.py",
         "integration/replay199_broker.py",
+        "integration/replay199_composition.py",
         "integration/replay199_schema.py",
         "integration/retention_audit.py",
         "integration/supplied_fulltext_fixture.py",
@@ -2235,6 +2240,7 @@
         "tests/test_replay199b.py",
         "tests/test_replay199ca.py",
         "tests/test_replay199cb.py",
+        "tests/test_replay199cc.py",
         "tests/test_rss177.py",
         "tests/test_rss_catalog.py",
         "tests/test_runner199lock.py",
@@ -3265,7 +3271,8 @@
         "tests/test_replay199a.py",
         "tests/test_replay199b.py",
         "tests/test_replay199ca.py",
-        "tests/test_replay199cb.py"
+        "tests/test_replay199cb.py",
+        "tests/test_replay199cc.py"
       ],
       "stdlib": false,
       "distributions": [],
@@ -3744,6 +3751,7 @@
         "tests/test_replay199b.py",
         "tests/test_replay199ca.py",
         "tests/test_replay199cb.py",
+        "tests/test_replay199cc.py",
         "tests/test_report_preview_frame.py",
         "tests/test_report_styles.py",
         "tests/test_retention_audit.py",
@@ -3879,6 +3887,7 @@
         "integration/news_export/fixture_http.py",
         "integration/preview_access.py",
         "integration/replay199_broker.py",
+        "integration/replay199_composition.py",
         "tests/accounts/browser_http_fixture.py",
         "tests/accounts/test_merged_fixture.py",
         "tests/browser_brics_streams.py",
@@ -3906,6 +3915,7 @@
         "tests/test_geo_probe_http.py",
         "tests/test_preview_access.py",
         "tests/test_replay199ca.py",
+        "tests/test_replay199cc.py",
         "tests/test_runtime.py",
         "tests/test_single_db_runtime.py"
       ],
@@ -4768,6 +4778,10 @@
       {
         "path": "integration/replay199_collector.py",
         "sha256": "b4ad33cb04ed1b0915e251fab8924915fc30ede3a3023168f729b5a03287be9d"
+      },
+      {
+        "path": "integration/replay199_composition.py",
+        "sha256": "3b0bd19bd804a4ad74a6aff2d3e27284d6f664e3bd9d51b99a35372b51e7fdfd"
       },
       {
         "path": "integration/replay199_core.py",
@@ -5660,6 +5674,10 @@
       {
         "path": "tests/test_replay199cb.py",
         "sha256": "643729a4718a28e46128bb724cd53124861e886b823acd0e09b8e6f598784957"
+      },
+      {
+        "path": "tests/test_replay199cc.py",
+        "sha256": "904f955bffdb171b180a154de1ea91c5f166a4d4f9696b7efa4d50aac31fc439"
       },
       {
         "path": "tests/test_report_preview_frame.py",
