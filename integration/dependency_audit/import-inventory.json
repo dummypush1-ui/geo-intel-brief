@@ -136,6 +136,7 @@
         "integration/news_export/keyset_plan.py",
         "integration/news_export/raw_pager.py",
         "integration/project_reports.py",
+        "integration/replay199_schema.py",
         "tests/news_export/test_fixture_http.py",
         "tests/news_export/test_keyset_plan.py",
         "tests/news_export/test_original_stream.py",
@@ -271,6 +272,7 @@
         "integration/geonews_digest/render.py",
         "integration/news_api.py",
         "integration/renderer_scope.py",
+        "integration/replay199_preflight.py",
         "integration/storage_reader.py",
         "integration/weekly_report/report.py"
       ],
@@ -287,6 +289,7 @@
         "integration/collector197_archive.py",
         "integration/collector197_orchestrator.py",
         "integration/collector197_preflight.py",
+        "integration/replay199_schema.py",
         "tests/test_collector197a.py",
         "tests/test_collector197c.py",
         "tests/test_collector197eba.py"
@@ -342,7 +345,8 @@
         "integration/collector197_orchestrator.py",
         "integration/collector197_supervisor.py",
         "tests/test_collector197a.py",
-        "tests/test_collector197eba.py"
+        "tests/test_collector197eba.py",
+        "tests/test_replay199a.py"
       ],
       "stdlib": false,
       "distributions": [],
@@ -545,6 +549,8 @@
         "integration/news_view.py",
         "integration/public_live_builder.py",
         "integration/public_news.py",
+        "integration/replay199_core.py",
+        "integration/replay199_schema.py",
         "integration/rss_catalog/catalog.py",
         "integration/source_health.py",
         "integration/stream_fixture_app.py",
@@ -576,6 +582,7 @@
         "tests/test_page_watch_contract.py",
         "tests/test_page_watch_parser_budget.py",
         "tests/test_pagewatch_report_contract.py",
+        "tests/test_replay199a.py",
         "tests/test_rss_catalog.py",
         "tests/test_shared_ledger_fixture.py",
         "tests/test_shared_service_fixture.py",
@@ -1154,6 +1161,7 @@
         "integration/news_view.py",
         "integration/page_watch.py",
         "integration/renderer_scope.py",
+        "integration/replay199_schema.py",
         "integration/retention_audit.py",
         "integration/stream_config.py",
         "integration/stream_disk.py",
@@ -1373,6 +1381,10 @@
         "integration/query_validation.py",
         "integration/relevance.py",
         "integration/renderer_scope.py",
+        "integration/replay199_core.py",
+        "integration/replay199_preflight.py",
+        "integration/replay199_schema.py",
+        "integration/replay199_transactions.py",
         "integration/report_adapters.py",
         "integration/report_preview_frame.py",
         "integration/retention_audit.py",
@@ -1518,6 +1530,7 @@
         "tests/test_private_news_fields.py",
         "tests/test_project_reports.py",
         "tests/test_query_validation188.py",
+        "tests/test_replay199a.py",
         "tests/test_report_preview_frame.py",
         "tests/test_report_styles.py",
         "tests/test_retention_audit.py",
@@ -1865,6 +1878,7 @@
         "integration/news_export/fixture_http.py",
         "integration/news_export/geo_snapshot.py",
         "integration/news_export/raw_pager.py",
+        "integration/replay199_schema.py",
         "integration/retention_audit.py",
         "integration/supplied_fulltext_fixture.py",
         "integration/tariff_evidence.py",
@@ -1990,6 +2004,7 @@
         "integration/news_export/original_stream.py",
         "integration/preview_access.py",
         "integration/public_live_builder.py",
+        "integration/replay199_core.py",
         "integration/retention_audit.py",
         "integration/smtp_policy.py",
         "integration/supplied_collector_pipeline.py",
@@ -2193,6 +2208,7 @@
         "tests/test_publication151_inventory.py",
         "tests/test_refresh149_gate.py",
         "tests/test_refresh_controller.py",
+        "tests/test_replay199a.py",
         "tests/test_rss177.py",
         "tests/test_rss_catalog.py",
         "tests/test_sanctions152.py",
@@ -2344,11 +2360,14 @@
         "integration/geo_read_factory.py",
         "integration/geo_sample_probe.py",
         "integration/public_live_builder.py",
+        "integration/replay199_core.py",
+        "integration/replay199_preflight.py",
         "integration/runtime.py",
         "tests/test_geo_article_writer.py",
         "tests/test_geo_sample_probe.py",
         "tests/test_legacy_bulk_outcome.py",
-        "tests/test_mongo_account_store.py"
+        "tests/test_mongo_account_store.py",
+        "tests/test_replay199a.py"
       ],
       "stdlib": false,
       "distributions": [
@@ -3213,7 +3232,8 @@
         "tests/test_geo_sample_probe.py",
         "tests/test_invite_expiry.py",
         "tests/test_mail166.py",
-        "tests/test_preview_launcher.py"
+        "tests/test_preview_launcher.py",
+        "tests/test_replay199a.py"
       ],
       "stdlib": false,
       "distributions": [],
@@ -3452,6 +3472,7 @@
         "integration/news_pages.py",
         "integration/preview_access.py",
         "integration/public_live_builder.py",
+        "integration/replay199_core.py",
         "tests/geospatial/test_geospatial.py",
         "tests/news_export/test_export.py",
         "tests/news_export/test_fixture_serving.py",
@@ -3502,6 +3523,7 @@
         "tests/test_geo_article_writer.py",
         "tests/test_legacy_bulk_outcome.py",
         "tests/test_mongo_account_store.py",
+        "tests/test_replay199a.py",
         "tests/text_matching/test_matching.py"
       ],
       "stdlib": true,
@@ -3685,6 +3707,7 @@
         "tests/test_query_validation188.py",
         "tests/test_refresh149_gate.py",
         "tests/test_refresh_controller.py",
+        "tests/test_replay199a.py",
         "tests/test_report_preview_frame.py",
         "tests/test_report_styles.py",
         "tests/test_retention_audit.py",
@@ -4684,6 +4707,22 @@
         "sha256": "db65853ad8c86ca52f66639ac7632781332faf6ae7e52bd898a2429bf3cd82fa"
       },
       {
+        "path": "integration/replay199_core.py",
+        "sha256": "03ab95a4a7bf842d42f4b30c17ba468a7e6c44575f160f44a01d336c149888de"
+      },
+      {
+        "path": "integration/replay199_preflight.py",
+        "sha256": "04078ba69c1921f6d7be1de8d39b39bf60ed678c711ef8bd23b6f657d85ced7c"
+      },
+      {
+        "path": "integration/replay199_schema.py",
+        "sha256": "870534b20316bde430ebb2211f089041e9430fa7708e8ea1f08f0242a4e6e707"
+      },
+      {
+        "path": "integration/replay199_transactions.py",
+        "sha256": "eda3889905a4c4410108261e13f66d887aaddae2476d12af8c28967941af9203"
+      },
+      {
         "path": "integration/report_adapters.py",
         "sha256": "af267f1950dc9fe0ed25757e1d3f380180239b7c89fa9bc6f0d872b8a1f7072a"
       },
@@ -5542,6 +5581,10 @@
       {
         "path": "tests/test_refresh_controller.py",
         "sha256": "cf41f1d36268c4838ea31783560a63518291353672ec3b326457f8ac39c619fa"
+      },
+      {
+        "path": "tests/test_replay199a.py",
+        "sha256": "686af783d36cbd16d914c360c63ff0aac43cd45d559569f0143fc5a51dba8fff"
       },
       {
         "path": "tests/test_report_preview_frame.py",

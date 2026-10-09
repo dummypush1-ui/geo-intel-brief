@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 1790,
+  "tests": 1807,
   "files": [
     {
       "path": ".env.example",
@@ -1956,6 +1956,11 @@
       "sha256": "abf477fd8b12df7b4c128e367a0c4e281272cbe4b706a32be0baa2f62a0578cd"
     },
     {
+      "path": "integration/REPLAY199A.md",
+      "bytes": 6107,
+      "sha256": "0c38579397f8e746ecb7bee11397f029732fd3274ab7d57154ffcb049aeda675"
+    },
+    {
       "path": "integration/REPORT_PREVIEW_FRAME_LIMITS.md",
       "bytes": 1594,
       "sha256": "e3a81eab0783cd0d48dc6ccb7d8d0a4763ac5972457463a7f2f75eca067cbd13"
@@ -2553,12 +2558,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 18581,
-      "sha256": "09f8dd2963eb4066c3aa89e2891064149311c449b9143406d04dff806f966e1c"
+      "sha256": "26c17e338dc5e00c332d72a0d5bb7d2f432ce9117894cad09dc9a667b35de0a4"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
-      "bytes": 216245,
-      "sha256": "a2878c364ad771cd9545f44c0135c6629e7e6fffd9922a76675437d72ab07098"
+      "bytes": 217948,
+      "sha256": "750b7d658f89fa6642615301e012e30a446c8d03dd7c461b06fc66cebb95bb2f"
     },
     {
       "path": "integration/dependency_build/README.md",
@@ -3374,6 +3379,26 @@
       "path": "integration/renderer_scope.py",
       "bytes": 4164,
       "sha256": "db65853ad8c86ca52f66639ac7632781332faf6ae7e52bd898a2429bf3cd82fa"
+    },
+    {
+      "path": "integration/replay199_core.py",
+      "bytes": 12733,
+      "sha256": "03ab95a4a7bf842d42f4b30c17ba468a7e6c44575f160f44a01d336c149888de"
+    },
+    {
+      "path": "integration/replay199_preflight.py",
+      "bytes": 3189,
+      "sha256": "04078ba69c1921f6d7be1de8d39b39bf60ed678c711ef8bd23b6f657d85ced7c"
+    },
+    {
+      "path": "integration/replay199_schema.py",
+      "bytes": 5364,
+      "sha256": "870534b20316bde430ebb2211f089041e9430fa7708e8ea1f08f0242a4e6e707"
+    },
+    {
+      "path": "integration/replay199_transactions.py",
+      "bytes": 864,
+      "sha256": "eda3889905a4c4410108261e13f66d887aaddae2476d12af8c28967941af9203"
     },
     {
       "path": "integration/report_adapters.py",
@@ -6074,6 +6099,11 @@
       "path": "tests/test_refresh_controller.py",
       "bytes": 347,
       "sha256": "cf41f1d36268c4838ea31783560a63518291353672ec3b326457f8ac39c619fa"
+    },
+    {
+      "path": "tests/test_replay199a.py",
+      "bytes": 13344,
+      "sha256": "686af783d36cbd16d914c360c63ff0aac43cd45d559569f0143fc5a51dba8fff"
     },
     {
       "path": "tests/test_report_preview_frame.py",
