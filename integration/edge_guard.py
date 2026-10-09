@@ -23,7 +23,7 @@ _CONTROL = re.compile(r'[\x00-\x08\x0b\x0c\x0e-\x1f\x7f]')
 DEFAULTS = {
  'rate_limit': 120,        # requests per window per client
  'window_seconds': 60.0,
- 'ban_seconds': 900.0,     # honeypot or flood ban length
+ 'ban_seconds': 900.0,     # explicit/honeypot ban length; rate overflow only refuses the window
  'max_clients': 10000,     # bound on tracked clients
  'max_path': 512,
  'max_query_string': 2048,

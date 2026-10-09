@@ -109,23 +109,19 @@ ENABLE_TELEGRAM = os.getenv("ENABLE_TELEGRAM", "false").lower() == "true"
 TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "")
 TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID", "")
 
-# ---------- Telegram = full data storage (every article, in full) ----------
-# This is now the primary full-content store. MongoDB only keeps lightweight
-# metadata (title, score, category, short preview, and a link back to the
-# full Telegram message) — the complete record (full summary/extracted
-# text, all fields) is posted to a dedicated Telegram channel via your bot
-# at collection time, once per collection cycle (batched, to stay well
-# under Telegram's rate limits rather than one message per article).
-# Uses the same bot as ENABLE_TELEGRAM above by default; set
-# TELEGRAM_BACKUP_BOT_TOKEN separately only if you want a different bot.
-ENABLE_TELEGRAM_BACKUP = os.getenv("ENABLE_TELEGRAM_BACKUP", "true").lower() == "true"
+# ---------- Telegram backup request (capability held, not wired) ----------
+# This flag records requested configuration only. It cannot enable a sender,
+# prove that full records were saved, or make deletion safe. RSS/GNews do not
+# send backups; the durable full-record/outbox/journal adapter is not installed.
+# Retain full records until separately verified recovery and owner approval.
+ENABLE_TELEGRAM_BACKUP = os.getenv("ENABLE_TELEGRAM_BACKUP", "false").lower() == "true"
+TELEGRAM_BACKUP_CAPABILITY = "held_pending_durable_adapter"
 TELEGRAM_BACKUP_BOT_TOKEN = os.getenv("TELEGRAM_BACKUP_BOT_TOKEN", "") or TELEGRAM_BOT_TOKEN
 TELEGRAM_BACKUP_CHAT_ID = os.getenv("TELEGRAM_BACKUP_CHAT_ID", "")
 
 # ---------- optional: periodic Mongo metadata cleanup ----------
-# Since the full record already lives permanently in the Telegram backup
-# channel from the moment it's collected, old MongoDB metadata can simply
-# be deleted (not re-archived) once it's no longer needed for the
-# dashboard/digest — nothing is lost, the full data is already on Telegram.
+# Cleanup remains held at the database and HTTP boundaries, regardless of
+# this requested flag. No Telegram flag, message link or short preview proves
+# authenticated complete recovery. No deletion or TTL is authorized here.
 ENABLE_METADATA_CLEANUP = os.getenv("ENABLE_METADATA_CLEANUP", "false").lower() == "true"
 METADATA_CLEANUP_AFTER_DAYS = int(os.getenv("METADATA_CLEANUP_AFTER_DAYS", "60"))

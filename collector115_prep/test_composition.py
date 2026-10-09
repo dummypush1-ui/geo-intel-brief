@@ -44,7 +44,7 @@ class ChainTests(unittest.TestCase):
   self.assertEqual(out['state'],'completed');self.assertEqual(out['counts']['fetched'],1)
  def test_no_backup_adapter_never_ready(self):
   from collector115_prep.composition import prepare_checkpoint_input
-  r=prepare_checkpoint_input({}, {},clock=D)
+  r=prepare_checkpoint_input({'ENABLE_TELEGRAM_BACKUP':'true'}, {},clock=D)
   self.assertIn('enable_telegram_backup_adapter',r['pending_gates']);self.assertFalse(r['live_write_ready'])
  def test_original_first_n_not_first_n_valid(self):
   url=compile_profile({})['feeds'][0][1]

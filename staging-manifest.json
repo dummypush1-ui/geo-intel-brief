@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 1554,
+  "tests": 1558,
   "files": [
     {
       "path": ".env.example",
@@ -743,22 +743,22 @@
     {
       "path": "collector115_prep/inventory115.json",
       "bytes": 861,
-      "sha256": "372d681c0d8972acb732f827ed12209122be3b851fc870d777d0200e5aa2fd00"
+      "sha256": "6d4eef0b71accce9d5a54e84255c00ad2994447c5187825789ce0f234369628e"
     },
     {
       "path": "collector115_prep/profile.py",
       "bytes": 3022,
-      "sha256": "7da73b6806e19aa11020656650014fd2f56c6fb11a81c2179942db666afb4d69"
+      "sha256": "f6c86351a981940b91146b3c1a8c968d0fd27c1964b0637b15af13431ce727c6"
     },
     {
       "path": "collector115_prep/test_composition.py",
-      "bytes": 4163,
-      "sha256": "9d6513e2b1e9baedd4f9cb6657856bda667f77c58a591bc86087213ae555eb9b"
+      "bytes": 4194,
+      "sha256": "1960e78e90c83e7ed9a027e9e29293db80bc10b0e08fb1b13a92c8b23547870d"
     },
     {
       "path": "collector115_prep/test_profile.py",
-      "bytes": 1381,
-      "sha256": "8c176aea8fff662e57afa04fd0ba8882a0f8b0e4e99034d4c93a5205caad4131"
+      "bytes": 1385,
+      "sha256": "bb5f1b5911c32e0cf6e4d1f8ffee8f0e66c364080ce8ca834f4b6e57914763dd"
     },
     {
       "path": "collector116_prep/NETWORK-COMPOSITION-DESIGN.md",
@@ -818,7 +818,7 @@
     {
       "path": "collector117_prep/dependency-pins177.json",
       "bytes": 5423,
-      "sha256": "e681352811720bacea0c588943faf8d1544f6aeeb0d0e2e627c5dd6b7aca1f87"
+      "sha256": "1b7bcb16d7f632602a91fac836ce47f3bd4baffc1c2b4c4ca02596abc8f35c34"
     },
     {
       "path": "collector117_prep/evidence/local-tests.json",
@@ -928,12 +928,12 @@
     {
       "path": "collector120_prep/gnews_supplied.py",
       "bytes": 5267,
-      "sha256": "109cbb0e146d558b4184be9c5f440255c29d9f0e7c4c2ab162c796f9faf05acc"
+      "sha256": "73e10e23513f7fe881d87e159f9f7ba1367ee2d4ca78c8e019f182699674ea2a"
     },
     {
       "path": "collector120_prep/inventory120.json",
       "bytes": 656,
-      "sha256": "896d3742e268e423fe060bf6e4fa4405ff469c2fd676610448b44c9abfd0686e"
+      "sha256": "7e6e11b79c3e1f35149b27181c982e59b0df753150ae5bbcf8dbe5b65f6c7a38"
     },
     {
       "path": "collector120_prep/test_gnews_supplied.py",
@@ -1348,7 +1348,7 @@
     {
       "path": "collector130_prep/base_profile.py",
       "bytes": 3022,
-      "sha256": "9bd0dce9673b1a326b4b75004e91149117a878d75c8e20cc5aa3dc1fc4322af5"
+      "sha256": "13288842fe8811b86df670b27ff35d3a2a1449d5f52c81e6ae2db1fcf9b61168"
     },
     {
       "path": "collector130_prep/extra_profile.py",
@@ -1358,7 +1358,7 @@
     {
       "path": "collector130_prep/inventory.json",
       "bytes": 597,
-      "sha256": "edfd2ab37bd1b95d2f7539eff2c23ac7c3055fd1ee5b008072b69af99f5adc80"
+      "sha256": "46a039e6002d5180cd2854a688e65b387740c826b5f9743238f88514abe62633"
     },
     {
       "path": "collector130_prep/network_selection.py",
@@ -2328,12 +2328,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 18581,
-      "sha256": "e3d86ba172d662c5104e3c35969254b11b2a88eeccb465cc1d4b337186a52269"
+      "sha256": "255094107f9cd396a97e1b5cbd8e53ff0666900de3ddb0c031a71dbe8aad2bf8"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
-      "bytes": 186063,
-      "sha256": "47cb2a79cf9a86a756e2a354d729cf9f76ad06d4f6b46c6ba2ad4422401344fa"
+      "bytes": 186348,
+      "sha256": "eea2c9201e9e60be5bcadc5bde4358c67e6d33a6c5ab728a9f7d4fc8f3ab5c40"
     },
     {
       "path": "integration/dependency_build/README.md",
@@ -2377,8 +2377,8 @@
     },
     {
       "path": "integration/edge_guard.py",
-      "bytes": 6576,
-      "sha256": "6f167e863f81b5529bc84220cf5b4c1f2a09555d76eb99019df6e3c688d9d1f3"
+      "bytes": 6615,
+      "sha256": "4b639f2d555a01f5e4bf4a9dbcab7530e8197959be1aefb8283d447ac23ded7c"
     },
     {
       "path": "integration/event_reader.py",
@@ -3791,6 +3791,11 @@
       "sha256": "1adebf8baaea16ee305afb16fd21717c5abf0635279a7dbedfa985ff21fe5997"
     },
     {
+      "path": "intelligence/geo/BACKUP-HELD184.md",
+      "bytes": 1130,
+      "sha256": "0cec4a68c00c56ab7640596668b6af165094fe58604b93eecace0ea5ea87f4af"
+    },
+    {
       "path": "intelligence/geo/DATE-EVENTS182.md",
       "bytes": 1518,
       "sha256": "8be541293b1cf81e91423753b199c8b0d7904bf1049577ea4165df9894cd6406"
@@ -3887,8 +3892,8 @@
     },
     {
       "path": "intelligence/geo/config.py",
-      "bytes": 7313,
-      "sha256": "42d014d1b5134a24c10ccafdc23200e2b91a4ea19fa6466091beb97e8043e5cb"
+      "bytes": 7048,
+      "sha256": "dc3f5651374ef24e026c0cc52b9880936dc9b945126b1eb06294a28ee5918b4d"
     },
     {
       "path": "intelligence/geo/config_check.py",
@@ -4022,8 +4027,8 @@
     },
     {
       "path": "preservation-manifest.json",
-      "bytes": 27783,
-      "sha256": "3cd56d9f7239cd1229240831aa190356e236ece45a48317b753fad024008b7fe"
+      "bytes": 27921,
+      "sha256": "98e344e0e01b111524264c4c7371a88795054a9869dc95d57276e938ed0c14cd"
     },
     {
       "path": "production_entry.py",
@@ -5089,6 +5094,11 @@
       "path": "tests/test_article_archive.py",
       "bytes": 5144,
       "sha256": "ee3229a5181ed29053071e83996a97038078d0d32b2ca3be66e3570eff0cadfc"
+    },
+    {
+      "path": "tests/test_backup184.py",
+      "bytes": 1570,
+      "sha256": "ff19445190d59915e270b7a49ab1876d7b825b235b961a71918986c8b801884e"
     },
     {
       "path": "tests/test_branding.py",

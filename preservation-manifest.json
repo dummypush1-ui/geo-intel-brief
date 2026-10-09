@@ -42,9 +42,10 @@
       "source_path": "config.py",
       "path": "intelligence/geo/config.py",
       "source_sha256": "f7fbf007954c6918fbe2e402863fa29f597fe5d5cb4d60d1001deca8896b21f3",
-      "sha256": "42d014d1b5134a24c10ccafdc23200e2b91a4ea19fa6466091beb97e8043e5cb",
+      "sha256": "dc3f5651374ef24e026c0cc52b9880936dc9b945126b1eb06294a28ee5918b4d",
       "changes": [
-        "Reviewed P0 candidate: header-only fail-closed legacy HTTP auth and unconditional article-deletion hold; no live activation"
+        "Reviewed P0 candidate: header-only fail-closed legacy HTTP auth and unconditional article-deletion hold; no live activation",
+        "184 backup requested flag defaults off, fixed held capability and honest backup/cleanup text; no sender or deletion activation"
       ],
       "prior_preserved_sha256": "f7fbf007954c6918fbe2e402863fa29f597fe5d5cb4d60d1001deca8896b21f3"
     },

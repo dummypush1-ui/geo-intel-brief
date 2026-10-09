@@ -24,7 +24,7 @@ def prepare_supplied_gnews(settings,outcomes,*,clock,available=True):
  raw=(ROOT/'intelligence/geo/collectors/gnews_search.py').read_bytes()
  if hashlib.sha256(raw).hexdigest()!=PIN:raise GNewsRefused('Original GNews drift')
  config=(ROOT/'intelligence/geo/config.py').read_bytes()
- if hashlib.sha256(config).hexdigest()!='42d014d1b5134a24c10ccafdc23200e2b91a4ea19fa6466091beb97e8043e5cb':raise GNewsRefused('Original config drift')
+ if hashlib.sha256(config).hexdigest()!='dc3f5651374ef24e026c0cc52b9880936dc9b945126b1eb06294a28ee5918b4d':raise GNewsRefused('Original config drift')
  tree=ast.parse(config);group_node=next(n.value for n in tree.body if type(n)is ast.Assign and any(type(t)is ast.Name and t.id=='GNEWS_QUERY_GROUPS'for t in n.targets))
  groups=ast.literal_eval(group_node);queries=[' OR '.join(g)for g in groups]
  expected=set(queries)if p['source_flags']['ENABLE_GNEWS']and available else set()
