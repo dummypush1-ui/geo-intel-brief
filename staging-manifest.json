@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 1855,
+  "tests": 1869,
   "files": [
     {
       "path": ".env.example",
@@ -1921,6 +1921,11 @@
       "sha256": "bd0ec31e0326b20cc83ca70f30ec46a4b73ff6d93a2f8b15448f405391b09d7a"
     },
     {
+      "path": "integration/NATIVE200A.md",
+      "bytes": 4756,
+      "sha256": "0f209bc52f98506668455cc4ed1df1e6150b344fcf769ce2cfdfdf37e418ab54"
+    },
+    {
       "path": "integration/NEWS-PAGES185.md",
       "bytes": 3287,
       "sha256": "f1be6081bdbdea959e9f2a428a3ce70aaab1fbb0ac70ce8036fc8fcd392d854c"
@@ -2583,12 +2588,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 18581,
-      "sha256": "a99e6fabf78e7efa9d1d2ebbc705bf78c769fec5597d5d512be54986a464458d"
+      "sha256": "b0f1678ce8169dbd4a7439c03e2e54e645c84a06f2f1f34ae6ee3a4949b04db7"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
-      "bytes": 221542,
-      "sha256": "9868503e818118c208d4a5bc740a0ecf3542557184f9eaab738fd2a6413f9dc0"
+      "bytes": 222913,
+      "sha256": "a8689e601a01a30f46761106bb3b23333d903a45c05220438c46eba03babc9af"
     },
     {
       "path": "integration/dependency_build/README.md",
@@ -3034,6 +3039,16 @@
       "path": "integration/map_layers.py",
       "bytes": 7178,
       "sha256": "57e7fdea3d799baa30b2bfa9771431cef9091bf886b471332ee7364e1f687ded"
+    },
+    {
+      "path": "integration/native200_transactions.py",
+      "bytes": 6771,
+      "sha256": "a2d9aa6e46467034df8a8708521158aa2252c09488a37fb807005755d93783c2"
+    },
+    {
+      "path": "integration/native200a-pins.json",
+      "bytes": 2912,
+      "sha256": "28a30a9649ec94f7c5a59954d59a73ae366caa0e4c447cfc952bfb0317e9e23f"
     },
     {
       "path": "integration/news_api.py",
@@ -5381,6 +5396,11 @@
       "sha256": "014417e876847d06ab117fd9d10318a886776ebf373f26734a2640a605052d39"
     },
     {
+      "path": "tests/native200_wire_fixture.py",
+      "bytes": 2703,
+      "sha256": "3e7a4d6a8a0fdea22f26afe55a53be0cce529a83cc322455efb3778665f85260"
+    },
+    {
       "path": "tests/news_export/__init__.py",
       "bytes": 0,
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
@@ -6024,6 +6044,11 @@
       "path": "tests/test_monitor155.py",
       "bytes": 733,
       "sha256": "a99a1dac7ab037f056b640f5e778a019c64b47278be37c6fba14952f78334083"
+    },
+    {
+      "path": "tests/test_native200a.py",
+      "bytes": 7746,
+      "sha256": "ac6407c2287197276b17270361c7414952a9c32a8e90d5597d62124bdca73dcc"
     },
     {
       "path": "tests/test_news182.py",

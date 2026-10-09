@@ -137,6 +137,7 @@
         "integration/news_export/raw_pager.py",
         "integration/project_reports.py",
         "integration/replay199_schema.py",
+        "tests/native200_wire_fixture.py",
         "tests/news_export/test_fixture_http.py",
         "tests/news_export/test_keyset_plan.py",
         "tests/news_export/test_original_stream.py",
@@ -583,6 +584,7 @@
         "tests/test_invite_expiry.py",
         "tests/test_map_layers.py",
         "tests/test_mongo_account_store.py",
+        "tests/test_native200a.py",
         "tests/test_offline_collection_cycle.py",
         "tests/test_page_watch_contract.py",
         "tests/test_page_watch_parser_budget.py",
@@ -1166,6 +1168,7 @@
         "integration/india_open_data/core.py",
         "integration/mail_bridge.py",
         "integration/map_layers.py",
+        "integration/native200_transactions.py",
         "integration/news_api.py",
         "integration/news_export/fixture_http.py",
         "integration/news_export/original_stream.py",
@@ -1307,6 +1310,7 @@
     {
       "import": "importlib",
       "files": [
+        "integration/native200_transactions.py",
         "tests/browser_feature_finder.py",
         "tests/collection_outcomes/test_status.py",
         "tests/geospatial/test_geospatial.py",
@@ -1328,6 +1332,18 @@
         "source": "sys.stdlib_module_names"
       },
       "classification": "stdlib"
+    },
+    {
+      "import": "inspect",
+      "stdlib": true,
+      "distributions": [],
+      "classification": "stdlib",
+      "provenance": {
+        "source": "sys.stdlib_module_names"
+      },
+      "files": [
+        "integration/native200_transactions.py"
+      ]
     },
     {
       "import": "integration",
@@ -1534,6 +1550,7 @@
         "tests/test_mail_bridge.py",
         "tests/test_map_layers.py",
         "tests/test_mongo_account_store.py",
+        "tests/test_native200a.py",
         "tests/test_news182.py",
         "tests/test_news_pages185.py",
         "tests/test_news_scroll186.py",
@@ -1898,6 +1915,7 @@
         "integration/india_open_data/core.py",
         "integration/mail_bridge.py",
         "integration/map_layers.py",
+        "integration/native200_transactions.py",
         "integration/news_api.py",
         "integration/news_export/fixture_http.py",
         "integration/news_export/geo_snapshot.py",
@@ -2148,6 +2166,7 @@
         "integration/geo_only_runtime.py",
         "integration/geo_probe_process.py",
         "integration/geospatial/response.py",
+        "integration/native200_transactions.py",
         "integration/news_api.py",
         "integration/renderer_scope.py",
         "integration/retention_audit.py",
@@ -2392,6 +2411,7 @@
         "integration/geo_article_writer.py",
         "integration/geo_read_factory.py",
         "integration/geo_sample_probe.py",
+        "integration/native200_transactions.py",
         "integration/public_live_builder.py",
         "integration/replay199_core.py",
         "integration/replay199_preflight.py",
@@ -2400,6 +2420,7 @@
         "tests/test_geo_sample_probe.py",
         "tests/test_legacy_bulk_outcome.py",
         "tests/test_mongo_account_store.py",
+        "tests/test_native200a.py",
         "tests/test_replay199a.py"
       ],
       "stdlib": false,
@@ -2987,6 +3008,7 @@
         "tests/digest_cold_probe.py",
         "tests/geonews_digest/test_digest.py",
         "tests/geospatial/test_geospatial.py",
+        "tests/native200_wire_fixture.py",
         "tests/news_export/test_export.py",
         "tests/news_export/test_fixture_serving.py",
         "tests/test_collector197b_connector.py",
@@ -3045,6 +3067,7 @@
     {
       "import": "struct",
       "files": [
+        "tests/native200_wire_fixture.py",
         "tests/news_export/test_fixture_serving.py"
       ],
       "stdlib": true,
@@ -3267,6 +3290,7 @@
         "tests/test_geo_sample_probe.py",
         "tests/test_invite_expiry.py",
         "tests/test_mail166.py",
+        "tests/test_native200a.py",
         "tests/test_preview_launcher.py",
         "tests/test_replay199a.py",
         "tests/test_replay199b.py",
@@ -3466,6 +3490,7 @@
         "tests/browser_tariff_evidence.py",
         "tests/browser_watch_updates.py",
         "tests/browser_weekly.py",
+        "tests/native200_wire_fixture.py",
         "tests/news_export/test_fixture_serving.py",
         "tests/test_collector197a.py",
         "tests/test_db181.py",
@@ -3724,6 +3749,7 @@
         "tests/test_map_layers.py",
         "tests/test_mongo_account_store.py",
         "tests/test_monitor155.py",
+        "tests/test_native200a.py",
         "tests/test_news182.py",
         "tests/test_news_pages185.py",
         "tests/test_news_scroll186.py",
@@ -4138,6 +4164,7 @@
   ],
   "dynamic_import_files": [
     "integration/country_alerts.py",
+    "integration/native200_transactions.py",
     "tests/browser_sample_volume.py",
     "tests/collection_outcomes/test_status.py",
     "tests/news_export/test_export.py",
@@ -4664,6 +4691,10 @@
         "sha256": "57e7fdea3d799baa30b2bfa9771431cef9091bf886b471332ee7364e1f687ded"
       },
       {
+        "path": "integration/native200_transactions.py",
+        "sha256": "a2d9aa6e46467034df8a8708521158aa2252c09488a37fb807005755d93783c2"
+      },
+      {
         "path": "integration/news_api.py",
         "sha256": "56a53bcaea1580adbde6362c3ddfe02ca928a482380a7d6c548f96754dbba490"
       },
@@ -5124,6 +5155,10 @@
         "sha256": "7945a2da38494363394d59c3655dced03e8a7feb3fe8a31240da51506594a14a"
       },
       {
+        "path": "tests/native200_wire_fixture.py",
+        "sha256": "3e7a4d6a8a0fdea22f26afe55a53be0cce529a83cc322455efb3778665f85260"
+      },
+      {
         "path": "tests/news_export/__init__.py",
         "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
       },
@@ -5566,6 +5601,10 @@
       {
         "path": "tests/test_monitor155.py",
         "sha256": "a99a1dac7ab037f056b640f5e778a019c64b47278be37c6fba14952f78334083"
+      },
+      {
+        "path": "tests/test_native200a.py",
+        "sha256": "ac6407c2287197276b17270361c7414952a9c32a8e90d5597d62124bdca73dcc"
       },
       {
         "path": "tests/test_news182.py",
