@@ -45,6 +45,7 @@
         "tests/test_schedule_caller214.py",
         "tests/test_schedule_occurrence205.py",
         "tests/test_security_review.py",
+        "tests/test_sender_scope222.py",
         "tests/test_smtp_caller213.py",
         "tests/test_smtp_config204.py",
         "tests/test_stream_revision.py",
@@ -660,6 +661,7 @@
         "tests/test_replay199cc.py",
         "tests/test_rss_catalog.py",
         "tests/test_schedule_caller214.py",
+        "tests/test_sender_scope222.py",
         "tests/test_shared_ledger_fixture.py",
         "tests/test_shared_service_fixture.py",
         "tests/test_smtp_config204.py",
@@ -1270,6 +1272,7 @@
         "integration/retention_audit.py",
         "integration/schedule_caller214.py",
         "integration/schedule_occurrence205.py",
+        "integration/sender_scope222.py",
         "integration/stream_config.py",
         "integration/stream_disk.py",
         "integration/stream_revision.py",
@@ -1326,6 +1329,7 @@
         "tests/test_sanctions152.py",
         "tests/test_security173.py",
         "tests/test_security_review.py",
+        "tests/test_sender_scope222.py",
         "tests/test_shared_service_fixture.py",
         "tests/test_stream_config.py",
         "tests/test_stream_disk.py",
@@ -1432,6 +1436,7 @@
         "tests/test_news182.py",
         "tests/test_preview_launcher.py",
         "tests/test_recipient_scope220.py",
+        "tests/test_sender_scope222.py",
         "tests/test_smtp_caller213.py",
         "tests/test_smtp_config204.py",
         "tests/text_matching/test_matching.py"
@@ -1566,6 +1571,7 @@
         "integration/schedule_caller214.py",
         "integration/schedule_occurrence205.py",
         "integration/scraper_policy.py",
+        "integration/sender_scope222.py",
         "integration/single_db_runtime.py",
         "integration/site_parsers.py",
         "integration/smtp_caller213.py",
@@ -1752,6 +1758,7 @@
         "tests/test_scraper_policy.py",
         "tests/test_security_headers.py",
         "tests/test_security_review.py",
+        "tests/test_sender_scope222.py",
         "tests/test_shared_ledger_fixture.py",
         "tests/test_shared_service_fixture.py",
         "tests/test_single_db_plan.py",
@@ -2113,6 +2120,7 @@
         "integration/replay199_schema.py",
         "integration/retention_audit.py",
         "integration/schedule_caller214.py",
+        "integration/sender_scope222.py",
         "integration/supplied_fulltext_fixture.py",
         "integration/tariff_evidence.py",
         "scripts/audit_connections.py",
@@ -2195,6 +2203,7 @@
         "tests/test_schedule_caller214.py",
         "tests/test_scraper_policy.py",
         "tests/test_security173.py",
+        "tests/test_sender_scope222.py",
         "tests/test_tariff_evidence_plain.py",
         "tests/test_token196.py"
       ],
@@ -2490,6 +2499,7 @@
         "tests/test_scraper_policy.py",
         "tests/test_security173.py",
         "tests/test_security_review.py",
+        "tests/test_sender_scope222.py",
         "tests/test_shared_service_fixture.py",
         "tests/test_ships179.py",
         "tests/test_smtp_caller213.py",
@@ -3043,6 +3053,7 @@
         "integration/report_styles.py",
         "integration/rss_catalog/catalog.py",
         "integration/scheduler_policy.py",
+        "integration/sender_scope222.py",
         "integration/single_db_plan.py",
         "integration/smtp_caller213.py",
         "integration/smtp_config204.py",
@@ -3383,6 +3394,7 @@
         "tests/test_refresh_controller.py",
         "tests/test_replay199ca.py",
         "tests/test_sanctions152.py",
+        "tests/test_sender_scope222.py",
         "tests/test_ships179.py",
         "tests/test_table_edit151.py",
         "tests/test_token196.py",
@@ -3480,6 +3492,7 @@
         "tests/test_recipient_scope220.py",
         "tests/test_schedule_caller214.py",
         "tests/test_security_review.py",
+        "tests/test_sender_scope222.py",
         "tests/test_supplied_feed_fixture.py",
         "tests/test_supplied_fulltext_fixture.py",
         "tests/text_matching/test_matching.py"
@@ -4119,6 +4132,7 @@
         "tests/test_security173.py",
         "tests/test_security_headers.py",
         "tests/test_security_review.py",
+        "tests/test_sender_scope222.py",
         "tests/test_shared_ledger_fixture.py",
         "tests/test_shared_service_fixture.py",
         "tests/test_ships179.py",
@@ -4520,6 +4534,7 @@
     "tests/test_news182.py",
     "tests/test_preview_launcher.py",
     "tests/test_recipient_scope220.py",
+    "tests/test_sender_scope222.py",
     "tests/text_matching/test_matching.py",
     "tests/weekly_report/test_report.py"
   ],
@@ -5340,6 +5355,10 @@
       {
         "path": "integration/security_headers.py",
         "sha256": "6042de3d9baa4276e9504c767c5a69b831c099ac87a4b1203295ee716533fa27"
+      },
+      {
+        "path": "integration/sender_scope222.py",
+        "sha256": "4dc971402ba0ec53ae424e4bb731f4950bd15c5f32ef37c4d1c7169927a45c1a"
       },
       {
         "path": "integration/single_db_plan.py",
@@ -6376,6 +6395,10 @@
       {
         "path": "tests/test_security_review.py",
         "sha256": "a914027a5703753b97b5a39071b962520bc86e6104bb65d2a088172eab65ec6a"
+      },
+      {
+        "path": "tests/test_sender_scope222.py",
+        "sha256": "61520fcce128a88a034385009fbb6778cef9b031391217e40656442e262e4749"
       },
       {
         "path": "tests/test_shared_ledger_fixture.py",

@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 2122,
+  "tests": 2128,
   "files": [
     {
       "path": ".env.example",
@@ -2161,6 +2161,11 @@
       "sha256": "bb1e02d57a8df0f2b976debc3d2726041f23d11b03d965c777a5ff9ec8a590e8"
     },
     {
+      "path": "integration/SENDER-SCOPE222.md",
+      "bytes": 3053,
+      "sha256": "52cb6b9d4d5b022f2bdb2c73d58bacdaf848a2c37d69054a4b5aa7d3148a9f12"
+    },
+    {
       "path": "integration/SINGLE_DB_PLAN_LIMITS.md",
       "bytes": 2301,
       "sha256": "59f843ef877dd8cafc0613c1184024b21df692de01b6990d5cca6d232f080ddb"
@@ -2748,12 +2753,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 18581,
-      "sha256": "36a5a704de17712a7526df4721c031d9d19c1aa1da748ecbe56443428b38a9b6"
+      "sha256": "6fbf57b15609ac02ae824781872a4564110865e665a6de9885a3661e4987063d"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
-      "bytes": 247425,
-      "sha256": "6adbf0763c1e55888000da156314f4c84c5462803ac51fbe1f28b1c8897dcb9f"
+      "bytes": 248343,
+      "sha256": "94d9e8f1dca18b249b43d99a33c8330c6c21bae96e146c3b42899d85b02d7f92"
     },
     {
       "path": "integration/dependency_build/README.md",
@@ -4094,6 +4099,11 @@
       "path": "integration/security_maintenance94/sdk-physical-pins.json",
       "bytes": 73137,
       "sha256": "7c93a5e0aeb82865ad6bd7edaa57216ea1fe44446d9e15bcaf339116eed82ec4"
+    },
+    {
+      "path": "integration/sender_scope222.py",
+      "bytes": 2053,
+      "sha256": "4dc971402ba0ec53ae424e4bb731f4950bd15c5f32ef37c4d1c7169927a45c1a"
     },
     {
       "path": "integration/single_db_plan.py",
@@ -6764,6 +6774,11 @@
       "path": "tests/test_security_review.py",
       "bytes": 3019,
       "sha256": "a914027a5703753b97b5a39071b962520bc86e6104bb65d2a088172eab65ec6a"
+    },
+    {
+      "path": "tests/test_sender_scope222.py",
+      "bytes": 7361,
+      "sha256": "61520fcce128a88a034385009fbb6778cef9b031391217e40656442e262e4749"
     },
     {
       "path": "tests/test_shared_ledger_fixture.py",
