@@ -297,11 +297,12 @@
       "source_path": "collectors/rss.py",
       "path": "intelligence/geo/collectors/rss.py",
       "source_sha256": "f4caa621437ce4295029dc37db7ccda70a9aeb1fba2f59f7ea20f2f07517763b",
-      "sha256": "a882d01629181b8a14f1d6a2b9a695f3acd7aab83aae7a80165349689f84daef",
+      "sha256": "1c9ec9073c5c96fe11b26d778a2c83095e7961ff30123407b5e3e14fdbe21b57",
       "changes": [
         "root imports namespaced only",
         "bulk147 candidate pending final independent review: driver outcomes, held legacy backup, explicit status/labels; no live activation",
-        "date151 candidate: strict publication evidence, no now fallback, non-durable hold counters; independent final review pending"
+        "date151 candidate: strict publication evidence, no now fallback, non-durable hold counters; independent final review pending",
+        "RSS177: default-held bounded/isolated fetch-parser compatibility seam and fixed error labels; original field/date/document selection unchanged, no live activation"
       ],
       "prior_preserved_sha256": "337475c6a38dedecfdf5a25fab753df14e274b18c8d8788af431939067898f73"
     },

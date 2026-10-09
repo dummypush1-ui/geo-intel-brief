@@ -1,5 +1,4 @@
-import feedparser
-import requests
+from integration.bounded_rss.driver import BoundedRSSDriver
 from datetime import datetime, timezone, timedelta
 from concurrent.futures import ThreadPoolExecutor
 from threading import Lock
@@ -69,6 +68,12 @@ DEFAULT_FEEDS = [
 ]
 
 
+# Legacy network/parser interfaces are held by default. An operator must separately
+# review exact installation and live wiring; no requests/content fallback exists.
+requests = BoundedRSSDriver(tuple(DEFAULT_FEEDS), projection_limit=MAX_ITEMS_PER_FEED)
+feedparser = requests
+
+
 def _enrich_with_full_text(articles):
     """Optionally replace short RSS summaries with extracted article text."""
     if not ENABLE_FULL_TEXT or not articles:
@@ -89,18 +94,10 @@ _HEADERS = {"User-Agent": "Mozilla/5.0 (compatible; GeoIntelMonitor/2.0; +https:
 
 
 def _fetch_feed(feed_spec, cutoff):
-    """Fetch + parse one feed. Isolated so it can run in a worker thread and
-    a single slow/broken source never blocks the others.
-
-    Uses requests.get(timeout=REQUEST_TIMEOUT) instead of
-    feedparser.parse(url) directly -- feedparser's own URL fetching does NOT
-    respect REQUEST_TIMEOUT (or any timeout, by default), so a single slow
-    or hanging feed could previously stall its worker thread far longer
-    than the configured timeout, slowing down the whole collection cycle
-    even though fetching is threaded. Fetching with requests first and
-    handing feedparser the already-downloaded bytes fixes that -- this feed
-    now genuinely gives up after REQUEST_TIMEOUT seconds like every other
-    HTTP call in this project."""
+    """Select original fields from an opaque bounded/isolated RSS projection.
+    Default installation is held. A refused source yields no candidates and a
+    fixed safe label, never a raw name, URL, query or exception string.
+    """
     source, url, credibility = feed_spec
     observed_at = datetime.now(timezone.utc)
     out = []
@@ -125,8 +122,8 @@ def _fetch_feed(feed_spec, cutoff):
                 "credibility": credibility,
                 "summary": summary, "published": published,
             })
-    except Exception as exc:
-        print(f"[RSS] {source}: {exc}")
+    except Exception:
+        print("[RSS] source_refused")
     return out
 
 

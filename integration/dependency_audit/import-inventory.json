@@ -30,6 +30,7 @@
         "tests/test_mail166.py",
         "tests/test_preservation.py",
         "tests/test_protocol145_inventory.py",
+        "tests/test_rss177.py",
         "tests/test_security_review.py",
         "tests/test_stream_revision.py",
         "tests/test_supplied_collector_pipeline.py",
@@ -245,6 +246,7 @@
         "source": "reviewed local supplied transport policy"
       },
       "files": [
+        "integration/bounded_rss/driver.py",
         "integration/fulltext_policy/__init__.py"
       ]
     },
@@ -265,6 +267,36 @@
       "classification": "local"
     },
     {
+      "import": "collector124_prep",
+      "stdlib": false,
+      "distributions": [],
+      "classification": "local",
+      "provenance": {
+        "source": "reviewed local bounded fetch/parser implementation",
+        "paths": [
+          "collector124_prep"
+        ]
+      },
+      "files": [
+        "integration/bounded_rss/driver.py"
+      ]
+    },
+    {
+      "import": "collector128_prep",
+      "stdlib": false,
+      "distributions": [],
+      "classification": "local",
+      "provenance": {
+        "source": "reviewed local bounded fetch/parser implementation",
+        "paths": [
+          "collector128_prep"
+        ]
+      },
+      "files": [
+        "integration/bounded_rss/driver.py"
+      ]
+    },
+    {
       "import": "concurrent",
       "files": [
         "tests/test_mail_bridge.py"
@@ -283,7 +315,8 @@
         "tests/digest_cold_probe.py",
         "tests/news_export/test_fixture_serving.py",
         "tests/test_digest_preview_routes.py",
-        "tests/test_geo_probe_process.py"
+        "tests/test_geo_probe_process.py",
+        "tests/test_rss177.py"
       ],
       "stdlib": true,
       "distributions": [],
@@ -490,6 +523,7 @@
         "tests/test_private_news_fields.py",
         "tests/test_report_preview_frame.py",
         "tests/test_retention_audit.py",
+        "tests/test_rss177.py",
         "tests/test_sample_volume.py",
         "tests/test_schedule175.py",
         "tests/test_source_health.py",
@@ -834,6 +868,7 @@
         "integration/accounts/shared_ledger_fixture.py",
         "integration/accounts/shared_service_fixture.py",
         "integration/article_archive.py",
+        "integration/bounded_rss/driver.py",
         "integration/collection_receipts/protocol.py",
         "integration/collector_mail_fixture.py",
         "integration/country_alerts.py",
@@ -895,6 +930,7 @@
         "tests/test_protocol145_inventory.py",
         "tests/test_publication151_inventory.py",
         "tests/test_report_preview_frame.py",
+        "tests/test_rss177.py",
         "tests/test_sanctions152.py",
         "tests/test_security173.py",
         "tests/test_security_review.py",
@@ -1165,6 +1201,7 @@
         "tests/test_report_preview_frame.py",
         "tests/test_report_styles.py",
         "tests/test_retention_audit.py",
+        "tests/test_rss177.py",
         "tests/test_rss_catalog.py",
         "tests/test_runtime.py",
         "tests/test_sample_volume.py",
@@ -1426,6 +1463,7 @@
         "tests/news_export/test_original_stream.py",
         "tests/test_geo_probe_process.py",
         "tests/test_loaded_news.py",
+        "tests/test_rss177.py",
         "tests/test_weekly_routes.py",
         "tests/weekly_report/test_report.py"
       ],
@@ -1575,6 +1613,7 @@
         "integration/accounts/shared_ledger_fixture.py",
         "integration/accounts/store.py",
         "integration/article_archive.py",
+        "integration/bounded_rss/driver.py",
         "integration/collector_mail_fixture.py",
         "integration/dashboard_model.py",
         "integration/fake_collection_writer.py",
@@ -1760,6 +1799,7 @@
         "tests/test_publication151_inventory.py",
         "tests/test_refresh149_gate.py",
         "tests/test_refresh_controller.py",
+        "tests/test_rss177.py",
         "tests/test_rss_catalog.py",
         "tests/test_sanctions152.py",
         "tests/test_scraper_policy.py",
@@ -2887,6 +2927,7 @@
       "import": "time",
       "files": [
         "integration/accounts/mongo_store.py",
+        "integration/bounded_rss/driver.py",
         "integration/edge_guard.py",
         "integration/feedparser_audit/runner.py",
         "integration/geo_probe_http.py",
@@ -3091,6 +3132,7 @@
         "tests/test_report_preview_frame.py",
         "tests/test_report_styles.py",
         "tests/test_retention_audit.py",
+        "tests/test_rss177.py",
         "tests/test_rss_catalog.py",
         "tests/test_runtime.py",
         "tests/test_sample_volume.py",
@@ -3593,6 +3635,14 @@
         "sha256": "f0ab086c622a6b6299c896d301b3a5dadecbc48f75f55dd7677e3efdb07706ee"
       },
       {
+        "path": "integration/bounded_rss/__init__.py",
+        "sha256": "0d0777ce776a26878946ca70478e8d8035b0758491895ed75b64d177730dc2c1"
+      },
+      {
+        "path": "integration/bounded_rss/driver.py",
+        "sha256": "7ece0b8ad2d43c860ccf66f657c32178c033891af35f4ae5ab6838d770e41175"
+      },
+      {
         "path": "integration/branding_meta.py",
         "sha256": "100d7085bb5e1d7b2701325efaf2efad0dfe39b37410757524a5aa51c8631463"
       },
@@ -3614,7 +3664,7 @@
       },
       {
         "path": "integration/collector_mail_fixture.py",
-        "sha256": "b7c360e24fc43685e88c2e590b39497839e539a8d9159750cce422c9075ef8de"
+        "sha256": "b2fe2caa4283ffc921a705c3feb1cfb195d59aed57f9f8e3bdad4c528a6c11e8"
       },
       {
         "path": "integration/country_alerts.py",
@@ -3702,7 +3752,7 @@
       },
       {
         "path": "integration/fixed_parser_pipeline.py",
-        "sha256": "d24a09e28153a424b543b0e5b5edeb7ebe707521ba712bd610de86a6f1aa7316"
+        "sha256": "a8b2f0d9e554d457bb0034754fdb8dc4661e6886c9db53355105d5409e2100a0"
       },
       {
         "path": "integration/fulltext_policy/__init__.py",
@@ -3714,7 +3764,7 @@
       },
       {
         "path": "integration/geo_collector_contract.py",
-        "sha256": "f2bc6c906633e06aba66b21a54901a634279e2d336cfa9d5697d134691292f49"
+        "sha256": "d991c6875f4824d07f8ab22fe976ea08d95bfad8fde9a4674b4afc8644894785"
       },
       {
         "path": "integration/geo_only_runtime.py",
@@ -4026,19 +4076,19 @@
       },
       {
         "path": "integration/supplied_collector_pipeline.py",
-        "sha256": "cd791259239c08ec66753db6fdaed07ca07500402c4973485f436cc11d64e8cc"
+        "sha256": "52549f5dcb144df8eb31618c79549665844678c824a56795cdca2582010663c3"
       },
       {
         "path": "integration/supplied_feed_fixture.py",
-        "sha256": "3205c4241b6d1d2633b0821dba1e7d08a2112ca442ce69a0c2e3e9cab7d735a5"
+        "sha256": "a282f5340e48d93221d73f1db918aff84c98e47cc969ee0500f2b5fae638fc2a"
       },
       {
         "path": "integration/supplied_fulltext_fixture.py",
-        "sha256": "2134359525bdee3d361042c6d08eaa7f5a051d652201cbaf77fbf6188042de24"
+        "sha256": "412cd557d6751c16b7b94ea04549898543e4642caca996d332827ead5bb1c49e"
       },
       {
         "path": "integration/supplied_multi_feed.py",
-        "sha256": "75354af2cf01802cd9a81e94d21d99b4d62734451fa3f28f3a097507c16a1e96"
+        "sha256": "0389a85795a25b07108ae2048338a117901cd8377a8185eaf2dbde5a1d68a4d7"
       },
       {
         "path": "integration/tariff_evidence.py",
@@ -4675,6 +4725,10 @@
       {
         "path": "tests/test_retention_audit.py",
         "sha256": "ea7d34b9940cfec1043778ee9f696b5104e594b1aca943b412a1fd0270e525ba"
+      },
+      {
+        "path": "tests/test_rss177.py",
+        "sha256": "8ab5a5169e5c5eb2f5589e2e4e539618536783af3552f25112f2b81e403625dc"
       },
       {
         "path": "tests/test_rss_catalog.py",

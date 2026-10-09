@@ -12,7 +12,7 @@ from integration.fake_collection_writer import plain
 from dateutil.tz import tzutc,tzoffset,tzlocal
 
 ROOT=Path(__file__).resolve().parents[1]
-RSS_PIN='a882d01629181b8a14f1d6a2b9a695f3acd7aab83aae7a80165349689f84daef'
+RSS_PIN='1c9ec9073c5c96fe11b26d778a2c83095e7961ff30123407b5e3e14fdbe21b57'
 
 PROCESSING_PINS={'intelligence/geo/processing/classifier.py':'5a87baba3a28b778d0d6b7a3091129e94a618c45ae346a99e13204790f2787ac','intelligence/geo/processing/dedupe.py':'8326042d8a2adccafc690f86c47cc9baa67240792ef90060750313c81fb7382e'}
 def _original_documents(candidates,categories,threshold):

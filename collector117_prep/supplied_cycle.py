@@ -11,7 +11,7 @@ from collector110_prep.input_budget import capture
 class CycleRefused(ValueError):pass
 class InstallationRefused(CycleRefused):pass
 ROOT=Path(__file__).resolve().parents[1]
-PINS_PATH=Path(__file__).resolve().parent/"dependency-pins.json"
+PINS_PATH=Path(__file__).resolve().parent/"dependency-pins177.json"
 
 def verify_installation():
  try:

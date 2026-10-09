@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 1526,
+  "tests": 1535,
   "files": [
     {
       "path": ".env.example",
@@ -816,6 +816,11 @@
       "sha256": "4267813156baf13555df5e6ee2cd449246dfc72e7a8548dd5224a5999b159ae6"
     },
     {
+      "path": "collector117_prep/dependency-pins177.json",
+      "bytes": 5423,
+      "sha256": "e681352811720bacea0c588943faf8d1544f6aeeb0d0e2e627c5dd6b7aca1f87"
+    },
+    {
       "path": "collector117_prep/evidence/local-tests.json",
       "bytes": 410,
       "sha256": "13666f74834515f66b0af639792db0f883fe6c2ffaa522679f40437f167f9397"
@@ -827,8 +832,8 @@
     },
     {
       "path": "collector117_prep/supplied_cycle.py",
-      "bytes": 3809,
-      "sha256": "c53e7159d0d8a3aa4a67882c39e7fe26dc0ef2381944e6cf6be553a9705d6292"
+      "bytes": 3812,
+      "sha256": "59bb334cc3affdda0a463cde550860a258de8b587bbab437b8c110cc0edaff71"
     },
     {
       "path": "collector117_prep/test_supplied_cycle.py",
@@ -1318,12 +1323,12 @@
     {
       "path": "collector129_prep/inventory.json",
       "bytes": 403,
-      "sha256": "e20360073071bd4bd178b184834e44407b32bd86941939491dcbcc7fe2c12dcf"
+      "sha256": "ae1be7028f6ff859dfc3d0b9af9b24a6d472443051bdc6740e5a9173b2a4c5b2"
     },
     {
       "path": "collector129_prep/supplied_feed.py",
       "bytes": 7697,
-      "sha256": "b2fc0ebca058f0368230d84668edc050a34ddf2d9c1c1d11ef57c6a62f407211"
+      "sha256": "337ef9450f0a3fc4a505b21e939bee6aef0a1cf9cb64a61fb154bb6caa3779f0"
     },
     {
       "path": "collector129_prep/test_selection.py",
@@ -2101,6 +2106,21 @@
       "sha256": "f0ab086c622a6b6299c896d301b3a5dadecbc48f75f55dd7677e3efdb07706ee"
     },
     {
+      "path": "integration/bounded_rss/CONTRACT.md",
+      "bytes": 1836,
+      "sha256": "cd9d80e9a0104a72408b1f15290d2fd6cdbde66fd65418fbf8694f3a2aea40b7"
+    },
+    {
+      "path": "integration/bounded_rss/__init__.py",
+      "bytes": 81,
+      "sha256": "0d0777ce776a26878946ca70478e8d8035b0758491895ed75b64d177730dc2c1"
+    },
+    {
+      "path": "integration/bounded_rss/driver.py",
+      "bytes": 3447,
+      "sha256": "7ece0b8ad2d43c860ccf66f657c32178c033891af35f4ae5ab6838d770e41175"
+    },
+    {
       "path": "integration/branding/apple-touch-icon.png",
       "bytes": 14807,
       "sha256": "5c6ec15042f2f866a355e6597a5549f7f6c01112b966f3dd56ffbae6ad32a638"
@@ -2193,7 +2213,7 @@
     {
       "path": "integration/collector_mail_fixture.py",
       "bytes": 7280,
-      "sha256": "b7c360e24fc43685e88c2e590b39497839e539a8d9159750cce422c9075ef8de"
+      "sha256": "b2fe2caa4283ffc921a705c3feb1cfb195d59aed57f9f8e3bdad4c528a6c11e8"
     },
     {
       "path": "integration/country_alerts.py",
@@ -2308,12 +2328,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 18581,
-      "sha256": "98c755f6c32959e38d29f798b55fc29557e6a849b3313bfef36add5271768df5"
+      "sha256": "7eb84199986fffa119d9366a40e902600536e7060ab9ef6dd6a4c24f3315b84c"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
-      "bytes": 182948,
-      "sha256": "ec02711056459854ae1168f66895653a737110354d4d8d3793e5a874fb5fe35e"
+      "bytes": 184566,
+      "sha256": "072abaf3379aeaefc6f4c534a5d787475d1a0b13cf64cc056cf83cc8b1b8386f"
     },
     {
       "path": "integration/dependency_build/README.md",
@@ -2433,7 +2453,7 @@
     {
       "path": "integration/fixed_parser_pipeline.py",
       "bytes": 5238,
-      "sha256": "d24a09e28153a424b543b0e5b5edeb7ebe707521ba712bd610de86a6f1aa7316"
+      "sha256": "a8b2f0d9e554d457bb0034754fdb8dc4661e6886c9db53355105d5409e2100a0"
     },
     {
       "path": "integration/fulltext_policy/README.md",
@@ -2453,7 +2473,7 @@
     {
       "path": "integration/geo_collector_contract.py",
       "bytes": 6433,
-      "sha256": "f2bc6c906633e06aba66b21a54901a634279e2d336cfa9d5697d134691292f49"
+      "sha256": "d991c6875f4824d07f8ab22fe976ea08d95bfad8fde9a4674b4afc8644894785"
     },
     {
       "path": "integration/geo_only_runtime.py",
@@ -3438,22 +3458,22 @@
     {
       "path": "integration/supplied_collector_pipeline.py",
       "bytes": 6383,
-      "sha256": "cd791259239c08ec66753db6fdaed07ca07500402c4973485f436cc11d64e8cc"
+      "sha256": "52549f5dcb144df8eb31618c79549665844678c824a56795cdca2582010663c3"
     },
     {
       "path": "integration/supplied_feed_fixture.py",
       "bytes": 7416,
-      "sha256": "3205c4241b6d1d2633b0821dba1e7d08a2112ca442ce69a0c2e3e9cab7d735a5"
+      "sha256": "a282f5340e48d93221d73f1db918aff84c98e47cc969ee0500f2b5fae638fc2a"
     },
     {
       "path": "integration/supplied_fulltext_fixture.py",
       "bytes": 7661,
-      "sha256": "2134359525bdee3d361042c6d08eaa7f5a051d652201cbaf77fbf6188042de24"
+      "sha256": "412cd557d6751c16b7b94ea04549898543e4642caca996d332827ead5bb1c49e"
     },
     {
       "path": "integration/supplied_multi_feed.py",
       "bytes": 6430,
-      "sha256": "75354af2cf01802cd9a81e94d21d99b4d62734451fa3f28f3a097507c16a1e96"
+      "sha256": "0389a85795a25b07108ae2048338a117901cd8377a8185eaf2dbde5a1d68a4d7"
     },
     {
       "path": "integration/tariff_evidence.py",
@@ -3837,8 +3857,8 @@
     },
     {
       "path": "intelligence/geo/collectors/rss.py",
-      "bytes": 9063,
-      "sha256": "a882d01629181b8a14f1d6a2b9a695f3acd7aab83aae7a80165349689f84daef"
+      "bytes": 8848,
+      "sha256": "1c9ec9073c5c96fe11b26d778a2c83095e7961ff30123407b5e3e14fdbe21b57"
     },
     {
       "path": "intelligence/geo/collectors/sanctions.py",
@@ -3987,8 +4007,8 @@
     },
     {
       "path": "preservation-manifest.json",
-      "bytes": 26345,
-      "sha256": "9c757701004ee039004d5edf916e3c4548b5a4338bf6c5fe06e42ff028f9c51e"
+      "bytes": 26519,
+      "sha256": "0b9587cc710a289ef08dc29791c6b67e4aa34b59e1d85ff705814328e07f30b3"
     },
     {
       "path": "production_entry.py",
@@ -5534,6 +5554,11 @@
       "path": "tests/test_retention_audit.py",
       "bytes": 3842,
       "sha256": "ea7d34b9940cfec1043778ee9f696b5104e594b1aca943b412a1fd0270e525ba"
+    },
+    {
+      "path": "tests/test_rss177.py",
+      "bytes": 4732,
+      "sha256": "8ab5a5169e5c5eb2f5589e2e4e539618536783af3552f25112f2b81e403625dc"
     },
     {
       "path": "tests/test_rss_catalog.py",
