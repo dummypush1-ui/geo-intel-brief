@@ -87,10 +87,13 @@
         "integration/article_archive.py",
         "integration/collector197_connector.py",
         "integration/collector197_feed_child.py",
+        "integration/finder198_transport.py",
+        "integration/finder198_transport_child.py",
         "integration/finder_index.py",
         "integration/finder_offline.py",
         "integration/news_api.py",
         "tests/accounts/test_hardening.py",
+        "tests/test_finder198bb.py",
         "tests/test_finder_nested.py"
       ],
       "stdlib": true,
@@ -526,6 +529,7 @@
         "integration/digest_windows193.py",
         "integration/fake_collection_writer.py",
         "integration/finder198_budget.py",
+        "integration/finder198_receipts.py",
         "integration/geo_article_writer.py",
         "integration/geo_collector_contract.py",
         "integration/india_open_data/core.py",
@@ -554,6 +558,7 @@
         "tests/test_feature_related_calibration.py",
         "tests/test_feature_related_prep.py",
         "tests/test_finder198ba.py",
+        "tests/test_finder198bb.py",
         "tests/test_fixed_parser_pipeline.py",
         "tests/test_geo_collector_contract.py",
         "tests/test_invite_expiry.py",
@@ -1121,6 +1126,8 @@
         "integration/feedparser_audit/runner.py",
         "integration/finder198_auth.py",
         "integration/finder198_budget.py",
+        "integration/finder198_receipts.py",
+        "integration/finder198_transport.py",
         "integration/finder_index.py",
         "integration/finder_offline.py",
         "integration/fixed_parser_pipeline.py",
@@ -1163,6 +1170,7 @@
         "tests/test_cross_routes.py",
         "tests/test_fake_collection_writer.py",
         "tests/test_feature_finder_prep.py",
+        "tests/test_finder198bb.py",
         "tests/test_finder_index.py",
         "tests/test_finder_nested.py",
         "tests/test_geo_collector_contract.py",
@@ -1243,6 +1251,7 @@
       "import": "http",
       "files": [
         "integration/collector197_connector.py",
+        "integration/finder198_transport_child.py",
         "integration/geonews_digest/delivery.py",
         "integration/india_open_data/transport.py",
         "tests/browser_feature_finder.py",
@@ -1311,6 +1320,9 @@
         "integration/feedparser_audit/child.py",
         "integration/feedparser_audit/runner.py",
         "integration/finder198_auth.py",
+        "integration/finder198_receipts.py",
+        "integration/finder198_transport.py",
+        "integration/finder198_transport_child.py",
         "integration/finder_offline.py",
         "integration/geo_article_writer.py",
         "integration/geo_collector_contract.py",
@@ -1440,6 +1452,7 @@
         "tests/test_feature_mail_prep.py",
         "tests/test_finder198a.py",
         "tests/test_finder198ba.py",
+        "tests/test_finder198bb.py",
         "tests/test_finder_index.py",
         "tests/test_finder_nested.py",
         "tests/test_finder_network.py",
@@ -1769,6 +1782,7 @@
       "files": [
         "feature_mail_prep/reports.py",
         "integration/dashboard_snapshots.py",
+        "integration/finder198_transport_child.py",
         "integration/india_open_data/transport.py",
         "integration/rss_catalog/catalog.py"
       ],
@@ -1811,6 +1825,8 @@
         "integration/feedparser_audit/child.py",
         "integration/feedparser_audit/runner.py",
         "integration/finder198_auth.py",
+        "integration/finder198_transport.py",
+        "integration/finder198_transport_child.py",
         "integration/finder_index.py",
         "integration/geo_article_writer.py",
         "integration/geo_probe_process.py",
@@ -1872,6 +1888,7 @@
         "tests/test_event_reader.py",
         "tests/test_file_audit.py",
         "tests/test_finder198a.py",
+        "tests/test_finder198bb.py",
         "tests/test_finder_nested.py",
         "tests/test_geo_probe_http.py",
         "tests/test_geo_probe_process.py",
@@ -1986,6 +2003,8 @@
         "integration/collector197_supervisor.py",
         "integration/feedparser_audit/child.py",
         "integration/feedparser_audit/runner.py",
+        "integration/finder198_transport.py",
+        "integration/finder198_transport_child.py",
         "integration/geo_probe_process.py",
         "integration/geo_sample_probe_child.py",
         "integration/private_router.py",
@@ -2048,6 +2067,8 @@
         "integration/collector_mail_fixture.py",
         "integration/feedparser_audit/child.py",
         "integration/feedparser_audit/runner.py",
+        "integration/finder198_transport.py",
+        "integration/finder198_transport_child.py",
         "integration/finder_index.py",
         "integration/fixed_parser_pipeline.py",
         "integration/geo_collector_contract.py",
@@ -2120,6 +2141,7 @@
         "tests/test_feature_mail_mount.py",
         "tests/test_feature_mail_prep.py",
         "tests/test_file_audit.py",
+        "tests/test_finder198bb.py",
         "tests/test_finder_index.py",
         "tests/test_finder_nested.py",
         "tests/test_finder_offline.py",
@@ -2644,6 +2666,7 @@
         "integration/db_contract/plan.py",
         "integration/edge_guard.py",
         "integration/feedparser_audit/child.py",
+        "integration/finder198_transport_child.py",
         "integration/finder_index.py",
         "integration/finder_links.py",
         "integration/finder_nested.py",
@@ -2740,7 +2763,8 @@
         "integration/collector197_job.py",
         "integration/collector197_job_adversary.py",
         "integration/collector197_job_runtime.py",
-        "integration/feedparser_audit/child.py"
+        "integration/feedparser_audit/child.py",
+        "integration/finder198_transport_child.py"
       ],
       "stdlib": true,
       "distributions": [],
@@ -2791,6 +2815,7 @@
         "integration/collector197_parser.py",
         "integration/collector197_supervisor.py",
         "integration/feedparser_audit/runner.py",
+        "integration/finder198_transport.py",
         "integration/geo_probe_process.py"
       ],
       "stdlib": true,
@@ -2844,7 +2869,8 @@
         "integration/collector197_coordinator_child.py",
         "integration/collector197_host_probe.py",
         "integration/collector197_parser.py",
-        "integration/collector197_supervisor.py"
+        "integration/collector197_supervisor.py",
+        "integration/finder198_transport.py"
       ]
     },
     {
@@ -2867,6 +2893,7 @@
         "feature_mail_prep/reports.py",
         "integration/collector197_connector.py",
         "integration/feedparser_audit/child.py",
+        "integration/finder198_transport_child.py",
         "integration/india_open_data/transport.py",
         "tests/accounts/test_accounts.py",
         "tests/digest_cold_probe.py",
@@ -2875,7 +2902,8 @@
         "tests/news_export/test_export.py",
         "tests/news_export/test_fixture_serving.py",
         "tests/test_collector197b_connector.py",
-        "tests/test_feature_mail_prep.py"
+        "tests/test_feature_mail_prep.py",
+        "tests/test_finder198bb.py"
       ],
       "stdlib": true,
       "distributions": [],
@@ -2901,9 +2929,11 @@
       "import": "ssl",
       "files": [
         "integration/collector197_connector.py",
+        "integration/finder198_transport_child.py",
         "integration/geonews_digest/delivery.py",
         "integration/india_open_data/transport.py",
-        "tests/test_collector197b_connector.py"
+        "tests/test_collector197b_connector.py",
+        "tests/test_finder198bb.py"
       ],
       "stdlib": true,
       "distributions": [],
@@ -2946,6 +2976,7 @@
         "integration/collector197_parser.py",
         "integration/collector197_supervisor.py",
         "integration/feedparser_audit/runner.py",
+        "integration/finder198_transport.py",
         "integration/geo_probe_process.py",
         "tests/accounts/browser_http_fixture.py",
         "tests/geospatial/test_geospatial.py",
@@ -2964,6 +2995,7 @@
         "tests/test_factory176.py",
         "tests/test_feature_finder_prep.py",
         "tests/test_feature_mail_mount.py",
+        "tests/test_finder198bb.py",
         "tests/test_finder_nested.py",
         "tests/test_fixed_feedparser_audit.py",
         "tests/test_geo_probe_process.py",
@@ -3013,6 +3045,8 @@
         "integration/collector197_supervisor.py",
         "integration/feedparser_audit/child.py",
         "integration/feedparser_audit/runner.py",
+        "integration/finder198_transport.py",
+        "integration/finder198_transport_child.py",
         "integration/geo_probe_process.py",
         "integration/geo_sample_probe_child.py",
         "scripts/package_manifest.py",
@@ -3052,6 +3086,7 @@
         "tests/test_digest_cold.py",
         "tests/test_edge_guard.py",
         "tests/test_factory176.py",
+        "tests/test_finder198bb.py",
         "tests/test_fixed_feedparser_audit.py",
         "tests/test_geo_probe_process.py",
         "tests/test_geo_read_factory.py",
@@ -3131,6 +3166,7 @@
         "tests/test_collector197c.py",
         "tests/test_collector197ea.py",
         "tests/test_finder198ba.py",
+        "tests/test_finder198bb.py",
         "tests/test_geo_event_composition.py",
         "tests/test_geo_read_factory.py",
         "tests/test_geo_sample_probe.py",
@@ -3364,6 +3400,8 @@
         "integration/collector197_supervisor.py",
         "integration/edge_guard.py",
         "integration/feedparser_audit/runner.py",
+        "integration/finder198_transport.py",
+        "integration/finder198_transport_child.py",
         "integration/geo_probe_http.py",
         "integration/geo_probe_process.py",
         "integration/news_export/export.py",
@@ -3378,6 +3416,7 @@
         "tests/test_collector197b_coordinator.py",
         "tests/test_collector197b_supervisor.py",
         "tests/test_db181.py",
+        "tests/test_finder198bb.py",
         "tests/test_geo_event_composition.py",
         "tests/test_geo_probe_http.py",
         "tests/test_geo_probe_process.py",
@@ -3417,6 +3456,7 @@
         "tests/test_collector197ea.py",
         "tests/test_feature_mail_mount.py",
         "tests/test_finder198ba.py",
+        "tests/test_finder198bb.py",
         "tests/test_geo_article_writer.py",
         "tests/test_legacy_bulk_outcome.py",
         "tests/test_mongo_account_store.py",
@@ -3541,6 +3581,7 @@
         "tests/test_file_audit.py",
         "tests/test_finder198a.py",
         "tests/test_finder198ba.py",
+        "tests/test_finder198bb.py",
         "tests/test_finder_index.py",
         "tests/test_finder_nested.py",
         "tests/test_finder_network.py",
@@ -4308,6 +4349,18 @@
       {
         "path": "integration/finder198_connector.py",
         "sha256": "60a557ea16619dce4e3612605700a620071901007259120bd997cb80afd30eaa"
+      },
+      {
+        "path": "integration/finder198_receipts.py",
+        "sha256": "f478adb73eaa619cec1cf77cfffec022d5a8ba6a4a533563d449dd90f4fa1f97"
+      },
+      {
+        "path": "integration/finder198_transport.py",
+        "sha256": "364debd0ada22fd35cb0d0cc67953fdf482443fbcbcef4ce17012077c8655311"
+      },
+      {
+        "path": "integration/finder198_transport_child.py",
+        "sha256": "f0033e40c26ea4c787e0a465cab32f26881244d8916d4226e737abf2f0f2e918"
       },
       {
         "path": "integration/finder_index.py",
@@ -5172,6 +5225,10 @@
       {
         "path": "tests/test_finder198ba.py",
         "sha256": "96bf34f192b8e2b697e9ac7af12efbfa82251dde13885c084e8e0f59a5953a9e"
+      },
+      {
+        "path": "tests/test_finder198bb.py",
+        "sha256": "00f1532995690d01f43223099b87d8a062644a4883237dcfbe96cd7091e40a91"
       },
       {
         "path": "tests/test_finder_index.py",

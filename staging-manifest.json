@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 1732,
+  "tests": 1750,
   "files": [
     {
       "path": ".env.example",
@@ -1811,6 +1811,11 @@
       "sha256": "a08badb45a33e1936c59256da7693d462c8fb8c7eb1009d8b177f2244ab95755"
     },
     {
+      "path": "integration/FINDER198BB.md",
+      "bytes": 3827,
+      "sha256": "ac54d70e1f71f4323f49a01d68af748a28fc3993e000192aa37949eb8d9764f4"
+    },
+    {
       "path": "integration/FINDER_NESTED_LIMITS.md",
       "bytes": 5934,
       "sha256": "fae0cd7ffdc87848c2b41df262c84ccf4b0a34c8ab8e36b723858b0bd0574f7b"
@@ -2523,12 +2528,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 18581,
-      "sha256": "d562ee5fcb2df40e5d40ab683a8b45be1401701ee226647f16574c834dbb3633"
+      "sha256": "8fb6798dd353ebf82f166081ddd4ee03e2f2c101b0eefa8e51b2adb7361044fc"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
-      "bytes": 210452,
-      "sha256": "16874539752663ac0359ceff6d3d6ba2f138392bd7772a334e316df079fd454f"
+      "bytes": 212907,
+      "sha256": "99dd123027e4aac88e8ff47226278217e6178068865c7ba729ff21cf515e3804"
     },
     {
       "path": "integration/dependency_build/README.md",
@@ -2639,6 +2644,21 @@
       "path": "integration/finder198_connector.py",
       "bytes": 3624,
       "sha256": "60a557ea16619dce4e3612605700a620071901007259120bd997cb80afd30eaa"
+    },
+    {
+      "path": "integration/finder198_receipts.py",
+      "bytes": 6417,
+      "sha256": "f478adb73eaa619cec1cf77cfffec022d5a8ba6a4a533563d449dd90f4fa1f97"
+    },
+    {
+      "path": "integration/finder198_transport.py",
+      "bytes": 5916,
+      "sha256": "364debd0ada22fd35cb0d0cc67953fdf482443fbcbcef4ce17012077c8655311"
+    },
+    {
+      "path": "integration/finder198_transport_child.py",
+      "bytes": 5161,
+      "sha256": "f0033e40c26ea4c787e0a465cab32f26881244d8916d4226e737abf2f0f2e918"
     },
     {
       "path": "integration/finder_index.py",
@@ -5664,6 +5684,11 @@
       "path": "tests/test_finder198ba.py",
       "bytes": 4754,
       "sha256": "96bf34f192b8e2b697e9ac7af12efbfa82251dde13885c084e8e0f59a5953a9e"
+    },
+    {
+      "path": "tests/test_finder198bb.py",
+      "bytes": 9462,
+      "sha256": "00f1532995690d01f43223099b87d8a062644a4883237dcfbe96cd7091e40a91"
     },
     {
       "path": "tests/test_finder_index.py",
