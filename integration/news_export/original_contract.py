@@ -16,9 +16,9 @@ GEO_FIELDS=('title','source','category','risk_level','score','credibility','coun
 BRICS_FIELDS=('title','url','source','country','category','published','collected_at','corroborated_by')
 DEFAULT_CRITICAL=('attack','explosion','resign','coup','ceasefire','sanctions')
 # No original modules are imported, and no environment config is read.
-# Geo HTTP auth/deletion changed in P0; export_csv body remains unchanged.
+# Geo export165 is bounded streaming; this serializer preserves the explicit historical snapshot contract.
 SOURCE_PINS={
- 'intelligence/geo/web.py':'8e78a29cb8c3d11fa12ad9a713c9e26ca67c36deb780b2aa5cadee485c120443',
+ 'tests/news_export/historical_geo_web.txt':'8e78a29cb8c3d11fa12ad9a713c9e26ca67c36deb780b2aa5cadee485c120443',
  'intelligence/brics/web.py':'1adebf8baaea16ee305afb16fd21717c5abf0635279a7dbedfa985ff21fe5997',
  'intelligence/brics/processing/classifier.py':'66ca3047bf14d69f13267b80b794b7cda3d2d41b8a301ce0c641e5c7697ce0fd'}
 

@@ -278,7 +278,7 @@ def dashboard():
         return "Unauthorized", 401
     if (err := _db_check()):
         return err
-    limit = request.args.get("limit", default=2000, type=int)
+    limit = request.args.get("limit", default=100000, type=int)
     category = request.args.get("category") or None
     sort_by = request.args.get("sort_by", default="score")
     html_out = build_dashboard_html(limit=limit, category=category, trigger_key="", sort_by=sort_by)
@@ -287,34 +287,27 @@ def dashboard():
 
 @app.route("/export.csv")
 def export_csv():
-    """Bounded streaming CSV, not a full-database or recovery backup."""
+    """Downloads every article in MongoDB as a CSV file -- a portable full
+    backup you can keep locally, independent of both the dashboard view
+    and the Telegram archive. Pass &category=X to export just one category."""
     if not _authorized():
         return jsonify(error="unauthorized"), 401
     if (err := _db_check()):
         return err
-    if set(request.args)-{'category'} or len(request.args.getlist('category'))>1:
-        return jsonify(error="invalid export arguments"),400
     category = request.args.get("category") or None
-    from intelligence.geo.bounded_csv import csv_chunks
-    try:
-        pages=_service('database','export_article_pages',category=category)
-        first=next(pages,[])
-    except ValueError:
-        return jsonify(error="export selection unavailable or outside reviewed bounds"),400
-    except Exception:
-        return jsonify(error="export source unavailable"),503
-    def all_pages():
-        try:
-            if first:yield first
-            yield from pages
-        finally:
-            close=getattr(pages,'close',None)
-            if close:close()
-    return Response(csv_chunks(all_pages()), mimetype="text/csv",
-                    headers={"Content-Disposition":"attachment; filename=geonews_bounded_export.csv",
-                             "X-Export-Scope":"bounded-not-snapshot-not-recovery-backup",
-                             "Cache-Control":"no-store"})
-
+    articles = recent_articles(limit=1000000)
+    if category:
+        articles = [a for a in articles if (a.get("category") or "GENERAL") == category]
+    buf = io.StringIO()
+    fields = ["title", "source", "category", "risk_level", "score", "credibility",
+              "country", "corroboration", "published", "created_at", "url", "summary"]
+    writer = csv.DictWriter(buf, fieldnames=fields, extrasaction="ignore")
+    writer.writeheader()
+    for a in articles:
+        writer.writerow(a)
+    fname = f"geonews_export{'_' + category if category else ''}.csv"
+    return Response(buf.getvalue(), mimetype="text/csv",
+                     headers={"Content-Disposition": f"attachment; filename={fname}"})
 
 
 @app.route("/cleanup-old", methods=["POST"])

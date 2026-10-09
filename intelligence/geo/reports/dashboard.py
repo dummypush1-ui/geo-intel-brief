@@ -69,7 +69,7 @@ def _bar_section(title, rows, max_val):
     return "".join(out)
 
 
-def build_dashboard_html(limit=100000, category=None, trigger_key=None, sort_by="score"):
+def build_dashboard_html(limit=2000, category=None, trigger_key=None, sort_by="score"):
     total_in_db = total_article_count()
     last_collected = latest_collection_time()
     articles = recent_articles(limit=limit, sort_by=sort_by)

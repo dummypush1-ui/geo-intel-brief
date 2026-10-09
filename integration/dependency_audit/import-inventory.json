@@ -287,6 +287,7 @@
         "integration/collection_prepare.py",
         "integration/collection_receipts/protocol.py",
         "integration/db_contract/plan.py",
+        "integration/db_contract/query_plan.py",
         "integration/fake_collection_writer.py",
         "integration/geo_article_writer.py",
         "integration/geo_collector_contract.py",
@@ -1134,6 +1135,7 @@
         "tests/test_single_db_runtime.py",
         "tests/test_site_parsers.py",
         "tests/test_source_health.py",
+        "tests/test_storage165.py",
         "tests/test_storage_reader.py",
         "tests/test_storage_settings.py",
         "tests/test_stream_config.py",
@@ -1294,6 +1296,7 @@
         "tests/test_fixed_parser_pipeline.py",
         "tests/test_geo_collector_contract.py",
         "tests/test_original_reports.py",
+        "tests/test_storage165.py",
         "tests/test_supplied_collector_pipeline.py",
         "tests/test_supplied_multi_feed.py"
       ],
@@ -2994,6 +2997,7 @@
         "tests/test_single_db_runtime.py",
         "tests/test_site_parsers.py",
         "tests/test_source_health.py",
+        "tests/test_storage165.py",
         "tests/test_storage_reader.py",
         "tests/test_storage_settings.py",
         "tests/test_stream_config.py",
@@ -3526,6 +3530,10 @@
         "sha256": "8e2525920e1e5c8f212be7ab870f16003ea04cccd55d20bdad14ba779d77c2eb"
       },
       {
+        "path": "integration/db_contract/query_plan.py",
+        "sha256": "c47b85ecc88005927b6d386ecc5fa50bb07f49dd1ff756af8194a6790562bd40"
+      },
+      {
         "path": "integration/digest_preview.py",
         "sha256": "4b492669e765a593ea54ffa66d5fcc6361be034f764c5054ba808f11cd6be30c"
       },
@@ -3727,7 +3735,7 @@
       },
       {
         "path": "integration/news_export/original_contract.py",
-        "sha256": "f902c7a7d885cd8b3c2f6dc8ec2ca90e799f7749f2e4521fcbcdf82d357a01cd"
+        "sha256": "2da03e2e46dfe78d5e30d3a554a2a3fcda9cc37b98ca2787f71f5d494a7c0c7a"
       },
       {
         "path": "integration/news_export/original_stream.py",
@@ -4127,7 +4135,7 @@
       },
       {
         "path": "tests/news_export/test_original_contract.py",
-        "sha256": "e52c421e06150258e25cc512058d567a0f08093ed07787e815d629cb1581cedc"
+        "sha256": "ad689d192a1068e4dc8c3e0a8d07339a978e1f49d163b5525fcac245778a7788"
       },
       {
         "path": "tests/news_export/test_original_stream.py",
@@ -4556,6 +4564,10 @@
       {
         "path": "tests/test_source_health.py",
         "sha256": "8d956101911904586e48b1f63bf94fb7c4497baa1a980e750955940d1a327914"
+      },
+      {
+        "path": "tests/test_storage165.py",
+        "sha256": "56a76c89e809d584bb1fd1b357f19f54d1c5184006e4198abbd4b073f91dfcd9"
       },
       {
         "path": "tests/test_storage_reader.py",

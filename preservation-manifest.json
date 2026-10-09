@@ -9,10 +9,13 @@
       "source_path": "database.py",
       "path": "intelligence/geo/database.py",
       "source_sha256": "c07a5dacb008b8407e22e194b34ea81d97ec5b41ecc8414a347a444edb80002c",
-      "sha256": "20c0a8cd38db1b4a8f73b3482bc8b695a689323ca109e9430e475236a9dc9fd1",
+      "sha256": "da8e6e93e75f1cb1b4cea068c3c4d7646001dba85710e4aa42a5bf5957f2998b",
       "changes": [
         "root imports namespaced only",
-        "bulk147 candidate pending final independent review: driver outcomes, held legacy backup, explicit status/labels; no live activation"
+        "bulk147 candidate pending final independent review: driver outcomes, held legacy backup, explicit status/labels; no live activation",
+        "Reviewed P0 candidate: header-only fail-closed legacy HTTP auth and unconditional article-deletion hold; no live activation",
+        "Reviewed candidate bounded read/export source contract; no provisioning or live activation",
+        "storage165 bounded reads/export and dashboard default; no provisioning/live effects"
       ],
       "prior_preserved_sha256": "4b045c167947a4bed6a5456267430b239751bef551a0794b2e652b2cbc2058c4"
     },
@@ -81,11 +84,14 @@
       "source_path": "web.py",
       "path": "intelligence/geo/web.py",
       "source_sha256": "eb0312abeead1d445dddf0d621c6f03ad4d699027db48cbdc527493101358c47",
-      "sha256": "8e78a29cb8c3d11fa12ad9a713c9e26ca67c36deb780b2aa5cadee485c120443",
+      "sha256": "2c395128b2d7e0eb7cda66ffa49f164a0839cf6d7e43c36eba7b710c867c5e3f",
       "changes": [
         "root imports namespaced only",
         "bulk147 candidate pending final independent review: driver outcomes, held legacy backup, explicit status/labels; no live activation",
-        "date151 candidate: strict publication evidence, no now fallback, non-durable hold counters; independent final review pending"
+        "date151 candidate: strict publication evidence, no now fallback, non-durable hold counters; independent final review pending",
+        "Reviewed P0 candidate: header-only fail-closed legacy HTTP auth and unconditional article-deletion hold; no live activation",
+        "Reviewed candidate bounded read/export source contract; no provisioning or live activation",
+        "storage165 bounded reads/export and dashboard default; no provisioning/live effects"
       ],
       "prior_preserved_sha256": "7931165782766d4b6d05ac1207045e158d0ecaa15baf0b6f30d4abe0ba346dfc"
     },
@@ -217,10 +223,11 @@
       "source_path": "reports/dashboard.py",
       "path": "intelligence/geo/reports/dashboard.py",
       "source_sha256": "ade8fc1ccfd08070ae28862570030e26b82c1b55de3d147b6e935a08ae7b6c09",
-      "sha256": "52bb0bcc2d5b3285d58bec385ba76bbf371ac35b4a023a6e8f486b31378cb9b1",
+      "sha256": "144329e687b9879f2644ebd3b22c1ac96fa9a4b1ae8d2e52ed590747a89ae2a9",
       "changes": [
         "root imports namespaced only",
-        "bulk147 candidate pending final independent review: driver outcomes, held legacy backup, explicit status/labels; no live activation"
+        "bulk147 candidate pending final independent review: driver outcomes, held legacy backup, explicit status/labels; no live activation",
+        "storage165 bounded reads/export and dashboard default; no provisioning/live effects"
       ],
       "prior_preserved_sha256": "8faf0fcaf062ee0e90929d5ed6249c4962c2e2b8b2e330d61e8cdab362ecfa18"
     },

@@ -9,6 +9,7 @@ from datetime import datetime, timedelta, timezone
 from pymongo import MongoClient, ASCENDING, DESCENDING
 from pymongo.errors import DuplicateKeyError, BulkWriteError
 from intelligence.geo.config import MONGODB_URI, MONGODB_DB_NAME
+from intelligence.geo.bounded_reads import bounded_limit, cursor_rows, article_pages
 
 _client = None
 _db = None
@@ -139,14 +140,15 @@ def save_event(e):
 
 
 def recent_articles(limit=60, sort_by="score"):
+    bounded_limit(limit)
     db = connect()
     sort_spec = {
-        "score": [("score", DESCENDING), ("published", DESCENDING)],
-        "newest": [("published", DESCENDING)],
-        "title": [("title", ASCENDING)],
-    }.get(sort_by, [("score", DESCENDING), ("published", DESCENDING)])
-    cur = db.articles.find().sort(sort_spec).limit(limit)
-    return list(cur)
+        "score": [("score", DESCENDING), ("published", DESCENDING), ("_id", DESCENDING)],
+        "newest": [("published", DESCENDING), ("_id", DESCENDING)],
+        "title": [("title", ASCENDING), ("_id", ASCENDING)],
+    }.get(sort_by, [("score", DESCENDING), ("published", DESCENDING), ("_id", DESCENDING)])
+    cur = db.articles.find().sort(sort_spec).limit(limit+1)
+    return cursor_rows(cur, limit)
 
 
 def total_article_count():
@@ -170,10 +172,11 @@ def unemailed_articles(limit=60):
     """Same as recent_articles(), but excludes anything already included in
     a previous digest — this is what stops the 10pm email repeating the
     same stories the 10am one already sent."""
+    bounded_limit(limit)
     db = connect()
     cur = db.articles.find({"emailed": {"$ne": True}}) \
-        .sort([("score", DESCENDING), ("published", DESCENDING)]).limit(limit)
-    return list(cur)
+        .sort([("score", DESCENDING), ("published", DESCENDING), ("_id", DESCENDING)]).limit(limit+1)
+    return cursor_rows(cur, limit)
 
 
 def mark_emailed(article_ids):
@@ -185,14 +188,14 @@ def mark_emailed(article_ids):
     db.articles.update_many({"_id": {"$in": list(article_ids)}}, {"$set": {"emailed": True}})
 
 
-def get_articles_older_than(days):
+def get_articles_older_than(days, limit=2000):
     """Articles older than N days (by created_at), oldest first — used by
     the Telegram archive/purge job to keep MongoDB from filling up over a
     long deployment lifetime."""
     db = connect()
     cutoff = (datetime.now(timezone.utc) - timedelta(days=days)).isoformat()
     cur = db.articles.find({"created_at": {"$lt": cutoff}}).sort("created_at", ASCENDING)
-    return list(cur)
+    return cursor_rows(cur, bounded_limit(limit), require_complete=True)
 
 
 def delete_articles(article_ids):
@@ -204,24 +207,24 @@ def delete_articles(article_ids):
     raise PermissionError("Article deletion disabled: retention policy not implemented")
 
 
-def upcoming_events(days=90):
+def upcoming_events(days=90, limit=2000):
     db = connect()
     today = datetime.now(timezone.utc).date()
     end = today + timedelta(days=days)
     cur = db.events.find({
         "event_date": {"$gte": today.isoformat(), "$lte": end.isoformat()}
     }).sort("event_date", ASCENDING)
-    return list(cur)
+    return cursor_rows(cur, bounded_limit(limit), require_complete=True)
 
 
-def critical_since(hours=6):
+def critical_since(hours=6, limit=2000):
     db = connect()
     cutoff = (datetime.now(timezone.utc) - timedelta(hours=hours)).isoformat()
     cur = db.articles.find({
         "risk_level": "CRITICAL",
         "created_at": {"$gte": cutoff}
     }).sort("score", DESCENDING)
-    return list(cur)
+    return cursor_rows(cur, bounded_limit(limit), require_complete=True)
 
 
 def weekly_top_articles(days=7, limit=20):
@@ -229,8 +232,8 @@ def weekly_top_articles(days=7, limit=20):
     cutoff = (datetime.now(timezone.utc) - timedelta(days=days)).isoformat()
     cur = db.articles.find({
         "created_at": {"$gte": cutoff}
-    }).sort("score", DESCENDING).limit(limit)
-    return list(cur)
+    }).sort("score", DESCENDING).limit(limit+1)
+    return cursor_rows(cur, bounded_limit(limit))
 
 
 def category_counts(days=7):
@@ -254,3 +257,8 @@ def top_countries(days=7, limit=8):
         {"$limit": limit},
     ]
     return [{"country": r["_id"], "cnt": r["cnt"]} for r in db.articles.aggregate(pipeline)]
+
+
+def export_article_pages(category=None, max_rows=2000):
+    """Bounded page primitive, not a snapshot or full backup certificate."""
+    yield from article_pages(connect().articles, category=category, max_rows=max_rows)

@@ -5,7 +5,7 @@ from integration.news_export.original_contract import original_snapshot,SOURCE_P
 ROOT=Path(__file__).resolve().parents[2]
 class OriginalContracts(unittest.TestCase):
  def oracle(self,project,rows,args):
-  source=(ROOT/('intelligence/'+project+'/web.py')).read_text();tree=ast.parse(source);node=next(n for n in tree.body if isinstance(n,ast.FunctionDef) and n.name=='export_csv');node.decorator_list=[]
+  source=(ROOT/('tests/news_export/historical_geo_web.txt' if project=='geo' else 'intelligence/'+project+'/web.py')).read_text();tree=ast.parse(source);node=next(n for n in tree.body if isinstance(n,ast.FunctionDef) and n.name=='export_csv');node.decorator_list=[]
   class Response:
    def __init__(self,body,**kw):self.body=body
   scope={'request':SimpleNamespace(args=args),'csv':csv,'io':io,'Response':Response,'_authorized':lambda:True,'_db_check':lambda:None,'recent_articles':lambda limit:rows[:limit], 'get_store':lambda:SimpleNamespace(recent=lambda limit:rows[:limit]),'is_critical':lambda r:any(k in (r.get('title','')+' '+r.get('summary','')).lower() for k in ('attack','explosion','resign','coup','ceasefire','sanctions')),'datetime':__import__('datetime')}
