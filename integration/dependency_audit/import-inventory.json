@@ -289,6 +289,7 @@
         "integration/collector197_archive.py",
         "integration/collector197_orchestrator.py",
         "integration/collector197_preflight.py",
+        "integration/replay199_adapters.py",
         "integration/replay199_schema.py",
         "tests/test_collector197a.py",
         "tests/test_collector197c.py",
@@ -549,6 +550,7 @@
         "integration/news_view.py",
         "integration/public_live_builder.py",
         "integration/public_news.py",
+        "integration/replay199_adapters.py",
         "integration/replay199_core.py",
         "integration/replay199_schema.py",
         "integration/rss_catalog/catalog.py",
@@ -583,6 +585,7 @@
         "tests/test_page_watch_parser_budget.py",
         "tests/test_pagewatch_report_contract.py",
         "tests/test_replay199a.py",
+        "tests/test_replay199b.py",
         "tests/test_rss_catalog.py",
         "tests/test_shared_ledger_fixture.py",
         "tests/test_shared_service_fixture.py",
@@ -1161,6 +1164,7 @@
         "integration/news_view.py",
         "integration/page_watch.py",
         "integration/renderer_scope.py",
+        "integration/replay199_adapters.py",
         "integration/replay199_schema.py",
         "integration/retention_audit.py",
         "integration/stream_config.py",
@@ -1205,6 +1209,7 @@
         "tests/test_private_news_fields.py",
         "tests/test_protocol145_inventory.py",
         "tests/test_publication151_inventory.py",
+        "tests/test_replay199b.py",
         "tests/test_report_preview_frame.py",
         "tests/test_rss177.py",
         "tests/test_sanctions152.py",
@@ -1381,6 +1386,7 @@
         "integration/query_validation.py",
         "integration/relevance.py",
         "integration/renderer_scope.py",
+        "integration/replay199_adapters.py",
         "integration/replay199_core.py",
         "integration/replay199_preflight.py",
         "integration/replay199_schema.py",
@@ -1531,6 +1537,7 @@
         "tests/test_project_reports.py",
         "tests/test_query_validation188.py",
         "tests/test_replay199a.py",
+        "tests/test_replay199b.py",
         "tests/test_report_preview_frame.py",
         "tests/test_report_styles.py",
         "tests/test_retention_audit.py",
@@ -2209,6 +2216,7 @@
         "tests/test_refresh149_gate.py",
         "tests/test_refresh_controller.py",
         "tests/test_replay199a.py",
+        "tests/test_replay199b.py",
         "tests/test_rss177.py",
         "tests/test_rss_catalog.py",
         "tests/test_sanctions152.py",
@@ -3233,7 +3241,8 @@
         "tests/test_invite_expiry.py",
         "tests/test_mail166.py",
         "tests/test_preview_launcher.py",
-        "tests/test_replay199a.py"
+        "tests/test_replay199a.py",
+        "tests/test_replay199b.py"
       ],
       "stdlib": false,
       "distributions": [],
@@ -3708,6 +3717,7 @@
         "tests/test_refresh149_gate.py",
         "tests/test_refresh_controller.py",
         "tests/test_replay199a.py",
+        "tests/test_replay199b.py",
         "tests/test_report_preview_frame.py",
         "tests/test_report_styles.py",
         "tests/test_retention_audit.py",
@@ -4707,6 +4717,10 @@
         "sha256": "db65853ad8c86ca52f66639ac7632781332faf6ae7e52bd898a2429bf3cd82fa"
       },
       {
+        "path": "integration/replay199_adapters.py",
+        "sha256": "6fa6c22bc6180964a6d52b0d5a475f1e9cec567515a2eaa73f79267d9e6b3dba"
+      },
+      {
         "path": "integration/replay199_core.py",
         "sha256": "03ab95a4a7bf842d42f4b30c17ba468a7e6c44575f160f44a01d336c149888de"
       },
@@ -5585,6 +5599,10 @@
       {
         "path": "tests/test_replay199a.py",
         "sha256": "686af783d36cbd16d914c360c63ff0aac43cd45d559569f0143fc5a51dba8fff"
+      },
+      {
+        "path": "tests/test_replay199b.py",
+        "sha256": "88e1ed8eab927796ad0823d650b0c9ed572181b380680d3bddbded5ed29adab4"
       },
       {
         "path": "tests/test_report_preview_frame.py",
