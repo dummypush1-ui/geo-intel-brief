@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 1869,
+  "tests": 1883,
   "files": [
     {
       "path": ".env.example",
@@ -1926,6 +1926,11 @@
       "sha256": "0f209bc52f98506668455cc4ed1df1e6150b344fcf769ce2cfdfdf37e418ab54"
     },
     {
+      "path": "integration/NATIVE200BA.md",
+      "bytes": 3118,
+      "sha256": "5a7361b58c64aa498b0cf0cafc2eaae3337189f0a44495fc1d5e82b1272779f7"
+    },
+    {
       "path": "integration/NEWS-PAGES185.md",
       "bytes": 3287,
       "sha256": "f1be6081bdbdea959e9f2a428a3ce70aaab1fbb0ac70ce8036fc8fcd392d854c"
@@ -2588,12 +2593,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 18581,
-      "sha256": "b0f1678ce8169dbd4a7439c03e2e54e645c84a06f2f1f34ae6ee3a4949b04db7"
+      "sha256": "bb8dcbb81a38668efc6e25905005162eca9df907d22eeb464b5991ec0c09caa2"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
-      "bytes": 222913,
-      "sha256": "a8689e601a01a30f46761106bb3b23333d903a45c05220438c46eba03babc9af"
+      "bytes": 224862,
+      "sha256": "4add8a4a0e4221ab42e890c836fce4506bde9f89c5c50f95348b2cb16bc703cf"
     },
     {
       "path": "integration/dependency_build/README.md",
@@ -3039,6 +3044,26 @@
       "path": "integration/map_layers.py",
       "bytes": 7178,
       "sha256": "57e7fdea3d799baa30b2bfa9771431cef9091bf886b471332ee7364e1f687ded"
+    },
+    {
+      "path": "integration/native200_core.py",
+      "bytes": 6576,
+      "sha256": "506c5a42c123544addde583b1a9a6eef178c4425e36bc2b87dd1a64aaf562c71"
+    },
+    {
+      "path": "integration/native200_journal.py",
+      "bytes": 3719,
+      "sha256": "12fafea49577c20d1d1d6e4a642fd0fb5370ffb17904a6b0eda7870f09872054"
+    },
+    {
+      "path": "integration/native200_preflight.py",
+      "bytes": 3769,
+      "sha256": "d472681f8f8827165dd2ce98cc3b4553b067e38d410e3cb063f24c25cfe383f2"
+    },
+    {
+      "path": "integration/native200_store.py",
+      "bytes": 4913,
+      "sha256": "f378846724d4ae73cfec7b4551c96ed63aee8bd9792029a62b67be94ed050a13"
     },
     {
       "path": "integration/native200_transactions.py",
@@ -5396,6 +5421,11 @@
       "sha256": "014417e876847d06ab117fd9d10318a886776ebf373f26734a2640a605052d39"
     },
     {
+      "path": "tests/native200_state_fixture.py",
+      "bytes": 3880,
+      "sha256": "b4d20b90b54041ff31eb396a32dc3866f77999aa84a9b67e6e77710e5ad52721"
+    },
+    {
       "path": "tests/native200_wire_fixture.py",
       "bytes": 2703,
       "sha256": "3e7a4d6a8a0fdea22f26afe55a53be0cce529a83cc322455efb3778665f85260"
@@ -6049,6 +6079,11 @@
       "path": "tests/test_native200a.py",
       "bytes": 7746,
       "sha256": "ac6407c2287197276b17270361c7414952a9c32a8e90d5597d62124bdca73dcc"
+    },
+    {
+      "path": "tests/test_native200ba.py",
+      "bytes": 11406,
+      "sha256": "e17fb41b1775e07d45f57907080fc65a97213925d61ef0eb1808ba9cd39f489c"
     },
     {
       "path": "tests/test_news182.py",
