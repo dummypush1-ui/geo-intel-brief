@@ -39,6 +39,7 @@
         "tests/test_sanctions183.py",
         "tests/test_schedule_occurrence205.py",
         "tests/test_security_review.py",
+        "tests/test_smtp_caller213.py",
         "tests/test_smtp_config204.py",
         "tests/test_stream_revision.py",
         "tests/test_supplied_collector_pipeline.py",
@@ -1390,6 +1391,7 @@
         "tests/test_legacy_geo_p0.py",
         "tests/test_news182.py",
         "tests/test_preview_launcher.py",
+        "tests/test_smtp_caller213.py",
         "tests/test_smtp_config204.py",
         "tests/text_matching/test_matching.py"
       ],
@@ -1413,6 +1415,7 @@
         "integration/native200_transactions.py",
         "tests/test_mail_ledger212.py",
         "tests/test_schedule_occurrence205.py",
+        "tests/test_smtp_caller213.py",
         "tests/test_smtp_config204.py"
       ]
     },
@@ -1519,6 +1522,7 @@
         "integration/scraper_policy.py",
         "integration/single_db_runtime.py",
         "integration/site_parsers.py",
+        "integration/smtp_caller213.py",
         "integration/smtp_config204.py",
         "integration/source_health.py",
         "integration/storage_reader.py",
@@ -1702,6 +1706,7 @@
         "tests/test_single_db_runtime.py",
         "tests/test_site_parsers.py",
         "tests/test_smtp174.py",
+        "tests/test_smtp_caller213.py",
         "tests/test_smtp_config204.py",
         "tests/test_source_health.py",
         "tests/test_storage165.py",
@@ -2247,6 +2252,7 @@
         "tests/test_geo_read_factory.py",
         "tests/test_geo_sample_probe.py",
         "tests/test_preview_launcher.py",
+        "tests/test_smtp_caller213.py",
         "tests/test_stream_disk.py",
         "tests/weekly_report/test_report.py"
       ],
@@ -2412,6 +2418,7 @@
         "tests/test_security_review.py",
         "tests/test_shared_service_fixture.py",
         "tests/test_ships179.py",
+        "tests/test_smtp_caller213.py",
         "tests/test_storage_settings.py",
         "tests/test_stream_config.py",
         "tests/test_stream_disk.py",
@@ -2959,6 +2966,7 @@
         "integration/rss_catalog/catalog.py",
         "integration/scheduler_policy.py",
         "integration/single_db_plan.py",
+        "integration/smtp_caller213.py",
         "integration/smtp_config204.py",
         "integration/stream_revision.py",
         "integration/supplied_feed_fixture.py",
@@ -3147,6 +3155,7 @@
         "integration/geonews_digest/delivery.py",
         "tests/digest_cold_probe.py",
         "tests/test_smtp174.py",
+        "tests/test_smtp_caller213.py",
         "tests/test_smtp_config204.py"
       ],
       "stdlib": true,
@@ -3174,6 +3183,7 @@
         "tests/test_collector197b_connector.py",
         "tests/test_feature_mail_prep.py",
         "tests/test_finder198bb.py",
+        "tests/test_smtp_caller213.py",
         "tests/test_smtp_config204.py"
       ],
       "stdlib": true,
@@ -3204,7 +3214,8 @@
         "integration/geonews_digest/delivery.py",
         "integration/india_open_data/transport.py",
         "tests/test_collector197b_connector.py",
-        "tests/test_finder198bb.py"
+        "tests/test_finder198bb.py",
+        "tests/test_smtp_caller213.py"
       ],
       "stdlib": true,
       "distributions": [],
@@ -4012,6 +4023,7 @@
         "tests/test_single_db_runtime.py",
         "tests/test_site_parsers.py",
         "tests/test_smtp174.py",
+        "tests/test_smtp_caller213.py",
         "tests/test_smtp_config204.py",
         "tests/test_source_health.py",
         "tests/test_storage165.py",
@@ -5212,6 +5224,10 @@
         "sha256": "ca8ea55103c13506c032a164a1c3cd5baafa5456752535c962b2e4908a2fe558"
       },
       {
+        "path": "integration/smtp_caller213.py",
+        "sha256": "3dab34b6818e1b104f83b398e101655ac62a21d0a7803e471702acfb1bb04bd3"
+      },
+      {
         "path": "integration/smtp_config204.py",
         "sha256": "4158c4706f7d54534b983e17bdf546b4261c15bf9939f131a2dc8241c65aa104"
       },
@@ -6222,6 +6238,10 @@
       {
         "path": "tests/test_smtp174.py",
         "sha256": "81f3bbd9c2cec228d500360d552aeb16d6857c616c95aa92d023682fe36c4762"
+      },
+      {
+        "path": "tests/test_smtp_caller213.py",
+        "sha256": "0f545877cc1e4ff9e140482b072afe31074c4511f447b2d199b6b4be1699e44d"
       },
       {
         "path": "tests/test_smtp_config204.py",

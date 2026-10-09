@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 2044,
+  "tests": 2055,
   "files": [
     {
       "path": ".env.example",
@@ -2111,6 +2111,11 @@
       "sha256": "59f843ef877dd8cafc0613c1184024b21df692de01b6990d5cca6d232f080ddb"
     },
     {
+      "path": "integration/SMTP-CALLER213.md",
+      "bytes": 6363,
+      "sha256": "80a09d9da2e3d2b7348962c65b91cfbe9bed176934c74d290c7a76873f29e4c3"
+    },
+    {
       "path": "integration/SMTP-CONFIG204.md",
       "bytes": 5509,
       "sha256": "5673f2f072edca5682c9118c13edf8010efa75616bd5422aaf84f40ea40f5cbd"
@@ -2688,12 +2693,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 18581,
-      "sha256": "f718fd596a83b64a6367df1d234732f7f4578e4393a79aa6c3a88c81f4d19281"
+      "sha256": "97a622eec373b20c28c47087632d280d15678a8a37901fdfce0c0ffd66e3049a"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
-      "bytes": 239808,
-      "sha256": "11253e19c39485f52311daf0bff164fd70b1d5699940b82b1c6b11bb32596f9f"
+      "bytes": 240591,
+      "sha256": "d7eecc6727905daa3e3cdf0c80288c415f7174d0df00ac2f77e72ea3e78ad78f"
     },
     {
       "path": "integration/dependency_build/README.md",
@@ -4019,6 +4024,11 @@
       "path": "integration/site_scraper.py",
       "bytes": 200,
       "sha256": "ca8ea55103c13506c032a164a1c3cd5baafa5456752535c962b2e4908a2fe558"
+    },
+    {
+      "path": "integration/smtp_caller213.py",
+      "bytes": 3406,
+      "sha256": "3dab34b6818e1b104f83b398e101655ac62a21d0a7803e471702acfb1bb04bd3"
     },
     {
       "path": "integration/smtp_config204.py",
@@ -6659,6 +6669,11 @@
       "path": "tests/test_smtp174.py",
       "bytes": 2316,
       "sha256": "81f3bbd9c2cec228d500360d552aeb16d6857c616c95aa92d023682fe36c4762"
+    },
+    {
+      "path": "tests/test_smtp_caller213.py",
+      "bytes": 10489,
+      "sha256": "0f545877cc1e4ff9e140482b072afe31074c4511f447b2d199b6b4be1699e44d"
     },
     {
       "path": "tests/test_smtp_config204.py",
