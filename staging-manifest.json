@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 1905,
+  "tests": 1912,
   "files": [
     {
       "path": ".env.example",
@@ -1941,6 +1941,11 @@
       "sha256": "831c1762c61a9bff4f1a4d2b1921d266c20f0371ca492951e07b4da9c1ef9cf7"
     },
     {
+      "path": "integration/NATIVE201A.md",
+      "bytes": 2043,
+      "sha256": "33f5d598c012b19b36072c818c7f79ff0c4f2d34d206dc84afd43ad76d918786"
+    },
+    {
       "path": "integration/NEWS-PAGES185.md",
       "bytes": 3287,
       "sha256": "f1be6081bdbdea959e9f2a428a3ce70aaab1fbb0ac70ce8036fc8fcd392d854c"
@@ -2603,12 +2608,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 18581,
-      "sha256": "7e73b5bf3560bc9ebc43069f151a2a0e59e9c3035bf71251a73e3a30e8900516"
+      "sha256": "a35ee6585cd581f6a40bae01c5acd58c98ebd1fef732ff1b14b45af5782fa965"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
-      "bytes": 227184,
-      "sha256": "87f1cca6aac0563ffd4dcae049efd42b4d3d156f956ba4791446e0564523f3fb"
+      "bytes": 228039,
+      "sha256": "e69b2e2e193c24e50875c75e62329887003016c3ef5d077d0b1924619aa4214e"
     },
     {
       "path": "integration/dependency_build/README.md",
@@ -3114,6 +3119,16 @@
       "path": "integration/native200a-pins.json",
       "bytes": 2912,
       "sha256": "28a30a9649ec94f7c5a59954d59a73ae366caa0e4c447cfc952bfb0317e9e23f"
+    },
+    {
+      "path": "integration/native201_coverage.py",
+      "bytes": 1442,
+      "sha256": "356ae278f2836ff1865df78f15457af67ee7e28c02d6b909595929ce76463275"
+    },
+    {
+      "path": "integration/native201_ledger.py",
+      "bytes": 3119,
+      "sha256": "d78a82cb9efa194d857efdf7fa674742bc4de15a5bed7c1e9e76decd3e46bcbf"
     },
     {
       "path": "integration/news_api.py",
@@ -6134,6 +6149,11 @@
       "path": "tests/test_native200bc.py",
       "bytes": 8872,
       "sha256": "bd1f336cce0bf09bd097053a441c141a13d971f3df775f0467d10438e83760b2"
+    },
+    {
+      "path": "tests/test_native201a.py",
+      "bytes": 6091,
+      "sha256": "5d0b15893250ea084c7f02d0ac01e83bdeb6c3a1ded890fe49e7ef917c0741e6"
     },
     {
       "path": "tests/test_news182.py",
