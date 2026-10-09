@@ -49,3 +49,11 @@ missing proof and capacity. They do not prove actual MongoDB isolation, validato
 enforcement, replication or crash durability. Restricted no-creation role plus
 verified schemas/indexes/DDL boundary still required. Real measurement/cadence
 activation needs separate gates and explicit owner live approval.
+
+## Superseded gate2 role claim
+
+The earlier no-creation-role requirement above is superseded by
+NATIVE201GUARD.md: INSERT itself can permit implicit collection creation.
+The operational role is least-privilege, NOT creation-proof. All-eight exact
+validator preflight, owner-exclusive DDL boundary and an accepted one-write
+inspection/insert TOCTOU effect replace that claim. No zero-effect guarantee.

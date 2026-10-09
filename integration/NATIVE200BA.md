@@ -45,3 +45,11 @@ OP_MSG server, including kind-1 document sequences. This exercises real driver
 serialization/no-reauth behavior, not MongoDB isolation, validators, replication,
 crash persistence or transaction durability. Synthetic crash cuts are simulated
 lost/error replies after processing, not operating-system power loss.
+
+## Superseded gate2 role claim
+
+The earlier no-creation-role requirement above is superseded by
+NATIVE201GUARD.md: INSERT itself can permit implicit collection creation.
+The operational role is least-privilege, NOT creation-proof. All-eight exact
+validator preflight, owner-exclusive DDL boundary and an accepted one-write
+inspection/insert TOCTOU effect replace that claim. No zero-effect guarantee.

@@ -10,6 +10,8 @@ VALIDATORS={
 OUTCOME_VALIDATOR=VALIDATORS['native_outcomes200']
 CLOSURE_SCHEMA={'bsonType':'object','required':['_id','kind','schema','guard','old_operation','old_serial','new_operation','new_serial','source_hash'],'additionalProperties':False,'properties':{'_id':{'bsonType':'string','pattern':'^admission:[0-9a-f]{64}$'},'kind':{'enum':['admission']},'schema':{'enum':[1]},'guard':{'enum':['collector:geo108','broker:shared-finder-v1']},'old_operation':{'bsonType':'string','pattern':'^[0-9a-f]{64}$'},'old_serial':{'bsonType':['int','long'],'minimum':1,'maximum':4095},'new_operation':{'bsonType':'string','pattern':'^[0-9a-f]{64}$'},'new_serial':{'bsonType':['int','long'],'minimum':2,'maximum':4096},'source_hash':{'bsonType':'string','pattern':'^[0-9a-f]{64}$'}}}
 VALIDATORS['native_outcomes200']={'$or':[OUTCOME_VALIDATOR,{'$jsonSchema':CLOSURE_SCHEMA}]}
+from integration.native201_schemas import FIXED_VALIDATORS
+VALIDATORS.update(FIXED_VALIDATORS)
 def inspect_admission_existing(store):
  if type(store)is not NativeStore:raise NativeRefused('Exact inspection store')
  out=store._command({'listCollections':1,'filter':{'name':store.name},'cursor':{'batchSize':2},'maxTimeMS':2000})
@@ -22,7 +24,7 @@ def inspect_admission_existing(store):
  if store.name in VALIDATORS:
   opts=row.get('options',{})
   if type(opts)is not dict:raise NativeRefused('Exact inspection options')
-  if opts.get('validator')!=VALIDATORS[store.name]or opts.get('validationLevel','strict')!='strict'or opts.get('validationAction','error')!='error':raise NativeRefused('Exact journal validator required')
+  if opts.get('validator')!=VALIDATORS[store.name]or opts.get('validationLevel','strict')!='strict'or opts.get('validationAction','error')!='error':raise NativeRefused('Exact mapping validator required')
  out=store._command({'listIndexes':store.name,'cursor':{'batchSize':17},'maxTimeMS':2000});cursor=out.get('cursor',{})
  if type(cursor)is not dict:raise NativeRefused('Exact index cursor')
  rows=cursor.get('firstBatch')

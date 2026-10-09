@@ -29,3 +29,11 @@ sourceCAS and marker, real391 single-frame failures and unknown commit, immutabl
 scope, wrong ticket/clock/lease, replay of identical checkpoint and hash corruption.
 The fixture does not prove actual Mongo isolation/validators/crash durability.
 Gate2 role/schema/index/DDL boundary and gate3diagnostic evidence remain required.
+
+## Superseded gate2 role claim
+
+The earlier no-creation-role requirement above is superseded by
+NATIVE201GUARD.md: INSERT itself can permit implicit collection creation.
+The operational role is least-privilege, NOT creation-proof. All-eight exact
+validator preflight, owner-exclusive DDL boundary and an accepted one-write
+inspection/insert TOCTOU effect replace that claim. No zero-effect guarantee.

@@ -562,6 +562,7 @@
         "integration/native200_journal.py",
         "integration/native200_store.py",
         "integration/native201_ledger.py",
+        "integration/native201_schemas.py",
         "integration/news_pages.py",
         "integration/news_view.py",
         "integration/public_live_builder.py",
@@ -602,6 +603,7 @@
         "tests/test_native200bb.py",
         "tests/test_native200bc.py",
         "tests/test_native201a.py",
+        "tests/test_native201guard.py",
         "tests/test_offline_collection_cycle.py",
         "tests/test_page_watch_contract.py",
         "tests/test_page_watch_parser_budget.py",
@@ -1586,6 +1588,7 @@
         "tests/test_native200bb.py",
         "tests/test_native200bc.py",
         "tests/test_native201a.py",
+        "tests/test_native201guard.py",
         "tests/test_news182.py",
         "tests/test_news_pages185.py",
         "tests/test_news_scroll186.py",
@@ -3338,6 +3341,7 @@
         "tests/test_native200bb.py",
         "tests/test_native200bc.py",
         "tests/test_native201a.py",
+        "tests/test_native201guard.py",
         "tests/test_preview_launcher.py",
         "tests/test_replay199a.py",
         "tests/test_replay199b.py",
@@ -3808,6 +3812,7 @@
         "tests/test_native200bb.py",
         "tests/test_native200bc.py",
         "tests/test_native201a.py",
+        "tests/test_native201guard.py",
         "tests/test_news182.py",
         "tests/test_news_pages185.py",
         "tests/test_news_scroll186.py",
@@ -4766,7 +4771,7 @@
       },
       {
         "path": "integration/native200_admission_preflight.py",
-        "sha256": "9d7194b53092bd53ae3953d13e056c75f84eb23d5ff1057756508ef8f7b579c7"
+        "sha256": "1788f22226f6f861b1347350e9695222e8e4204f3fb7c585781bc57d40aeb193"
       },
       {
         "path": "integration/native200_admission_store.py",
@@ -4799,6 +4804,10 @@
       {
         "path": "integration/native201_ledger.py",
         "sha256": "d78a82cb9efa194d857efdf7fa674742bc4de15a5bed7c1e9e76decd3e46bcbf"
+      },
+      {
+        "path": "integration/native201_schemas.py",
+        "sha256": "5bb9e77a04b79c44232709bbf5ad0559d30fe638a8f25f030ed96c4f61fc2103"
       },
       {
         "path": "integration/news_api.py",
@@ -5731,6 +5740,10 @@
       {
         "path": "tests/test_native201a.py",
         "sha256": "5d0b15893250ea084c7f02d0ac01e83bdeb6c3a1ded890fe49e7ef917c0741e6"
+      },
+      {
+        "path": "tests/test_native201guard.py",
+        "sha256": "f5f006a50c0b2e29f45363f3ac81fc0cfde5800b848c5a988aadb94ae839cb94"
       },
       {
         "path": "tests/test_news182.py",
