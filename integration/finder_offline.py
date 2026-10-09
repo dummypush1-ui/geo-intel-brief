@@ -8,7 +8,7 @@ PWA_REGISTER="""if ('serviceWorker' in navigator && location.protocol === 'https
     window.addEventListener('load', function () { navigator.serviceWorker.register('./sw.js').catch(function () {}); });
   }"""
 
-OFFLINE_SHA='2491a5a38160f4f4c676c246f69b2454c5e4d7048ce4b22480b1c1e0d60c613d'
+OFFLINE_SHA='39c9d081a5d66d3e0038073822b34a65b731cf6ba71ad799e09c7b3eb786fcfe'
 
 def shell(original):
  if hashlib.sha256(original.encode()).hexdigest()!=OFFLINE_SHA:raise ValueError('Offline source requires review')

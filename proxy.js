@@ -249,6 +249,7 @@ const rateLimiter = createLimiter({max:quota.perPeer});
 const sharedRequests = createLimiter({capacity:1,max:quota.shared});
 const sharedAttempts = createLimiter({capacity:1,max:quota.attempts});
 const requestIdentity=identityPolicy(process.env);
+const shipsReadPolicy=require('./proxy_runtime/ships-read.cjs').shipsReads();
 function anonymousRequestOk(req){return rateOk(requestIdentity(req))&&sharedRequests.allow('shared');}
 function rateOk(ip) { return rateLimiter.allow(ip); }
 
@@ -286,9 +287,11 @@ http.createServer(async (req, res) => {
   }
   if (req.method === 'GET' && path === '/ships') {
     if (!SECRET || req.headers['x-app-token'] !== SECRET) return send(res, 401, { error: { message: 'bad app token' } });
-    if (!anonymousRequestOk(req)) return send(res, 429, { error: { message: 'rate limit exceeded. try again later.' } });
+    if (!shipsReadPolicy.allow(requestIdentity(req))) return send(res,429,{error:{message:'ship snapshot read limit exceeded. wait before retrying.'}},{'Retry-After':'600'});
     if (!AIS_KEY) return send(res, 503, { error: { message: 'AISSTREAM_KEY not configured on the server' } });
     const want = ((req.url.split('?')[1] || '').match(/port=([A-Za-z]+)/) || [, 'ALL'])[1].toUpperCase();
+    if(want!=='ALL'&&!AIS_PORTS_ALL.some(p=>p.code===want))return send(res,400,{error:{message:'unknown port'}});
+    const snapshot=shipsReadPolicy.snapshot(want,()=>{
     const out = [];
     for (const r of aisShips.values()) {
       if (!r.port || r.lat === null) continue;
@@ -297,11 +300,12 @@ http.createServer(async (req, res) => {
     }
     out.sort((a, b) => a.seenAgoSec - b.seenAgoSec);
     const counts = aisPerPort();
-    return send(res, 200, {
+    return {
       ok: true, warming: aisWarming(), stalled: aisStalled(), updated: new Date().toISOString(), count: out.length,
       ports: AIS_PORTS_ALL.map((p) => ({ code: p.code, name: p.name, count: counts[p.code] || 0 })),
       vessels: out.slice(0, 150),
-    });
+    };});
+    return send(res,200,snapshot);
   }
   if (req.method !== 'POST') return send(res, 405, { error: { message: 'method not allowed' } });
   if (!SECRET || req.headers['x-app-token'] !== SECRET) return send(res, 401, { error: { message: 'bad app token' } });

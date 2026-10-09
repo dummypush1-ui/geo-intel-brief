@@ -1807,6 +1807,7 @@
         "tests/test_security173.py",
         "tests/test_security_review.py",
         "tests/test_shared_service_fixture.py",
+        "tests/test_ships179.py",
         "tests/test_storage_settings.py",
         "tests/test_stream_config.py",
         "tests/test_stream_disk.py",
@@ -2577,6 +2578,7 @@
         "tests/test_refresh149_gate.py",
         "tests/test_refresh_controller.py",
         "tests/test_sanctions152.py",
+        "tests/test_ships179.py",
         "tests/test_table_edit151.py",
         "tests/test_watch_updates.py"
       ],
@@ -3147,6 +3149,7 @@
         "tests/test_security_review.py",
         "tests/test_shared_ledger_fixture.py",
         "tests/test_shared_service_fixture.py",
+        "tests/test_ships179.py",
         "tests/test_single_db_plan.py",
         "tests/test_single_db_runtime.py",
         "tests/test_site_parsers.py",
@@ -3519,7 +3522,7 @@
       },
       {
         "path": "feature_finder_prep/shell.py",
-        "sha256": "dc1d6db222c2bd7e5312fa8321c4c8a7c06d4a819f4d7a50402a5f989786a5ed"
+        "sha256": "3fcb52c35f166d6f26db3ef863674dc2ddc5d7b7cf1906f41d52ccdbf43194af"
       },
       {
         "path": "feature_mail_mount/__init__.py",
@@ -3751,7 +3754,7 @@
       },
       {
         "path": "integration/finder_offline.py",
-        "sha256": "fe22a2f0f5877339e5d8ee2771ec72b7489b7d0f7c70f93ac99b3d2631fb1b9d"
+        "sha256": "2023c2622bed730998fb9330722316267936ac02e7862e17fd89873701ba7e9c"
       },
       {
         "path": "integration/fixed_parser_pipeline.py",
@@ -4780,6 +4783,10 @@
       {
         "path": "tests/test_shared_service_fixture.py",
         "sha256": "6e01e9d829402463af5c4ca28b0db901da9876355d19a2053cf9d4d0aa49fdff"
+      },
+      {
+        "path": "tests/test_ships179.py",
+        "sha256": "e7faf631382d839875638dea5563d0efe3b56c028be95f5507a3843580e0ddc0"
       },
       {
         "path": "tests/test_single_db_plan.py",

@@ -4,7 +4,7 @@
     "build.mjs": "c14aa1e1736dc500d72e09c94b236acb82a915b0d5a81b6529b9e0c723a05663",
     "src/add.ts": "d2164a7ba43fc7c7fb68141ca83547b24d510d28e45b5098286074be17c56a95",
     "src/aliases.ts": "a4fc6899edb6daf4f0371df94556057abd0a2d1dd9e969a2f764ae3ed1be17b1",
-    "src/app.js": "57d64409b3ae5d607d81b12aac04991d630e9373998877598d06e02e888bc649",
+    "src/app.js": "1c77fd56d5e7d1075d37fa4a9d85c8d2049febfcf60f57596bc17eda9ddf2491",
     "src/certs.ts": "87646bbdd9e14d0da3aa49aea466dbb51ee94acddca1fe33b6e3ef922695a8ed",
     "src/data.ts": "21882bafe33e9ec97e842f5b94b55635f1d299258a75fd60a3272ac670fd9f57",
     "src/datachunk0.ts": "e00dc4829c1e7aa8b2b62551bf3d3e764674d97821cb889e4778f2c88e3a39df",
@@ -103,8 +103,8 @@
     "vendor/pako-inflate.min.js": "2ca27e9a8dae569cdeac42752ed1aed1afeff7f19282d3cc12c0aaa54a08bc04"
   },
   "outputs": {
-    "index.html": "ea0c0f6670289145bc6b6afc539462341c8d412e77d32cd88eb57f4a84817d97",
-    "offline.html": "2491a5a38160f4f4c676c246f69b2454c5e4d7048ce4b22480b1c1e0d60c613d",
+    "index.html": "e3c1be23fe526f1a60304fdaae55a8da34711387767f312d96b3efb4c6dc1031",
+    "offline.html": "39c9d081a5d66d3e0038073822b34a65b731cf6ba71ad799e09c7b3eb786fcfe",
     "sw.js": "477ca5f0aa5b784932e11f3f75d67a873798ac5ea85d463b09560c33bcdbcbb6",
     "data.d6d1b417562b.js": "d6d1b417562bad99e7b434605d63966772749d573375fb10d74ee52cb6bb82f6"
   },

@@ -4029,22 +4029,33 @@ function bindTransit() {
 
 // ---- Live ships near major ports worldwide (AISStream free feed via ais-proxy.js) ----
 let shipsTimer = null;
+let shipsBlockedUntil = 0;
 function shipsAgo(sec) {
   if (sec < 60) return sec + 's ago';
   if (sec < 3600) return Math.floor(sec / 60) + 'm ago';
   return Math.floor(sec / 3600) + 'h ' + Math.floor((sec % 3600) / 60) + 'm ago';
 }
 function shipsLoad() {
-  if (!V.ships) return;
+  if (!V.ships || V.shipsBusy) return;
+  if(Date.now()<shipsBlockedUntil){V.shipsErr='limited';paintShips();return;}
   V.shipsBusy = true;
   paintShips();
   const ctrl = new AbortController();
   const to = setTimeout(() => ctrl.abort(), 90000); // free server cold start can take a minute
   fetch(AIS_PROXY_URL + '/ships?port=' + encodeURIComponent(V.shipsPort), { headers: { 'x-app-token': AI_PROXY_TOKEN }, signal: ctrl.signal })
-    .then((r) => r.json().then((j) => ({ ok: r.ok, j })))
-    .then(({ ok, j }) => {
+    .then((r) => {
+      const retry=Number(r.headers.get('Retry-After'));
+      if(r.status===429)return {ok:false,status:429,retry,j:null};
+      return r.json().then((j)=>({ok:r.ok,status:r.status,j}));
+    })
+    .then(({ ok, status, retry, j }) => {
       clearTimeout(to);
       V.shipsBusy = false;
+      if(status===429){
+        const wait=Number.isFinite(retry)&&retry>0?Math.max(600,Math.min(3600,retry)):600;
+        shipsBlockedUntil=Date.now()+wait*1000;V.shipsErr='limited';
+        if(shipsTimer)clearTimeout(shipsTimer);shipsTimer=null;paintShips();return;
+      }
       if (!ok) {
         const setup = j && j.error && /not configured/.test(j.error.message || '');
         if (!setup && !V.shipsRetried) {
@@ -4093,7 +4104,9 @@ function paintShips() {
   }
   if (V.shipsErr) {
     slot.innerHTML = '<div class="about-box"><h3>Live ships near major ports worldwide</h3><p class="muted">' +
-      (V.shipsErr === 'setup'
+      (V.shipsErr === 'limited'
+        ? 'Ship snapshot requests are limited. Automatic polling is paused for at least 10 minutes. Retry after the wait.'
+        : V.shipsErr === 'setup'
         ? 'Live tracking is being set up on our side - please check back soon.'
         : V.shipsErr === 'waking'
           ? 'Waking the free tracking server - it sleeps when idle and takes up to a minute. Retrying automatically...'
