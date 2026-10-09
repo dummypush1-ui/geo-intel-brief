@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 2110,
+  "tests": 2115,
   "files": [
     {
       "path": ".env.example",
@@ -2081,6 +2081,11 @@
       "sha256": "abf477fd8b12df7b4c128e367a0c4e281272cbe4b706a32be0baa2f62a0578cd"
     },
     {
+      "path": "integration/RECIPIENT-SCOPE220.md",
+      "bytes": 2352,
+      "sha256": "65df32e0be16b346ba89165f620469eefd0cc3379f5b1bc651c4d8387247bc9d"
+    },
+    {
       "path": "integration/REPLAY199A.md",
       "bytes": 6107,
       "sha256": "0c38579397f8e746ecb7bee11397f029732fd3274ab7d57154ffcb049aeda675"
@@ -2738,12 +2743,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 18581,
-      "sha256": "8fe6c0019bfb55d0543692a7162342d2e93334fc92f23bc0a071e7656e4dfa41"
+      "sha256": "9448f59a4581fd3ef9525921bafa6987095562b4d3a03cd3e0f74fdb125e838b"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
-      "bytes": 245479,
-      "sha256": "566a74f1753623f2dff43e615521aabf9c2b5eb642a3f4fc2c3885e4f19fc664"
+      "bytes": 246447,
+      "sha256": "7a48b8576274a4a73af998cd243ab34b95f2037d45121881d9a5e493b4ece4e9"
     },
     {
       "path": "integration/dependency_build/README.md",
@@ -3699,6 +3704,11 @@
       "path": "integration/query_validation.py",
       "bytes": 1289,
       "sha256": "6ba0e2bdc7c329fed02321e3fda5e622fd7686f677c1544d7dfec2f6a462d939"
+    },
+    {
+      "path": "integration/recipient_scope220.py",
+      "bytes": 1380,
+      "sha256": "33ada1fad1c7169a64e3db0d7fe188f09cdbd78376e9d8c23b2d31438529d4ba"
     },
     {
       "path": "integration/relevance.py",
@@ -6614,6 +6624,11 @@
       "path": "tests/test_query_validation188.py",
       "bytes": 1476,
       "sha256": "b9c65ab99c7bae8bafd3f2a4b74ad937f1a80bf83a1ef8f218ce7b3ab282367f"
+    },
+    {
+      "path": "tests/test_recipient_scope220.py",
+      "bytes": 4691,
+      "sha256": "e0edcb94e0d550abe6dac772def33169c47f54672255137e7514076c7cdc52f6"
     },
     {
       "path": "tests/test_refresh149_gate.py",

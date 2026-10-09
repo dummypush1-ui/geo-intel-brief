@@ -38,6 +38,7 @@
         "tests/test_news182.py",
         "tests/test_preservation.py",
         "tests/test_protocol145_inventory.py",
+        "tests/test_recipient_scope220.py",
         "tests/test_rss177.py",
         "tests/test_sanctions183.py",
         "tests/test_schedule_caller214.py",
@@ -647,6 +648,7 @@
         "tests/test_page_watch_contract.py",
         "tests/test_page_watch_parser_budget.py",
         "tests/test_pagewatch_report_contract.py",
+        "tests/test_recipient_scope220.py",
         "tests/test_replay199a.py",
         "tests/test_replay199b.py",
         "tests/test_replay199ca.py",
@@ -1254,6 +1256,7 @@
         "integration/news_export/original_stream.py",
         "integration/news_view.py",
         "integration/page_watch.py",
+        "integration/recipient_scope220.py",
         "integration/renderer_scope.py",
         "integration/replay199_adapters.py",
         "integration/replay199_broker.py",
@@ -1309,6 +1312,7 @@
         "tests/test_private_news_fields.py",
         "tests/test_protocol145_inventory.py",
         "tests/test_publication151_inventory.py",
+        "tests/test_recipient_scope220.py",
         "tests/test_replay199b.py",
         "tests/test_report_preview_frame.py",
         "tests/test_rss177.py",
@@ -1420,6 +1424,7 @@
         "tests/test_legacy_geo_p0.py",
         "tests/test_news182.py",
         "tests/test_preview_launcher.py",
+        "tests/test_recipient_scope220.py",
         "tests/test_smtp_caller213.py",
         "tests/test_smtp_config204.py",
         "tests/text_matching/test_matching.py"
@@ -1720,6 +1725,7 @@
         "tests/test_private_news_fields.py",
         "tests/test_project_reports.py",
         "tests/test_query_validation188.py",
+        "tests/test_recipient_scope220.py",
         "tests/test_replay199a.py",
         "tests/test_replay199b.py",
         "tests/test_replay199ca.py",
@@ -2092,6 +2098,7 @@
         "integration/news_export/geo_snapshot.py",
         "integration/news_export/raw_pager.py",
         "integration/post_json207.py",
+        "integration/recipient_scope220.py",
         "integration/replay199_broker.py",
         "integration/replay199_composition.py",
         "integration/replay199_schema.py",
@@ -2170,6 +2177,7 @@
         "tests/test_preservation.py",
         "tests/test_protocol145_inventory.py",
         "tests/test_publication151_inventory.py",
+        "tests/test_recipient_scope220.py",
         "tests/test_retention_audit.py",
         "tests/test_rss_catalog.py",
         "tests/test_runner199lock.py",
@@ -2454,6 +2462,7 @@
         "tests/test_protocol145_inventory.py",
         "tests/test_proxy164.py",
         "tests/test_publication151_inventory.py",
+        "tests/test_recipient_scope220.py",
         "tests/test_refresh149_gate.py",
         "tests/test_refresh_controller.py",
         "tests/test_replay199a.py",
@@ -3018,6 +3027,7 @@
         "integration/public_live_builder.py",
         "integration/public_preview_builder.py",
         "integration/publication_dates/policy.py",
+        "integration/recipient_scope220.py",
         "integration/relevance.py",
         "integration/report_styles.py",
         "integration/rss_catalog/catalog.py",
@@ -3356,6 +3366,7 @@
         "tests/test_page_watch_parser_budget.py",
         "tests/test_preview_access.py",
         "tests/test_proxy164.py",
+        "tests/test_recipient_scope220.py",
         "tests/test_refresh149_gate.py",
         "tests/test_refresh_controller.py",
         "tests/test_replay199ca.py",
@@ -3453,6 +3464,7 @@
         "tests/test_page_watch_parser_budget.py",
         "tests/test_preview_access.py",
         "tests/test_preview_launcher.py",
+        "tests/test_recipient_scope220.py",
         "tests/test_schedule_caller214.py",
         "tests/test_security_review.py",
         "tests/test_supplied_feed_fixture.py",
@@ -3550,6 +3562,7 @@
         "tests/test_native201b.py",
         "tests/test_native201guard.py",
         "tests/test_preview_launcher.py",
+        "tests/test_recipient_scope220.py",
         "tests/test_replay199a.py",
         "tests/test_replay199b.py",
         "tests/test_replay199ca.py",
@@ -4066,6 +4079,7 @@
         "tests/test_proxy164.py",
         "tests/test_publication151_inventory.py",
         "tests/test_query_validation188.py",
+        "tests/test_recipient_scope220.py",
         "tests/test_refresh149_gate.py",
         "tests/test_refresh_controller.py",
         "tests/test_replay199a.py",
@@ -4489,6 +4503,7 @@
     "tests/test_legacy_geo_p0.py",
     "tests/test_news182.py",
     "tests/test_preview_launcher.py",
+    "tests/test_recipient_scope220.py",
     "tests/text_matching/test_matching.py",
     "tests/weekly_report/test_report.py"
   ],
@@ -5213,6 +5228,10 @@
       {
         "path": "integration/query_validation.py",
         "sha256": "6ba0e2bdc7c329fed02321e3fda5e622fd7686f677c1544d7dfec2f6a462d939"
+      },
+      {
+        "path": "integration/recipient_scope220.py",
+        "sha256": "33ada1fad1c7169a64e3db0d7fe188f09cdbd78376e9d8c23b2d31438529d4ba"
       },
       {
         "path": "integration/relevance.py",
@@ -6233,6 +6252,10 @@
       {
         "path": "tests/test_query_validation188.py",
         "sha256": "b9c65ab99c7bae8bafd3f2a4b74ad937f1a80bf83a1ef8f218ce7b3ab282367f"
+      },
+      {
+        "path": "tests/test_recipient_scope220.py",
+        "sha256": "e0edcb94e0d550abe6dac772def33169c47f54672255137e7514076c7cdc52f6"
       },
       {
         "path": "tests/test_refresh149_gate.py",
