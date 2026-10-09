@@ -4,22 +4,12 @@ from dateutil import parser as dateparser
 from datetime import datetime, timezone
 from integration.publication_dates.policy import publication_date
 
-_TAG_RE = re.compile(r"<[^>]+>")
-_ENTITY_MAP = {"&nbsp;": " ", "&amp;": "&", "&lt;": "<", "&gt;": ">",
-               "&quot;": '"', "&#39;": "'", "&#8230;": "...", "&hellip;": "..."}
+from integration.html_text209 import strip_html_once
 
 
 def strip_html(text):
-    """Strips HTML tags out of RSS/API summary text. Many feeds (WordPress
-    sites especially) put full HTML markup in their description field —
-    without this, raw tags like <p> and <a href=...> show up as literal
-    text in the email/dashboard instead of being invisible formatting."""
-    if not text:
-        return ""
-    text = _TAG_RE.sub(" ", text)
-    for entity, replacement in _ENTITY_MAP.items():
-        text = text.replace(entity, replacement)
-    return re.sub(r"\s+", " ", text).strip()
+    """Plain summary text, one entity pass only; no stored-data rewrite."""
+    return strip_html_once(text)
 
 
 RULES = {

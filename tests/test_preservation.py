@@ -15,7 +15,7 @@ class PreservationTests(unittest.TestCase):
   m=json.loads((ROOT/'preservation-manifest.json').read_text())
   row=next(r for r in m['source_files'] if r['path']=='intelligence/geo/processing/classifier.py')
   self.assertEqual(row['source_sha256'],'445842f362bca71455f562e6d405e6ee860deddb88bab64f56f522e7b67073f9')
-  self.assertEqual(row['sha256'],'5a87baba3a28b778d0d6b7a3091129e94a618c45ae346a99e13204790f2787ac')
+  self.assertEqual(row['sha256'],'ee01615307db03b7b511b5de19999a12e49c3302f04f37b024fd550338bafbb0')
   self.assertTrue(any('classifier146' in c for c in row['changes']))
  def test_collection_off_and_no_migration(self):
   m=json.loads((ROOT/'integration/cross-connections.json').read_text())

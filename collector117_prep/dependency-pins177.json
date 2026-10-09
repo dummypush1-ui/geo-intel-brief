@@ -3,12 +3,12 @@
   "collector115_prep/composition.py": "de0c1cdd3c116810a45eb08c9ebd4102232fc3cf198950670d9e0e903110ff4c",
   "collector113_prep/feed_composition.py": "f651caabd5e0b81e5347946ebe7f5b728e80fca1fd47cbbb25ef7eb44df77f9d",
   "collector112_prep/parser_runner.py": "bf9fe9ff72320336b1ac294c21d08e5f72b1fa0c4dafbf060a19b849078ce655",
-  "integration/supplied_feed_fixture.py": "a282f5340e48d93221d73f1db918aff84c98e47cc969ee0500f2b5fae638fc2a",
-  "integration/supplied_fulltext_fixture.py": "412cd557d6751c16b7b94ea04549898543e4642caca996d332827ead5bb1c49e",
+  "integration/supplied_feed_fixture.py": "c694b330fad0e5317948b8a8739554516aa3b047bd068d453d0ecd43140369ce",
+  "integration/supplied_fulltext_fixture.py": "ba7b4463bada188a8a3840ce2dc05fb39f3b81db024abbc53442f76f0bb8b23b",
   "collector110_prep/input_budget.py": "0f30a458f69e2e3446b2e8b223cb37ec12aab4ce4253171f41ec182beb38974f",
   "intelligence/geo/config.py": "dc3f5651374ef24e026c0cc52b9880936dc9b945126b1eb06294a28ee5918b4d",
   "intelligence/geo/collectors/rss.py": "1c9ec9073c5c96fe11b26d778a2c83095e7961ff30123407b5e3e14fdbe21b57",
-  "intelligence/geo/processing/classifier.py": "5a87baba3a28b778d0d6b7a3091129e94a618c45ae346a99e13204790f2787ac",
+  "intelligence/geo/processing/classifier.py": "ee01615307db03b7b511b5de19999a12e49c3302f04f37b024fd550338bafbb0",
   "collector112_prep/parser_child.py": "df393bb17f6b7c42a7194256675bfe3ddf64cb3a418942538bfa72b81a63f47e",
   "collector112_prep/sdk-pins.json": "9ba077de033c7f86ab15f4608e93f8a012b89a30500c91b64b5dbdc92d71ea58",
   "collector112_prep/vendor/sgmllib.py": "9180791aa507111207d7c14f36db574a11fbedda257debfb9d030b273b773f44",
@@ -43,5 +43,6 @@
   "collector112_prep/vendor/feedparser/namespaces/cc.py": "686b7a26d3edc780cb53224d8ffa5f4d309d68553632b36381b044595a302f37",
   "collector112_prep/vendor/feedparser/namespaces/georss.py": "3034d416a739d978cdc8ee373fd5d25b55ae58de31ef4c6d8e63f80cebebc00c",
   "collector112_prep/vendor/feedparser/namespaces/_base.py": "db1839d581f047445699632684f24a86a688e3ba142a4dc62b3e78dff903b9ea",
-  "collector112_prep/vendor/feedparser/namespaces/admin.py": "40c03c8efce9686efc1c4e89560c7cc7d59e638642283670d4939ea7d983e46c"
+  "collector112_prep/vendor/feedparser/namespaces/admin.py": "40c03c8efce9686efc1c4e89560c7cc7d59e638642283670d4939ea7d983e46c",
+  "integration/html_text209.py": "11e902d894dbe29dd33b7567b90acd3a578a6f4e09528f209ee02631edd2c102"
 }

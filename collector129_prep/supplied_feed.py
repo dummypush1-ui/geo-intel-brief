@@ -3,6 +3,7 @@ import ast,hashlib,re,math,warnings
 from datetime import datetime,timezone
 from integration.publication_dates.policy import publication_date
 from pathlib import Path
+from integration.html_text209 import strip_html_once
 import dateutil
 from dateutil import parser
 from dateutil.parser import UnknownTimezoneWarning
@@ -16,7 +17,7 @@ class Budget:
   except ValueError:raise FulltextRefused('Bounded aggregate captured inputs')from None
   self.values.append(value)
 ROOT=Path(__file__).resolve().parents[1]
-PINS={'intelligence/geo/collectors/rss.py':'1c9ec9073c5c96fe11b26d778a2c83095e7961ff30123407b5e3e14fdbe21b57','intelligence/geo/processing/classifier.py':'5a87baba3a28b778d0d6b7a3091129e94a618c45ae346a99e13204790f2787ac'}
+PINS={'intelligence/geo/collectors/rss.py':'1c9ec9073c5c96fe11b26d778a2c83095e7961ff30123407b5e3e14fdbe21b57','integration/html_text209.py':'11e902d894dbe29dd33b7567b90acd3a578a6f4e09528f209ee02631edd2c102','intelligence/geo/processing/classifier.py':'ee01615307db03b7b511b5de19999a12e49c3302f04f37b024fd550338bafbb0'}
 class FeedRefused(ValueError):pass
 def _date(d):
  if type(d) is not datetime or type(d.tzinfo) not in (timezone,tzutc,tzoffset,tzlocal):raise FeedRefused('fixture reviewed aware date')
@@ -35,16 +36,15 @@ def _source():
   if hashlib.sha256(b).hexdigest()!=h:raise FeedRefused('reviewed source drift')
   sources[p]=ast.parse(b)
  rss=sources['intelligence/geo/collectors/rss.py'];cl=sources['intelligence/geo/processing/classifier.py'];defs=[]
- for tree,name,names,attrs in [(rss,'_fetch_feed',{'feed_spec','cutoff','source','url','credibility','out','resp','requests','REQUEST_TIMEOUT','_HEADERS','feedparser','feed','entry','MAX_ITEMS_PER_FEED','title','link','summary','strip_html','published','parse_date','publication_date','date_state','observed_at','datetime','timezone','record_date_hold','Exception','exc','print'},{'get','raise_for_status','parse','content','entries','strip','append','now','utc'}),(cl,'strip_html',{'text','_TAG_RE','entity','replacement','_ENTITY_MAP','re'},{'sub','items','replace','strip'}),(cl,'parse_date',{'value','publication_date','datetime','timezone'},{'parse','now','utc','tzinfo','replace'})]:
+ for tree,name,names,attrs in [(rss,'_fetch_feed',{'feed_spec','cutoff','source','url','credibility','out','resp','requests','REQUEST_TIMEOUT','_HEADERS','feedparser','feed','entry','MAX_ITEMS_PER_FEED','title','link','summary','strip_html','published','parse_date','publication_date','date_state','observed_at','datetime','timezone','record_date_hold','Exception','exc','print'},{'get','raise_for_status','parse','content','entries','strip','append','now','utc'}),(cl,'strip_html',{'text','strip_html_once'},set()),(cl,'parse_date',{'value','publication_date','datetime','timezone'},{'parse','now','utc','tzinfo','replace'})]:
   node=next(n for n in tree.body if type(n) is ast.FunctionDef and n.name==name)
   if node.decorator_list:raise FeedRefused('reviewed AST')
   for n in ast.walk(node):
    if isinstance(n,(ast.Import,ast.ImportFrom,ast.Global,ast.Nonlocal,ast.ClassDef)) or isinstance(n,ast.Name) and n.id not in names or isinstance(n,ast.Attribute) and n.attr not in attrs:raise FeedRefused('reviewed AST allowlist')
   defs.append(node)
  def assignment(tree,name):return next(n.value for n in tree.body if type(n) is ast.Assign and any(type(t) is ast.Name and t.id==name for t in n.targets))
- headers=ast.literal_eval(assignment(rss,'_HEADERS'));entities=ast.literal_eval(assignment(cl,'_ENTITY_MAP'));pattern=assignment(cl,'_TAG_RE')
- if type(pattern) is not ast.Call or not isinstance(pattern.func,ast.Attribute) or pattern.func.attr!='compile' or len(pattern.args)!=1:raise FeedRefused('reviewed regex literal')
- return defs,headers,entities,re.compile(ast.literal_eval(pattern.args[0]))
+ headers=ast.literal_eval(assignment(rss,'_HEADERS'))
+ return defs,headers
 class _Clock:
  def __init__(self,fixed):self.fixed=fixed
  def now(self,tz):return self.fixed.astimezone(tz)
@@ -86,8 +86,8 @@ def prepare_supplied_feed(feed,entries,*,cutoff,fallback_clock,max_items=50,time
   budget.take(rows)
  except FulltextRefused:raise FeedRefused('fixture input budget') from None
  holds={}
- definitions,headers,entities,tag=_source();req=_Requests(http_mode);fp=_FeedParser(rows,parser_mode);dp=_DateParser(fixed);log_count=[]
- scope={'__builtins__':{'Exception':Exception,'print':lambda *a:log_count.append(1)},'requests':req,'feedparser':fp,'REQUEST_TIMEOUT':timeout,'MAX_ITEMS_PER_FEED':max_items,'_HEADERS':headers,'_TAG_RE':tag,'_ENTITY_MAP':entities,'re':re,'publication_date':publication_date,'record_date_hold':lambda state:holds.__setitem__(state,holds.get(state,0)+1),'dateparser':dp,'datetime':_Clock(fixed),'timezone':timezone}
+ definitions,headers=_source();req=_Requests(http_mode);fp=_FeedParser(rows,parser_mode);dp=_DateParser(fixed);log_count=[]
+ scope={'__builtins__':{'Exception':Exception,'print':lambda *a:log_count.append(1)},'requests':req,'feedparser':fp,'REQUEST_TIMEOUT':timeout,'MAX_ITEMS_PER_FEED':max_items,'_HEADERS':headers,'strip_html_once':strip_html_once,'publication_date':publication_date,'record_date_hold':lambda state:holds.__setitem__(state,holds.get(state,0)+1),'dateparser':dp,'datetime':_Clock(fixed),'timezone':timezone}
  exec(compile(ast.Module(body=definitions,type_ignores=[]),'reviewed-supplied-feed','exec'),scope)
  out=scope['_fetch_feed'](spec,cut)
  for row in out:row['published']=_date(row['published'])

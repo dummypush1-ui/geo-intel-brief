@@ -28,6 +28,7 @@
         "tests/test_fixed_parser_pipeline.py",
         "tests/test_geo_collector_contract.py",
         "tests/test_geo_queue_fixture.py",
+        "tests/test_html209.py",
         "tests/test_indexes192.py",
         "tests/test_legacy_geo_p0.py",
         "tests/test_mail166.py",
@@ -476,7 +477,8 @@
     {
       "import": "collector129_prep",
       "files": [
-        "integration/collector197_feed_child.py"
+        "integration/collector197_feed_child.py",
+        "tests/test_html209.py"
       ],
       "stdlib": false,
       "distributions": [],
@@ -816,6 +818,7 @@
         "tests/test_geo_event_composition.py",
         "tests/test_geo_queue_fixture.py",
         "tests/test_geo_sample_probe.py",
+        "tests/test_html209.py",
         "tests/test_links170.py",
         "tests/test_news182.py",
         "tests/test_private_news_fields.py",
@@ -1324,6 +1327,7 @@
         "integration/geo_queue_fixture.py",
         "integration/geonews_digest/render.py",
         "integration/html_safety.py",
+        "integration/html_text209.py",
         "integration/page_watch.py",
         "integration/pagewatch_report.py",
         "integration/project_reports.py",
@@ -1332,6 +1336,7 @@
         "integration/scraper_policy.py",
         "integration/site_parsers.py",
         "tests/test_dashboard167.py",
+        "tests/test_html209.py",
         "tests/test_links170.py"
       ],
       "stdlib": true,
@@ -1626,6 +1631,7 @@
         "tests/test_geo_sample_probe.py",
         "tests/test_geo_snapshot.py",
         "tests/test_host197da.py",
+        "tests/test_html209.py",
         "tests/test_invite_expiry.py",
         "tests/test_links170.py",
         "tests/test_live_news_ui.py",
@@ -1848,6 +1854,7 @@
         "tests/test_digest_preview_routes.py",
         "tests/test_fixed_parser_pipeline.py",
         "tests/test_geo_collector_contract.py",
+        "tests/test_html209.py",
         "tests/test_indexes192.py",
         "tests/test_links170.py",
         "tests/test_mail166.py",
@@ -2353,6 +2360,7 @@
         "tests/test_finder_offline.py",
         "tests/test_geo_queue_fixture.py",
         "tests/test_gst154.py",
+        "tests/test_html209.py",
         "tests/test_indexes192.py",
         "tests/test_legacy_geo_p0.py",
         "tests/test_mail166.py",
@@ -2858,7 +2866,8 @@
       "import": "random",
       "files": [
         "tests/geospatial/test_geospatial.py",
-        "tests/news_export/test_export.py"
+        "tests/news_export/test_export.py",
+        "tests/test_html209.py"
       ],
       "stdlib": true,
       "distributions": [],
@@ -3335,6 +3344,7 @@
         "tests/test_geo_probe_process.py",
         "tests/test_geo_read_factory.py",
         "tests/test_host197da.py",
+        "tests/test_html209.py",
         "tests/test_page_watch_parser_budget.py",
         "tests/test_preview_access.py",
         "tests/test_preview_launcher.py",
@@ -3891,6 +3901,7 @@
         "tests/test_geo_snapshot.py",
         "tests/test_gst154.py",
         "tests/test_host197da.py",
+        "tests/test_html209.py",
         "tests/test_indexes192.py",
         "tests/test_invite_expiry.py",
         "tests/test_legacy_bulk_outcome.py",
@@ -4607,7 +4618,7 @@
       },
       {
         "path": "integration/collector_mail_fixture.py",
-        "sha256": "e71d45ac726e2301945808e00d648f950cdfff00f8535c6b3d036b3f723ba5ba"
+        "sha256": "c5aace2cf30eb4d3c2179082c3f4e0b1fec8454a4b6f493dd24ecfcd43e7261a"
       },
       {
         "path": "integration/country_alerts.py",
@@ -4675,7 +4686,7 @@
       },
       {
         "path": "integration/feedparser_audit/child.py",
-        "sha256": "933a7a15546640eabe398b700ab3f7ae0b80a5fec2100b10d98d72025684bb7f"
+        "sha256": "8ed514e89f64f6d5f24b5133a965081b6638a042d27d24b8776040605c188fed"
       },
       {
         "path": "integration/feedparser_audit/corpus.py",
@@ -4683,7 +4694,7 @@
       },
       {
         "path": "integration/feedparser_audit/runner.py",
-        "sha256": "6de3e28af80928e0e34812bb699d13b935887b12b5153d85bc507ad8bc1e576e"
+        "sha256": "b997f4910ef6d1ce40cf1cad46d4e812083a3cc31f092c967fe8c71ab788b02f"
       },
       {
         "path": "integration/finder198_auth.py",
@@ -4743,7 +4754,7 @@
       },
       {
         "path": "integration/fixed_parser_pipeline.py",
-        "sha256": "a8b2f0d9e554d457bb0034754fdb8dc4661e6886c9db53355105d5409e2100a0"
+        "sha256": "d75d7c6ebaffef78430b7078fe772fcd977bb07d8e57d410209956008f187715"
       },
       {
         "path": "integration/fulltext_policy/__init__.py",
@@ -4755,7 +4766,7 @@
       },
       {
         "path": "integration/geo_collector_contract.py",
-        "sha256": "d991c6875f4824d07f8ab22fe976ea08d95bfad8fde9a4674b4afc8644894785"
+        "sha256": "643e37edc1be2cb7489045fb58862d83d7f5280577c9f41c9eb5ee99e70cb473"
       },
       {
         "path": "integration/geo_only_runtime.py",
@@ -4840,6 +4851,10 @@
       {
         "path": "integration/html_safety.py",
         "sha256": "a0bc8ddc593dec52ae915e4a6590def75bc25a1ea073ce68e19cbc5ad59dfa37"
+      },
+      {
+        "path": "integration/html_text209.py",
+        "sha256": "11e902d894dbe29dd33b7567b90acd3a578a6f4e09528f209ee02631edd2c102"
       },
       {
         "path": "integration/india_open_data/__init__.py",
@@ -5195,19 +5210,19 @@
       },
       {
         "path": "integration/supplied_collector_pipeline.py",
-        "sha256": "52549f5dcb144df8eb31618c79549665844678c824a56795cdca2582010663c3"
+        "sha256": "181bcf6cd374ea0079752b51d4a6cf80ba89bda79e6f1aca0cae6f522ed52d63"
       },
       {
         "path": "integration/supplied_feed_fixture.py",
-        "sha256": "a282f5340e48d93221d73f1db918aff84c98e47cc969ee0500f2b5fae638fc2a"
+        "sha256": "c694b330fad0e5317948b8a8739554516aa3b047bd068d453d0ecd43140369ce"
       },
       {
         "path": "integration/supplied_fulltext_fixture.py",
-        "sha256": "412cd557d6751c16b7b94ea04549898543e4642caca996d332827ead5bb1c49e"
+        "sha256": "ba7b4463bada188a8a3840ce2dc05fb39f3b81db024abbc53442f76f0bb8b23b"
       },
       {
         "path": "integration/supplied_multi_feed.py",
-        "sha256": "0389a85795a25b07108ae2048338a117901cd8377a8185eaf2dbde5a1d68a4d7"
+        "sha256": "64db4e6600ec19d6588746e4dd5f736b1f5c69b72398dcd720c966f4db3f692c"
       },
       {
         "path": "integration/tariff_evidence.py",
@@ -5842,6 +5857,10 @@
         "sha256": "29ebf9181fb2a2b492d661a5906b1fa7a0d642f9cf67cc20a43434e1eb399ab5"
       },
       {
+        "path": "tests/test_html209.py",
+        "sha256": "5bbde4065f45437151c30a20b42d10fb81b7013844665e3165a9aced6cd6ed37"
+      },
+      {
         "path": "tests/test_indexes192.py",
         "sha256": "d2418497191acb64851e7885a91b9f39fb04332858dcd8590013e49a811eeb1b"
       },
@@ -5987,7 +6006,7 @@
       },
       {
         "path": "tests/test_preservation.py",
-        "sha256": "61b694dc06b7d62af39d609cdbfd9859feb3424b268a96cea5785dd5a21d2b82"
+        "sha256": "88cc86c4b29eccdc3bbec7e83857503cc21b1b59a14f62498f52d4b6674bfd8c"
       },
       {
         "path": "tests/test_preview_access.py",
@@ -6179,11 +6198,11 @@
       },
       {
         "path": "tests/test_supplied_collector_pipeline.py",
-        "sha256": "2c34a0462a8e8713bf014db9fcb513ff5c200caa5bbef3957f8f47466e2f2f25"
+        "sha256": "626f6d3e37d5ed1ecea016f0260e598d673ccf85b0793e3c25d8e9b6dc361283"
       },
       {
         "path": "tests/test_supplied_feed_fixture.py",
-        "sha256": "83155897087d80ec8c08f4a012d146561fff5a586819847c809994884e93741c"
+        "sha256": "dd9bb2f246f0225f8f3c1afedb551b5f4f24bda91ba4dc5dbf0c0b2a4f3ca352"
       },
       {
         "path": "tests/test_supplied_fulltext_fixture.py",
@@ -6191,7 +6210,7 @@
       },
       {
         "path": "tests/test_supplied_multi_feed.py",
-        "sha256": "bc1d9be9141dac383309d6ef48854893cdfe3dc0d5bc7b9ad0ec3e659d24f2e6"
+        "sha256": "ac6e63c2970fa3b335e43d5a7268eb5df38c814d496cf3fe1f1792d6a83f9a2f"
       },
       {
         "path": "tests/test_table_edit151.py",

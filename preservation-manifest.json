@@ -134,10 +134,11 @@
       "source_path": "processing/classifier.py",
       "path": "intelligence/geo/processing/classifier.py",
       "source_sha256": "445842f362bca71455f562e6d405e6ee860deddb88bab64f56f522e7b67073f9",
-      "sha256": "5a87baba3a28b778d0d6b7a3091129e94a618c45ae346a99e13204790f2787ac",
+      "sha256": "ee01615307db03b7b511b5de19999a12e49c3302f04f37b024fd550338bafbb0",
       "changes": [
         "Reviewed classifier146 token/phrase, explicit stems/plurals/demonyms; intentional original substring-parity exception, no live activation",
-        "date151 candidate: strict publication evidence, no now fallback, non-durable hold counters; independent final review pending"
+        "date151 candidate: strict publication evidence, no now fallback, non-durable hold counters; independent final review pending",
+        "html209: one entity pass with structural tag removal; pure helper dependency integration/html_text209.py; no stored-data rewrite/title normalization"
       ],
       "prior_preserved_sha256": "445842f362bca71455f562e6d405e6ee860deddb88bab64f56f522e7b67073f9"
     },

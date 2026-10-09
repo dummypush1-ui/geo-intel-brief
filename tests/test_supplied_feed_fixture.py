@@ -1,3 +1,4 @@
+from integration.html_text209 import strip_html_once
 from integration.publication_dates.policy import publication_date
 import unittest,copy,ast,sys
 from datetime import datetime,timezone,timedelta
@@ -60,7 +61,7 @@ class Tests(unittest.TestCase):
   class Clock:
    @staticmethod
    def now(tz):return D
-  defs=[];scope={'requests':Requests(),'feedparser':Feed(),'REQUEST_TIMEOUT':20,'MAX_ITEMS_PER_FEED':50,'publication_date':publication_date,'record_date_hold':lambda state:None,'dateparser':DateParser(),'datetime':Clock,'timezone':timezone,'re':re}
+  defs=[];scope={'strip_html_once':strip_html_once,'requests':Requests(),'feedparser':Feed(),'REQUEST_TIMEOUT':20,'MAX_ITEMS_PER_FEED':50,'publication_date':publication_date,'record_date_hold':lambda state:None,'dateparser':DateParser(),'datetime':Clock,'timezone':timezone,'re':re}
   for p,names in [('intelligence/geo/collectors/rss.py',('_fetch_feed',)),('intelligence/geo/processing/classifier.py',('strip_html','parse_date'))]:
    tree=ast.parse((ROOT/p).read_bytes());defs.extend(n for n in tree.body if isinstance(n,ast.FunctionDef) and n.name in names)
    for n in tree.body:

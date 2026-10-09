@@ -14,7 +14,7 @@ class SuppliedWriteOutcomeError(ValueError):pass
 
 def prepare_supplied_gnews(settings,outcomes,*,clock,available=True):
  p=compile_profile(settings)
- for path,h in {'intelligence/geo/processing/classifier.py':'5a87baba3a28b778d0d6b7a3091129e94a618c45ae346a99e13204790f2787ac','intelligence/geo/processing/dedupe.py':'8326042d8a2adccafc690f86c47cc9baa67240792ef90060750313c81fb7382e'}.items():
+ for path,h in {'integration/html_text209.py':'11e902d894dbe29dd33b7567b90acd3a578a6f4e09528f209ee02631edd2c102','intelligence/geo/processing/classifier.py':'ee01615307db03b7b511b5de19999a12e49c3302f04f37b024fd550338bafbb0','intelligence/geo/processing/dedupe.py':'8326042d8a2adccafc690f86c47cc9baa67240792ef90060750313c81fb7382e'}.items():
   if hashlib.sha256((ROOT/path).read_bytes()).hexdigest()!=h:raise GNewsRefused('Processing source drift')
  if type(clock)is not datetime or type(clock.tzinfo)is not timezone or type(available)is not bool:raise GNewsRefused('Exact clock/provider availability')
  if type(outcomes)is not dict or len(outcomes)>3:raise GNewsRefused('Supplied SDK mapping')
