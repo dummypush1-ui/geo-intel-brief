@@ -1,0 +1,18 @@
+import assert from 'node:assert/strict';
+import {createBrokerClient} from '../integration/finder198_ui/client.mjs';
+const response=(status,data)=>({status,text:async()=>JSON.stringify(data)});
+let calls=[],mode='ok',number=0;
+const fetcher=async(path,opts)=>{calls.push({path,opts});if(path==='/account/preauth')return response(200,{csrf:'pre'});if(path==='/account/login')return response(200,{ok:true,csrf:'session',username:'alice'});if(path==='/account/logout')return response(200,{ok:true});if(path==='/account/whoami')return response(401,{ok:false});if(mode==='unknown')throw Error('network');if(mode==='replay')return response(409,{state:'replay_status_only'});return response(200,{ok:true});};
+const make=()=>createBrokerClient({enabled:true,fetcher,nonceFactory:()=>('n'+(++number)).padEnd(24,'x')});
+const off=createBrokerClient();await off.login('a','b');assert.equal(calls.length,0);
+let c=make();await c.login('alice','password');assert.equal(c.view().session,'signed_in');await c.request('ai',{});assert.equal(c.view().request,'disabled');assert.equal(calls.length,2);
+await c.request('ships',{port:'ALL'});assert.equal(c.view().request,'complete');assert.equal(calls.at(-1).opts.credentials,'same-origin');assert.equal(calls.at(-1).opts.redirect,'error');assert.equal(calls.at(-1).opts.headers['X-CSRF-Token'],'session');
+mode='unknown';c=make();await c.login('alice','password');await c.request('ships',{port:'ALL'});assert.equal(c.view().request,'unknown');const n=calls.length;await c.request('ships',{port:'ALL'});assert.equal(calls.length,n);await c.logout();await c.login('alice','password');assert.equal(c.view().blocked,true);const before=calls.length;await c.request('ships',{port:'ALL'});assert.equal(calls.length,before);
+mode='replay';c=make();await c.login('alice','password');await c.request('ships',{port:'ALL'});assert.equal(c.view().request,'replay');assert.equal(c.view().blocked,true);
+mode='ok';c=make();await c.login('alice','password');await c.checkSession();assert.equal(c.view().session,'expired');
+assert(!JSON.stringify(c.view()).includes('session_token'));console.log('finder198-client PASS: disabled/login/complete/unknown/replay/expired/no retry/no storage/backend token');
+// No concurrent duplicate, upstream auth failure stays held, logout uncertainty truthful.
+let resolve;const delayed=make();const slow=createBrokerClient({enabled:true,nonceFactory:()=> 'z'.repeat(24),fetcher:async(p,o)=>p.includes('finder-broker')?new Promise(r=>resolve=r):fetcher(p,o)});await slow.login('alice','password');const pending=slow.request('ships',{port:'ALL'});await slow.request('ships',{port:'ALL'});assert.equal(slow.view().busy,true);resolve(response(200,{vessels:[]}));await pending;assert.equal(slow.view().answer,'{\n  "vessels": []\n}');
+const auth=createBrokerClient({enabled:true,nonceFactory:()=> 'a'.repeat(24),fetcher:async(p,o)=>p.includes('finder-broker')?response(401,{}):p==='/account/logout'?Promise.reject(Error('lost')):fetcher(p,o)});await auth.login('alice','password');await auth.request('ships',{port:'ALL'});assert.equal(auth.view().blocked,true);await auth.logout();assert(auth.view().message.includes('not confirmed'));
+const huge=createBrokerClient({enabled:true,nonceFactory:()=> 'b'.repeat(24),fetcher:async(p,o)=>p.includes('finder-broker')?{status:200,text:async()=>'',body:new ReadableStream({start(c){c.enqueue(new Uint8Array(1048577));c.close();}})}:fetcher(p,o)});await huge.login('alice','password');await huge.request('ships',{port:'ALL'});assert.equal(huge.view().request,'unknown');
+console.log('finder198-client PASS: concurrent/authhold/logoutuncertain/streamcap');

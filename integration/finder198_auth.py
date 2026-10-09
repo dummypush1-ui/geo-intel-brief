@@ -83,5 +83,5 @@ def create_finder_auth(public,*,enabled=False,service=None,origin=None,client_id
             try:return broker_handler(req,principal_hash)(environ,start_response)
             except Exception:return response('broker_unavailable',503)(environ,start_response)
         return response('broker_not_wired',503)(environ,start_response)
-    dispatch.route_contract={'accounts':sorted(ACCOUNT_ROUTES),'broker_prefix':'/api/finder-broker/','broker_transport':False,'public':'unchanged','signup':False,'worker_requirement':1,'ui':False}
+    dispatch.route_contract={'accounts':sorted(ACCOUNT_ROUTES),'broker_prefix':'/api/finder-broker/','broker_transport':broker_handler is not None,'public':'unchanged','signup':False,'worker_requirement':1,'ui':False}
     return dispatch

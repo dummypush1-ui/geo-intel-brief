@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 1758,
+  "tests": 1763,
   "files": [
     {
       "path": ".env.example",
@@ -1821,6 +1821,11 @@
       "sha256": "9279c55c60256138ec86e2d6b9731cf9bc4a8a0a2a7dc42327d06891cf957992"
     },
     {
+      "path": "integration/FINDER198D.md",
+      "bytes": 2292,
+      "sha256": "e7887c206a50da503f1bdd3df37bf143730f3d876b252f8296c46aa871da94a4"
+    },
+    {
       "path": "integration/FINDER_NESTED_LIMITS.md",
       "bytes": 5934,
       "sha256": "fae0cd7ffdc87848c2b41df262c84ccf4b0a34c8ab8e36b723858b0bd0574f7b"
@@ -2533,12 +2538,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 18581,
-      "sha256": "7a30891e6143fa8e940bf31d4a4f8979e62bef61765e87a8c5d1ee56a6388069"
+      "sha256": "03547d637a2dbd6b3de8b3913db20884effe492a3c987ef95d909f08dacc91ae"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
-      "bytes": 213772,
-      "sha256": "7eaddd2cb4bd930a7eeb5f7697edc0ef02f787154fc9bcd377e9e1a228aef35a"
+      "bytes": 214556,
+      "sha256": "047db408dc7bf6b9119e6e60a13b8639a48a75efd8e16ba012c865b2604c317a"
     },
     {
       "path": "integration/dependency_build/README.md",
@@ -2637,8 +2642,8 @@
     },
     {
       "path": "integration/finder198_auth.py",
-      "bytes": 6094,
-      "sha256": "084f8838a71b26849454875bbda016eddb22ea0903852eed1e7c6b5af1f2cbc4"
+      "bytes": 6115,
+      "sha256": "8f612c12ea7c879a49a1cb5b20a8d2c16f80b407af12405fdec6f9de3f99edef"
     },
     {
       "path": "integration/finder198_budget.py",
@@ -2669,6 +2674,21 @@
       "path": "integration/finder198_transport_child.py",
       "bytes": 5161,
       "sha256": "f0033e40c26ea4c787e0a465cab32f26881244d8916d4226e737abf2f0f2e918"
+    },
+    {
+      "path": "integration/finder198_ui/client.mjs",
+      "bytes": 6393,
+      "sha256": "0b7d53db4843cb5f2d5350965a67d4befcaa281f91ca4e7c3ce76b652fda3730"
+    },
+    {
+      "path": "integration/finder198_ui/panel.css",
+      "bytes": 1697,
+      "sha256": "bcffffc6207eb1411b4f3c0ea9f2722d4f5352e9ce906b333d1694eed4158f0d"
+    },
+    {
+      "path": "integration/finder198_ui/panel.mjs",
+      "bytes": 2951,
+      "sha256": "3842862fc963458b482d390b57da71ddbf2eb61eb235f93f7ef413650f3f9b6c"
     },
     {
       "path": "integration/finder198_v2_preflight.py",
@@ -5051,6 +5071,11 @@
       "sha256": "90590ab3444424be0266977fc99a8307f04a55a2df135db41cc01029527327d8"
     },
     {
+      "path": "tests/browser_finder198d.py",
+      "bytes": 4928,
+      "sha256": "74082d446ab62a17c752d2ec32089397e19855a856a0bc5655727f1c43bafeed"
+    },
+    {
       "path": "tests/browser_finder_nested.py",
       "bytes": 4685,
       "sha256": "63d9f07275328045908339615f48928e0ffcbeed7ce1f612d642a53519367a0e"
@@ -5154,6 +5179,11 @@
       "path": "tests/digest_cold_probe.py",
       "bytes": 2789,
       "sha256": "1a801e91b8a6c2057331d98b39deba21d4972c44534b9630c8f6fb7f7eb3ff16"
+    },
+    {
+      "path": "tests/finder198_client_test.mjs",
+      "bytes": 3640,
+      "sha256": "b383199b4fb5251de98d27ac452dae5ce5d03a79b0a48ccf46fb04567e529cb3"
     },
     {
       "path": "tests/geonews_digest/__init__.py",
@@ -5709,6 +5739,11 @@
       "path": "tests/test_finder198c.py",
       "bytes": 4729,
       "sha256": "50215966d2faa5fdb7b60b809748119c309ec2aa6c093909cdc25d6d34ffc3ce"
+    },
+    {
+      "path": "tests/test_finder198d.py",
+      "bytes": 2757,
+      "sha256": "73a0c37365234ff27d6ad8159c34b6c9a58202d9054ecba5bdca6376dfeb3701"
     },
     {
       "path": "tests/test_finder_index.py",
