@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 2162,
+  "tests": 2165,
   "files": [
     {
       "path": ".env.example",
@@ -1861,6 +1861,11 @@
       "sha256": "05f3ffa53c77001fa4e258837d79d92b39fa353fd169087777cc0ea8b60324f2"
     },
     {
+      "path": "integration/FINDER-BROWSER229.md",
+      "bytes": 4675,
+      "sha256": "d57036cce3e26a852e043e56624898347756688a96169f010d1a9b8fea7bc4e6"
+    },
+    {
       "path": "integration/FINDER198A.md",
       "bytes": 3298,
       "sha256": "85e619e6ed305602bd9d5b229681e8509b02d53e3b51313b6d7af5445bcb220e"
@@ -2783,12 +2788,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 18581,
-      "sha256": "203b94218e7d60c369e393da9e2139c9dbb78c961e8b02d4238dfc1176196589"
+      "sha256": "4d5205d1bdeb274fd74b0f08a81034ff2459d9e581cfd53cc52abcbd91bfbea3"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
-      "bytes": 254425,
-      "sha256": "46e3146011970dfa9125b22f008b24fca9d1251c1d1469827d7988dd65583317"
+      "bytes": 255137,
+      "sha256": "b5013426aba32919a7dc7ade8fb32f411eec473fc6158b9defa018a8cab3aa3e"
     },
     {
       "path": "integration/dependency_build/README.md",
@@ -5587,8 +5592,8 @@
     },
     {
       "path": "tests/browser_feature_finder.py",
-      "bytes": 4801,
-      "sha256": "90590ab3444424be0266977fc99a8307f04a55a2df135db41cc01029527327d8"
+      "bytes": 8644,
+      "sha256": "56ca6072e029935b821e1fe143f59887cd34e80f933f3a3e38654c2709b15cba"
     },
     {
       "path": "tests/browser_finder198d.py",
@@ -6359,6 +6364,11 @@
       "path": "tests/test_finder198ops.py",
       "bytes": 3975,
       "sha256": "e347b7577bfe553ea3c911b89d9718e616251923e7565ab203c41ae1983a40a3"
+    },
+    {
+      "path": "tests/test_finder_browser229.py",
+      "bytes": 2440,
+      "sha256": "014917f67fc6e9024d74f72e6ad012ec6a04d54f23cc62db3fda17bda9bb1cb3"
     },
     {
       "path": "tests/test_finder_index.py",

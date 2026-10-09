@@ -837,6 +837,7 @@
         "integration/weekly_report/report.py",
         "tests/browser_digest_preview.py",
         "tests/browser_event_digest.py",
+        "tests/browser_feature_finder.py",
         "tests/browser_finder_report227.py",
         "tests/browser_report228.py",
         "tests/browser_stream_config.py",
@@ -1304,6 +1305,7 @@
         "integration/weekly_report/_pdf.py",
         "scripts/audit_connections.py",
         "scripts/package_manifest.py",
+        "tests/browser_feature_finder.py",
         "tests/browser_finder_report227.py",
         "tests/browser_report228.py",
         "tests/news_export/test_fixture_http.py",
@@ -1328,6 +1330,7 @@
         "tests/test_finder198bb.py",
         "tests/test_finder198d.py",
         "tests/test_finder198ops.py",
+        "tests/test_finder_browser229.py",
         "tests/test_finder_index.py",
         "tests/test_finder_nested.py",
         "tests/test_geo_collector_contract.py",
@@ -1447,12 +1450,12 @@
         "integration/mail_ledger212.py",
         "integration/native200_transactions.py",
         "integration/schedule_occurrence205.py",
-        "tests/browser_feature_finder.py",
         "tests/collection_outcomes/test_status.py",
         "tests/geospatial/test_geospatial.py",
         "tests/news_export/test_export.py",
         "tests/test_collector122_inventory.py",
         "tests/test_db181.py",
+        "tests/test_finder_browser229.py",
         "tests/test_geo_probe_http.py",
         "tests/test_geo_read_factory.py",
         "tests/test_geo_sample_probe.py",
@@ -2358,6 +2361,7 @@
         "integration/public_preview_builder.py",
         "integration/storage_settings.py",
         "integration/stream_disk.py",
+        "tests/browser_feature_finder.py",
         "tests/browser_finder_report227.py",
         "tests/browser_report228.py",
         "tests/digest_cold_probe.py",
@@ -2368,6 +2372,7 @@
         "tests/test_collector197ea.py",
         "tests/test_digest_cold.py",
         "tests/test_edge_guard.py",
+        "tests/test_finder_browser229.py",
         "tests/test_geo_probe_process.py",
         "tests/test_geo_read_factory.py",
         "tests/test_geo_sample_probe.py",
@@ -2511,6 +2516,7 @@
         "tests/test_finder198bb.py",
         "tests/test_finder198d.py",
         "tests/test_finder198ops.py",
+        "tests/test_finder_browser229.py",
         "tests/test_finder_index.py",
         "tests/test_finder_nested.py",
         "tests/test_finder_offline.py",
@@ -3126,6 +3132,7 @@
         "integration/youtube_links.py",
         "scripts/audit_connections.py",
         "tests/accounts/test_merged_fixture.py",
+        "tests/browser_feature_finder.py",
         "tests/browser_finder_report227.py",
         "tests/browser_report228.py",
         "tests/geonews_digest/test_digest.py",
@@ -3281,6 +3288,7 @@
       "import": "shutil",
       "files": [
         "tests/geospatial/test_geospatial.py",
+        "tests/test_finder_browser229.py",
         "tests/test_report227.py",
         "tests/test_report228.py"
       ],
@@ -3424,6 +3432,7 @@
         "integration/finder198_transport.py",
         "integration/geo_probe_process.py",
         "tests/accounts/browser_http_fixture.py",
+        "tests/browser_feature_finder.py",
         "tests/browser_finder_report227.py",
         "tests/browser_report228.py",
         "tests/geospatial/test_geospatial.py",
@@ -3446,6 +3455,7 @@
         "tests/test_feature_mail_mount.py",
         "tests/test_finder198bb.py",
         "tests/test_finder198d.py",
+        "tests/test_finder_browser229.py",
         "tests/test_finder_nested.py",
         "tests/test_fixed_feedparser_audit.py",
         "tests/test_geo_probe_process.py",
@@ -3557,6 +3567,7 @@
         "tests/test_edge_guard.py",
         "tests/test_factory176.py",
         "tests/test_finder198bb.py",
+        "tests/test_finder_browser229.py",
         "tests/test_fixed_feedparser_audit.py",
         "tests/test_geo_probe_process.py",
         "tests/test_geo_read_factory.py",
@@ -4126,6 +4137,7 @@
         "tests/test_finder198c.py",
         "tests/test_finder198d.py",
         "tests/test_finder198ops.py",
+        "tests/test_finder_browser229.py",
         "tests/test_finder_index.py",
         "tests/test_finder_nested.py",
         "tests/test_finder_network.py",
@@ -4307,6 +4319,7 @@
         "integration/tariff_evidence.py",
         "integration/weekly_report/_render.py",
         "integration/weekly_report/report.py",
+        "tests/browser_feature_finder.py",
         "tests/browser_finder_report227.py",
         "tests/browser_report228.py",
         "tests/test_dashboard167.py",
@@ -5677,7 +5690,7 @@
       },
       {
         "path": "tests/browser_feature_finder.py",
-        "sha256": "90590ab3444424be0266977fc99a8307f04a55a2df135db41cc01029527327d8"
+        "sha256": "56ca6072e029935b821e1fe143f59887cd34e80f933f3a3e38654c2709b15cba"
       },
       {
         "path": "tests/browser_finder198d.py",
@@ -6142,6 +6155,10 @@
       {
         "path": "tests/test_finder198ops.py",
         "sha256": "e347b7577bfe553ea3c911b89d9718e616251923e7565ab203c41ae1983a40a3"
+      },
+      {
+        "path": "tests/test_finder_browser229.py",
+        "sha256": "014917f67fc6e9024d74f72e6ad012ec6a04d54f23cc62db3fda17bda9bb1cb3"
       },
       {
         "path": "tests/test_finder_index.py",
