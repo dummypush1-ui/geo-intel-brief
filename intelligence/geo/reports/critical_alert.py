@@ -6,6 +6,7 @@ major sanctions package or escalation the same cycle it's detected, rather
 than waiting for the next scheduled daily digest.
 """
 import html
+from integration.news_view import safe_url
 import smtplib
 import ssl
 from datetime import datetime
@@ -33,7 +34,7 @@ def build_html(items):
                 {f" &middot; {html.escape(a['country'])}" if a['country'] else ""}
             </div>
             <h3 style="margin:4px 0 6px;font-size:15px">
-                <a href="{html.escape(a['url'])}" style="color:#c53030;text-decoration:none">{html.escape(a['title'])}</a>
+                <a href="{html.escape(safe_url(a['url']) or "#", quote=True)}" style="color:#c53030;text-decoration:none">{html.escape(a['title'])}</a>
             </h3>
             <p style="margin:0;font-size:13px;color:#2d3748">{html.escape((a['summary'] or '')[:400])}</p>
         </div>""")

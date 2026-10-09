@@ -1,4 +1,5 @@
 import html
+from integration.news_view import safe_url
 import smtplib
 import ssl
 from collections import defaultdict
@@ -54,7 +55,7 @@ def _section_html(category, items):
                 {f" &middot; confirmed by {corroboration} sources" if corroboration > 1 else ""}
             </div>
             <h3 style="margin:0 0 6px;font-size:15px;line-height:1.4">
-                <a href="{html.escape(a['url'])}" style="color:#1a365d;text-decoration:none">{html.escape(a['title'])}</a>
+                <a href="{html.escape(safe_url(a['url']) or "#", quote=True)}" style="color:#1a365d;text-decoration:none">{html.escape(a['title'])}</a>
             </h3>
             <p style="margin:0;font-size:13px;color:#2d3748;line-height:1.5">{html.escape((a['summary'] or '')[:600])}</p>
         </div>""")
@@ -99,7 +100,7 @@ def build_digest():
                 <span style="font-size:12px;color:#718096">{html.escape(e['event_date'])} &middot;
                 {html.escape(e['category'] or '')} &middot; {html.escape(e['confidence'] or '')}</span>
                 <p style="margin:6px 0 0;font-size:13px">{html.escape(e['description'] or '')}</p>
-                <a href="{html.escape(e['source_url'] or '')}" style="font-size:12px;color:#2b6cb0">Source →</a>
+                <a href="{html.escape(safe_url(e['source_url'] or '') or "#", quote=True)}" style="font-size:12px;color:#2b6cb0">Source →</a>
             </div>""")
 
     if total_relevant == 0:

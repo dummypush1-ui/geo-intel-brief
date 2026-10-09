@@ -6,6 +6,7 @@ busiest, and which countries came up most -- useful for spotting a building
 trend that no single day's digest would show on its own.
 """
 import html
+from integration.news_view import safe_url
 import smtplib
 import ssl
 from datetime import datetime
@@ -54,7 +55,7 @@ def build_html(days=7):
         body.append(f"""
         <div style="margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid #e2e8f0">
             <div style="font-size:11px;color:#718096;text-transform:uppercase">{html.escape(a['source'] or '')} &middot; {a['risk_level']} &middot; {a['score']}/100</div>
-            <a href="{html.escape(a['url'])}" style="font-size:14px;color:#1a365d;text-decoration:none;font-weight:600">{html.escape(a['title'])}</a>
+            <a href="{html.escape(safe_url(a['url']) or "#", quote=True)}" style="font-size:14px;color:#1a365d;text-decoration:none;font-weight:600">{html.escape(a['title'])}</a>
         </div>""")
 
     body.append("""</td></tr>

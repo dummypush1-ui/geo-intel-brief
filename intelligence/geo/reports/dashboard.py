@@ -5,6 +5,7 @@ collection, scoring, or filtering logic. This is purely a browser view of
 data that already exists in MongoDB.
 """
 import html
+from integration.news_view import safe_url
 from collections import defaultdict
 from datetime import datetime
 
@@ -145,7 +146,7 @@ def build_dashboard_html(limit=2000, category=None, trigger_key=None, sort_by="s
         for e in events:
             body.append(f"""<div class="item">
                 <span class="event-date">{html.escape(e.get('event_date',''))}</span>
-                <a href="{html.escape(e.get('source_url','#'))}">{html.escape(e.get('name',''))}</a>
+                <a href="{html.escape(safe_url(e.get('source_url','#')) or "#", quote=True)}">{html.escape(e.get('name',''))}</a>
                 <div class="summary">{html.escape(e.get('description','') or '')}</div>
             </div>""")
     else:
@@ -174,7 +175,7 @@ def build_dashboard_html(limit=2000, category=None, trigger_key=None, sort_by="s
                     {f" &middot; {corrob} sources" if corrob > 1 else ""}
                     &middot; {html.escape((a.get('published') or '')[:10])}
                 </div>
-                <a href="{html.escape(a.get('url','#'))}" target="_blank">{html.escape(a.get('title',''))}</a>
+                <a href="{html.escape(safe_url(a.get('url','#')) or "#", quote=True)}" target="_blank">{html.escape(a.get('title',''))}</a>
                 <div class="summary">{html.escape(a.get('summary') or '')}</div>
             </div>""")
     if not articles:

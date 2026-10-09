@@ -12,10 +12,11 @@ import symtable
 from collections import defaultdict
 from pathlib import Path
 from types import SimpleNamespace
+from integration.news_view import safe_url
 
 ROOT=Path(__file__).resolve().parents[1]
 # These pins cover entire original files. Changes need explicit re-review.
-PINS = {'geo_digest': '5e4ded3763f61e88eb35df6228b993f75f81131c1ca87ed0a524e1d6d8e94efd', 'geo_critical': 'f26b6140e1b81b8098151742c70674fab1b7c91199c996c50f24fa1d78febcbc', 'geo_weekly': '4aefca3c126b477d922c2caa2b554cc9716c3b9a197de812754bbc044f9c6573', 'brics_digest': '5aea6483892617f90b9905885e08d91fda2a3f644b02a10ee54e39ecfd2c90a8'}
+PINS = {'geo_digest': '32f74e4cd163a060bb01d967b9f5375e58cab983c2f4a34fd3057cb739ad6b1e', 'geo_critical': '1956e2421fd864a172ed2ead0d073b00e5159d6d220f444d9252159e7e7db32b', 'geo_weekly': '5a71964f4fc9fdf104b9a51f4c1e7e554fc57b03337b47f68c3bdbb4631787cd', 'brics_digest': '5aea6483892617f90b9905885e08d91fda2a3f644b02a10ee54e39ecfd2c90a8'}
 SPECS={
  'geo_digest':('intelligence/geo/reports/email_report.py',('_group_articles','_section_html','build_digest'),('CATEGORY_LABELS','RISK_COLORS','MIN_SCORE')),
  'geo_critical':('intelligence/geo/reports/critical_alert.py',('build_html',),()),
@@ -43,7 +44,7 @@ def renderer(kind,dependencies,now=None):
  now=now.astimezone(datetime.timezone.utc)
  date_text={fmt:now.strftime(fmt) for fmt in formats}
  clock=SimpleNamespace(strftime=lambda fmt:date_text[fmt])
- scope={'__builtins__':dict(BUILTINS),'html':SimpleNamespace(escape=html.escape),'defaultdict':defaultdict,
+ scope={'safe_url':safe_url,'__builtins__':dict(BUILTINS),'html':SimpleNamespace(escape=html.escape),'defaultdict':defaultdict,
  'datetime':SimpleNamespace(now=lambda:clock),'UPCOMING_DAYS':90,
  'ACTIVE_CATEGORIES':['GEOPOLITICS','CONFERENCE','TRADE','SANCTIONS','RISK','RESEARCH','GENERAL'],
  'DASHBOARD_BASE_URL':'','TRIGGER_SECRET':''}
