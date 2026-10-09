@@ -361,4 +361,13 @@ def create_app(reader=None,authorize=None,finder_context_reader=None,finder_base
  @app.get('/dashboard')
  def dashboard():return jsonify(state='Private dashboard UI requires Phase 2 login'),503
  return app
-app=create_app()
+
+# Preserve integration.news_api:app without constructing a fixture during imports.
+# Access by a WSGI loader creates and caches the compatibility application once.
+from threading import Lock as _AppLock
+_compat_app_lock=_AppLock()
+def __getattr__(name):
+ if name!='app':raise AttributeError(name)
+ with _compat_app_lock:
+  if 'app' not in globals():globals()['app']=create_app()
+  return globals()['app']

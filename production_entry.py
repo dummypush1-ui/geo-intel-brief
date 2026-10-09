@@ -9,7 +9,7 @@ running a partial path. Enabling any of them is a separate, explicitly approved 
 import os
 
 COMPONENTS = {
-    'geo_news_read': {'wired': True, 'via': 'public_live107.build_public_live_preview', 'gate': 'PUBLIC_NEWS_READ_ENABLED'},
+    'geo_news_read': {'wired': True, 'via': 'integration.public_live_builder.guarded_public_app', 'gate': 'PUBLIC_NEWS_READ_ENABLED'},
     'finder_offline': {'wired': True, 'via': 'public_live107 (offline finder frame)', 'gate': None},
     'brics_streams': {'wired': False, 'via': 'integration.brics_streams (private preview only)', 'gate': None},
     'collector': {'wired': False, 'via': 'collector.select_installed_source (inactive)', 'gate': 'COLLECTION_ENABLED'},
@@ -26,7 +26,7 @@ def build_production_app(environ, public_builder=None):
     if bad:
         raise ValueError('Component not wired in production entry: ' + ', '.join(bad))
     if public_builder is None:
-        from public_live107 import build_public_live_preview as public_builder
+        from integration.public_live_builder import guarded_public_app as public_builder
     app = public_builder(environ)
     comps = {k: dict(v) for k, v in COMPONENTS.items()}
     for v in comps.values():

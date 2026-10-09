@@ -6,7 +6,8 @@ Copyright (c) 2026 Push. All rights reserved.
 
 ```text
 Flask entry point
-  public_live107 / public_preview106 / integration.private_router
+  production_entry.create_app / public_live107 / public_preview106 / integration.private_router
+    -> shared public_live_builder / public_preview_builder (no import-time app)
     -> explicit mode and access gates
     -> integration.news_api.create_app
        -> bounded reader and public field normalization
@@ -20,7 +21,7 @@ The public entry point allows a narrower GET/HEAD route set than the private app
 
 `integration.preview_launcher` selects the explicit Geo-only branch or the retained isolated legacy branch. `integration.geo_only_runtime` composes private access with optional reviewed article/event reads. These launchers do not import the original collector applications as a complete live merge.
 
-The public live wrapper adds default-on E2 response headers and an optional, default-off E1 edge guard. See [Configuration](CONFIGURATION.md).
+The production factory and public live wrapper both call the shared guarded builder, with one Flask app/client and one headers hook per factory invocation. `integration.news_api:app` stays available through lazy compatibility access, while importing its factory creates no fixture app. The public live wrapper adds default-on E2 response headers and an optional, default-off E1 edge guard. See [Configuration](CONFIGURATION.md).
 
 ## Existing folders
 

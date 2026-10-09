@@ -313,6 +313,7 @@
         "integration/india_open_data/data_layer.py",
         "integration/mail_bridge.py",
         "integration/news_view.py",
+        "integration/public_live_builder.py",
         "integration/public_news.py",
         "integration/rss_catalog/catalog.py",
         "integration/source_health.py",
@@ -441,6 +442,7 @@
         "integration/original_dashboard_payloads.py",
         "integration/page_watch.py",
         "integration/preview_access.py",
+        "integration/public_live_builder.py",
         "integration/publication_dates/policy.py",
         "integration/renderer_scope.py",
         "integration/retention_audit.py",
@@ -706,9 +708,12 @@
         "integration/news_api.py",
         "integration/news_export/fixture_http.py",
         "integration/preview_access.py",
+        "integration/public_live_builder.py",
+        "integration/public_preview_builder.py",
         "integration/security_headers.py",
         "tests/digest_cold_probe.py",
         "tests/test_edge_guard.py",
+        "tests/test_factory176.py",
         "tests/test_feature_mail_mount.py",
         "tests/test_mail166.py",
         "tests/test_security_headers.py"
@@ -1034,6 +1039,8 @@
         "integration/preview_launcher.py",
         "integration/private_router.py",
         "integration/project_reports.py",
+        "integration/public_live_builder.py",
+        "integration/public_preview_builder.py",
         "integration/relevance.py",
         "integration/renderer_scope.py",
         "integration/report_adapters.py",
@@ -1114,6 +1121,7 @@
         "tests/test_edge_guard.py",
         "tests/test_env_example.py",
         "tests/test_event_reader.py",
+        "tests/test_factory176.py",
         "tests/test_fake_collection_writer.py",
         "tests/test_feature_mail_prep.py",
         "tests/test_finder_index.py",
@@ -1584,6 +1592,7 @@
         "integration/news_export/keyset_plan.py",
         "integration/news_export/original_stream.py",
         "integration/preview_access.py",
+        "integration/public_live_builder.py",
         "integration/retention_audit.py",
         "integration/smtp_policy.py",
         "integration/supplied_collector_pipeline.py",
@@ -1622,6 +1631,8 @@
         "integration/geo_probe_process.py",
         "integration/geo_sample_probe_child.py",
         "integration/private_router.py",
+        "integration/public_live_builder.py",
+        "integration/public_preview_builder.py",
         "integration/storage_settings.py",
         "integration/stream_disk.py",
         "tests/digest_cold_probe.py",
@@ -1840,6 +1851,21 @@
       "classification": "excluded"
     },
     {
+      "import": "production_entry",
+      "stdlib": false,
+      "distributions": [],
+      "classification": "local",
+      "provenance": {
+        "paths": [
+          "production_entry.py"
+        ],
+        "source": "reviewed local production factory source"
+      },
+      "files": [
+        "tests/test_factory176.py"
+      ]
+    },
+    {
       "import": "public_preview106",
       "files": [
         "tests/test_watchlist_public_fix.py"
@@ -1861,6 +1887,7 @@
         "integration/geo_article_writer.py",
         "integration/geo_read_factory.py",
         "integration/geo_sample_probe.py",
+        "integration/public_live_builder.py",
         "integration/runtime.py",
         "tests/test_geo_article_writer.py",
         "tests/test_geo_sample_probe.py",
@@ -2236,6 +2263,8 @@
         "integration/news_export/original_contract.py",
         "integration/page_watch.py",
         "integration/preview_access.py",
+        "integration/public_live_builder.py",
+        "integration/public_preview_builder.py",
         "integration/publication_dates/policy.py",
         "integration/relevance.py",
         "integration/report_styles.py",
@@ -2492,6 +2521,7 @@
         "tests/test_digest_cold.py",
         "tests/test_edge_guard.py",
         "tests/test_env_example.py",
+        "tests/test_factory176.py",
         "tests/test_feature_finder_prep.py",
         "tests/test_feature_mail_mount.py",
         "tests/test_finder_nested.py",
@@ -2568,6 +2598,7 @@
         "tests/test_collection_prepare.py",
         "tests/test_digest_cold.py",
         "tests/test_edge_guard.py",
+        "tests/test_factory176.py",
         "tests/test_fixed_feedparser_audit.py",
         "tests/test_geo_probe_process.py",
         "tests/test_geo_read_factory.py",
@@ -2813,6 +2844,7 @@
         "integration/news_api.py",
         "integration/news_export/fixture_http.py",
         "integration/preview_access.py",
+        "integration/public_live_builder.py",
         "tests/accounts/browser_http_fixture.py",
         "tests/accounts/test_accounts.py",
         "tests/accounts/test_hardening.py",
@@ -2863,6 +2895,7 @@
         "integration/news_export/geo_snapshot.py",
         "integration/news_export/original_stream.py",
         "integration/preview_access.py",
+        "integration/public_live_builder.py",
         "tests/geospatial/test_geospatial.py",
         "tests/news_export/test_export.py",
         "tests/news_export/test_fixture_serving.py",
@@ -2995,6 +3028,7 @@
         "tests/test_edge_guard.py",
         "tests/test_env_example.py",
         "tests/test_event_reader.py",
+        "tests/test_factory176.py",
         "tests/test_fake_collection_writer.py",
         "tests/test_feature_finder_mount_policy.py",
         "tests/test_feature_finder_prep.py",
@@ -3129,6 +3163,8 @@
         "integration/news_view.py",
         "integration/page_watch.py",
         "integration/preview_access.py",
+        "integration/public_live_builder.py",
+        "integration/public_preview_builder.py",
         "integration/rss_catalog/catalog.py",
         "integration/scraper_policy.py",
         "integration/site_parsers.py",
@@ -3798,7 +3834,7 @@
       },
       {
         "path": "integration/news_api.py",
-        "sha256": "66f03e63a0a0bbc0360f39861903231c0d8c3fd2429670d0bf791d2c313df511"
+        "sha256": "7308f25c49f715072414a2ba5ebdab72bf2e29f348372b6692be29160a1203d9"
       },
       {
         "path": "integration/news_export/__init__.py",
@@ -3869,8 +3905,16 @@
         "sha256": "f01301b538b5a65c7d5501291045644be894cf7267f4301cc28997728db4e12c"
       },
       {
+        "path": "integration/public_live_builder.py",
+        "sha256": "148b97a7ba5622d28268f5ed7d0732d6e264465df25a102f68e8e2415afe84de"
+      },
+      {
         "path": "integration/public_news.py",
         "sha256": "08a002863831a1e7cf9336e10b2f9d61aa1ce0ecf4b4367027dd34ed1dbd8145"
+      },
+      {
+        "path": "integration/public_preview_builder.py",
+        "sha256": "395d68696e529367e2118880d18361f27926a1984c3917a0421138190fe97815"
       },
       {
         "path": "integration/publication_dates/policy.py",
@@ -4379,6 +4423,10 @@
       {
         "path": "tests/test_event_reader.py",
         "sha256": "eb836c397f588fcc1bef92d8fc28143c90f65eae7885607bc55782878243f505"
+      },
+      {
+        "path": "tests/test_factory176.py",
+        "sha256": "1cf2083f5db0c41507c455d58f2d8f9becef5cd54d6b29e1c004adb0362c8b1a"
       },
       {
         "path": "tests/test_fake_collection_writer.py",
