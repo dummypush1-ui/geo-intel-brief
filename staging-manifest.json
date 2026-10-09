@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 1982,
+  "tests": 1987,
   "files": [
     {
       "path": ".env.example",
@@ -2066,6 +2066,11 @@
       "sha256": "e6b2c33bb57360b7cbd802964dec92aeadb2758a6d54b47aeb6aeca0440377d3"
     },
     {
+      "path": "integration/SCHEDULER-CIVIL-ZONES206.md",
+      "bytes": 3321,
+      "sha256": "3a1b352442e4ff7c2aebd17ea3281aab52e79deb271e262710eeba9e8bddf2d6"
+    },
+    {
       "path": "integration/SCROLL186.md",
       "bytes": 2161,
       "sha256": "bb1e02d57a8df0f2b976debc3d2726041f23d11b03d965c777a5ff9ec8a590e8"
@@ -2648,12 +2653,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 18581,
-      "sha256": "200d79faee60b912eb6b6ff9e39b4c76bb92826ac2829cdbea12a87a4ec52859"
+      "sha256": "19982dea302773742138add8f7784f92e6db9b1a0dc28d43ef5ca83dfc191370"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
       "bytes": 235274,
-      "sha256": "c2a25528d21579f8ec476e4bf71219295f11644e6c37d9266624110fcc277bb5"
+      "sha256": "b4c296d650055e4ea4f6f1d528a3b460f3b0319e818524ea702dbee42468b7c3"
     },
     {
       "path": "integration/dependency_build/README.md",
@@ -3677,8 +3682,8 @@
     },
     {
       "path": "integration/scheduler_policy.py",
-      "bytes": 2193,
-      "sha256": "97a43e535dd0d302d075b47620777dc89a23e415073dbb46d7c57778cd191102"
+      "bytes": 3167,
+      "sha256": "f16399cec504c0d143c9972a3c0df731331e6341b21f08285a37a86ee25db55f"
     },
     {
       "path": "integration/scraper_policy.py",
@@ -6487,8 +6492,8 @@
     },
     {
       "path": "tests/test_schedule175.py",
-      "bytes": 1751,
-      "sha256": "12b6e262ddac5045c08e4d64d0d3babce88f98ae7867eed8dd38ca9376a6581d"
+      "bytes": 4804,
+      "sha256": "cffeffde6444d9f5be83bdb2ea7457eae8abde7a8bd8f9b291dfc528f88902cd"
     },
     {
       "path": "tests/test_schedule_occurrence205.py",
