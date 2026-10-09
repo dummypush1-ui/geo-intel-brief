@@ -7,4 +7,4 @@ class Copy(unittest.TestCase):
  def test_sample_fixture_copy_preserved(self):
   c=create_app(authorize=lambda _:True).test_client();r=c.get('/workspace');self.assertIn('Loaded sample only. Database totals',r.text);self.assertIn('Export loaded sample CSV',r.text);self.assertNotIn('Summary metrics use up to the latest',r.text);r.close()
  def test_conditional_stats_and_no_semantics_change(self):
-  s=Path('integration/ui/workspace.js').read_text();self.assertIn("whole?'Latest 100 metrics (not total)':'Articles in loaded view'",s);self.assertIn("fullPages?'Latest-100 metrics, not full-store count: '",s);self.assertIn("await request('/api/news?' + params)",s)
+  s=Path('integration/ui/workspace.js').read_text();self.assertIn("whole?'Latest 100 metrics (not total)':'Articles in loaded view'",s);self.assertIn("fullPages&&project==='geo'?'Latest-100 summary view: '",s);self.assertIn("await request('/api/news?' + params)",s)

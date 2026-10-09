@@ -72,6 +72,8 @@ def create_app(reader=None,authorize=None,finder_context_reader=None,finder_base
   html=(root/'integration/ui/workspace.html').read_text()
   if full_news_pages is not None:
    html=html.replace('data-full-news-pages="false"','data-full-news-pages="true"').replace('Loaded sample only. Database totals and unsupplied events are unavailable.','Summary metrics use up to the latest 100 stored articles, not the whole-store total. The feed can load more below.').replace('Export loaded sample CSV','Export latest-100 view CSV')
+   for old,new in (('Loaded Geo sample summary','Latest-100 Geo summary metrics, not full-store totals'),('Loaded sample volume','Latest-100 summary volume, not full-store totals'),('Loaded dashboard signals','Latest-100 dashboard signals, not full-store totals'),('Show daily UTC sample counts','Show daily UTC counts for the latest-100 summary view'),("Calendar days including today's partial day. Not full database totals.","Calendar days including today's partial day, from up to 100 articles in the selected summary view. Not full-store totals."),('Summary charts and CSV still cover the latest loaded sample.','Summary charts and CSV still cover up to 100 stored articles in the selected summary view, not the whole feed.')):
+    html=html.replace(old,new)
   return Response(html,mimetype='text/html')
  @app.get('/workspace/assets/<name>')
  def assets(name):

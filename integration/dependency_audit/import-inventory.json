@@ -1196,6 +1196,7 @@
         "tests/test_collection_prepare.py",
         "tests/test_collector_mail_fixture.py",
         "tests/test_copy191.py",
+        "tests/test_copy195.py",
         "tests/test_country_alerts.py",
         "tests/test_country_page.py",
         "tests/test_country_signals.py",
@@ -3142,6 +3143,7 @@
         "tests/test_compulsory_channels.py",
         "tests/test_comtrade178.py",
         "tests/test_copy191.py",
+        "tests/test_copy195.py",
         "tests/test_cors190.py",
         "tests/test_country_alerts.py",
         "tests/test_country_page.py",
@@ -3994,7 +3996,7 @@
       },
       {
         "path": "integration/news_api.py",
-        "sha256": "949ce2c38b1826b4c8602a185ecc7cabaef2d8906fa9b06ab3f64405f20e61ba"
+        "sha256": "56a53bcaea1580adbde6362c3ddfe02ca928a482380a7d6c548f96754dbba490"
       },
       {
         "path": "integration/news_export/__init__.py",
@@ -4546,7 +4548,11 @@
       },
       {
         "path": "tests/test_copy191.py",
-        "sha256": "7714828476df0abbf677a16078c052b27c8493f05391819a5f7655d5edc07725"
+        "sha256": "121649eeaa99c4a66d12ea80feab116ddbbb336c8bf6b84527d36ca799fe9a3e"
+      },
+      {
+        "path": "tests/test_copy195.py",
+        "sha256": "972e77f667fff20c86d480a5299dbcf998486ddefd9596344640e6edbb80c21b"
       },
       {
         "path": "tests/test_cors190.py",
