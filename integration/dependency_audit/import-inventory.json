@@ -151,6 +151,7 @@
         "tests/test_collector197c.py",
         "tests/test_collector_mail_fixture.py",
         "tests/test_digest_dates202.py",
+        "tests/test_digest_render203.py",
         "tests/test_digest_windows193.py",
         "tests/test_feature_mail_mount.py",
         "tests/test_geo_queue_fixture.py",
@@ -596,6 +597,7 @@
         "tests/test_collector_mail_fixture.py",
         "tests/test_country_alerts.py",
         "tests/test_country_signals.py",
+        "tests/test_digest_render203.py",
         "tests/test_feature_finder_mount_policy.py",
         "tests/test_feature_mail_mount.py",
         "tests/test_feature_related_calibration.py",
@@ -730,6 +732,7 @@
         "integration/dashboard_snapshots.py",
         "integration/digest_dates202.py",
         "integration/digest_preview.py",
+        "integration/digest_render203.py",
         "integration/digest_windows193.py",
         "integration/event_reader.py",
         "integration/fake_collection_writer.py",
@@ -796,6 +799,7 @@
         "tests/test_dashboard_model.py",
         "tests/test_digest_dates202.py",
         "tests/test_digest_preview_routes.py",
+        "tests/test_digest_render203.py",
         "tests/test_digest_windows193.py",
         "tests/test_event_reader.py",
         "tests/test_feature_mail_mount.py",
@@ -1307,6 +1311,7 @@
       "files": [
         "integration/agencia_parser.py",
         "integration/branding_meta.py",
+        "integration/digest_render203.py",
         "integration/geo_queue_fixture.py",
         "integration/geonews_digest/render.py",
         "integration/html_safety.py",
@@ -1412,6 +1417,7 @@
         "integration/dashboard_snapshots.py",
         "integration/digest_dates202.py",
         "integration/digest_preview.py",
+        "integration/digest_render203.py",
         "integration/feedparser_audit/child.py",
         "integration/feedparser_audit/runner.py",
         "integration/finder198_auth.py",
@@ -1570,6 +1576,7 @@
         "tests/test_db_contract.py",
         "tests/test_digest_dates202.py",
         "tests/test_digest_preview_routes.py",
+        "tests/test_digest_render203.py",
         "tests/test_digest_windows193.py",
         "tests/test_edge_guard.py",
         "tests/test_env_example.py",
@@ -2004,6 +2011,7 @@
         "tests/browser_compulsory_channels.py",
         "tests/browser_country_page.py",
         "tests/browser_dashboard_snapshots.py",
+        "tests/browser_digest203.py",
         "tests/browser_digest_preview.py",
         "tests/browser_event_digest.py",
         "tests/browser_feature_finder.py",
@@ -2258,6 +2266,7 @@
         "tests/browser_compulsory_channels.py",
         "tests/browser_country_page.py",
         "tests/browser_dashboard_snapshots.py",
+        "tests/browser_digest203.py",
         "tests/browser_digest_preview.py",
         "tests/browser_event_digest.py",
         "tests/browser_feature_finder.py",
@@ -2408,6 +2417,7 @@
         "tests/browser_compulsory_channels.py",
         "tests/browser_country_page.py",
         "tests/browser_dashboard_snapshots.py",
+        "tests/browser_digest203.py",
         "tests/browser_digest_preview.py",
         "tests/browser_event_digest.py",
         "tests/browser_feature_finder.py",
@@ -3251,6 +3261,7 @@
         "tests/browser_compulsory_channels.py",
         "tests/browser_country_page.py",
         "tests/browser_dashboard_snapshots.py",
+        "tests/browser_digest203.py",
         "tests/browser_digest_preview.py",
         "tests/browser_event_digest.py",
         "tests/browser_feature_finder.py",
@@ -3358,6 +3369,7 @@
       "import": "tests",
       "files": [
         "tests/accounts/test_reservation_terminal.py",
+        "tests/browser_digest203.py",
         "tests/native200_state_fixture.py",
         "tests/native200cb_read_fixture.py",
         "tests/news_export/test_fixture_serving.py",
@@ -3709,6 +3721,7 @@
         "integration/brics_streams.py",
         "integration/country_alerts.py",
         "integration/dashboard_snapshots.py",
+        "integration/digest_render203.py",
         "integration/geonews_digest/_safe.py",
         "integration/geospatial/_safe.py",
         "integration/loaded_news.py",
@@ -3800,6 +3813,7 @@
         "tests/test_digest_cold.py",
         "tests/test_digest_dates202.py",
         "tests/test_digest_preview_routes.py",
+        "tests/test_digest_render203.py",
         "tests/test_digest_windows193.py",
         "tests/test_edge_guard.py",
         "tests/test_env_example.py",
@@ -3955,6 +3969,7 @@
         "integration/brics_streams.py",
         "integration/country_alerts.py",
         "integration/dashboard_snapshots.py",
+        "integration/digest_render203.py",
         "integration/edge_guard.py",
         "integration/feedparser_audit/child.py",
         "integration/finder198_connector.py",
@@ -4592,6 +4607,10 @@
       {
         "path": "integration/digest_preview.py",
         "sha256": "4b492669e765a593ea54ffa66d5fcc6361be034f764c5054ba808f11cd6be30c"
+      },
+      {
+        "path": "integration/digest_render203.py",
+        "sha256": "d4a3a19f3195389ce9c6c6ccb840963cc910ddfe1dfadfc4480c05c749721b2d"
       },
       {
         "path": "integration/digest_windows193.py",
@@ -5234,6 +5253,10 @@
         "sha256": "5a9ddf8b17e6ab5e9befac529e8595c50ed2b1be9b27769737bf68906e560cba"
       },
       {
+        "path": "tests/browser_digest203.py",
+        "sha256": "6dafd59ab319740b6cc088ba5cd7c5b54b1cd6e75e9d4edd704c64f76af4e09b"
+      },
+      {
         "path": "tests/browser_digest_preview.py",
         "sha256": "011b500bb9e75ba75b2b86c3e242bf30e4207071a9b086829c02d75317a62ca5"
       },
@@ -5592,6 +5615,10 @@
       {
         "path": "tests/test_digest_preview_routes.py",
         "sha256": "b171fed8fd837dc9d800b00fd17d13fcc6b26e8341ca2e8e31daecb7ba14378e"
+      },
+      {
+        "path": "tests/test_digest_render203.py",
+        "sha256": "24881f68408a73421762cd004c24cb1927cf126dcf91b5599aef9dcc5bf5eb3b"
       },
       {
         "path": "tests/test_digest_windows193.py",

@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 1954,
+  "tests": 1962,
   "files": [
     {
       "path": ".env.example",
@@ -1786,6 +1786,11 @@
       "sha256": "f4c10c388b1048aa2e8146cfbd15cc337e80b293c5e457763a21bf5bd8a0976a"
     },
     {
+      "path": "integration/DIGEST-RENDER203.md",
+      "bytes": 3297,
+      "sha256": "0e9d69c13bd7800748180bc652eef563a8ae0d72400065998dafddf264f44e74"
+    },
+    {
       "path": "integration/DIGEST-WINDOWS193.md",
       "bytes": 1964,
       "sha256": "9db747c408ad1c49cc9de87e23a285488f1bfde4769488c09db1185e8cbc048b"
@@ -2633,12 +2638,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 18581,
-      "sha256": "8ee2d80e36330fa724e050c5d6c0b89481a04a7b3f89f46ccf07b7d0771c4d94"
+      "sha256": "d86ad7333c496eca4ce0c514a15d97048e9134d0b88f2d96e58f5c875c711d6f"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
-      "bytes": 232521,
-      "sha256": "470912a724405c37f695bc4c64db99185f050774adfa5b96a2808b9b8589f303"
+      "bytes": 233589,
+      "sha256": "b496be9dfd6e40c86edde95f89f842ffb6db9b186aaadc01af5af2a86406ebfe"
     },
     {
       "path": "integration/dependency_build/README.md",
@@ -2684,6 +2689,11 @@
       "path": "integration/digest_preview.py",
       "bytes": 3404,
       "sha256": "4b492669e765a593ea54ffa66d5fcc6361be034f764c5054ba808f11cd6be30c"
+    },
+    {
+      "path": "integration/digest_render203.py",
+      "bytes": 6222,
+      "sha256": "d4a3a19f3195389ce9c6c6ccb840963cc910ddfe1dfadfc4480c05c749721b2d"
     },
     {
       "path": "integration/digest_windows193.py",
@@ -5306,6 +5316,11 @@
       "sha256": "5a9ddf8b17e6ab5e9befac529e8595c50ed2b1be9b27769737bf68906e560cba"
     },
     {
+      "path": "tests/browser_digest203.py",
+      "bytes": 1159,
+      "sha256": "6dafd59ab319740b6cc088ba5cd7c5b54b1cd6e75e9d4edd704c64f76af4e09b"
+    },
+    {
       "path": "tests/browser_digest_preview.py",
       "bytes": 1589,
       "sha256": "011b500bb9e75ba75b2b86c3e242bf30e4207071a9b086829c02d75317a62ca5"
@@ -5929,6 +5944,11 @@
       "path": "tests/test_digest_preview_routes.py",
       "bytes": 6855,
       "sha256": "b171fed8fd837dc9d800b00fd17d13fcc6b26e8341ca2e8e31daecb7ba14378e"
+    },
+    {
+      "path": "tests/test_digest_render203.py",
+      "bytes": 4206,
+      "sha256": "24881f68408a73421762cd004c24cb1927cf126dcf91b5599aef9dcc5bf5eb3b"
     },
     {
       "path": "tests/test_digest_windows193.py",
