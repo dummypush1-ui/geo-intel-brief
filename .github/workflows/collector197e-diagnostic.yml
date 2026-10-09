@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
-          ref: c1697b2e6bb5386ef0f2023e3bd8f4b83d468d30
+          ref: 6d3d5ab9f1f23b6d8572deea599ca8193e358d9b
           persist-credentials: false
       - name: Install bounded diagnostic dependencies
         shell: bash
