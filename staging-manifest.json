@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 2074,
+  "tests": 2078,
   "files": [
     {
       "path": ".env.example",
@@ -1521,6 +1521,11 @@
       "sha256": "887b7551d3fe662f389d4bf9ab0110f047a1877d4c089c4e59262ff3aeb11a2c"
     },
     {
+      "path": "feature_mail_mount/HANDLERS216.md",
+      "bytes": 2838,
+      "sha256": "a606cf344630479174bdb4c43d4e427c976500662aa6e549eca905f838f53cec"
+    },
+    {
       "path": "feature_mail_mount/OPERATIONS-CONTRACT.md",
       "bytes": 5593,
       "sha256": "a475af4daac1a365a7f7e8537cff24def03e19542fb6bb5c6f28db54c93cd064"
@@ -1539,6 +1544,11 @@
       "path": "feature_mail_mount/composition.py",
       "bytes": 1173,
       "sha256": "b78c1578d465198227147b3a063c2674c92b933c4201068ca678c835dd03bd82"
+    },
+    {
+      "path": "feature_mail_mount/handlers216.gs",
+      "bytes": 1753,
+      "sha256": "2cc9af06306fbbc3618ac4efff60b0243db738558754c9c4c5708bf48bd96d04"
     },
     {
       "path": "feature_mail_mount/http.py",
@@ -1564,6 +1574,11 @@
       "path": "feature_mail_mount/test_bridge.js",
       "bytes": 3211,
       "sha256": "f04e0d4664eb0c140ac3560d907344667d30c70907efe6216b2ea63dcf310727"
+    },
+    {
+      "path": "feature_mail_mount/test_handlers216.js",
+      "bytes": 5760,
+      "sha256": "1a1e5e71cbfda54a60714e17ac338dfdda00414392a664011caa144dccd7ce8b"
     },
     {
       "path": "feature_mail_prep/__init__.py",
@@ -2703,12 +2718,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 18581,
-      "sha256": "c2edd38fad046538af92cb7ca05759adc7b69426872c2ce07908f0fde47d8504"
+      "sha256": "08e6b8b743280cfd6aebfdb4818e2211b82b7a07b98196e91b901b1be79d5a9b"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
-      "bytes": 242272,
-      "sha256": "204e49c3b8787d344b68ae1f4cbc868a1abcc95b0e2c52f09fe663db5d2ad3f4"
+      "bytes": 242676,
+      "sha256": "87e06f195d155520e862bcf69f79b8963e192290776920f81289530067f5688a"
     },
     {
       "path": "integration/dependency_build/README.md",
@@ -5819,6 +5834,11 @@
       "path": "tests/test_api_v1_187.py",
       "bytes": 3575,
       "sha256": "dd49fc23a2cee11d27e10da5a6ccb9e9ad53bd8e4d0f40deec4a14fdf6c35f65"
+    },
+    {
+      "path": "tests/test_apps_handlers216.py",
+      "bytes": 1813,
+      "sha256": "0903386d8acffa407ec1786a9fdfe7d2b1044499d775501932a8e04206250613"
     },
     {
       "path": "tests/test_apps_script_audit.py",
