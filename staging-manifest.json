@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 1962,
+  "tests": 1971,
   "files": [
     {
       "path": ".env.example",
@@ -2071,6 +2071,11 @@
       "sha256": "59f843ef877dd8cafc0613c1184024b21df692de01b6990d5cca6d232f080ddb"
     },
     {
+      "path": "integration/SMTP-CONFIG204.md",
+      "bytes": 5509,
+      "sha256": "5673f2f072edca5682c9118c13edf8010efa75616bd5422aaf84f40ea40f5cbd"
+    },
+    {
       "path": "integration/SOURCE_HEALTH_LIMITS.md",
       "bytes": 1642,
       "sha256": "b2f2d1bcb3b0368ced209b49a84eb348e2e3926a355894c98177d01eee32c2a1"
@@ -2638,12 +2643,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 18581,
-      "sha256": "d86ad7333c496eca4ce0c514a15d97048e9134d0b88f2d96e58f5c875c711d6f"
+      "sha256": "40e28a6bbd13e3c985c79c33b18ffa56dfcfde987d23fc5fea8d0947137cda72"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
-      "bytes": 233589,
-      "sha256": "b496be9dfd6e40c86edde95f89f842ffb6db9b186aaadc01af5af2a86406ebfe"
+      "bytes": 234374,
+      "sha256": "d7b365c5f744779f69264206b92abe8463abd8ac41d76fa1a553c66226c5ef92"
     },
     {
       "path": "integration/dependency_build/README.md",
@@ -3944,6 +3949,11 @@
       "path": "integration/site_scraper.py",
       "bytes": 200,
       "sha256": "ca8ea55103c13506c032a164a1c3cd5baafa5456752535c962b2e4908a2fe558"
+    },
+    {
+      "path": "integration/smtp_config204.py",
+      "bytes": 3359,
+      "sha256": "4158c4706f7d54534b983e17bdf546b4261c15bf9939f131a2dc8241c65aa104"
     },
     {
       "path": "integration/smtp_policy.py",
@@ -6524,6 +6534,11 @@
       "path": "tests/test_smtp174.py",
       "bytes": 2316,
       "sha256": "81f3bbd9c2cec228d500360d552aeb16d6857c616c95aa92d023682fe36c4762"
+    },
+    {
+      "path": "tests/test_smtp_config204.py",
+      "bytes": 7184,
+      "sha256": "42aa1e6d0bde88e494b1091eee5b78c07d95b1ada34fb13ef7bd4a72ce36f94f"
     },
     {
       "path": "tests/test_source_health.py",

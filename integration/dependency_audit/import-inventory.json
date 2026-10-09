@@ -37,6 +37,7 @@
         "tests/test_rss177.py",
         "tests/test_sanctions183.py",
         "tests/test_security_review.py",
+        "tests/test_smtp_config204.py",
         "tests/test_stream_revision.py",
         "tests/test_supplied_collector_pipeline.py",
         "tests/test_supplied_feed_fixture.py",
@@ -581,6 +582,7 @@
         "integration/replay199_core.py",
         "integration/replay199_schema.py",
         "integration/rss_catalog/catalog.py",
+        "integration/smtp_config204.py",
         "integration/source_health.py",
         "integration/stream_fixture_app.py",
         "tests/accounts/test_reservation_terminal.py",
@@ -631,6 +633,7 @@
         "tests/test_rss_catalog.py",
         "tests/test_shared_ledger_fixture.py",
         "tests/test_shared_service_fixture.py",
+        "tests/test_smtp_config204.py",
         "tests/test_supplied_collector_pipeline.py",
         "tests/test_supplied_feed_fixture.py",
         "tests/test_supplied_fulltext_fixture.py",
@@ -1368,6 +1371,7 @@
         "tests/test_legacy_geo_p0.py",
         "tests/test_news182.py",
         "tests/test_preview_launcher.py",
+        "tests/test_smtp_config204.py",
         "tests/text_matching/test_matching.py"
       ],
       "stdlib": true,
@@ -1386,7 +1390,8 @@
         "source": "sys.stdlib_module_names"
       },
       "files": [
-        "integration/native200_transactions.py"
+        "integration/native200_transactions.py",
+        "tests/test_smtp_config204.py"
       ]
     },
     {
@@ -1491,6 +1496,7 @@
         "integration/scraper_policy.py",
         "integration/single_db_runtime.py",
         "integration/site_parsers.py",
+        "integration/smtp_config204.py",
         "integration/source_health.py",
         "integration/storage_reader.py",
         "integration/story_links.py",
@@ -1664,6 +1670,7 @@
         "tests/test_single_db_runtime.py",
         "tests/test_site_parsers.py",
         "tests/test_smtp174.py",
+        "tests/test_smtp_config204.py",
         "tests/test_source_health.py",
         "tests/test_storage165.py",
         "tests/test_storage_reader.py",
@@ -1935,7 +1942,8 @@
         "integration/dashboard_snapshots.py",
         "integration/finder198_transport_child.py",
         "integration/india_open_data/transport.py",
-        "integration/rss_catalog/catalog.py"
+        "integration/rss_catalog/catalog.py",
+        "integration/smtp_config204.py"
       ],
       "stdlib": true,
       "distributions": [],
@@ -2892,6 +2900,7 @@
         "integration/rss_catalog/catalog.py",
         "integration/scheduler_policy.py",
         "integration/single_db_plan.py",
+        "integration/smtp_config204.py",
         "integration/stream_revision.py",
         "integration/supplied_feed_fixture.py",
         "integration/tariff_evidence.py",
@@ -3078,7 +3087,8 @@
       "files": [
         "integration/geonews_digest/delivery.py",
         "tests/digest_cold_probe.py",
-        "tests/test_smtp174.py"
+        "tests/test_smtp174.py",
+        "tests/test_smtp_config204.py"
       ],
       "stdlib": true,
       "distributions": [],
@@ -3104,7 +3114,8 @@
         "tests/news_export/test_fixture_serving.py",
         "tests/test_collector197b_connector.py",
         "tests/test_feature_mail_prep.py",
-        "tests/test_finder198bb.py"
+        "tests/test_finder198bb.py",
+        "tests/test_smtp_config204.py"
       ],
       "stdlib": true,
       "distributions": [],
@@ -3926,6 +3937,7 @@
         "tests/test_single_db_runtime.py",
         "tests/test_site_parsers.py",
         "tests/test_smtp174.py",
+        "tests/test_smtp_config204.py",
         "tests/test_source_health.py",
         "tests/test_storage165.py",
         "tests/test_storage_reader.py",
@@ -5097,6 +5109,10 @@
         "sha256": "ca8ea55103c13506c032a164a1c3cd5baafa5456752535c962b2e4908a2fe558"
       },
       {
+        "path": "integration/smtp_config204.py",
+        "sha256": "4158c4706f7d54534b983e17bdf546b4261c15bf9939f131a2dc8241c65aa104"
+      },
+      {
         "path": "integration/smtp_policy.py",
         "sha256": "30ffa0ce3db826dca43c16e1de86e766ad528c92d07c3e480e9052b2aa991b8f"
       },
@@ -6067,6 +6083,10 @@
       {
         "path": "tests/test_smtp174.py",
         "sha256": "81f3bbd9c2cec228d500360d552aeb16d6857c616c95aa92d023682fe36c4762"
+      },
+      {
+        "path": "tests/test_smtp_config204.py",
+        "sha256": "42aa1e6d0bde88e494b1091eee5b78c07d95b1ada34fb13ef7bd4a72ce36f94f"
       },
       {
         "path": "tests/test_source_health.py",
