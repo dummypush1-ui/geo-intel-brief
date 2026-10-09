@@ -201,9 +201,48 @@ function snapshotLink(value,key) {
  if(u.search || u.hash || !/^[a-z0-9]+(?:[.-][a-z0-9]+)*$/.test(u.hostname) || !u.hostname.includes('.') || /(?:^|\.)(?:localhost|local|internal|test|invalid|example)$/.test(u.hostname) || /^(?:[0-9]+|0x[0-9a-f]+)$/.test(u.hostname.split('.').at(-1)) || (u.port && !['80','443'].includes(u.port)))return null;
  return u.href;
 }
+let eventSnapshotValue = 'Unavailable';
+function setEventSnapshot(value, summary, message) {
+ eventSnapshotValue=value;
+ byId('events-summary').textContent=summary;
+ byId('events-status').textContent=message;
+ const num=byId('geo-stat-row').querySelector('[data-event-stat] .num');
+ if(num)num.textContent=value;
+}
+function eventLabel(value) {
+ return typeof value==='string' && /[\p{L}\p{N}\p{S}]/u.test(value.replace(/[\u2800\u3164\u115f\u1160\uffa0\ufffc]/g,'')) && !/[\p{C}\u2800\u3164\u115f\u1160\uffa0]/u.test(value);
+}
+function renderEventSnapshot(d) {
+ const root=byId('events-rows');root.replaceChildren();
+ const panel=d.panels?.geo_events;
+ if(d.state==='snapshot_readers_unwired') {
+  setEventSnapshot('Unavailable','Events - not connected','The event source is not connected. No event data is supplied.');return;
+ }
+ if(panel?.state!=='supplied_snapshot'||!Array.isArray(panel.items)||typeof panel.observed_at!=='string'||!panel.observed_at) {
+  setEventSnapshot('Unavailable','Events - unavailable','Verified event snapshot unavailable. No count is inferred.');return;
+ }
+ const observation=document.createElement('p');observation.className='muted';observation.textContent='Snapshot observed at '+panel.observed_at+'.';root.append(observation);
+ let shown=0,dropped=0;
+ for(const item of panel.items.slice(0,100)) {
+  const url=item && snapshotLink(item.source_url,'geo_events');
+  if(!item||!url||!url.startsWith('https:')||!eventLabel(item.name)||typeof item.event_date!=='string'||!/^\d{4}-\d{2}-\d{2}$/.test(item.event_date)){dropped++;continue;}
+  const row=document.createElement('article');row.className='event-row';
+  const link=document.createElement('a');link.href=url;link.target='_blank';link.rel='noopener noreferrer';link.textContent=item.name;row.append(link);
+  const meta=document.createElement('p');meta.textContent=['Event date: '+item.event_date,eventLabel(item.category)?'Category: '+item.category:'',eventLabel(item.confidence)?'Confidence: '+item.confidence:''].filter(Boolean).join(' · ');row.append(meta);
+  if(typeof item.description==='string'&&item.description&&!/[\p{C}]/u.test(item.description.replace(/[\n\t]/g,''))){const description=document.createElement('p');description.className='event-description';description.textContent=item.description;row.append(description);}
+  root.append(row);shown++;
+ }
+ if(panel.truncated===true||panel.items.length>100){const p=document.createElement('p');p.className='muted';p.textContent='Showing at most the first 100 entries in deterministic snapshot order.';root.append(p);}
+ if(Number.isInteger(panel.rejected_count)&&panel.rejected_count>0){const p=document.createElement('p');p.className='muted';p.textContent=panel.rejected_count+' entries withheld by snapshot validation.';root.append(p);}
+ if(dropped){const p=document.createElement('p');p.className='muted';p.textContent=dropped+' entries withheld by display validation.';root.append(p);}
+ setEventSnapshot(String(shown),'Events - '+shown+' in snapshot',!panel.items.length?'No entries in this supplied snapshot. The source supplied no event rows.':shown?'Shown in event snapshot: '+shown+'. Captured rows only, not a full-store total.':'No displayable entries in this supplied snapshot. No event rows shown.');
+}
 async function readSnapshots(project) {
  const id=++snapshotsId,status=byId('snapshot-status'),panels=byId('snapshot-panels');
  status.textContent='Loading captured dashboard snapshots...';panels.replaceChildren();
+ byId('events-panel').hidden=project!=='geo';
+ byId('dashboard-snapshots').hidden=project==='geo';
+ if(project==='geo'){byId('events-rows').replaceChildren();setEventSnapshot('Loading','Events - loading','Loading supplied event snapshot...');}
  const labels=project==='geo' ? {geo_events:'Geo events'} : {brics_sources:'BRICS source observations',brics_streams:'BRICS stream links'};
  const unavailable=(key,unwired=false)=>{const p=document.createElement('p');p.textContent=labels[key]+(unwired ? ': snapshot reader is not connected.' : ': verified snapshot unavailable.');panels.append(p);};
  try {
@@ -211,6 +250,7 @@ async function readSnapshots(project) {
   if(!r.ok)throw new Error('Captured dashboard snapshots unavailable.');const d=await r.json();
   if(active!==project || id!==snapshotsId)return;
   if(d.project!==project || d.not_live_status!==true)throw new Error('Captured dashboard snapshot contract unavailable.');
+  if(project==='geo'){renderEventSnapshot(d);return;}
   status.textContent='Supplied snapshots only, not current source health or live video.';
   for(const key of Object.keys(labels)) {
    const panel=d.panels?.[key];
@@ -236,7 +276,7 @@ async function readSnapshots(project) {
    if(Number.isInteger(panel.rejected_count) && panel.rejected_count>0){const p=document.createElement('p');p.className='muted';p.textContent=panel.rejected_count+' entries withheld by snapshot validation.';section.append(p);}
    panels.append(section);
   }
- } catch(error){if(active===project && id===snapshotsId){status.textContent=error.message;panels.replaceChildren();for(const key of Object.keys(labels))unavailable(key);}}
+ } catch(error){if(active===project && id===snapshotsId){if(project==='geo'){byId('events-rows').replaceChildren();setEventSnapshot('Unavailable','Events - unavailable','Verified event snapshot unavailable. No count is inferred.');return;}status.textContent=error.message;panels.replaceChildren();for(const key of Object.keys(labels))unavailable(key);}}
 }
 
 byId('news-export').addEventListener('click',async()=>{
@@ -321,16 +361,16 @@ const q=id=>document.getElementById(id);
 const labels={GEOPOLITICS:'Geopolitics',CONFERENCE:'Conferences & Meetings',TRADE:'Trade Activity',SANCTIONS:'Sanctions & Circulars',RISK:'Risk Signals',RESEARCH:'Research Papers & Documents',GENERAL:'Other'};
 const risks={CRITICAL:'#c53030',HIGH:'#dd6b20',MODERATE:'#d69e2e',LOW:'#718096'};
 const cred={HIGH:'#2f855a',MEDIUM:'#b7791f',LOW:'#a0aec0'};
-function stat(value,label){const d=document.createElement('div');d.className='stat';const n=document.createElement('div');n.className='num';n.textContent=value;const l=document.createElement('div');l.className='lbl';l.textContent=label;d.append(n,l);return d;}
+function stat(value,label){const d=document.createElement('div');d.className='stat';if(label==='Events in snapshot')d.dataset.eventStat='true';const n=document.createElement('div');n.className='num';n.textContent=value;const l=document.createElement('div');l.className='lbl';l.textContent=label;d.append(n,l);return d;}
 function bars(title,rows){const d=document.createElement('section');d.className='card';const h=document.createElement('h3');h.textContent=title;d.append(h);const max=Math.max(1,...rows.map(x=>x[1]));for(const [name,count,color]of rows){const line=document.createElement('div');line.className='barrow';const n=document.createElement('span');n.className='name';n.textContent=name;const meter=document.createElement('meter');meter.min=0;meter.max=max;meter.value=count;meter.setAttribute('aria-label',name+': '+count+(q('news-view').dataset.fullNewsPages==='true'?' in latest-100 summary view':' in loaded sample'));meter.style.accentColor=color;const c=document.createElement('span');c.className='cnt';c.textContent=count;line.append(n,meter,c);d.append(line);}if(!rows.length){const p=document.createElement('p');p.textContent=q('news-view').dataset.fullNewsPages==='true'?'No recorded values in this latest-100 summary view.':'No recorded values in this loaded sample.';d.append(p);}return d;}
 function decorate(){const root=q('news-results');for(const h of root.querySelectorAll('.geo-group'))h.remove();let previous='';for(const row of root.querySelectorAll(':scope > .story')){const badges=Array.from(row.querySelectorAll('.badge'));const cat=badges.find(x=>labels[x.textContent])?.textContent||'GENERAL';if(cat!==previous){const h=document.createElement('h3');h.className='geo-group';h.textContent=labels[cat]||cat;root.insertBefore(h,row);previous=cat;}const text=Array.from(row.querySelectorAll('.story-meta')).find(p=>p.textContent.startsWith('Risk:'))?.textContent||'';const risk=/Risk: (CRITICAL|HIGH|MODERATE|LOW)(?: |$|·)/.exec(text)?.[1];row.dataset.geoRisk=risk||'UNKNOWN';}}
 let queued=false;const observer=new MutationObserver(()=>{if(queued)return;queued=true;queueMicrotask(()=>{observer.disconnect();decorate();observer.observe(q('news-results'),{childList:true,subtree:true});queued=false;});});observer.observe(q('news-results'),{childList:true,subtree:true});
 let serial=0;
 const whole=q('news-view').dataset.fullNewsPages==='true';
 const articleLabel=whole?'Latest 100 metrics (not total)':'Articles in loaded view',criticalLabel=whole?'Critical 24h in latest 100':'Critical 24h, loaded',categoryLabel=whole?'Categories in latest 100':'Active loaded categories';
-async function refresh(){const id=++serial;q('geo-stat-row').replaceChildren(stat('Loading',articleLabel),stat('Loading',criticalLabel),stat('Unavailable','Upcoming events'),stat('Loading',categoryLabel));q('geo-bar-panels').replaceChildren();try{const rs=await Promise.all(['/api/news-stats?project=geo','/api/dashboard-signals?project=geo'].map(u=>fetch(u,{credentials:'same-origin',cache:'no-store'})));if(rs.some(r=>!r.ok))throw Error();const [stats,signals]=await Promise.all(rs.map(r=>r.json()));if(id!==serial)return;if(stats.scope!=='loaded_read_view'||stats.not_total_database!==true||signals.scope!=='loaded_read_view'||signals.not_total_database!==true)throw Error();const cats=Array.isArray(stats.categories)?stats.categories:[];q('geo-stat-row').replaceChildren(stat(Number.isInteger(stats.count)?String(stats.count):'Unknown',articleLabel),stat(Number.isInteger(signals.critical_24h_loaded)?String(signals.critical_24h_loaded):'Unknown',criticalLabel),stat('Unavailable','Upcoming events'),stat(String(cats.length),categoryLabel));
+async function refresh(){const id=++serial;q('geo-stat-row').replaceChildren(stat('Loading',articleLabel),stat('Loading',criticalLabel),stat(eventSnapshotValue,'Events in snapshot'),stat('Loading',categoryLabel));q('geo-bar-panels').replaceChildren();try{const rs=await Promise.all(['/api/news-stats?project=geo','/api/dashboard-signals?project=geo'].map(u=>fetch(u,{credentials:'same-origin',cache:'no-store'})));if(rs.some(r=>!r.ok))throw Error();const [stats,signals]=await Promise.all(rs.map(r=>r.json()));if(id!==serial)return;if(stats.scope!=='loaded_read_view'||stats.not_total_database!==true||signals.scope!=='loaded_read_view'||signals.not_total_database!==true)throw Error();const cats=Array.isArray(stats.categories)?stats.categories:[];q('geo-stat-row').replaceChildren(stat(Number.isInteger(stats.count)?String(stats.count):'Unknown',articleLabel),stat(Number.isInteger(signals.critical_24h_loaded)?String(signals.critical_24h_loaded):'Unknown',criticalLabel),stat(eventSnapshotValue,'Events in snapshot'),stat(String(cats.length),categoryLabel));
 const categoryRows=cats.filter(x=>typeof x.label==='string'&&Number.isInteger(x.count)&&x.count>=0).map(x=>[labels[x.label]||x.label,x.count,'#2b6cb0']);q('geo-bar-panels').append(bars(whole?'Volume by category - latest-100 summary view':'Volume by category - loaded sample',categoryRows),bars(whole?'Risk level breakdown - latest-100 summary view':'Risk level breakdown - recorded sample',Object.entries(risks).filter(([k])=>Number.isInteger(signals.risk_levels?.[k])&&signals.risk_levels[k]>0).map(([k,v])=>[k,signals.risk_levels[k],v])),bars(whole?'Source credibility - latest-100 summary view':'Source credibility - recorded sample',Object.entries(cred).filter(([k])=>Number.isInteger(signals.credibility_levels?.[k])&&signals.credibility_levels[k]>0).map(([k,v])=>[k,signals.credibility_levels[k],v])));
-}catch{if(id===serial){q('geo-stat-row').replaceChildren(stat('Unavailable',articleLabel),stat('Unavailable',criticalLabel),stat('Unavailable','Upcoming events'),stat('Unavailable','Active categories'));const p=document.createElement('p');p.textContent=whole?'Latest-100 summary unavailable. No full-store totals inferred.':'Dashboard sample unavailable. No totals inferred.';q('geo-bar-panels').replaceChildren(p);}}}
+}catch{if(id===serial){q('geo-stat-row').replaceChildren(stat('Unavailable',articleLabel),stat('Unavailable',criticalLabel),stat(eventSnapshotValue,'Events in snapshot'),stat('Unavailable','Active categories'));const p=document.createElement('p');p.textContent=whole?'Latest-100 summary unavailable. No full-store totals inferred.':'Dashboard sample unavailable. No totals inferred.';q('geo-bar-panels').replaceChildren(p);}}}
 for(const [key,label]of [['','All'],...Object.entries(labels)]){const b=document.createElement('button');b.type='button';b.className='tab';b.dataset.category=key;b.setAttribute('role','tab');b.textContent=label;b.addEventListener('click',()=>{const select=q('news-category');if(!Array.from(select.options).some(o=>o.value===key)){const o=document.createElement('option');o.value=key;o.textContent=label;select.append(o);}select.value=key;select.dispatchEvent(new Event('change',{bubbles:true}));syncTabs();});b.setAttribute('aria-selected',String(!key));if(!key)b.classList.add('active');q('geo-category-tabs').append(b);}
 q('news-refresh').addEventListener('click',refresh);document.querySelector('[data-view=geo]').addEventListener('click',refresh);refresh();
 

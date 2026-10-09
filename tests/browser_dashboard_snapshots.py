@@ -15,16 +15,27 @@ with sync_playwright() as p:
  browser=p.chromium.launch(executable_path='/usr/bin/google-chrome',headless=True,args=['--no-sandbox'])
  page=browser.new_page(viewport={'width':1440,'height':1000});errors=[];page.on('pageerror',lambda e:errors.append(str(e)))
  page.route('**/*',lambda r:r.continue_() if r.request.url.startswith('http://127.0.0.1:8770/') else r.abort())
- page.goto('http://127.0.0.1:8770/workspace');page.locator('[data-view=geo]').click();page.locator('.snapshot-row a').wait_for()
- assert 'Trade summit <img src=x>' in page.locator('#snapshot-panels').inner_text();assert page.locator('#snapshot-panels img,#snapshot-panels script,#snapshot-panels iframe').count()==0
- assert 'Snapshot observed at' in page.locator('#snapshot-panels').inner_text()
- assert 'Category: CONFERENCE' in page.locator('#snapshot-panels').inner_text() and 'Confidence: CONFIRMED' in page.locator('#snapshot-panels').inner_text()
+ # Current Geo-only UI hides BRICS navigation. Synthetic fixture restores only
+ # the preserved readSnapshots branch for its regression, not production UI.
+ def legacy_nav(route):
+  response=app.test_client().get('/workspace' if route.request.url.endswith('/workspace') else '/workspace/assets/workspace.js');body=response.get_data(as_text=True)
+  if route.request.url.endswith('/workspace'):
+   body=body.replace('<main>','<button data-view="brics">BRICS fixture</button><main>')
+  else:
+   body=body.replace("byId('news-view').hidden = active !== 'geo'","byId('news-view').hidden = !['geo','brics'].includes(active)")
+   body=body.replace("if (active === 'geo')", "if (active === 'geo' || active === 'brics')")
+  route.fulfill(status=200,body=body,content_type='text/html' if route.request.url.endswith('/workspace') else 'text/javascript')
+ page.route('**/workspace',legacy_nav);page.route('**/workspace/assets/workspace.js',legacy_nav)
+ page.goto('http://127.0.0.1:8770/workspace');page.locator('[data-view=geo]').click();page.locator('#events-panel summary').click();page.locator('.event-row a').wait_for()
+ assert 'Trade summit <img src=x>' in page.locator('#events-rows').inner_text();assert page.locator('#events-panel img,#events-panel script,#events-panel iframe').count()==0
+ assert 'Snapshot observed at' in page.locator('#events-rows').inner_text()
+ assert 'Category: CONFERENCE' in page.locator('#events-rows').inner_text() and 'Confidence: CONFIRMED' in page.locator('#events-rows').inner_text()
  page.screenshot(path='/downloads/dashboard-snapshots-geo.png',full_page=True)
  page.locator('[data-view=brics]').click();page.get_by_text('Official stream link',exact=True).wait_for();assert 'Captured status: ok' in page.locator('#snapshot-panels').inner_text();assert 'Availability not checked' in page.locator('#snapshot-panels').inner_text();assert page.get_by_text('Official stream link',exact=True).get_attribute('href')=='https://www.youtube.com/channel/UC'+'a'*22+'/live'
  page.screenshot(path='/downloads/dashboard-snapshots-brics.png',full_page=True)
  page.set_viewport_size({'width':390,'height':844});page.screenshot(path='/downloads/dashboard-snapshots-mobile.png',full_page=True);assert page.evaluate('document.documentElement.scrollWidth<=innerWidth')
  rows['brics_sources']=[];page.locator('[data-view=brics]').click();page.get_by_text('No entries in this supplied snapshot.',exact=True).wait_for()
- adapter.readers.clear();page.locator('[data-view=geo]').click();page.get_by_text('Geo events: verified snapshot unavailable.',exact=True).wait_for()
+ adapter.readers.clear();page.locator('[data-view=geo]').click();page.get_by_text('Verified event snapshot unavailable. No count is inferred.',exact=True).wait_for()
  # Slow Geo response cannot overwrite a later BRICS view.
  pending=[]
  def delayed(route):

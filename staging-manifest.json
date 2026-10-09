@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 2012,
+  "tests": 2016,
   "files": [
     {
       "path": ".env.example",
@@ -1801,6 +1801,11 @@
       "sha256": "9db747c408ad1c49cc9de87e23a285488f1bfde4769488c09db1185e8cbc048b"
     },
     {
+      "path": "integration/EVENTS210.md",
+      "bytes": 2150,
+      "sha256": "8d09a0a63f5b4af9595742cb96fc702677e1f0ece6437fe87d0afdd1ee59591a"
+    },
+    {
       "path": "integration/EVENT_READER_LIMITS.md",
       "bytes": 4003,
       "sha256": "a834549638b2a31765a5781655b041c722188e5a62e0d4c7228de881b04df2a7"
@@ -2668,12 +2673,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 18581,
-      "sha256": "aec932d020199c70f71c9dcc407c36205a84d21cdcd39100073bed99f873b851"
+      "sha256": "f2d7e9a79f5a2229b98cf6df9e7397cb22552dc7f3d79d235c885a3b1bfc4174"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
-      "bytes": 237373,
-      "sha256": "89be80e80e14c206ac27a36626f7cc17b2833f76377291c97bfd4ed38aca96f6"
+      "bytes": 238037,
+      "sha256": "37e00310c7e7d8f738a1af25205c5ecbbe44157b46270995728acd99cc7a6311"
     },
     {
       "path": "integration/dependency_build/README.md",
@@ -4207,18 +4212,18 @@
     },
     {
       "path": "integration/ui/workspace.css",
-      "bytes": 10489,
-      "sha256": "a4c8a012c48e5938f040bbf5b6aca3824898683789156a8c78c9a41fd6b47f5f"
+      "bytes": 10917,
+      "sha256": "0f550f09bfdda568286dcf2e927c2372174dcb43fd0ce30dca6e998df48e1b73"
     },
     {
       "path": "integration/ui/workspace.html",
-      "bytes": 6291,
-      "sha256": "0172c10668ba74bd9d7be7252db117041903a528fb90cb817543e3d49d6d7778"
+      "bytes": 6653,
+      "sha256": "f0947e8b67b2c579f105ce3f24752d96e1d7633718a7ba0972be41b455a8324f"
     },
     {
       "path": "integration/ui/workspace.js",
-      "bytes": 36553,
-      "sha256": "05c7533e35758174c1f4d04629dd50ca4eb31fefa7c221558220460b71670a02"
+      "bytes": 40373,
+      "sha256": "d1c8893753936a8f8b6583ae591c33a9966b5f28cc13af7bf76e0b296f6fab32"
     },
     {
       "path": "integration/weekly_report/README.md",
@@ -5372,8 +5377,8 @@
     },
     {
       "path": "tests/browser_dashboard_snapshots.py",
-      "bytes": 5712,
-      "sha256": "5a9ddf8b17e6ab5e9befac529e8595c50ed2b1be9b27769737bf68906e560cba"
+      "bytes": 6686,
+      "sha256": "73bdfa43d51ab505f45ed32fd2d3193d3ac9846da4a28f3c0de1ea0e5a4b2bf4"
     },
     {
       "path": "tests/browser_digest203.py",
@@ -5387,8 +5392,13 @@
     },
     {
       "path": "tests/browser_event_digest.py",
-      "bytes": 1862,
-      "sha256": "a27b4a2c654538299e19e2324090ebbcb1c15d78804f14daf1bc123b93163163"
+      "bytes": 1938,
+      "sha256": "b11359adaeea4231140f8a80a19ac22ced929ccf09879d3056f70fbb528c80f8"
+    },
+    {
+      "path": "tests/browser_events210.py",
+      "bytes": 5585,
+      "sha256": "1dff34bb9f5eff07c62a77fe411f0fe8933c2be0e78d31783fbac0f05864ff2e"
     },
     {
       "path": "tests/browser_feature_finder.py",
@@ -6039,6 +6049,11 @@
       "path": "tests/test_event_reader.py",
       "bytes": 3868,
       "sha256": "eb836c397f588fcc1bef92d8fc28143c90f65eae7885607bc55782878243f505"
+    },
+    {
+      "path": "tests/test_events210.py",
+      "bytes": 2224,
+      "sha256": "bd00bd52428fc70f78746ef1fec47503460cf7ffd145102754a5bd1c106735f7"
     },
     {
       "path": "tests/test_factory176.py",

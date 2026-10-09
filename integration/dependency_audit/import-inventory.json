@@ -1534,6 +1534,7 @@
         "tests/browser_dashboard_snapshots.py",
         "tests/browser_digest_preview.py",
         "tests/browser_event_digest.py",
+        "tests/browser_events210.py",
         "tests/browser_finder_nested.py",
         "tests/browser_finder_network.py",
         "tests/browser_finder_offline.py",
@@ -1603,6 +1604,7 @@
         "tests/test_edge_guard.py",
         "tests/test_env_example.py",
         "tests/test_event_reader.py",
+        "tests/test_events210.py",
         "tests/test_factory176.py",
         "tests/test_fake_collection_writer.py",
         "tests/test_feature_mail_prep.py",
@@ -2046,6 +2048,7 @@
         "tests/browser_digest203.py",
         "tests/browser_digest_preview.py",
         "tests/browser_event_digest.py",
+        "tests/browser_events210.py",
         "tests/browser_feature_finder.py",
         "tests/browser_finder198d.py",
         "tests/browser_finder_nested.py",
@@ -2304,6 +2307,7 @@
         "tests/browser_digest203.py",
         "tests/browser_digest_preview.py",
         "tests/browser_event_digest.py",
+        "tests/browser_events210.py",
         "tests/browser_feature_finder.py",
         "tests/browser_finder198d.py",
         "tests/browser_finder_nested.py",
@@ -2348,6 +2352,7 @@
         "tests/test_digest_cold.py",
         "tests/test_edge_guard.py",
         "tests/test_env_example.py",
+        "tests/test_events210.py",
         "tests/test_feature_finder_prep.py",
         "tests/test_feature_mail_mount.py",
         "tests/test_feature_mail_prep.py",
@@ -2458,6 +2463,7 @@
         "tests/browser_digest203.py",
         "tests/browser_digest_preview.py",
         "tests/browser_event_digest.py",
+        "tests/browser_events210.py",
         "tests/browser_feature_finder.py",
         "tests/browser_finder198d.py",
         "tests/browser_finder_nested.py",
@@ -3309,6 +3315,7 @@
         "tests/browser_digest203.py",
         "tests/browser_digest_preview.py",
         "tests/browser_event_digest.py",
+        "tests/browser_events210.py",
         "tests/browser_feature_finder.py",
         "tests/browser_finder198d.py",
         "tests/browser_finder_nested.py",
@@ -3630,6 +3637,7 @@
         "tests/browser_country_page.py",
         "tests/browser_dashboard_snapshots.py",
         "tests/browser_digest_preview.py",
+        "tests/browser_events210.py",
         "tests/browser_feature_finder.py",
         "tests/browser_finder198d.py",
         "tests/browser_finder_nested.py",
@@ -3866,6 +3874,7 @@
         "tests/test_edge_guard.py",
         "tests/test_env_example.py",
         "tests/test_event_reader.py",
+        "tests/test_events210.py",
         "tests/test_factory176.py",
         "tests/test_fake_collection_writer.py",
         "tests/test_feature_finder_mount_policy.py",
@@ -4104,6 +4113,7 @@
         "tests/browser_country_page.py",
         "tests/browser_dashboard_snapshots.py",
         "tests/browser_digest_preview.py",
+        "tests/browser_events210.py",
         "tests/browser_finder198d.py",
         "tests/browser_finder_nested.py",
         "tests/browser_finder_network.py",
@@ -5326,7 +5336,7 @@
       },
       {
         "path": "tests/browser_dashboard_snapshots.py",
-        "sha256": "5a9ddf8b17e6ab5e9befac529e8595c50ed2b1be9b27769737bf68906e560cba"
+        "sha256": "73bdfa43d51ab505f45ed32fd2d3193d3ac9846da4a28f3c0de1ea0e5a4b2bf4"
       },
       {
         "path": "tests/browser_digest203.py",
@@ -5338,7 +5348,11 @@
       },
       {
         "path": "tests/browser_event_digest.py",
-        "sha256": "a27b4a2c654538299e19e2324090ebbcb1c15d78804f14daf1bc123b93163163"
+        "sha256": "b11359adaeea4231140f8a80a19ac22ced929ccf09879d3056f70fbb528c80f8"
+      },
+      {
+        "path": "tests/browser_events210.py",
+        "sha256": "1dff34bb9f5eff07c62a77fe411f0fe8933c2be0e78d31783fbac0f05864ff2e"
       },
       {
         "path": "tests/browser_feature_finder.py",
@@ -5715,6 +5729,10 @@
       {
         "path": "tests/test_event_reader.py",
         "sha256": "eb836c397f588fcc1bef92d8fc28143c90f65eae7885607bc55782878243f505"
+      },
+      {
+        "path": "tests/test_events210.py",
+        "sha256": "bd00bd52428fc70f78746ef1fec47503460cf7ffd145102754a5bd1c106735f7"
       },
       {
         "path": "tests/test_factory176.py",

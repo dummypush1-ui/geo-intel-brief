@@ -73,3 +73,10 @@ main{padding:0 0 24px}#news-view{background:white;border-radius:10px;padding:20p
 
 /* Parent-only excerpt notice, outside the observed Finder frame. */
 #related-excerpt-text{white-space:pre-wrap;overflow-wrap:anywhere}#related-excerpt-detail summary{cursor:pointer;overflow-wrap:anywhere}
+
+/* Copyright (c) 2026 Push. Event rows are inert wrapped plain text. */
+#events-panel {margin:1rem 0;padding:1rem;border:1px solid #ccd7e2;border-radius:12px;min-width:0;}
+#events-panel summary {cursor:pointer;font-weight:600;overflow-wrap:anywhere;}
+#events-panel p,#events-panel a {overflow-wrap:anywhere;}
+.event-row {padding:.75rem 0;border-bottom:1px solid #ccd7e2;min-width:0;}
+.event-description {white-space:pre-wrap;}
