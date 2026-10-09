@@ -1099,6 +1099,7 @@
         "integration/project_reports.py",
         "integration/public_live_builder.py",
         "integration/public_preview_builder.py",
+        "integration/query_validation.py",
         "integration/relevance.py",
         "integration/renderer_scope.py",
         "integration/report_adapters.py",
@@ -1225,6 +1226,7 @@
         "tests/test_preview_launcher.py",
         "tests/test_private_news_fields.py",
         "tests/test_project_reports.py",
+        "tests/test_query_validation188.py",
         "tests/test_report_preview_frame.py",
         "tests/test_report_styles.py",
         "tests/test_retention_audit.py",
@@ -3177,6 +3179,7 @@
         "tests/test_protocol145_inventory.py",
         "tests/test_proxy164.py",
         "tests/test_publication151_inventory.py",
+        "tests/test_query_validation188.py",
         "tests/test_refresh149_gate.py",
         "tests/test_refresh_controller.py",
         "tests/test_report_preview_frame.py",
@@ -3259,6 +3262,7 @@
         "integration/preview_access.py",
         "integration/public_live_builder.py",
         "integration/public_preview_builder.py",
+        "integration/query_validation.py",
         "integration/rss_catalog/catalog.py",
         "integration/scraper_policy.py",
         "integration/site_parsers.py",
@@ -3942,7 +3946,7 @@
       },
       {
         "path": "integration/news_api.py",
-        "sha256": "13893dff1770d006462eee0cfa562406454ebb60036a0c24cb2295882662c4d8"
+        "sha256": "a288d2313ad76637067079435d35271cafb99bbc7416844ce85b573b99de3d95"
       },
       {
         "path": "integration/news_export/__init__.py",
@@ -4031,6 +4035,10 @@
       {
         "path": "integration/publication_dates/policy.py",
         "sha256": "2a7141d125b5fe22795927801222f3e83476275370c2d319cd78e3875dd52815"
+      },
+      {
+        "path": "integration/query_validation.py",
+        "sha256": "6ba0e2bdc7c329fed02321e3fda5e622fd7686f677c1544d7dfec2f6a462d939"
       },
       {
         "path": "integration/relevance.py",
@@ -4795,6 +4803,10 @@
       {
         "path": "tests/test_publication151_inventory.py",
         "sha256": "837f9d993d368d40844b97cc67c1448c34ddea6f2c5bb89ef2fad39215a78bd2"
+      },
+      {
+        "path": "tests/test_query_validation188.py",
+        "sha256": "b9c65ab99c7bae8bafd3f2a4b74ad937f1a80bf83a1ef8f218ce7b3ab282367f"
       },
       {
         "path": "tests/test_refresh149_gate.py",

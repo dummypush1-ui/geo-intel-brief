@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 1575,
+  "tests": 1579,
   "files": [
     {
       "path": ".env.example",
@@ -1951,6 +1951,11 @@
       "sha256": "6eed50f278590e0417c2301a19c9c302ef1c3a3b0dd78be11220f84ecef1217a"
     },
     {
+      "path": "integration/VALIDATION188.md",
+      "bytes": 910,
+      "sha256": "d94b05fd92b66797f448c1fd720054287a3076680ac7652d6ab0654b728cbff6"
+    },
+    {
       "path": "integration/WATCH_UPDATES_LIMITS.md",
       "bytes": 1054,
       "sha256": "9bc130bfd55e72ea1490a0e0773b172617565cefb10344a151feae322576badb"
@@ -2348,12 +2353,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 18581,
-      "sha256": "783a456103044665a617c0424a7a266e675c7a50601dac081c3562761ac7cbbb"
+      "sha256": "bd713ecbb1de625196ab45bb57e5948965a34c10c3d0664f8f39dc15237aa26a"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
-      "bytes": 187918,
-      "sha256": "298b87f8d77a75a261e9db5f2a1c46f91ffd0dd4acb74877a89b9bdda3d710de"
+      "bytes": 188402,
+      "sha256": "29431710ab9fc8aaed7f198c5336e6b867dbd5a133de851f408f247d650544bd"
     },
     {
       "path": "integration/dependency_build/README.md",
@@ -2737,8 +2742,8 @@
     },
     {
       "path": "integration/news_api.py",
-      "bytes": 26598,
-      "sha256": "13893dff1770d006462eee0cfa562406454ebb60036a0c24cb2295882662c4d8"
+      "bytes": 26854,
+      "sha256": "a288d2313ad76637067079435d35271cafb99bbc7416844ce85b573b99de3d95"
     },
     {
       "path": "integration/news_export/FIXTURE_HTTP_LIMITS.md",
@@ -3089,6 +3094,11 @@
       "path": "integration/pypdf_remediation105/source.json",
       "bytes": 1428,
       "sha256": "f8f56973be80cd6c7832d5920974a399f60f097a449e3701d5ebcfe742ad1154"
+    },
+    {
+      "path": "integration/query_validation.py",
+      "bytes": 1289,
+      "sha256": "6ba0e2bdc7c329fed02321e3fda5e622fd7686f677c1544d7dfec2f6a462d939"
     },
     {
       "path": "integration/relevance.py",
@@ -5644,6 +5654,11 @@
       "path": "tests/test_publication151_inventory.py",
       "bytes": 684,
       "sha256": "837f9d993d368d40844b97cc67c1448c34ddea6f2c5bb89ef2fad39215a78bd2"
+    },
+    {
+      "path": "tests/test_query_validation188.py",
+      "bytes": 1476,
+      "sha256": "b9c65ab99c7bae8bafd3f2a4b74ad937f1a80bf83a1ef8f218ce7b3ab282367f"
     },
     {
       "path": "tests/test_refresh149_gate.py",

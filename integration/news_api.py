@@ -113,6 +113,10 @@ def create_app(reader=None,authorize=None,finder_context_reader=None,finder_base
   if not allowed:return jsonify(error='Private news unavailable until approved access control'),403
   if request.method in ('POST','DELETE') and request.headers.get('Origin')!=(allowed_origin or request.host_url.rstrip('/')):
    return jsonify(error='Same-origin request required'),403
+ @app.before_request
+ def validate_read_query():
+  from integration.query_validation import valid
+  if request.method in ('GET','HEAD') and not valid(request.path,request.args,request.query_string):return jsonify(error='Invalid read query parameters'),400
  def selected_news():
   return selection(public_views(reader()),project=request.args.get('project',''),query=request.args.get('q',''),category=request.args.get('category',''),country=request.args.get('country',''),sort=request.args.get('sort','newest'))
  @app.get('/workspace/weekly')
