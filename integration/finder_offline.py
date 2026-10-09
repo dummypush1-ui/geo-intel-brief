@@ -1,4 +1,4 @@
-"""Served-copy offline seam. Originals untouched; public snapshot only."""
+"""Served-copy offline seam. Original source reviewed for196 token removal; public snapshot only."""
 import re,hashlib,base64
 from integration.branding_meta import HeadTags
 from integration.finder_network import manual_ships_shell
@@ -8,14 +8,14 @@ PWA_REGISTER="""if ('serviceWorker' in navigator && location.protocol === 'https
     window.addEventListener('load', function () { navigator.serviceWorker.register('./sw.js').catch(function () {}); });
   }"""
 
-OFFLINE_SHA='39c9d081a5d66d3e0038073822b34a65b731cf6ba71ad799e09c7b3eb786fcfe'
+OFFLINE_SHA = '2e8521b733d94955ef9ec5e0b85399a78dfff5d50836a174fb180cd08ed9c6e3'
 
 def shell(original):
  if hashlib.sha256(original.encode()).hexdigest()!=OFFLINE_SHA:raise ValueError('Offline source requires review')
  original=HeadTags(original).stripped()
  original=manual_ships_shell(original)
  # All offline network capabilities disabled, including code-level fetch.
- for name in ('AI_PROXY_URL','AI_PROXY_TOKEN','AIS_PROXY_URL','BUILTIN_GEMINI_KEYS','BUILTIN_GROQ_KEYS','BUILTIN_MISTRAL_KEYS','BUILTIN_NVIDIA_KEYS'):
+ for name in ('AI_PROXY_URL','AIS_PROXY_URL','BUILTIN_GEMINI_KEYS','BUILTIN_GROQ_KEYS','BUILTIN_MISTRAL_KEYS','BUILTIN_NVIDIA_KEYS'):
   pattern=r'(const\s+'+name+r"\s*=\s*)'[^']*'"
   original,n=re.subn(pattern,lambda m:m[1]+"''",original)
   if n!=1:raise ValueError('Offline key seam changed')

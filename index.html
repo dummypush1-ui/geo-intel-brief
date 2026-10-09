@@ -532,20 +532,11 @@ let geminiModelUsed = '';
 let geminiGrounded = false;
 const geminiModelLabel = () => geminiModelUsed || GEMINI_MODELS[0];
 let groqModelUsed = '';
-// Built-in AI for everyone: AI_PROXY_URL points at the free Render proxy
-// service (proxy.js in this repo). The proxy holds the API keys server-side in
-// environment variables, so no provider key ships to browsers and every visitor
-// gets AI picks + AI reports without pasting anything. Rotation order: Groq,
-// Gemini, Mistral, NVIDIA - the proxy tries each in turn. A key pasted in AI
-// settings always overrides the proxy. The token is visible in this public
-// bundle - a speed bump against drive-by abuse, not a true secret; the proxy
-// also rate-limits per IP.
-const AI_PROXY_URL = 'https://hsn-ai-proxy.onrender.com';
-const AI_PROXY_TOKEN = '648772556a62e577d379272febf550b9e28c5723'; // must match APP_SECRET on the proxy service
-// Live ship positions near India ports: served by the SAME hsn-ai-proxy
-// service (proxy.js) - it holds the AISStream key server-side alongside the AI
-// provider keys; browsers only ever call it with the same speed-bump token.
-const AIS_PROXY_URL = 'https://hsn-ai-proxy.onrender.com';
+// Built-in proxy access is disabled. No shared proxy credential is public.
+// User-owned provider key flows remain separate; proxy auth is not weakened.
+const AI_PROXY_URL = '';
+const BUILTIN_PROXY_UNAVAILABLE = 'Built-in proxy access is unavailable';
+const AIS_PROXY_URL = '';
 // Built-in shared keys (optional second choice): paste your own free keys here
 // to give every visitor AI without a worker. WARNING: anyone can read these in
 // the page source and bots scan public repos - a shared key can be stolen and
@@ -624,6 +615,7 @@ const geminiAiLabel = () => (aiProviderUsed === 'groq'
   : 'Gemini ' + geminiModelLabel() + (geminiGrounded ? ', Google Search grounded' : ', model knowledge only - no live search')) + (aiSharedKey ? ' (shared free key - may hit daily limit)' : '') + (aiOwnKeyRejected ? ' - your saved AI key was rejected, so the shared free keys answered' : '');
 const geminiEndpoint = (m) => 'https://generativelanguage.googleapis.com/v1beta/models/' + m + ':generateContent';
 async function geminiPost(apiKey, body) {
+  if (!apiKey) throw new Error(BUILTIN_PROXY_UNAVAILABLE);
   if (Array.isArray(apiKey)) { // built-in shared pool: rotate on dead/maxed keys
     const pool = builtinPools.gemini;
     let lastErr = null;
@@ -644,7 +636,7 @@ async function geminiPost(apiKey, body) {
     try {
       const headers = { 'Content-Type': 'application/json' };
       if (apiKey) headers['x-goog-api-key'] = apiKey.trim();
-      else if (AI_PROXY_TOKEN) headers['x-app-token'] = AI_PROXY_TOKEN;
+
       res = await fetch(apiKey ? geminiEndpoint(m) : AI_PROXY_URL + '/gemini/v1beta/models/' + m + ':generateContent', {
         method: 'POST',
         headers,
@@ -689,6 +681,7 @@ async function geminiText(apiKey, prompt, opts, grounded) {
   return ((cand && cand.content && cand.content.parts) || []).map((pt) => pt.text || '').join('\n');
 }
 async function groqPost(apiKey, prompt, opts) {
+  if (!apiKey) throw new Error(BUILTIN_PROXY_UNAVAILABLE);
   if (Array.isArray(apiKey)) { // built-in shared pool: rotate on dead/maxed keys
     const pool = builtinPools.groq;
     let lastErr = null;
@@ -705,7 +698,7 @@ async function groqPost(apiKey, prompt, opts) {
   }
   const headers = { 'Content-Type': 'application/json' };
   if (apiKey) headers.Authorization = 'Bearer ' + apiKey.trim();
-  else if (AI_PROXY_TOKEN) headers['x-app-token'] = AI_PROXY_TOKEN;
+
   const url = apiKey ? 'https://api.groq.com/openai/v1/chat/completions' : AI_PROXY_URL + '/groq/openai/v1/chat/completions';
   let quotaHit = false, transientHit = false, netFail = false;
   for (const m of GROQ_MODELS) {
@@ -730,6 +723,7 @@ async function groqPost(apiKey, prompt, opts) {
 }
 // Mistral + NVIDIA speak the same OpenAI chat-completions shape as Groq.
 async function oaiPoolPost(kind, url, models, apiKey, prompt, opts) {
+  if (!apiKey) throw new Error(BUILTIN_PROXY_UNAVAILABLE);
   if (Array.isArray(apiKey)) {
     const pool = builtinPools[kind];
     let lastErr = null;
@@ -746,7 +740,7 @@ async function oaiPoolPost(kind, url, models, apiKey, prompt, opts) {
   }
   const headers = { 'Content-Type': 'application/json' };
   if (apiKey) headers.Authorization = 'Bearer ' + apiKey.trim();
-  else if (AI_PROXY_TOKEN) headers['x-app-token'] = AI_PROXY_TOKEN;
+
   const finalUrl = apiKey ? url : AI_PROXY_URL + '/' + kind + '/v1/chat/completions';
   const label = kind === 'mistral' ? 'Mistral' : 'NVIDIA';
   let quotaHit = false, transientHit = false, netFail = false, authFail = false;
@@ -812,7 +806,7 @@ async function aiPickText(prompt, opts) {
     aiSharedKey = true; aiProviderUsed = prov;
     try { return await PROVIDER_CALL[prov](pool, prompt, opts); } catch (err) { errs.push(err); }
   }
-  if (!errs.length) throw new Error('no-ai');
+  if (!errs.length) throw new Error(BUILTIN_PROXY_UNAVAILABLE);
   if (errs.every((e) => /limit reached|expired/i.test(e.message || ''))) throw new Error('Free AI limit reached on every provider for now. Try again after the quota resets.');
   throw errs[errs.length - 1];
 }
@@ -856,7 +850,7 @@ async function aiReportText(prompt, grounded, opts) {
     if (!pool.length) continue;
     try { return prov === 'groq' ? await groqReport(pool, true) : prov === 'gemini' ? await geminiReport(pool, true) : (aiSharedKey = true, aiProviderUsed = prov, await PROVIDER_CALL[prov](pool, prompt, opts)); } catch (err) { errs.push(err); }
   }
-  if (!errs.length) throw new Error('no-ai');
+  if (!errs.length) throw new Error(BUILTIN_PROXY_UNAVAILABLE);
   if (errs.every((e) => /limit reached|expired/i.test(e.message || ''))) throw new Error('Free AI limit reached on every provider for now. Try again after the quota resets.');
   throw errs[errs.length - 1];
 }
@@ -3715,7 +3709,7 @@ function detailHtml(idx) {
   if (kids.length > 120) s += '<p class="muted">Showing 120 of ' + kids.length + ' sub-lines. Use the code search with prefix ' + esc(e[1]) + ' to see more.</p>';
   s += '</div>';
   s += '<div class="detail-sec no-print ai-panel">' +
-    '<div class="ai-panel-head"><div><h3>Full report</h3><p class="muted">One tap makes the branded 14-section PDF - exact official data with AI-written analysis inside. ' + (AI_PROXY_URL || builtinKeys('gemini').length || builtinKeys('groq').length ? 'AI is built in for everyone - no key needed.' : 'Needs a free AI key, set up once.') + '</p></div><span class="ai-status ' + (aiAvailable() ? 'ready' : 'offline') + '">' + (apiKey || AI_PROXY_URL ? 'Live ready' : aiAvailable() ? 'Shared AI - may hit daily limit' : 'Key needed') + '</span></div>' +
+    '<div class="ai-panel-head"><div><h3>Full report</h3><p class="muted">One tap makes the branded 14-section PDF - exact official data with AI-written analysis inside. ' + (AI_PROXY_URL || builtinKeys('gemini').length || builtinKeys('groq').length ? 'AI is built in for everyone - no key needed.' : BUILTIN_PROXY_UNAVAILABLE + '. Use your own provider key in AI settings.') + '</p></div><span class="ai-status ' + (aiAvailable() ? 'ready' : 'offline') + '">' + (apiKey || AI_PROXY_URL ? 'Live ready' : aiAvailable() ? 'Shared AI - may hit daily limit' : 'Key needed') + '</span></div>' +
     '<div class="action-row">' +
     '<button class="file-button is-compact" id="d-tpl"' + (V.busy ? ' disabled' : '') + '>' + (V.busy ? 'Writing the report with AI...' : 'Make the PDF report') + '</button>' +
     '<button class="file-button is-compact" data-variant="secondary" id="ai-settings">' + (V.settingsOpen ? 'Hide AI settings' : apiKey ? 'Change API key' : 'Use your own key') + '</button>' +
@@ -4511,12 +4505,13 @@ function shipsAgo(sec) {
 }
 function shipsLoad() {
   if (!V.ships || V.shipsBusy) return;
+  if (!AIS_PROXY_URL) { if(shipsTimer)clearTimeout(shipsTimer);shipsTimer=null;V.shipsBusy=false;V.shipsData=null;V.shipsErr='proxy-unavailable';paintShips();return; }
   if(Date.now()<shipsBlockedUntil){V.shipsErr='limited';paintShips();return;}
   V.shipsBusy = true;
   paintShips();
   const ctrl = new AbortController();
   const to = setTimeout(() => ctrl.abort(), 90000); // free server cold start can take a minute
-  fetch(AIS_PROXY_URL + '/ships?port=' + encodeURIComponent(V.shipsPort), { headers: { 'x-app-token': AI_PROXY_TOKEN }, signal: ctrl.signal })
+  fetch(AIS_PROXY_URL + '/ships?port=' + encodeURIComponent(V.shipsPort), { signal: ctrl.signal })
     .then((r) => {
       const retry=Number(r.headers.get('Retry-After'));
       if(r.status===429)return {ok:false,status:429,retry,j:null};
@@ -4572,6 +4567,7 @@ function shipsLoad() {
 function paintShips() {
   const slot = el('ships-slot');
   if (!slot) return;
+  if (V.shipsErr === 'proxy-unavailable') { slot.innerHTML='<div class="about-box"><h3>Live ships near major ports worldwide</h3><p class="muted">'+BUILTIN_PROXY_UNAVAILABLE+'</p></div>';return; }
   if (V.shipsBusy && !V.shipsData) {
     slot.innerHTML = '<div class="about-box"><h3>Live ships near major ports worldwide</h3><p class="muted">Connecting to the live ship feed - the free tracking server sleeps when nobody is watching, so the first load can take up to a minute. Hang on...</p></div>';
     return;

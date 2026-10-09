@@ -7,7 +7,7 @@ network gating. AI errors retain the original static report fallback.
 """
 import hashlib
 
-SOURCE_SHA = 'e3c1be23fe526f1a60304fdaae55a8da34711387767f312d96b3efb4c6dc1031'
+SOURCE_SHA = 'c4ad608f8830852430b6f67f6ee004001197e4f2f58629227900e5f72bedfc9e'
 
 
 def prepare_shell(source):

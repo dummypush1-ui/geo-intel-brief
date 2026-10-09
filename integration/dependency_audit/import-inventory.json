@@ -1289,6 +1289,7 @@
         "tests/test_tariff_evidence.py",
         "tests/test_tariff_evidence_plain.py",
         "tests/test_telegram_format_audit.py",
+        "tests/test_token196.py",
         "tests/test_watchlist_public_fix.py",
         "tests/test_weekly_routes.py",
         "tests/test_workspace.py",
@@ -1644,7 +1645,8 @@
         "tests/test_sanctions152.py",
         "tests/test_scraper_policy.py",
         "tests/test_security173.py",
-        "tests/test_tariff_evidence_plain.py"
+        "tests/test_tariff_evidence_plain.py",
+        "tests/test_token196.py"
       ],
       "stdlib": true,
       "distributions": [],
@@ -1886,6 +1888,7 @@
         "tests/test_stream_fixture_app.py",
         "tests/test_stream_revision.py",
         "tests/test_table_edit151.py",
+        "tests/test_token196.py",
         "tests/test_watch_updates.py",
         "tests/test_watchlist_public_fix.py",
         "tests/text_matching/test_matching.py",
@@ -2410,6 +2413,7 @@
         "tests/test_security173.py",
         "tests/test_supplied_collector_pipeline.py",
         "tests/test_supplied_multi_feed.py",
+        "tests/test_token196.py",
         "tests/weekly_report/test_report.py"
       ],
       "stdlib": true,
@@ -2657,6 +2661,7 @@
         "tests/test_sanctions152.py",
         "tests/test_ships179.py",
         "tests/test_table_edit151.py",
+        "tests/test_token196.py",
         "tests/test_watch_updates.py"
       ],
       "stdlib": true,
@@ -3265,6 +3270,7 @@
         "tests/test_tariff_evidence.py",
         "tests/test_tariff_evidence_plain.py",
         "tests/test_telegram_format_audit.py",
+        "tests/test_token196.py",
         "tests/test_watch_updates.py",
         "tests/test_watchlist_public_fix.py",
         "tests/test_weekly_routes.py",
@@ -3620,7 +3626,7 @@
       },
       {
         "path": "feature_finder_prep/shell.py",
-        "sha256": "3fcb52c35f166d6f26db3ef863674dc2ddc5d7b7cf1906f41d52ccdbf43194af"
+        "sha256": "c3009d35526f1bab0683c24074f88160b2a45fe245726f473a52652f64cd34a2"
       },
       {
         "path": "feature_mail_mount/__init__.py",
@@ -3860,7 +3866,7 @@
       },
       {
         "path": "integration/finder_offline.py",
-        "sha256": "2023c2622bed730998fb9330722316267936ac02e7862e17fd89873701ba7e9c"
+        "sha256": "3702252e4e593f98b25eecee6bdf11d2b6bd5cc728f0f0478acbe41adc44ccd9"
       },
       {
         "path": "integration/fixed_parser_pipeline.py",
@@ -4680,7 +4686,7 @@
       },
       {
         "path": "tests/test_finder_offline.py",
-        "sha256": "089b837eead1a110cb4f4050a8360b1d036520e40b9b4f5f6069767a731c5fb0"
+        "sha256": "9e014300e355211f12b8514d061ba007c505253ce88de4febd309fb97481e585"
       },
       {
         "path": "tests/test_fixed_feedparser_audit.py",
@@ -5037,6 +5043,10 @@
       {
         "path": "tests/test_telegram_format_audit.py",
         "sha256": "9073451a50d209d3ec55c972f837e0d0dec302d346fb90f1d0672b8c4bc4430d"
+      },
+      {
+        "path": "tests/test_token196.py",
+        "sha256": "6b992ceffdd94db06d3fc235463c835de7b9c79e1d4265a404837d9996303135"
       },
       {
         "path": "tests/test_watch_updates.py",
