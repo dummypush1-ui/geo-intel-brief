@@ -552,6 +552,7 @@
         "integration/india_open_data/core.py",
         "integration/india_open_data/data_layer.py",
         "integration/mail_bridge.py",
+        "integration/native200_adapters.py",
         "integration/native200_core.py",
         "integration/native200_journal.py",
         "integration/native200_store.py",
@@ -592,6 +593,7 @@
         "tests/test_mongo_account_store.py",
         "tests/test_native200a.py",
         "tests/test_native200ba.py",
+        "tests/test_native200bb.py",
         "tests/test_offline_collection_cycle.py",
         "tests/test_page_watch_contract.py",
         "tests/test_page_watch_parser_budget.py",
@@ -1222,6 +1224,7 @@
         "tests/test_gst154.py",
         "tests/test_map_layers.py",
         "tests/test_monitor155.py",
+        "tests/test_native200bb.py",
         "tests/test_package_manifest.py",
         "tests/test_page_watch_contract.py",
         "tests/test_preservation.py",
@@ -1404,6 +1407,7 @@
         "integration/loaded_news.py",
         "integration/mail_bridge.py",
         "integration/map_layers.py",
+        "integration/native200_adapters.py",
         "integration/native200_core.py",
         "integration/native200_journal.py",
         "integration/native200_preflight.py",
@@ -1564,6 +1568,7 @@
         "tests/test_mongo_account_store.py",
         "tests/test_native200a.py",
         "tests/test_native200ba.py",
+        "tests/test_native200bb.py",
         "tests/test_news182.py",
         "tests/test_news_pages185.py",
         "tests/test_news_scroll186.py",
@@ -3311,6 +3316,7 @@
         "tests/test_mail166.py",
         "tests/test_native200a.py",
         "tests/test_native200ba.py",
+        "tests/test_native200bb.py",
         "tests/test_preview_launcher.py",
         "tests/test_replay199a.py",
         "tests/test_replay199b.py",
@@ -3775,6 +3781,7 @@
         "tests/test_monitor155.py",
         "tests/test_native200a.py",
         "tests/test_native200ba.py",
+        "tests/test_native200bb.py",
         "tests/test_news182.py",
         "tests/test_news_pages185.py",
         "tests/test_news_scroll186.py",
@@ -4716,6 +4723,10 @@
         "sha256": "57e7fdea3d799baa30b2bfa9771431cef9091bf886b471332ee7364e1f687ded"
       },
       {
+        "path": "integration/native200_adapters.py",
+        "sha256": "aaa8d43b1b26dfb9759a9c8b0cc68290e3f6af64ee07bcfce227708d6e775175"
+      },
+      {
         "path": "integration/native200_core.py",
         "sha256": "506c5a42c123544addde583b1a9a6eef178c4425e36bc2b87dd1a64aaf562c71"
       },
@@ -5654,6 +5665,10 @@
       {
         "path": "tests/test_native200ba.py",
         "sha256": "e17fb41b1775e07d45f57907080fc65a97213925d61ef0eb1808ba9cd39f489c"
+      },
+      {
+        "path": "tests/test_native200bb.py",
+        "sha256": "9c673401f4aefe1ea8642354ebe8d6c30519d09a077a37324ab0ea25a3848c5d"
       },
       {
         "path": "tests/test_news182.py",

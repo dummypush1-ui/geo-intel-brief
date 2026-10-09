@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 1883,
+  "tests": 1895,
   "files": [
     {
       "path": ".env.example",
@@ -1931,6 +1931,11 @@
       "sha256": "5a7361b58c64aa498b0cf0cafc2eaae3337189f0a44495fc1d5e82b1272779f7"
     },
     {
+      "path": "integration/NATIVE200BB.md",
+      "bytes": 2189,
+      "sha256": "39dd6b5749c20789f8db12170ff686d6c4f106c0a49cdf0f7b616ec04f213b5d"
+    },
+    {
       "path": "integration/NEWS-PAGES185.md",
       "bytes": 3287,
       "sha256": "f1be6081bdbdea959e9f2a428a3ce70aaab1fbb0ac70ce8036fc8fcd392d854c"
@@ -2593,12 +2598,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 18581,
-      "sha256": "bb8dcbb81a38668efc6e25905005162eca9df907d22eeb464b5991ec0c09caa2"
+      "sha256": "9d1df0997481d9719b063084ca46660dcc421b4f254d6e8ff569ee79c36308b1"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
-      "bytes": 224862,
-      "sha256": "4add8a4a0e4221ab42e890c836fce4506bde9f89c5c50f95348b2cb16bc703cf"
+      "bytes": 225439,
+      "sha256": "4a56b966df4310e0372100bacf9654c7f38e9c59778145ad843f962a7db477d3"
     },
     {
       "path": "integration/dependency_build/README.md",
@@ -3044,6 +3049,11 @@
       "path": "integration/map_layers.py",
       "bytes": 7178,
       "sha256": "57e7fdea3d799baa30b2bfa9771431cef9091bf886b471332ee7364e1f687ded"
+    },
+    {
+      "path": "integration/native200_adapters.py",
+      "bytes": 2529,
+      "sha256": "aaa8d43b1b26dfb9759a9c8b0cc68290e3f6af64ee07bcfce227708d6e775175"
     },
     {
       "path": "integration/native200_core.py",
@@ -6084,6 +6094,11 @@
       "path": "tests/test_native200ba.py",
       "bytes": 11406,
       "sha256": "e17fb41b1775e07d45f57907080fc65a97213925d61ef0eb1808ba9cd39f489c"
+    },
+    {
+      "path": "tests/test_native200bb.py",
+      "bytes": 8704,
+      "sha256": "9c673401f4aefe1ea8642354ebe8d6c30519d09a077a37324ab0ea25a3848c5d"
     },
     {
       "path": "tests/test_news182.py",
