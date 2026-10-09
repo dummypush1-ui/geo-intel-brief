@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 2145,
+  "tests": 2152,
   "files": [
     {
       "path": ".env.example",
@@ -1991,6 +1991,11 @@
       "sha256": "31a32b4f04bea64ba3c452573dde15a674b1203f3516b6258c97fbf2045ec7f3"
     },
     {
+      "path": "integration/MAIL-PREFLIGHT225.md",
+      "bytes": 3137,
+      "sha256": "16ccb8087004bf8e5730105f14445c455e6514be10c315c4c9722916c05fcbbc"
+    },
+    {
       "path": "integration/MAIL-REDERIVE221.md",
       "bytes": 2420,
       "sha256": "4c4eae805aac94c225cf15f1ad9f649388d054473782df9d7c2f2d9c54338d42"
@@ -2763,12 +2768,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 18581,
-      "sha256": "a4047c747dbf66cb441a0f58fbab61b7d5b29c9142727b820b4c61ea1f4fdab2"
+      "sha256": "c24625b9ff3045db6fe522faba38878d606350a51a51cb4b3707e550df36a707"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
-      "bytes": 250390,
-      "sha256": "db07cab1234289539504dd3939b3a3d1df3b63751fe1f56388c26ddf3de3501c"
+      "bytes": 251211,
+      "sha256": "83eab738d0fe45fe7f12818ed4f7296cbd3f0986a10333c8cbfeb746eb7995d8"
     },
     {
       "path": "integration/dependency_build/README.md",
@@ -3229,6 +3234,11 @@
       "path": "integration/mail_ledger212.py",
       "bytes": 19827,
       "sha256": "990dd7327d685e01fc1a25bc19dabdcc7d946ef5c5db7c1db6defce80abc88a6"
+    },
+    {
+      "path": "integration/mail_preflight225.py",
+      "bytes": 3760,
+      "sha256": "01b5dbafa051c70b8546b695d64d858e4002e88fe115a880fd43666131d92973"
     },
     {
       "path": "integration/mail_rederive221.py",
@@ -6479,6 +6489,11 @@
       "path": "tests/test_mail_operations.py",
       "bytes": 3569,
       "sha256": "4cd325ba9576354c67d385d241b6c284376111c4d04c297fa1e6f1a5e5b030d2"
+    },
+    {
+      "path": "tests/test_mail_preflight225.py",
+      "bytes": 6547,
+      "sha256": "5eb0c5a49ab854c82f4cb2e770b0dcd4f1f107fff0d9ad9df10cd98e61fcb0dd"
     },
     {
       "path": "tests/test_mail_rederive221.py",
