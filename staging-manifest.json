@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 1721,
+  "tests": 1732,
   "files": [
     {
       "path": ".env.example",
@@ -1806,6 +1806,11 @@
       "sha256": "85e619e6ed305602bd9d5b229681e8509b02d53e3b51313b6d7af5445bcb220e"
     },
     {
+      "path": "integration/FINDER198BA.md",
+      "bytes": 4225,
+      "sha256": "a08badb45a33e1936c59256da7693d462c8fb8c7eb1009d8b177f2244ab95755"
+    },
+    {
       "path": "integration/FINDER_NESTED_LIMITS.md",
       "bytes": 5934,
       "sha256": "fae0cd7ffdc87848c2b41df262c84ccf4b0a34c8ab8e36b723858b0bd0574f7b"
@@ -2518,12 +2523,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 18581,
-      "sha256": "8acc41a313cb115120e0280879aeb425ae2a0132d3cf8888a5a897bfc1319f2f"
+      "sha256": "d562ee5fcb2df40e5d40ab683a8b45be1401701ee226647f16574c834dbb3633"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
-      "bytes": 209590,
-      "sha256": "d285f9eb55b80cd53ca0d9e06014bcb41730ea955d7e0a9dbb6f0087517d2500"
+      "bytes": 210452,
+      "sha256": "16874539752663ac0359ceff6d3d6ba2f138392bd7772a334e316df079fd454f"
     },
     {
       "path": "integration/dependency_build/README.md",
@@ -2624,6 +2629,16 @@
       "path": "integration/finder198_auth.py",
       "bytes": 5557,
       "sha256": "a7dea07cf26a1699947091d7cc36db29bbf18c70dcc3dac24e67e6d8a3595fc8"
+    },
+    {
+      "path": "integration/finder198_budget.py",
+      "bytes": 6596,
+      "sha256": "038400cf670df4886d7265e14b412395d3ee4395cf3cf0d036379df35e59d77e"
+    },
+    {
+      "path": "integration/finder198_connector.py",
+      "bytes": 3624,
+      "sha256": "60a557ea16619dce4e3612605700a620071901007259120bd997cb80afd30eaa"
     },
     {
       "path": "integration/finder_index.py",
@@ -5644,6 +5659,11 @@
       "path": "tests/test_finder198a.py",
       "bytes": 5985,
       "sha256": "8403d4352f41d6bdbaad3d88070fdac32eaf31cc918cfb8fd3b2659ef253e023"
+    },
+    {
+      "path": "tests/test_finder198ba.py",
+      "bytes": 4754,
+      "sha256": "96bf34f192b8e2b697e9ac7af12efbfa82251dde13885c084e8e0f59a5953a9e"
     },
     {
       "path": "tests/test_finder_index.py",

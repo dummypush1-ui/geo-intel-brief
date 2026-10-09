@@ -525,6 +525,7 @@
         "integration/db_contract/query_plan.py",
         "integration/digest_windows193.py",
         "integration/fake_collection_writer.py",
+        "integration/finder198_budget.py",
         "integration/geo_article_writer.py",
         "integration/geo_collector_contract.py",
         "integration/india_open_data/core.py",
@@ -552,6 +553,7 @@
         "tests/test_feature_mail_mount.py",
         "tests/test_feature_related_calibration.py",
         "tests/test_feature_related_prep.py",
+        "tests/test_finder198ba.py",
         "tests/test_fixed_parser_pipeline.py",
         "tests/test_geo_collector_contract.py",
         "tests/test_invite_expiry.py",
@@ -625,6 +627,7 @@
         "integration/collector197_job_runtime.py",
         "integration/collector197_runtime_evidence.py",
         "integration/finder198_auth.py",
+        "integration/finder198_connector.py",
         "integration/geonews_digest/delivery.py",
         "integration/geonews_digest/model.py",
         "integration/mail_bridge.py",
@@ -1117,6 +1120,7 @@
         "integration/feedparser_audit/child.py",
         "integration/feedparser_audit/runner.py",
         "integration/finder198_auth.py",
+        "integration/finder198_budget.py",
         "integration/finder_index.py",
         "integration/finder_offline.py",
         "integration/fixed_parser_pipeline.py",
@@ -1435,6 +1439,7 @@
         "tests/test_fake_collection_writer.py",
         "tests/test_feature_mail_prep.py",
         "tests/test_finder198a.py",
+        "tests/test_finder198ba.py",
         "tests/test_finder_index.py",
         "tests/test_finder_nested.py",
         "tests/test_finder_network.py",
@@ -2277,6 +2282,7 @@
         "integration/accounts/mongo_store.py",
         "integration/collector197_http.py",
         "integration/collector197_preflight.py",
+        "integration/finder198_budget.py",
         "integration/geo_article_writer.py",
         "integration/geo_read_factory.py",
         "integration/geo_sample_probe.py",
@@ -3124,6 +3130,7 @@
         "tests/test_collector197b_http.py",
         "tests/test_collector197c.py",
         "tests/test_collector197ea.py",
+        "tests/test_finder198ba.py",
         "tests/test_geo_event_composition.py",
         "tests/test_geo_read_factory.py",
         "tests/test_geo_sample_probe.py",
@@ -3409,6 +3416,7 @@
         "tests/test_collector197c.py",
         "tests/test_collector197ea.py",
         "tests/test_feature_mail_mount.py",
+        "tests/test_finder198ba.py",
         "tests/test_geo_article_writer.py",
         "tests/test_legacy_bulk_outcome.py",
         "tests/test_mongo_account_store.py",
@@ -3532,6 +3540,7 @@
         "tests/test_feature_related_prep.py",
         "tests/test_file_audit.py",
         "tests/test_finder198a.py",
+        "tests/test_finder198ba.py",
         "tests/test_finder_index.py",
         "tests/test_finder_nested.py",
         "tests/test_finder_network.py",
@@ -3655,6 +3664,7 @@
         "integration/dashboard_snapshots.py",
         "integration/edge_guard.py",
         "integration/feedparser_audit/child.py",
+        "integration/finder198_connector.py",
         "integration/finder_links.py",
         "integration/fulltext_policy/__init__.py",
         "integration/geo_queue_fixture.py",
@@ -4290,6 +4300,14 @@
       {
         "path": "integration/finder198_auth.py",
         "sha256": "a7dea07cf26a1699947091d7cc36db29bbf18c70dcc3dac24e67e6d8a3595fc8"
+      },
+      {
+        "path": "integration/finder198_budget.py",
+        "sha256": "038400cf670df4886d7265e14b412395d3ee4395cf3cf0d036379df35e59d77e"
+      },
+      {
+        "path": "integration/finder198_connector.py",
+        "sha256": "60a557ea16619dce4e3612605700a620071901007259120bd997cb80afd30eaa"
       },
       {
         "path": "integration/finder_index.py",
@@ -5150,6 +5168,10 @@
       {
         "path": "tests/test_finder198a.py",
         "sha256": "8403d4352f41d6bdbaad3d88070fdac32eaf31cc918cfb8fd3b2659ef253e023"
+      },
+      {
+        "path": "tests/test_finder198ba.py",
+        "sha256": "96bf34f192b8e2b697e9ac7af12efbfa82251dde13885c084e8e0f59a5953a9e"
       },
       {
         "path": "tests/test_finder_index.py",
