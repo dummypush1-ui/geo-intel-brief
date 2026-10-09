@@ -33,6 +33,7 @@
         "tests/test_indexes192.py",
         "tests/test_legacy_geo_p0.py",
         "tests/test_mail166.py",
+        "tests/test_mail_candidate219.py",
         "tests/test_mail_surface217.py",
         "tests/test_news182.py",
         "tests/test_preservation.py",
@@ -577,6 +578,7 @@
         "integration/india_open_data/core.py",
         "integration/india_open_data/data_layer.py",
         "integration/mail_bridge.py",
+        "integration/mail_candidate219.py",
         "integration/mail_ledger212.py",
         "integration/native200_adapters.py",
         "integration/native200_admission_core.py",
@@ -627,6 +629,7 @@
         "tests/test_fixed_parser_pipeline.py",
         "tests/test_geo_collector_contract.py",
         "tests/test_invite_expiry.py",
+        "tests/test_mail_candidate219.py",
         "tests/test_mail_ledger212.py",
         "tests/test_mail_surface217.py",
         "tests/test_map_layers.py",
@@ -777,6 +780,7 @@
         "integration/geospatial/ships.py",
         "integration/india_open_data/core.py",
         "integration/loaded_charts.py",
+        "integration/mail_candidate219.py",
         "integration/map_layers.py",
         "integration/native201_collector.py",
         "integration/news_api.py",
@@ -1238,6 +1242,7 @@
         "integration/geo_queue_fixture.py",
         "integration/india_open_data/core.py",
         "integration/mail_bridge.py",
+        "integration/mail_candidate219.py",
         "integration/mail_ledger212.py",
         "integration/mail_surface217.py",
         "integration/map_layers.py",
@@ -1684,6 +1689,7 @@
         "tests/test_loaded_charts.py",
         "tests/test_loaded_news.py",
         "tests/test_mail_bridge.py",
+        "tests/test_mail_candidate219.py",
         "tests/test_mail_ledger212.py",
         "tests/test_mail_surface217.py",
         "tests/test_map_layers.py",
@@ -2074,6 +2080,7 @@
         "integration/geospatial/response.py",
         "integration/india_open_data/core.py",
         "integration/mail_bridge.py",
+        "integration/mail_candidate219.py",
         "integration/mail_ledger212.py",
         "integration/mail_surface217.py",
         "integration/map_layers.py",
@@ -2153,6 +2160,7 @@
         "tests/test_geo_probe_process.py",
         "tests/test_geo_sample_probe.py",
         "tests/test_gst154.py",
+        "tests/test_mail_candidate219.py",
         "tests/test_mail_ledger212.py",
         "tests/test_mail_surface217.py",
         "tests/test_monitor155.py",
@@ -2435,6 +2443,7 @@
         "tests/test_indexes192.py",
         "tests/test_legacy_geo_p0.py",
         "tests/test_mail166.py",
+        "tests/test_mail_candidate219.py",
         "tests/test_mail_surface217.py",
         "tests/test_monitor155.py",
         "tests/test_native201b.py",
@@ -2994,6 +3003,7 @@
         "integration/india_open_data/core.py",
         "integration/india_open_data/data_layer.py",
         "integration/india_open_data/transport.py",
+        "integration/mail_candidate219.py",
         "integration/mail_ledger212.py",
         "integration/mail_surface217.py",
         "integration/map_layers.py",
@@ -3339,6 +3349,7 @@
         "tests/test_fixed_feedparser_audit.py",
         "tests/test_geo_probe_process.py",
         "tests/test_gst154.py",
+        "tests/test_mail_candidate219.py",
         "tests/test_mail_surface217.py",
         "tests/test_monitor155.py",
         "tests/test_news_scroll186.py",
@@ -3438,6 +3449,7 @@
         "tests/test_geo_read_factory.py",
         "tests/test_host197da.py",
         "tests/test_html209.py",
+        "tests/test_mail_candidate219.py",
         "tests/test_page_watch_parser_budget.py",
         "tests/test_preview_access.py",
         "tests/test_preview_launcher.py",
@@ -3528,6 +3540,7 @@
         "tests/test_geo_sample_probe.py",
         "tests/test_invite_expiry.py",
         "tests/test_mail166.py",
+        "tests/test_mail_candidate219.py",
         "tests/test_native200a.py",
         "tests/test_native200ba.py",
         "tests/test_native200bb.py",
@@ -4015,6 +4028,7 @@
         "tests/test_loaded_news.py",
         "tests/test_mail166.py",
         "tests/test_mail_bridge.py",
+        "tests/test_mail_candidate219.py",
         "tests/test_mail_ledger212.py",
         "tests/test_mail_operations.py",
         "tests/test_mail_surface217.py",
@@ -5007,6 +5021,10 @@
       {
         "path": "integration/mail_bridge.py",
         "sha256": "baa30b07294b26249e5fe826bfbe41a2000ac93bc5016d17a5b04c95a0508f03"
+      },
+      {
+        "path": "integration/mail_candidate219.py",
+        "sha256": "adafe140df5be4940b85267b17e42ae8c5df046791fa6d7a647739230924bd56"
       },
       {
         "path": "integration/mail_ledger212.py",
@@ -6063,6 +6081,10 @@
       {
         "path": "tests/test_mail_bridge.py",
         "sha256": "1a1eea1d13254e2e9e87c0a949fceb39720e242e2d3560882c5364c7315f4c19"
+      },
+      {
+        "path": "tests/test_mail_candidate219.py",
+        "sha256": "84e7a7a8b387f6f77e20ccb3c695c1dcd75d6f7a4b006f1ba4650db0d8f12816"
       },
       {
         "path": "tests/test_mail_ledger212.py",
