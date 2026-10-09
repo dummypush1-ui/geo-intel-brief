@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 1518,
+  "tests": 1521,
   "files": [
     {
       "path": ".env.example",
@@ -2308,12 +2308,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 18581,
-      "sha256": "1260ed4d515e1d2337cad1ec88ac2f5f19cfcfef5eb3e6775e0c430c9bf24201"
+      "sha256": "8bc9a62de11d1796a00450e94fbf86e502f873923082c8a549d92e3e2259d631"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
-      "bytes": 180670,
-      "sha256": "cee39c7eadf6d26944c2d00b57bdbc4dfd5e25dab203077220a65d588fd71f09"
+      "bytes": 181210,
+      "sha256": "8cc63757cdbcba877eeff28bf5b496d673935c56c9914cc0e40acfd30e3d7112"
     },
     {
       "path": "integration/dependency_build/README.md",
@@ -3089,6 +3089,11 @@
       "path": "integration/runtime.py",
       "bytes": 3005,
       "sha256": "3cf336efd9ad14396e445edaf09452bdfb9255ad86fca2cdcc6ce4dd82d8094e"
+    },
+    {
+      "path": "integration/scheduler_policy.py",
+      "bytes": 2193,
+      "sha256": "97a43e535dd0d302d075b47620777dc89a23e415073dbb46d7c57778cd191102"
     },
     {
       "path": "integration/scraper_policy.py",
@@ -5534,6 +5539,11 @@
       "path": "tests/test_sanctions152.py",
       "bytes": 600,
       "sha256": "930c8b520ee8e732dcf79afd23e7a299552fd57a30f64382ded204ed506d9e71"
+    },
+    {
+      "path": "tests/test_schedule175.py",
+      "bytes": 1751,
+      "sha256": "12b6e262ddac5045c08e4d64d0d3babce88f98ae7867eed8dd38ca9376a6581d"
     },
     {
       "path": "tests/test_scraper_policy.py",

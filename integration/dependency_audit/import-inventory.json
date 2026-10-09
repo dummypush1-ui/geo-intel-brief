@@ -445,6 +445,7 @@
         "integration/renderer_scope.py",
         "integration/retention_audit.py",
         "integration/rss_catalog/catalog.py",
+        "integration/scheduler_policy.py",
         "integration/source_health.py",
         "integration/stream_config.py",
         "integration/stream_fixture_app.py",
@@ -488,6 +489,7 @@
         "tests/test_report_preview_frame.py",
         "tests/test_retention_audit.py",
         "tests/test_sample_volume.py",
+        "tests/test_schedule175.py",
         "tests/test_source_health.py",
         "tests/test_stream_config.py",
         "tests/test_stream_disk.py",
@@ -1158,6 +1160,7 @@
         "tests/test_rss_catalog.py",
         "tests/test_runtime.py",
         "tests/test_sample_volume.py",
+        "tests/test_schedule175.py",
         "tests/test_scraper_policy.py",
         "tests/test_security_headers.py",
         "tests/test_security_review.py",
@@ -2237,6 +2240,7 @@
         "integration/relevance.py",
         "integration/report_styles.py",
         "integration/rss_catalog/catalog.py",
+        "integration/scheduler_policy.py",
         "integration/single_db_plan.py",
         "integration/stream_revision.py",
         "integration/supplied_feed_fixture.py",
@@ -3057,6 +3061,7 @@
         "tests/test_runtime.py",
         "tests/test_sample_volume.py",
         "tests/test_sanctions152.py",
+        "tests/test_schedule175.py",
         "tests/test_scraper_policy.py",
         "tests/test_security173.py",
         "tests/test_security_headers.py",
@@ -3377,6 +3382,7 @@
       "files": [
         "feature_mail_mount/operations.py",
         "integration/geonews_digest/render.py",
+        "integration/scheduler_policy.py",
         "integration/weekly_report/report.py",
         "tests/digest_cold_probe.py",
         "tests/geonews_digest/test_digest.py"
@@ -3905,6 +3911,10 @@
       {
         "path": "integration/runtime.py",
         "sha256": "3cf336efd9ad14396e445edaf09452bdfb9255ad86fca2cdcc6ce4dd82d8094e"
+      },
+      {
+        "path": "integration/scheduler_policy.py",
+        "sha256": "97a43e535dd0d302d075b47620777dc89a23e415073dbb46d7c57778cd191102"
       },
       {
         "path": "integration/scraper_policy.py",
@@ -4633,6 +4643,10 @@
       {
         "path": "tests/test_sanctions152.py",
         "sha256": "930c8b520ee8e732dcf79afd23e7a299552fd57a30f64382ded204ed506d9e71"
+      },
+      {
+        "path": "tests/test_schedule175.py",
+        "sha256": "12b6e262ddac5045c08e4d64d0d3babce88f98ae7867eed8dd38ca9376a6581d"
       },
       {
         "path": "tests/test_scraper_policy.py",
