@@ -34,6 +34,7 @@
         "tests/test_legacy_geo_p0.py",
         "tests/test_mail166.py",
         "tests/test_mail_candidate219.py",
+        "tests/test_mail_exclusion223.py",
         "tests/test_mail_rederive221.py",
         "tests/test_mail_surface217.py",
         "tests/test_news182.py",
@@ -143,6 +144,7 @@
         "integration/digest_email218.py",
         "integration/digest_windows193.py",
         "integration/geo_queue_fixture.py",
+        "integration/mail_exclusion223.py",
         "integration/mail_ledger212.py",
         "integration/mail_rederive221.py",
         "integration/native200_readonly_measurement.py",
@@ -172,6 +174,7 @@
         "tests/test_geo_queue_fixture.py",
         "tests/test_geo_snapshot.py",
         "tests/test_mail166.py",
+        "tests/test_mail_exclusion223.py",
         "tests/test_mail_ledger212.py",
         "tests/test_native200cb.py",
         "tests/test_project_reports.py"
@@ -583,6 +586,7 @@
         "integration/india_open_data/data_layer.py",
         "integration/mail_bridge.py",
         "integration/mail_candidate219.py",
+        "integration/mail_exclusion223.py",
         "integration/mail_ledger212.py",
         "integration/mail_rederive221.py",
         "integration/native200_adapters.py",
@@ -635,6 +639,7 @@
         "tests/test_geo_collector_contract.py",
         "tests/test_invite_expiry.py",
         "tests/test_mail_candidate219.py",
+        "tests/test_mail_exclusion223.py",
         "tests/test_mail_ledger212.py",
         "tests/test_mail_rederive221.py",
         "tests/test_mail_surface217.py",
@@ -1432,6 +1437,7 @@
         "tests/test_geo_sample_probe.py",
         "tests/test_legacy_bulk_outcome.py",
         "tests/test_legacy_geo_p0.py",
+        "tests/test_mail_exclusion223.py",
         "tests/test_mail_rederive221.py",
         "tests/test_news182.py",
         "tests/test_preview_launcher.py",
@@ -1521,6 +1527,7 @@
         "integration/loaded_charts.py",
         "integration/loaded_news.py",
         "integration/mail_bridge.py",
+        "integration/mail_exclusion223.py",
         "integration/mail_rederive221.py",
         "integration/map_layers.py",
         "integration/native200_adapters.py",
@@ -1709,6 +1716,7 @@
         "tests/test_loaded_news.py",
         "tests/test_mail_bridge.py",
         "tests/test_mail_candidate219.py",
+        "tests/test_mail_exclusion223.py",
         "tests/test_mail_ledger212.py",
         "tests/test_mail_surface217.py",
         "tests/test_map_layers.py",
@@ -2471,6 +2479,7 @@
         "tests/test_legacy_geo_p0.py",
         "tests/test_mail166.py",
         "tests/test_mail_candidate219.py",
+        "tests/test_mail_exclusion223.py",
         "tests/test_mail_rederive221.py",
         "tests/test_mail_surface217.py",
         "tests/test_monitor155.py",
@@ -3382,6 +3391,7 @@
         "tests/test_geo_probe_process.py",
         "tests/test_gst154.py",
         "tests/test_mail_candidate219.py",
+        "tests/test_mail_exclusion223.py",
         "tests/test_mail_rederive221.py",
         "tests/test_mail_surface217.py",
         "tests/test_monitor155.py",
@@ -3485,6 +3495,7 @@
         "tests/test_host197da.py",
         "tests/test_html209.py",
         "tests/test_mail_candidate219.py",
+        "tests/test_mail_exclusion223.py",
         "tests/test_mail_rederive221.py",
         "tests/test_page_watch_parser_budget.py",
         "tests/test_preview_access.py",
@@ -3579,6 +3590,7 @@
         "tests/test_invite_expiry.py",
         "tests/test_mail166.py",
         "tests/test_mail_candidate219.py",
+        "tests/test_mail_exclusion223.py",
         "tests/test_mail_rederive221.py",
         "tests/test_native200a.py",
         "tests/test_native200ba.py",
@@ -4069,6 +4081,7 @@
         "tests/test_mail166.py",
         "tests/test_mail_bridge.py",
         "tests/test_mail_candidate219.py",
+        "tests/test_mail_exclusion223.py",
         "tests/test_mail_ledger212.py",
         "tests/test_mail_operations.py",
         "tests/test_mail_rederive221.py",
@@ -4530,6 +4543,7 @@
     "tests/test_geo_read_factory.py",
     "tests/test_legacy_bulk_outcome.py",
     "tests/test_legacy_geo_p0.py",
+    "tests/test_mail_exclusion223.py",
     "tests/test_mail_rederive221.py",
     "tests/test_news182.py",
     "tests/test_preview_launcher.py",
@@ -5071,6 +5085,10 @@
       {
         "path": "integration/mail_candidate219.py",
         "sha256": "adafe140df5be4940b85267b17e42ae8c5df046791fa6d7a647739230924bd56"
+      },
+      {
+        "path": "integration/mail_exclusion223.py",
+        "sha256": "409122a0cebb35985767a2af4a8b6b3d76afb4bfda3d69576be5155a241fb78d"
       },
       {
         "path": "integration/mail_ledger212.py",
@@ -6143,6 +6161,10 @@
       {
         "path": "tests/test_mail_candidate219.py",
         "sha256": "84e7a7a8b387f6f77e20ccb3c695c1dcd75d6f7a4b006f1ba4650db0d8f12816"
+      },
+      {
+        "path": "tests/test_mail_exclusion223.py",
+        "sha256": "a19eb0e85c3503e583b61804bd360d075c8a6e87f3ce0f919df504a4adfe2069"
       },
       {
         "path": "tests/test_mail_ledger212.py",

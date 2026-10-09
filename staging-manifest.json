@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 2128,
+  "tests": 2136,
   "files": [
     {
       "path": ".env.example",
@@ -1981,6 +1981,11 @@
       "sha256": "1b6b83263318bd1baa44631be8fb167280483079856816d2ccdc9287bc31c6a2"
     },
     {
+      "path": "integration/MAIL-EXCLUSION223.md",
+      "bytes": 3248,
+      "sha256": "cbcf746c984d7f40e1a237983660dc93538f1692374cc368c4184b9f424895b8"
+    },
+    {
       "path": "integration/MAIL-LEDGER212.md",
       "bytes": 11046,
       "sha256": "31a32b4f04bea64ba3c452573dde15a674b1203f3516b6258c97fbf2045ec7f3"
@@ -2753,12 +2758,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 18581,
-      "sha256": "6fbf57b15609ac02ae824781872a4564110865e665a6de9885a3661e4987063d"
+      "sha256": "b61a79be90b6360f16d3f81c2cb6eab5e233cd5a923630d2cbbfde91558090ab"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
-      "bytes": 248343,
-      "sha256": "94d9e8f1dca18b249b43d99a33c8330c6c21bae96e146c3b42899d85b02d7f92"
+      "bytes": 249251,
+      "sha256": "795b94d26cb44ee9b6dd1ce14b849d3181862956cf713832e9d82818966bf90c"
     },
     {
       "path": "integration/dependency_build/README.md",
@@ -3209,6 +3214,11 @@
       "path": "integration/mail_driver212.json",
       "bytes": 688,
       "sha256": "b8714300fbba8bbe6bda852656dc005ec9781ada1220061cb1116c687b6e2ae3"
+    },
+    {
+      "path": "integration/mail_exclusion223.py",
+      "bytes": 3514,
+      "sha256": "409122a0cebb35985767a2af4a8b6b3d76afb4bfda3d69576be5155a241fb78d"
     },
     {
       "path": "integration/mail_ledger212.py",
@@ -6444,6 +6454,11 @@
       "path": "tests/test_mail_candidate219.py",
       "bytes": 6434,
       "sha256": "84e7a7a8b387f6f77e20ccb3c695c1dcd75d6f7a4b006f1ba4650db0d8f12816"
+    },
+    {
+      "path": "tests/test_mail_exclusion223.py",
+      "bytes": 5631,
+      "sha256": "a19eb0e85c3503e583b61804bd360d075c8a6e87f3ce0f919df504a4adfe2069"
     },
     {
       "path": "tests/test_mail_ledger212.py",
