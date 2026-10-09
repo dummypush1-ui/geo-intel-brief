@@ -216,10 +216,11 @@
       "source_path": "reports/telegram_report.py",
       "path": "intelligence/geo/reports/telegram_report.py",
       "source_sha256": "444cbcf1c0cdf5bd6d4c8e908003a0bc4b3cc917011d8775e668f805c4772e15",
-      "sha256": "73d68e4dfef3efd3c6839b0ef585377d47fd272013fc438c82a65f5a64aacec9",
+      "sha256": "7a086d9175fd4b5c3f4e0412684eecc6c69da483552b0a7b9da0032dfac686d6",
       "changes": [
         "root imports namespaced only",
-        "channels171 article URL scheme/credentials/control filtering, secret dashboard removed, legacy Markdown escaped; source only"
+        "channels171 article URL scheme/credentials/control filtering, secret dashboard removed, legacy Markdown escaped; source only",
+        "fulltext172 nullable Telegram display name/source guard only"
       ]
     },
     {

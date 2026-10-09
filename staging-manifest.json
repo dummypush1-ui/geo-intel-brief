@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 1504,
+  "tests": 1509,
   "files": [
     {
       "path": ".env.example",
@@ -2263,12 +2263,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 18581,
-      "sha256": "64ca76cd42af145f47e50ae6ce82f745380be8ce92564520950f6c239804023b"
+      "sha256": "9a659f72c547961067f39dc54495c5d47dcab4f342dde97e06ae16d35b985d92"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
-      "bytes": 178569,
-      "sha256": "a29fe249828097da097bd7cba8403c767f0f6d81299fe144a6ba3f5ac286a812"
+      "bytes": 179470,
+      "sha256": "08a91dac3e328b47321e8cd17c569976cafb205a60cc1f41e22e77800976a948"
     },
     {
       "path": "integration/dependency_build/README.md",
@@ -2389,6 +2389,16 @@
       "path": "integration/fixed_parser_pipeline.py",
       "bytes": 5238,
       "sha256": "d24a09e28153a424b543b0e5b5edeb7ebe707521ba712bd610de86a6f1aa7316"
+    },
+    {
+      "path": "integration/fulltext_policy/README.md",
+      "bytes": 1621,
+      "sha256": "453b5ee9cf7e46a201905bf2d82f9902dc44f54e596d0f9ae772aaeb3c1ff315"
+    },
+    {
+      "path": "integration/fulltext_policy/__init__.py",
+      "bytes": 2957,
+      "sha256": "174d26fe3b0ff491aac3ecf22d844f1cc3e46cd8c8bdb443634d891eb1ea6572"
     },
     {
       "path": "integration/geo_article_writer.py",
@@ -3847,8 +3857,8 @@
     },
     {
       "path": "intelligence/geo/reports/telegram_report.py",
-      "bytes": 2242,
-      "sha256": "73d68e4dfef3efd3c6839b0ef585377d47fd272013fc438c82a65f5a64aacec9"
+      "bytes": 2272,
+      "sha256": "7a086d9175fd4b5c3f4e0412684eecc6c69da483552b0a7b9da0032dfac686d6"
     },
     {
       "path": "intelligence/geo/reports/weekly_report.py",
@@ -3912,8 +3922,8 @@
     },
     {
       "path": "preservation-manifest.json",
-      "bytes": 26273,
-      "sha256": "b2962c704427d7b8218ae8ab183fe5a3194c49280e6294531ab5d1e1014bccff"
+      "bytes": 26345,
+      "sha256": "9c757701004ee039004d5edf916e3c4548b5a4338bf6c5fe06e42ff028f9c51e"
     },
     {
       "path": "production_entry.py",
@@ -4997,8 +5007,8 @@
     },
     {
       "path": "tests/test_channels171.py",
-      "bytes": 1927,
-      "sha256": "e9b2aaba36178ed3b84a61af98e8f65e088f2f471ca03c31c6ef4c5025edad27"
+      "bytes": 2346,
+      "sha256": "92f2d38cd6fbf7f7b6329be39794e80754d21a7ca258d2ccf7b7bf2f7eddab14"
     },
     {
       "path": "tests/test_classifier146_inventory.py",
@@ -5199,6 +5209,11 @@
       "path": "tests/test_fixed_parser_pipeline.py",
       "bytes": 4794,
       "sha256": "4ae02b740fd13a02226bd3c355f41f3a0feb530387d83b979891c51fa18f909f"
+    },
+    {
+      "path": "tests/test_fulltext172.py",
+      "bytes": 1880,
+      "sha256": "61eddbdd8771d7397c28e83c78675ec997358383cf8834805134589db7f81a3f"
     },
     {
       "path": "tests/test_geo_article_writer.py",

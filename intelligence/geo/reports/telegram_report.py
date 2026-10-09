@@ -27,13 +27,13 @@ def build_message(limit=8):
     if events:
         lines.append("*Upcoming:*")
         for e in events:
-            lines.append(f"- {_md(e['name'][:70])} ({e['event_date']})")
+            lines.append(f"- {_md(str(e.get('name') or '')[:70])} ({e['event_date']})")
         lines.append("")
 
     lines.append("*Top developments:*")
     for i, a in enumerate(articles, 1):
         lines.append(f"{i}. [{a['risk_level']}] {_md(a['title'][:80])}")
-        lines.append(f"   _{_md(a['source'])}_ - {_md_url(safe_url(a['url'])) if safe_url(a['url']) else '[link omitted]'}")
+        lines.append(f"   _{_md(str(a.get('source') or ''))}_ - {_md_url(safe_url(a['url'])) if safe_url(a['url']) else '[link omitted]'}")
     if not articles:
         lines.append("No high-relevance items this cycle.")
 

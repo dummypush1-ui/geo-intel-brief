@@ -17,3 +17,9 @@ class Channels(unittest.TestCase):
   for url in ['javascript:alert(1)','data:text/html,x','https://u:p@example.org/x','https://example.org/\nx']:
    out=a._format_article_line({'url':url});self.assertNotIn(url,out);self.assertIn('[link omitted]',out)
   out=a._format_article_line({'url':'https://example.org/x?a=1&b=2#old'});self.assertIn('https://example.org/x?a=1&b=2',out);self.assertNotIn('#old',out)
+
+ def test_nullable_source_and_event_name(self):
+  from intelligence.geo.reports import telegram_report as t
+  row={'score':8,'risk_level':'HIGH','title':'fixture','source':None,'url':'https://example.org/x'}
+  with patch.object(t,'recent_articles',return_value=[row]),patch.object(t,'upcoming_events',return_value=[{'name':None,'event_date':'2026-10-10'}]):
+   self.assertIn('https://example.org/x',t.build_message())

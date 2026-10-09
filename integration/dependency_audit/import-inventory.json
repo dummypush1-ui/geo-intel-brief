@@ -234,6 +234,21 @@
       "classification": "stdlib"
     },
     {
+      "import": "collector113_prep",
+      "stdlib": false,
+      "distributions": [],
+      "classification": "local",
+      "provenance": {
+        "paths": [
+          "collector113_prep/transport_policy.py"
+        ],
+        "source": "reviewed local supplied transport policy"
+      },
+      "files": [
+        "integration/fulltext_policy/__init__.py"
+      ]
+    },
+    {
       "import": "collector122_prep",
       "files": [
         "tests/test_collector122_packing.py",
@@ -787,7 +802,8 @@
     {
       "import": "gzip",
       "files": [
-        "integration/finder_index.py"
+        "integration/finder_index.py",
+        "tests/test_fulltext172.py"
       ],
       "stdlib": true,
       "distributions": [],
@@ -820,6 +836,7 @@
         "integration/finder_index.py",
         "integration/finder_offline.py",
         "integration/fixed_parser_pipeline.py",
+        "integration/fulltext_policy/__init__.py",
         "integration/geo_collector_contract.py",
         "integration/geo_queue_fixture.py",
         "integration/india_open_data/core.py",
@@ -1101,6 +1118,7 @@
         "tests/test_finder_offline.py",
         "tests/test_fixed_feedparser_audit.py",
         "tests/test_fixed_parser_pipeline.py",
+        "tests/test_fulltext172.py",
         "tests/test_geo_article_writer.py",
         "tests/test_geo_collector_contract.py",
         "tests/test_geo_event_composition.py",
@@ -2962,6 +2980,7 @@
         "tests/test_finder_offline.py",
         "tests/test_fixed_feedparser_audit.py",
         "tests/test_fixed_parser_pipeline.py",
+        "tests/test_fulltext172.py",
         "tests/test_geo_article_writer.py",
         "tests/test_geo_collector_contract.py",
         "tests/test_geo_event_composition.py",
@@ -3066,6 +3085,7 @@
         "integration/edge_guard.py",
         "integration/feedparser_audit/child.py",
         "integration/finder_links.py",
+        "integration/fulltext_policy/__init__.py",
         "integration/geo_queue_fixture.py",
         "integration/geonews_digest/_safe.py",
         "integration/geonews_digest/delivery.py",
@@ -3614,6 +3634,10 @@
       {
         "path": "integration/fixed_parser_pipeline.py",
         "sha256": "d24a09e28153a424b543b0e5b5edeb7ebe707521ba712bd610de86a6f1aa7316"
+      },
+      {
+        "path": "integration/fulltext_policy/__init__.py",
+        "sha256": "174d26fe3b0ff491aac3ecf22d844f1cc3e46cd8c8bdb443634d891eb1ea6572"
       },
       {
         "path": "integration/geo_article_writer.py",
@@ -4217,7 +4241,7 @@
       },
       {
         "path": "tests/test_channels171.py",
-        "sha256": "e9b2aaba36178ed3b84a61af98e8f65e088f2f471ca03c31c6ef4c5025edad27"
+        "sha256": "92f2d38cd6fbf7f7b6329be39794e80754d21a7ca258d2ccf7b7bf2f7eddab14"
       },
       {
         "path": "tests/test_classifier146_inventory.py",
@@ -4370,6 +4394,10 @@
       {
         "path": "tests/test_fixed_parser_pipeline.py",
         "sha256": "4ae02b740fd13a02226bd3c355f41f3a0feb530387d83b979891c51fa18f909f"
+      },
+      {
+        "path": "tests/test_fulltext172.py",
+        "sha256": "61eddbdd8771d7397c28e83c78675ec997358383cf8834805134589db7f81a3f"
       },
       {
         "path": "tests/test_geo_article_writer.py",
