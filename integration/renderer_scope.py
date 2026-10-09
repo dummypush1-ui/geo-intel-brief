@@ -15,7 +15,7 @@ from types import SimpleNamespace
 
 ROOT=Path(__file__).resolve().parents[1]
 # These pins cover entire original files. Changes need explicit re-review.
-PINS = {'geo_digest': '4ecf02ce731c13fe1f7115edfc5edbf5b3aabe91db9a1d279645eda63b321b49', 'geo_critical': '2b7337883500bea2085fb8180599bcf5bd1e957f21757db3a2c5be311b39517f', 'geo_weekly': 'f09f7576c26e274f5b419ad13cbe9c962610cca0d553d8763b52ea48099694c3', 'brics_digest': '5aea6483892617f90b9905885e08d91fda2a3f644b02a10ee54e39ecfd2c90a8'}
+PINS = {'geo_digest': '5e4ded3763f61e88eb35df6228b993f75f81131c1ca87ed0a524e1d6d8e94efd', 'geo_critical': 'f26b6140e1b81b8098151742c70674fab1b7c91199c996c50f24fa1d78febcbc', 'geo_weekly': '4aefca3c126b477d922c2caa2b554cc9716c3b9a197de812754bbc044f9c6573', 'brics_digest': '5aea6483892617f90b9905885e08d91fda2a3f644b02a10ee54e39ecfd2c90a8'}
 SPECS={
  'geo_digest':('intelligence/geo/reports/email_report.py',('_group_articles','_section_html','build_digest'),('CATEGORY_LABELS','RISK_COLORS','MIN_SCORE')),
  'geo_critical':('intelligence/geo/reports/critical_alert.py',('build_html',),()),

@@ -64,18 +64,7 @@ def build_html(days=7):
     return "".join(body)
 
 
-def send(days=7):
-    if not all([EMAIL_FROM, EMAIL_TO, EMAIL_APP_PASSWORD]):
-        raise RuntimeError("Set EMAIL_FROM, EMAIL_TO and EMAIL_APP_PASSWORD in .env")
-
-    today = datetime.now().strftime("%d %b %Y")
-    msg = MIMEMultipart("alternative")
-    msg["Subject"] = f"📊 Geo Intel Weekly Summary — {today}"
-    msg["From"] = EMAIL_FROM
-    msg["To"] = EMAIL_TO
-    msg.attach(MIMEText(build_html(days), "html", "utf-8"))
-
-    context = ssl.create_default_context()
-    with smtplib.SMTP_SSL(SMTP_HOST, SMTP_PORT, context=context) as server:
-        server.login(EMAIL_FROM, EMAIL_APP_PASSWORD)
-        server.sendmail(EMAIL_FROM, [addr.strip() for addr in EMAIL_TO.split(",")], msg.as_string())
+def send(*args, **kwargs):
+    """No legacy SMTP without durable exact-payload receipt integration."""
+    from feature_mail_mount.composition import hold_legacy_mail
+    return hold_legacy_mail()

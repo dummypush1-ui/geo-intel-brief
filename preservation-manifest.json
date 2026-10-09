@@ -84,7 +84,7 @@
       "source_path": "web.py",
       "path": "intelligence/geo/web.py",
       "source_sha256": "eb0312abeead1d445dddf0d621c6f03ad4d699027db48cbdc527493101358c47",
-      "sha256": "050a25cc0ad9dd3c5bc06d8c68fd2a5f401641c5cb48f10e9da50e675340dc12",
+      "sha256": "f89d5d13a20d2e53e60a322e99acafb6d1e1223bd3da2b6367baf9dad5a49014",
       "changes": [
         "root imports namespaced only",
         "bulk147 candidate pending final independent review: driver outcomes, held legacy backup, explicit status/labels; no live activation",
@@ -92,7 +92,9 @@
         "Reviewed P0 candidate: header-only fail-closed legacy HTTP auth and unconditional article-deletion hold; no live activation",
         "Reviewed candidate bounded read/export source contract; no provisioning or live activation",
         "storage165 bounded reads/export and dashboard default; no provisioning/live effects",
-        "dashboard167 clean400 and category-only bounded export link; no credential in HTML"
+        "dashboard167 clean400 and category-only bounded export link; no credential in HTML",
+        "mail166 source preparation: legacy sends/marks held, no retry; displayed renderer IDs; no live activation",
+        "mail166 reviewer closure: all legacy mail HTTP endpoints clean403/no retry; scheduler labels held exceptions"
       ],
       "prior_preserved_sha256": "7931165782766d4b6d05ac1207045e158d0ecaa15baf0b6f30d4abe0ba346dfc"
     },
@@ -101,10 +103,13 @@
       "source_path": "scheduler.py",
       "path": "intelligence/geo/scheduler.py",
       "source_sha256": "dc42e6147db678d3ad93d62f3412cd521230a040296a405e60d77588b99936a0",
-      "sha256": "84225c8b4e5da7731dc43a92d5c011cf5144290f50b5e6d07ecbdb574c80b90f",
+      "sha256": "a3741b914436d73e22c6fb4c5f46c87aa51f9fd6de7ffa7f4662504cb09d9db5",
       "changes": [
-        "root imports namespaced only"
-      ]
+        "root imports namespaced only",
+        "mail166 source preparation: legacy sends/marks held, no retry; displayed renderer IDs; no live activation",
+        "mail166 reviewer closure: all legacy mail HTTP endpoints clean403/no retry; scheduler labels held exceptions"
+      ],
+      "prior_preserved_sha256": "84225c8b4e5da7731dc43a92d5c011cf5144290f50b5e6d07ecbdb574c80b90f"
     },
     {
       "source_repo": "geonews",
@@ -164,10 +169,12 @@
       "source_path": "reports/email_report.py",
       "path": "intelligence/geo/reports/email_report.py",
       "source_sha256": "30d7552def0e9d56f8981f25b3d81ed3475bcc354971aea304a30e6f7d583688",
-      "sha256": "4ecf02ce731c13fe1f7115edfc5edbf5b3aabe91db9a1d279645eda63b321b49",
+      "sha256": "5e4ded3763f61e88eb35df6228b993f75f81131c1ca87ed0a524e1d6d8e94efd",
       "changes": [
-        "root imports namespaced only"
-      ]
+        "root imports namespaced only",
+        "mail166 source preparation: legacy sends/marks held, no retry; displayed renderer IDs; no live activation"
+      ],
+      "prior_preserved_sha256": "4ecf02ce731c13fe1f7115edfc5edbf5b3aabe91db9a1d279645eda63b321b49"
     },
     {
       "source_repo": "geonews",
@@ -184,10 +191,12 @@
       "source_path": "reports/critical_alert.py",
       "path": "intelligence/geo/reports/critical_alert.py",
       "source_sha256": "9bb2d4221511a7bed7cfe1c88a5e5fa6e519e64e3277f3ee86b349cd54f24961",
-      "sha256": "2b7337883500bea2085fb8180599bcf5bd1e957f21757db3a2c5be311b39517f",
+      "sha256": "f26b6140e1b81b8098151742c70674fab1b7c91199c996c50f24fa1d78febcbc",
       "changes": [
-        "root imports namespaced only"
-      ]
+        "root imports namespaced only",
+        "mail166 source preparation: legacy sends/marks held, no retry; displayed renderer IDs; no live activation"
+      ],
+      "prior_preserved_sha256": "2b7337883500bea2085fb8180599bcf5bd1e957f21757db3a2c5be311b39517f"
     },
     {
       "source_repo": "geonews",
@@ -239,10 +248,12 @@
       "source_path": "reports/weekly_report.py",
       "path": "intelligence/geo/reports/weekly_report.py",
       "source_sha256": "54db95a481da362fba9823dbc6d4faa856f154eca03c63b03e2a78a38568e2de",
-      "sha256": "f09f7576c26e274f5b419ad13cbe9c962610cca0d553d8763b52ea48099694c3",
+      "sha256": "4aefca3c126b477d922c2caa2b554cc9716c3b9a197de812754bbc044f9c6573",
       "changes": [
-        "root imports namespaced only"
-      ]
+        "root imports namespaced only",
+        "mail166 source preparation: legacy sends/marks held, no retry; displayed renderer IDs; no live activation"
+      ],
+      "prior_preserved_sha256": "f09f7576c26e274f5b419ad13cbe9c962610cca0d553d8763b52ea48099694c3"
     },
     {
       "source_repo": "geonews",

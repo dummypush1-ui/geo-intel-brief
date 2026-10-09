@@ -3,8 +3,8 @@
   "sources": [
     {
       "path": "intelligence/geo/web.py",
-      "bytes": 12999,
-      "sha256": "050a25cc0ad9dd3c5bc06d8c68fd2a5f401641c5cb48f10e9da50e675340dc12",
+      "bytes": 11810,
+      "sha256": "f89d5d13a20d2e53e60a322e99acafb6d1e1223bd3da2b6367baf9dad5a49014",
       "functions": [
         "_service",
         "init_db",
@@ -38,7 +38,7 @@
         "export_csv",
         "cleanup_old"
       ],
-      "reviewed_change": "dashboard167 query validation"
+      "reviewed_change": "mail166 clean held HTTP source contract only"
     },
     {
       "path": "intelligence/geo/config.py",
@@ -77,20 +77,22 @@
     },
     {
       "path": "intelligence/geo/scheduler.py",
-      "bytes": 4820,
-      "sha256": "84225c8b4e5da7731dc43a92d5c011cf5144290f50b5e6d07ecbdb574c80b90f",
+      "bytes": 5033,
+      "sha256": "a3741b914436d73e22c6fb4c5f46c87aa51f9fd6de7ffa7f4662504cb09d9db5",
       "functions": [
         "_step",
         "_send_with_retry",
         "run_daily_cycle",
         "run_weekly_cycle",
         "main"
-      ]
+      ],
+      "reviewed_change": "mail166 clean held HTTP source contract only"
     },
     {
       "path": "intelligence/geo/apps_script/Code.gs",
-      "bytes": 12753,
-      "sha256": "f23159b30f263e3a34cae29879900d73b23f6cf64fc6958f12712b7df484026a"
+      "bytes": 12577,
+      "sha256": "a5db615b74bb21c4bcfac59cde71edd97379621914421d3ea2b3ab765c7bc62b",
+      "reviewed_change": "mail166 source preparation only; live calls held"
     },
     {
       "path": "intelligence/geo/collectors/rss.py",
@@ -175,12 +177,13 @@
     {
       "path": "integration/geo_collector_contract.py",
       "bytes": 6433,
-      "sha256": "a2c2047d37b8d12132af784c4ca9bab697a53492580e90e98a77261e6d965d9d",
+      "sha256": "f2bc6c906633e06aba66b21a54901a634279e2d336cfa9d5697d134691292f49",
       "functions": [
         "_original_documents",
         "prepare_geo_documents",
         "run_geo_fixture_cycle"
-      ]
+      ],
+      "reviewed_change": "mail166 source preparation only; live calls held"
     }
   ]
 }

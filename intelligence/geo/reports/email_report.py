@@ -62,20 +62,17 @@ def _section_html(category, items):
 
 
 def build_digest():
-    """Builds the digest HTML from articles not yet included in a previous
-    digest. Returns (html, critical_count, article_ids) but does NOT mark
-    anything as sent -- that only happens once the caller has confirmed the
-    email actually went out (see mark_sent() below). This is what prevents
-    articles from silently vanishing if a send fails partway through: the
-    old behaviour marked articles "emailed" the moment the HTML was built,
-    even if the send afterwards failed, so a dropped SMTP/Gmail send meant
-    those stories were gone from every future digest despite never having
-    reached anyone's inbox."""
+    """Read-only digest: returns HTML, displayed critical count and displayed IDs.
+
+    This output is not a send receipt. Legacy send/mark paths are held; only the
+    explicit durable receipt bridge may acknowledge its bound archived payload.
+    """
     articles = unemailed_articles()
     events = upcoming_events(UPCOMING_DAYS)
     grouped = _group_articles(articles)
     total_relevant = sum(len(v) for v in grouped.values())
-    critical_count = sum(1 for a in articles if a["risk_level"] == "CRITICAL")
+    displayed = [a for items in grouped.values() for a in items]
+    critical_count = sum(1 for a in displayed if a["risk_level"] == "CRITICAL")
     today = datetime.now().strftime("%d %B %Y")
 
     body = [f"""<html><body style="margin:0;padding:0;background:#f4f6f8;font-family:Segoe UI,Arial,sans-serif">
@@ -89,7 +86,7 @@ def build_digest():
         <b>{total_relevant}</b> relevant items &middot;
         <b style="color:#c53030">{critical_count}</b> critical &middot;
         <b>{len(events)}</b> upcoming events in next {UPCOMING_DAYS} days
-        {f' &middot; <a href="{DASHBOARD_BASE_URL}/dashboard?key={TRIGGER_SECRET}" style="color:#2b6cb0">📊 View full dashboard</a>' if DASHBOARD_BASE_URL and TRIGGER_SECRET else ''}
+        {''}
     </td></tr>
     <tr><td style="padding:10px 30px 25px">"""]
 
@@ -120,25 +117,21 @@ def build_digest():
     </td></tr>
     </table></td></tr></table></body></html>""")
 
-    return "".join(body), critical_count, [a["_id"] for a in articles]
+    return "".join(body), critical_count, [a["_id"] for a in displayed]
 
 
 def mark_sent(article_ids):
-    """Call this ONLY after the email has actually, successfully been sent
-    (SMTP accepted it / Gmail send didn't throw). Safe to call with an
-    empty list."""
-    mark_emailed(article_ids)
+    """Legacy acknowledgement cannot prove an exact archived send."""
+    from feature_mail_mount.composition import hold_legacy_mail
+    return hold_legacy_mail()
 
 
-def build_html(mark_as_sent=True):
-    """Backwards-compatible wrapper around build_digest() for callers (CLI,
-    scheduler.py) that just want the HTML string back and are fine with the
-    old immediate-mark behaviour. New code (web.py) should use build_digest()
-    + mark_sent() directly so marking only happens after a confirmed send."""
-    html_content, _critical_count, article_ids = build_digest()
-    if mark_as_sent and article_ids:
-        mark_sent(article_ids)
-    return html_content
+def build_html(mark_as_sent=False):
+    """Read-only rendering; legacy mark-on-build is refused."""
+    if mark_as_sent:
+        from feature_mail_mount.composition import hold_legacy_mail
+        return hold_legacy_mail()
+    return build_digest()[0]
 
 
 def _archive(html_content):
@@ -153,25 +146,6 @@ def _archive(html_content):
 
 
 def send():
-    if not all([EMAIL_FROM, EMAIL_TO, EMAIL_APP_PASSWORD]):
-        raise RuntimeError("Set EMAIL_FROM, EMAIL_TO and EMAIL_APP_PASSWORD in .env")
-
-    html_content, _critical_count, article_ids = build_digest()
-    _archive(html_content)
-
-    today = datetime.now().strftime("%d %b %Y")
-    msg = MIMEMultipart("alternative")
-    msg["Subject"] = f"🌍 Geo Intel Daily Brief — {today}"
-    msg["From"] = EMAIL_FROM
-    msg["To"] = EMAIL_TO
-    msg.attach(MIMEText(html_content, "html", "utf-8"))
-
-    context = ssl.create_default_context()
-    with smtplib.SMTP_SSL(SMTP_HOST, SMTP_PORT, context=context) as server:
-        server.login(EMAIL_FROM, EMAIL_APP_PASSWORD)
-        server.sendmail(EMAIL_FROM, [addr.strip() for addr in EMAIL_TO.split(",")], msg.as_string())
-
-    # Only mark articles as "sent" once sendmail() above didn't raise --
-    # so a failed send leaves them queued for the next attempt instead of
-    # silently disappearing.
-    mark_sent(article_ids)
+    """Selected AppsScript receipt bridge replaces unsafe direct SMTP retries."""
+    from feature_mail_mount.composition import hold_legacy_mail
+    return hold_legacy_mail()

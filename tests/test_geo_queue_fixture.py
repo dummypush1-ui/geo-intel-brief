@@ -13,7 +13,7 @@ class GeoQueueFixtureTests(unittest.TestCase):
   rows=[row(5),row(2,risk_level='CRITICAL')]
   r=build_supplied_queue(rows,NOW);original=geo_report_builder(lambda:rows,lambda days:[],now=NOW)()
   self.assertEqual(r['html'],original['html']);self.assertEqual(r['critical_count'],1);self.assertEqual(r['displayed_critical_count'],0)
-  self.assertEqual(r['fetched_ids'],tuple(original['ids']));self.assertEqual(r['displayed_ids'],(rows[0]['_id'],))
+  self.assertEqual(r['fetched_ids'],tuple(x['_id'] for x in rows));self.assertEqual(r['displayed_ids'],tuple(original['ids']));self.assertEqual(r['displayed_ids'],(rows[0]['_id'],));self.assertEqual(original['critical_count'],0)
   self.assertEqual(r['marking_policy'],MARKING_POLICY);self.assertFalse(r['unsent_queue_verified']);self.assertNotIn('ids_to_mark',r);self.assertNotIn('emailed_ids',r)
  def test_missing_null_false_true_and_array_whole_snapshot(self):
   rows=[row(8),row(7,emailed=None),row(6,emailed=False),row(5,emailed=True)]

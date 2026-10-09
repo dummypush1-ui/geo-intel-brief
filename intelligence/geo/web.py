@@ -200,76 +200,41 @@ def collect_status():
 
 @app.route("/send-digest", methods=["POST"])
 def send_digest():
-    """Sends the email directly from Render via SMTP (Option B: keep it
-    simple). If Render's SMTP keeps failing, use /digest-data instead and
-    let Apps Script send it via Gmail."""
+    """Legacy mail held until an exact durable receipt bridge is supplied."""
     if not _authorized():
-        return jsonify(error="unauthorized"), 401
-    if (err := _db_check()):
-        return err
-    send_email_smtp()
-    return jsonify(status="sent")
+        return jsonify(error="unauthorized"),401
+    return jsonify(error="legacy_send_digest_held_use_exact_receipt_bridge",retry_send=False),403
 
 
 @app.route("/digest-data")
 def digest_data():
-    """Returns the digest as raw HTML, for Apps Script to send via GmailApp
-    instead of Render's SMTP. Does NOT mark articles as sent here -- that
-    only happens once Apps Script confirms GmailApp.sendEmail actually
-    succeeded, via a follow-up call to /mark-emailed. This is what stops
-    articles disappearing from every future digest if the Gmail send fails
-    after this call (e.g. Gmail daily quota, bad EMAIL_TO address)."""
+    """Legacy unbound digest payload held; use exact durable receipt bridge."""
     if not _authorized():
-        return jsonify(error="unauthorized"), 401
-    if (err := _db_check()):
-        return err
-    html_content, critical_count, article_ids = build_digest()
-    return jsonify(html=html_content, critical_count=critical_count,
-                    article_ids=[str(i) for i in article_ids])
+        return jsonify(error="unauthorized"),401
+    return jsonify(error="legacy_digest_held_use_exact_receipt_bridge",retry_send=False),403
 
 
 @app.route("/mark-emailed", methods=["POST"])
 def mark_emailed_route():
-    """Apps Script calls this right after GmailApp.sendEmail succeeds,
-    passing back the article_ids it got from /digest-data. Only then do
-    those articles stop appearing in future digests."""
     if not _authorized():
-        return jsonify(error="unauthorized"), 401
-    if (err := _db_check()):
-        return err
-    from bson import ObjectId
-    ids = request.get_json(silent=True) or {}
-    raw_ids = ids.get("article_ids", [])
-    try:
-        object_ids = [ObjectId(i) for i in raw_ids]
-    except Exception:
-        return jsonify(error="invalid article_ids"), 400
-    mark_sent(object_ids)
-    return jsonify(marked=len(object_ids))
+        return jsonify(error="unauthorized"),401
+    return jsonify(error="legacy_mark_held_use_exact_receipt_bridge",retry_send=False),403
 
 
 @app.route("/critical", methods=["POST"])
 def critical():
+    """Legacy mail held until an exact durable receipt bridge is supplied."""
     if not _authorized():
-        return jsonify(error="unauthorized"), 401
-    if (err := _db_check()):
-        return err
-    if not ENABLE_CRITICAL_ALERTS:
-        return jsonify(skipped="ENABLE_CRITICAL_ALERTS is false")
-    n = send_if_critical()
-    return jsonify(sent=bool(n), count=n or 0)
+        return jsonify(error="unauthorized"),401
+    return jsonify(error="legacy_critical_held_use_exact_receipt_bridge",retry_send=False),403
 
 
 @app.route("/weekly", methods=["POST"])
 def weekly():
+    """Legacy mail held until an exact durable receipt bridge is supplied."""
     if not _authorized():
-        return jsonify(error="unauthorized"), 401
-    if (err := _db_check()):
-        return err
-    if not ENABLE_WEEKLY_REPORT:
-        return jsonify(skipped="ENABLE_WEEKLY_REPORT is false")
-    send_weekly()
-    return jsonify(status="sent")
+        return jsonify(error="unauthorized"),401
+    return jsonify(error="legacy_weekly_held_use_exact_receipt_bridge",retry_send=False),403
 
 
 @app.route("/dashboard")

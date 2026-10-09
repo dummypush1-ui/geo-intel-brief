@@ -42,21 +42,6 @@ def build_html(items):
 
 
 def send_if_critical():
-    """Returns the number of critical items alerted on (0 if none / nothing sent)."""
-    items = critical_since(CRITICAL_ALERT_LOOKBACK_HOURS)
-    if not items:
-        return 0
-    if not all([EMAIL_FROM, EMAIL_TO, EMAIL_APP_PASSWORD]):
-        raise RuntimeError("Set EMAIL_FROM, EMAIL_TO and EMAIL_APP_PASSWORD in .env")
-
-    msg = MIMEMultipart("alternative")
-    msg["Subject"] = f"🚨 CRITICAL Geo Intel Alert — {len(items)} item(s)"
-    msg["From"] = EMAIL_FROM
-    msg["To"] = EMAIL_TO
-    msg.attach(MIMEText(build_html(items), "html", "utf-8"))
-
-    context = ssl.create_default_context()
-    with smtplib.SMTP_SSL(SMTP_HOST, SMTP_PORT, context=context) as server:
-        server.login(EMAIL_FROM, EMAIL_APP_PASSWORD)
-        server.sendmail(EMAIL_FROM, [addr.strip() for addr in EMAIL_TO.split(",")], msg.as_string())
-    return len(items)
+    """Critical-once is transactional receipt state, not a recent-window send."""
+    from feature_mail_mount.composition import hold_legacy_mail
+    return hold_legacy_mail()

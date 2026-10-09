@@ -49,29 +49,35 @@ logger.addHandler(_file_handler)
 logger.addHandler(_console_handler)
 
 
+from feature_mail_mount.composition import LegacyMailHeld
+
+
 def _step(name, fn, *args):
     """Run one pipeline step; log and swallow errors so the cycle continues."""
     try:
         result = fn(*args)
         logger.info(f"{name}: OK ({result})")
         return result
+    except LegacyMailHeld:
+        logger.info("%s: HELD; legacy receipt wiring absent; no retry", name)
+        return None
     except Exception:
         logger.exception(f"{name}: FAILED")
         return None
 
 
 def _send_with_retry(name, fn, attempts=3, delay_seconds=30):
-    for attempt in range(1, attempts + 1):
-        try:
-            fn()
-            logger.info(f"{name}: OK (attempt {attempt})")
-            return True
-        except Exception:
-            logger.exception(f"{name}: FAILED (attempt {attempt}/{attempts})")
-            if attempt < attempts:
-                time.sleep(delay_seconds)
-    logger.error(f"{name}: giving up after all retries.")
-    return False
+    """One attempt only. An exception can mean accepted send or unknown state."""
+    try:
+        fn()
+        logger.info("%s: returned; acceptance is not delivery proof", name)
+        return True
+    except LegacyMailHeld:
+        logger.info("%s: HELD; legacy receipt wiring absent; no retry", name)
+        return False
+    except Exception:
+        logger.error("%s: held or uncertain; no automatic retry", name)
+        return False
 
 
 def run_daily_cycle():

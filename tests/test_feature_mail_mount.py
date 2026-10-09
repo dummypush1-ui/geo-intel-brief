@@ -184,6 +184,14 @@ class ReportTests(unittest.TestCase):
         self.docs=[dict(self.docs[0],risk_level='CRITICAL')]
         result=build(self.sources(),None,'critical',NOW,'displayed')
         self.assertFalse(result['skip']);self.assertEqual(result['mark_ids'],[str(self.ids[0])])
+    def test_events_only_and_hidden_critical_skip(self):
+        event={'name':'Fixture','event_date':'2026-10-09','source_url':'https://example.org/event','category':'CONFERENCE','confidence':'HIGH','description':'Fixture'}
+        self.docs=[]
+        r=build(self.sources(events=[event]),None,'digest',NOW,'displayed')
+        self.assertFalse(r['skip']);self.assertEqual(r['mark_ids'],[]);self.assertIn('Fixture',r['html'])
+        self.setUp();self.docs=[dict(self.docs[1],risk_level='CRITICAL')]
+        r=build(self.sources(),None,'digest',NOW,'displayed')
+        self.assertTrue(r['skip']);self.assertEqual(r['critical_count'],0);self.assertEqual(r['mark_ids'],[])
     def test_events_cap(self):
         event={'name':'Fixture','event_date':'2026-10-09','source_url':'https://example.org/event','category':'CONFERENCE','confidence':'HIGH','description':'Fixture'}
         with self.assertRaises(ValueError):build(self.sources(events=[event]*201),None,'digest',NOW,'displayed')

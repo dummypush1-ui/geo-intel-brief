@@ -26,6 +26,7 @@
         "tests/test_geo_collector_contract.py",
         "tests/test_geo_queue_fixture.py",
         "tests/test_legacy_geo_p0.py",
+        "tests/test_mail166.py",
         "tests/test_preservation.py",
         "tests/test_protocol145_inventory.py",
         "tests/test_security_review.py",
@@ -99,6 +100,7 @@
         "tests/test_feature_mail_mount.py",
         "tests/test_geo_queue_fixture.py",
         "tests/test_geo_snapshot.py",
+        "tests/test_mail166.py",
         "tests/test_project_reports.py"
       ],
       "stdlib": false,
@@ -612,6 +614,7 @@
       "import": "feature_mail_mount",
       "files": [
         "tests/test_feature_mail_mount.py",
+        "tests/test_mail166.py",
         "tests/test_mail_operations.py"
       ],
       "stdlib": false,
@@ -688,6 +691,7 @@
         "tests/digest_cold_probe.py",
         "tests/test_edge_guard.py",
         "tests/test_feature_mail_mount.py",
+        "tests/test_mail166.py",
         "tests/test_security_headers.py"
       ],
       "stdlib": false,
@@ -1297,6 +1301,7 @@
         "tests/test_digest_preview_routes.py",
         "tests/test_fixed_parser_pipeline.py",
         "tests/test_geo_collector_contract.py",
+        "tests/test_mail166.py",
         "tests/test_original_reports.py",
         "tests/test_storage165.py",
         "tests/test_supplied_collector_pipeline.py",
@@ -1682,6 +1687,7 @@
         "tests/test_geo_queue_fixture.py",
         "tests/test_gst154.py",
         "tests/test_legacy_geo_p0.py",
+        "tests/test_mail166.py",
         "tests/test_monitor155.py",
         "tests/test_preservation.py",
         "tests/test_preview_launcher.py",
@@ -2582,6 +2588,7 @@
         "tests/test_geo_read_factory.py",
         "tests/test_geo_sample_probe.py",
         "tests/test_invite_expiry.py",
+        "tests/test_mail166.py",
         "tests/test_preview_launcher.py"
       ],
       "stdlib": false,
@@ -2961,6 +2968,7 @@
         "tests/test_live_news_ui.py",
         "tests/test_loaded_charts.py",
         "tests/test_loaded_news.py",
+        "tests/test_mail166.py",
         "tests/test_mail_bridge.py",
         "tests/test_mail_operations.py",
         "tests/test_map_layers.py",
@@ -3371,6 +3379,10 @@
         "sha256": "581ead85e1f5472ed8d6a11e44a5c49580aa0aade1b806ef4a521692eaa2b3e4"
       },
       {
+        "path": "feature_mail_mount/composition.py",
+        "sha256": "b78c1578d465198227147b3a063c2674c92b933c4201068ca678c835dd03bd82"
+      },
+      {
         "path": "feature_mail_mount/http.py",
         "sha256": "0ea303f1184e2c203f9f5e06ef06637ae80a2336243191397a3f68fe642f7124"
       },
@@ -3380,7 +3392,7 @@
       },
       {
         "path": "feature_mail_mount/reports.py",
-        "sha256": "cc85b535edb50f3d1a3f41e198fe4606add2b0aa5ccc18ec2c30e00dee08afa2"
+        "sha256": "4097a74e524b3eddcddfd668c323de007db509b5036723db11309733ba069213"
       },
       {
         "path": "feature_mail_mount/store.py",
@@ -3500,7 +3512,7 @@
       },
       {
         "path": "integration/collector_mail_fixture.py",
-        "sha256": "66dc1a2737c1e4a939ff635c42d0cef9508d498f2f1b58fa57b89f21ab9ebc63"
+        "sha256": "55b8eb577c22b348991d3a0202f517d82e8c29f55bc1bb80663ccaae5bbaac60"
       },
       {
         "path": "integration/country_alerts.py",
@@ -3612,7 +3624,7 @@
       },
       {
         "path": "integration/geo_queue_fixture.py",
-        "sha256": "c3be7feaa65f7d2352709c1a6b091672659ccf233d424ad4f75e9205ef49ab81"
+        "sha256": "466cae30e3ea627d0814120b4e8fd809da68a0233c8d2c3578ed005b48558289"
       },
       {
         "path": "integration/geo_read_factory.py",
@@ -3800,7 +3812,7 @@
       },
       {
         "path": "integration/renderer_scope.py",
-        "sha256": "b5cc8d3b8bce68a53b19ae9f28b14f1d1e6c5ac0046a9a2dcdf868b02ad7ba46"
+        "sha256": "468c9e4d02a744130636d3de9db0a3935c5de4b5e049c61748905a39176cd61b"
       },
       {
         "path": "integration/report_adapters.py",
@@ -4300,11 +4312,11 @@
       },
       {
         "path": "tests/test_feature_mail_mount.py",
-        "sha256": "ecd196aa7b338854522dfe17aea842c11e072fd2a608654dce59b574310fc9e5"
+        "sha256": "77fa186cd91f07a0c1a8095a0ff0108ade6e6f0beb75ea2edcad3ba1d93e5a92"
       },
       {
         "path": "tests/test_feature_mail_prep.py",
-        "sha256": "87d2fa7e7e12deea37b97062be3a0cdc9667c742594348523bd5da9364139256"
+        "sha256": "3eb72d5702bb2807bf3527d87bee6f35e9daa7cd07c39d1d7a08268a839bcd55"
       },
       {
         "path": "tests/test_feature_related_calibration.py",
@@ -4368,7 +4380,7 @@
       },
       {
         "path": "tests/test_geo_queue_fixture.py",
-        "sha256": "5d4ab0ed44621d50137b98f89b4bc3711f6c5de05504243aded75d17a30d2a3d"
+        "sha256": "95a9be0451d8d528447aa21f7a883352662c6bd837568750dae61777466ad157"
       },
       {
         "path": "tests/test_geo_read_factory.py",
@@ -4413,6 +4425,10 @@
       {
         "path": "tests/test_loaded_news.py",
         "sha256": "70c1d9b0a5b9c83b122db36a955159163d26b17d6a48ae3142236ad3ad5a26f3"
+      },
+      {
+        "path": "tests/test_mail166.py",
+        "sha256": "69d8847a51370bd608fdbdeecf521e020d521fefd0ff56e6c30f3e7228f1ca28"
       },
       {
         "path": "tests/test_mail_bridge.py",

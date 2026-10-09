@@ -66,7 +66,7 @@ class MailPreparation(unittest.TestCase):
     def test_digest_fetch_display_difference(self):
         r = prepare_report('digest', [article(score=0)], [], NOW)
         self.assertEqual((r['fetched_sample_count'], r['displayed_sample_count']), (1, 0))
-        self.assertFalse(r['skip'])
+        self.assertTrue(r['skip'])  # source renderer skips when nothing is displayed
         self.assertEqual(r['marking_policy'], 'unresolved_fetched_vs_displayed')
 
     def test_digest_caps_and_sent(self):

@@ -70,7 +70,7 @@ def build(collections, session, kind, now, policy):
         event_rows = _snapshot([], raw_events)[1]
         html, critical, _ = renderer('geo_digest', {'unemailed_articles': lambda: rows,
                     'upcoming_events': lambda days: event_rows}, now=now)()
-        skip = not displayed and not critical and not event_rows
+        skip = not displayed and not event_rows  # skip empty/low-score; allow events-only digest
         subject = 'Geo Intel Brief - ' + now.strftime('%d %b %Y %H:%M UTC')
     elif kind == 'critical':
         html = renderer('geo_critical', {}, now=now)(rows) if rows else ''
