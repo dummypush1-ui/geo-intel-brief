@@ -291,10 +291,12 @@
       "source_path": "collectors/sanctions.py",
       "path": "intelligence/geo/collectors/sanctions.py",
       "source_sha256": "770413d1876dde977629281b42daafb88dca92dd6087addd068da29cbcfb0f0d",
-      "sha256": "87779b824769bf2b2ab6294838249f9431ae3890405050987870b3e474c6afd1",
+      "sha256": "622d48b101c31e5a395f13a690205ba27676993020383be5dc8e977992dd12a1",
       "changes": [
-        "root imports namespaced only"
-      ]
+        "root imports namespaced only",
+        "183 dormant legacy CSV import and substring screening explicitly held with LegacySanctionsHeld, no transport or empty clean result; no activation, active sanctions-refresh unchanged"
+      ],
+      "prior_preserved_sha256": "87779b824769bf2b2ab6294838249f9431ae3890405050987870b3e474c6afd1"
     },
     {
       "source_repo": "geonews",

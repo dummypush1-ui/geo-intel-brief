@@ -1,17 +1,17 @@
-import csv, io, requests
-from intelligence.geo.config import REQUEST_TIMEOUT
+"""Dormant legacy screening is held, not a verified sanctions data service.
 
-OFAC_SDN = "https://www.treasury.gov/ofac/downloads/sdn.csv"
+The old CSV routine used an identifier as a name and substring matches were
+not entity screening. No callers or activation are added. The independent
+sanctions-refresh.mjs pipeline is outside this legacy module and unchanged.
+"""
+
+class LegacySanctionsHeld(PermissionError):
+    """A hold is not a successful empty list or a clean screening result."""
+
 
 def update_ofac_names():
-    try:
-        r = requests.get(OFAC_SDN, timeout=REQUEST_TIMEOUT)
-        r.raise_for_status()
-        return [row[0].strip() for row in csv.reader(io.StringIO(r.text)) if row and row[0].strip()]
-    except Exception as exc:
-        print("[SANCTIONS] OFAC download failed:", exc)
-        return []
+    raise LegacySanctionsHeld('Legacy sanctions CSV import held: reviewed schema and source installation required')
+
 
 def screen_text(text, names):
-    t = text.lower()
-    return [n for n in names if n.lower() in t][:20]
+    raise LegacySanctionsHeld('Legacy sanctions screening held: reviewed name matching required')

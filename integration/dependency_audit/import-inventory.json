@@ -32,6 +32,7 @@
         "tests/test_preservation.py",
         "tests/test_protocol145_inventory.py",
         "tests/test_rss177.py",
+        "tests/test_sanctions183.py",
         "tests/test_security_review.py",
         "tests/test_stream_revision.py",
         "tests/test_supplied_collector_pipeline.py",
@@ -1387,6 +1388,7 @@
         "tests/test_links170.py",
         "tests/test_mail166.py",
         "tests/test_original_reports.py",
+        "tests/test_sanctions183.py",
         "tests/test_storage165.py",
         "tests/test_supplied_collector_pipeline.py",
         "tests/test_supplied_multi_feed.py"
@@ -1810,6 +1812,7 @@
         "tests/test_rss177.py",
         "tests/test_rss_catalog.py",
         "tests/test_sanctions152.py",
+        "tests/test_sanctions183.py",
         "tests/test_scraper_policy.py",
         "tests/test_security173.py",
         "tests/test_security_review.py",
@@ -3153,6 +3156,7 @@
         "tests/test_runtime.py",
         "tests/test_sample_volume.py",
         "tests/test_sanctions152.py",
+        "tests/test_sanctions183.py",
         "tests/test_schedule175.py",
         "tests/test_scraper_policy.py",
         "tests/test_security173.py",
@@ -4776,6 +4780,10 @@
       {
         "path": "tests/test_sanctions152.py",
         "sha256": "930c8b520ee8e732dcf79afd23e7a299552fd57a30f64382ded204ed506d9e71"
+      },
+      {
+        "path": "tests/test_sanctions183.py",
+        "sha256": "ea18676d5d331f03b3c6817558ee2194b3092958e531f16dbbd4d423dec2bf06"
       },
       {
         "path": "tests/test_schedule175.py",

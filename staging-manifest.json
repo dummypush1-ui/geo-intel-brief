@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 1551,
+  "tests": 1554,
   "files": [
     {
       "path": ".env.example",
@@ -2328,12 +2328,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 18581,
-      "sha256": "6517706291a38d0d699060250f2c51c9ae247b7941f6e553d04d9b17b727079e"
+      "sha256": "e3d86ba172d662c5104e3c35969254b11b2a88eeccb465cc1d4b337186a52269"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
-      "bytes": 185763,
-      "sha256": "4202a0481aff572427aaf41a9882f6e90e7eca817ea14a001e6e7ba76ea41c34"
+      "bytes": 186063,
+      "sha256": "47cb2a79cf9a86a756e2a354d729cf9f76ad06d4f6b46c6ba2ad4422401344fa"
     },
     {
       "path": "integration/dependency_build/README.md",
@@ -3796,6 +3796,11 @@
       "sha256": "8be541293b1cf81e91423753b199c8b0d7904bf1049577ea4165df9894cd6406"
     },
     {
+      "path": "intelligence/geo/LEGACY-SANCTIONS183.md",
+      "bytes": 1098,
+      "sha256": "3fa609826c70127ae071e0828954ce098e8ac37c6c9d39266ffb5168654d93f2"
+    },
+    {
       "path": "intelligence/geo/Procfile",
       "bytes": 57,
       "sha256": "44d70ad2f89d0965e430c7d3df48162fd9def5bb5c29e2da92410883447bbf26"
@@ -3872,8 +3877,8 @@
     },
     {
       "path": "intelligence/geo/collectors/sanctions.py",
-      "bytes": 572,
-      "sha256": "87779b824769bf2b2ab6294838249f9431ae3890405050987870b3e474c6afd1"
+      "bytes": 702,
+      "sha256": "622d48b101c31e5a395f13a690205ba27676993020383be5dc8e977992dd12a1"
     },
     {
       "path": "intelligence/geo/config/sources.example.yaml",
@@ -4017,8 +4022,8 @@
     },
     {
       "path": "preservation-manifest.json",
-      "bytes": 27490,
-      "sha256": "f5e2fa78e2a6701464c8b7e6ea494b548fc8c783589da0eb306d7e66a18af7eb"
+      "bytes": 27783,
+      "sha256": "3cd56d9f7239cd1229240831aa190356e236ece45a48317b753fad024008b7fe"
     },
     {
       "path": "production_entry.py",
@@ -5629,6 +5634,11 @@
       "path": "tests/test_sanctions152.py",
       "bytes": 600,
       "sha256": "930c8b520ee8e732dcf79afd23e7a299552fd57a30f64382ded204ed506d9e71"
+    },
+    {
+      "path": "tests/test_sanctions183.py",
+      "bytes": 1013,
+      "sha256": "ea18676d5d331f03b3c6817558ee2194b3092958e531f16dbbd4d423dec2bf06"
     },
     {
       "path": "tests/test_schedule175.py",
