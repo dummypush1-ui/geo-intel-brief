@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 1929,
+  "tests": 1933,
   "files": [
     {
       "path": ".env.example",
@@ -1941,6 +1941,11 @@
       "sha256": "1c384f23c6909238083abdc93d38924abed9e6f8251077b132c3b7db09a44830"
     },
     {
+      "path": "integration/NATIVE200CA-OWNER.md",
+      "bytes": 12428,
+      "sha256": "4660328c1b292b6d7c040b5a79c41358c85d4dd99f2bf300d465022ce3448b59"
+    },
+    {
       "path": "integration/NATIVE201A.md",
       "bytes": 2445,
       "sha256": "ee17e6b38cf8f49aed84d8cf2319895df76045d19b72938963d2c92e27baac9d"
@@ -2618,12 +2623,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 18581,
-      "sha256": "5ba40a16a6ad4bbcb468b6d1ea8c101f458382cb9f4b30e6deaec665c8a1bff5"
+      "sha256": "36e943dd77e3cb797aa3dc8748c132bcf79fa313e53bf30072bc7aece9cb9ea4"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
-      "bytes": 230016,
-      "sha256": "0c12cad0760434899201a6231beb6496186499eccee1a61e4cb21f7c92f55eb2"
+      "bytes": 230534,
+      "sha256": "550b73b787cf600f15d98ec5cd5b072eee928247053220bc0fb233d95bc945b3"
     },
     {
       "path": "integration/dependency_build/README.md",
@@ -3109,6 +3114,11 @@
       "path": "integration/native200_journal.py",
       "bytes": 3719,
       "sha256": "12fafea49577c20d1d1d6e4a642fd0fb5370ffb17904a6b0eda7870f09872054"
+    },
+    {
+      "path": "integration/native200_owner_package.py",
+      "bytes": 3802,
+      "sha256": "9c90a9c93b10cd32549f092d3af7890f13df0b69bee63a0b541ce3351094b966"
     },
     {
       "path": "integration/native200_preflight.py",
@@ -6179,6 +6189,11 @@
       "path": "tests/test_native200bc.py",
       "bytes": 8872,
       "sha256": "bd1f336cce0bf09bd097053a441c141a13d971f3df775f0467d10438e83760b2"
+    },
+    {
+      "path": "tests/test_native200ca.py",
+      "bytes": 2288,
+      "sha256": "a0746dd0c507daa448726f151ab9ace562bc9f9b1f721ebe97c19c7cafdbf496"
     },
     {
       "path": "tests/test_native201a.py",

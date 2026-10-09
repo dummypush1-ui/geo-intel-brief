@@ -563,6 +563,7 @@
         "integration/native200_admission_journal.py",
         "integration/native200_core.py",
         "integration/native200_journal.py",
+        "integration/native200_owner_package.py",
         "integration/native200_store.py",
         "integration/native201_ledger.py",
         "integration/native201_schemas.py",
@@ -605,6 +606,7 @@
         "tests/test_native200ba.py",
         "tests/test_native200bb.py",
         "tests/test_native200bc.py",
+        "tests/test_native200ca.py",
         "tests/test_native201a.py",
         "tests/test_native201b.py",
         "tests/test_native201guard.py",
@@ -1432,6 +1434,7 @@
         "integration/native200_admission_store.py",
         "integration/native200_core.py",
         "integration/native200_journal.py",
+        "integration/native200_owner_package.py",
         "integration/native200_preflight.py",
         "integration/native200_store.py",
         "integration/native201_broker.py",
@@ -1597,6 +1600,7 @@
         "tests/test_native200ba.py",
         "tests/test_native200bb.py",
         "tests/test_native200bc.py",
+        "tests/test_native200ca.py",
         "tests/test_native201a.py",
         "tests/test_native201b.py",
         "tests/test_native201guard.py",
@@ -3827,6 +3831,7 @@
         "tests/test_native200ba.py",
         "tests/test_native200bb.py",
         "tests/test_native200bc.py",
+        "tests/test_native200ca.py",
         "tests/test_native201a.py",
         "tests/test_native201b.py",
         "tests/test_native201guard.py",
@@ -4806,6 +4811,10 @@
         "sha256": "12fafea49577c20d1d1d6e4a642fd0fb5370ffb17904a6b0eda7870f09872054"
       },
       {
+        "path": "integration/native200_owner_package.py",
+        "sha256": "9c90a9c93b10cd32549f092d3af7890f13df0b69bee63a0b541ce3351094b966"
+      },
+      {
         "path": "integration/native200_preflight.py",
         "sha256": "d472681f8f8827165dd2ce98cc3b4553b067e38d410e3cb063f24c25cfe383f2"
       },
@@ -5768,6 +5777,10 @@
       {
         "path": "tests/test_native200bc.py",
         "sha256": "bd1f336cce0bf09bd097053a441c141a13d971f3df775f0467d10438e83760b2"
+      },
+      {
+        "path": "tests/test_native200ca.py",
+        "sha256": "a0746dd0c507daa448726f151ab9ace562bc9f9b1f721ebe97c19c7cafdbf496"
       },
       {
         "path": "tests/test_native201a.py",
