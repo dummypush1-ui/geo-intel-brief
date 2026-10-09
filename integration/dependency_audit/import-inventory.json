@@ -131,6 +131,7 @@
         "integration/collector_mail_fixture.py",
         "integration/digest_windows193.py",
         "integration/geo_queue_fixture.py",
+        "integration/native200_readonly_measurement.py",
         "integration/native200_store.py",
         "integration/news_export/fixture_http.py",
         "integration/news_export/geo_snapshot.py",
@@ -140,6 +141,7 @@
         "integration/replay199_schema.py",
         "tests/native200_state_fixture.py",
         "tests/native200_wire_fixture.py",
+        "tests/native200cb_read_fixture.py",
         "tests/news_export/test_fixture_http.py",
         "tests/news_export/test_keyset_plan.py",
         "tests/news_export/test_original_stream.py",
@@ -153,6 +155,7 @@
         "tests/test_geo_queue_fixture.py",
         "tests/test_geo_snapshot.py",
         "tests/test_mail166.py",
+        "tests/test_native200cb.py",
         "tests/test_project_reports.py"
       ],
       "stdlib": false,
@@ -564,6 +567,7 @@
         "integration/native200_core.py",
         "integration/native200_journal.py",
         "integration/native200_owner_package.py",
+        "integration/native200_readonly_measurement.py",
         "integration/native200_store.py",
         "integration/native201_ledger.py",
         "integration/native201_schemas.py",
@@ -580,6 +584,7 @@
         "tests/accounts/test_reservation_terminal.py",
         "tests/accounts/test_store_conformance.py",
         "tests/native200_state_fixture.py",
+        "tests/native200cb_read_fixture.py",
         "tests/test_article_archive.py",
         "tests/test_collection_prepare.py",
         "tests/test_collector122_validation.py",
@@ -607,6 +612,7 @@
         "tests/test_native200bb.py",
         "tests/test_native200bc.py",
         "tests/test_native200ca.py",
+        "tests/test_native200cb.py",
         "tests/test_native201a.py",
         "tests/test_native201b.py",
         "tests/test_native201guard.py",
@@ -1194,6 +1200,7 @@
         "integration/india_open_data/core.py",
         "integration/mail_bridge.py",
         "integration/map_layers.py",
+        "integration/native200_readonly_measurement.py",
         "integration/native200_transactions.py",
         "integration/native201_broker.py",
         "integration/news_api.py",
@@ -1436,6 +1443,7 @@
         "integration/native200_journal.py",
         "integration/native200_owner_package.py",
         "integration/native200_preflight.py",
+        "integration/native200_readonly_measurement.py",
         "integration/native200_store.py",
         "integration/native201_broker.py",
         "integration/native201_collector.py",
@@ -1514,6 +1522,7 @@
         "tests/geospatial/test_geospatial.py",
         "tests/geospatial/test_map_route.py",
         "tests/native200_state_fixture.py",
+        "tests/native200cb_read_fixture.py",
         "tests/news_export/test_export.py",
         "tests/news_export/test_export_route.py",
         "tests/news_export/test_fixture_http.py",
@@ -1601,6 +1610,7 @@
         "tests/test_native200bb.py",
         "tests/test_native200bc.py",
         "tests/test_native200ca.py",
+        "tests/test_native200cb.py",
         "tests/test_native201a.py",
         "tests/test_native201b.py",
         "tests/test_native201guard.py",
@@ -2469,6 +2479,7 @@
         "integration/geo_article_writer.py",
         "integration/geo_read_factory.py",
         "integration/geo_sample_probe.py",
+        "integration/native200_readonly_measurement.py",
         "integration/native200_store.py",
         "integration/native200_transactions.py",
         "integration/public_live_builder.py",
@@ -2481,6 +2492,7 @@
         "tests/test_mongo_account_store.py",
         "tests/test_native200a.py",
         "tests/test_native200ba.py",
+        "tests/test_native200cb.py",
         "tests/test_replay199a.py"
       ],
       "stdlib": false,
@@ -3131,6 +3143,7 @@
       "files": [
         "tests/native200_state_fixture.py",
         "tests/native200_wire_fixture.py",
+        "tests/native200cb_read_fixture.py",
         "tests/news_export/test_fixture_serving.py"
       ],
       "stdlib": true,
@@ -3339,6 +3352,7 @@
       "files": [
         "tests/accounts/test_reservation_terminal.py",
         "tests/native200_state_fixture.py",
+        "tests/native200cb_read_fixture.py",
         "tests/news_export/test_fixture_serving.py",
         "tests/test_collector197b_http.py",
         "tests/test_collector197c.py",
@@ -3358,6 +3372,7 @@
         "tests/test_native200ba.py",
         "tests/test_native200bb.py",
         "tests/test_native200bc.py",
+        "tests/test_native200cb.py",
         "tests/test_native201a.py",
         "tests/test_native201b.py",
         "tests/test_native201guard.py",
@@ -3605,6 +3620,7 @@
         "integration/geo_probe_process.py",
         "integration/native200_admission_core.py",
         "integration/native200_core.py",
+        "integration/native200_readonly_measurement.py",
         "integration/native201_collector.py",
         "integration/news_export/export.py",
         "integration/news_export/geo_snapshot.py",
@@ -3650,6 +3666,7 @@
       "import": "types",
       "files": [
         "integration/native200_admission_store.py",
+        "integration/native200_readonly_measurement.py",
         "integration/native200_store.py",
         "integration/renderer_scope.py",
         "tests/geospatial/test_map_route.py",
@@ -3666,6 +3683,7 @@
         "tests/test_geo_article_writer.py",
         "tests/test_legacy_bulk_outcome.py",
         "tests/test_mongo_account_store.py",
+        "tests/test_native200cb.py",
         "tests/test_replay199a.py",
         "tests/text_matching/test_matching.py"
       ],
@@ -3832,6 +3850,7 @@
         "tests/test_native200bb.py",
         "tests/test_native200bc.py",
         "tests/test_native200ca.py",
+        "tests/test_native200cb.py",
         "tests/test_native201a.py",
         "tests/test_native201b.py",
         "tests/test_native201guard.py",
@@ -4819,6 +4838,10 @@
         "sha256": "d472681f8f8827165dd2ce98cc3b4553b067e38d410e3cb063f24c25cfe383f2"
       },
       {
+        "path": "integration/native200_readonly_measurement.py",
+        "sha256": "2993c845e1298906230ce0ee6a354632dc71c21f7f03dde34c41f74f3efccce9"
+      },
+      {
         "path": "integration/native200_store.py",
         "sha256": "f378846724d4ae73cfec7b4551c96ed63aee8bd9792029a62b67be94ed050a13"
       },
@@ -5319,6 +5342,10 @@
         "sha256": "3e7a4d6a8a0fdea22f26afe55a53be0cce529a83cc322455efb3778665f85260"
       },
       {
+        "path": "tests/native200cb_read_fixture.py",
+        "sha256": "4cd68e347841c3e5a8761c114190a764af1e34249cc44c78a77336b09193686b"
+      },
+      {
         "path": "tests/news_export/__init__.py",
         "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
       },
@@ -5781,6 +5808,10 @@
       {
         "path": "tests/test_native200ca.py",
         "sha256": "a0746dd0c507daa448726f151ab9ace562bc9f9b1f721ebe97c19c7cafdbf496"
+      },
+      {
+        "path": "tests/test_native200cb.py",
+        "sha256": "a86f00d7e60b8e932c80d21a33deb563eb7d374bc3f3c706b5fd6fd6219076f7"
       },
       {
         "path": "tests/test_native201a.py",
