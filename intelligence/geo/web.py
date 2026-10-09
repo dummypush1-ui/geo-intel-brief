@@ -279,6 +279,8 @@ def dashboard():
     if (err := _db_check()):
         return err
     limit = request.args.get("limit", default=2000, type=int)
+    if type(limit) is not int or not 1<=limit<=2000 or request.args.get("limit") is not None and not request.args.get("limit").isdigit():
+        return jsonify(error="dashboard limit must be1-2000"),400
     category = request.args.get("category") or None
     sort_by = request.args.get("sort_by", default="score")
     html_out = build_dashboard_html(limit=limit, category=category, trigger_key="", sort_by=sort_by)

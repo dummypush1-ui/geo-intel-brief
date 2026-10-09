@@ -3,8 +3,8 @@
   "sources": [
     {
       "path": "intelligence/geo/web.py",
-      "bytes": 12795,
-      "sha256": "2c395128b2d7e0eb7cda66ffa49f164a0839cf6d7e43c36eba7b710c867c5e3f",
+      "bytes": 12999,
+      "sha256": "050a25cc0ad9dd3c5bc06d8c68fd2a5f401641c5cb48f10e9da50e675340dc12",
       "functions": [
         "_service",
         "init_db",
@@ -38,7 +38,7 @@
         "export_csv",
         "cleanup_old"
       ],
-      "reviewed_change": "storage165 bounded reads/export, historical snapshot oracle retained separately; no live provisioning"
+      "reviewed_change": "dashboard167 query validation"
     },
     {
       "path": "intelligence/geo/config.py",

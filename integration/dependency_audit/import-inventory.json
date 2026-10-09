@@ -1292,6 +1292,7 @@
       "files": [
         "integration/collection_prepare.py",
         "integration/geo_collector_contract.py",
+        "tests/test_dashboard167.py",
         "tests/test_digest_preview_routes.py",
         "tests/test_fixed_parser_pipeline.py",
         "tests/test_geo_collector_contract.py",
@@ -2191,6 +2192,7 @@
         "tests/geonews_digest/test_digest.py",
         "tests/geospatial/test_geospatial.py",
         "tests/test_build_provenance150.py",
+        "tests/test_dashboard167.py",
         "tests/test_env_example.py",
         "tests/test_feature_finder_prep.py",
         "tests/test_finder_nested.py",
@@ -2916,6 +2918,7 @@
         "tests/test_country_signals_routes.py",
         "tests/test_critical_stories.py",
         "tests/test_cross_routes.py",
+        "tests/test_dashboard167.py",
         "tests/test_dashboard_model.py",
         "tests/test_dashboard_snapshots.py",
         "tests/test_dashboard_stats.py",
@@ -4240,6 +4243,10 @@
       {
         "path": "tests/test_cross_routes.py",
         "sha256": "3e33ddd46c2c18c67ff7f4ed29e01fc37bd0e8878199e3b6e2dd352f3169becd"
+      },
+      {
+        "path": "tests/test_dashboard167.py",
+        "sha256": "e227f3b5e733ab86b269b81559e45be2d3d718f42bcf9e0959fc65dd7c4f5395"
       },
       {
         "path": "tests/test_dashboard_model.py",

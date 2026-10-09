@@ -82,7 +82,9 @@ def build_dashboard_html(limit=2000, category=None, trigger_key=None, sort_by="s
 
     max_cat = max((c["cnt"] for c in cats), default=1)
     now = datetime.now().strftime("%d %b %Y, %H:%M")
-    key_param = f"&key={trigger_key}" if trigger_key else ""
+    key_param = ""
+    from urllib.parse import urlencode
+    export_href = "/export.csv" + ("?" + urlencode({"category":category}) if category else "")
 
     # Risk-level breakdown (from the currently loaded article set)
     risk_counts = defaultdict(int)
@@ -110,7 +112,7 @@ def build_dashboard_html(limit=2000, category=None, trigger_key=None, sort_by="s
 
     <input type="text" class="searchbox" id="searchBox" placeholder="🔎 Filter articles by title, source, or country..." onkeyup="filterArticles()">
     <p style="margin:-8px 0 16px;display:flex;justify-content:space-between;align-items:center">
-        <a href="/export.csv{('?key=' + trigger_key) if trigger_key else ''}{('&category=' + category) if category else ''}" style="font-size:12px;color:#2b6cb0;font-weight:600">⬇️ Export all articles as CSV</a>
+        <a href="{html.escape(export_href)}" style="font-size:12px;color:#2b6cb0;font-weight:600">⬇️ Export bounded newest articles as CSV</a>
         <span style="font-size:12px;color:#718096">Sort by:
             <a href="?limit={limit}&sort_by=score{key_param}{('&category=' + category) if category else ''}" style="{'font-weight:700;color:#1a365d' if sort_by=='score' else 'color:#2b6cb0'}">Score</a> &middot;
             <a href="?limit={limit}&sort_by=newest{key_param}{('&category=' + category) if category else ''}" style="{'font-weight:700;color:#1a365d' if sort_by=='newest' else 'color:#2b6cb0'}">Newest</a> &middot;

@@ -84,14 +84,15 @@
       "source_path": "web.py",
       "path": "intelligence/geo/web.py",
       "source_sha256": "eb0312abeead1d445dddf0d621c6f03ad4d699027db48cbdc527493101358c47",
-      "sha256": "2c395128b2d7e0eb7cda66ffa49f164a0839cf6d7e43c36eba7b710c867c5e3f",
+      "sha256": "050a25cc0ad9dd3c5bc06d8c68fd2a5f401641c5cb48f10e9da50e675340dc12",
       "changes": [
         "root imports namespaced only",
         "bulk147 candidate pending final independent review: driver outcomes, held legacy backup, explicit status/labels; no live activation",
         "date151 candidate: strict publication evidence, no now fallback, non-durable hold counters; independent final review pending",
         "Reviewed P0 candidate: header-only fail-closed legacy HTTP auth and unconditional article-deletion hold; no live activation",
         "Reviewed candidate bounded read/export source contract; no provisioning or live activation",
-        "storage165 bounded reads/export and dashboard default; no provisioning/live effects"
+        "storage165 bounded reads/export and dashboard default; no provisioning/live effects",
+        "dashboard167 clean400 and category-only bounded export link; no credential in HTML"
       ],
       "prior_preserved_sha256": "7931165782766d4b6d05ac1207045e158d0ecaa15baf0b6f30d4abe0ba346dfc"
     },
@@ -223,11 +224,12 @@
       "source_path": "reports/dashboard.py",
       "path": "intelligence/geo/reports/dashboard.py",
       "source_sha256": "ade8fc1ccfd08070ae28862570030e26b82c1b55de3d147b6e935a08ae7b6c09",
-      "sha256": "144329e687b9879f2644ebd3b22c1ac96fa9a4b1ae8d2e52ed590747a89ae2a9",
+      "sha256": "c8823f640d83dcfdb7641d2b9cadca2e1ddb6c2d63924049861efdf21a4b6a4a",
       "changes": [
         "root imports namespaced only",
         "bulk147 candidate pending final independent review: driver outcomes, held legacy backup, explicit status/labels; no live activation",
-        "storage165 bounded reads/export and dashboard default; no provisioning/live effects"
+        "storage165 bounded reads/export and dashboard default; no provisioning/live effects",
+        "dashboard167 clean400 and category-only bounded export link; no credential in HTML"
       ],
       "prior_preserved_sha256": "8faf0fcaf062ee0e90929d5ed6249c4962c2e2b8b2e330d61e8cdab362ecfa18"
     },

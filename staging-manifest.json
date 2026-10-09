@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 1486,
+  "tests": 1488,
   "files": [
     {
       "path": ".env.example",
@@ -217,8 +217,8 @@
     },
     {
       "path": "collector108_prep/source-inventory.json",
-      "bytes": 5672,
-      "sha256": "44808ad01078c30197319379995b3a8bceaee1e439fb423a59211fd12792fce7"
+      "bytes": 5600,
+      "sha256": "a7c19b91e7acab103973cc4cdbeeb78e1dfdccb42ff4dacb59175b8d2d6175f9"
     },
     {
       "path": "collector108_prep/test_apps_script.js",
@@ -2258,12 +2258,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 18581,
-      "sha256": "328b6fe9a3a5ebd497ffd1ee718de9dd9ab8e565a2617c79707872d2a2f32021"
+      "sha256": "cff24f2028eec92baa3f8c67782f713742278045a3c548fb734fd07be1424e86"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
-      "bytes": 176903,
-      "sha256": "fd3b048df6679b5c8f9544222d2cb69f4b12f5c3c9999bb238b12423d537c091"
+      "bytes": 177165,
+      "sha256": "2c1ec996ee3e1ea3f4b9af8d0b251b72e9f32fa3c3b9b08d4723fdaa8451cb40"
     },
     {
       "path": "integration/dependency_build/README.md",
@@ -3817,8 +3817,8 @@
     },
     {
       "path": "intelligence/geo/reports/dashboard.py",
-      "bytes": 11785,
-      "sha256": "144329e687b9879f2644ebd3b22c1ac96fa9a4b1ae8d2e52ed590747a89ae2a9"
+      "bytes": 11808,
+      "sha256": "c8823f640d83dcfdb7641d2b9cadca2e1ddb6c2d63924049861efdf21a4b6a4a"
     },
     {
       "path": "intelligence/geo/reports/email_report.py",
@@ -3867,8 +3867,8 @@
     },
     {
       "path": "intelligence/geo/web.py",
-      "bytes": 12795,
-      "sha256": "2c395128b2d7e0eb7cda66ffa49f164a0839cf6d7e43c36eba7b710c867c5e3f"
+      "bytes": 12999,
+      "sha256": "050a25cc0ad9dd3c5bc06d8c68fd2a5f401641c5cb48f10e9da50e675340dc12"
     },
     {
       "path": "legacy-config/finder-README.md",
@@ -3907,8 +3907,8 @@
     },
     {
       "path": "preservation-manifest.json",
-      "bytes": 24135,
-      "sha256": "c25c40377dab8cd5d2b223ce170ba1316fe487fbc63bb0deb3e82eb0726a7af5"
+      "bytes": 24323,
+      "sha256": "1b56b5c2e623a3d6cda12bbdf1dc134685c5a6c9fa68bfcc19a46c1a0f8fdbff"
     },
     {
       "path": "production_entry.py",
@@ -5059,6 +5059,11 @@
       "path": "tests/test_cross_routes.py",
       "bytes": 1711,
       "sha256": "3e33ddd46c2c18c67ff7f4ed29e01fc37bd0e8878199e3b6e2dd352f3169becd"
+    },
+    {
+      "path": "tests/test_dashboard167.py",
+      "bytes": 1208,
+      "sha256": "e227f3b5e733ab86b269b81559e45be2d3d718f42bcf9e0959fc65dd7c4f5395"
     },
     {
       "path": "tests/test_dashboard_model.py",
