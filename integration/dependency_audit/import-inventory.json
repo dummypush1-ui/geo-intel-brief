@@ -1188,6 +1188,7 @@
         "tests/test_channels171.py",
         "tests/test_collection_prepare.py",
         "tests/test_collector_mail_fixture.py",
+        "tests/test_copy191.py",
         "tests/test_country_alerts.py",
         "tests/test_country_page.py",
         "tests/test_country_signals.py",
@@ -1831,6 +1832,7 @@
         "tests/test_classifier146_inventory.py",
         "tests/test_compulsory_channels.py",
         "tests/test_comtrade178.py",
+        "tests/test_copy191.py",
         "tests/test_cors190.py",
         "tests/test_digest_cold.py",
         "tests/test_edge_guard.py",
@@ -3127,6 +3129,7 @@
         "tests/test_collector_mail_fixture.py",
         "tests/test_compulsory_channels.py",
         "tests/test_comtrade178.py",
+        "tests/test_copy191.py",
         "tests/test_cors190.py",
         "tests/test_country_alerts.py",
         "tests/test_country_page.py",
@@ -3973,7 +3976,7 @@
       },
       {
         "path": "integration/news_api.py",
-        "sha256": "a288d2313ad76637067079435d35271cafb99bbc7416844ce85b573b99de3d95"
+        "sha256": "949ce2c38b1826b4c8602a185ecc7cabaef2d8906fa9b06ab3f64405f20e61ba"
       },
       {
         "path": "integration/news_export/__init__.py",
@@ -4522,6 +4525,10 @@
       {
         "path": "tests/test_comtrade178.py",
         "sha256": "4a94622a2a3ba607a81825903b9ce219cc78f28ce3340dcca72a2a5893f62261"
+      },
+      {
+        "path": "tests/test_copy191.py",
+        "sha256": "7714828476df0abbf677a16078c052b27c8493f05391819a5f7655d5edc07725"
       },
       {
         "path": "tests/test_cors190.py",

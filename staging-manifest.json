@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 1587,
+  "tests": 1590,
   "files": [
     {
       "path": ".env.example",
@@ -1726,6 +1726,11 @@
       "sha256": "3d781ed5a670b0a576e885e636b38d6b797a50e29d9be848a15b2e708bee2f3b"
     },
     {
+      "path": "integration/COPY191.md",
+      "bytes": 616,
+      "sha256": "4eeb1d7651f4ed04954f7ec899ac41a71700579f7bab11a0561a4e3a6efd46f8"
+    },
+    {
       "path": "integration/COUNTRY_ALERTS_LIMITS.md",
       "bytes": 3507,
       "sha256": "08429b42dd73828d442f82a9e797ae1b86d88a0d3196b2fbed0da81a3a5fb2fb"
@@ -2368,12 +2373,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 18581,
-      "sha256": "e64a4a486e40671501d78f9c154284d254e5d427066a26cf4b08105647d29de5"
+      "sha256": "cfc891b0c90dde1fd3fe638d9f37e1dfc6b56fc5825dffb4d08ecceb5210b5ab"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
-      "bytes": 189444,
-      "sha256": "2e375d68bade173b729c2e938ab92c29792d63c902c814affc420de2b82b13cd"
+      "bytes": 189686,
+      "sha256": "ac31e9a27bb169c7ec6b966504101b4e83feaf076b077bea8f67f7d4e89a7ca0"
     },
     {
       "path": "integration/dependency_build/README.md",
@@ -2757,8 +2762,8 @@
     },
     {
       "path": "integration/news_api.py",
-      "bytes": 26854,
-      "sha256": "a288d2313ad76637067079435d35271cafb99bbc7416844ce85b573b99de3d95"
+      "bytes": 27102,
+      "sha256": "949ce2c38b1826b4c8602a185ecc7cabaef2d8906fa9b06ab3f64405f20e61ba"
     },
     {
       "path": "integration/news_export/FIXTURE_HTTP_LIMITS.md",
@@ -3672,8 +3677,8 @@
     },
     {
       "path": "integration/ui/workspace.js",
-      "bytes": 34065,
-      "sha256": "cde200b67f920edce3fc8577c7d6ba3f32cf1bd5605c333ae8e191ee7d4f6459"
+      "bytes": 34497,
+      "sha256": "fbb81d3b899fb3aaebbbb548af79020518c8bc680d13eae0fb6d749e44bf8b73"
     },
     {
       "path": "integration/weekly_report/README.md",
@@ -5274,6 +5279,11 @@
       "path": "tests/test_comtrade178.py",
       "bytes": 913,
       "sha256": "4a94622a2a3ba607a81825903b9ce219cc78f28ce3340dcca72a2a5893f62261"
+    },
+    {
+      "path": "tests/test_copy191.py",
+      "bytes": 1166,
+      "sha256": "7714828476df0abbf677a16078c052b27c8493f05391819a5f7655d5edc07725"
     },
     {
       "path": "tests/test_cors190.py",

@@ -70,7 +70,9 @@ def create_app(reader=None,authorize=None,finder_context_reader=None,finder_base
  @app.get('/workspace')
  def workspace():
   html=(root/'integration/ui/workspace.html').read_text()
-  return Response(html.replace('data-full-news-pages="false"','data-full-news-pages="true"' if full_news_pages is not None else 'data-full-news-pages="false"'),mimetype='text/html')
+  if full_news_pages is not None:
+   html=html.replace('data-full-news-pages="false"','data-full-news-pages="true"').replace('Loaded sample only. Database totals and unsupplied events are unavailable.','Summary metrics use up to the latest 100 stored articles, not the whole-store total. The feed can load more below.').replace('Export loaded sample CSV','Export latest-100 view CSV')
+  return Response(html,mimetype='text/html')
  @app.get('/workspace/assets/<name>')
  def assets(name):
   if name not in ('workspace.js','news_scroll.js','workspace.css','live_news.js','live_channels.js','countries.js','countries.css','tariffs.js','watch_updates.js','weekly.js','weekly.css','map.js','map.css','geo_map_ui.js','geo_map.css','brics_streams.js','brics_streams.css'):return jsonify(error='Not found'),404
