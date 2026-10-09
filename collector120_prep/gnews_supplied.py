@@ -2,12 +2,13 @@
 import ast,hashlib
 from pathlib import Path
 from datetime import datetime,timezone
+from integration.publication_dates.policy import publication_date
 from collector110_prep.input_budget import capture
 from collector115_prep.profile import compile_profile
 from intelligence.geo.processing.classifier import classify,strip_html
 from intelligence.geo.processing.dedupe import dedupe_articles
 ROOT=Path(__file__).resolve().parents[1]
-PIN='b2d2ba35db61a47993d1bb3a50b2677e02e677f1a3758756eb514033d457bcdc'
+PIN='2dc1a789fdfd84d73b3d63d3269a9fcb12c719549db14282725e015f99ebfab4'
 class GNewsRefused(ValueError):pass
 class SuppliedWriteOutcomeError(ValueError):pass
 
@@ -31,8 +32,8 @@ def prepare_supplied_gnews(settings,outcomes,*,clock,available=True):
  for query,o in bounded.items():
   if type(o)is not dict or set(o)!={'state','results'} or o['state']not in ('ok','error') or type(o['results'])is not list or len(o['results'])>100 or o['state']=='error'and o['results']:raise GNewsRefused('SDK outcome shape')
   for r in o['results']:
-   if type(r)is not dict or set(r)-{'title','url','description','publisher'}:raise GNewsRefused('Closed SDK result')
-   if any(type(r.get(k,''))is not str for k in ('title','url','description')):raise GNewsRefused('Exact SDK strings')
+   if type(r)is not dict or set(r)-{'title','url','description','publisher','published date'}:raise GNewsRefused('Closed SDK result')
+   if any(type(r.get(k,''))is not str for k in ('title','url','description','published date')):raise GNewsRefused('Exact SDK strings')
    pub=r.get('publisher',{})
    if type(pub)is not dict or set(pub)-{'title'}or type(pub.get('title','Google News'))is not str:raise GNewsRefused('Publisher shape')
  result={'scope':'inactive_original_gnews_supplied','state':'disabled_by_config','documents':[],
@@ -54,8 +55,8 @@ def prepare_supplied_gnews(settings,outcomes,*,clock,available=True):
    return o['results']
  def save(docs):result['documents']=capture({'documents':docs})['captured']['documents'];return len(docs)
  log=[]
- scope={'__builtins__':{'print':lambda *a:log.append(1),'set':set,'Exception':Exception},
-        'HAS_GNEWS':available,'GNews':Client,'GNEWS_LANGUAGE':'en','GNEWS_COUNTRY':'US','GNEWS_PERIOD':'1d','GNEWS_MAX_RESULTS':15,
+ scope={'__builtins__':{'print':lambda *a:log.append(1),'set':set,'Exception':Exception,'isinstance':isinstance,'dict':dict,'str':str},
+        'publication_date':publication_date,'HAS_GNEWS':available,'GNews':Client,'GNEWS_LANGUAGE':'en','GNEWS_COUNTRY':'US','GNEWS_PERIOD':'1d','GNEWS_MAX_RESULTS':15,
         'GNEWS_QUERY_GROUPS':groups,'DEDUPE_THRESHOLD':p['threshold'],'ACTIVE_CATEGORIES':p['active_categories'],
         'ENABLE_TELEGRAM_BACKUP':p['source_flags']['ENABLE_TELEGRAM_BACKUP'],'classify':classify,'strip_html':strip_html,
         'ArticleWriteOutcomeError':SuppliedWriteOutcomeError,'dedupe_articles':dedupe_articles,'save_articles_bulk':save,'datetime':Clock,'timezone':timezone}

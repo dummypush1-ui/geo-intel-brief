@@ -9,6 +9,7 @@ actually matches any term in the group, e.g.:
     ["sanctions", "trade order", "FTA"]  ->  "sanctions OR trade order OR FTA"
 """
 from datetime import datetime, timezone
+from integration.publication_dates.policy import publication_date
 from intelligence.geo.config import (GNEWS_LANGUAGE, GNEWS_COUNTRY, GNEWS_PERIOD,
                      GNEWS_MAX_RESULTS, GNEWS_QUERY_GROUPS, DEDUPE_THRESHOLD,
                      ACTIVE_CATEGORIES, ENABLE_TELEGRAM_BACKUP)
@@ -44,15 +45,20 @@ def collect():
             print(f"[GNEWS] '{query}': {exc}")
             continue
 
+        observed_at = datetime.now(timezone.utc)
         for art in results:
             title = (art.get("title") or "").strip()
             link = (art.get("url") or "").strip()
             if not title or not link or title in seen_titles:
                 continue
+            published, date_state = publication_date(art.get("published date"), observed_at)
+            if published is None:
+                continue
             seen_titles.add(title)
 
             summary = strip_html(art.get("description") or "")
-            source = (art.get("publisher") or {}).get("title", "Google News")
+            publisher = art.get("publisher")
+            source = publisher.get("title", "Google News") if isinstance(publisher, dict) else (publisher if isinstance(publisher, str) and publisher else "Google News")
             category, score, level, country = classify(title, summary)
             if category not in ACTIVE_CATEGORIES:
                 continue
@@ -61,7 +67,7 @@ def collect():
                 "credibility": "MEDIUM",  # Google News aggregates many publishers; can't rate individually
                 "corroboration": 1,
                 "category": category, "summary": summary,  # kept full here; trimmed only at save time below
-                "published": datetime.now(timezone.utc).isoformat(),
+                "published": published.isoformat(),
                 "score": score, "risk_level": level, "country": country,
             })
 

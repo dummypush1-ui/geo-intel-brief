@@ -5,7 +5,7 @@ in collectors/, processing/, or reports/ needs to change — they just call
 save_article(), recent_articles(), etc. as before. Records behave like
 dicts (a["title"], a["score"], ...) exactly like the old sqlite3.Row did.
 """
-from datetime import datetime, timedelta, timezone
+from datetime import date, datetime, timedelta, timezone
 from threading import Lock
 from pymongo import MongoClient, ASCENDING, DESCENDING
 from pymongo.errors import DuplicateKeyError, BulkWriteError
@@ -161,6 +161,17 @@ def update_telegram_refs(articles):
 
 
 def save_event(e):
+    # Refuse placeholder rows before connecting or adding created_at.
+    if type(e) is not dict or type(e.get("name")) is not str or not e["name"].strip() or len(e["name"]) > 512:
+        raise ValueError("Event name required")
+    value = e.get("event_date")
+    if type(value) is not str or len(value) != 10:
+        raise ValueError("Canonical event date required")
+    try:
+        if date.fromisoformat(value).isoformat() != value:
+            raise ValueError()
+    except ValueError:
+        raise ValueError("Canonical event date required") from None
     db = connect()
     doc = dict(e)
     doc.setdefault("created_at", _now_iso())

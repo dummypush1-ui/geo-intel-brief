@@ -6,7 +6,7 @@ D=datetime(2026,1,1,tzinfo=timezone.utc)
 T=ast.parse((Path(__file__).resolve().parents[1]/'intelligence/geo/config.py').read_text())
 G=ast.literal_eval(next(n.value for n in T.body if type(n)is ast.Assign and any(type(t)is ast.Name and t.id=='GNEWS_QUERY_GROUPS'for t in n.targets)))
 Q=[' OR '.join(g)for g in G]
-def outcomes():return {q:{'state':'ok','results':[{'title':'Trade tariff','url':'https://example.com/a','description':'<b>trade tariff</b>','publisher':{'title':'Fixture'}}]}for q in Q}
+def outcomes():return {q:{'state':'ok','results':[{'title':'Trade tariff','url':'https://example.com/a','description':'<b>trade tariff</b>','publisher':{'title':'Fixture'},'published date':'2025-12-31T12:00:00Z'}]}for q in Q}
 class Tests(unittest.TestCase):
  def test_default_disabled(self):self.assertEqual(prepare_supplied_gnews({}, {},clock=D)['state'],'disabled_by_config')
  def test_enabled_backup_held_not_fake_sent(self):

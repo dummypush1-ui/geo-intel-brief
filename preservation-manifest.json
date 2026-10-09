@@ -9,14 +9,15 @@
       "source_path": "database.py",
       "path": "intelligence/geo/database.py",
       "source_sha256": "c07a5dacb008b8407e22e194b34ea81d97ec5b41ecc8414a347a444edb80002c",
-      "sha256": "dba872ee7a91d87de53f5d66ae6f761e67d40472dfe88b65193017c1bfa26286",
+      "sha256": "fac57697ffbb26652f4f99c6d4891577912e54defed2b8a4287039c9bd046bf5",
       "changes": [
         "root imports namespaced only",
         "bulk147 candidate pending final independent review: driver outcomes, held legacy backup, explicit status/labels; no live activation",
         "Reviewed P0 candidate: header-only fail-closed legacy HTTP auth and unconditional article-deletion hold; no live activation",
         "Reviewed candidate bounded read/export source contract; no provisioning or live activation",
         "storage165 bounded reads/export and dashboard default; no provisioning/live effects",
-        "181 reviewed per-process lazy Mongo initialization lock/local pair publication and failed-client close; six query-index source proposals with explicit default-off provisioning gate; no live indexes or query changes"
+        "181 reviewed per-process lazy Mongo initialization lock/local pair publication and failed-client close; six query-index source proposals with explicit default-off provisioning gate; no live indexes or query changes",
+        "182 reviewed actual provider publication dates with holds/no now fallback; empty event seed and required name/ISOdate before writes; no activation"
       ],
       "prior_preserved_sha256": "4b045c167947a4bed6a5456267430b239751bef551a0794b2e652b2cbc2058c4"
     },
@@ -269,10 +270,11 @@
       "source_path": "collectors/gnews_search.py",
       "path": "intelligence/geo/collectors/gnews_search.py",
       "source_sha256": "ee0b8a83750d8159356a153c01b9147cdd17d3ea638ee3caa07d9d275eafc20d",
-      "sha256": "b2d2ba35db61a47993d1bb3a50b2677e02e677f1a3758756eb514033d457bcdc",
+      "sha256": "2dc1a789fdfd84d73b3d63d3269a9fcb12c719549db14282725e015f99ebfab4",
       "changes": [
         "root imports namespaced only",
-        "bulk147 candidate pending final independent review: driver outcomes, held legacy backup, explicit status/labels; no live activation"
+        "bulk147 candidate pending final independent review: driver outcomes, held legacy backup, explicit status/labels; no live activation",
+        "182 reviewed actual provider publication dates with holds/no now fallback; empty event seed and required name/ISOdate before writes; no activation"
       ],
       "prior_preserved_sha256": "9b948cad40e0d450745f36378360f6c85989a257a3c50b383cb6de694d36c7af"
     },
@@ -313,10 +315,12 @@
       "source_path": "collectors/events.py",
       "path": "intelligence/geo/collectors/events.py",
       "source_sha256": "6d23f0978749875318a62414077d2b895ffdcece55c42fef0f972ddb2b948c32",
-      "sha256": "4adb1ddb80a6483f445d3130664eb8924285aca5b267548ba2b42a6171238c11",
+      "sha256": "35fac6f9f799e2790b59b5fb35d429f367b66d3b6de3676529c0d37047f4d037",
       "changes": [
-        "root imports namespaced only"
-      ]
+        "root imports namespaced only",
+        "182 reviewed actual provider publication dates with holds/no now fallback; empty event seed and required name/ISOdate before writes; no activation"
+      ],
+      "prior_preserved_sha256": "4adb1ddb80a6483f445d3130664eb8924285aca5b267548ba2b42a6171238c11"
     },
     {
       "source_repo": "geonews",
