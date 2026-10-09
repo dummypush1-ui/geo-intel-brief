@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 2089,
+  "tests": 2101,
   "files": [
     {
       "path": ".env.example",
@@ -1816,6 +1816,11 @@
       "sha256": "f4c10c388b1048aa2e8146cfbd15cc337e80b293c5e457763a21bf5bd8a0976a"
     },
     {
+      "path": "integration/DIGEST-EMAIL218.md",
+      "bytes": 4524,
+      "sha256": "6ca0a48435da89edcb02d0b3bb444dcd16b72286f99bb0ac9dfbefb0f958b998"
+    },
+    {
       "path": "integration/DIGEST-RENDER203.md",
       "bytes": 3297,
       "sha256": "0e9d69c13bd7800748180bc652eef563a8ae0d72400065998dafddf264f44e74"
@@ -2728,12 +2733,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 18581,
-      "sha256": "eb91fed26750e0cbc74bc014a248aa3700f3590b866d99fc16ea8e40aa2fa86f"
+      "sha256": "9985fb739eab7374b2e9d2eb6eb9f83cb5b8f0bd923ed41a72fea6d92ead0981"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
-      "bytes": 243599,
-      "sha256": "8ac14d978a716d5e7eeb7a241302ff923965a3fa77f1e25a04bca34928703db8"
+      "bytes": 244565,
+      "sha256": "e8e80fbf972a7e7ce09103a415dac725a07a8a6152617152b38acfaabe4d14bd"
     },
     {
       "path": "integration/dependency_build/README.md",
@@ -2774,6 +2779,11 @@
       "path": "integration/digest_dates202.py",
       "bytes": 3393,
       "sha256": "906f5fcf6eff37f2aef557f2a08c24f3f98b08e45901ff37c80a2c7e249c6f89"
+    },
+    {
+      "path": "integration/digest_email218.py",
+      "bytes": 7613,
+      "sha256": "4a5453fe9bc5b028a4196fcef8289384a1708c356376c77f2cce440ba88772b8"
     },
     {
       "path": "integration/digest_preview.py",
@@ -6114,6 +6124,11 @@
       "path": "tests/test_digest_dates202.py",
       "bytes": 3943,
       "sha256": "9399833467b642ab18a7f67971bcddfaf7f5f69e1e8ae1f55c1750c3d5d9ebcd"
+    },
+    {
+      "path": "tests/test_digest_email218.py",
+      "bytes": 6841,
+      "sha256": "a00e87f900bdfd31b99c32640f6527cf7e5b33935a2fd44056430ce4c28caff1"
     },
     {
       "path": "tests/test_digest_preview_routes.py",
