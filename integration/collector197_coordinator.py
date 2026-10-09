@@ -12,7 +12,8 @@ class CoordinatorRefused(ValueError):pass
 
 def _command():return [sys.executable,'-I',str(ROOT/'integration/collector197_coordinator_child.py')]
 
-def supervised_candidates(*, deadline, per_feed_seconds, max_items=50, lookback_hours=24, request_timeout=20):
+def supervised_candidates(*, deadline, per_feed_seconds, max_items=50, lookback_hours=24, request_timeout=20, job_mode=False):
+    if type(job_mode)is not bool:raise CoordinatorRefused('Exact job selection required')
     _pins()
     now=time.monotonic()
     if type(deadline)not in (int,float) or not now<deadline<=now+90 or per_feed_seconds!=25:
@@ -20,7 +21,7 @@ def supervised_candidates(*, deadline, per_feed_seconds, max_items=50, lookback_
     end=deadline-15
     raw=json.dumps({'deadline':deadline,'per_feed_seconds':per_feed_seconds,
         'max_items':max_items,'lookback_hours':lookback_hours,'request_timeout':request_timeout,
-        'observed_at':datetime.now(timezone.utc).isoformat()}).encode()
+        'observed_at':datetime.now(timezone.utc).isoformat(),**({'job_mode':True}if job_mode else{})}).encode()
     p=None;sel=selectors.DefaultSelector();sent=0;buffers={}
     try:
         p=subprocess.Popen(_command(),stdin=subprocess.PIPE,stdout=subprocess.PIPE,stderr=subprocess.PIPE,

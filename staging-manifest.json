@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 1691,
+  "tests": 1708,
   "files": [
     {
       "path": ".env.example",
@@ -1371,6 +1371,11 @@
       "sha256": "053676d2fc0f2db6845c5ab7ad583a40f0c8bbc3f0e0c2da139343d31d89b393"
     },
     {
+      "path": "collector197_job_cli.py",
+      "bytes": 340,
+      "sha256": "2e45aa5a92acf2667a729147307728c6df2b50781425dbfd95a6db62065f1246"
+    },
+    {
       "path": "compute-sancgap.mjs",
       "bytes": 5656,
       "sha256": "c61cb59ac916eb51e83368e5611a70a81111ff1a8f198dfb820a2ee849fd0df8"
@@ -1729,6 +1734,11 @@
       "path": "integration/COLLECTOR197C.md",
       "bytes": 2236,
       "sha256": "defbc584191a052f11c1bd365cb04bfa24d8082d4ef3a35b691815d60d8c705e"
+    },
+    {
+      "path": "integration/COLLECTOR197EA.md",
+      "bytes": 5279,
+      "sha256": "008e035f533bd1c51faf145b19117d9eab71903809eeada23d950549e552c425"
     },
     {
       "path": "integration/COLLECTOR_MAIL_FIXTURE_LIMITS.md",
@@ -2302,13 +2312,13 @@
     },
     {
       "path": "integration/collector197_coordinator.py",
-      "bytes": 4584,
-      "sha256": "23493101dd5866943b4b0ba6249d6beb41f15382d8b81684f052d41a08b22fe2"
+      "bytes": 4730,
+      "sha256": "6f26d8270ffde995334d61543283bf8c69ae8db9a7d18f6ccdb3a75b994431ff"
     },
     {
       "path": "integration/collector197_coordinator_child.py",
-      "bytes": 1245,
-      "sha256": "aa30fbf17da17b2ecc5a1c40362433be89b3ff64182674900969a62ac8ecbff9"
+      "bytes": 1496,
+      "sha256": "338b99cc52cc6ac83c457418a1659dda0d91126eab37774c73387c993b27367a"
     },
     {
       "path": "integration/collector197_coverage.py",
@@ -2334,6 +2344,26 @@
       "path": "integration/collector197_http.py",
       "bytes": 8501,
       "sha256": "27772c76ef30611a37c49c5e7da4829bab4d2a177201ef735dac7aeb8ed1220b"
+    },
+    {
+      "path": "integration/collector197_job.py",
+      "bytes": 4298,
+      "sha256": "06e6384990b1b421a67c64d29a39c6f2caefca74cc3f22062a7706311f6e39a4"
+    },
+    {
+      "path": "integration/collector197_job_adversary.py",
+      "bytes": 1369,
+      "sha256": "553dc040261b77fddbffcd2ad3f78e9c6f652099243fc1e5dd5f08d38f140d9e"
+    },
+    {
+      "path": "integration/collector197_job_diagnostic.sh",
+      "bytes": 2847,
+      "sha256": "788ab4c849d8f4e14c3102b6767561585fbed25d66c8bc6f1292caeb0836e36c"
+    },
+    {
+      "path": "integration/collector197_job_runtime.py",
+      "bytes": 5726,
+      "sha256": "4f490cfc33ff82a274484d612c51155abf01d4e75fb7735cf6d35df2a87904c7"
     },
     {
       "path": "integration/collector197_orchestrator.py",
@@ -2363,7 +2393,7 @@
     {
       "path": "integration/collector197_worker_pins.json",
       "bytes": 1767,
-      "sha256": "9f356d86c4e6ddfc172d71a336c010e3f1a2c5f0d191331d1b99f865788a5d33"
+      "sha256": "bdb4da9ede053c86dde94a361f4c3d35f42b107141788834b88a106f5769edc8"
     },
     {
       "path": "integration/collector_mail_fixture.py",
@@ -2483,12 +2513,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 18581,
-      "sha256": "90f95586c6604e6192e9fc2615511a096d30cb3a0ff74285efae3299cb1939ff"
+      "sha256": "84b643431329e2959b1c36772e7919c21c1b16a20f3d07055d19bc16ad465e16"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
-      "bytes": 206611,
-      "sha256": "d864eaebf1f88e45c119cd07926931d68504b06bb42a808f044b18b53ea945fb"
+      "bytes": 208604,
+      "sha256": "c2890dbea268b8aa145666ec68c82c837697922a786be791b04d2538616bc7b8"
     },
     {
       "path": "integration/dependency_build/README.md",
@@ -5419,6 +5449,11 @@
       "path": "tests/test_collector197c.py",
       "bytes": 7738,
       "sha256": "54555b5d9fc2e369bf5e86e636081db288a452d7e315c2881efd2ae58e2ce248"
+    },
+    {
+      "path": "tests/test_collector197ea.py",
+      "bytes": 7942,
+      "sha256": "dc5b5f4e817204115354e9fc6dc599862c84eac75cb8fffb078bf73cb4fd1336"
     },
     {
       "path": "tests/test_collector_mail_fixture.py",
