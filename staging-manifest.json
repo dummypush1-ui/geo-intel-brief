@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 1917,
+  "tests": 1929,
   "files": [
     {
       "path": ".env.example",
@@ -1946,6 +1946,11 @@
       "sha256": "ee17e6b38cf8f49aed84d8cf2319895df76045d19b72938963d2c92e27baac9d"
     },
     {
+      "path": "integration/NATIVE201B.md",
+      "bytes": 2626,
+      "sha256": "365cb5dc3b2afdd189b3ad17b2d095bde770519f4235979dfe5fcaaa3d3d092d"
+    },
+    {
       "path": "integration/NATIVE201GUARD.md",
       "bytes": 3628,
       "sha256": "4d24dd1b5f6d425a8b428975da71d05c1edfea0202b60e553a3b26e326b759e3"
@@ -2613,12 +2618,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 18581,
-      "sha256": "c3e6a501246d10a6ecf4b2e93be4c9630bfff7eb24fd8f4ad6089ec36df8d0cc"
+      "sha256": "5ba40a16a6ad4bbcb468b6d1ea8c101f458382cb9f4b30e6deaec665c8a1bff5"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
-      "bytes": 228547,
-      "sha256": "d61eaed50a2e1492ebe18e02c5a6013b3975e70dc43a13b7f9c1984a42b1d706"
+      "bytes": 230016,
+      "sha256": "0c12cad0760434899201a6231beb6496186499eccee1a61e4cb21f7c92f55eb2"
     },
     {
       "path": "integration/dependency_build/README.md",
@@ -3124,6 +3129,21 @@
       "path": "integration/native200a-pins.json",
       "bytes": 2912,
       "sha256": "28a30a9649ec94f7c5a59954d59a73ae366caa0e4c447cfc952bfb0317e9e23f"
+    },
+    {
+      "path": "integration/native201_broker.py",
+      "bytes": 6422,
+      "sha256": "3f11589437c97fe1d2de0d24357f11199584e7398015fb2e72dbd183271919e4"
+    },
+    {
+      "path": "integration/native201_collector.py",
+      "bytes": 7725,
+      "sha256": "a61f5ef910e28feebddf0386b59ebbb38f12e788764b626c02d8419044ead232"
+    },
+    {
+      "path": "integration/native201_composition.py",
+      "bytes": 3321,
+      "sha256": "11d81e2a1ffbbad2c18e4ad65d852ad94ab7e8a47ac22c96004fbd9946361230"
     },
     {
       "path": "integration/native201_coverage.py",
@@ -6164,6 +6184,11 @@
       "path": "tests/test_native201a.py",
       "bytes": 6091,
       "sha256": "5d0b15893250ea084c7f02d0ac01e83bdeb6c3a1ded890fe49e7ef917c0741e6"
+    },
+    {
+      "path": "tests/test_native201b.py",
+      "bytes": 10929,
+      "sha256": "aff94a128b509e369573dc25b00ff38e8920f84ad9c7c46d550bbf04f0133318"
     },
     {
       "path": "tests/test_native201guard.py",

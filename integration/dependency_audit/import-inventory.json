@@ -318,6 +318,7 @@
       "files": [
         "integration/collector197_coverage.py",
         "integration/collector197_orchestrator.py",
+        "integration/native201_collector.py",
         "integration/native201_coverage.py",
         "integration/replay199_collector.py",
         "tests/test_collector197a.py",
@@ -350,6 +351,7 @@
         "integration/collector197_http.py",
         "integration/collector197_orchestrator.py",
         "integration/collector197_supervisor.py",
+        "integration/native201_collector.py",
         "integration/native201_coverage.py",
         "integration/replay199_collector.py",
         "tests/test_collector197a.py",
@@ -374,6 +376,7 @@
       "import": "collector111_prep",
       "files": [
         "integration/collector197_orchestrator.py",
+        "integration/native201_collector.py",
         "integration/replay199_collector.py"
       ],
       "stdlib": false,
@@ -603,6 +606,7 @@
         "tests/test_native200bb.py",
         "tests/test_native200bc.py",
         "tests/test_native201a.py",
+        "tests/test_native201b.py",
         "tests/test_native201guard.py",
         "tests/test_offline_collection_cycle.py",
         "tests/test_page_watch_contract.py",
@@ -737,6 +741,7 @@
         "integration/india_open_data/core.py",
         "integration/loaded_charts.py",
         "integration/map_layers.py",
+        "integration/native201_collector.py",
         "integration/news_api.py",
         "integration/news_export/keyset_plan.py",
         "integration/news_view.py",
@@ -1188,6 +1193,7 @@
         "integration/mail_bridge.py",
         "integration/map_layers.py",
         "integration/native200_transactions.py",
+        "integration/native201_broker.py",
         "integration/news_api.py",
         "integration/news_export/fixture_http.py",
         "integration/news_export/original_stream.py",
@@ -1272,6 +1278,7 @@
         "integration/collector197_host_probe.py",
         "integration/collector197_http.py",
         "integration/geo_probe_http.py",
+        "integration/native201_composition.py",
         "integration/preview_access.py",
         "integration/replay199_composition.py",
         "integration/stream_revision.py"
@@ -1427,6 +1434,9 @@
         "integration/native200_journal.py",
         "integration/native200_preflight.py",
         "integration/native200_store.py",
+        "integration/native201_broker.py",
+        "integration/native201_collector.py",
+        "integration/native201_composition.py",
         "integration/native201_coverage.py",
         "integration/native201_ledger.py",
         "integration/news_api.py",
@@ -1588,6 +1598,7 @@
         "tests/test_native200bb.py",
         "tests/test_native200bc.py",
         "tests/test_native201a.py",
+        "tests/test_native201b.py",
         "tests/test_native201guard.py",
         "tests/test_news182.py",
         "tests/test_news_pages185.py",
@@ -1954,6 +1965,8 @@
         "integration/mail_bridge.py",
         "integration/map_layers.py",
         "integration/native200_transactions.py",
+        "integration/native201_broker.py",
+        "integration/native201_composition.py",
         "integration/news_api.py",
         "integration/news_export/fixture_http.py",
         "integration/news_export/geo_snapshot.py",
@@ -2286,6 +2299,7 @@
         "tests/test_legacy_geo_p0.py",
         "tests/test_mail166.py",
         "tests/test_monitor155.py",
+        "tests/test_native201b.py",
         "tests/test_news182.py",
         "tests/test_news_scroll186.py",
         "tests/test_preservation.py",
@@ -3341,6 +3355,7 @@
         "tests/test_native200bb.py",
         "tests/test_native200bc.py",
         "tests/test_native201a.py",
+        "tests/test_native201b.py",
         "tests/test_native201guard.py",
         "tests/test_preview_launcher.py",
         "tests/test_replay199a.py",
@@ -3586,6 +3601,7 @@
         "integration/geo_probe_process.py",
         "integration/native200_admission_core.py",
         "integration/native200_core.py",
+        "integration/native201_collector.py",
         "integration/news_export/export.py",
         "integration/news_export/geo_snapshot.py",
         "integration/news_export/original_stream.py",
@@ -3812,6 +3828,7 @@
         "tests/test_native200bb.py",
         "tests/test_native200bc.py",
         "tests/test_native201a.py",
+        "tests/test_native201b.py",
         "tests/test_native201guard.py",
         "tests/test_news182.py",
         "tests/test_news_pages185.py",
@@ -3973,6 +3990,8 @@
         "integration/finder198_auth.py",
         "integration/finder198_server.py",
         "integration/geo_probe_http.py",
+        "integration/native201_broker.py",
+        "integration/native201_composition.py",
         "integration/news_export/fixture_http.py",
         "integration/preview_access.py",
         "integration/replay199_broker.py",
@@ -4002,6 +4021,7 @@
         "tests/test_finder198c.py",
         "tests/test_geo_only_runtime.py",
         "tests/test_geo_probe_http.py",
+        "tests/test_native201b.py",
         "tests/test_preview_access.py",
         "tests/test_replay199ca.py",
         "tests/test_replay199cc.py",
@@ -4796,6 +4816,18 @@
       {
         "path": "integration/native200_transactions.py",
         "sha256": "a2d9aa6e46467034df8a8708521158aa2252c09488a37fb807005755d93783c2"
+      },
+      {
+        "path": "integration/native201_broker.py",
+        "sha256": "3f11589437c97fe1d2de0d24357f11199584e7398015fb2e72dbd183271919e4"
+      },
+      {
+        "path": "integration/native201_collector.py",
+        "sha256": "a61f5ef910e28feebddf0386b59ebbb38f12e788764b626c02d8419044ead232"
+      },
+      {
+        "path": "integration/native201_composition.py",
+        "sha256": "11d81e2a1ffbbad2c18e4ad65d852ad94ab7e8a47ac22c96004fbd9946361230"
       },
       {
         "path": "integration/native201_coverage.py",
@@ -5740,6 +5772,10 @@
       {
         "path": "tests/test_native201a.py",
         "sha256": "5d0b15893250ea084c7f02d0ac01e83bdeb6c3a1ded890fe49e7ef917c0741e6"
+      },
+      {
+        "path": "tests/test_native201b.py",
+        "sha256": "aff94a128b509e369573dc25b00ff38e8920f84ad9c7c46d550bbf04f0133318"
       },
       {
         "path": "tests/test_native201guard.py",
