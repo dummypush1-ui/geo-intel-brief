@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 1946,
+  "tests": 1954,
   "files": [
     {
       "path": ".env.example",
@@ -1781,6 +1781,11 @@
       "sha256": "448b9680453c8bcfc42a9f3bf93022060a8b8d670b0681962f525d95b7e5c449"
     },
     {
+      "path": "integration/DIGEST-DATES202.md",
+      "bytes": 2119,
+      "sha256": "f4c10c388b1048aa2e8146cfbd15cc337e80b293c5e457763a21bf5bd8a0976a"
+    },
+    {
       "path": "integration/DIGEST-WINDOWS193.md",
       "bytes": 1964,
       "sha256": "9db747c408ad1c49cc9de87e23a285488f1bfde4769488c09db1185e8cbc048b"
@@ -2628,12 +2633,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 18581,
-      "sha256": "8ceaddda7f159bf2a18be510ac278d5a28d8e88132d14f713b09b4c2a44c534c"
+      "sha256": "8ee2d80e36330fa724e050c5d6c0b89481a04a7b3f89f46ccf07b7d0771c4d94"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
-      "bytes": 231886,
-      "sha256": "130e2f89205f77fd8aeab2325cd7040bcfe1264d094fffe68f2394d13343bb5a"
+      "bytes": 232521,
+      "sha256": "470912a724405c37f695bc4c64db99185f050774adfa5b96a2808b9b8589f303"
     },
     {
       "path": "integration/dependency_build/README.md",
@@ -2669,6 +2674,11 @@
       "path": "integration/dependency_build/tool-hash-fallback.txt",
       "bytes": 929,
       "sha256": "550a03753244289ebe65a0c9fe9b82ad64ba9a51e71ad678c9ba6840f48d2d0c"
+    },
+    {
+      "path": "integration/digest_dates202.py",
+      "bytes": 3393,
+      "sha256": "906f5fcf6eff37f2aef557f2a08c24f3f98b08e45901ff37c80a2c7e249c6f89"
     },
     {
       "path": "integration/digest_preview.py",
@@ -5909,6 +5919,11 @@
       "path": "tests/test_digest_cold.py",
       "bytes": 466,
       "sha256": "8a6cee6ca08008fd6d9f84b0c784f59c8d6ccbab4e6d408f1d0dceaf2270240d"
+    },
+    {
+      "path": "tests/test_digest_dates202.py",
+      "bytes": 3943,
+      "sha256": "9399833467b642ab18a7f67971bcddfaf7f5f69e1e8ae1f55c1750c3d5d9ebcd"
     },
     {
       "path": "tests/test_digest_preview_routes.py",
