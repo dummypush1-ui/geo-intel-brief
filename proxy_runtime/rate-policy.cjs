@@ -5,7 +5,7 @@ const {performance}=require('node:perf_hooks');
 function peerIdentity(req) {
  const peer=req && req.socket && req.socket.remoteAddress;
  if(typeof peer!=='string'||!isIP(peer))return 'unknown-peer';
- return peer.startsWith('::ffff:')&&isIP(peer.slice(7))===4?peer.slice(7):peer;
+ return peer.toLowerCase().startsWith('::ffff:')&&isIP(peer.slice(7))===4?peer.slice(7):peer.toLowerCase();
 }
 function createLimiter({windowMs=600000,max=60,capacity=5000,clock=()=>performance.now()}={}) {
  if(!Number.isSafeInteger(windowMs)||windowMs<1||!Number.isSafeInteger(max)||max<1||!Number.isSafeInteger(capacity)||capacity<1||typeof clock!=='function')throw Error('Invalid fixed policy');

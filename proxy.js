@@ -14,7 +14,8 @@
 //                   without it /ships answers 503 and /health says keySet false)
 //   APP_SECRET   - token the page sends as x-app-token. It is visible in the
 //                  public bundle, so it is a speed bump, not a true secret:
-//                  it stops drive-by abuse; the rate limit below caps the rest.
+//                  it is only a compatibility hint, never user authentication.
+//                  Anonymous budgets and trusted socket identity bound requests.
 //   GEMINI_KEYS  - comma-separated Google AI Studio keys
 //   GROQ_KEYS    - comma-separated Groq keys
 //   MISTRAL_KEYS - comma-separated Mistral keys (optional)
@@ -240,9 +241,15 @@ const ROUTES = [
   { kind: 'nvidia', match: /^\/nvidia\/v1\/chat\/completions$/, upstream: () => 'https://integrate.api.nvidia.com/v1/chat/completions', header: (k) => ({ Authorization: 'Bearer ' + k }) },
 ];
 
-// Lean abuse cap: 60 AI calls per 10 minutes per IP (a full report is 1-3 calls).
+// Anonymous abuse caps: 20 requests/peer and 60 shared requests/attempts per 10min.
 const {createLimiter} = require('./proxy_runtime/rate-policy.cjs');
-const rateLimiter = createLimiter();
+const {identityPolicy,quotaPolicy} = require('./proxy_runtime/identity-policy.cjs');
+const quota=quotaPolicy(process.env);
+const rateLimiter = createLimiter({max:quota.perPeer});
+const sharedRequests = createLimiter({capacity:1,max:quota.shared});
+const sharedAttempts = createLimiter({capacity:1,max:quota.attempts});
+const requestIdentity=identityPolicy(process.env);
+function anonymousRequestOk(req){return rateOk(requestIdentity(req))&&sharedRequests.allow('shared');}
 function rateOk(ip) { return rateLimiter.allow(ip); }
 
 function send(res, status, body, extra) {
@@ -279,8 +286,7 @@ http.createServer(async (req, res) => {
   }
   if (req.method === 'GET' && path === '/ships') {
     if (!SECRET || req.headers['x-app-token'] !== SECRET) return send(res, 401, { error: { message: 'bad app token' } });
-    const ip2 = String(req.headers['cf-connecting-ip'] || req.headers['x-forwarded-for'] || req.socket.remoteAddress || '?').split(',')[0].trim();
-    if (!rateOk(ip2)) return send(res, 429, { error: { message: 'rate limit exceeded. try again later.' } });
+    if (!anonymousRequestOk(req)) return send(res, 429, { error: { message: 'rate limit exceeded. try again later.' } });
     if (!AIS_KEY) return send(res, 503, { error: { message: 'AISSTREAM_KEY not configured on the server' } });
     const want = ((req.url.split('?')[1] || '').match(/port=([A-Za-z]+)/) || [, 'ALL'])[1].toUpperCase();
     const out = [];
@@ -301,14 +307,14 @@ http.createServer(async (req, res) => {
   if (!SECRET || req.headers['x-app-token'] !== SECRET) return send(res, 401, { error: { message: 'bad app token' } });
   const route = ROUTES.find((r) => r.match.test(path));
   if (!route) return send(res, 404, { error: { message: 'unknown endpoint' } });
-  const ip = req.headers['cf-connecting-ip'] || req.headers['x-forwarded-for'] || req.socket.remoteAddress || '?';
-  if (!rateOk(String(ip).split(',')[0].trim())) return send(res, 429, { error: { message: 'rate limit exceeded. try again later.' } });
+  if (!anonymousRequestOk(req)) return send(res, 429, { error: { message: 'rate limit exceeded. try again later.' } });
   const pool = POOLS[route.kind];
   if (!pool.length) return send(res, 503, { error: { message: route.kind + ' keys not configured on the server' } });
   let body = '';
   req.on('data', (c) => { body += c; if (body.length > 2e6) req.destroy(); });
   req.on('end', async () => {
     for (let i = 0; i < pool.length; i++) {
+      if (!sharedAttempts.allow('shared')) return send(res, 429, {error:{message:'shared provider attempt limit exceeded. try again later.'}});
       const ki = (OFF[route.kind] + i) % pool.length;
       const key = pool[ki];
       try {

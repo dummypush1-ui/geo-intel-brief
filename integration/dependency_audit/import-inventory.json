@@ -1681,6 +1681,7 @@
         "tests/test_preservation.py",
         "tests/test_preview_launcher.py",
         "tests/test_protocol145_inventory.py",
+        "tests/test_proxy164.py",
         "tests/test_publication151_inventory.py",
         "tests/test_refresh149_gate.py",
         "tests/test_refresh_controller.py",
@@ -2431,6 +2432,7 @@
         "tests/test_monitor155.py",
         "tests/test_page_watch_parser_budget.py",
         "tests/test_preview_access.py",
+        "tests/test_proxy164.py",
         "tests/test_refresh149_gate.py",
         "tests/test_refresh_controller.py",
         "tests/test_sanctions152.py",
@@ -2972,6 +2974,7 @@
         "tests/test_private_news_fields.py",
         "tests/test_project_reports.py",
         "tests/test_protocol145_inventory.py",
+        "tests/test_proxy164.py",
         "tests/test_publication151_inventory.py",
         "tests/test_refresh149_gate.py",
         "tests/test_refresh_controller.py",
@@ -4473,6 +4476,10 @@
       {
         "path": "tests/test_protocol145_inventory.py",
         "sha256": "b6d28e16fa04f5c740a3a7f8a2f4d04f111f1a1f75444c58f8ddb405eba30acf"
+      },
+      {
+        "path": "tests/test_proxy164.py",
+        "sha256": "9fadd5987c973f108428fd37ada6aa40618012078a145db58be015a544d47aef"
       },
       {
         "path": "tests/test_publication151_inventory.py",

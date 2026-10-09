@@ -92,3 +92,9 @@ Use environment variables, not committed credentials. `.env.example` lists the h
 - Stop old collectors only after a reviewed migration and explicit cutover decision. Two writers can create duplicates.
 
 This README describes source behavior, not the current Render settings, database state or provider-account permissions. No production changes are needed for this documentation cleanup.
+
+## Separate anonymous Node proxy
+
+The preserved `proxy.js` service now uses socket-peer identity by default, with 20 requests/peer per 10 minutes and 60 shared request/upstream-attempt budgets per process. Until actual Render proxy peer IPs and verified single appended XFF topology configure `PROXY_TRUSTED_PEERS`, all users behind one proxy share one 20/10min bucket per instance. This conservative availability regression replaces spoofable XFF buckets; a flood of distinct peers can still drain the shared cap. APP_SECRET is public client material, not login. The public Flask E1 guard is a different boundary. No live proxy configuration or provider call was made.
+
+`PROXY_PER_PEER_LIMIT`/`PROXY_SHARED_LIMIT` default to20/60, bounded1-1000 and per-peer <=shared. After verified trust config, individual client buckets apply. Shared traffic caps are not a billing guarantee; provider free-tier/zero-spend settings still need current verification.

@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 1469,
+  "tests": 1471,
   "files": [
     {
       "path": ".env.example",
@@ -22,8 +22,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 6903,
-      "sha256": "25efebbd8b00c36a1ee9b70413d68578e055df626381829fa857f98b8b2affc4"
+      "bytes": 7856,
+      "sha256": "ddde9e500be604151ed8fdb960c5618d1e0ff3731e7b88c7f2cba23f4b598d53"
     },
     {
       "path": "REVIEW.md",
@@ -2248,12 +2248,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 18581,
-      "sha256": "561f54c778b339e356caf7d0c4a35e4eb987261aab3b96479d18a8b9b56f3a3b"
+      "sha256": "d90762934c30eca9d70e28c130dba52d00a7d061bcabaa722928ef697b4e2830"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
-      "bytes": 176195,
-      "sha256": "15af757e18b46637bc0a0298b7114daf72e420c8d98b5ca61122e7dd2fac0731"
+      "bytes": 176441,
+      "sha256": "40a3a18f30bb355eb18f033b751e3f43ff390bdac2dd2f03ab0fb2498c0ffd40"
     },
     {
       "path": "integration/dependency_build/README.md",
@@ -3897,13 +3897,23 @@
     },
     {
       "path": "proxy.js",
-      "bytes": 20259,
-      "sha256": "3204714a8df243e4df389f3e40264f72c52b0dfc0e0b40eea082c96bdccf8e94"
+      "bytes": 20656,
+      "sha256": "82c01c45fec01af33f210be4332c94d0dab198abb398126d072cd460ef0af4f2"
+    },
+    {
+      "path": "proxy_runtime/IDENTITY-POLICY.md",
+      "bytes": 2841,
+      "sha256": "a214b1a7b04bc861029d107aca765867f9bc3f5741ed4118416583b203d57bb7"
     },
     {
       "path": "proxy_runtime/ais-frame.cjs",
       "bytes": 593,
       "sha256": "b6e4e7872417b7a49368a5e2a8145dc60fd1424026c10520d8beb6cb817f2f3d"
+    },
+    {
+      "path": "proxy_runtime/identity-policy.cjs",
+      "bytes": 2236,
+      "sha256": "9fbd24cafd39b8c5b650afc4df8201f52406b53004de9f70e77f99b8c8ef51a3"
     },
     {
       "path": "proxy_runtime/lifecycle.cjs",
@@ -3912,8 +3922,8 @@
     },
     {
       "path": "proxy_runtime/rate-policy.cjs",
-      "bytes": 1326,
-      "sha256": "27739a6e4f759b7b85f0d9ba84df36dd0a48bc3cf7a6a554c4f9ad45d74f3617"
+      "bytes": 1354,
+      "sha256": "664ee0e2425abc30af578a3631dc07e2120af267885802c9cfbc2a153a7fa19e"
     },
     {
       "path": "public_live107.py",
@@ -4871,6 +4881,16 @@
       "sha256": "8aa4aa55cc3ece864de44d9ad43f21d7557c3fd4452a06ccbe2533988fbc9c01"
     },
     {
+      "path": "tests/proxy_runtime/test_identity.cjs",
+      "bytes": 2075,
+      "sha256": "a4ebb84aac21343d2cbad1b5e8781937383818d832dc63bad7ad190d9e0fb82e"
+    },
+    {
+      "path": "tests/proxy_runtime/test_identity_proxy.cjs",
+      "bytes": 2191,
+      "sha256": "7dd4655759037252327959c4e9a9e6fc92caae2b02d924edeb566f16e1c5c93b"
+    },
+    {
       "path": "tests/proxy_runtime/test_lifecycle.cjs",
       "bytes": 4664,
       "sha256": "399492f4a5383fe076b5574ea717023522e215cec29e941045cf403165f4196e"
@@ -5344,6 +5364,11 @@
       "path": "tests/test_protocol145_inventory.py",
       "bytes": 1024,
       "sha256": "b6d28e16fa04f5c740a3a7f8a2f4d04f111f1a1f75444c58f8ddb405eba30acf"
+    },
+    {
+      "path": "tests/test_proxy164.py",
+      "bytes": 480,
+      "sha256": "9fadd5987c973f108428fd37ada6aa40618012078a145db58be015a544d47aef"
     },
     {
       "path": "tests/test_publication151_inventory.py",
