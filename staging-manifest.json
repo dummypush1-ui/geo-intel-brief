@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 2136,
+  "tests": 2145,
   "files": [
     {
       "path": ".env.example",
@@ -2006,6 +2006,11 @@
       "sha256": "bd0ec31e0326b20cc83ca70f30ec46a4b73ff6d93a2f8b15448f405391b09d7a"
     },
     {
+      "path": "integration/NATIVE-MAIL-PROJECTION224.md",
+      "bytes": 3821,
+      "sha256": "349ccdda846c6b5ec246e142d91ae8d1f3aeb4eb5c7ef94a94d64ceabcb5219b"
+    },
+    {
       "path": "integration/NATIVE200A.md",
       "bytes": 4756,
       "sha256": "0f209bc52f98506668455cc4ed1df1e6150b344fcf769ce2cfdfdf37e418ab54"
@@ -2758,12 +2763,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 18581,
-      "sha256": "b61a79be90b6360f16d3f81c2cb6eab5e233cd5a923630d2cbbfde91558090ab"
+      "sha256": "a4047c747dbf66cb441a0f58fbab61b7d5b29c9142727b820b4c61ea1f4fdab2"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
-      "bytes": 249251,
-      "sha256": "795b94d26cb44ee9b6dd1ce14b849d3181862956cf713832e9d82818966bf90c"
+      "bytes": 250390,
+      "sha256": "db07cab1234289539504dd3939b3a3d1df3b63751fe1f56388c26ddf3de3501c"
     },
     {
       "path": "integration/dependency_build/README.md",
@@ -3364,6 +3369,11 @@
       "path": "integration/native201_schemas.py",
       "bytes": 3790,
       "sha256": "5bb9e77a04b79c44232709bbf5ad0559d30fe638a8f25f030ed96c4f61fc2103"
+    },
+    {
+      "path": "integration/native_mail_projection224.py",
+      "bytes": 7415,
+      "sha256": "993257042c2802298c8a211c0180afd7b22fd829d94c981e090cc35d26e1ce8d"
     },
     {
       "path": "integration/news_api.py",
@@ -6544,6 +6554,11 @@
       "path": "tests/test_native201guard.py",
       "bytes": 2815,
       "sha256": "f5f006a50c0b2e29f45363f3ac81fc0cfde5800b848c5a988aadb94ae839cb94"
+    },
+    {
+      "path": "tests/test_native_mail_projection224.py",
+      "bytes": 8880,
+      "sha256": "de03bae4d049777680c5594f9e5e3087d25c936f43c1955a104639088837bd71"
     },
     {
       "path": "tests/test_news182.py",
