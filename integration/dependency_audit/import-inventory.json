@@ -122,6 +122,7 @@
         "feature_mail_mount/store.py",
         "integration/article_archive.py",
         "integration/collector_mail_fixture.py",
+        "integration/digest_windows193.py",
         "integration/geo_queue_fixture.py",
         "integration/news_export/fixture_http.py",
         "integration/news_export/geo_snapshot.py",
@@ -134,6 +135,7 @@
         "tests/news_export/test_raw_pager.py",
         "tests/test_article_archive.py",
         "tests/test_collector_mail_fixture.py",
+        "tests/test_digest_windows193.py",
         "tests/test_feature_mail_mount.py",
         "tests/test_geo_queue_fixture.py",
         "tests/test_geo_snapshot.py",
@@ -375,6 +377,7 @@
         "integration/collection_receipts/protocol.py",
         "integration/db_contract/plan.py",
         "integration/db_contract/query_plan.py",
+        "integration/digest_windows193.py",
         "integration/fake_collection_writer.py",
         "integration/geo_article_writer.py",
         "integration/geo_collector_contract.py",
@@ -486,6 +489,7 @@
         "integration/dashboard_model.py",
         "integration/dashboard_snapshots.py",
         "integration/digest_preview.py",
+        "integration/digest_windows193.py",
         "integration/event_reader.py",
         "integration/fake_collection_writer.py",
         "integration/feedparser_audit/child.py",
@@ -547,6 +551,7 @@
         "tests/test_critical_stories.py",
         "tests/test_dashboard_model.py",
         "tests/test_digest_preview_routes.py",
+        "tests/test_digest_windows193.py",
         "tests/test_event_reader.py",
         "tests/test_feature_mail_mount.py",
         "tests/test_feature_mail_prep.py",
@@ -911,6 +916,7 @@
         "integration/collection_receipts/protocol.py",
         "integration/collector_mail_fixture.py",
         "integration/country_alerts.py",
+        "integration/digest_windows193.py",
         "integration/fake_collection_writer.py",
         "integration/feedparser_audit/child.py",
         "integration/feedparser_audit/runner.py",
@@ -1201,6 +1207,7 @@
         "tests/test_dashboard_stats.py",
         "tests/test_db_contract.py",
         "tests/test_digest_preview_routes.py",
+        "tests/test_digest_windows193.py",
         "tests/test_edge_guard.py",
         "tests/test_env_example.py",
         "tests/test_event_reader.py",
@@ -1559,6 +1566,7 @@
         "integration/collection_receipts/protocol.py",
         "integration/country_alerts.py",
         "integration/dashboard_snapshots.py",
+        "integration/digest_windows193.py",
         "integration/event_reader.py",
         "integration/feedparser_audit/child.py",
         "integration/feedparser_audit/runner.py",
@@ -1670,6 +1678,7 @@
         "integration/bounded_rss/driver.py",
         "integration/collector_mail_fixture.py",
         "integration/dashboard_model.py",
+        "integration/digest_windows193.py",
         "integration/fake_collection_writer.py",
         "integration/fixed_parser_pipeline.py",
         "integration/geo_article_writer.py",
@@ -3148,6 +3157,7 @@
         "tests/test_db_contract.py",
         "tests/test_digest_cold.py",
         "tests/test_digest_preview_routes.py",
+        "tests/test_digest_windows193.py",
         "tests/test_edge_guard.py",
         "tests/test_env_example.py",
         "tests/test_event_reader.py",
@@ -3801,6 +3811,10 @@
       {
         "path": "integration/digest_preview.py",
         "sha256": "4b492669e765a593ea54ffa66d5fcc6361be034f764c5054ba808f11cd6be30c"
+      },
+      {
+        "path": "integration/digest_windows193.py",
+        "sha256": "504d29a2ceb76fa15963b2baeed9168ae2013ab6b17f4db6365450644029ede0"
       },
       {
         "path": "integration/edge_guard.py",
@@ -4593,6 +4607,10 @@
       {
         "path": "tests/test_digest_preview_routes.py",
         "sha256": "b171fed8fd837dc9d800b00fd17d13fcc6b26e8341ca2e8e31daecb7ba14378e"
+      },
+      {
+        "path": "tests/test_digest_windows193.py",
+        "sha256": "deb357f534bbece72ab8ed330c8dad1891bdc19ba174f285183c8ff382086a07"
       },
       {
         "path": "tests/test_edge_guard.py",

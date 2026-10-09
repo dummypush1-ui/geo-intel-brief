@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 1594,
+  "tests": 1600,
   "files": [
     {
       "path": ".env.example",
@@ -1746,6 +1746,11 @@
       "sha256": "448b9680453c8bcfc42a9f3bf93022060a8b8d670b0681962f525d95b7e5c449"
     },
     {
+      "path": "integration/DIGEST-WINDOWS193.md",
+      "bytes": 1964,
+      "sha256": "9db747c408ad1c49cc9de87e23a285488f1bfde4769488c09db1185e8cbc048b"
+    },
+    {
       "path": "integration/EVENT_READER_LIMITS.md",
       "bytes": 4003,
       "sha256": "a834549638b2a31765a5781655b041c722188e5a62e0d4c7228de881b04df2a7"
@@ -2373,12 +2378,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 18581,
-      "sha256": "0f77ecf9ce1adc195208528154c2a50aaab94978dd5271452b6b8b674cab5fb0"
+      "sha256": "f53db2f99b5d007b5823e8d9d8ba825c03c61bf7532f50ccd5204784ddd86bf4"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
-      "bytes": 189976,
-      "sha256": "39b9e7e91c2103fe76ce53154b964ad256b325b18a26fc6acfb1e65f74419857"
+      "bytes": 190719,
+      "sha256": "8e16806e9944fa8f9a389799a46be645d2dd9b36b93d495d7b1d0b95221148f6"
     },
     {
       "path": "integration/dependency_build/README.md",
@@ -2419,6 +2424,11 @@
       "path": "integration/digest_preview.py",
       "bytes": 3404,
       "sha256": "4b492669e765a593ea54ffa66d5fcc6361be034f764c5054ba808f11cd6be30c"
+    },
+    {
+      "path": "integration/digest_windows193.py",
+      "bytes": 5736,
+      "sha256": "504d29a2ceb76fa15963b2baeed9168ae2013ab6b17f4db6365450644029ede0"
     },
     {
       "path": "integration/edge_guard.py",
@@ -5374,6 +5384,11 @@
       "path": "tests/test_digest_preview_routes.py",
       "bytes": 6855,
       "sha256": "b171fed8fd837dc9d800b00fd17d13fcc6b26e8341ca2e8e31daecb7ba14378e"
+    },
+    {
+      "path": "tests/test_digest_windows193.py",
+      "bytes": 3516,
+      "sha256": "deb357f534bbece72ab8ed330c8dad1891bdc19ba174f285183c8ff382086a07"
     },
     {
       "path": "tests/test_edge_guard.py",
