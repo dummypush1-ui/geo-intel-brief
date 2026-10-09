@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 1895,
+  "tests": 1905,
   "files": [
     {
       "path": ".env.example",
@@ -1936,6 +1936,11 @@
       "sha256": "39dd6b5749c20789f8db12170ff686d6c4f106c0a49cdf0f7b616ec04f213b5d"
     },
     {
+      "path": "integration/NATIVE200BC.md",
+      "bytes": 3378,
+      "sha256": "831c1762c61a9bff4f1a4d2b1921d266c20f0371ca492951e07b4da9c1ef9cf7"
+    },
+    {
       "path": "integration/NEWS-PAGES185.md",
       "bytes": 3287,
       "sha256": "f1be6081bdbdea959e9f2a428a3ce70aaab1fbb0ac70ce8036fc8fcd392d854c"
@@ -2598,12 +2603,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 18581,
-      "sha256": "9d1df0997481d9719b063084ca46660dcc421b4f254d6e8ff569ee79c36308b1"
+      "sha256": "7e73b5bf3560bc9ebc43069f151a2a0e59e9c3035bf71251a73e3a30e8900516"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
-      "bytes": 225439,
-      "sha256": "4a56b966df4310e0372100bacf9654c7f38e9c59778145ad843f962a7db477d3"
+      "bytes": 227184,
+      "sha256": "87f1cca6aac0563ffd4dcae049efd42b4d3d156f956ba4791446e0564523f3fb"
     },
     {
       "path": "integration/dependency_build/README.md",
@@ -3054,6 +3059,31 @@
       "path": "integration/native200_adapters.py",
       "bytes": 2529,
       "sha256": "aaa8d43b1b26dfb9759a9c8b0cc68290e3f6af64ee07bcfce227708d6e775175"
+    },
+    {
+      "path": "integration/native200_admission_adapters.py",
+      "bytes": 824,
+      "sha256": "49d92421c0b90fae31f21eaf56f35df994882bd476dace26240286441f28497c"
+    },
+    {
+      "path": "integration/native200_admission_core.py",
+      "bytes": 4548,
+      "sha256": "4787091a1a41cc5bbe47fa09e3eef41e41bde87fdf945058969d27baf7cfc976"
+    },
+    {
+      "path": "integration/native200_admission_journal.py",
+      "bytes": 6355,
+      "sha256": "854f8b3242bb92a3c495ef701e6e3e6671d810e86899322bf0da888919e44d3e"
+    },
+    {
+      "path": "integration/native200_admission_preflight.py",
+      "bytes": 4676,
+      "sha256": "9d7194b53092bd53ae3953d13e056c75f84eb23d5ff1057756508ef8f7b579c7"
+    },
+    {
+      "path": "integration/native200_admission_store.py",
+      "bytes": 1449,
+      "sha256": "ba081da48ca2f219400a696a9e5ac9249060937edab833cebd80ac228cb8e06f"
     },
     {
       "path": "integration/native200_core.py",
@@ -6099,6 +6129,11 @@
       "path": "tests/test_native200bb.py",
       "bytes": 8704,
       "sha256": "9c673401f4aefe1ea8642354ebe8d6c30519d09a077a37324ab0ea25a3848c5d"
+    },
+    {
+      "path": "tests/test_native200bc.py",
+      "bytes": 8872,
+      "sha256": "bd1f336cce0bf09bd097053a441c141a13d971f3df775f0467d10438e83760b2"
     },
     {
       "path": "tests/test_news182.py",

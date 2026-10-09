@@ -553,6 +553,8 @@
         "integration/india_open_data/data_layer.py",
         "integration/mail_bridge.py",
         "integration/native200_adapters.py",
+        "integration/native200_admission_core.py",
+        "integration/native200_admission_journal.py",
         "integration/native200_core.py",
         "integration/native200_journal.py",
         "integration/native200_store.py",
@@ -594,6 +596,7 @@
         "tests/test_native200a.py",
         "tests/test_native200ba.py",
         "tests/test_native200bb.py",
+        "tests/test_native200bc.py",
         "tests/test_offline_collection_cycle.py",
         "tests/test_page_watch_contract.py",
         "tests/test_page_watch_parser_budget.py",
@@ -1408,6 +1411,11 @@
         "integration/mail_bridge.py",
         "integration/map_layers.py",
         "integration/native200_adapters.py",
+        "integration/native200_admission_adapters.py",
+        "integration/native200_admission_core.py",
+        "integration/native200_admission_journal.py",
+        "integration/native200_admission_preflight.py",
+        "integration/native200_admission_store.py",
         "integration/native200_core.py",
         "integration/native200_journal.py",
         "integration/native200_preflight.py",
@@ -1569,6 +1577,7 @@
         "tests/test_native200a.py",
         "tests/test_native200ba.py",
         "tests/test_native200bb.py",
+        "tests/test_native200bc.py",
         "tests/test_news182.py",
         "tests/test_news_pages185.py",
         "tests/test_news_scroll186.py",
@@ -2061,6 +2070,7 @@
         "integration/geonews_digest/_safe.py",
         "integration/geospatial/_safe.py",
         "integration/map_layers.py",
+        "integration/native200_admission_core.py",
         "integration/native200_core.py",
         "integration/news_export/fixture_http.py",
         "integration/news_export/geo_snapshot.py",
@@ -2928,6 +2938,7 @@
         "integration/accounts/service.py",
         "integration/accounts/shared_ledger_fixture.py",
         "integration/geo_probe_http.py",
+        "integration/native200_admission_journal.py",
         "integration/native200_journal.py",
         "integration/news_pages.py",
         "integration/preview_access.py"
@@ -3317,6 +3328,7 @@
         "tests/test_native200a.py",
         "tests/test_native200ba.py",
         "tests/test_native200bb.py",
+        "tests/test_native200bc.py",
         "tests/test_preview_launcher.py",
         "tests/test_replay199a.py",
         "tests/test_replay199b.py",
@@ -3488,6 +3500,7 @@
         "integration/geo_only_runtime.py",
         "integration/geo_probe_http.py",
         "integration/mail_bridge.py",
+        "integration/native200_admission_core.py",
         "integration/native200_core.py",
         "integration/news_api.py",
         "integration/news_export/fixture_http.py",
@@ -3558,6 +3571,7 @@
         "integration/finder198_transport_child.py",
         "integration/geo_probe_http.py",
         "integration/geo_probe_process.py",
+        "integration/native200_admission_core.py",
         "integration/native200_core.py",
         "integration/news_export/export.py",
         "integration/news_export/geo_snapshot.py",
@@ -3602,6 +3616,7 @@
     {
       "import": "types",
       "files": [
+        "integration/native200_admission_store.py",
         "integration/native200_store.py",
         "integration/renderer_scope.py",
         "tests/geospatial/test_map_route.py",
@@ -3782,6 +3797,7 @@
         "tests/test_native200a.py",
         "tests/test_native200ba.py",
         "tests/test_native200bb.py",
+        "tests/test_native200bc.py",
         "tests/test_news182.py",
         "tests/test_news_pages185.py",
         "tests/test_news_scroll186.py",
@@ -4727,6 +4743,26 @@
         "sha256": "aaa8d43b1b26dfb9759a9c8b0cc68290e3f6af64ee07bcfce227708d6e775175"
       },
       {
+        "path": "integration/native200_admission_adapters.py",
+        "sha256": "49d92421c0b90fae31f21eaf56f35df994882bd476dace26240286441f28497c"
+      },
+      {
+        "path": "integration/native200_admission_core.py",
+        "sha256": "4787091a1a41cc5bbe47fa09e3eef41e41bde87fdf945058969d27baf7cfc976"
+      },
+      {
+        "path": "integration/native200_admission_journal.py",
+        "sha256": "854f8b3242bb92a3c495ef701e6e3e6671d810e86899322bf0da888919e44d3e"
+      },
+      {
+        "path": "integration/native200_admission_preflight.py",
+        "sha256": "9d7194b53092bd53ae3953d13e056c75f84eb23d5ff1057756508ef8f7b579c7"
+      },
+      {
+        "path": "integration/native200_admission_store.py",
+        "sha256": "ba081da48ca2f219400a696a9e5ac9249060937edab833cebd80ac228cb8e06f"
+      },
+      {
         "path": "integration/native200_core.py",
         "sha256": "506c5a42c123544addde583b1a9a6eef178c4425e36bc2b87dd1a64aaf562c71"
       },
@@ -5669,6 +5705,10 @@
       {
         "path": "tests/test_native200bb.py",
         "sha256": "9c673401f4aefe1ea8642354ebe8d6c30519d09a077a37324ab0ea25a3848c5d"
+      },
+      {
+        "path": "tests/test_native200bc.py",
+        "sha256": "bd1f336cce0bf09bd097053a441c141a13d971f3df775f0467d10438e83760b2"
       },
       {
         "path": "tests/test_news182.py",
