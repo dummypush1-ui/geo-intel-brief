@@ -81,3 +81,14 @@ or activecontrol. Roles/index/TTL execution remains a separate reviewed unit.
 12pure tests cover schedule grammar, exact snapshotbindings, ackonly/clear/resume
 proposals, unknown holds and no execution authority. They do not prove Apps
 Script quota/clock/service behavior, realMongo state or successful live delivery.
+
+
+## Source-only companion 180
+Code.gs now validates the entire schedule before changes, stages replacements
+within the 20/user/script quota, and removes only known managed handler names.
+Unrelated handlers stay. Staging or deletion failure needs manual inspection;
+there is no transactional rollback guarantee. nearMinute delivery is approximate.
+Held HTTP 403 and other non-200 responses are fixed-label errors, not success.
+No retry is added. A failed acknowledgement after send has unknown receipt state,
+not permission to send again. The companion remains uninstalled here; legacy
+mail routes stay held and no real Google triggers/properties are changed.

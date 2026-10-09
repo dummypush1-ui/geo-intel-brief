@@ -116,11 +116,12 @@
       "source_path": "apps_script/Code.gs",
       "path": "intelligence/geo/apps_script/Code.gs",
       "source_sha256": "f23159b30f263e3a34cae29879900d73b23f6cf64fc6958f12712b7df484026a",
-      "sha256": "a5db615b74bb21c4bcfac59cde71edd97379621914421d3ea2b3ab765c7bc62b",
+      "sha256": "d4d3da4f6b44d962e1c59e88baa9e4c54b786a723dc4ce7f1c5cb2289eb85c67",
       "changes": [
         "Reviewed P0 candidate: header-only fail-closed legacy HTTP auth and unconditional article-deletion hold; no live activation",
         "Reviewed P0 candidate: header-only fail-closed legacy HTTP auth and unconditional article-deletion hold; no live activation",
-        "Reviewed P0 candidate: header-only fail-closed legacy HTTP auth and unconditional article-deletion hold; no live activation"
+        "Reviewed P0 candidate: header-only fail-closed legacy HTTP auth and unconditional article-deletion hold; no live activation",
+        "180 reviewed source-only strict trigger validation and staged managed-only replacement; fixed-label held/non-200 response errors; no installation or activation"
       ],
       "prior_preserved_sha256": "f23159b30f263e3a34cae29879900d73b23f6cf64fc6958f12712b7df484026a"
     },

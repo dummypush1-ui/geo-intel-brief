@@ -38,8 +38,8 @@
  *  3. Run setupTriggers() once (function dropdown > setupTriggers >
  *     Run) and approve the permissions it asks for.
  *  4. To CHANGE any time later: update the Script Property's value, then
- *     run setupTriggers() again (safe to re-run — it always rebuilds
- *     the triggers from scratch using current property values). This is
+ *     run setupTriggers() again (validates and stages replacements before removing
+ *     known managed triggers; unrelated triggers are preserved). This is
  *     the only step needed to change your schedule yourself, any time.
  *
  * DASHBOARD AS AN APPS SCRIPT WEB PAGE (optional):
@@ -56,37 +56,40 @@ function _props() {
   return PropertiesService.getScriptProperties();
 }
 
-// Reads a "HH:MM" Script Property, falls back to a default if unset/invalid.
+// Strict schedule parsing: invalid configured values fail before trigger changes.
 function _parseTime(raw) {
+  if (typeof raw !== 'string' || !/^([01]\d|2[0-3]):[0-5]\d$/.test(raw)) return null;
   const parts = raw.split(':');
-  const hour = parseInt(parts[0], 10);
-  const minute = parseInt(parts[1], 10);
-  if (isNaN(hour) || isNaN(minute)) return null;
-  return { hour, minute };
+  return {hour: Number(parts[0]), minute: Number(parts[1])};
 }
-
-// Reads DIGEST_TIMES as a comma-separated list, e.g. "08:00,13:30,20:00".
-// You control exactly how many times and which ones — no fixed count.
 function _readDigestTimes() {
-  const raw = _props().getProperty('DIGEST_TIMES') || '10:00,22:00';
-  const times = raw.split(',').map(s => s.trim()).filter(Boolean).map(_parseTime).filter(Boolean);
-  return times.length ? times : [{ hour: 10, minute: 0 }, { hour: 22, minute: 0 }];
+  const raw = _props().getProperty('DIGEST_TIMES');
+  const values = (raw === null ? '10:00,22:00' : raw).split(',').map(s => s.trim());
+  const times = values.map(_parseTime);
+  if (!times.length || times.some(t => !t) || new Set(values).size !== values.length)
+    throw new Error('Invalid digest times');
+  return times;
 }
-
-function _readTime(propName, defaultHHMM) {
-  const raw = _props().getProperty(propName) || defaultHHMM;
-  return _parseTime(raw) || _parseTime(defaultHHMM);
-}
-
-function _readInt(propName, defaultVal) {
+function _readTime(propName, fallback) {
   const raw = _props().getProperty(propName);
-  const n = parseInt(raw, 10);
-  return isNaN(n) ? defaultVal : n;
+  const time = _parseTime(raw === null ? fallback : raw);
+  if (!time) throw new Error('Invalid schedule time');
+  return time;
 }
-
-function _readWeekDay(propName, defaultDay) {
-  const raw = (_props().getProperty(propName) || defaultDay).toUpperCase();
-  return ScriptApp.WeekDay[raw] || ScriptApp.WeekDay[defaultDay];
+function _readInt(propName, fallback) {
+  const raw = _props().getProperty(propName);
+  if (raw === null) return fallback;
+  if (typeof raw !== 'string' || !/^(0|[1-9]\d*)$/.test(raw)) throw new Error('Invalid schedule interval');
+  const n = Number(raw);
+  if (!Number.isSafeInteger(n)) throw new Error('Invalid schedule interval');
+  return n;
+}
+function _readWeekDay(propName, fallback) {
+  const raw = _props().getProperty(propName);
+  const day = raw === null ? fallback : raw;
+  if (!/^(MONDAY|TUESDAY|WEDNESDAY|THURSDAY|FRIDAY|SATURDAY|SUNDAY)$/.test(day) || ScriptApp.WeekDay[day] === undefined)
+    throw new Error('Invalid weekly day');
+  return ScriptApp.WeekDay[day];
 }
 
 // Query credentials are no longer supported. No secrets in URLs or HTML.
@@ -106,42 +109,36 @@ function _renderFetch(path, options) {
   return UrlFetchApp.fetch(base.replace(/\/$/, '') + path, opts);
 }
 
-/** Cheap ping, just to stop the free Render instance from sleeping. */
-function keepAlive() {
-  try {
-    _renderFetch('/health', { muteHttpExceptions: true });
-  } catch (e) {
-    Logger.log('keepAlive failed: ' + e);
-  }
+// HTTP response bodies and transport exceptions may contain private data.
+// Only fixed status labels are logged. Held 403 is never treated as success.
+function _checkedRender(path, options) {
+  let resp;
+  try { resp = _renderFetch(path, options); }
+  catch (e) { Logger.log('Render transport failed'); throw new Error('Render transport failed'); }
+  const code = resp.getResponseCode();
+  if (code === 403) { Logger.log('Render route held: HTTP 403'); throw new Error('Render route held: HTTP 403'); }
+  if (code !== 200) { Logger.log('Render request failed: HTTP non-200'); throw new Error('Render request failed'); }
+  return resp;
 }
 
-/** The actual collection job — heavier, so runs less often than keepAlive.
- * This is also when full records get backed up to Telegram, if
- * ENABLE_TELEGRAM_BACKUP=true in Render's environment variables. */
+/** Cheap ping, just to stop the free Render instance from sleeping. */
+function keepAlive() {
+  _checkedRender('/health', {muteHttpExceptions: true});
+}
+
+/** Collection remains controlled by the Render installation gates. */
 function runCollect() {
-  try {
-    _renderFetch('/collect', {
-      method: 'post',
-      muteHttpExceptions: true,
-    });
-  } catch (e) {
-    Logger.log('runCollect failed: ' + e);
-  }
+  _checkedRender('/collect', {method: 'post', muteHttpExceptions: true});
 }
 
 /** Fetches the digest from Render and emails it via Gmail. Runs at every
  * time listed in DIGEST_TIMES. */
 function sendDigest() {
   const emailTo = _props().getProperty('EMAIL_TO');
-  const resp = _renderFetch('/digest-data', {
+  const resp = _checkedRender('/digest-data', {
     method: 'get',
     muteHttpExceptions: true,
   });
-
-  if (resp.getResponseCode() !== 200) {
-    Logger.log('digest-data fetch failed: ' + resp.getContentText('UTF-8'));
-    return;
-  }
 
   // Explicit UTF-8 decode — without this, emoji and other multi-byte
   // characters in the digest get corrupted into "������" garbage text.
@@ -166,19 +163,20 @@ function sendDigest() {
   });
 
   // Only tell Render to mark these articles as "sent" AFTER the Gmail send
-  // above didn't throw. If this step is skipped (e.g. quota error), the
-  // same articles just get included again in the next digest instead of
-  // silently vanishing.
+  // above did not throw. An acknowledgement failure leaves unknown receipt
+  // state and requires manual review, not another send. This legacy companion
+  // has no durable receipt fence and remains uninstalled while routes are held.
   if (data.article_ids && data.article_ids.length) {
     try {
-      _renderFetch('/mark-emailed', {
+      _checkedRender('/mark-emailed', {
         method: 'post',
         contentType: 'application/json',
         payload: JSON.stringify({ article_ids: data.article_ids }),
         muteHttpExceptions: true,
       });
     } catch (e) {
-      Logger.log('mark-emailed failed (articles will just repeat next digest): ' + e);
+      Logger.log('Digest acknowledgement failed: receipt state unknown; manual review required');
+      throw new Error('Digest acknowledgement failed: receipt state unknown');
     }
   }
 }
@@ -186,26 +184,12 @@ function sendDigest() {
 /** Checks for CRITICAL items and sends an instant alert if found. Runs every
  * CRITICAL_CHECK_INTERVAL_MIN minutes. */
 function checkCritical() {
-  try {
-    _renderFetch('/critical', {
-      method: 'post',
-      muteHttpExceptions: true,
-    });
-  } catch (e) {
-    Logger.log('checkCritical failed: ' + e);
-  }
+  _checkedRender('/critical', {method: 'post', muteHttpExceptions: true});
 }
 
-/** Sends the weekly trend report. Runs on WEEKLY_DAY at WEEKLY_TIME. */
+/** Sends the weekly report only if the server accepts the route. */
 function sendWeekly() {
-  try {
-    _renderFetch('/weekly', {
-      method: 'post',
-      muteHttpExceptions: true,
-    });
-  } catch (e) {
-    Logger.log('sendWeekly failed: ' + e);
-  }
+  _checkedRender('/weekly', {method: 'post', muteHttpExceptions: true});
 }
 
 /** Cleanup is held. No requests or deletion until retention is implemented. */
@@ -213,59 +197,57 @@ function cleanupOld() {
   Logger.log('cleanupOld held: retention policy not implemented');
 }
 
-/** Run this once by hand to install every timer. Safe to re-run — always
- * rebuilds triggers from the current Script Property values, so changing
- * a schedule is just: edit the property, run this again. */
+/** Explicit installation only. Validate the complete schedule before staging
+ * replacements; inspect partial failures before retrying. Apps Script
+ * nearMinute timers are approximate, not exact-minute delivery. Capacity or
+ * partial failures require inspecting project triggers before retrying. */
 function setupTriggers() {
-  ScriptApp.getProjectTriggers().forEach(t => ScriptApp.deleteTrigger(t));
-
   const keepAliveMin = _readInt('KEEPALIVE_INTERVAL_MIN', 10);
   const collectMin = _readInt('COLLECT_INTERVAL_MIN', 30);
   const criticalMin = _readInt('CRITICAL_CHECK_INTERVAL_MIN', 30);
-  const digestIntervalHours = _readInt('DIGEST_INTERVAL_HOURS', 0); // 0 = unset -> use DIGEST_TIMES instead
-  const digestTimes = _readDigestTimes();
+  const intervalRaw = _props().getProperty('DIGEST_INTERVAL_HOURS');
+  const digestIntervalHours = intervalRaw === null ? 0 : _readInt('DIGEST_INTERVAL_HOURS', 0);
+  if (![1,5,10,15,30].includes(keepAliveMin) || ![1,5,10,15,30].includes(collectMin) || ![1,5,10,15,30].includes(criticalMin))
+    throw new Error('Unsupported minute interval');
+  if (intervalRaw !== null && ![1,2,4,6,8,12].includes(digestIntervalHours))
+    throw new Error('Unsupported digest interval');
+  const digestTimes = digestIntervalHours ? [] : _readDigestTimes();
   const weeklyDay = _readWeekDay('WEEKLY_DAY', 'MONDAY');
   const weeklyTime = _readTime('WEEKLY_TIME', '09:00');
-
-  // 1. Keep Render awake — light ping.
-  ScriptApp.newTrigger('keepAlive').timeBased().everyMinutes(keepAliveMin).create();
-
-  // 2. Actual collection job (this is also when Telegram backup happens).
-  ScriptApp.newTrigger('runCollect').timeBased().everyMinutes(collectMin).create();
-
-  // 3. Digest email(s). Two mutually exclusive modes:
-  //    - DIGEST_INTERVAL_HOURS set -> ONE recurring trigger, e.g. every 1
-  //      hour. This is the correct way to do "hourly digests" -- it uses a
-  //      single trigger no matter the frequency, instead of one trigger per
-  //      clock time (which would blow past Apps Script's 20-trigger limit
-  //      for anything more than a handful of times).
-  //    - otherwise -> one trigger per entry in DIGEST_TIMES, at those exact
-  //      clock times, same as before.
-  let digestScheduleDesc;
-  if (digestIntervalHours > 0) {
-    ScriptApp.newTrigger('sendDigest').timeBased().everyHours(digestIntervalHours).create();
-    digestScheduleDesc = `every ${digestIntervalHours}h (DIGEST_INTERVAL_HOURS)`;
-  } else {
-    digestTimes.forEach(t => {
-      ScriptApp.newTrigger('sendDigest').timeBased()
-          .atHour(t.hour).nearMinute(t.minute).everyDays(1).create();
-    });
-    digestScheduleDesc = `at [${digestTimes.map(t => `${t.hour}:${('0'+t.minute).slice(-2)}`).join(', ')}] (DIGEST_TIMES)`;
+  const existing = ScriptApp.getProjectTriggers();
+  const handlers = ['keepAlive','runCollect','sendDigest','checkCritical','sendWeekly','cleanupOld'];
+  const old = existing.filter(t => handlers.includes(t.getHandlerFunction()));
+  const count = 4 + (digestIntervalHours ? 1 : digestTimes.length);
+  // Stage replacements before deleting anything. Old triggers count against
+  // Google's project quota too. Refuse if staging cannot fit; do not destroy
+  // the old schedule to make room. Unrelated handlers are never touched.
+  if (count > 20 || existing.length + count > 20)
+    throw new Error('Trigger staging capacity exceeded; existing schedule unchanged');
+  const created = [];
+  try {
+    created.push(ScriptApp.newTrigger('keepAlive').timeBased().everyMinutes(keepAliveMin).create());
+    created.push(ScriptApp.newTrigger('runCollect').timeBased().everyMinutes(collectMin).create());
+    if (digestIntervalHours) {
+      created.push(ScriptApp.newTrigger('sendDigest').timeBased().everyHours(digestIntervalHours).create());
+    } else {
+      digestTimes.forEach(t => created.push(ScriptApp.newTrigger('sendDigest').timeBased().atHour(t.hour).nearMinute(t.minute).everyDays(1).create()));
+    }
+    created.push(ScriptApp.newTrigger('checkCritical').timeBased().everyMinutes(criticalMin).create());
+    created.push(ScriptApp.newTrigger('sendWeekly').timeBased().onWeekDay(weeklyDay).atHour(weeklyTime.hour).nearMinute(weeklyTime.minute).create());
+  } catch (e) {
+    let cleanupFailed = false;
+    created.forEach(t => {try {ScriptApp.deleteTrigger(t);} catch (ignored) {cleanupFailed = true;}});
+    Logger.log(cleanupFailed ? 'Trigger creation failed; staged cleanup incomplete; manual review required' : 'Trigger creation failed; staged triggers removed; existing schedule unchanged');
+    throw new Error('Trigger creation failed; inspect project triggers before retry');
   }
-
-  // 4. Critical alert check.
-  ScriptApp.newTrigger('checkCritical').timeBased().everyMinutes(criticalMin).create();
-
-  // 5. Weekly report.
-  ScriptApp.newTrigger('sendWeekly').timeBased()
-      .onWeekDay(weeklyDay).atHour(weeklyTime.hour).nearMinute(weeklyTime.minute).create();
-
-  // No cleanup trigger: deletion is held pending retention implementation.
-
-  Logger.log(`Triggers installed: keep-alive/${keepAliveMin}min, collect/${collectMin}min, ` +
-      `critical-check/${criticalMin}min, digests ${digestScheduleDesc}, ` +
-      `weekly on day ${weeklyDay} at ${weeklyTime.hour}:${weeklyTime.minute}, ` +
-      `cleanup disabled pending retention policy.`);
+  try { old.forEach(t => ScriptApp.deleteTrigger(t)); }
+  catch (e) {
+    // Deletion is not transactional. Keep complete replacement schedule,
+    // report duplicates/partial deletion rather than claim rollback.
+    Logger.log('Trigger replacement incomplete; old triggers may remain; manual review required');
+    throw new Error('Trigger replacement incomplete; inspect duplicates before retry');
+  }
+  Logger.log('Managed schedule replaced; unrelated triggers preserved; cleanup disabled');
 }
 
 /**

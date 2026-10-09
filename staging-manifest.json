@@ -1517,8 +1517,8 @@
     },
     {
       "path": "feature_mail_mount/OPERATIONS-CONTRACT.md",
-      "bytes": 4933,
-      "sha256": "7caf965f748eceb7dc904b68f3af5089cf38ec261fd5a87fca5599075de5d140"
+      "bytes": 5593,
+      "sha256": "a475af4daac1a365a7f7e8537cff24def03e19542fb6bb5c6f28db54c93cd064"
     },
     {
       "path": "feature_mail_mount/__init__.py",
@@ -2087,13 +2087,13 @@
     },
     {
       "path": "integration/apps_script_audit/README.md",
-      "bytes": 4797,
-      "sha256": "bc138728b0a3a78dd9264eb65df2bf3b03e37d2fcfb0ec792ee3771728374b13"
+      "bytes": 6775,
+      "sha256": "5948049385be05306a3cc6df2b05bfcef1fd9b52b82863c0731e985ab5ba440f"
     },
     {
       "path": "integration/apps_script_audit/audit.js",
-      "bytes": 7605,
-      "sha256": "4bfa83b1018b47b4ca12b46c31e207fcbdbea95c8791ef273e772ad55f9e752b"
+      "bytes": 10949,
+      "sha256": "8b34f2204d54e0209362df6adbee561636d78934af19fd2cdbeaab3776dc0a9f"
     },
     {
       "path": "integration/apps_script_audit/labeled_run.py",
@@ -2213,7 +2213,7 @@
     {
       "path": "integration/collector_mail_fixture.py",
       "bytes": 7280,
-      "sha256": "b2fe2caa4283ffc921a705c3feb1cfb195d59aed57f9f8e3bdad4c528a6c11e8"
+      "sha256": "e71d45ac726e2301945808e00d648f950cdfff00f8535c6b3d036b3f723ba5ba"
     },
     {
       "path": "integration/country_alerts.py",
@@ -2328,12 +2328,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 18581,
-      "sha256": "3ca27473c1696829d02b4b1722d97f2f4bca42147b16498bbbad9807d5a32d59"
+      "sha256": "cd18ed9f8ad64d9bd1fbd4b965766342450dd1582f5e9534300fea3768df33e0"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
       "bytes": 185070,
-      "sha256": "0c36dafbaee7dd996862137956eb9a55fd901498813f302ceb2104705390894a"
+      "sha256": "83a8d3e2500cf21201e1909ef988b1662af3cbc61c82b75587446d0d94afcb61"
     },
     {
       "path": "integration/dependency_build/README.md",
@@ -3812,8 +3812,8 @@
     },
     {
       "path": "intelligence/geo/apps_script/Code.gs",
-      "bytes": 12577,
-      "sha256": "a5db615b74bb21c4bcfac59cde71edd97379621914421d3ea2b3ab765c7bc62b"
+      "bytes": 13850,
+      "sha256": "d4d3da4f6b44d962e1c59e88baa9e4c54b786a723dc4ce7f1c5cb2289eb85c67"
     },
     {
       "path": "intelligence/geo/bounded_csv.py",
@@ -4007,8 +4007,8 @@
     },
     {
       "path": "preservation-manifest.json",
-      "bytes": 26519,
-      "sha256": "0b9587cc710a289ef08dc29791c6b67e4aa34b59e1d85ff705814328e07f30b3"
+      "bytes": 26690,
+      "sha256": "701f309a7b8f77ca010ee50ae7dbb2b76a7a2f26f639ec07c47f6bbb0dd27085"
     },
     {
       "path": "production_entry.py",
@@ -5067,8 +5067,8 @@
     },
     {
       "path": "tests/test_apps_script_audit.py",
-      "bytes": 1722,
-      "sha256": "0d5d90ddf002870c80e3ef59da25590e310c67aa883a4b12eebd392a655b2c42"
+      "bytes": 2164,
+      "sha256": "c55fb5e434f90a8f337a2a0af1914fa7876fea3118060bac91ba9b91dc756def"
     },
     {
       "path": "tests/test_article_archive.py",

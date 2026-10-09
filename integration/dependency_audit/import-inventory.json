@@ -3670,7 +3670,7 @@
       },
       {
         "path": "integration/collector_mail_fixture.py",
-        "sha256": "b2fe2caa4283ffc921a705c3feb1cfb195d59aed57f9f8e3bdad4c528a6c11e8"
+        "sha256": "e71d45ac726e2301945808e00d648f950cdfff00f8535c6b3d036b3f723ba5ba"
       },
       {
         "path": "integration/country_alerts.py",
@@ -4354,7 +4354,7 @@
       },
       {
         "path": "tests/test_apps_script_audit.py",
-        "sha256": "0d5d90ddf002870c80e3ef59da25590e310c67aa883a4b12eebd392a655b2c42"
+        "sha256": "c55fb5e434f90a8f337a2a0af1914fa7876fea3118060bac91ba9b91dc756def"
       },
       {
         "path": "tests/test_article_archive.py",

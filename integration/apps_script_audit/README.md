@@ -1,3 +1,36 @@
+# Reviewed Apps Script 180 source-local audit
+
+Strict schedule validation happens before trigger changes: exact HH:MM and
+integer syntax, supported minutes/hours, weekly day, duplicate times and staging
+capacity. Interval mode ignores unused DIGEST_TIMES. Only known managed handler
+names are replaced. Unrelated handlers stay. Replacements are staged first;
+create failure removes staged triggers and preserves the old schedule. Cleanup
+failure and partial old-trigger deletion are reported for manual review. Google
+trigger replacement is not transactional; duplicate timers can remain after a
+delete failure. nearMinute delivery is approximate (+/-15 minutes), not exact.
+
+HTTP 403 is visibly held in health/collection/digest/critical/weekly calls.
+Non-200 responses and transport errors fail with fixed labels, no response body
+or exception details in logs. No retry is scheduled. Digest acknowledgement
+failure after a send reports unknown receipt state; this companion still has no
+durable mail receipt gate, so a separately invoked later successful legacy cycle
+can repeat articles. Legacy server mail routes remain held, and installing this
+companion is NOT approved. Do not reopen them to use it.
+
+25 trusted offline mock scenarios, one Python wrapper. Node VM mocks are not
+isolation: host constructors expose process. Exact reviewed source is hash-pinned.
+Only dummy fixtures, no real Google project, properties, triggers, network, mail
+or deployment. Google quota/timezone/delivery and real Gmail receipt identity
+remain unverified. Hash pins prove bytes, not production behavior.
+
+Docs verified:
+https://developers.google.com/apps-script/reference/script/clock-trigger-builder
+https://developers.google.com/apps-script/guides/services/quotas
+
+Historical canaries retained below describe superseded behavior, not current
+trigger parsing/HTTP handling. The current structured audit is authoritative for
+source-local scenarios; it is not production or receipt proof.
+
 # Legacy Apps Script audit after P0 header migration
 
 The reviewed source intentionally differs from the preserved original: fixed
