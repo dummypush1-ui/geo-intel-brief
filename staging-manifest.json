@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 1750,
+  "tests": 1758,
   "files": [
     {
       "path": ".env.example",
@@ -1816,6 +1816,11 @@
       "sha256": "ac54d70e1f71f4323f49a01d68af748a28fc3993e000192aa37949eb8d9764f4"
     },
     {
+      "path": "integration/FINDER198C.md",
+      "bytes": 2944,
+      "sha256": "9279c55c60256138ec86e2d6b9731cf9bc4a8a0a2a7dc42327d06891cf957992"
+    },
+    {
       "path": "integration/FINDER_NESTED_LIMITS.md",
       "bytes": 5934,
       "sha256": "fae0cd7ffdc87848c2b41df262c84ccf4b0a34c8ab8e36b723858b0bd0574f7b"
@@ -2528,12 +2533,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 18581,
-      "sha256": "8fb6798dd353ebf82f166081ddd4ee03e2f2c101b0eefa8e51b2adb7361044fc"
+      "sha256": "7a30891e6143fa8e940bf31d4a4f8979e62bef61765e87a8c5d1ee56a6388069"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
-      "bytes": 212907,
-      "sha256": "99dd123027e4aac88e8ff47226278217e6178068865c7ba729ff21cf515e3804"
+      "bytes": 213772,
+      "sha256": "7eaddd2cb4bd930a7eeb5f7697edc0ef02f787154fc9bcd377e9e1a228aef35a"
     },
     {
       "path": "integration/dependency_build/README.md",
@@ -2632,8 +2637,8 @@
     },
     {
       "path": "integration/finder198_auth.py",
-      "bytes": 5557,
-      "sha256": "a7dea07cf26a1699947091d7cc36db29bbf18c70dcc3dac24e67e6d8a3595fc8"
+      "bytes": 6094,
+      "sha256": "084f8838a71b26849454875bbda016eddb22ea0903852eed1e7c6b5af1f2cbc4"
     },
     {
       "path": "integration/finder198_budget.py",
@@ -2651,6 +2656,11 @@
       "sha256": "f478adb73eaa619cec1cf77cfffec022d5a8ba6a4a533563d449dd90f4fa1f97"
     },
     {
+      "path": "integration/finder198_server.py",
+      "bytes": 4357,
+      "sha256": "87161aa0929a4395a9eb6756e0bd85f66d5fd2c32bff514f20337314ba850a8c"
+    },
+    {
       "path": "integration/finder198_transport.py",
       "bytes": 5916,
       "sha256": "364debd0ada22fd35cb0d0cc67953fdf482443fbcbcef4ce17012077c8655311"
@@ -2659,6 +2669,11 @@
       "path": "integration/finder198_transport_child.py",
       "bytes": 5161,
       "sha256": "f0033e40c26ea4c787e0a465cab32f26881244d8916d4226e737abf2f0f2e918"
+    },
+    {
+      "path": "integration/finder198_v2_preflight.py",
+      "bytes": 1924,
+      "sha256": "05e31761f5491ee10b8dab5e4edc688fba389efaa51a27d035f83f15c10ab27d"
     },
     {
       "path": "integration/finder_index.py",
@@ -5689,6 +5704,11 @@
       "path": "tests/test_finder198bb.py",
       "bytes": 9462,
       "sha256": "00f1532995690d01f43223099b87d8a062644a4883237dcfbe96cd7091e40a91"
+    },
+    {
+      "path": "tests/test_finder198c.py",
+      "bytes": 4729,
+      "sha256": "50215966d2faa5fdb7b60b809748119c309ec2aa6c093909cdc25d6d34ffc3ce"
     },
     {
       "path": "tests/test_finder_index.py",

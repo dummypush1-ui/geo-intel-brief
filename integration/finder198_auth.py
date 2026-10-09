@@ -40,13 +40,14 @@ def _register(service):
         _services[service.store]=weakref.ref(service)
 
 ACCOUNT_ROUTES={('/account/preauth','GET'),('/account/login','POST'),('/account/logout','POST'),('/account/whoami','GET')}
-def create_finder_auth(public,*,enabled=False,service=None,origin=None,client_identity=None,worker_evidence=None,clock=None):
+def create_finder_auth(public,*,enabled=False,service=None,origin=None,client_identity=None,worker_evidence=None,clock=None,broker_handler=None):
     """Unselected injected WSGI factory. Serving an enabled real store can write.
     OFF uses no collaborators and delegates byte-for-byte to public callable.
     No automatic provider, Mongo service construction or production mounting.
     """
     if type(enabled)is not bool or not callable(public):raise AuthRefused('Exact narrow gate selection required')
     if not enabled:return public
+    if broker_handler is not None and not callable(broker_handler):raise AuthRefused('Exact broker handler required')
     _evidence(worker_evidence,clock)
     validate(service,origin,client_identity);_register(service)
     bound_limiter=service.limiter
@@ -73,10 +74,14 @@ def create_finder_auth(public,*,enabled=False,service=None,origin=None,client_id
         if req.headers.get('Origin')!=origin:return response('forbidden',403)(environ,start_response)
         try:
             token=req.cookies.get(COOKIE_NAME,'')
-            identity=service.whoami(token)
-            if identity.get('ok')is not True:return response('unauthenticated',401)(environ,start_response)
-            if not csrf.verify_session_token(service.secret,hashlib.sha256(token.encode('utf-8')).hexdigest(),req.headers.get('X-CSRF-Token')):return response('forbidden',403)(environ,start_response)
+            session,session_hash,error=service._authed(token,req.headers.get('X-CSRF-Token'),origin)
+            if error:return response('unauthenticated'if error=='unauthenticated'else'forbidden',401 if error=='unauthenticated'else 403)(environ,start_response)
+            if type(session)is not dict or type(session.get('uid'))is not str or not 1<=len(session['uid'])<=512:raise AuthRefused('Live UID session required')
+            principal_hash=hashlib.sha256(('finder198-principal:'+session['uid']).encode('utf-8')).hexdigest()
         except Exception:return response('account_unavailable',503)(environ,start_response)
+        if broker_handler is not None:
+            try:return broker_handler(req,principal_hash)(environ,start_response)
+            except Exception:return response('broker_unavailable',503)(environ,start_response)
         return response('broker_not_wired',503)(environ,start_response)
     dispatch.route_contract={'accounts':sorted(ACCOUNT_ROUTES),'broker_prefix':'/api/finder-broker/','broker_transport':False,'public':'unchanged','signup':False,'worker_requirement':1,'ui':False}
     return dispatch

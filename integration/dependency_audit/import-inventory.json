@@ -1321,8 +1321,10 @@
         "integration/feedparser_audit/runner.py",
         "integration/finder198_auth.py",
         "integration/finder198_receipts.py",
+        "integration/finder198_server.py",
         "integration/finder198_transport.py",
         "integration/finder198_transport_child.py",
+        "integration/finder198_v2_preflight.py",
         "integration/finder_offline.py",
         "integration/geo_article_writer.py",
         "integration/geo_collector_contract.py",
@@ -1453,6 +1455,7 @@
         "tests/test_finder198a.py",
         "tests/test_finder198ba.py",
         "tests/test_finder198bb.py",
+        "tests/test_finder198c.py",
         "tests/test_finder_index.py",
         "tests/test_finder_nested.py",
         "tests/test_finder_network.py",
@@ -1825,6 +1828,7 @@
         "integration/feedparser_audit/child.py",
         "integration/feedparser_audit/runner.py",
         "integration/finder198_auth.py",
+        "integration/finder198_server.py",
         "integration/finder198_transport.py",
         "integration/finder198_transport_child.py",
         "integration/finder_index.py",
@@ -1889,6 +1893,7 @@
         "tests/test_file_audit.py",
         "tests/test_finder198a.py",
         "tests/test_finder198bb.py",
+        "tests/test_finder198c.py",
         "tests/test_finder_nested.py",
         "tests/test_geo_probe_http.py",
         "tests/test_geo_probe_process.py",
@@ -2305,6 +2310,7 @@
         "integration/collector197_http.py",
         "integration/collector197_preflight.py",
         "integration/finder198_budget.py",
+        "integration/finder198_v2_preflight.py",
         "integration/geo_article_writer.py",
         "integration/geo_read_factory.py",
         "integration/geo_sample_probe.py",
@@ -3167,6 +3173,7 @@
         "tests/test_collector197ea.py",
         "tests/test_finder198ba.py",
         "tests/test_finder198bb.py",
+        "tests/test_finder198c.py",
         "tests/test_geo_event_composition.py",
         "tests/test_geo_read_factory.py",
         "tests/test_geo_sample_probe.py",
@@ -3582,6 +3589,7 @@
         "tests/test_finder198a.py",
         "tests/test_finder198ba.py",
         "tests/test_finder198bb.py",
+        "tests/test_finder198c.py",
         "tests/test_finder_index.py",
         "tests/test_finder_nested.py",
         "tests/test_finder_network.py",
@@ -3768,6 +3776,7 @@
       "files": [
         "integration/accounts/merged_fixture.py",
         "integration/finder198_auth.py",
+        "integration/finder198_server.py",
         "integration/geo_probe_http.py",
         "integration/news_export/fixture_http.py",
         "integration/preview_access.py",
@@ -3792,6 +3801,7 @@
         "tests/news_export/test_fixture_http.py",
         "tests/news_export/test_fixture_serving.py",
         "tests/test_finder198a.py",
+        "tests/test_finder198c.py",
         "tests/test_geo_only_runtime.py",
         "tests/test_geo_probe_http.py",
         "tests/test_preview_access.py",
@@ -4340,7 +4350,7 @@
       },
       {
         "path": "integration/finder198_auth.py",
-        "sha256": "a7dea07cf26a1699947091d7cc36db29bbf18c70dcc3dac24e67e6d8a3595fc8"
+        "sha256": "084f8838a71b26849454875bbda016eddb22ea0903852eed1e7c6b5af1f2cbc4"
       },
       {
         "path": "integration/finder198_budget.py",
@@ -4355,12 +4365,20 @@
         "sha256": "f478adb73eaa619cec1cf77cfffec022d5a8ba6a4a533563d449dd90f4fa1f97"
       },
       {
+        "path": "integration/finder198_server.py",
+        "sha256": "87161aa0929a4395a9eb6756e0bd85f66d5fd2c32bff514f20337314ba850a8c"
+      },
+      {
         "path": "integration/finder198_transport.py",
         "sha256": "364debd0ada22fd35cb0d0cc67953fdf482443fbcbcef4ce17012077c8655311"
       },
       {
         "path": "integration/finder198_transport_child.py",
         "sha256": "f0033e40c26ea4c787e0a465cab32f26881244d8916d4226e737abf2f0f2e918"
+      },
+      {
+        "path": "integration/finder198_v2_preflight.py",
+        "sha256": "05e31761f5491ee10b8dab5e4edc688fba389efaa51a27d035f83f15c10ab27d"
       },
       {
         "path": "integration/finder_index.py",
@@ -5229,6 +5247,10 @@
       {
         "path": "tests/test_finder198bb.py",
         "sha256": "00f1532995690d01f43223099b87d8a062644a4883237dcfbe96cd7091e40a91"
+      },
+      {
+        "path": "tests/test_finder198c.py",
+        "sha256": "50215966d2faa5fdb7b60b809748119c309ec2aa6c093909cdc25d6d34ffc3ce"
       },
       {
         "path": "tests/test_finder_index.py",
