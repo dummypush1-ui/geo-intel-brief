@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 2115,
+  "tests": 2122,
   "files": [
     {
       "path": ".env.example",
@@ -1986,6 +1986,11 @@
       "sha256": "31a32b4f04bea64ba3c452573dde15a674b1203f3516b6258c97fbf2045ec7f3"
     },
     {
+      "path": "integration/MAIL-REDERIVE221.md",
+      "bytes": 2420,
+      "sha256": "4c4eae805aac94c225cf15f1ad9f649388d054473782df9d7c2f2d9c54338d42"
+    },
+    {
       "path": "integration/MAIL-SURFACE217.md",
       "bytes": 4295,
       "sha256": "ad9c470ae221e0a6b87e127963444b9ca92a93c86eae1c0839e3d17556a84055"
@@ -2743,12 +2748,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 18581,
-      "sha256": "9448f59a4581fd3ef9525921bafa6987095562b4d3a03cd3e0f74fdb125e838b"
+      "sha256": "36a5a704de17712a7526df4721c031d9d19c1aa1da748ecbe56443428b38a9b6"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
-      "bytes": 246447,
-      "sha256": "7a48b8576274a4a73af998cd243ab34b95f2037d45121881d9a5e493b4ece4e9"
+      "bytes": 247425,
+      "sha256": "6adbf0763c1e55888000da156314f4c84c5462803ac51fbe1f28b1c8897dcb9f"
     },
     {
       "path": "integration/dependency_build/README.md",
@@ -3204,6 +3209,11 @@
       "path": "integration/mail_ledger212.py",
       "bytes": 19827,
       "sha256": "990dd7327d685e01fc1a25bc19dabdcc7d946ef5c5db7c1db6defce80abc88a6"
+    },
+    {
+      "path": "integration/mail_rederive221.py",
+      "bytes": 3814,
+      "sha256": "98edccf6950fd0f9b56e55877f8485d6e5ccb5b62af19df12d39f85496a094b8"
     },
     {
       "path": "integration/mail_surface217.py",
@@ -6434,6 +6444,11 @@
       "path": "tests/test_mail_operations.py",
       "bytes": 3569,
       "sha256": "4cd325ba9576354c67d385d241b6c284376111c4d04c297fa1e6f1a5e5b030d2"
+    },
+    {
+      "path": "tests/test_mail_rederive221.py",
+      "bytes": 6545,
+      "sha256": "882e42f2c87ef8ab910434a9a41782def944eb0ccf343a386ebfd33376f1cff0"
     },
     {
       "path": "tests/test_mail_surface217.py",
