@@ -315,6 +315,7 @@
       "files": [
         "integration/collector197_coverage.py",
         "integration/collector197_orchestrator.py",
+        "integration/replay199_collector.py",
         "tests/test_collector197a.py",
         "tests/test_collector197c.py"
       ],
@@ -345,6 +346,7 @@
         "integration/collector197_http.py",
         "integration/collector197_orchestrator.py",
         "integration/collector197_supervisor.py",
+        "integration/replay199_collector.py",
         "tests/test_collector197a.py",
         "tests/test_collector197eba.py",
         "tests/test_replay199a.py"
@@ -366,7 +368,8 @@
     {
       "import": "collector111_prep",
       "files": [
-        "integration/collector197_orchestrator.py"
+        "integration/collector197_orchestrator.py",
+        "integration/replay199_collector.py"
       ],
       "stdlib": false,
       "distributions": [],
@@ -587,6 +590,7 @@
         "tests/test_replay199a.py",
         "tests/test_replay199b.py",
         "tests/test_replay199ca.py",
+        "tests/test_replay199cb.py",
         "tests/test_rss_catalog.py",
         "tests/test_shared_ledger_fixture.py",
         "tests/test_shared_service_fixture.py",
@@ -720,6 +724,7 @@
         "integration/public_live_builder.py",
         "integration/publication_dates/policy.py",
         "integration/renderer_scope.py",
+        "integration/replay199_collector.py",
         "integration/retention_audit.py",
         "integration/rss_catalog/catalog.py",
         "integration/scheduler_policy.py",
@@ -1392,6 +1397,7 @@
         "integration/renderer_scope.py",
         "integration/replay199_adapters.py",
         "integration/replay199_broker.py",
+        "integration/replay199_collector.py",
         "integration/replay199_core.py",
         "integration/replay199_preflight.py",
         "integration/replay199_schema.py",
@@ -1544,6 +1550,7 @@
         "tests/test_replay199a.py",
         "tests/test_replay199b.py",
         "tests/test_replay199ca.py",
+        "tests/test_replay199cb.py",
         "tests/test_report_preview_frame.py",
         "tests/test_report_styles.py",
         "tests/test_retention_audit.py",
@@ -2227,6 +2234,7 @@
         "tests/test_replay199a.py",
         "tests/test_replay199b.py",
         "tests/test_replay199ca.py",
+        "tests/test_replay199cb.py",
         "tests/test_rss177.py",
         "tests/test_rss_catalog.py",
         "tests/test_runner199lock.py",
@@ -3256,7 +3264,8 @@
         "tests/test_preview_launcher.py",
         "tests/test_replay199a.py",
         "tests/test_replay199b.py",
-        "tests/test_replay199ca.py"
+        "tests/test_replay199ca.py",
+        "tests/test_replay199cb.py"
       ],
       "stdlib": false,
       "distributions": [],
@@ -3495,6 +3504,7 @@
         "integration/news_pages.py",
         "integration/preview_access.py",
         "integration/public_live_builder.py",
+        "integration/replay199_collector.py",
         "integration/replay199_core.py",
         "tests/geospatial/test_geospatial.py",
         "tests/news_export/test_export.py",
@@ -3733,6 +3743,7 @@
         "tests/test_replay199a.py",
         "tests/test_replay199b.py",
         "tests/test_replay199ca.py",
+        "tests/test_replay199cb.py",
         "tests/test_report_preview_frame.py",
         "tests/test_report_styles.py",
         "tests/test_retention_audit.py",
@@ -4755,6 +4766,10 @@
         "sha256": "4509f501ea2be68a0cfacd5f158e2684b27cb007f086c64f5caecf849773257f"
       },
       {
+        "path": "integration/replay199_collector.py",
+        "sha256": "b4ad33cb04ed1b0915e251fab8924915fc30ede3a3023168f729b5a03287be9d"
+      },
+      {
         "path": "integration/replay199_core.py",
         "sha256": "03ab95a4a7bf842d42f4b30c17ba468a7e6c44575f160f44a01d336c149888de"
       },
@@ -5641,6 +5656,10 @@
       {
         "path": "tests/test_replay199ca.py",
         "sha256": "eaf011dac78b3bcdb22d9132c2ceb8bef79c70c9e81ce17cfaf0547c15ce936d"
+      },
+      {
+        "path": "tests/test_replay199cb.py",
+        "sha256": "643729a4718a28e46128bb724cd53124861e886b823acd0e09b8e6f598784957"
       },
       {
         "path": "tests/test_report_preview_frame.py",
