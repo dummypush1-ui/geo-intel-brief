@@ -1777,6 +1777,7 @@
         "tests/test_channels171.py",
         "tests/test_classifier146_inventory.py",
         "tests/test_compulsory_channels.py",
+        "tests/test_comtrade178.py",
         "tests/test_digest_cold.py",
         "tests/test_edge_guard.py",
         "tests/test_env_example.py",
@@ -2558,6 +2559,7 @@
         "tests/test_build_provenance150.py",
         "tests/test_collection_prepare.py",
         "tests/test_compulsory_channels.py",
+        "tests/test_comtrade178.py",
         "tests/test_digest_cold.py",
         "tests/test_edge_guard.py",
         "tests/test_env_example.py",
@@ -3053,6 +3055,7 @@
         "tests/test_collector122_validation.py",
         "tests/test_collector_mail_fixture.py",
         "tests/test_compulsory_channels.py",
+        "tests/test_comtrade178.py",
         "tests/test_country_alerts.py",
         "tests/test_country_page.py",
         "tests/test_country_signals.py",
@@ -4409,6 +4412,10 @@
       {
         "path": "tests/test_compulsory_channels.py",
         "sha256": "17c07782f2e0ec0a4cd32aa83aee4748342150a345239d983bde40cf7ef431aa"
+      },
+      {
+        "path": "tests/test_comtrade178.py",
+        "sha256": "4a94622a2a3ba607a81825903b9ce219cc78f28ce3340dcca72a2a5893f62261"
       },
       {
         "path": "tests/test_country_alerts.py",

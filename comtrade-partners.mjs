@@ -6,6 +6,7 @@
 // State lives in state/comtrade-partners.json so coverage survives reruns and
 // resets automatically when tradevalues.ts rolls to a new calendar year.
 import fs from 'fs';
+import {coverage,checkpoint,publish,completeRows} from './updater_runtime/comtrade-publication.mjs';
 
 const KEY = process.env.COMTRADE_KEY || '';
 const DRY = process.env.RENDER_DRY === '1';
@@ -31,7 +32,9 @@ async function fetchJson(url, withKey) {
   const headers = withKey ? { 'Ocp-Apim-Subscription-Key': KEY } : {};
   const res = await fetch(url, { headers });
   if (!res.ok) throw new Error('HTTP ' + res.status + ' for ' + url.slice(0, 110));
-  return res.json();
+  const d=await res.json();
+  if(withKey)completeRows(d);
+  return d;
 }
 
 async function partnerNames() {
@@ -116,7 +119,7 @@ async function bakeTrend(year, log) {
   const years = [];
   for (let y = year - 4; y <= year; y++) years.push(y);
   let st = fs.existsSync(TSTATE) ? JSON.parse(fs.readFileSync(TSTATE, 'utf8')) : null;
-  if (st && st.v === 2 && st.years && st.years[0] === years[0] && st.years[4] === years[4] && Object.keys(st.data || {}).length > 3000) {
+  if (st && st.v === 3 && st.years && st.years[0] === years[0] && st.years[4] === years[4] && Object.keys(st.data || {}).length > 3000) {
     return { trend: 'cached', codes: Object.keys(st.data).length, years: st.years };
   }
   const perYear = {};
@@ -144,7 +147,6 @@ async function bakeTrend(year, log) {
     }
   }
   fs.mkdirSync('state', { recursive: true });
-  fs.writeFileSync(TSTATE, JSON.stringify({ v: 2, years, data }) + '\n');
   let out = `// India merchandise trade by 6-digit HS code, calendar years ${years[0]}-${years[4]}.
 ` +
     `// Source: UN Comtrade API (comtradeapi.un.org), reporter 699 (India), partner World,
@@ -161,24 +163,30 @@ async function bakeTrend(year, log) {
   for (const c of Object.keys(data).sort()) {
     out += `  '${c}': [${years.map((y) => { const a = data[c][y] || [0, 0, 0, 0]; return `[${y}, ${a[0]}, ${a[1]}, ${a[2]}, ${a[3]}]`; }).join(', ')}],\n`;
   }
-  fs.writeFileSync(TOUT, out + '};\n');
+  publish(TOUT,out+'};\n');
+  checkpoint(TSTATE,{v:3,years,data});
   return { trend: 'baked', codes: Object.keys(data).length, years };
 }
 
 export async function bakePartners() {
+  if (DRY) return {dry:true,network:false,writes:false,published:false};
   if (!KEY) { log('COMTRADE_KEY not set - skipping partner bake'); return { skipped: 'no key' }; }
+  if (!Number.isSafeInteger(BATCH)||BATCH<2||BATCH>500) throw new Error('Comtrade batch bound');
   const { year, codes } = tradeYearAndCodes();
   const trend = await bakeTrend(year, log);
   const ranked = Object.entries(codes).sort((a, b) => b[1] - a[1]).map((e) => e[0]);
   let st = fs.existsSync(STATE) ? JSON.parse(fs.readFileSync(STATE, 'utf8')) : null;
-  if (!st || st.year !== year) st = { year, data: {}, failures: {} };
-  const remaining = ranked.filter((c) => !st.data[c] && (st.failures[c] || 0) < 3);
+  if (!st || st.year !== year || st.v!==2) st = {v:2, year, data: {}, failures: {} };
+  coverage(ranked,[]);
+  if(!st.data||typeof st.data!=='object'||Array.isArray(st.data)||!st.failures||typeof st.failures!=='object')throw new Error('Comtrade checkpoint shape');
+  for(const code of Object.keys(st.data))if(!ranked.includes(code))delete st.data[code];
+  const remaining = ranked.filter((c) => !st.data[c]);
   if (!remaining.length) {
-    renderAndWrite(st, year);
-    return { complete: Object.keys(st.data).length, year };
+    const status=coverage(ranked,Object.keys(st.data));if(status.complete){renderAndWrite(st,year);status.published=true;}
+    return {...status,year};
   }
   const names = await partnerNames();
-  const batch = remaining.slice(0, DRY ? 2 : Math.floor(BATCH / 2)); // 2 calls per code now (India partners + global)
+  const batch = remaining.slice(0,Math.floor(BATCH/2)); // 2 calls per code now (India partners + global)
   const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
   let pulled = 0, failed = 0, throttled = false;
   for (const code of batch) {
@@ -202,15 +210,15 @@ export async function bakePartners() {
       await sleep(450);
     }
   }
-  renderAndWrite(st, year);
+  const status=coverage(ranked,Object.keys(st.data),throttled);
+  st.coverage=status;checkpoint(STATE,st);
+  if(status.complete){renderAndWrite(st,year);status.published=true;}
   log('partner bake:', pulled, 'pulled,', failed, 'failed, coverage', Object.keys(st.data).length, '/', ranked.length, 'year', year);
-  return { pulled, failed, throttled, trend, coverage: Object.keys(st.data).length, total: ranked.length, year };
+  return {...status,pulled,failed,trend,coverage:Object.keys(st.data).length,total:ranked.length,year};
 }
 
 function renderAndWrite(st, year) {
-  fs.mkdirSync('state', { recursive: true });
-  fs.writeFileSync(STATE, JSON.stringify(st) + '\n');
-  fs.writeFileSync(OUT, render(year, st.data));
+  publish(OUT,render(year,st.data));
 }
 
 if (process.argv[1] && process.argv[1].endsWith('comtrade-partners.mjs')) {

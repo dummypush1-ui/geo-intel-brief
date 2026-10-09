@@ -5,6 +5,8 @@
 // Output: src/mirrordata.ts - per red-zone country, per 6-digit code, [importsByCountry, exportsByCountry]
 // as seen by the rest of the world. Rows under $1M dropped (noise floor).
 import fs from 'fs';
+import {coverage,checkpoint,publish,completeRows} from './updater_runtime/comtrade-publication.mjs';
+const DRY=process.env.RENDER_DRY==='1';
 
 const KEY = process.env.COMTRADE_KEY || '';
 const STATE = 'state/comtrade-mirror.json';
@@ -28,17 +30,19 @@ async function pull(partnerCode, year, cmd) {
 }
 
 export async function bakeMirror() {
+  if(DRY)return {dry:true,network:false,writes:false,published:false};
   if (!KEY) { log('COMTRADE_KEY not set - skipping mirror bake'); return { skipped: 'no key' }; }
   const year = parseInt((fs.readFileSync('src/marketdata.ts', 'utf8').match(/MARKET_DATA_YEAR = (\d{4})/) || [])[1], 10);
   let st = fs.existsSync(STATE) ? JSON.parse(fs.readFileSync(STATE, 'utf8')) : null;
-  if (!st || st.year !== year) st = { year, data: {}, failures: {} };
-  let pulled = 0, failed = 0;
+  if (!st || st.year !== year || st.v!==2) st = {v:2,year,data:{},done:[],failures:{}};
+  if(!Array.isArray(st.done)||!st.data||typeof st.data!=='object'||Array.isArray(st.data)||!st.failures||typeof st.failures!=='object')throw new Error('Comtrade checkpoint shape');
+  let pulled = 0, failed = 0,throttled=false;
   for (const [name, code] of Object.entries(RED)) {
-    if (st.data[name] && Object.keys(st.data[name]).length) continue;
-    if ((st.failures[name] || 0) >= 3) continue;
+    if(st.done.includes(name))continue;
     try {
       let d = await pull(code, year, 'AG6');
-      let rows = d.data || [];
+      if(!d||!Array.isArray(d.data))throw new Error('Comtrade invalid table');
+      let rows = d.data;
       if ((d.count && d.count > rows.length) || rows.length >= 100000) {
         // Chunk by 2-digit chapter.
         rows = [];
@@ -46,9 +50,10 @@ export async function bakeMirror() {
           const cc = String(ch).padStart(2, '0');
           await sleep(450);
           const dc = await pull(code, year, cc);
-          rows = rows.concat(dc.data || []);
+          rows = rows.concat(completeRows(dc));
         }
       }
+      else completeRows(d);
       const rec = {};
       for (const r of rows) {
         if (!r.cmdCode || r.cmdCode.length !== 6) continue;
@@ -58,20 +63,21 @@ export async function bakeMirror() {
         if (r.flowCode === 'M') rec[r.cmdCode][0] += v; // world imports FROM this country = its exports
         else if (r.flowCode === 'X') rec[r.cmdCode][1] += v; // world exports TO it = its imports
       }
-      st.data[name] = rec;
+      st.data[name] = rec;st.done.push(name);
       delete st.failures[name];
       pulled++;
       log('mirror ok:', name, Object.keys(rec).length, 'codes');
-      fs.mkdirSync('state', { recursive: true });
-      fs.writeFileSync(STATE, JSON.stringify(st) + '\n');
+      checkpoint(STATE,st);
       await sleep(450);
     } catch (e) {
-      if (/HTTP 429/.test(e.message)) { log('rate limited - resumes next run'); break; }
+      if (/HTTP 429/.test(e.message)) { throttled=true;log('rate limited - resumes next run'); break; }
       st.failures[name] = (st.failures[name] || 0) + 1;
       failed++;
       log('mirror failed', name, e.message);
     }
   }
+  const status=coverage(Object.keys(RED),st.done,throttled);st.coverage=status;checkpoint(STATE,st);
+  if(!status.complete)return {...status,pulled,failed,year};
   // Render
   const year2 = st.year;
   let out = `// Sanctioned-country trade reconstructed from partner (mirror) records, calendar ${year2}.\n` +
@@ -86,9 +92,9 @@ export async function bakeMirror() {
     const cells = Object.keys(rec).sort().map((c) => `'${c}': [${rec[c][0]}, ${rec[c][1]}]`).join(', ');
     out += `  ${JSON.stringify(name)}: { ${cells} },\n`;
   }
-  fs.writeFileSync(OUT, out + '};\n');
+  publish(OUT,out+'};\n');status.published=true;
   log('mirror bake:', pulled, 'pulled,', failed, 'failed, countries', Object.keys(st.data).length);
-  return { pulled, failed, countries: Object.keys(st.data).length, year: year2 };
+  return {...status,pulled,failed,countries:Object.keys(st.data).length,year:year2};
 }
 
 if (process.argv[1] && process.argv[1].endsWith('comtrade-mirror.mjs')) {

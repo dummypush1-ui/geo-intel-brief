@@ -11,8 +11,9 @@ import vm from 'vm';
 import { expandAliases, draftGst } from './ai-agent.mjs';
 const step = async (n, f) => { try { const r = await f(); console.log('[ok]', n, JSON.stringify(r)); return r; } catch (e) { console.log('[skip]', n, e.message); return null; } };
 await step('trade+cleanup', runRefresh);
-await step('comtrade-partners', bakePartners);
-await step('comtrade-market', (await import('./comtrade-market.mjs')).bakeMarket);
+const bakeStep=async(n,f)=>{const r=await f();if(!r.skipped&&!r.dry&&!r.complete)throw new Error(n+' incomplete; last-good output retained');console.log('[ok]',n,JSON.stringify(r));return r;};
+await bakeStep('comtrade-partners',bakePartners);
+await bakeStep('comtrade-market',(await import('./comtrade-market.mjs')).bakeMarket);
 const sr = await step('sanctions', refreshSanctions);
 if (sr) {
   const HP = 'state/health.json', h = fs.existsSync(HP) ? JSON.parse(fs.readFileSync(HP, 'utf8')) : {};

@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 1535,
+  "tests": 1539,
   "files": [
     {
       "path": ".env.example",
@@ -47,8 +47,8 @@
     },
     {
       "path": "automate.mjs",
-      "bytes": 4618,
-      "sha256": "aca6f2adac98c63c8e9d4ed848842a594236bdeadd62349718474f5ab850613c"
+      "bytes": 4817,
+      "sha256": "d19312fa9201582d4d150a22d9be8a9d9f337b798a2e5a37c1ae92233aced285"
     },
     {
       "path": "build.mjs",
@@ -1377,23 +1377,23 @@
     },
     {
       "path": "comtrade-market.mjs",
-      "bytes": 7083,
-      "sha256": "a0bb1a83970d7b0af55577dc20f3316a1707ba1121a325de9c37133557403b31"
+      "bytes": 7983,
+      "sha256": "3ad787cab8b91244ff2ae7e34b0a5ee4ebee8642789ad10b2cd994a43c6b7cc7"
     },
     {
       "path": "comtrade-marketx.mjs",
-      "bytes": 7090,
-      "sha256": "79ca09953803bf37216a6e97c6e6df7f555e2f08d0626bf99e13d868c1b71221"
+      "bytes": 7990,
+      "sha256": "618e31805e024d74e123b09c9a837aa861e84224fc6b386ca0a18082b08e7ff5"
     },
     {
       "path": "comtrade-mirror.mjs",
-      "bytes": 5158,
-      "sha256": "20f09c4c9adb15db14e6d2a59b0c3c27669ad4c461cef1906c16060a4a844655"
+      "bytes": 5739,
+      "sha256": "eeddbdb4619b211fb3a7228bbfbbc86bcc75702a9de2a74f240ef5068bd9ad51"
     },
     {
       "path": "comtrade-partners.mjs",
-      "bytes": 10689,
-      "sha256": "703e7e137f4198ae1601c0edf4d8b474700b13732910713cb59acc38e8671364"
+      "bytes": 11294,
+      "sha256": "5246d027971a3075c2b2c3e97736f61d2111f91b341004223428a487df202dac"
     },
     {
       "path": "data.d6d1b417562b.js",
@@ -2328,12 +2328,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 18581,
-      "sha256": "7eb84199986fffa119d9366a40e902600536e7060ab9ef6dd6a4c24f3315b84c"
+      "sha256": "6945cd8a426156169393596e4de38c4831b329dd73f288b50cba50b3c5114f91"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
-      "bytes": 184566,
-      "sha256": "072abaf3379aeaefc6f4c534a5d787475d1a0b13cf64cc056cf83cc8b1b8386f"
+      "bytes": 184824,
+      "sha256": "ff690b8ecf829b8048dbc9ad79dafb86aae9ee693e36cca0d83126a039ec666d"
     },
     {
       "path": "integration/dependency_build/README.md",
@@ -4836,6 +4836,16 @@
       "sha256": "ae678b866c61eec7b2ff1d2527344b4c3e9a86afcd1deb280c8374ca359dbe46"
     },
     {
+      "path": "tests/comtrade_runtime/test_dry178.mjs",
+      "bytes": 813,
+      "sha256": "6cd3a42412cafab47716ffb091c85ef0a0d70611f2fe2564086ad0d26ad296c7"
+    },
+    {
+      "path": "tests/comtrade_runtime/test_publication178.mjs",
+      "bytes": 5767,
+      "sha256": "47808fc5f2d7da84992b533f164f8e9943fa4604fb80645ca241d07a7fecd758"
+    },
+    {
       "path": "tests/digest_cold_probe.py",
       "bytes": 2789,
       "sha256": "1a801e91b8a6c2057331d98b39deba21d4972c44534b9630c8f6fb7f7eb3ff16"
@@ -5134,6 +5144,11 @@
       "path": "tests/test_compulsory_channels.py",
       "bytes": 2766,
       "sha256": "17c07782f2e0ec0a4cd32aa83aee4748342150a345239d983bde40cf7ef431aa"
+    },
+    {
+      "path": "tests/test_comtrade178.py",
+      "bytes": 913,
+      "sha256": "4a94622a2a3ba607a81825903b9ce219cc78f28ce3340dcca72a2a5893f62261"
     },
     {
       "path": "tests/test_country_alerts.py",
@@ -5816,6 +5831,11 @@
       "sha256": "92770ad9325b0becc57f76e625e2ee7c8e1214ddfc8011df8a9b10ea842dbf6f"
     },
     {
+      "path": "updater_runtime/COMTRADE-PUBLICATION.md",
+      "bytes": 1963,
+      "sha256": "fae945e5510f3911b5ac7f28f0f00ae60abbebebda410dcba0cc49400c924638"
+    },
+    {
       "path": "updater_runtime/GST-GROUNDING.md",
       "bytes": 2108,
       "sha256": "3302711e30dd93c611faa54ad3d5b9fbc80cb8fcba0f12545d65b18599d9918b"
@@ -5841,6 +5861,11 @@
       "sha256": "da4074ee5f0e54e41446df5b14ace984ee8f5b7564bfd718a53303bc959fe537"
     },
     {
+      "path": "updater_runtime/comtrade-publication.mjs",
+      "bytes": 1178,
+      "sha256": "5efdd6c6cad7c81a830d21739b97812680d8851f4c6eac848866a4da9c878290"
+    },
+    {
       "path": "updater_runtime/gemini-error.mjs",
       "bytes": 655,
       "sha256": "bba43129418e78d68afee50d44e9bf9b56d1b7e64a82448f3d490f6b50e00e06"
@@ -5863,7 +5888,7 @@
     {
       "path": "updater_runtime/monitor155-inventory.json",
       "bytes": 722,
-      "sha256": "31e5c7ac1193e35d2ff778e02b013a04ccf813d9be373611afbd1a9a6e9a3b07"
+      "sha256": "65bdd38516dc19b39b0479b79561274722da4397910f2c814ab26337cdc3e959"
     },
     {
       "path": "updater_runtime/pdf-build-input.json",
@@ -5893,7 +5918,7 @@
     {
       "path": "updater_runtime/sanctions152-inventory.json",
       "bytes": 624,
-      "sha256": "54ada601c310227dcbce9fd93a04ea430341177032024b8914e7d335681962a6"
+      "sha256": "8c070272deaabaf2b1d51b6afb35eef8b6eb52c8a88b54ebe4b7336d17c94327"
     },
     {
       "path": "updater_runtime/table-edit.mjs",

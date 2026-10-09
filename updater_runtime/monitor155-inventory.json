@@ -1,6 +1,6 @@
 {
   "monitor.mjs": "0b3d735dbd77e8b174bbcf0c2dab1a7a6130527225f4b3d0e0264646b1a477f0",
-  "automate.mjs": "aca6f2adac98c63c8e9d4ed848842a594236bdeadd62349718474f5ab850613c",
+  "automate.mjs": "d19312fa9201582d4d150a22d9be8a9d9f337b798a2e5a37c1ae92233aced285",
   "updater_runtime/github-issue.mjs": "2190ed1278be6f080f29d82c229709893def3b4f52d821a31ac1939e84be94ae",
   "updater_runtime/MONITOR-HEALTH.md": "b91ca8d2d344f43e27ef4e292b6aec21d56d25a5cba174a6c4c155625152fd45",
   "tests/updater_runtime/test_issue_health.mjs": "d588ccb86279052359c162aa0939b2dffc7fa19dbfe21d6cdb14567a1f9687c9",

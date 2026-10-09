@@ -5,6 +5,7 @@
 // State lives in state/comtrade-market.json so partial progress survives reruns;
 // a 429 stops the run cleanly and the next run resumes.
 import fs from 'fs';
+import {coverage,checkpoint,publish,completeRows} from './updater_runtime/comtrade-publication.mjs';
 
 const KEY = process.env.COMTRADE_KEY || '';
 const DRY = process.env.RENDER_DRY === '1';
@@ -29,6 +30,7 @@ async function fetchJson(url) {
 
 async function reporterList() {
   const res = await fetch('https://comtradeapi.un.org/files/v1/app/reference/partnerAreas.json');
+  if (!res.ok) throw new Error('Comtrade reference HTTP '+res.status);
   const d = await res.json();
   const out = {};
   for (const r of d.results || []) {
@@ -43,31 +45,36 @@ async function reporterList() {
 async function pullBatch(ids, year) {
   const url = `https://comtradeapi.un.org/data/v1/get/C/A/HS?reporterCode=${ids.join('%2C')}&period=${year}&partnerCode=0&partner2Code=0&flowCode=M&cmdCode=AG6&customsCode=C00&motCode=0`;
   const d = await fetchJson(url);
-  return d.data || [];
+  return completeRows(d);
 }
 
 export async function bakeMarket() {
+  if (DRY) return {dry:true,network:false,writes:false,published:false};
   if (!KEY) { log('COMTRADE_KEY not set - skipping market bake'); return { skipped: 'no key' }; }
   const year = tradeYear();
   const reporters = await reporterList();
   const ids = Object.keys(reporters).map(Number).sort((a, b) => a - b);
+  coverage(ids,[]);
   log('reporters:', ids.length, 'year:', year);
   let st = fs.existsSync(STATE) ? JSON.parse(fs.readFileSync(STATE, 'utf8')) : null;
-  if (!st || st.year !== year || st.v !== 1) st = { v: 1, year, rows: {}, done: [], failures: {} };
+  if (!st || st.year !== year || st.v !== 2) st = { v: 2, year, rows: {}, done: [], failures: {} };
+  if(!Array.isArray(st.done)||!st.rows||typeof st.rows!=='object'||Array.isArray(st.rows)||!st.failures||typeof st.failures!=='object')throw new Error('Comtrade checkpoint shape');
+  st.done=[...new Set(st.done.filter(id=>ids.includes(id)))];
+  for(const row of Object.values(st.rows))for(const id of Object.keys(row))if(!ids.includes(Number(id)))delete row[id];
   // rows: {code: {reporterId: value}} accumulated from pulled batches
   const doneSet = new Set(st.done);
-  const todo = ids.filter((i) => !doneSet.has(i) && (st.failures[i] || 0) < 3);
+  const todo = ids.filter((i) => !doneSet.has(i));
   if (!todo.length) {
-    writeOutputs(st, reporters, year);
-    return { complete: true, reporters: st.done.length, year };
+    const status=coverage(ids,st.done);if(status.complete){writeOutputs(st,reporters,year);status.published=true;}
+    return {...status,reporters:st.done.length,year};
   }
   const chunks = [];
-  if (DRY) chunks.push(todo.slice(0, 2));
-  else for (let i = 0; i < todo.length; i += CHUNK) chunks.push(todo.slice(i, i + CHUNK));
+  for (let i = 0; i < todo.length; i += CHUNK) chunks.push(todo.slice(i, i + CHUNK));
   let pulled = 0, failed = 0, throttled = false;
   for (const chunk of chunks) {
     try {
       const rows = await pullBatch(chunk, year);
+      if (rows.some(r=>!chunk.includes(r.reporterCode))) throw new Error('Comtrade reporter outside requested batch');
       for (const r of rows) {
         if (!(r.primaryValue > 0) || !r.cmdCode || r.cmdCode.length !== 6) continue;
         if (!st.rows[r.cmdCode]) st.rows[r.cmdCode] = {};
@@ -83,6 +90,7 @@ export async function bakeMarket() {
         try {
           await sleep(450);
           const rows = await pullBatch([id], year);
+          if (rows.some(r=>r.reporterCode!==id)) throw new Error('Comtrade reporter outside request');
           for (const r of rows) {
             if (!(r.primaryValue > 0) || !r.cmdCode || r.cmdCode.length !== 6) continue;
             if (!st.rows[r.cmdCode]) st.rows[r.cmdCode] = {};
@@ -102,13 +110,14 @@ export async function bakeMarket() {
     }
     await sleep(450);
     // Checkpoint after every batch so a killed run loses at most one batch.
-    fs.mkdirSync('state', { recursive: true });
-    fs.writeFileSync(STATE, JSON.stringify(st) + '\n');
+    checkpoint(STATE,st);
   }
-  writeOutputs(st, reporters, year);
-  const coverage = Object.keys(st.rows).length;
-  log('market bake:', pulled, 'reporters pulled,', failed, 'failed, coverage', coverage, 'codes, year', year);
-  return { pulled, failed, throttled, reporters: st.done.length, totalReporters: ids.length, coverage, year };
+  const status=coverage(ids,st.done,throttled);
+  st.coverage=status;checkpoint(STATE,st);
+  if(status.complete) {writeOutputs(st, reporters, year);status.published=true;}
+  const codeCoverage = Object.keys(st.rows).length;
+  log('market bake:', pulled, 'reporters pulled,', failed, 'failed, coverage', codeCoverage, 'codes, year', year);
+  return {...status,pulled,failed,reporters:st.done.length,totalReporters:ids.length,coverage:codeCoverage,year};
 }
 
 function writeOutputs(st, reporters, year) {
@@ -133,6 +142,7 @@ function writeOutputs(st, reporters, year) {
     `// table (flow M, partner World, values USD), ranked per code, top 8 kept. MARKET_WORLD is the\n` +
     `// sum of all reporting countries' imports of the code (approximates world imports).\n` +
     `// Baked ${new Date().toISOString().slice(0, 10)} - coverage ${codes.length} codes from ${st.done.length} reporters.\n` +
+    `// Complete current reporter reference scope; partial checkpoints never replace this file.\n` +
     `export const MARKET_DATA_YEAR = ${year};\n` +
     `export const MARKET_IMPORTERS: Record<string, [string, number][]> = {\n`;
   for (const c of codes) {
@@ -140,9 +150,7 @@ function writeOutputs(st, reporters, year) {
   }
   out += `};\nexport const MARKET_WORLD: Record<string, number> = {\n`;
   for (const c of Object.keys(world).sort()) out += `  '${c}': ${world[c]},\n`;
-  fs.mkdirSync('state', { recursive: true });
-  fs.writeFileSync(STATE, JSON.stringify(st) + '\n');
-  fs.writeFileSync(OUT, out + '};\n');
+  publish(OUT,out+'};\n');
 }
 
 if (process.argv[1] && process.argv[1].endsWith('comtrade-market.mjs')) {
