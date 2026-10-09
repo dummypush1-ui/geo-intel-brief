@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 2155,
+  "tests": 2158,
   "files": [
     {
       "path": ".env.example",
@@ -2131,6 +2131,11 @@
       "sha256": "e53f402652ffd2939aa70a8dba3b7037d7a7baba679033145be68938814bdea9"
     },
     {
+      "path": "integration/REPORT227.md",
+      "bytes": 7576,
+      "sha256": "6c73de2ccd6fbd9b4eec56d9ae7a8a91f78dc6984f3a1a8eb0538adcbc3125b0"
+    },
+    {
       "path": "integration/REPORT_PREVIEW_FRAME_LIMITS.md",
       "bytes": 1594,
       "sha256": "e3a81eab0783cd0d48dc6ccb7d8d0a4763ac5972457463a7f2f75eca067cbd13"
@@ -2773,12 +2778,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 18581,
-      "sha256": "48a5f2291a63e4e129e39f601f6d7ea642339e366e829634a80259d3137a2064"
+      "sha256": "6372d1f90b18a2c78995ecbdc1c35009664906002182f2b89adb5153d337d246"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
-      "bytes": 251999,
-      "sha256": "73e2d8b0cd519fb7dd646474b4a2eef5fafaeee136196b0f5a3dd9156ed2b834"
+      "bytes": 253244,
+      "sha256": "8939977a4ceac062d2d9b5728e5e6c4ae4f9e61c93ad902f0ad505db3ffd7c14"
     },
     {
       "path": "integration/dependency_build/README.md",
@@ -5587,8 +5592,8 @@
     },
     {
       "path": "tests/browser_finder_nested.py",
-      "bytes": 4685,
-      "sha256": "63d9f07275328045908339615f48928e0ffcbeed7ce1f612d642a53519367a0e"
+      "bytes": 4771,
+      "sha256": "5214ae5786fd8e171febb72990b2254cac16bd403045db90ca3b3c66259e02ea"
     },
     {
       "path": "tests/browser_finder_network.py",
@@ -5599,6 +5604,11 @@
       "path": "tests/browser_finder_offline.py",
       "bytes": 3176,
       "sha256": "c0b4242b4edefed352b537cd30efd8dd3b3591eaeee37997d9f8464310e8c922"
+    },
+    {
+      "path": "tests/browser_finder_report227.py",
+      "bytes": 10416,
+      "sha256": "6ae101c38bb75ee454d96ba26963a84dd6984879fa70b0a6703f163fe20412fc"
     },
     {
       "path": "tests/browser_finder_static.py",
@@ -6754,6 +6764,11 @@
       "path": "tests/test_replay199cc.py",
       "bytes": 5629,
       "sha256": "904f955bffdb171b180a154de1ea91c5f166a4d4f9696b7efa4d50aac31fc439"
+    },
+    {
+      "path": "tests/test_report227.py",
+      "bytes": 2454,
+      "sha256": "824c2e33c61adcf405da3d0a72d12155e572084f1f5baa5087a9e6b630865d1c"
     },
     {
       "path": "tests/test_report_preview_frame.py",
