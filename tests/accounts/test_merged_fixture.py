@@ -61,9 +61,11 @@ class Tests(unittest.TestCase):
   self.login()
   for p in ['/workspace/brics-streams','/api/brics/streams']:
    r=self.get(p);self.assertNotEqual(r.status_code,403);r.close()
-  for p,d in [('/api/related-news',{'product_terms':['steel']}),('/api/finder-context',{'project':'geo','article_key':'missing'})]:
+  for p,d in [('/api/related-news',{'product_terms':['steel']}),('/api/finder-context',{'project':'geo','article_key':'0'*64})]:
    r=self.c.post(p,base_url=O,headers={'Origin':O},json=d);self.assertIn(r.status_code,[200,404]);self.assertEqual(self.c.post(p,base_url=O,json=d).status_code,403)
    self.assertEqual(self.c.post(p,base_url=O,headers={'Origin':O},data='{"x":1,"x":2}',content_type='application/json').status_code,400)
+  for bad_key in ['missing','A'*64,'0'*63]:
+   self.assertEqual(self.c.post('/api/finder-context',base_url=O,headers={'Origin':O},json={'project':'geo','article_key':bad_key}).status_code,400)
   self.assertEqual(self.c.post('/api/brics/streams',base_url=O,headers={'Origin':O},json={}).status_code,403)
  def test_offline_worker_routes_disabled_and_revoke_all_classes(self):
   csrf=self.login()

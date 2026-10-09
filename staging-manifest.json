@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 1987,
+  "tests": 1997,
   "files": [
     {
       "path": ".env.example",
@@ -2001,6 +2001,11 @@
       "sha256": "efd7f956afaaf6eecb9e6a09377c0eb8e9d6dbd7829970db97795909c00c08ee"
     },
     {
+      "path": "integration/POST-JSON207.md",
+      "bytes": 4754,
+      "sha256": "effd35bc5ca6cf0fbd3806c97942d390b010e55733f99c14b1d22ea618029137"
+    },
+    {
       "path": "integration/PREVIEW_LAUNCHER_LIMITS.md",
       "bytes": 4076,
       "sha256": "77bb03e830afd66324ebe479f7c0354c0af4cdd99c8e60a344424e332a438870"
@@ -2653,12 +2658,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 18581,
-      "sha256": "19982dea302773742138add8f7784f92e6db9b1a0dc28d43ef5ca83dfc191370"
+      "sha256": "0e15808b7225e83bafced57f11c271c948376d8fd6d7f59b2e06b3d970096a68"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
-      "bytes": 235274,
-      "sha256": "b4c296d650055e4ea4f6f1d528a3b460f3b0319e818524ea702dbee42468b7c3"
+      "bytes": 235916,
+      "sha256": "266e79a5c2bd918e59c3df4cf1a2986f9bf7b5518b43c3912b15e08b3d8e237c"
     },
     {
       "path": "integration/dependency_build/README.md",
@@ -3217,8 +3222,8 @@
     },
     {
       "path": "integration/news_api.py",
-      "bytes": 27865,
-      "sha256": "56a53bcaea1580adbde6362c3ddfe02ca928a482380a7d6c548f96754dbba490"
+      "bytes": 27699,
+      "sha256": "01ef771b4a187d6188c6abc16811d72c8990c9fddad54dda93c0c746b0e35024"
     },
     {
       "path": "integration/news_export/FIXTURE_HTTP_LIMITS.md",
@@ -3409,6 +3414,11 @@
       "path": "integration/pagewatch_report.py",
       "bytes": 3551,
       "sha256": "f941eadb45a81cae8cc9096563fe474f21a7e9bf7b1b86a237b54e7e4d1c2626"
+    },
+    {
+      "path": "integration/post_json207.py",
+      "bytes": 3764,
+      "sha256": "f17c3953c640bf389cc745b409e5bd96b7251c6f75ca1f7b517a4215ffd00b89"
     },
     {
       "path": "integration/preview_access.py",
@@ -5302,8 +5312,8 @@
     },
     {
       "path": "tests/accounts/test_merged_fixture.py",
-      "bytes": 9794,
-      "sha256": "43bbc4d8169ef9c716b6b4d6cd83d8c8deb7231817db24e4d55b8303c622cac9"
+      "bytes": 9984,
+      "sha256": "e1db9508551583a0d5cd43e1b4f0193d8be2402f47a3b14bd3b6f69456246e7e"
     },
     {
       "path": "tests/accounts/test_reservation_terminal.py",
@@ -6359,6 +6369,11 @@
       "path": "tests/test_pagewatch_report_contract.py",
       "bytes": 2933,
       "sha256": "1d50be85e535293e543ac69270e222e881506efbf6830d2547f423c7a492d385"
+    },
+    {
+      "path": "tests/test_post_json207.py",
+      "bytes": 7816,
+      "sha256": "a700d985a4e86ad5c32737632d5617a34d8278596880d2213496250edf3b9c35"
     },
     {
       "path": "tests/test_preservation.py",

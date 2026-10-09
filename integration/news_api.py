@@ -362,8 +362,9 @@ def create_app(reader=None,authorize=None,finder_context_reader=None,finder_base
   return jsonify(loaded_stats(public_views(reader()),project))
  @app.post('/api/related-news')
  def related():
-  context=request.get_json(silent=True)
-  if not isinstance(context,dict) or not isinstance(context.get('product_terms',[]),list) or len(context.get('product_terms',[]))>20 or any(not isinstance(t,str) or len(t)>200 for t in context.get('product_terms',[])):return jsonify(error='Invalid context'),400
+  from integration.post_json207 import parse,BodyRefused
+  try:context=parse(request,'related')
+  except BodyRefused as error:return jsonify(error='Invalid read context'),error.status
   out=[]
   for row in public_views(reader()):
    evidence=match(context,row)
@@ -373,8 +374,9 @@ def create_app(reader=None,authorize=None,finder_context_reader=None,finder_base
  def story_groups():return jsonify(items=groups([public_row(r) for r in public_views(reader())]))
  @app.post('/api/finder-context')
  def finder_context():
-  data=request.get_json(silent=True)
-  if not isinstance(data,dict) or data.get('project') not in ('geo','brics') or not isinstance(data.get('article_key'),str):return jsonify(error='Exact project and article key required'),400
+  from integration.post_json207 import parse,BodyRefused
+  try:data=parse(request,'finder')
+  except BodyRefused as error:return jsonify(error='Invalid read context'),error.status
   articles=[r for r in public_views(reader()) if r['project']==data['project'] and r['article_key']==data['article_key']]
   if len(articles)!=1:return jsonify(error='Article identity not unique or unavailable'),404
   if finder_context_reader is None or not finder_base or not finder_index_verified:return jsonify(items=[],state='verified_finder_index_unwired')
