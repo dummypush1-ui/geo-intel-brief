@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 2025,
+  "tests": 2044,
   "files": [
     {
       "path": ".env.example",
@@ -1946,6 +1946,11 @@
       "sha256": "678826c4012d5573c1aca79b347455f32986f87e72983d2aa2ffb178a3a7bf9c"
     },
     {
+      "path": "integration/MAIL-LEDGER212.md",
+      "bytes": 11046,
+      "sha256": "31a32b4f04bea64ba3c452573dde15a674b1203f3516b6258c97fbf2045ec7f3"
+    },
+    {
       "path": "integration/MAP_LAYERS_LIMITS.md",
       "bytes": 3084,
       "sha256": "bd0ec31e0326b20cc83ca70f30ec46a4b73ff6d93a2f8b15448f405391b09d7a"
@@ -2683,12 +2688,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 18581,
-      "sha256": "fd088bbd4162128503a07b02e0e884f7d60ebe28d567bb0be88e594393c6f9cf"
+      "sha256": "f718fd596a83b64a6367df1d234732f7f4578e4393a79aa6c3a88c81f4d19281"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
-      "bytes": 238701,
-      "sha256": "910692d935fac52120705da562690cf797d06dce92373b1f0dc45b9ff27c53d3"
+      "bytes": 239808,
+      "sha256": "11253e19c39485f52311daf0bff164fd70b1d5699940b82b1c6b11bb32596f9f"
     },
     {
       "path": "integration/dependency_build/README.md",
@@ -3119,6 +3124,16 @@
       "path": "integration/mail_bridge.py",
       "bytes": 3727,
       "sha256": "baa30b07294b26249e5fe826bfbe41a2000ac93bc5016d17a5b04c95a0508f03"
+    },
+    {
+      "path": "integration/mail_driver212.json",
+      "bytes": 688,
+      "sha256": "b8714300fbba8bbe6bda852656dc005ec9781ada1220061cb1116c687b6e2ae3"
+    },
+    {
+      "path": "integration/mail_ledger212.py",
+      "bytes": 19827,
+      "sha256": "990dd7327d685e01fc1a25bc19dabdcc7d946ef5c5db7c1db6defce80abc88a6"
     },
     {
       "path": "integration/manage_fixture95/LIMITS.md",
@@ -6299,6 +6314,11 @@
       "path": "tests/test_mail_bridge.py",
       "bytes": 2240,
       "sha256": "1a1eea1d13254e2e9e87c0a949fceb39720e242e2d3560882c5364c7315f4c19"
+    },
+    {
+      "path": "tests/test_mail_ledger212.py",
+      "bytes": 16849,
+      "sha256": "d595cf5217e44f50576fb354ca3a406a063eb9c57abce9c842134e982e6ff5b2"
     },
     {
       "path": "tests/test_mail_operations.py",

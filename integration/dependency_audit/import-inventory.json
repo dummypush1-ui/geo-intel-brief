@@ -134,6 +134,7 @@
         "integration/collector_mail_fixture.py",
         "integration/digest_windows193.py",
         "integration/geo_queue_fixture.py",
+        "integration/mail_ledger212.py",
         "integration/native200_readonly_measurement.py",
         "integration/native200_store.py",
         "integration/news_export/fixture_http.py",
@@ -160,6 +161,7 @@
         "tests/test_geo_queue_fixture.py",
         "tests/test_geo_snapshot.py",
         "tests/test_mail166.py",
+        "tests/test_mail_ledger212.py",
         "tests/test_native200cb.py",
         "tests/test_project_reports.py"
       ],
@@ -516,7 +518,8 @@
       "import": "concurrent",
       "files": [
         "tests/test_db181.py",
-        "tests/test_mail_bridge.py"
+        "tests/test_mail_bridge.py",
+        "tests/test_mail_ledger212.py"
       ],
       "stdlib": true,
       "distributions": [],
@@ -567,6 +570,7 @@
         "integration/india_open_data/core.py",
         "integration/india_open_data/data_layer.py",
         "integration/mail_bridge.py",
+        "integration/mail_ledger212.py",
         "integration/native200_adapters.py",
         "integration/native200_admission_core.py",
         "integration/native200_admission_journal.py",
@@ -613,6 +617,7 @@
         "tests/test_fixed_parser_pipeline.py",
         "tests/test_geo_collector_contract.py",
         "tests/test_invite_expiry.py",
+        "tests/test_mail_ledger212.py",
         "tests/test_map_layers.py",
         "tests/test_mongo_account_store.py",
         "tests/test_native200a.py",
@@ -1215,6 +1220,7 @@
         "integration/geo_queue_fixture.py",
         "integration/india_open_data/core.py",
         "integration/mail_bridge.py",
+        "integration/mail_ledger212.py",
         "integration/map_layers.py",
         "integration/native200_readonly_measurement.py",
         "integration/native200_transactions.py",
@@ -1368,6 +1374,7 @@
     {
       "import": "importlib",
       "files": [
+        "integration/mail_ledger212.py",
         "integration/native200_transactions.py",
         "integration/schedule_occurrence205.py",
         "tests/browser_feature_finder.py",
@@ -1402,7 +1409,9 @@
         "source": "sys.stdlib_module_names"
       },
       "files": [
+        "integration/mail_ledger212.py",
         "integration/native200_transactions.py",
+        "tests/test_mail_ledger212.py",
         "tests/test_schedule_occurrence205.py",
         "tests/test_smtp_config204.py"
       ]
@@ -1641,6 +1650,7 @@
         "tests/test_loaded_charts.py",
         "tests/test_loaded_news.py",
         "tests/test_mail_bridge.py",
+        "tests/test_mail_ledger212.py",
         "tests/test_map_layers.py",
         "tests/test_mongo_account_store.py",
         "tests/test_native200a.py",
@@ -2025,6 +2035,7 @@
         "integration/geospatial/response.py",
         "integration/india_open_data/core.py",
         "integration/mail_bridge.py",
+        "integration/mail_ledger212.py",
         "integration/map_layers.py",
         "integration/native200_transactions.py",
         "integration/native201_broker.py",
@@ -2099,6 +2110,7 @@
         "tests/test_geo_probe_process.py",
         "tests/test_geo_sample_probe.py",
         "tests/test_gst154.py",
+        "tests/test_mail_ledger212.py",
         "tests/test_monitor155.py",
         "tests/test_package_manifest.py",
         "tests/test_page_watch_parser_budget.py",
@@ -2287,6 +2299,7 @@
         "integration/geo_only_runtime.py",
         "integration/geo_probe_process.py",
         "integration/geospatial/response.py",
+        "integration/mail_ledger212.py",
         "integration/native200_transactions.py",
         "integration/news_api.py",
         "integration/renderer_scope.py",
@@ -2543,6 +2556,7 @@
         "integration/geo_article_writer.py",
         "integration/geo_read_factory.py",
         "integration/geo_sample_probe.py",
+        "integration/mail_ledger212.py",
         "integration/native200_readonly_measurement.py",
         "integration/native200_store.py",
         "integration/native200_transactions.py",
@@ -2553,6 +2567,7 @@
         "tests/test_geo_article_writer.py",
         "tests/test_geo_sample_probe.py",
         "tests/test_legacy_bulk_outcome.py",
+        "tests/test_mail_ledger212.py",
         "tests/test_mongo_account_store.py",
         "tests/test_native200a.py",
         "tests/test_native200ba.py",
@@ -2926,6 +2941,7 @@
         "integration/india_open_data/core.py",
         "integration/india_open_data/data_layer.py",
         "integration/india_open_data/transport.py",
+        "integration/mail_ledger212.py",
         "integration/map_layers.py",
         "integration/news_api.py",
         "integration/news_export/export.py",
@@ -3663,6 +3679,7 @@
         "tests/test_db181.py",
         "tests/test_geo_probe_http.py",
         "tests/test_invite_expiry.py",
+        "tests/test_mail_ledger212.py",
         "tests/test_mongo_account_store.py",
         "tests/test_native200ba.py",
         "tests/test_preview_access.py",
@@ -3762,6 +3779,7 @@
         "tests/test_finder198bb.py",
         "tests/test_geo_article_writer.py",
         "tests/test_legacy_bulk_outcome.py",
+        "tests/test_mail_ledger212.py",
         "tests/test_mongo_account_store.py",
         "tests/test_native200cb.py",
         "tests/test_replay199a.py",
@@ -3928,6 +3946,7 @@
         "tests/test_loaded_news.py",
         "tests/test_mail166.py",
         "tests/test_mail_bridge.py",
+        "tests/test_mail_ledger212.py",
         "tests/test_mail_operations.py",
         "tests/test_map_layers.py",
         "tests/test_mongo_account_store.py",
@@ -4369,6 +4388,7 @@
   ],
   "dynamic_import_files": [
     "integration/country_alerts.py",
+    "integration/mail_ledger212.py",
     "integration/native200_transactions.py",
     "tests/browser_sample_volume.py",
     "tests/collection_outcomes/test_status.py",
@@ -4906,6 +4926,10 @@
       {
         "path": "integration/mail_bridge.py",
         "sha256": "baa30b07294b26249e5fe826bfbe41a2000ac93bc5016d17a5b04c95a0508f03"
+      },
+      {
+        "path": "integration/mail_ledger212.py",
+        "sha256": "990dd7327d685e01fc1a25bc19dabdcc7d946ef5c5db7c1db6defce80abc88a6"
       },
       {
         "path": "integration/map_layers.py",
@@ -5934,6 +5958,10 @@
       {
         "path": "tests/test_mail_bridge.py",
         "sha256": "1a1eea1d13254e2e9e87c0a949fceb39720e242e2d3560882c5364c7315f4c19"
+      },
+      {
+        "path": "tests/test_mail_ledger212.py",
+        "sha256": "d595cf5217e44f50576fb354ca3a406a063eb9c57abce9c842134e982e6ff5b2"
       },
       {
         "path": "tests/test_mail_operations.py",

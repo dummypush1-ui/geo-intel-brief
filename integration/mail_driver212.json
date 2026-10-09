@@ -1,0 +1,22 @@
+{
+  "version": "4.18.2",
+  "scope": "public_API_semantics_source_only_not_runtime_readiness",
+  "modules": [
+    {
+      "module": "pymongo.synchronous.client_session",
+      "sha256": "6ab629f01c43ae2b9b4f4876131067f3dcc7384241a118e74be188c96cb1950c"
+    },
+    {
+      "module": "pymongo.synchronous.mongo_client",
+      "sha256": "823c21afa8d18992fae3176769c46590c9bd389847e3c7269f4050b2f38d03a8"
+    },
+    {
+      "module": "pymongo.synchronous.collection",
+      "sha256": "ad2cf92de9dfd458d8948dc30c84158932e91a95413e67b7115a108e466bf38b"
+    },
+    {
+      "module": "pymongo.errors",
+      "sha256": "6a20f9a84afaac8de95ee012ae46d9cc3454de721e414c929cbb248b063b076d"
+    }
+  ]
+}
