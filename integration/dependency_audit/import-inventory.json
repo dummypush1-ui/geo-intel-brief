@@ -913,7 +913,8 @@
         "integration/renderer_scope.py",
         "integration/report_adapters.py",
         "integration/scraper_policy.py",
-        "integration/site_parsers.py"
+        "integration/site_parsers.py",
+        "tests/test_dashboard167.py"
       ],
       "stdlib": true,
       "distributions": [],
@@ -3061,6 +3062,7 @@
         "integration/tariff_evidence.py",
         "integration/weekly_report/_render.py",
         "integration/weekly_report/report.py",
+        "tests/test_dashboard167.py",
         "tests/test_dashboard_stats.py",
         "tests/test_geo_queue_fixture.py"
       ],
@@ -4246,7 +4248,7 @@
       },
       {
         "path": "tests/test_dashboard167.py",
-        "sha256": "e227f3b5e733ab86b269b81559e45be2d3d718f42bcf9e0959fc65dd7c4f5395"
+        "sha256": "2d40d941392a3c9e1356e57c5a058704f25401556afb463e758d71ea76479d9c"
       },
       {
         "path": "tests/test_dashboard_model.py",

@@ -11,3 +11,21 @@ class DashboardArgs(unittest.TestCase):
   with patch.object(d,'total_article_count',return_value=0),patch.object(d,'latest_collection_time',return_value=None),patch.object(d,'recent_articles',return_value=[]),patch.object(d,'upcoming_events',return_value=[]),patch.object(d,'critical_since',return_value=[]),patch.object(d,'category_counts',return_value=[]),patch.object(d,'top_countries',return_value=[]):
    out=d.build_dashboard_html(category='A & B',trigger_key='secret-canary')
    self.assertIn('/export.csv?category=A+%26+B',out);self.assertNotIn('secret-canary',out);self.assertNotIn('Export all articles',out)
+
+ def test_sort_and_tabs_query_encoding_attribute_safety(self):
+  from intelligence.geo.reports import dashboard as d
+  from html.parser import HTMLParser
+  from urllib.parse import urlsplit,parse_qs
+  class Links(HTMLParser):
+   def __init__(self):super().__init__();self.links=[]
+   def handle_starttag(self,tag,attrs):
+    if tag=='a':self.links.append(dict(attrs))
+  category='A & B" onclick="bad'
+  with patch.object(d,'total_article_count',return_value=0),patch.object(d,'latest_collection_time',return_value=None),patch.object(d,'recent_articles',return_value=[]),patch.object(d,'upcoming_events',return_value=[]),patch.object(d,'critical_since',return_value=[]),patch.object(d,'category_counts',return_value=[]),patch.object(d,'top_countries',return_value=[]),patch.dict(d.CATEGORY_LABELS,{category:'Special'}):
+   out=d.build_dashboard_html(category=category,trigger_key='secret-canary');parser=Links();parser.feed(out)
+   self.assertTrue(parser.links);self.assertFalse(any('onclick' in a for a in parser.links));self.assertNotIn('secret-canary',out)
+   sort=[parse_qs(urlsplit(a['href']).query) for a in parser.links if 'sort_by' in a['href']]
+   self.assertEqual(len(sort),3)
+   for q in sort:self.assertEqual(q['category'],[category]);self.assertEqual(q['limit'],['2000'])
+   tabs=[parse_qs(urlsplit(a['href']).query) for a in parser.links if a.get('class','').startswith('tab')]
+   self.assertTrue(any(q.get('category')==[category] for q in tabs))

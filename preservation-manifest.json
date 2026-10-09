@@ -224,12 +224,13 @@
       "source_path": "reports/dashboard.py",
       "path": "intelligence/geo/reports/dashboard.py",
       "source_sha256": "ade8fc1ccfd08070ae28862570030e26b82c1b55de3d147b6e935a08ae7b6c09",
-      "sha256": "c8823f640d83dcfdb7641d2b9cadca2e1ddb6c2d63924049861efdf21a4b6a4a",
+      "sha256": "2f8060e51185aaa6c252d7e6d294677deaf6825ce12c7ebf49774a137a714af1",
       "changes": [
         "root imports namespaced only",
         "bulk147 candidate pending final independent review: driver outcomes, held legacy backup, explicit status/labels; no live activation",
         "storage165 bounded reads/export and dashboard default; no provisioning/live effects",
-        "dashboard167 clean400 and category-only bounded export link; no credential in HTML"
+        "dashboard167 clean400 and category-only bounded export link; no credential in HTML",
+        "Reviewed source follow-up: encoded and HTML-escaped dashboard sort/category hrefs; no live activation"
       ],
       "prior_preserved_sha256": "8faf0fcaf062ee0e90929d5ed6249c4962c2e2b8b2e330d61e8cdab362ecfa18"
     },

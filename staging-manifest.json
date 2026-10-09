@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 1488,
+  "tests": 1489,
   "files": [
     {
       "path": ".env.example",
@@ -2258,12 +2258,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 18581,
-      "sha256": "cff24f2028eec92baa3f8c67782f713742278045a3c548fb734fd07be1424e86"
+      "sha256": "4e7933286971caef71ad8d69eea1b23bd2587ae9de8195e22b766c10c2b92916"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
-      "bytes": 177165,
-      "sha256": "2c1ec996ee3e1ea3f4b9af8d0b251b72e9f32fa3c3b9b08d4723fdaa8451cb40"
+      "bytes": 177241,
+      "sha256": "b16cc16f69fb12d2ad7bde94efa9b946d4c80531db82853935952dd686758ac2"
     },
     {
       "path": "integration/dependency_build/README.md",
@@ -3817,8 +3817,8 @@
     },
     {
       "path": "intelligence/geo/reports/dashboard.py",
-      "bytes": 11808,
-      "sha256": "c8823f640d83dcfdb7641d2b9cadca2e1ddb6c2d63924049861efdf21a4b6a4a"
+      "bytes": 11892,
+      "sha256": "2f8060e51185aaa6c252d7e6d294677deaf6825ce12c7ebf49774a137a714af1"
     },
     {
       "path": "intelligence/geo/reports/email_report.py",
@@ -3907,8 +3907,8 @@
     },
     {
       "path": "preservation-manifest.json",
-      "bytes": 24323,
-      "sha256": "1b56b5c2e623a3d6cda12bbdf1dc134685c5a6c9fa68bfcc19a46c1a0f8fdbff"
+      "bytes": 24436,
+      "sha256": "96e88bf1321cdfcb7ff3dc9babaebb12b42c1dba7af392d87d293fb21a854c11"
     },
     {
       "path": "production_entry.py",
@@ -5062,8 +5062,8 @@
     },
     {
       "path": "tests/test_dashboard167.py",
-      "bytes": 1208,
-      "sha256": "e227f3b5e733ab86b269b81559e45be2d3d718f42bcf9e0959fc65dd7c4f5395"
+      "bytes": 2669,
+      "sha256": "2d40d941392a3c9e1356e57c5a058704f25401556afb463e758d71ea76479d9c"
     },
     {
       "path": "tests/test_dashboard_model.py",
