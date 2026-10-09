@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 1763,
+  "tests": 1777,
   "files": [
     {
       "path": ".env.example",
@@ -1741,6 +1741,11 @@
       "sha256": "008e035f533bd1c51faf145b19117d9eab71903809eeada23d950549e552c425"
     },
     {
+      "path": "integration/COLLECTOR197EBA.md",
+      "bytes": 4135,
+      "sha256": "6b245b57c9c4eaf6a4b91e7818881aa9651baacba91a1fff6168fae2972de5ff"
+    },
+    {
       "path": "integration/COLLECTOR_MAIL_FIXTURE_LIMITS.md",
       "bytes": 2429,
       "sha256": "6e2d181d296dcfde55c6e66d148a036dfc0018dee458280732435208e8206cfd"
@@ -2326,6 +2331,11 @@
       "sha256": "0d287ddf6117579d3c4875cd4c5a419a8e837dd4411954c03726c99d555a9f9c"
     },
     {
+      "path": "integration/collector197_archive.py",
+      "bytes": 6614,
+      "sha256": "3e066f22946f93fce85cf4353df5d690a194c5a509bd5ce0942eaae626519ce0"
+    },
+    {
       "path": "integration/collector197_config.py",
       "bytes": 2536,
       "sha256": "eab36cafe3774aa1bf33327e6eefa10b368e984c3f617ee3aae063199e87499f"
@@ -2538,12 +2548,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 18581,
-      "sha256": "03547d637a2dbd6b3de8b3913db20884effe492a3c987ef95d909f08dacc91ae"
+      "sha256": "f56b93ffcc87d7d1686ff5e37d924d02bf4d75184a1833b9f07ce6a5181504bb"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
-      "bytes": 214556,
-      "sha256": "047db408dc7bf6b9119e6e60a13b8639a48a75efd8e16ba012c865b2604c317a"
+      "bytes": 215521,
+      "sha256": "796b2d964b3e04e094ddaa78a4a9c9f32728965b12e5833f5a7aba0c907ab6c9"
     },
     {
       "path": "integration/dependency_build/README.md",
@@ -5544,6 +5554,11 @@
       "path": "tests/test_collector197ea.py",
       "bytes": 7942,
       "sha256": "dc5b5f4e817204115354e9fc6dc599862c84eac75cb8fffb078bf73cb4fd1336"
+    },
+    {
+      "path": "tests/test_collector197eba.py",
+      "bytes": 5957,
+      "sha256": "55c1451cce17d68734db677990b67a72162aa49da5b63be86dfbc9544eaa040f"
     },
     {
       "path": "tests/test_collector_mail_fixture.py",
