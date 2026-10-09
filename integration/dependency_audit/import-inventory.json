@@ -27,6 +27,7 @@
         "tests/test_fixed_parser_pipeline.py",
         "tests/test_geo_collector_contract.py",
         "tests/test_geo_queue_fixture.py",
+        "tests/test_indexes192.py",
         "tests/test_legacy_geo_p0.py",
         "tests/test_mail166.py",
         "tests/test_news182.py",
@@ -1428,6 +1429,7 @@
         "tests/test_digest_preview_routes.py",
         "tests/test_fixed_parser_pipeline.py",
         "tests/test_geo_collector_contract.py",
+        "tests/test_indexes192.py",
         "tests/test_links170.py",
         "tests/test_mail166.py",
         "tests/test_original_reports.py",
@@ -1846,6 +1848,7 @@
         "tests/test_finder_offline.py",
         "tests/test_geo_queue_fixture.py",
         "tests/test_gst154.py",
+        "tests/test_indexes192.py",
         "tests/test_legacy_geo_p0.py",
         "tests/test_mail166.py",
         "tests/test_monitor155.py",
@@ -3176,6 +3179,7 @@
         "tests/test_geo_sample_probe.py",
         "tests/test_geo_snapshot.py",
         "tests/test_gst154.py",
+        "tests/test_indexes192.py",
         "tests/test_invite_expiry.py",
         "tests/test_legacy_bulk_outcome.py",
         "tests/test_legacy_geo_p0.py",
@@ -4713,6 +4717,10 @@
       {
         "path": "tests/test_gst154.py",
         "sha256": "78adf50fd64283877b4d355d2532b7ffb4e25392c565f7656773e6431dbfa619"
+      },
+      {
+        "path": "tests/test_indexes192.py",
+        "sha256": "d2418497191acb64851e7885a91b9f39fb04332858dcd8590013e49a811eeb1b"
       },
       {
         "path": "tests/test_invite_expiry.py",

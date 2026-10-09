@@ -58,17 +58,36 @@ def query_index_candidates():
     )
 
 
-def init_db(provision_query_indexes=False):
+def browse_index_candidates():
+    """Whole-store185 raw sort plans only. No connect/explain/performance claim."""
+    return (
+        ('geo_article_created_id_order_v192', (('created_at', -1), ('_id', -1))),
+        ('geo_article_title_order_v181', (('title', 1), ('_id', 1))),
+        ('geo_article_country_id_order_v192', (('country', 1), ('_id', 1))),
+        ('geo_article_score_id_order_v192', (('score', -1), ('_id', -1))),
+    )
+
+
+def init_db(provision_query_indexes=False, provision_browse_indexes=False):
     if type(provision_query_indexes) is not bool:
         raise ValueError("Explicit boolean query-index gate required")
+    if type(provision_browse_indexes) is not bool:
+        raise ValueError("Explicit boolean browse-index gate required")
     db = connect()
     db.articles.create_index([("url", ASCENDING)], unique=True)
     db.articles.create_index([("score", DESCENDING)])
     db.events.create_index([("name", ASCENDING), ("event_date", ASCENDING)], unique=True)
     db.events.create_index([("event_date", ASCENDING)])
+    candidates = ()
     if provision_query_indexes:
-        for name, keys in query_index_candidates():
+        candidates += query_index_candidates()
+    if provision_browse_indexes:
+        candidates += browse_index_candidates()
+    seen = set()
+    for name, keys in candidates:
+        if name not in seen:
             db.articles.create_index(list(keys), name=name)
+            seen.add(name)
 
 
 def _now_iso():

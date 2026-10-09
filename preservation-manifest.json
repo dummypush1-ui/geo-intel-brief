@@ -9,7 +9,7 @@
       "source_path": "database.py",
       "path": "intelligence/geo/database.py",
       "source_sha256": "c07a5dacb008b8407e22e194b34ea81d97ec5b41ecc8414a347a444edb80002c",
-      "sha256": "fac57697ffbb26652f4f99c6d4891577912e54defed2b8a4287039c9bd046bf5",
+      "sha256": "366742280fb8d74439967abe71dc22ce932df4566b4c57809283bf95f24379aa",
       "changes": [
         "root imports namespaced only",
         "bulk147 candidate pending final independent review: driver outcomes, held legacy backup, explicit status/labels; no live activation",
@@ -17,7 +17,8 @@
         "Reviewed candidate bounded read/export source contract; no provisioning or live activation",
         "storage165 bounded reads/export and dashboard default; no provisioning/live effects",
         "181 reviewed per-process lazy Mongo initialization lock/local pair publication and failed-client close; six query-index source proposals with explicit default-off provisioning gate; no live indexes or query changes",
-        "182 reviewed actual provider publication dates with holds/no now fallback; empty event seed and required name/ISOdate before writes; no activation"
+        "182 reviewed actual provider publication dates with holds/no now fallback; empty event seed and required name/ISOdate before writes; no activation",
+        "192source-only default-OFF whole-store browse index plans matching185rawsorts; retainslegacy4/query181calls anddeduplicatestitle; noAtlascreation"
       ],
       "prior_preserved_sha256": "4b045c167947a4bed6a5456267430b239751bef551a0794b2e652b2cbc2058c4"
     },

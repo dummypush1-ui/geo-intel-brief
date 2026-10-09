@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 1590,
+  "tests": 1594,
   "files": [
     {
       "path": ".env.example",
@@ -2373,12 +2373,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 18581,
-      "sha256": "cfc891b0c90dde1fd3fe638d9f37e1dfc6b56fc5825dffb4d08ecceb5210b5ab"
+      "sha256": "0f77ecf9ce1adc195208528154c2a50aaab94978dd5271452b6b8b674cab5fb0"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
-      "bytes": 189686,
-      "sha256": "ac31e9a27bb169c7ec6b966504101b4e83feaf076b077bea8f67f7d4e89a7ca0"
+      "bytes": 189976,
+      "sha256": "39b9e7e91c2103fe76ce53154b964ad256b325b18a26fc6acfb1e65f74419857"
     },
     {
       "path": "integration/dependency_build/README.md",
@@ -3856,6 +3856,11 @@
       "sha256": "0cec4a68c00c56ab7640596668b6af165094fe58604b93eecace0ea5ea87f4af"
     },
     {
+      "path": "intelligence/geo/BROWSE-INDEXES192.md",
+      "bytes": 1898,
+      "sha256": "75921e949a46c7b4ba626314281037a9021d4db88b30c423829b0824b966c0ce"
+    },
+    {
       "path": "intelligence/geo/DATE-EVENTS182.md",
       "bytes": 1518,
       "sha256": "8be541293b1cf81e91423753b199c8b0d7904bf1049577ea4165df9894cd6406"
@@ -3962,8 +3967,8 @@
     },
     {
       "path": "intelligence/geo/database.py",
-      "bytes": 11960,
-      "sha256": "fac57697ffbb26652f4f99c6d4891577912e54defed2b8a4287039c9bd046bf5"
+      "bytes": 12758,
+      "sha256": "366742280fb8d74439967abe71dc22ce932df4566b4c57809283bf95f24379aa"
     },
     {
       "path": "intelligence/geo/processing/__init__.py",
@@ -4087,8 +4092,8 @@
     },
     {
       "path": "preservation-manifest.json",
-      "bytes": 27921,
-      "sha256": "98e344e0e01b111524264c4c7371a88795054a9869dc95d57276e938ed0c14cd"
+      "bytes": 28078,
+      "sha256": "ddf31900143ae6a7f334ee3073c81e8dc608f1138291f322bff48f159a838f4c"
     },
     {
       "path": "production_entry.py",
@@ -5524,6 +5529,11 @@
       "path": "tests/test_gst154.py",
       "bytes": 531,
       "sha256": "78adf50fd64283877b4d355d2532b7ffb4e25392c565f7656773e6431dbfa619"
+    },
+    {
+      "path": "tests/test_indexes192.py",
+      "bytes": 2570,
+      "sha256": "d2418497191acb64851e7885a91b9f39fb04332858dcd8590013e49a811eeb1b"
     },
     {
       "path": "tests/test_invite_expiry.py",
