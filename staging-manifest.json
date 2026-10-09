@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 1509,
+  "tests": 1513,
   "files": [
     {
       "path": ".env.example",
@@ -2256,6 +2256,51 @@
       "sha256": "c47b85ecc88005927b6d386ecc5fa50bb07f49dd1ff756af8194a6790562bd40"
     },
     {
+      "path": "integration/dependabot_security173/README.md",
+      "bytes": 2196,
+      "sha256": "8d946db57a55f25541cf378c5c0047dffb557e6165856771aafd6090bedfaa63"
+    },
+    {
+      "path": "integration/dependabot_security173/artifacts.json",
+      "bytes": 12333,
+      "sha256": "d1ef94dfb7be2924532afd16280b37310504f7d5265c1d1784ebbd284b6ab031"
+    },
+    {
+      "path": "integration/dependabot_security173/build-output.txt",
+      "bytes": 1374,
+      "sha256": "ea675a624c819c0fff2582ed75a17a03fbded0b8232c655c2d730882be300b00"
+    },
+    {
+      "path": "integration/dependabot_security173/build.json",
+      "bytes": 996,
+      "sha256": "af90b9a7752c12f339c48c2e8ba69e6e81ae1f78c00d6e7b6fa8b471e3cd91aa"
+    },
+    {
+      "path": "integration/dependabot_security173/install.txt",
+      "bytes": 2715,
+      "sha256": "7099f4bc8d2ab372c015393d741c2f7258fa02c78035cddae19cfdbd81aeedaa"
+    },
+    {
+      "path": "integration/dependabot_security173/installed.json",
+      "bytes": 8062,
+      "sha256": "52c149d46c6345771cb0bd5f84eb5b1e4ac2b3757420ba8783ad3777e3b0a206"
+    },
+    {
+      "path": "integration/dependabot_security173/pip-check.txt",
+      "bytes": 30,
+      "sha256": "9261363b733079a641c2e4cc9bc46ffa1d8336945a87f807b6cf68847dbc9b09"
+    },
+    {
+      "path": "integration/dependabot_security173/profile-audit.json",
+      "bytes": 1037,
+      "sha256": "4d7a6e63a7455157f1111a77148eba286b9363e0a20aafb34dd67ee8496e5f09"
+    },
+    {
+      "path": "integration/dependabot_security173/source.json",
+      "bytes": 224,
+      "sha256": "92e26ed2f6770421c9b04a6f0ab4f509417173bdeaa11f7a6b551b5fbfedb7a2"
+    },
+    {
       "path": "integration/dependency_audit/README.md",
       "bytes": 4525,
       "sha256": "540c63d9ede5956d14aca3000844f6de576625ea5012b8ec05e940deb757b9f8"
@@ -2263,12 +2308,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 18581,
-      "sha256": "9a659f72c547961067f39dc54495c5d47dcab4f342dde97e06ae16d35b985d92"
+      "sha256": "4b5180cb9adfdfa8c3103ab6010f53b07a3577f3213fbc1128f42f5c8270c940"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
-      "bytes": 179470,
-      "sha256": "08a91dac3e328b47321e8cd17c569976cafb205a60cc1f41e22e77800976a948"
+      "bytes": 180192,
+      "sha256": "28def606b195df586b0d0ca9dbb5755b7f67794367f17f4485262ae6d5c3e074"
     },
     {
       "path": "integration/dependency_build/README.md",
@@ -2292,8 +2337,8 @@
     },
     {
       "path": "integration/dependency_build/requirements-offline-built.txt",
-      "bytes": 2609,
-      "sha256": "45baa21d7d33e1be9863b87047e0f1fa04c0bdc8e76406642dd82c4393312736"
+      "bytes": 2701,
+      "sha256": "ee9eab27d9ea353fff32cad7ee2c798b3f5bbb5f45b24532222f832561d28228"
     },
     {
       "path": "integration/dependency_build/runner.py",
@@ -3982,8 +4027,8 @@
     },
     {
       "path": "requirements-offline-reviewed.candidate.txt",
-      "bytes": 2607,
-      "sha256": "0b904e56b4a551ea778feedc5c14999be973fe05d87d5b498719edea43f156ed"
+      "bytes": 2699,
+      "sha256": "c4ad0056483bdfe3a2a06c67b5a65101114bc2eadeb6459eec953b4a8829b576"
     },
     {
       "path": "requirements-staging.txt",
@@ -5212,8 +5257,8 @@
     },
     {
       "path": "tests/test_fulltext172.py",
-      "bytes": 1880,
-      "sha256": "61eddbdd8771d7397c28e83c78675ec997358383cf8834805134589db7f81a3f"
+      "bytes": 2221,
+      "sha256": "5118c9eb3d8cfbe85dabcea86c63530d9a47b513ea50ed6da3ae28a40eb99356"
     },
     {
       "path": "tests/test_geo_article_writer.py",
@@ -5489,6 +5534,11 @@
       "path": "tests/test_scraper_policy.py",
       "bytes": 1869,
       "sha256": "238e745566bdcd339e7bdb2d1ea0f8a79a14b2e3e6cc7f2ff9a081a445b41e8f"
+    },
+    {
+      "path": "tests/test_security173.py",
+      "bytes": 2101,
+      "sha256": "acb00b4d8ef8de5ad4dded244d10e9b77852be85e669005c6d90c498d3b9e78a"
     },
     {
       "path": "tests/test_security_headers.py",

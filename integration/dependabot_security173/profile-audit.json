@@ -1,0 +1,22 @@
+{
+  "scope": "current_security_supersession173_not_historical_rewrite",
+  "locks": {
+    "requirements-offline-reviewed.candidate.txt": "c4ad0056483bdfe3a2a06c67b5a65101114bc2eadeb6459eec953b4a8829b576",
+    "integration/dependency_build/requirements-offline-built.txt": "ee9eab27d9ea353fff32cad7ee2c798b3f5bbb5f45b24532222f832561d28228"
+  },
+  "built_install": "fresh25packagehashedofflineonlybinaryPASS_pipcheckPASS",
+  "candidate_install": "NOT_attempted_missing_sgmllib_wheel_hash_remains",
+  "official_artifact_hashes_checked": true,
+  "feedparser": "6.0.11_original32sourcepins_unchanged",
+  "gunicorn": "22.0.0historical_unchanged23vs26reviewseparate",
+  "staging_dotenv": "1.2.4unchanged",
+  "production_ready": false,
+  "alert_state_at_research": "24open_not_remediated_yet",
+  "historical_receipts": [
+    "87",
+    "88",
+    "105"
+  ],
+  "built_sgmllib_new_hash": "c5fb2a0774bdd5ee5dbfb2cfd12d5de846a75d71cd5c059656cdab4b8cef5716",
+  "source_sgmllib_hash": "9180791aa507111207d7c14f36db574a11fbedda257debfb9d030b273b773f44"
+}

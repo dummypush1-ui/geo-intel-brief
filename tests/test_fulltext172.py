@@ -21,3 +21,8 @@ class Fulltext(unittest.TestCase):
   for headers,chunks in [({'Content-Encoding':'gzip'},(gzip.compress(b'x'*1048577),)),({},(b'x'*65537,)),({'Content-Length':'99999999'},(b'x',)),({'X-Test':'x'*2001},(b'x',)),({'Transfer-Encoding':'chunked'},(b'x',)),({'Content-Encoding':'gzip'},(b'bad',))]:
    with self.assertRaises(FulltextHeld):self.body(headers=headers,chunks=chunks)
   with self.assertRaises(FulltextHeld):self.body(clock=lambda:1)
+
+ def test_public_ip_literal_and_trailing_dot_refused_by_shared_endpoint_layers(self):
+  # transport109 URL allowlist grammar rejects IPv4 literals;113 origin regex rejects trailing dot.
+  for url in ['https://8.8.8.8/x','https://example.org./x']:
+   with self.assertRaises(FulltextHeld):plan((url,),url,('8.8.8.8',),'8.8.8.8',enabled=True)
