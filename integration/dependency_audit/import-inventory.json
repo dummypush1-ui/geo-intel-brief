@@ -37,6 +37,7 @@
         "tests/test_protocol145_inventory.py",
         "tests/test_rss177.py",
         "tests/test_sanctions183.py",
+        "tests/test_schedule_caller214.py",
         "tests/test_schedule_occurrence205.py",
         "tests/test_security_review.py",
         "tests/test_smtp_caller213.py",
@@ -590,6 +591,7 @@
         "integration/replay199_core.py",
         "integration/replay199_schema.py",
         "integration/rss_catalog/catalog.py",
+        "integration/schedule_caller214.py",
         "integration/smtp_config204.py",
         "integration/source_health.py",
         "integration/stream_fixture_app.py",
@@ -640,6 +642,7 @@
         "tests/test_replay199cb.py",
         "tests/test_replay199cc.py",
         "tests/test_rss_catalog.py",
+        "tests/test_schedule_caller214.py",
         "tests/test_shared_ledger_fixture.py",
         "tests/test_shared_service_fixture.py",
         "tests/test_smtp_config204.py",
@@ -779,6 +782,7 @@
         "integration/replay199_collector.py",
         "integration/retention_audit.py",
         "integration/rss_catalog/catalog.py",
+        "integration/schedule_caller214.py",
         "integration/schedule_occurrence205.py",
         "integration/scheduler_policy.py",
         "integration/source_health.py",
@@ -833,6 +837,7 @@
         "tests/test_rss177.py",
         "tests/test_sample_volume.py",
         "tests/test_schedule175.py",
+        "tests/test_schedule_caller214.py",
         "tests/test_schedule_occurrence205.py",
         "tests/test_source_health.py",
         "tests/test_stream_config.py",
@@ -1236,6 +1241,7 @@
         "integration/replay199_broker.py",
         "integration/replay199_schema.py",
         "integration/retention_audit.py",
+        "integration/schedule_caller214.py",
         "integration/schedule_occurrence205.py",
         "integration/stream_config.py",
         "integration/stream_disk.py",
@@ -1414,6 +1420,7 @@
         "integration/mail_ledger212.py",
         "integration/native200_transactions.py",
         "tests/test_mail_ledger212.py",
+        "tests/test_schedule_caller214.py",
         "tests/test_schedule_occurrence205.py",
         "tests/test_smtp_caller213.py",
         "tests/test_smtp_config204.py"
@@ -1518,6 +1525,7 @@
         "integration/report_preview_frame.py",
         "integration/retention_audit.py",
         "integration/runtime.py",
+        "integration/schedule_caller214.py",
         "integration/schedule_occurrence205.py",
         "integration/scraper_policy.py",
         "integration/single_db_runtime.py",
@@ -1696,6 +1704,7 @@
         "tests/test_runtime.py",
         "tests/test_sample_volume.py",
         "tests/test_schedule175.py",
+        "tests/test_schedule_caller214.py",
         "tests/test_schedule_occurrence205.py",
         "tests/test_scraper_policy.py",
         "tests/test_security_headers.py",
@@ -2054,6 +2063,7 @@
         "integration/replay199_composition.py",
         "integration/replay199_schema.py",
         "integration/retention_audit.py",
+        "integration/schedule_caller214.py",
         "integration/supplied_fulltext_fixture.py",
         "integration/tariff_evidence.py",
         "scripts/audit_connections.py",
@@ -2127,6 +2137,7 @@
         "tests/test_rss_catalog.py",
         "tests/test_runner199lock.py",
         "tests/test_sanctions152.py",
+        "tests/test_schedule_caller214.py",
         "tests/test_scraper_policy.py",
         "tests/test_security173.py",
         "tests/test_tariff_evidence_plain.py",
@@ -2413,6 +2424,7 @@
         "tests/test_runner199lock.py",
         "tests/test_sanctions152.py",
         "tests/test_sanctions183.py",
+        "tests/test_schedule_caller214.py",
         "tests/test_scraper_policy.py",
         "tests/test_security173.py",
         "tests/test_security_review.py",
@@ -3387,6 +3399,7 @@
         "tests/test_page_watch_parser_budget.py",
         "tests/test_preview_access.py",
         "tests/test_preview_launcher.py",
+        "tests/test_schedule_caller214.py",
         "tests/test_security_review.py",
         "tests/test_supplied_feed_fixture.py",
         "tests/test_supplied_fulltext_fixture.py",
@@ -4011,6 +4024,7 @@
         "tests/test_sanctions152.py",
         "tests/test_sanctions183.py",
         "tests/test_schedule175.py",
+        "tests/test_schedule_caller214.py",
         "tests/test_schedule_occurrence205.py",
         "tests/test_scraper_policy.py",
         "tests/test_security173.py",
@@ -5192,6 +5206,10 @@
         "sha256": "3cf336efd9ad14396e445edaf09452bdfb9255ad86fca2cdcc6ce4dd82d8094e"
       },
       {
+        "path": "integration/schedule_caller214.py",
+        "sha256": "25caac31ed2458cfb06c0a7c8fc2d45d64fe825c9acfee2f725e4847a405f5d7"
+      },
+      {
         "path": "integration/schedule_occurrence205.py",
         "sha256": "44fd51c027e14bef4c30cf81b4fd4bf77d1faac1637b6b414fbeaa6c88f8ee52"
       },
@@ -6190,6 +6208,10 @@
       {
         "path": "tests/test_schedule175.py",
         "sha256": "cffeffde6444d9f5be83bdb2ea7457eae8abde7a8bd8f9b291dfc528f88902cd"
+      },
+      {
+        "path": "tests/test_schedule_caller214.py",
+        "sha256": "dfdf5bbb2df8c07f062e0e5a22e7035a674401248a0940fb1a563a2081151b61"
       },
       {
         "path": "tests/test_schedule_occurrence205.py",

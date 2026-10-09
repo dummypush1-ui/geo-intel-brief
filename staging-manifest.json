@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 2055,
+  "tests": 2066,
   "files": [
     {
       "path": ".env.example",
@@ -2091,6 +2091,11 @@
       "sha256": "2c8d580d1e2a71780446172792d71ddb2819afbcd5243e2120d64acb1414f20c"
     },
     {
+      "path": "integration/SCHEDULE-CALLER214.md",
+      "bytes": 6195,
+      "sha256": "c0fea1454c0fcd989f677e11276833b57150b2d6afe909d41913a7ad00865ad5"
+    },
+    {
       "path": "integration/SCHEDULE-OCCURRENCE205.md",
       "bytes": 6285,
       "sha256": "e6b2c33bb57360b7cbd802964dec92aeadb2758a6d54b47aeb6aeca0440377d3"
@@ -2693,12 +2698,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 18581,
-      "sha256": "97a622eec373b20c28c47087632d280d15678a8a37901fdfce0c0ffd66e3049a"
+      "sha256": "d4518576afce5eab04bceacfa9da62ce64d0e7be09252f94fbbf9effa2b4b1a8"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
-      "bytes": 240591,
-      "sha256": "d7eecc6727905daa3e3cdf0c80288c415f7174d0df00ac2f77e72ea3e78ad78f"
+      "bytes": 241521,
+      "sha256": "c45a77924e757cf1126d5f33c29968b0d8ab748ebfc6867fd305c5982fc02631"
     },
     {
       "path": "integration/dependency_build/README.md",
@@ -3734,6 +3739,11 @@
       "path": "integration/runtime.py",
       "bytes": 3005,
       "sha256": "3cf336efd9ad14396e445edaf09452bdfb9255ad86fca2cdcc6ce4dd82d8094e"
+    },
+    {
+      "path": "integration/schedule_caller214.py",
+      "bytes": 8913,
+      "sha256": "25caac31ed2458cfb06c0a7c8fc2d45d64fe825c9acfee2f725e4847a405f5d7"
     },
     {
       "path": "integration/schedule_occurrence205.py",
@@ -6609,6 +6619,11 @@
       "path": "tests/test_schedule175.py",
       "bytes": 4804,
       "sha256": "cffeffde6444d9f5be83bdb2ea7457eae8abde7a8bd8f9b291dfc528f88902cd"
+    },
+    {
+      "path": "tests/test_schedule_caller214.py",
+      "bytes": 10650,
+      "sha256": "dfdf5bbb2df8c07f062e0e5a22e7035a674401248a0940fb1a563a2081151b61"
     },
     {
       "path": "tests/test_schedule_occurrence205.py",
