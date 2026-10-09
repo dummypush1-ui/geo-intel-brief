@@ -18,7 +18,7 @@ READ_PATHS=frozenset(('/workspace','/workspace/countries','/workspace/map',
  '/workspace/finder/offline.html'))
 from integration.api_v1 import READ_ALIASES,versioned
 READ_PATHS=READ_PATHS|frozenset(versioned(p)for p in READ_ALIASES if p in READ_PATHS)
-ASSETS=frozenset(('workspace.js','news_scroll.js','workspace.css',
+ASSETS=frozenset(('workspace.js','context_excerpt208.js','news_scroll.js','workspace.css',
  'countries.js','watch_updates.js','countries.css','map.js','map.css','geo_map_ui.js','geo_map.css'))
 BRANDING=frozenset(('favicon.ico','icon-48.png','icon-192.png','icon-512.png',
  'apple-touch-icon.png','og-image.png','logo.svg'))

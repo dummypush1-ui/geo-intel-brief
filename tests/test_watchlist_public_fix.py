@@ -8,6 +8,13 @@ BASE='https://preview.example'
 def env():return {'PREVIEW_PUBLIC_SAMPLE_ENABLED':'true','PREVIEW_GEO_ONLY_ENABLED':'true','PREVIEW_ACCESS_ENABLED':'false','NEWS_READ_ENABLED':'false','NEWS_EVENTS_READ_ENABLED':'false','FINDER_NETWORK_PREVIEW_ENABLED':'false','PREVIEW_ORIGIN':BASE}
 
 class WatchlistFix(unittest.TestCase):
+ def test_public_workspace_excerpt_module_allowlist(self):
+  c=build_public_preview(env()).test_client()
+  r=c.get('/workspace/assets/context_excerpt208.js',base_url=BASE)
+  self.assertEqual(r.status_code,200);r.close()
+  r=c.get('/workspace/assets/not-allowlisted.js',base_url=BASE)
+  self.assertEqual(r.status_code,403);r.close()
+
  def test_public_module_dependency_available(self):
   app=build_public_preview(env());c=app.test_client()
   for asset in ('countries.js','watch_updates.js'):

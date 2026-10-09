@@ -70,3 +70,6 @@ main{padding:0 0 24px}#news-view{background:white;border-radius:10px;padding:20p
 #news-view[data-theme=dark] .story[data-geo-risk=HIGH]{border-left-color:#dd6b20}
 #news-view[data-theme=dark] .story[data-geo-risk=MODERATE]{border-left-color:#d69e2e}
 #news-view[data-theme=dark] .story[data-geo-risk=LOW]{border-left-color:#718096}
+
+/* Parent-only excerpt notice, outside the observed Finder frame. */
+#related-excerpt-text{white-space:pre-wrap;overflow-wrap:anywhere}#related-excerpt-detail summary{cursor:pointer;overflow-wrap:anywhere}

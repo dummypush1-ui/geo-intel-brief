@@ -77,7 +77,7 @@ def create_app(reader=None,authorize=None,finder_context_reader=None,finder_base
   return Response(html,mimetype='text/html')
  @app.get('/workspace/assets/<name>')
  def assets(name):
-  if name not in ('workspace.js','news_scroll.js','workspace.css','live_news.js','live_channels.js','countries.js','countries.css','tariffs.js','watch_updates.js','weekly.js','weekly.css','map.js','map.css','geo_map_ui.js','geo_map.css','brics_streams.js','brics_streams.css'):return jsonify(error='Not found'),404
+  if name not in ('workspace.js','context_excerpt208.js','news_scroll.js','workspace.css','live_news.js','live_channels.js','countries.js','countries.css','tariffs.js','watch_updates.js','weekly.js','weekly.css','map.js','map.css','geo_map_ui.js','geo_map.css','brics_streams.js','brics_streams.css'):return jsonify(error='Not found'),404
   return send_from_directory(root/'integration/ui',name)
  @app.get('/workspace/branding/<name>')
  def branding(name):

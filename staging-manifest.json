@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 1997,
+  "tests": 2001,
   "files": [
     {
       "path": ".env.example",
@@ -1756,6 +1756,11 @@
       "sha256": "3d781ed5a670b0a576e885e636b38d6b797a50e29d9be848a15b2e708bee2f3b"
     },
     {
+      "path": "integration/CONTEXT-EXCERPT208.md",
+      "bytes": 3762,
+      "sha256": "f64b1114c4ea89a23c008b614fb3f6ac7028b0c8d9d7c435b994a0e947c12874"
+    },
+    {
       "path": "integration/COPY191.md",
       "bytes": 616,
       "sha256": "4eeb1d7651f4ed04954f7ec899ac41a71700579f7bab11a0561a4e3a6efd46f8"
@@ -2658,12 +2663,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 18581,
-      "sha256": "0e15808b7225e83bafced57f11c271c948376d8fd6d7f59b2e06b3d970096a68"
+      "sha256": "3f5e8443f53bc1487e8037c20a452e619e8eefb3e6849868096ba6bb8836111e"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
-      "bytes": 235916,
-      "sha256": "266e79a5c2bd918e59c3df4cf1a2986f9bf7b5518b43c3912b15e08b3d8e237c"
+      "bytes": 236712,
+      "sha256": "0fdf3e428e760e6b2114a2d02799a3e3144647bf9fb6331dc7a0fe3c70b7b690"
     },
     {
       "path": "integration/dependency_build/README.md",
@@ -3222,8 +3227,8 @@
     },
     {
       "path": "integration/news_api.py",
-      "bytes": 27699,
-      "sha256": "01ef771b4a187d6188c6abc16811d72c8990c9fddad54dda93c0c746b0e35024"
+      "bytes": 27723,
+      "sha256": "1b58e128aed786137908675be01f8629462ccaf24bf969cea4d6ecd86a52edb3"
     },
     {
       "path": "integration/news_export/FIXTURE_HTTP_LIMITS.md",
@@ -3502,8 +3507,8 @@
     },
     {
       "path": "integration/public_preview_builder.py",
-      "bytes": 4914,
-      "sha256": "b5e816e03bd6d51949291103bfb4302fa5f4dd14ca1027032d55eea319cb6d74"
+      "bytes": 4938,
+      "sha256": "1d640866e7ef872a33dfbfe985a3f8acdba103312350b212648ef134c5aba989"
     },
     {
       "path": "integration/publication_dates/CONTRACT.md",
@@ -4091,6 +4096,11 @@
       "sha256": "c05a58762faa06df9cf4dde0c7330cfc8f65c9151d34b8586344a420701aa424"
     },
     {
+      "path": "integration/ui/context_excerpt208.js",
+      "bytes": 317,
+      "sha256": "9c8d7339529cf3c57a21d36edd5cf28ec675b0ed15c27268f85745a73f4c3976"
+    },
+    {
       "path": "integration/ui/countries.css",
       "bytes": 1159,
       "sha256": "01eec24d431f5f51ed96ae4d44b0208b477fcfc4bf5830e3cea96cf0cabe0f6d"
@@ -4187,18 +4197,18 @@
     },
     {
       "path": "integration/ui/workspace.css",
-      "bytes": 10282,
-      "sha256": "b28527dcc6937028f2f4d018832cb14a9b2a582877e15290c76aafbfcca0a710"
+      "bytes": 10489,
+      "sha256": "a4c8a012c48e5938f040bbf5b6aca3824898683789156a8c78c9a41fd6b47f5f"
     },
     {
       "path": "integration/ui/workspace.html",
-      "bytes": 5941,
-      "sha256": "1dbdfaa2e4675f5b4fb28109fa2169457d4fe249f0f189213cff6711b5376414"
+      "bytes": 6291,
+      "sha256": "0172c10668ba74bd9d7be7252db117041903a528fb90cb817543e3d49d6d7778"
     },
     {
       "path": "integration/ui/workspace.js",
-      "bytes": 36003,
-      "sha256": "97c33bf39671d8058e66d8f72ddd5aa0c33e0021d51a7fa117bb52d4af814fa9"
+      "bytes": 36553,
+      "sha256": "05c7533e35758174c1f4d04629dd50ca4eb31fefa7c221558220460b71670a02"
     },
     {
       "path": "integration/weekly_report/README.md",
@@ -5341,6 +5351,11 @@
       "sha256": "a7fb379487a34c625d886c5c4d372f8931985ef72a382625868ea4c6c1e0a822"
     },
     {
+      "path": "tests/browser_context208.py",
+      "bytes": 6201,
+      "sha256": "08e144e3b68795d8fe2babbfd2ede387118e17eac8a5979a41346a5eba507118"
+    },
+    {
       "path": "tests/browser_country_page.py",
       "bytes": 3820,
       "sha256": "4bbb5fc2b0572b9b03e50d4ff23d04e69819b42151a42b06ab4158773072ab06"
@@ -5474,6 +5489,11 @@
       "path": "tests/comtrade_runtime/test_publication178.mjs",
       "bytes": 5767,
       "sha256": "47808fc5f2d7da84992b533f164f8e9943fa4604fb80645ca241d07a7fecd758"
+    },
+    {
+      "path": "tests/context_excerpt208_test.mjs",
+      "bytes": 1106,
+      "sha256": "227ee9e7a8aec9ee0b2dc786f7bccac4d6ca82da23d22aba291e6f32c744016b"
     },
     {
       "path": "tests/digest_cold_probe.py",
@@ -5879,6 +5899,11 @@
       "path": "tests/test_comtrade178.py",
       "bytes": 913,
       "sha256": "4a94622a2a3ba607a81825903b9ce219cc78f28ce3340dcca72a2a5893f62261"
+    },
+    {
+      "path": "tests/test_context_excerpt208.py",
+      "bytes": 1099,
+      "sha256": "0ad83e2c750d0a830b7c00bb9445197d43217932cfc7fec968afbaa4a095c419"
     },
     {
       "path": "tests/test_copy191.py",
@@ -6667,8 +6692,8 @@
     },
     {
       "path": "tests/test_watchlist_public_fix.py",
-      "bytes": 1716,
-      "sha256": "f1b716df544614f01102649145139ef5beb29a9b82882306c8f9544e6a4c85df"
+      "bytes": 2049,
+      "sha256": "c2ec0dd9da121bf9ee302921769a1942e26982d315293d98e46fd5dcf07154a4"
     },
     {
       "path": "tests/test_weekly_routes.py",

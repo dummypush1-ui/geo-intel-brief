@@ -1,4 +1,5 @@
 import {newsScrollController} from './news_scroll.js';
+import {descriptionContext} from './context_excerpt208.js';
 /* Copyright (c) 2026 Push. No key or live endpoint in this client. */
 const byId = id => document.getElementById(id);
 let active = 'finder', relatedId = 0, newsId = 0, statsId = 0, signalsId = 0, snapshotsId = 0, volumeId = 0, lastContext = '';
@@ -101,7 +102,13 @@ for (const button of document.querySelectorAll('[data-view]')) button.addEventLi
   if (active === 'geo') {byId('news-heading').textContent = active === 'geo' ? 'Geo news' : 'BRICS news'; byId('news-category').value='';byId('news-country').value='';const sort=byId('news-sort');sort.replaceChildren();for(const [value,label] of [['newest','Newest collection'],['title','Title A-Z'],['country','Country A-Z'],active==='geo' ? ['score','Highest Geo score'] : ['corroboration','Most supplied corroboration entries']]){const option=document.createElement('option');option.value=value;option.textContent=label;sort.append(option);}byId('export-status').textContent='';readStats(active);readSignals(active);readSnapshots(active);readNews();readCritical();readSourceHealth();}
 });
 byId('news-search').addEventListener('submit', event => {event.preventDefault();readNews();});
+function showExcerpt(selected) {
+  const note = byId('related-excerpt-note'), detail = byId('related-excerpt-detail');
+  note.hidden = !selected?.shortened; detail.hidden = !selected?.shortened;
+  byId('related-excerpt-text').textContent = selected?.shortened ? selected.excerpt : '';
+}
 async function syncContext() {
+  let selected, fullDescription;
   let context;
   try {
     const doc = frame.contentDocument;
@@ -112,11 +119,13 @@ async function syncContext() {
     if (!m || !code) {
       const query = doc.querySelector('#q-main')?.value.trim() || '';
       if (query) {await searchContext(query); return;}
-      lastContext = ''; ++relatedId; byId('context').textContent = ''; byId('related').replaceChildren(); byId('related-status').textContent = 'No code selected.'; return;
+      lastContext = ''; ++relatedId; showExcerpt(null); byId('context').textContent = ''; byId('related').replaceChildren(); byId('related-status').textContent = 'No code selected.'; return;
     }
-    context = {code,system,country:SYS_COUNTRY[system] || '',product_terms:[description].filter(t => t.length >= 3)};
+    fullDescription = description; selected = descriptionContext(description);
+    context = {code,system,country:SYS_COUNTRY[system] || '',product_terms:selected.terms};
   } catch {return;}
-  const signature = JSON.stringify(context); if (signature === lastContext) return; lastContext = signature;
+  const signature = JSON.stringify({context,descriptionLength:selected.length,fullDescription}); if (signature === lastContext) return; lastContext = signature;
+  showExcerpt(selected);
   const id = ++relatedId;
   byId('context').textContent = `${context.system || 'Code'} ${context.code}${context.country ? ' · ' + context.country : ''}`;
   byId('related').replaceChildren(); byId('related-status').textContent = 'Loading related news...';
@@ -127,6 +136,7 @@ async function syncContext() {
   } catch(error) {if (id === relatedId) {lastContext='';byId('related-status').textContent = error.message;}}
 }
 async function searchContext(query) {
+  showExcerpt(null);
   const signature = 'search:' + query;
   if (signature === lastContext) return; lastContext = signature;
   const id = ++relatedId;
