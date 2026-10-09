@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 1542,
+  "tests": 1547,
   "files": [
     {
       "path": ".env.example",
@@ -2328,12 +2328,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 18581,
-      "sha256": "cd18ed9f8ad64d9bd1fbd4b965766342450dd1582f5e9534300fea3768df33e0"
+      "sha256": "89b3d4fa476c4905355fd52d036110e01297bd83461352b6bae1183ecbd40f98"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
-      "bytes": 185070,
-      "sha256": "83a8d3e2500cf21201e1909ef988b1662af3cbc61c82b75587446d0d94afcb61"
+      "bytes": 185393,
+      "sha256": "49709ad5a6118824f6c57290da253c8f5c1e1d5afe97fb928e75c66defd228a4"
     },
     {
       "path": "integration/dependency_build/README.md",
@@ -3796,6 +3796,11 @@
       "sha256": "44d70ad2f89d0965e430c7d3df48162fd9def5bb5c29e2da92410883447bbf26"
     },
     {
+      "path": "intelligence/geo/QUERY-INDEXES181.md",
+      "bytes": 1720,
+      "sha256": "4232f5e045c4514a959b60228d6ec502e7701e7aeea4ab6367e0303ae558c740"
+    },
+    {
       "path": "intelligence/geo/README.md",
       "bytes": 20035,
       "sha256": "adc826e5af1937625e557e98d9d851d4882cd33f4ab98769ad090cb94162522c"
@@ -3882,8 +3887,8 @@
     },
     {
       "path": "intelligence/geo/database.py",
-      "bytes": 9963,
-      "sha256": "da8e6e93e75f1cb1b4cea068c3c4d7646001dba85710e4aa42a5bf5957f2998b"
+      "bytes": 11394,
+      "sha256": "dba872ee7a91d87de53f5d66ae6f761e67d40472dfe88b65193017c1bfa26286"
     },
     {
       "path": "intelligence/geo/processing/__init__.py",
@@ -4007,8 +4012,8 @@
     },
     {
       "path": "preservation-manifest.json",
-      "bytes": 26690,
-      "sha256": "701f309a7b8f77ca010ee50ae7dbb2b76a7a2f26f639ec07c47f6bbb0dd27085"
+      "bytes": 26916,
+      "sha256": "e7db1c7a02dbea41f437f636baaeea96d2d80e83e54cb3c6a2df521b94368ec5"
     },
     {
       "path": "production_entry.py",
@@ -5214,6 +5219,11 @@
       "path": "tests/test_dashboard_stats.py",
       "bytes": 1209,
       "sha256": "d9e2a6808f09e6b0043ba62dffd1ddb4df7240ca9b13ba30aaf8e7b1cfd4dd82"
+    },
+    {
+      "path": "tests/test_db181.py",
+      "bytes": 2734,
+      "sha256": "7cf650be9fb1168b59d69bc7c0289895248a9a9dfc1e434111a87eba8e3b3c6a"
     },
     {
       "path": "tests/test_db_contract.py",

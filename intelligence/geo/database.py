@@ -6,6 +6,7 @@ save_article(), recent_articles(), etc. as before. Records behave like
 dicts (a["title"], a["score"], ...) exactly like the old sqlite3.Row did.
 """
 from datetime import datetime, timedelta, timezone
+from threading import Lock
 from pymongo import MongoClient, ASCENDING, DESCENDING
 from pymongo.errors import DuplicateKeyError, BulkWriteError
 from intelligence.geo.config import MONGODB_URI, MONGODB_DB_NAME
@@ -13,30 +14,61 @@ from intelligence.geo.bounded_reads import bounded_limit, cursor_rows, article_p
 
 _client = None
 _db = None
+_connect_lock = Lock()
 
 
 def connect():
     global _client, _db
-    if _db is None:
-        # Explicit timeouts: without these, a bad/unreachable MONGODB_URI
-        # (wrong password, IP not allow-listed in Atlas, typo'd cluster
-        # host) hangs the request for minutes instead of failing fast with
-        # a clear error.
-        _client = MongoClient(
-            MONGODB_URI,
-            serverSelectionTimeoutMS=8000,
-            connectTimeoutMS=8000,
-        )
-        _db = _client[MONGODB_DB_NAME]
-    return _db
+    with _connect_lock:
+        if _db is None:
+            client = None
+            try:
+                client = MongoClient(
+                    MONGODB_URI,
+                    serverSelectionTimeoutMS=8000,
+                    connectTimeoutMS=8000,
+                )
+                db = client[MONGODB_DB_NAME]
+            except Exception:
+                if client is not None:
+                    try:
+                        client.close()
+                    except Exception:
+                        pass
+                raise
+            # Publish the pair only after both construction steps succeeded.
+            _client, _db = client, db
+        return _db
 
 
-def init_db():
+def query_index_candidates():
+    """Source proposals only. No client, provisioning, TTL or explain claim.
+
+    Sort-first compound keys preserve current query order with range/filter
+    fields following it. Selectivity/collation/storage costs require live review.
+    emailed $ne includes absent fields, so no false equality/partial-index claim.
+    """
+    return (
+        ('geo_article_score_order_v181', (('score', -1), ('published', -1), ('_id', -1), ('emailed', 1))),
+        ('geo_article_published_order_v181', (('published', -1), ('_id', -1))),
+        ('geo_article_title_order_v181', (('title', 1), ('_id', 1))),
+        ('geo_article_created_v181', (('created_at', -1),)),
+        ('geo_article_critical_order_v181', (('risk_level', 1), ('score', -1), ('created_at', -1))),
+        ('geo_article_weekly_order_v181', (('score', -1), ('created_at', -1))),
+    )
+
+
+def init_db(provision_query_indexes=False):
+    if type(provision_query_indexes) is not bool:
+        raise ValueError("Explicit boolean query-index gate required")
     db = connect()
     db.articles.create_index([("url", ASCENDING)], unique=True)
     db.articles.create_index([("score", DESCENDING)])
     db.events.create_index([("name", ASCENDING), ("event_date", ASCENDING)], unique=True)
     db.events.create_index([("event_date", ASCENDING)])
+    if provision_query_indexes:
+        for name, keys in query_index_candidates():
+            db.articles.create_index(list(keys), name=name)
 
 
 def _now_iso():

@@ -9,13 +9,14 @@
       "source_path": "database.py",
       "path": "intelligence/geo/database.py",
       "source_sha256": "c07a5dacb008b8407e22e194b34ea81d97ec5b41ecc8414a347a444edb80002c",
-      "sha256": "da8e6e93e75f1cb1b4cea068c3c4d7646001dba85710e4aa42a5bf5957f2998b",
+      "sha256": "dba872ee7a91d87de53f5d66ae6f761e67d40472dfe88b65193017c1bfa26286",
       "changes": [
         "root imports namespaced only",
         "bulk147 candidate pending final independent review: driver outcomes, held legacy backup, explicit status/labels; no live activation",
         "Reviewed P0 candidate: header-only fail-closed legacy HTTP auth and unconditional article-deletion hold; no live activation",
         "Reviewed candidate bounded read/export source contract; no provisioning or live activation",
-        "storage165 bounded reads/export and dashboard default; no provisioning/live effects"
+        "storage165 bounded reads/export and dashboard default; no provisioning/live effects",
+        "181 reviewed per-process lazy Mongo initialization lock/local pair publication and failed-client close; six query-index source proposals with explicit default-off provisioning gate; no live indexes or query changes"
       ],
       "prior_preserved_sha256": "4b045c167947a4bed6a5456267430b239751bef551a0794b2e652b2cbc2058c4"
     },
