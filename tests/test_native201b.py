@@ -84,7 +84,7 @@ class Tests(unittest.TestCase):
   csrf=h.get('/account/preauth',base_url=O).json['csrf'];r=h.post('/account/login',base_url=O,json={'username':'alice','password':PW,'csrf':csrf},headers={'Origin':O});headers={'Origin':O,'X-CSRF-Token':r.json['csrf']}
   with patch.object(FixedProxyTransport,'execute',return_value={'status':200,'body':b'{}'})as call:
    body={'nonce':'n'*24,'port':'ALL'};self.assertEqual(h.post('/api/finder-broker/ships',base_url=O,json=body,headers=headers).status_code,200);r=h.post('/api/finder-broker/ships',base_url=O,json=body,headers=headers);self.assertEqual(r.status_code,409);self.assertEqual(set(r.json),{'ok','state','phase','status','response_bytes','cached_answer'});self.assertEqual(call.call_count,1)
-   self.assertEqual(h.post('/api/finder-broker/ships',base_url=O,json={'nonce':'z'*24,'port':'ALL','url':'https://evil.invalid'},headers=headers).status_code,409)
+   self.assertEqual(h.post('/api/finder-broker/ships',base_url=O,json={'nonce':'z'*24,'port':'ALL','url':'https://evil.invalid'},headers=headers).status_code,400)
    self.assertEqual(h.post('/api/finder-broker/ai',base_url=O,json={'nonce':'z'*24,'provider':'groq','model':'invented','prompt':'hello'},headers=headers).status_code,409);self.assertEqual(call.call_count,1)
  def test_expired_broker_response_unknown_global_held(self):
   s,c,f,key,core,b,t=self.broker();clock=[100]

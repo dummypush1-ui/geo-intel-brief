@@ -32,6 +32,7 @@ def proxy_request_native(budget,transport,*,nonce,operation,provider=None,model=
   raise TransportRefused('Proxy request held; no automatic retry')from None
 
 from werkzeug.wrappers import Response
+from integration.broker_json211 import parse,BodyRefused
 from integration.finder198_auth import create_finder_auth
 class ServerRefused(ValueError):pass
 
@@ -44,27 +45,16 @@ class NativeBrokerHandler:
   self.budget=budget;self.transport=transport;self.clock=clock
  def __call__(self,req,principal_hash):
   if req.method!='POST'or req.path not in ('/api/finder-broker/ships','/api/finder-broker/ai'):return _response({'ok':False,'error':'not_found'},404)
-  if req.mimetype!='application/json':return _response({'ok':False,'error':'json_required'},415)
-  n=req.content_length
-  if type(n)is not int or not 0<n<=16384:return _response({'ok':False,'error':'request_too_large'},413)
-  raw=req.stream.read(16385)
-  if len(raw)!=n:return _response({'ok':False,'error':'invalid_request'},400)
-  def pairs(items):
-   out={}
-   for k,v in items:
-    if k in out:raise ValueError()
-    out[k]=v
-   return out
   try:
-   d=json.loads(raw,object_pairs_hook=pairs)
-   if type(d)is not dict:raise ValueError()
+   d=parse(req,'ships'if req.path.endswith('/ships')else'ai')
+  except BodyRefused as error:return _response({'ok':False,'error':error.error},error.status)
+  except Exception:return _response({'ok':False,'error':'broker_unavailable'},503)
+  try:
    if req.path.endswith('/ships'):
-    if set(d)!={'nonce','port'}or type(d['nonce'])is not str or type(d['port'])is not str:raise ValueError()
     out=proxy_request_native(self.budget,self.transport,nonce=d['nonce'],operation='ships',port=d['port'],principal_hash=principal_hash,clock=self.clock)
    else:
     # Narrow generic prompt interface; provider adapter schemas selected by us,
     # never caller-supplied messages/tools/URLs/headers/arbitraryproviderpayload.
-    if set(d)!={'nonce','provider','model','prompt'}or any(type(v)is not str for v in d.values())or not 1<=len(d['prompt'])<=8000:raise ValueError()
     if d['provider']=='gemini':payload={'contents':[{'role':'user','parts':[{'text':d['prompt']}]}],'generationConfig':{'temperature':0.2,'maxOutputTokens':2048}}
     elif d['provider']in ('groq','mistral'):payload={'model':d['model'],'messages':[{'role':'user','content':d['prompt']}],'temperature':0.2,'max_tokens':2048}
     else:raise ValueError()

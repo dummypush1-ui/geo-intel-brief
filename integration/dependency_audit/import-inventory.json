@@ -1572,6 +1572,7 @@
         "tests/test_branding.py",
         "tests/test_brics_streams.py",
         "tests/test_bridges.py",
+        "tests/test_broker_json211.py",
         "tests/test_channels171.py",
         "tests/test_collection_prepare.py",
         "tests/test_collector197a.py",
@@ -1943,6 +1944,7 @@
         "tests/news_export/test_keyset_plan.py",
         "tests/news_export/test_original_contract.py",
         "tests/news_export/test_original_stream.py",
+        "tests/test_broker_json211.py",
         "tests/test_collector197b_connector.py",
         "tests/test_collector197ea.py",
         "tests/test_geo_probe_process.py",
@@ -1990,6 +1992,7 @@
         "integration/accounts/settings.py",
         "integration/accounts/shared_ledger_fixture.py",
         "integration/article_archive.py",
+        "integration/broker_json211.py",
         "integration/collection_receipts/protocol.py",
         "integration/collector197_archive.py",
         "integration/collector197_connector.py",
@@ -2073,6 +2076,7 @@
         "tests/test_article_archive.py",
         "tests/test_bcrypt189.py",
         "tests/test_branding.py",
+        "tests/test_broker_json211.py",
         "tests/test_build_provenance150.py",
         "tests/test_bulk147_inventory.py",
         "tests/test_classifier146_inventory.py",
@@ -2900,6 +2904,7 @@
         "integration/article_archive.py",
         "integration/branding_meta.py",
         "integration/brics_streams.py",
+        "integration/broker_json211.py",
         "integration/collection_receipts/protocol.py",
         "integration/collector197_connector.py",
         "integration/country_alerts.py",
@@ -3426,6 +3431,7 @@
         "tests/native200_state_fixture.py",
         "tests/native200cb_read_fixture.py",
         "tests/news_export/test_fixture_serving.py",
+        "tests/test_broker_json211.py",
         "tests/test_collector197b_http.py",
         "tests/test_collector197c.py",
         "tests/test_collector197ea.py",
@@ -3829,6 +3835,7 @@
         "tests/test_branding.py",
         "tests/test_brics_streams.py",
         "tests/test_bridges.py",
+        "tests/test_broker_json211.py",
         "tests/test_build_provenance150.py",
         "tests/test_bulk147_inventory.py",
         "tests/test_channels171.py",
@@ -4095,6 +4102,7 @@
       "import": "werkzeug",
       "files": [
         "integration/accounts/merged_fixture.py",
+        "integration/broker_json211.py",
         "integration/finder198_auth.py",
         "integration/finder198_server.py",
         "integration/geo_probe_http.py",
@@ -4128,6 +4136,7 @@
         "tests/browser_weekly.py",
         "tests/news_export/test_fixture_http.py",
         "tests/news_export/test_fixture_serving.py",
+        "tests/test_broker_json211.py",
         "tests/test_finder198a.py",
         "tests/test_finder198c.py",
         "tests/test_geo_only_runtime.py",
@@ -4547,6 +4556,10 @@
         "sha256": "0add85dfd3b541b2d681daad0d21af4a6320dea89d8c9254baf9a308d9a89b10"
       },
       {
+        "path": "integration/broker_json211.py",
+        "sha256": "74009d4bbd3cfd6127db79c33fd3526ef7c7155a3e2f3cb054a8bd374d9dda01"
+      },
+      {
         "path": "integration/collection_prepare.py",
         "sha256": "2d0886b3126dfd4da4c7fa647ff414afbd27a6032204a8f9ad2be046f86c25b2"
       },
@@ -4728,7 +4741,7 @@
       },
       {
         "path": "integration/finder198_server.py",
-        "sha256": "87161aa0929a4395a9eb6756e0bd85f66d5fd2c32bff514f20337314ba850a8c"
+        "sha256": "c0e64e3e07ae2a7b6d9ae185bf934849a957ae7bd9ba2b8bf34c9b72cb8c4200"
       },
       {
         "path": "integration/finder198_transport.py",
@@ -4952,7 +4965,7 @@
       },
       {
         "path": "integration/native201_broker.py",
-        "sha256": "3f11589437c97fe1d2de0d24357f11199584e7398015fb2e72dbd183271919e4"
+        "sha256": "73a8b3ac6f09a78935d78c6b90a371ec9d6f252d7e606f1bcfcbe388299b0944"
       },
       {
         "path": "integration/native201_collector.py",
@@ -5551,6 +5564,10 @@
         "sha256": "847cc2d86a32b5a3cf3cc37cc5a88488216c0ad5f52867aca277e69bbc37a920"
       },
       {
+        "path": "tests/test_broker_json211.py",
+        "sha256": "2ed7dbfaf7f2cc7e9298694af42dfece886d34ff1f4ff2b1e8fefda8135c9d6e"
+      },
+      {
         "path": "tests/test_build_provenance150.py",
         "sha256": "af6af29b4c3aad3259ec829c4fbc1c330faa3327bcf56340a1f00487cbea8507"
       },
@@ -5784,7 +5801,7 @@
       },
       {
         "path": "tests/test_finder198c.py",
-        "sha256": "50215966d2faa5fdb7b60b809748119c309ec2aa6c093909cdc25d6d34ffc3ce"
+        "sha256": "9aca63c45bfb57b92001bb9ff87af09685719156210d4851b560c0cee7fc50bf"
       },
       {
         "path": "tests/test_finder198d.py",
@@ -5964,7 +5981,7 @@
       },
       {
         "path": "tests/test_native201b.py",
-        "sha256": "aff94a128b509e369573dc25b00ff38e8920f84ad9c7c46d550bbf04f0133318"
+        "sha256": "a792004a8117c3ca8e633bd3de52b1e97476656d6f6162fc81d2f2d51151ad29"
       },
       {
         "path": "tests/test_native201guard.py",

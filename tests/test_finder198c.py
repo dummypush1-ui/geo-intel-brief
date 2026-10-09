@@ -37,7 +37,7 @@ class Tests(unittest.TestCase):
   t=self.login()
   with patch.object(FixedProxyTransport,'execute',side_effect=AssertionError):
    self.assertEqual(self.post({'nonce':'n'*24,'provider':'groq','model':'invented','prompt':'hello'},t,'ai').status_code,409)
-   self.assertEqual(self.post({'nonce':'n'*24,'port':'INNSA','url':'https://evil.example'},t).status_code,409)
+   self.assertEqual(self.post({'nonce':'n'*24,'port':'INNSA','url':'https://evil.example'},t).status_code,400)
   self.assertEqual(self.c.writes,0)
  def test_revoked_uid_before_receipt_and_transport(self):
   t=self.login();self.store.sessions.clear()
