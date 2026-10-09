@@ -3,12 +3,12 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 1584,
+  "tests": 1587,
   "files": [
     {
       "path": ".env.example",
-      "bytes": 7230,
-      "sha256": "7c629cde5ec5a8c7a87db185438416589e95518af08d70fcd55493518f15d6e8"
+      "bytes": 7445,
+      "sha256": "8d2c60bed99b49cad3494ab18a61f909483cb9dff7be6b121ecbc007c23f417b"
     },
     {
       "path": ".gitignore",
@@ -2368,12 +2368,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 18581,
-      "sha256": "e1f5075a91f894132836b497ce98378295d69214e8aa7da3f2405a1b47777e83"
+      "sha256": "e64a4a486e40671501d78f9c154284d254e5d427066a26cf4b08105647d29de5"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
-      "bytes": 189202,
-      "sha256": "42e1291e89f8a296b91a4a540bc54f477f2259faea478cfcb86c652343e97445"
+      "bytes": 189444,
+      "sha256": "2e375d68bade173b729c2e938ab92c29792d63c902c814affc420de2b82b13cd"
     },
     {
       "path": "integration/dependency_build/README.md",
@@ -4092,8 +4092,13 @@
     },
     {
       "path": "proxy.js",
-      "bytes": 20978,
-      "sha256": "d3a4905915219f1f6065b4220ad5b7f32ddc7a57e8b5ab0933aff4488404ec30"
+      "bytes": 20867,
+      "sha256": "dc6a77bd88d294a84c012d9e6928fb24ed5e8b3504877f7dcf13950829e0869c"
+    },
+    {
+      "path": "proxy_runtime/CORS190.md",
+      "bytes": 1783,
+      "sha256": "52948353421d769aabbffd47971d7f03ebe805cce095c42e5fcc6570e46a4d4e"
     },
     {
       "path": "proxy_runtime/IDENTITY-POLICY.md",
@@ -4104,6 +4109,11 @@
       "path": "proxy_runtime/ais-frame.cjs",
       "bytes": 593,
       "sha256": "b6e4e7872417b7a49368a5e2a8145dc60fd1424026c10520d8beb6cb817f2f3d"
+    },
+    {
+      "path": "proxy_runtime/cors-policy.cjs",
+      "bytes": 2290,
+      "sha256": "4d75afdb443007bb51947d331aab7f4ad00b797fd8900bab06096372c97836d6"
     },
     {
       "path": "proxy_runtime/identity-policy.cjs",
@@ -5101,6 +5111,11 @@
       "sha256": "8aa4aa55cc3ece864de44d9ad43f21d7557c3fd4452a06ccbe2533988fbc9c01"
     },
     {
+      "path": "tests/proxy_runtime/test_cors190.cjs",
+      "bytes": 4489,
+      "sha256": "bc4e513b561372c21f31409e56294a69a6ecc03e1b7bf47d4eaa4258d64f73fa"
+    },
+    {
       "path": "tests/proxy_runtime/test_identity.cjs",
       "bytes": 2075,
       "sha256": "a4ebb84aac21343d2cbad1b5e8781937383818d832dc63bad7ad190d9e0fb82e"
@@ -5259,6 +5274,11 @@
       "path": "tests/test_comtrade178.py",
       "bytes": 913,
       "sha256": "4a94622a2a3ba607a81825903b9ce219cc78f28ce3340dcca72a2a5893f62261"
+    },
+    {
+      "path": "tests/test_cors190.py",
+      "bytes": 912,
+      "sha256": "a27d0ced5add3bf206dd7d393321e888f343da1163f48a393041e55159d042fe"
     },
     {
       "path": "tests/test_country_alerts.py",

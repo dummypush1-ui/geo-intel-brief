@@ -1831,6 +1831,7 @@
         "tests/test_classifier146_inventory.py",
         "tests/test_compulsory_channels.py",
         "tests/test_comtrade178.py",
+        "tests/test_cors190.py",
         "tests/test_digest_cold.py",
         "tests/test_edge_guard.py",
         "tests/test_env_example.py",
@@ -2620,6 +2621,7 @@
         "tests/test_collection_prepare.py",
         "tests/test_compulsory_channels.py",
         "tests/test_comtrade178.py",
+        "tests/test_cors190.py",
         "tests/test_digest_cold.py",
         "tests/test_edge_guard.py",
         "tests/test_env_example.py",
@@ -3125,6 +3127,7 @@
         "tests/test_collector_mail_fixture.py",
         "tests/test_compulsory_channels.py",
         "tests/test_comtrade178.py",
+        "tests/test_cors190.py",
         "tests/test_country_alerts.py",
         "tests/test_country_page.py",
         "tests/test_country_signals.py",
@@ -4519,6 +4522,10 @@
       {
         "path": "tests/test_comtrade178.py",
         "sha256": "4a94622a2a3ba607a81825903b9ce219cc78f28ce3340dcca72a2a5893f62261"
+      },
+      {
+        "path": "tests/test_cors190.py",
+        "sha256": "a27d0ced5add3bf206dd7d393321e888f343da1163f48a393041e55159d042fe"
       },
       {
         "path": "tests/test_country_alerts.py",

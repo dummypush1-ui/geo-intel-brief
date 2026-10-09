@@ -21,6 +21,7 @@
 //   MISTRAL_KEYS - comma-separated Mistral keys (optional)
 //   NVIDIA_KEYS  - comma-separated NVIDIA NIM keys (optional)
 const http = require('http');
+const corsPolicy=require('./proxy_runtime/cors-policy.cjs').policy(process.env.PROXY_ALLOWED_ORIGINS || '');
 
 const SECRET = process.env.APP_SECRET || '';
 const POOLS = {};
@@ -254,18 +255,15 @@ function anonymousRequestOk(req){return rateOk(requestIdentity(req))&&sharedRequ
 function rateOk(ip) { return rateLimiter.allow(ip); }
 
 function send(res, status, body, extra) {
-  const headers = Object.assign({ 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }, extra || {});
+  const headers = Object.assign({ 'Content-Type': 'application/json' }, extra || {});
   res.writeHead(status, headers);
   res.end(typeof body === 'string' ? body : JSON.stringify(body));
 }
 
 const port = process.env.PORT || 3000;
 http.createServer(async (req, res) => {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  if (req.method === 'OPTIONS') {
-    res.writeHead(204, { 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'POST, GET', 'Access-Control-Allow-Headers': 'Content-Type, x-app-token', 'Access-Control-Max-Age': '86400' });
-    return res.end();
-  }
+  const cors=corsPolicy.check(req,res);
+  if(cors){if(cors.status===204){res.writeHead(204);return res.end();}return send(res,cors.status,{error:{message:cors.error}});}
   const path = req.url.split('?')[0];
   if (req.method === 'GET' && (path === '/' || path === '/health')) {
     return send(res, 200, {
@@ -334,7 +332,7 @@ http.createServer(async (req, res) => {
         const text = await up.text();
         if ((up.status === 401 || up.status === 403 || up.status === 429) && pool.length > 1 && i < pool.length - 1) continue; // next key
         OFF[route.kind] = ki;
-        res.writeHead(up.status, { 'Content-Type': up.headers.get('content-type') || 'application/json', 'Access-Control-Allow-Origin': '*' });
+        res.writeHead(up.status, { 'Content-Type': up.headers.get('content-type') || 'application/json' });
         return res.end(text);
       } catch (e) {
         if (i < pool.length - 1) continue;
