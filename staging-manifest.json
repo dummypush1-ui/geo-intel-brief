@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 1664,
+  "tests": 1682,
   "files": [
     {
       "path": ".env.example",
@@ -67,8 +67,8 @@
     },
     {
       "path": "checks/test_production_entry.py",
-      "bytes": 1920,
-      "sha256": "be5f0a1618fee099a8998726b3ef3b59d5527cb1754c5ff60c7c8ea207ce75e0"
+      "bytes": 1919,
+      "sha256": "20e80a75c386b7e3ad459e5eb08ed14293b8236bb51ca2eedf8078017b7005e7"
     },
     {
       "path": "checks/test_source_drift.py",
@@ -1726,6 +1726,11 @@
       "sha256": "1595adf1efeb9677a827445a6fb3e577bc6b37a09805e4e8f2d71b3382d75291"
     },
     {
+      "path": "integration/COLLECTOR197C.md",
+      "bytes": 2236,
+      "sha256": "defbc584191a052f11c1bd365cb04bfa24d8082d4ef3a35b691815d60d8c705e"
+    },
+    {
       "path": "integration/COLLECTOR_MAIL_FIXTURE_LIMITS.md",
       "bytes": 2429,
       "sha256": "6e2d181d296dcfde55c6e66d148a036dfc0018dee458280732435208e8206cfd"
@@ -2301,19 +2306,29 @@
       "sha256": "aa30fbf17da17b2ecc5a1c40362433be89b3ff64182674900969a62ac8ecbff9"
     },
     {
+      "path": "integration/collector197_coverage.py",
+      "bytes": 4424,
+      "sha256": "1693473ecc0913796fc19a1d74c7d0e86e683236d5efae26abbeb861e9cb799a"
+    },
+    {
+      "path": "integration/collector197_dispatcher.py",
+      "bytes": 463,
+      "sha256": "e15d3ac23d102148466a60bccf66126a560a9be524304707784d76236dee140f"
+    },
+    {
       "path": "integration/collector197_feed_child.py",
       "bytes": 2842,
       "sha256": "84e0ebf31bdf7a1c5a35addcf9f124c8f4427a6652d9639b64246abf8da5545e"
     },
     {
       "path": "integration/collector197_http.py",
-      "bytes": 7480,
-      "sha256": "3d028317e5e7bd1d1d19a46e9f4dd36945e2bf7f732178daa2c46677c1fc08b9"
+      "bytes": 8501,
+      "sha256": "27772c76ef30611a37c49c5e7da4829bab4d2a177201ef735dac7aeb8ed1220b"
     },
     {
       "path": "integration/collector197_orchestrator.py",
-      "bytes": 6054,
-      "sha256": "fe9f768feabb8b4e40e49867c1e26685d218f8717c7b86b59b30a78b50efd46f"
+      "bytes": 7273,
+      "sha256": "feba6ad536f52d080633f7956b5e76bfd24c1e424435aec05eebcd0a9cf91b5f"
     },
     {
       "path": "integration/collector197_parser.py",
@@ -2324,6 +2339,11 @@
       "path": "integration/collector197_preflight.py",
       "bytes": 4796,
       "sha256": "371120e8ad4341121538106b8dc328fb3f82352867f5141daaed1fdb91eb9c9d"
+    },
+    {
+      "path": "integration/collector197_runtime_evidence.py",
+      "bytes": 2216,
+      "sha256": "f7f69b3dd53f6d29a6816b2a64df054f4f627e9c9d5ff7e67b54bdb5ebca7912"
     },
     {
       "path": "integration/collector197_supervisor.py",
@@ -2453,12 +2473,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 18581,
-      "sha256": "dc49c77f51c41cd2d41a0a28dc86b561f4791ac8542c26efb201e39fbb92f493"
+      "sha256": "479b364960068fa15bd2ef4a81109cbb77bfcba28785c6f3c90b942fcd0cdc4c"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
-      "bytes": 203703,
-      "sha256": "76c8a284d7a4238cc5e73178cd3f349e48dfcdba380cc91c247abc0c92429ae7"
+      "bytes": 205156,
+      "sha256": "c7fd6f56bcfbe69e8593672ea4d7a4aff8c5aca0defba240e978aee387716f1a"
     },
     {
       "path": "integration/dependency_build/README.md",
@@ -4182,8 +4202,8 @@
     },
     {
       "path": "production_entry.py",
-      "bytes": 2229,
-      "sha256": "6860e36da3763f044d4df2db7fb9913abe264d46ea00eae8b9ac8bf05aa28e55"
+      "bytes": 3501,
+      "sha256": "0212e5c27f63b3e5bbe82a98802317afd2c2d4d9023144645c9e6049b309f771"
     },
     {
       "path": "proxy.js",
@@ -5384,6 +5404,11 @@
       "path": "tests/test_collector197b_supervisor.py",
       "bytes": 4704,
       "sha256": "e6fd968d661324b234f1241c9fe831bf2c1c669828e34be609111572439de6e8"
+    },
+    {
+      "path": "tests/test_collector197c.py",
+      "bytes": 7738,
+      "sha256": "54555b5d9fc2e369bf5e86e636081db288a452d7e315c2881efd2ae58e2ce248"
     },
     {
       "path": "tests/test_collector_mail_fixture.py",

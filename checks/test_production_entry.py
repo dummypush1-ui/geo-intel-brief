@@ -21,7 +21,7 @@ class ProductionEntryTests(unittest.TestCase):
         env = {'PUBLIC_NEWS_READ_ENABLED': 'false'}
         app = pe.build_production_app(env, lambda e: (seen.append(e), Fake())[1])
         self.assertIs(seen[0], env)
-        self.assertFalse(app.extensions['production_components']['collector']['wired'])
+        self.assertTrue(app.extensions['production_components']['collector']['wired'])
         geo = app.extensions['production_components']['geo_news_read']
         self.assertTrue(geo['wired'])
         self.assertEqual(geo['gate_state'], 'false')

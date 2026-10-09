@@ -13,6 +13,7 @@ from collector111_prep.drive_durable import _receipt
 from integration.geo_collector_contract import prepare_geo_documents
 from integration.geo_article_writer import GeoArticleWriter
 from integration.collector197_config import CollectorConfig
+from integration.collector197_coverage import CoverageCheckpoints,coverage,catalog_fingerprint
 
 class CycleRefused(ValueError):
     pass
@@ -38,7 +39,7 @@ def run_cycle(config, *, ledger, checkpoints, nonce, fetch, categories, threshol
         raise CycleRefused('Exact switch required')
     if not config.enabled:
         return {'state': 'disabled', 'production_mounted': False}
-    if (type(ledger) is not DurableLedger or type(checkpoints) is not DurableCheckpoints
+    if (type(ledger) is not DurableLedger or type(checkpoints) not in (DurableCheckpoints,CoverageCheckpoints)
             or (writer is not None and type(writer) is not GeoArticleWriter)
             or not callable(fetch) or not callable(clock) or not callable(monotonic)):
         raise CycleRefused('Exact injected adapters required')
@@ -67,8 +68,10 @@ def run_cycle(config, *, ledger, checkpoints, nonce, fetch, categories, threshol
     # Replay returns status only. Never let a second invocation fetch or drive
     # an existing running/checkpoint/write-started job, even with the same nonce.
     if job['phase'] != 'accepted':
-        return {'state': 'replay_held', 'job': key, 'phase': job['phase'],
-                'production_mounted': False}
+        out={'state': 'replay_held', 'job': key, 'phase': job['phase'], 'production_mounted': False}
+        if type(checkpoints)is CoverageCheckpoints and job['phase'] in ('fetch_complete','prepare_complete','write_started','completed','uncertain_after_write'):
+            out['coverage']=checkpoints.get(key,fence)['coverage']
+        return out
     try:
         ledger.advance(key, fence, 'running', now(), {})
     except LedgerRefused:
@@ -80,11 +83,21 @@ def run_cycle(config, *, ledger, checkpoints, nonce, fetch, categories, threshol
         raw = fetch(deadline=deadline, per_feed_seconds=config.per_feed_seconds)
         budget()
         ledger.heartbeat(key, fence, now())
+        source_coverage=None
+        if type(checkpoints)is CoverageCheckpoints:
+            envelope=capture(raw)['captured']
+            if type(envelope)is not dict or set(envelope)!={'candidates','source_states','all_sources_healthy'}:raise CycleRefused('Full fetch coverage required')
+            source_coverage=coverage({'catalog':catalog_fingerprint(),'source_states':envelope['source_states'],'all_sources_healthy':envelope['all_sources_healthy']})
+            raw=envelope['candidates']
         bound = capture({'candidates': raw, 'active_categories': categories,
                          'threshold': threshold})['captured']
         inputs = run_inputs(bound['candidates'], bound['active_categories'], bound['threshold'])
-        checkpoints.put(key, fence, inputs)
-        saved = checkpoints.get(key, fence)
+        if type(checkpoints)is CoverageCheckpoints:
+            checkpoints.put(key,fence,inputs,source_coverage)
+            full=checkpoints.get(key,fence);saved=full['inputs'];source_coverage=full['coverage']
+        else:
+            checkpoints.put(key, fence, inputs)
+            saved = checkpoints.get(key, fence)
         ledger.advance(key, fence, 'fetch_complete', now(), {'fetched': len(saved['candidates'])})
         phase = 'fetch_complete'
         docs = prepare_geo_documents(saved['candidates'], saved['active_categories'], saved['threshold'])['documents']
@@ -93,7 +106,7 @@ def run_cycle(config, *, ledger, checkpoints, nonce, fetch, categories, threshol
         ledger.advance(key, fence, 'prepare_complete', now(), counts)
         phase = 'prepare_complete'
         if writer is None:
-            return {'state': 'held_before_write', 'job': key, 'phase': phase, 'production_mounted': False}
+            return {'state': 'held_before_write', 'job': key, 'phase': phase, 'production_mounted': False, **({'coverage':source_coverage}if source_coverage is not None else{})}
         budget()
         # The only winning CAS caller may enter article write. From this point
         # all failures, including receipts/clock/deadline/store loss, latch.
@@ -106,7 +119,7 @@ def run_cycle(config, *, ledger, checkpoints, nonce, fetch, categories, threshol
             raise CycleRefused('Write reconciliation required')
         counts.update(checked)
         ledger.advance(key, fence, 'completed', now(), counts)
-        return {'state': 'completed', 'job': key, 'counts': counts, 'production_mounted': False}
+        return {'state': 'completed', 'job': key, 'counts': counts, 'production_mounted': False, **({'coverage':source_coverage}if source_coverage is not None else{})}
     except Exception:
         # Unknown CAS failure could have landed. Read source state; do NOT
         # downgrade a write ticket or clear uncertain/expired jobs.

@@ -10,6 +10,7 @@ from integration.collector197_orchestrator import run_cycle,CycleRefused
 from integration.collector197_coordinator import supervised_candidates
 from collector110_prep.durable_checkpoint import DurableCheckpoints
 from integration.geo_article_writer import GeoArticleWriter
+from integration.collector197_coverage import CoverageCheckpoints
 
 class HTTPRefused(ValueError):pass
 
@@ -34,7 +35,8 @@ class _Client:
         return _Database(self.c)
 
 
-def build_collector_app(values, *, runtime_preflight=None, client_factory=None, clock=time.time):
+def build_collector_app(values, *, runtime_preflight=None, client_factory=None, clock=time.time, durable_coverage=False):
+    if type(durable_coverage)is not bool:raise HTTPRefused('Exact coverage selection required')
     if type(values)is not dict or any(type(k)is not str or type(v)is not str for k,v in values.items()):
         raise HTTPRefused('Exact environment strings required')
     # First validate exact flags independent of proof/client callbacks.
@@ -73,7 +75,7 @@ def build_collector_app(values, *, runtime_preflight=None, client_factory=None, 
         handles=inspect_writer(client,fp)
         allproof=dict.fromkeys(GATES,True)
         config=configure(values,allproof)
-        ledger=handles['ledger'];cp=DurableCheckpoints(handles['checkpoints'])
+        ledger=handles['ledger'];cp=(CoverageCheckpoints if durable_coverage else DurableCheckpoints)(handles['checkpoints'])
         writer=GeoArticleWriter(_Client(handles['articles']),review={'mapping':('geo_intel','articles'),'write_permission':True,'unique_url_index_verified':True,'source_contract_verified':True})
     except Exception:
         if client is not None:
@@ -88,6 +90,10 @@ def build_collector_app(values, *, runtime_preflight=None, client_factory=None, 
         supplied=request.headers.get('Authorization','')
         if len(supplied)>300 or not hmac.compare_digest(supplied.encode(),('Bearer '+secret).encode()):return jsonify(error='unauthorized'),401
         if request.headers.get('Origin') is not None or request.query_string:return jsonify(error='invalid_request'),400
+        try:
+            fresh=runtime_preflight()
+            if type(fresh)is not dict or set(fresh)!=set(proof) or any(v is not True for v in fresh.values()):raise ValueError()
+        except Exception:return jsonify(error='runtime_evidence_unavailable'),503
         if request.method=='POST' and request.path=='/api/collect':return None
         if request.method=='GET' and request.path.startswith('/api/collect/status/'):return None
         return jsonify(error='route_unavailable'),404
@@ -112,7 +118,7 @@ def build_collector_app(values, *, runtime_preflight=None, client_factory=None, 
         def fetch(**kw):
             out=supervised_candidates(**kw,max_items=profile['max_items'],lookback_hours=profile['lookback_hours'],request_timeout=profile['timeout'])
             coverage.update({'source_states':out['source_states'],'all_sources_healthy':False})
-            return out['candidates']
+            return out if durable_coverage else out['candidates']
         try:
             out=run_cycle(config,ledger=ledger,checkpoints=cp,nonce=body['nonce'],fetch=fetch,
                 categories=profile['active_categories'],
@@ -123,7 +129,15 @@ def build_collector_app(values, *, runtime_preflight=None, client_factory=None, 
         except Exception:return jsonify(error='collector_held_reconciliation_required'),409
     @app.get('/api/collect/status/<key>')
     def status(key):
-        try:return jsonify(ledger.status(key)),200
+        try:
+            out=ledger.status(key)
+            if durable_coverage:
+                row=ledger.c.find_one({'_id':ledger.profile},max_time_ms=2000)
+                jobs=([row['active']]if row['active']is not None else[])+row['history']
+                match=next(j for j in jobs if j['key']==key)
+                if match['phase'] in ('fetch_complete','prepare_complete','write_started','completed','uncertain_after_write'):
+                    out['coverage']=cp.get(key,match['fence'])['coverage']
+            return jsonify(out),200
         except Exception:return jsonify(error='status_unavailable'),503
     @app.errorhandler(413)
     def big(_):return jsonify(error='request_too_large'),413
