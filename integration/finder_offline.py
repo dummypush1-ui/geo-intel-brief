@@ -1,3 +1,4 @@
+# 228: reviewed popup CSP repair and local generated snapshot pins.
 """Served-copy offline seam. Original source reviewed for196 token removal; public snapshot only."""
 import re,hashlib,base64
 from integration.branding_meta import HeadTags
@@ -8,7 +9,7 @@ PWA_REGISTER="""if ('serviceWorker' in navigator && location.protocol === 'https
     window.addEventListener('load', function () { navigator.serviceWorker.register('./sw.js').catch(function () {}); });
   }"""
 
-OFFLINE_SHA = '2e8521b733d94955ef9ec5e0b85399a78dfff5d50836a174fb180cd08ed9c6e3'
+OFFLINE_SHA = 'b55d6b0cf2be2ff3ddf366c4afa23d452367265ef2e85a31b9a4fb6cd411b486'
 
 def shell(original):
  if hashlib.sha256(original.encode()).hexdigest()!=OFFLINE_SHA:raise ValueError('Offline source requires review')

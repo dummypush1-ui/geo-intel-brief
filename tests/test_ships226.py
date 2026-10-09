@@ -1,9 +1,10 @@
+# 228: reviewed popup CSP repair and local generated snapshot pins.
 import hashlib,json,re,subprocess,unittest
 from pathlib import Path
 ROOT=Path(__file__).parents[1]
 class Tests(unittest.TestCase):
  def test_original_pins_catalog_names_and_string_mmsi(self):
-  pins={'src/app.js':'f8ecf57f73c28c376c4508f2ce7315f3ffad0a8a26d925a9782db6bb53e38f91','proxy.js':'dc6a77bd88d294a84c012d9e6928fb24ed5e8b3504877f7dcf13950829e0869c'}
+  pins={'src/app.js':'bcd406d75b27b053fc5716d141ca278932115f14e39eca74d19a2284fc59d313','proxy.js':'dc6a77bd88d294a84c012d9e6928fb24ed5e8b3504877f7dcf13950829e0869c'}
   for path,sha in pins.items():self.assertEqual(hashlib.sha256((ROOT/path).read_bytes()).hexdigest(),sha)
   proxy=(ROOT/'proxy.js').read_text();ports=re.findall(r"code: '([^']+)', name: '([^']+)'",proxy[proxy.index('const AIS_PORTS ='):proxy.index('const AIS_BOXES =')]);self.assertEqual(len(ports),42)
   from integration.finder198_connector import PORTS

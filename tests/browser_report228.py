@@ -1,8 +1,6 @@
-"""227 nested original report probe. Synthetic storage, no product function patches."""
+"""228 nested original report probe. Synthetic storage, no product function patches."""
 import sys, threading, json, re, os, hashlib, base64, subprocess
 from pathlib import Path
-print('SKIP: superseded by 228; BEFORE-fix method, not valid on current source')
-raise SystemExit(0)
 from urllib.parse import urlsplit
 from datetime import datetime, timezone
 from playwright.sync_api import sync_playwright
@@ -10,20 +8,23 @@ from werkzeug.serving import make_server
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT))
 from integration.news_api import create_app
-OUT=Path(os.environ.get('REPORT227_OUT','/tmp/report227-review'));OUT.mkdir(parents=True,exist_ok=True)
-O='http://localhost:8786'
+from http.server import ThreadingHTTPServer,SimpleHTTPRequestHandler
+from functools import partial
+OUT=Path(os.environ.get('REPORT228_OUT','/tmp/report228-review'));OUT.mkdir(parents=True,exist_ok=True)
+O='http://localhost:8787'
 def safe_console(text):
  return re.sub(r'https?://[^\s\"\']+',lambda m:(lambda u:u.scheme+'://'+u.netloc+u.path)(urlsplit(m.group())),text)
 KEY='SYNTHETIC-PLACEHOLDER-NOT-A-KEY'
 SANDBOX='allow-scripts allow-same-origin allow-downloads allow-modals allow-popups'
 source=(ROOT/'src/app.js').read_text()
-assert hashlib.sha256(source.encode()).hexdigest()=='f8ecf57f73c28c376c4508f2ce7315f3ffad0a8a26d925a9782db6bb53e38f91'
+assert hashlib.sha256(source.encode()).hexdigest()=='bcd406d75b27b053fc5716d141ca278932115f14e39eca74d19a2284fc59d313'
 section_source=source[source.index('function buildTemplateReport('):source.index('async function openTemplateReport(')]
 sections=re.findall(r'<section class="tpl-sec"><h2><span class="tpl-num">([^<]+)</span> ([^<\'\n]+)',section_source)
 sections=[(n,t.strip()) for n,t in sections]
 app=create_app(authorize=lambda r:True)
-server=make_server('127.0.0.1',8786,app);threading.Thread(target=server.serve_forever,daemon=True).start()
-results={'started_at':datetime.now(timezone.utc).isoformat(),'source_sections':sections,'no_fix':True,'network_off':True}
+server=make_server('127.0.0.1',8787,app);threading.Thread(target=server.serve_forever,daemon=True).start()
+standalone_server=ThreadingHTTPServer(('127.0.0.1',8789),partial(SimpleHTTPRequestHandler,directory=str(ROOT)));threading.Thread(target=standalone_server.serve_forever,daemon=True).start()
+results={'started_at':datetime.now(timezone.utc).isoformat(),'source_sections':sections,'phase':'AFTER228-candidate','network_off':True}
 try:
  with sync_playwright() as p:
   b=p.chromium.launch(executable_path='/usr/bin/google-chrome',headless=True,args=['--no-sandbox'])
@@ -47,8 +48,8 @@ try:
    response=page.goto(O+'/workspace')
    assert response.headers['content-security-policy']=="default-src 'self'; script-src 'self'; style-src 'self'; frame-ancestors 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-src 'self' https://www.youtube-nocookie.com"
    assert page.locator('#finder').get_attribute('sandbox')==SANDBOX
-   with page.expect_response(lambda r:r.url==O+'/workspace/finder/index.html?report227=1') as rr:
-    page.locator('#finder').evaluate("e=>e.src='/workspace/finder/index.html?report227=1#code=0:090121'")
+   with page.expect_response(lambda r:r.url==O+'/workspace/finder/index.html?report228=1') as rr:
+    page.locator('#finder').evaluate("e=>e.src='/workspace/finder/index.html?report228=1#code=0:090121'")
    response=rr.value
    shell=response.text();scripts=[body for attrs,body in re.findall(r'<script\b([^>]*)>(.*?)</script>',shell,re.S|re.I) if body.strip() and not re.search(r'\bsrc\s*=',attrs,re.I)]
    hashes=["'sha256-"+base64.b64encode(hashlib.sha256(s.encode()).digest()).decode()+"'" for s in scripts]
@@ -64,6 +65,7 @@ try:
     with page.expect_popup() as pop:f.locator('#d-tpl').click()
     report=pop.value;report.on('request',lambda r:popup_requests.append(urlsplit(r.url).path));report.on('console',lambda m:csp.append(safe_console(m.text)) if 'Content Security Policy' in m.text else None)
     report.locator('.tpl-cover-title').wait_for(timeout=45000)
+    report.wait_for_function('document.__templateReport228 && document.__templateReport228.complete')
     assert report.url=='about:blank'
     assert report.evaluate("window.opener!==null && window.opener.frameElement.id==='finder' && window.opener.location.origin") == O
     titles=report.locator('.tpl-sec h2').evaluate_all("xs=>xs.map(x=>[x.querySelector('.tpl-num').textContent,x.childNodes[1].textContent.trim()])")
@@ -91,45 +93,75 @@ try:
     assert 'content-security-policy-report-only' not in response.headers
     results['pagination_effect']={'pgnum_count':report.locator('.pgnum').count(),'positioned_sections':report.locator('.tpl-sec[style]').count()}
     before=report.evaluate('window.fixturePrintCalls');console_before=len(csp)
-    button=report.get_by_role('button',name='Save as PDF / Print');button.focus();button.press('Enter')
+    button=report.get_by_role('button',name='Save as PDF / Print');report.locator('body').click(position={'x':5,'y':5});report.keyboard.press('Tab');assert button.evaluate('e=>e===document.activeElement');report.keyboard.press('Enter')
     after=report.evaluate('window.fixturePrintCalls')
     violations=csp[console_before:]
-    results['print_inline_probe']={'before':before,'after':after,'console':violations}
-    assert before==after==0 and any('inline event handler' in v for v in violations)
-    assert results['pagination_effect']=={'pgnum_count':0,'positioned_sections':0}
-    # Control only: fresh popup document listener, no original function altered.
-    console_before=len(csp)
-    button.evaluate("e=>{e.removeAttribute('onclick');e.addEventListener('click',()=>window.print());}")
-    control_before=report.evaluate('window.fixturePrintCalls');button.focus();button.press('Enter')
-    control_after=report.evaluate('window.fixturePrintCalls')
-    assert control_after==control_before+1
-    assert not csp[console_before:],csp[console_before:]
-    results['print_listener_control']={'before':control_before,'after':control_after,'console':csp[console_before:]}
+    results['print_opener_listener_probe']={'before':before,'after':after,'console':violations}
+    assert before==0 and after==1 and not violations,violations
+    assert results['pagination_effect']['pgnum_count']>0 and results['pagination_effect']['positioned_sections']==len(sections)
+    assert report.locator('.tpl-actions').is_visible()
+    report.emulate_media(media='print');assert not report.locator('.tpl-actions').is_visible();report.emulate_media(media='screen')
+    before_numbers=report.locator('.pgnum').all_text_contents()
+    report.evaluate('window.opener.setupTemplateReportWindow(window)');assert report.locator('.pgnum').all_text_contents()==before_numbers
+    report.evaluate('window.print=()=>{throw new Error("synthetic print fail")};document.getElementById("tpl-print").click()');assert frame.evaluate('V.briefError') is None
+    assert before_numbers==['Page '+str(i+1)+' of '+str(len(before_numbers)) for i in range(len(before_numbers))]
+    html=frame.evaluate('buildTemplateReport(S.db,S.sel,null,{aiError: "fixture"})');assert not re.search(r'<script\b|\son[a-z]+\s*=',html,re.I)
+    assert report.locator('.tpl-cover-title').evaluate('e=>e.textContent')==product
     artifacts=[]
     for width in [1440,390]:
      report.set_viewport_size({'width':width,'height':1000})
      report.screenshot(path=str(OUT/f'popup-{width}.png'))
-     artifacts.append({'file':f'popup-{width}.png','viewport':[width,1000],'captured_at':datetime.now(timezone.utc).isoformat(),'no_fix':True})
+     artifacts.append({'file':f'popup-{width}.png','viewport':[width,1000],'captured_at':datetime.now(timezone.utc).isoformat(),'phase':'AFTER228-candidate'})
     options={'format':'A4','print_background':True,'margin':{'top':'14mm','right':'12mm','bottom':'20mm','left':'12mm'},'prefer_css_page_size':True}
     report.set_viewport_size({'width':1440,'height':1000})
-    report.pdf(path=str(OUT/'report.pdf'),**options)
+    report.emulate_media(media='print');report.pdf(path=str(OUT/'report.pdf'),**options)
     subprocess.run(['pdftotext','-layout',str(OUT/'report.pdf'),str(OUT/'report.txt')],check=True)
     pages=(OUT/'report.txt').read_text().split('\f');pages=[x for x in pages if x.strip()]
     combined='\n'.join(pages)
     for n,title in sections:assert title in combined,title
+    assert 'Save as PDF / Print' not in combined
+    assert 'Copyright (c) 2026 Push. All rights reserved.' in pages[-1]
+    before_path=os.environ.get('REPORT228_BEFORE_TEXT')
+    if before_path:
+     before_text=Path(before_path).read_text()
+     for n,title in sections:assert title in before_text and title in combined
+     for text in [product,'090121','Copyright (c) 2026 Push. All rights reserved.',mode+errornote]:
+      norm=lambda t:re.sub(r'\s+',' ',t).strip()
+      assert norm(text) in norm(before_text) and norm(text) in norm(combined)
+     results['before_text_equivalence']=True
+    else:results['before_text_equivalence']='not supplied; title/escaping/orderedsource equivalence only'
     assert sections[0][1] in combined and sections[len(sections)//2][1] in combined and sections[-1][1] in combined
     subprocess.run(['pdftoppm','-scale-to','1000','-png',str(OUT/'report.pdf'),str(OUT/'margin-page')],check=True)
     selected=[1,(len(pages)+1)//2,len(pages)]
     for page_number in selected:
      subprocess.run(['pdftoppm','-f',str(page_number),'-l',str(page_number),'-scale-to','1000','-png','-singlefile',str(OUT/'report.pdf'),str(OUT/f'pdf-page-{page_number}')],check=True)
-     artifacts.append({'file':f'pdf-page-{page_number}.png','page':page_number,'rendered_at':datetime.now(timezone.utc).isoformat(),'no_fix':True})
+     artifacts.append({'file':f'pdf-page-{page_number}.png','page':page_number,'rendered_at':datetime.now(timezone.utc).isoformat(),'phase':'AFTER228-candidate'})
     results['pdf']={'options':options,'page_count':len(pages),'inspection_pages':selected,'all_section_titles_in_extracted_text':True,'pagination_effect':results['pagination_effect']}
     results['artifacts']=artifacts
+    report.reload();report.wait_for_load_state('load');results['popup_reload']={'url':report.url,'report_sections':report.locator('.tpl-sec').count()};assert report.locator('.tpl-sec').count()==0
     results['pdf']['captured_at']=datetime.now(timezone.utc).isoformat();results['errors']=errors
     results['csp_console']=csp
     assert not errors,errors
    context.close()
+  # Original generated standalone Finder, no CSP header. Requests never leave harness.
+  ctx=b.new_context(viewport={'width':1440,'height':1000},timezone_id='Asia/Kolkata')
+  ctx.add_init_script("localStorage.setItem('hsn-gemini-api-key','SYNTHETIC-PLACEHOLDER-NOT-A-KEY');window.fixturePrintCalls=0;window.print=()=>window.fixturePrintCalls++;")
+  attempts=[]
+  def standalone_route(r):
+   u=urlsplit(r.request.url)
+   if r.request.url.startswith('http://localhost:8789/'):return r.continue_()
+   attempts.append({'method':r.request.method,'host':u.hostname,'path':u.path});r.abort()
+  ctx.route('**/*',standalone_route)
+  page=ctx.new_page();page.goto('http://localhost:8789/index.html#code=0:090121');page.locator('#d-tpl').wait_for()
+  with page.expect_popup() as pop:page.locator('#d-tpl').click()
+  report=pop.value;report.wait_for_function('document.__templateReport228 && document.__templateReport228.complete')
+  assert report.locator('.tpl-sec').count()==21
+  report.get_by_role('button',name='Save as PDF / Print').focus();report.keyboard.press('Enter')
+  assert report.evaluate('window.fixturePrintCalls')==1
+  assert all(x['host'] in ['generativelanguage.googleapis.com','api.frankfurter.dev'] for x in attempts),attempts
+  results['standalone']={'original_button_popup':True,'print_counter':1,'pagination_count':report.locator('.pgnum').count(),'aborted_sanitized_requests':attempts,'outbound_successes':0}
+  ctx.close()
   b.close()
 finally:
- results['finished_at']=datetime.now(timezone.utc).isoformat();(OUT/'probe.json').write_text(json.dumps(results,indent=2));server.shutdown()
+ results['finished_at']=datetime.now(timezone.utc).isoformat();(OUT/'probe.json').write_text(json.dumps(results,indent=2));server.shutdown();standalone_server.shutdown()
 print(json.dumps(results))

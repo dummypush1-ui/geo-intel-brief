@@ -108,6 +108,7 @@
         "integration/news_api.py",
         "tests/accounts/test_hardening.py",
         "tests/browser_finder_report227.py",
+        "tests/browser_report228.py",
         "tests/test_finder198bb.py",
         "tests/test_finder_nested.py"
       ],
@@ -837,6 +838,7 @@
         "tests/browser_digest_preview.py",
         "tests/browser_event_digest.py",
         "tests/browser_finder_report227.py",
+        "tests/browser_report228.py",
         "tests/browser_stream_config.py",
         "tests/digest_cold_probe.py",
         "tests/geonews_digest/test_digest.py",
@@ -1191,7 +1193,8 @@
     {
       "import": "functools",
       "files": [
-        "tests/browser_feature_finder.py"
+        "tests/browser_feature_finder.py",
+        "tests/browser_report228.py"
       ],
       "stdlib": true,
       "distributions": [],
@@ -1302,6 +1305,7 @@
         "scripts/audit_connections.py",
         "scripts/package_manifest.py",
         "tests/browser_finder_report227.py",
+        "tests/browser_report228.py",
         "tests/news_export/test_fixture_http.py",
         "tests/news_export/test_original_contract.py",
         "tests/news_export/test_original_stream.py",
@@ -1425,6 +1429,7 @@
         "integration/geonews_digest/delivery.py",
         "integration/india_open_data/transport.py",
         "tests/browser_feature_finder.py",
+        "tests/browser_report228.py",
         "tests/geonews_digest/test_digest.py",
         "tests/news_export/test_fixture_serving.py",
         "tests/test_collector197b_connector.py"
@@ -1461,6 +1466,7 @@
         "tests/test_preview_launcher.py",
         "tests/test_recipient_scope220.py",
         "tests/test_report227.py",
+        "tests/test_report228.py",
         "tests/test_sender_scope222.py",
         "tests/test_smtp_caller213.py",
         "tests/test_smtp_config204.py",
@@ -1634,6 +1640,7 @@
         "tests/browser_finder_static.py",
         "tests/browser_loaded_news.py",
         "tests/browser_map.py",
+        "tests/browser_report228.py",
         "tests/browser_report_styles.py",
         "tests/browser_sample_volume.py",
         "tests/browser_stream_config.py",
@@ -2175,6 +2182,7 @@
         "tests/browser_finder_static.py",
         "tests/browser_loaded_news.py",
         "tests/browser_map.py",
+        "tests/browser_report228.py",
         "tests/browser_report_styles.py",
         "tests/browser_sample_volume.py",
         "tests/browser_ships226.py",
@@ -2351,6 +2359,7 @@
         "integration/storage_settings.py",
         "integration/stream_disk.py",
         "tests/browser_finder_report227.py",
+        "tests/browser_report228.py",
         "tests/digest_cold_probe.py",
         "tests/geospatial/test_geospatial.py",
         "tests/news_export/test_export.py",
@@ -2364,6 +2373,7 @@
         "tests/test_geo_sample_probe.py",
         "tests/test_preview_launcher.py",
         "tests/test_report227.py",
+        "tests/test_report228.py",
         "tests/test_smtp_caller213.py",
         "tests/test_stream_disk.py",
         "tests/weekly_report/test_report.py"
@@ -2452,6 +2462,7 @@
         "tests/browser_finder_static.py",
         "tests/browser_loaded_news.py",
         "tests/browser_map.py",
+        "tests/browser_report228.py",
         "tests/browser_report_styles.py",
         "tests/browser_sample_volume.py",
         "tests/browser_ships226.py",
@@ -2533,6 +2544,7 @@
         "tests/test_replay199cb.py",
         "tests/test_replay199cc.py",
         "tests/test_report227.py",
+        "tests/test_report228.py",
         "tests/test_rss177.py",
         "tests/test_rss_catalog.py",
         "tests/test_runner199lock.py",
@@ -2625,6 +2637,7 @@
         "tests/browser_finder_static.py",
         "tests/browser_loaded_news.py",
         "tests/browser_map.py",
+        "tests/browser_report228.py",
         "tests/browser_report_styles.py",
         "tests/browser_sample_volume.py",
         "tests/browser_ships226.py",
@@ -3114,6 +3127,7 @@
         "scripts/audit_connections.py",
         "tests/accounts/test_merged_fixture.py",
         "tests/browser_finder_report227.py",
+        "tests/browser_report228.py",
         "tests/geonews_digest/test_digest.py",
         "tests/geospatial/test_geospatial.py",
         "tests/test_apps_handlers216.py",
@@ -3130,6 +3144,7 @@
         "tests/test_mail_surface217.py",
         "tests/test_preview_access.py",
         "tests/test_report227.py",
+        "tests/test_report228.py",
         "tests/test_runner199lock.py",
         "tests/test_security173.py",
         "tests/test_ships226.py",
@@ -3266,7 +3281,8 @@
       "import": "shutil",
       "files": [
         "tests/geospatial/test_geospatial.py",
-        "tests/test_report227.py"
+        "tests/test_report227.py",
+        "tests/test_report228.py"
       ],
       "stdlib": true,
       "distributions": [],
@@ -3409,6 +3425,7 @@
         "integration/geo_probe_process.py",
         "tests/accounts/browser_http_fixture.py",
         "tests/browser_finder_report227.py",
+        "tests/browser_report228.py",
         "tests/geospatial/test_geospatial.py",
         "tests/news_export/test_fixture_http.py",
         "tests/publication_dates/test_policy.py",
@@ -3449,6 +3466,7 @@
         "tests/test_refresh_controller.py",
         "tests/test_replay199ca.py",
         "tests/test_report227.py",
+        "tests/test_report228.py",
         "tests/test_sanctions152.py",
         "tests/test_sender_scope222.py",
         "tests/test_ships179.py",
@@ -3513,6 +3531,7 @@
         "tests/browser_finder_static.py",
         "tests/browser_loaded_news.py",
         "tests/browser_map.py",
+        "tests/browser_report228.py",
         "tests/browser_report_styles.py",
         "tests/browser_sample_volume.py",
         "tests/browser_ships226.py",
@@ -3553,6 +3572,7 @@
         "tests/test_preview_launcher.py",
         "tests/test_recipient_scope220.py",
         "tests/test_report227.py",
+        "tests/test_report228.py",
         "tests/test_schedule_caller214.py",
         "tests/test_security_review.py",
         "tests/test_sender_scope222.py",
@@ -3854,6 +3874,7 @@
         "tests/browser_finder_static.py",
         "tests/browser_loaded_news.py",
         "tests/browser_map.py",
+        "tests/browser_report228.py",
         "tests/browser_sample_volume.py",
         "tests/browser_ships226.py",
         "tests/browser_stream_config.py",
@@ -4187,6 +4208,7 @@
         "tests/test_replay199cb.py",
         "tests/test_replay199cc.py",
         "tests/test_report227.py",
+        "tests/test_report228.py",
         "tests/test_report_preview_frame.py",
         "tests/test_report_styles.py",
         "tests/test_retention_audit.py",
@@ -4286,6 +4308,7 @@
         "integration/weekly_report/_render.py",
         "integration/weekly_report/report.py",
         "tests/browser_finder_report227.py",
+        "tests/browser_report228.py",
         "tests/test_dashboard167.py",
         "tests/test_dashboard_stats.py",
         "tests/test_geo_queue_fixture.py"
@@ -4353,6 +4376,7 @@
         "tests/browser_finder_static.py",
         "tests/browser_loaded_news.py",
         "tests/browser_map.py",
+        "tests/browser_report228.py",
         "tests/browser_sample_volume.py",
         "tests/browser_ships226.py",
         "tests/browser_stream_config.py",
@@ -4645,7 +4669,7 @@
       },
       {
         "path": "feature_finder_prep/shell.py",
-        "sha256": "c3009d35526f1bab0683c24074f88160b2a45fe245726f473a52652f64cd34a2"
+        "sha256": "ada6e2cdb8966cceebb42a39a9c159d9aba9173b896ca57134631adfd6f184e2"
       },
       {
         "path": "feature_mail_mount/__init__.py",
@@ -5013,7 +5037,7 @@
       },
       {
         "path": "integration/finder_offline.py",
-        "sha256": "3702252e4e593f98b25eecee6bdf11d2b6bd5cc728f0f0478acbe41adc44ccd9"
+        "sha256": "2b112b3e9806ff7d9efeb70a17b5194dd68cc8a7332689741b6028cc83295309"
       },
       {
         "path": "integration/fixed_parser_pipeline.py",
@@ -5669,11 +5693,11 @@
       },
       {
         "path": "tests/browser_finder_offline.py",
-        "sha256": "c0b4242b4edefed352b537cd30efd8dd3b3591eaeee37997d9f8464310e8c922"
+        "sha256": "4330334261ecdbce5cba6b16d4b7fb2d36740594c9773eb250c1b344e078646d"
       },
       {
         "path": "tests/browser_finder_report227.py",
-        "sha256": "6ae101c38bb75ee454d96ba26963a84dd6984879fa70b0a6703f163fe20412fc"
+        "sha256": "a7274ad9c5d059094905473df933093d73dbf1afcd0077ab001bd86a84da315d"
       },
       {
         "path": "tests/browser_finder_static.py",
@@ -5686,6 +5710,10 @@
       {
         "path": "tests/browser_map.py",
         "sha256": "3c360c1b3c0c2cee4c2610841bef27643011a481a14cd0c0bbb01264f6aad55e"
+      },
+      {
+        "path": "tests/browser_report228.py",
+        "sha256": "8af91404aa4aa39da09212cc3188a32b80d30471f6a27efc68db9fbbdb0352a0"
       },
       {
         "path": "tests/browser_report_styles.py",
@@ -6109,7 +6137,7 @@
       },
       {
         "path": "tests/test_finder198d.py",
-        "sha256": "73a0c37365234ff27d6ad8159c34b6c9a58202d9054ecba5bdca6376dfeb3701"
+        "sha256": "3bd5ade4889cef2cee091b32d8be1add13b8c7a302bb0c7f34747747c27509ce"
       },
       {
         "path": "tests/test_finder198ops.py",
@@ -6441,7 +6469,11 @@
       },
       {
         "path": "tests/test_report227.py",
-        "sha256": "824c2e33c61adcf405da3d0a72d12155e572084f1f5baa5087a9e6b630865d1c"
+        "sha256": "3ad4d40fb6ed4058171c03ea5b7cce5a3d7a4a7f5313f64e6f009ad11fa9d4dc"
+      },
+      {
+        "path": "tests/test_report228.py",
+        "sha256": "25ccf932ff48d54913a4ac5b91fa7cbaa884518527c74368adfd7773e900090e"
       },
       {
         "path": "tests/test_report_preview_frame.py",
@@ -6529,7 +6561,7 @@
       },
       {
         "path": "tests/test_ships226.py",
-        "sha256": "9a99ec2c6736020f3ee21780692947e402b5ce6b1c79b2a462b678a4320cc66b"
+        "sha256": "2cd68f075a60255a7f1a10bfc3e5fbac005b01853d3812ae985546bd2974fcba"
       },
       {
         "path": "tests/test_single_db_plan.py",

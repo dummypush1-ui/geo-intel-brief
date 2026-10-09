@@ -46,3 +46,5 @@ provider secrets, model catalog, backend, DB or runtime changes.
 Synthetic browser fixtures only: 320/390 widths, 150 long-name rows, internal
 horizontal table scrolling, keyboard dropdown, malformed fallback and client
 hold states. No real accounts or external requests. All live gates remain open.
+
+2026-10-10: 228 supersedes current source/snapshot pins and popup behavior. The observations and source hashes above remain historical BEFORE evidence. See REPORT228.md.

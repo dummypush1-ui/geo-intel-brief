@@ -1,3 +1,4 @@
+# 228: reviewed popup CSP repair and local generated snapshot pins.
 import unittest,subprocess,hashlib
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
@@ -14,7 +15,7 @@ class Tests(unittest.TestCase):
   self.assertNotIn('/account/signup',s);self.assertNotIn('/account/reset',s)
  def test_original_ownkey_files_unchanged(self):
   # Reviewed base bytes, not a claim of live behavior.
-  expected={'src/app.js': 'f8ecf57f73c28c376c4508f2ce7315f3ffad0a8a26d925a9782db6bb53e38f91', 'offline.html': '2e8521b733d94955ef9ec5e0b85399a78dfff5d50836a174fb180cd08ed9c6e3', 'index.html': 'c4ad608f8830852430b6f67f6ee004001197e4f2f58629227900e5f72bedfc9e'}
+  expected={'src/app.js': 'bcd406d75b27b053fc5716d141ca278932115f14e39eca74d19a2284fc59d313', 'offline.html': 'b55d6b0cf2be2ff3ddf366c4afa23d452367265ef2e85a31b9a4fb6cd411b486', 'index.html': 'e2ed3326bfb8ca0805677e026438ff412611eef712526dea17b49d6c7fa30625'}
   for path,digest in expected.items():self.assertEqual(hashlib.sha256((ROOT/path).read_bytes()).hexdigest(),digest,path)
  def test_real_wire_shapes_and_handler_label(self):
   from tests.test_finder198c import Tests as ServerFixture

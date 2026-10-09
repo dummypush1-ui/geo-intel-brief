@@ -1,3 +1,4 @@
+# 228: reviewed popup CSP repair and local generated snapshot pins.
 # Copyright (c) 2026 Push. All rights reserved.
 """Hash-pinned served-copy seams. Original Finder bytes are never edited.
 
@@ -7,7 +8,7 @@ network gating. AI errors retain the original static report fallback.
 """
 import hashlib
 
-SOURCE_SHA = 'c4ad608f8830852430b6f67f6ee004001197e4f2f58629227900e5f72bedfc9e'
+SOURCE_SHA = 'e2ed3326bfb8ca0805677e026438ff412611eef712526dea17b49d6c7fa30625'
 
 
 def prepare_shell(source):
@@ -59,8 +60,8 @@ def prepare_shell(source):
         ("Live research edition - narrative sections written with live web research; all codes, rates, GST, trade figures and sanctions facts are exact official data.",
          "AI-assisted research edition - narrative sections may use model knowledge only. Snapshot figures have the dates shown; check current rules and rates before use."),
         ("Live AI research edition", "AI-assisted research edition"),
-        ("'@media print { body { background: #fff; max-width: none; } .tpl-page, .tpl-sec { box-shadow: none; margin: 0; } .tpl-actions { display: none; } h2, h3 { break-after: avoid; } }'",
-         "'@media print { body { background: #fff; max-width: none; } .tpl-page, .tpl-sec { box-shadow: none; margin: 0; min-height: 0 !important; padding: 6mm 8mm; } .tpl-contents { columns: 2; font-size: 11px; } .tpl-contents li { padding: 1.2mm 0; font-size: 11px; } .tpl-cover-title { font-size: 27px; } .tpl-kpis { margin: 3mm 0; } .pgnum, .tpl-actions { display: none; } h2, h3 { break-after: avoid; } }'"),
+        ("'@media print { body { background: #fff; max-width: none; } .tpl-page, .tpl-sec { box-shadow: none; margin: 0; } .tpl-page, .tpl-sec { min-height: 0 !important; } .pgnum, .tpl-actions { display: none; } .tpl-foot { position: static; } h2, h3 { break-after: avoid; } }'",
+         "'@media print { body { background: #fff; max-width: none; } .tpl-page, .tpl-sec { box-shadow: none; margin: 0; min-height: 0 !important; padding: 6mm 8mm; } .tpl-contents { columns: 2; font-size: 11px; } .tpl-contents li { padding: 1.2mm 0; font-size: 11px; } .tpl-cover-title { font-size: 27px; } .tpl-kpis { margin: 3mm 0; } .pgnum, .tpl-actions { display: none; } .tpl-foot { position: static; } h2, h3 { break-after: avoid; } }'"),
     )
     for old, new in seams:
         if source.count(old) != 1:

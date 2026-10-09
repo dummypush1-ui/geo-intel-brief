@@ -105,3 +105,5 @@ All other browser_*.py workspace-entry scripts were scanned for this exact
 Finder-hidden assumption; the nested script was the affected Finder test.
 News-only/map/weekly/country/channels scripts are not report evidence and
 are not claimed rerun by this unit.
+
+2026-10-10: 228 supersedes current source/snapshot pins and popup behavior. The observations and source hashes above remain historical BEFORE evidence. See REPORT228.md.

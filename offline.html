@@ -2959,9 +2959,9 @@ function buildTemplateReport(db, idx, narrative, opts) {
     '.tpl-foot { position: fixed; bottom: 0; left: 0; right: 0; font-family: -apple-system, Arial, sans-serif; font-size: 9px; color: #9aa0a8; text-align: center; padding: 1.2mm 0; background: #fff; border-top: 1px solid #eee6d4; }' +
     '.tpl-actions { position: fixed; top: 8px; right: 8px; z-index: 9; }' +
     '.tpl-actions button { font: 600 13px -apple-system, Arial, sans-serif; padding: 8px 14px; border: 0; border-radius: 8px; background: #1a2332; color: #fff; cursor: pointer; box-shadow: 0 2px 8px rgba(26,35,50,.3); }' +
-    '@media print { body { background: #fff; max-width: none; } .tpl-page, .tpl-sec { box-shadow: none; margin: 0; } .tpl-actions { display: none; } h2, h3 { break-after: avoid; } }' +
+    '@media print { body { background: #fff; max-width: none; } .tpl-page, .tpl-sec { box-shadow: none; margin: 0; } .tpl-page, .tpl-sec { min-height: 0 !important; } .pgnum, .tpl-actions { display: none; } .tpl-foot { position: static; } h2, h3 { break-after: avoid; } }' +
     '</style></head><body>' +
-    '<div class="tpl-actions"><button onclick="window.print()">Save as PDF / Print</button></div>' +
+    '<div class="tpl-actions"><button id="tpl-print" type="button">Save as PDF / Print</button></div>' +
     '<div class="tpl-page"><div class="tpl-cover-top"><div class="tpl-brand">Push</div><div class="tpl-doctype">Product Research Report</div></div>' +
     '<h1 class="tpl-cover-title">' + esc(prod) + '</h1>' +
     '<p class="tpl-cover-sub">' + esc(SYS[e[0]].name) + ' - code ' + esc(fmtCode(e[0], e[1])) + '</p>' +
@@ -2979,8 +2979,56 @@ function buildTemplateReport(db, idx, narrative, opts) {
     '<p class="muted">This report is research support, not legal, tax or customs advice.</p></div>' +
     secs +
     '<div class="tpl-foot">Copyright (c) 2026 Push. All rights reserved. - Product Research Report - ' + esc(fmtCode(e[0], e[1])) + ' - verify before filing.</div>' +
-    '<script>window.addEventListener("load",function(){var PH=' + TPL_PAGE_H + ';var kids=Array.prototype.slice.call(document.body.children).filter(function(k){return k.classList.contains("tpl-page")||k.classList.contains("tpl-sec");});var total=0;var stamps=[];kids.forEach(function(k){var pages=Math.max(1,Math.ceil(k.offsetHeight/(PH-40)));k.style.minHeight=(pages*PH)+"px";k.style.position="relative";for(var j=0;j<pages;j++){total++;var d=document.createElement("div");d.className="pgnum";d.style.top=((j+1)*PH-30)+"px";k.appendChild(d);stamps.push(d);}});stamps.forEach(function(d,i){d.textContent="Page "+(i+1)+" of "+total;});});</scr' + 'ipt>' +
     '</body></html>';
+}
+
+// Report behavior stays in the opener, never executable popup HTML (228).
+function setupTemplateReportWindow(w) {
+  const doc = w.document;
+  if (doc.__templateReport228) return;
+  const state = { started: false, complete: false };
+  Object.defineProperty(doc, '__templateReport228', { value: state });
+  const button = doc.getElementById('tpl-print');
+  if (!button) throw new Error('Report print button missing');
+  button.addEventListener('click', () => {
+    // A later browser print failure is not a report-open or popup-blocked error.
+    try { w.print(); } catch { /* Browser print unavailable; report remains open. */ }
+  });
+  const measure = () => {
+    if (w.closed || w.document !== doc) return;
+    const kids = Array.from(doc.body.children).filter(k =>
+      k.classList.contains('tpl-page') || k.classList.contains('tpl-sec'));
+    const stamps = [];
+    let total = 0;
+    for (const k of kids) {
+      const pages = Math.max(1, Math.ceil(k.offsetHeight / (TPL_PAGE_H - 40)));
+      k.style.minHeight = (pages * TPL_PAGE_H) + 'px';
+      k.style.position = 'relative';
+      for (let j = 0; j < pages; j++) {
+        const d = doc.createElement('div');
+        d.className = 'pgnum';
+        d.style.top = ((j + 1) * TPL_PAGE_H - 30) + 'px';
+        k.appendChild(d); stamps.push(d); total++;
+      }
+    }
+    stamps.forEach((d, i) => { d.textContent = 'Page ' + (i + 1) + ' of ' + total; });
+    state.complete = true;
+  };
+  const ready = () => {
+    if (state.started) return;
+    state.started = true;
+    // Report uses system fonts. Wait for actual font readiness, bounded at 1.5s.
+    // No polling. A closed/navigated popup cannot receive a stale measurement.
+    let timer;
+    const deadline = new Promise(resolve => { timer = setTimeout(resolve, 1500); });
+    const fonts = doc.fonts ? doc.fonts.ready.catch(() => {}) : Promise.resolve();
+    Promise.race([fonts, deadline]).then(() => {
+      clearTimeout(timer);
+      measure();
+    });
+  };
+  if (doc.readyState === 'complete') ready();
+  else w.addEventListener('load', ready, { once: true });
 }
 
 async function openTemplateReport(db, idx, w) {
@@ -2995,6 +3043,7 @@ async function openTemplateReport(db, idx, w) {
     w.document.open();
     w.document.write(html);
     w.document.close();
+    setupTemplateReportWindow(w);
   } catch (err) { V.briefError = 'Could not open the report window - allow popups for this page.'; paintDetail(); }
 }
 
