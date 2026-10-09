@@ -1,0 +1,26 @@
+{
+  "distribution": "bcrypt",
+  "version": "5.0.0",
+  "filename": "bcrypt-5.0.0-cp39-abi3-manylinux_2_34_x86_64.whl",
+  "sha256": "611f0a17aa4a25a69362dcc299fda5c8a3d4f160e2abb3831041feb77393a14a",
+  "source": "https://pypi.org/project/bcrypt/5.0.0/",
+  "license": "Apache-2.0",
+  "requires": [
+    "pytest!=3.3.0,>=3.2.1; extra == \"tests\"",
+    "mypy; extra == \"typecheck\""
+  ],
+  "runtime_dependencies": [],
+  "status": "wheel_downloaded_hash_matches_PyPI_installed_smoke_tested",
+  "build": "published binary wheel, no source build or reproducibility claim",
+  "audit": {
+    "dependencies": [
+      {
+        "name": "bcrypt",
+        "version": "5.0.0",
+        "vulns": []
+      }
+    ],
+    "fixes": []
+  },
+  "audit_scope": "only new bcrypt5.0.0; not full application security claim"
+}

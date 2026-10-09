@@ -48,10 +48,12 @@ class Tests(unittest.TestCase):
  def test_complete_classification(self):
   rows=self.inv['inventory'];self.assertEqual(len({r['import'] for r in rows}),len(rows));self.assertEqual(self.inv['unresolved'],[])
   for r in rows:
-   self.assertIn(r['classification'],['stdlib','local','required_distribution','optional_absent','excluded','unresolved']);self.assertTrue(r['provenance'])
+   self.assertIn(r['classification'],['stdlib','local','required_distribution','optional_absent','excluded','unresolved','pinned_addition']);self.assertTrue(r['provenance'])
    if r['classification']=='required_distribution':
     self.assertTrue(r['distributions'])
     for d in r['distributions']:self.assertEqual(d['version'],self.a['distributions'][canonicalize_name(d['name'])]['version'])
+   if r['classification']=='pinned_addition':
+    d=json.loads((ROOT/'integration/bcrypt189/dependency.json').read_text());self.assertEqual(r['distributions'],[{'name':d['distribution'],'version':d['version']}]);self.assertIn(d['distribution']+'=='+d['version'],(ROOT/'requirements-staging.txt').read_text())
    if r['classification']=='local':self.assertTrue(r['provenance']['paths'])
   mapped={r['import']:r for r in rows};self.assertEqual(mapped['bson']['distributions'][0]['name'],'pymongo');self.assertTrue(mapped['json']['stdlib']);self.assertEqual(mapped['pikepdf']['classification'],'optional_absent');self.assertEqual(mapped['playwright']['classification'],'excluded')
  def test_source_manifest_and_ast_inventory_consistency(self):

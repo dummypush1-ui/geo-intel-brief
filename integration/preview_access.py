@@ -20,8 +20,19 @@ class PreviewAccess:
    p=urlsplit(origin);port=p.port
    if p.scheme!='https' or not p.hostname or p.netloc!=p.hostname or port is not None or p.username or p.password or p.query or p.fragment or p.path not in ('','/') or not re.fullmatch(r'[a-z0-9]+(?:[.-][a-z0-9]+)*',p.hostname) or origin!=origin.lower():raise ValueError()
   except (ValueError,TypeError):raise ValueError('Canonical HTTPS preview origin required') from None
-  parts=password_hash.split('$')
-  if len(parts)!=3 or not parts[0].startswith(('scrypt:','pbkdf2:')) or not parts[1] or len(parts[2])<64 or any(c not in '0123456789abcdef' for c in parts[2]):raise ValueError('Supported complete password hash required')
+  if type(password_hash)is not str:raise ValueError('Supported complete password hash required')
+  self.bcrypt_hash=password_hash.startswith('$2')
+  if self.bcrypt_hash:
+   if not re.fullmatch(r'\$2b\$(10|11|12|13|14)\$[./A-Za-z0-9]{53}',password_hash):raise ValueError('Supported bounded bcrypt hash required')
+   try:
+    import bcrypt
+    if bcrypt.__version__!='5.0.0':raise ValueError()
+    # Canonical bcrypt salt/checksum terminal bits, no expensive startup hash.
+    if password_hash[28]not in '.Oeu' or password_hash[-1]not in '.CGKOSWaeimquy26':raise ValueError()
+   except Exception:raise ValueError('bcrypt preview verifier unavailable or invalid')from None
+  else:
+   parts=password_hash.split('$')
+   if len(parts)!=3 or not parts[0].startswith(('scrypt:','pbkdf2:')) or not parts[1] or len(parts[2])<64 or any(c not in '0123456789abcdef' for c in parts[2]):raise ValueError('Supported complete password hash required')
   self.origin=origin.rstrip('/');self.password_hash=password_hash;self.clock=clock
   self.lock=threading.Lock();self.attempts=[];self.hash_slot=threading.BoundedSemaphore(1);self.sessions={}
  def authorize(self,req):
@@ -52,11 +63,20 @@ class PreviewAccess:
    if not expected or not hmac.compare_digest(token.encode('utf-8'),expected.encode('utf-8')):return 'Invalid sign-in token',403
    password=request.form.get('password','')
    if len(password)>1024:return 'Invalid sign-in request',400
+   if self.bcrypt_hash:
+    try:encoded=password.encode('utf-8','strict')
+    except UnicodeError:return 'Invalid sign-in request',400
+    if not 1<=len(encoded)<=72:return 'Invalid sign-in request',400
    # Reserve globally before expensive hashing, including valid passwords.
    if not self.hash_slot.acquire(blocking=False):return 'Sign-in busy',429
    try:
     if self.limited(record=True):return 'Too many attempts. Try again later.',429
-    if not check_password_hash(self.password_hash,password):
+    if self.bcrypt_hash:
+     import bcrypt
+     try:accepted=bcrypt.checkpw(encoded,self.password_hash.encode('ascii'))
+     except Exception:return 'Sign-in unavailable',503
+    else:accepted=check_password_hash(self.password_hash,password)
+    if not accepted:
      return render_template_string(FORM,csrf=expected,error='Password not accepted'),401
     now=time.time();sid=secrets.token_urlsafe(32)
     with self.lock:

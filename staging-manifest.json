@@ -3,12 +3,12 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 1579,
+  "tests": 1584,
   "files": [
     {
       "path": ".env.example",
-      "bytes": 7205,
-      "sha256": "5293f2d00cfc5e1cb20c30ec6cecd98fe37c441ecfc71e5644dfb526c42d0140"
+      "bytes": 7230,
+      "sha256": "7c629cde5ec5a8c7a87db185438416589e95518af08d70fcd55493518f15d6e8"
     },
     {
       "path": ".gitignore",
@@ -2131,6 +2131,21 @@
       "sha256": "f0ab086c622a6b6299c896d301b3a5dadecbc48f75f55dd7677e3efdb07706ee"
     },
     {
+      "path": "integration/bcrypt189/LICENSE.txt",
+      "bytes": 10850,
+      "sha256": "8173d5c29b4f956d532781d2b86e4e30f83e6b7878dce18c919451d6ba707c90"
+    },
+    {
+      "path": "integration/bcrypt189/README.md",
+      "bytes": 1790,
+      "sha256": "93b156096a3c098fa10edb007bb8370db71d52208a71e9748e9fe0daceb466cc"
+    },
+    {
+      "path": "integration/bcrypt189/dependency.json",
+      "bytes": 798,
+      "sha256": "849decfd157c566a662e25cab9a03e8920894eb3f06a67e4f3468bbf833a02b2"
+    },
+    {
       "path": "integration/bounded_rss/CONTRACT.md",
       "bytes": 1836,
       "sha256": "cd9d80e9a0104a72408b1f15290d2fd6cdbde66fd65418fbf8694f3a2aea40b7"
@@ -2353,12 +2368,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 18581,
-      "sha256": "bd713ecbb1de625196ab45bb57e5948965a34c10c3d0664f8f39dc15237aa26a"
+      "sha256": "e1f5075a91f894132836b497ce98378295d69214e8aa7da3f2405a1b47777e83"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
-      "bytes": 188402,
-      "sha256": "29431710ab9fc8aaed7f198c5336e6b867dbd5a133de851f408f247d650544bd"
+      "bytes": 189202,
+      "sha256": "42e1291e89f8a296b91a4a540bc54f477f2259faea478cfcb86c652343e97445"
     },
     {
       "path": "integration/dependency_build/README.md",
@@ -2937,8 +2952,8 @@
     },
     {
       "path": "integration/preview_access.py",
-      "bytes": 6893,
-      "sha256": "b1251341be695cf24f537a63e3278da18e034ce5601f05fd12c02a4ad58e4c8e"
+      "bytes": 7979,
+      "sha256": "cebc4d41a6e2961458c759b9792100c229d64a2575c72d3939109910a18b8e4d"
     },
     {
       "path": "integration/preview_launcher.py",
@@ -4137,8 +4152,8 @@
     },
     {
       "path": "requirements-staging.txt",
-      "bytes": 114,
-      "sha256": "78b43c46ea9a9c242f362f3ec19aadbb90c30c41ca511885260b217b945848cc"
+      "bytes": 128,
+      "sha256": "97aab9dc8b0ff781342855a73d2f3c54e38f7fb28e80228601618832add54937"
     },
     {
       "path": "robots.txt",
@@ -5151,6 +5166,11 @@
       "sha256": "ff19445190d59915e270b7a49ab1876d7b825b235b961a71918986c8b801884e"
     },
     {
+      "path": "tests/test_bcrypt189.py",
+      "bytes": 2670,
+      "sha256": "0a4ec558be83cf95d112b4c25037f47173c54d145b8de28195c7e4b52aca9cb5"
+    },
+    {
       "path": "tests/test_branding.py",
       "bytes": 2441,
       "sha256": "ec04fee6d602819bc53ddef36e53d58b19131faa795263d5f5b859f03de92ee6"
@@ -5302,8 +5322,8 @@
     },
     {
       "path": "tests/test_dependency_audit.py",
-      "bytes": 10321,
-      "sha256": "309b18d6b28cc2945accf818b52fa75792c4c1eca22bf7bfb18159e97eca032b"
+      "bytes": 10648,
+      "sha256": "9cf4aaacaace5d0bc74ef4e0643bab55cde39d24dbe014304ba8d1ae95d02e7b"
     },
     {
       "path": "tests/test_dependency_build_runner.py",

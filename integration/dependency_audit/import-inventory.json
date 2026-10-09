@@ -96,6 +96,25 @@
       "classification": "stdlib"
     },
     {
+      "import": "bcrypt",
+      "files": [
+        "integration/preview_access.py",
+        "tests/test_bcrypt189.py"
+      ],
+      "stdlib": false,
+      "distributions": [
+        {
+          "name": "bcrypt",
+          "version": "5.0.0"
+        }
+      ],
+      "classification": "pinned_addition",
+      "provenance": {
+        "source": "integration/bcrypt189/dependency.json",
+        "scope": "supplemental pin, not historical25distributionbaseline"
+      }
+    },
+    {
       "import": "bson",
       "files": [
         "feature_mail_mount/reports.py",
@@ -1162,6 +1181,7 @@
         "tests/test_api_v1_187.py",
         "tests/test_article_archive.py",
         "tests/test_backup184.py",
+        "tests/test_bcrypt189.py",
         "tests/test_branding.py",
         "tests/test_brics_streams.py",
         "tests/test_bridges.py",
@@ -1585,6 +1605,7 @@
         "tests/publication_dates/test_policy.py",
         "tests/test_apps_script_audit.py",
         "tests/test_article_archive.py",
+        "tests/test_bcrypt189.py",
         "tests/test_branding.py",
         "tests/test_build_provenance150.py",
         "tests/test_bulk147_inventory.py",
@@ -1802,6 +1823,7 @@
         "tests/publication_dates/test_policy.py",
         "tests/test_apps_script_audit.py",
         "tests/test_backup184.py",
+        "tests/test_bcrypt189.py",
         "tests/test_branding.py",
         "tests/test_build_provenance150.py",
         "tests/test_bulk147_inventory.py",
@@ -2359,6 +2381,7 @@
         "tests/accounts/test_merged_fixture.py",
         "tests/geonews_digest/test_digest.py",
         "tests/geospatial/test_geospatial.py",
+        "tests/test_bcrypt189.py",
         "tests/test_build_provenance150.py",
         "tests/test_dashboard167.py",
         "tests/test_env_example.py",
@@ -3086,6 +3109,7 @@
         "tests/test_apps_script_audit.py",
         "tests/test_article_archive.py",
         "tests/test_backup184.py",
+        "tests/test_bcrypt189.py",
         "tests/test_branding.py",
         "tests/test_brics_streams.py",
         "tests/test_bridges.py",
@@ -4006,7 +4030,7 @@
       },
       {
         "path": "integration/preview_access.py",
-        "sha256": "b1251341be695cf24f537a63e3278da18e034ce5601f05fd12c02a4ad58e4c8e"
+        "sha256": "cebc4d41a6e2961458c759b9792100c229d64a2575c72d3939109910a18b8e4d"
       },
       {
         "path": "integration/preview_launcher.py",
@@ -4431,6 +4455,10 @@
       {
         "path": "tests/test_backup184.py",
         "sha256": "ff19445190d59915e270b7a49ab1876d7b825b235b961a71918986c8b801884e"
+      },
+      {
+        "path": "tests/test_bcrypt189.py",
+        "sha256": "0a4ec558be83cf95d112b4c25037f47173c54d145b8de28195c7e4b52aca9cb5"
       },
       {
         "path": "tests/test_branding.py",
