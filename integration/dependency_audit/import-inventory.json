@@ -1100,6 +1100,7 @@
         "integration/public_preview_builder.py",
         "integration/security_headers.py",
         "tests/browser_finder198d.py",
+        "tests/browser_ships226.py",
         "tests/digest_cold_probe.py",
         "tests/test_collector197c.py",
         "tests/test_edge_guard.py",
@@ -1346,6 +1347,7 @@
         "tests/test_security_review.py",
         "tests/test_sender_scope222.py",
         "tests/test_shared_service_fixture.py",
+        "tests/test_ships226.py",
         "tests/test_stream_config.py",
         "tests/test_stream_disk.py",
         "tests/test_stream_fixture_app.py",
@@ -1782,6 +1784,7 @@
         "tests/test_sender_scope222.py",
         "tests/test_shared_ledger_fixture.py",
         "tests/test_shared_service_fixture.py",
+        "tests/test_ships226.py",
         "tests/test_single_db_plan.py",
         "tests/test_single_db_runtime.py",
         "tests/test_site_parsers.py",
@@ -2167,6 +2170,7 @@
         "tests/browser_map.py",
         "tests/browser_report_styles.py",
         "tests/browser_sample_volume.py",
+        "tests/browser_ships226.py",
         "tests/browser_stream_config.py",
         "tests/browser_tariff_evidence.py",
         "tests/browser_watch_updates.py",
@@ -2227,6 +2231,7 @@
         "tests/test_scraper_policy.py",
         "tests/test_security173.py",
         "tests/test_sender_scope222.py",
+        "tests/test_ships226.py",
         "tests/test_tariff_evidence_plain.py",
         "tests/test_token196.py"
       ],
@@ -2439,6 +2444,7 @@
         "tests/browser_map.py",
         "tests/browser_report_styles.py",
         "tests/browser_sample_volume.py",
+        "tests/browser_ships226.py",
         "tests/browser_stream_config.py",
         "tests/browser_tariff_evidence.py",
         "tests/browser_watch_updates.py",
@@ -2528,6 +2534,7 @@
         "tests/test_sender_scope222.py",
         "tests/test_shared_service_fixture.py",
         "tests/test_ships179.py",
+        "tests/test_ships226.py",
         "tests/test_smtp_caller213.py",
         "tests/test_storage_settings.py",
         "tests/test_stream_config.py",
@@ -2608,6 +2615,7 @@
         "tests/browser_map.py",
         "tests/browser_report_styles.py",
         "tests/browser_sample_volume.py",
+        "tests/browser_ships226.py",
         "tests/browser_stream_config.py",
         "tests/browser_tariff_evidence.py",
         "tests/browser_watch_updates.py",
@@ -3110,6 +3118,7 @@
         "tests/test_preview_access.py",
         "tests/test_runner199lock.py",
         "tests/test_security173.py",
+        "tests/test_ships226.py",
         "tests/test_supplied_collector_pipeline.py",
         "tests/test_supplied_multi_feed.py",
         "tests/test_token196.py",
@@ -3426,6 +3435,7 @@
         "tests/test_sanctions152.py",
         "tests/test_sender_scope222.py",
         "tests/test_ships179.py",
+        "tests/test_ships226.py",
         "tests/test_table_edit151.py",
         "tests/test_token196.py",
         "tests/test_watch_updates.py"
@@ -3487,6 +3497,7 @@
         "tests/browser_map.py",
         "tests/browser_report_styles.py",
         "tests/browser_sample_volume.py",
+        "tests/browser_ships226.py",
         "tests/browser_stream_config.py",
         "tests/browser_tariff_evidence.py",
         "tests/browser_watch_updates.py",
@@ -3824,6 +3835,7 @@
         "tests/browser_loaded_news.py",
         "tests/browser_map.py",
         "tests/browser_sample_volume.py",
+        "tests/browser_ships226.py",
         "tests/browser_stream_config.py",
         "tests/browser_tariff_evidence.py",
         "tests/browser_watch_updates.py",
@@ -4175,6 +4187,7 @@
         "tests/test_shared_ledger_fixture.py",
         "tests/test_shared_service_fixture.py",
         "tests/test_ships179.py",
+        "tests/test_ships226.py",
         "tests/test_single_db_plan.py",
         "tests/test_single_db_runtime.py",
         "tests/test_site_parsers.py",
@@ -4318,6 +4331,7 @@
         "tests/browser_loaded_news.py",
         "tests/browser_map.py",
         "tests/browser_sample_volume.py",
+        "tests/browser_ships226.py",
         "tests/browser_stream_config.py",
         "tests/browser_tariff_evidence.py",
         "tests/browser_watch_updates.py",
@@ -5655,6 +5669,10 @@
         "sha256": "4408f861b4c61ba1191d56b9288a8cea4f1ea5efedf7cb50f4daaa440e7309f2"
       },
       {
+        "path": "tests/browser_ships226.py",
+        "sha256": "805df325acb6be77f72c01acd5b0f9ec389ab4f695bff25b8257ecbb7b9b0b8f"
+      },
+      {
         "path": "tests/browser_stream_config.py",
         "sha256": "ba301e706542eef1d2f4a0e89e4a716c95d0a53e3cc79345d9c541b70da6c081"
       },
@@ -6477,6 +6495,10 @@
       {
         "path": "tests/test_ships179.py",
         "sha256": "e7faf631382d839875638dea5563d0efe3b56c028be95f5507a3843580e0ddc0"
+      },
+      {
+        "path": "tests/test_ships226.py",
+        "sha256": "9a99ec2c6736020f3ee21780692947e402b5ce6b1c79b2a462b678a4320cc66b"
       },
       {
         "path": "tests/test_single_db_plan.py",

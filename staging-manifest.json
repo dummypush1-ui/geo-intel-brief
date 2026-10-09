@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 2152,
+  "tests": 2155,
   "files": [
     {
       "path": ".env.example",
@@ -1882,8 +1882,8 @@
     },
     {
       "path": "integration/FINDER198D.md",
-      "bytes": 2292,
-      "sha256": "e7887c206a50da503f1bdd3df37bf143730f3d876b252f8296c46aa871da94a4"
+      "bytes": 2345,
+      "sha256": "8762d9da77f6c577f0d5f00597f5cf1fb2b2a1e8738d5d60cd1181e5a9336b13"
     },
     {
       "path": "integration/FINDER198OPS.md",
@@ -2179,6 +2179,11 @@
       "path": "integration/SENDER-SCOPE222.md",
       "bytes": 3053,
       "sha256": "52cb6b9d4d5b022f2bdb2c73d58bacdaf848a2c37d69054a4b5aa7d3148a9f12"
+    },
+    {
+      "path": "integration/SHIPS226.md",
+      "bytes": 3321,
+      "sha256": "166e02534d641eb57ca4a89afa0c0635b41a70677a35ae62fb8e7de4394ab559"
     },
     {
       "path": "integration/SINGLE_DB_PLAN_LIMITS.md",
@@ -2768,12 +2773,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 18581,
-      "sha256": "c24625b9ff3045db6fe522faba38878d606350a51a51cb4b3707e550df36a707"
+      "sha256": "48a5f2291a63e4e129e39f601f6d7ea642339e366e829634a80259d3137a2064"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
-      "bytes": 251211,
-      "sha256": "83eab738d0fe45fe7f12818ed4f7296cbd3f0986a10333c8cbfeb746eb7995d8"
+      "bytes": 251999,
+      "sha256": "73e2d8b0cd519fb7dd646474b4a2eef5fafaeee136196b0f5a3dd9156ed2b834"
     },
     {
       "path": "integration/dependency_build/README.md",
@@ -2942,8 +2947,13 @@
     },
     {
       "path": "integration/finder198_ui/panel.mjs",
-      "bytes": 2951,
-      "sha256": "3842862fc963458b482d390b57da71ddbf2eb61eb235f93f7ef413650f3f9b6c"
+      "bytes": 3168,
+      "sha256": "54b780c183478021cf9b39039adf817a9d0cd93e9ee554d7aecc877f3ddcd3d8"
+    },
+    {
+      "path": "integration/finder198_ui/ships226.mjs",
+      "bytes": 5997,
+      "sha256": "2b5b6b0591dfdc43e95e64cdd579d9276f72a0efea4a1d620bcbfb92e5f56ddb"
     },
     {
       "path": "integration/finder198_v2_preflight.py",
@@ -5616,6 +5626,11 @@
       "sha256": "4408f861b4c61ba1191d56b9288a8cea4f1ea5efedf7cb50f4daaa440e7309f2"
     },
     {
+      "path": "tests/browser_ships226.py",
+      "bytes": 7742,
+      "sha256": "805df325acb6be77f72c01acd5b0f9ec389ab4f695bff25b8257ecbb7b9b0b8f"
+    },
+    {
       "path": "tests/browser_stream_config.py",
       "bytes": 2116,
       "sha256": "ba301e706542eef1d2f4a0e89e4a716c95d0a53e3cc79345d9c541b70da6c081"
@@ -5919,6 +5934,11 @@
       "path": "tests/publication_dates/test_policy.py",
       "bytes": 5334,
       "sha256": "27e5fd469d71c8c933d3d46405fe92edab259e92b4fc1ba00743e6b564b47fb8"
+    },
+    {
+      "path": "tests/ships226_test.mjs",
+      "bytes": 2011,
+      "sha256": "2249ba0c6cd0ee7a3cde65e0d1d425924f581433bf5836eab1bf478241133c24"
     },
     {
       "path": "tests/test_agencia_parser.py",
@@ -6839,6 +6859,11 @@
       "path": "tests/test_ships179.py",
       "bytes": 536,
       "sha256": "e7faf631382d839875638dea5563d0efe3b56c028be95f5507a3843580e0ddc0"
+    },
+    {
+      "path": "tests/test_ships226.py",
+      "bytes": 1956,
+      "sha256": "9a99ec2c6736020f3ee21780692947e402b5ce6b1c79b2a462b678a4320cc66b"
     },
     {
       "path": "tests/test_single_db_plan.py",
