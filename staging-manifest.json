@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 1831,
+  "tests": 1836,
   "files": [
     {
       "path": ".env.example",
@@ -1991,6 +1991,11 @@
       "sha256": "04d2776a42d4e24c441cd53eb057538c0ed9265a3dfdf5aa665fd77886e6ae93"
     },
     {
+      "path": "integration/RUNNER199LOCK.md",
+      "bytes": 2887,
+      "sha256": "2c8d580d1e2a71780446172792d71ddb2819afbcd5243e2120d64acb1414f20c"
+    },
+    {
       "path": "integration/SCROLL186.md",
       "bytes": 2161,
       "sha256": "bb1e02d57a8df0f2b976debc3d2726041f23d11b03d965c777a5ff9ec8a590e8"
@@ -2568,12 +2573,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 18581,
-      "sha256": "ca7988d9941baafb7e2d3a0a7a0c6bdeeb5278900094e023f5b2acfb622c2e34"
+      "sha256": "2213474a254d3bab65f90ff2a1c9ceef484e382aa72c88325bfa727a82ebcdb6"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
-      "bytes": 219376,
-      "sha256": "a5ffe8e7e1059c4563ac83ee6934d4873af4c44ad07944d3ae3ab8b8ce022250"
+      "bytes": 220059,
+      "sha256": "552ab3adfdf2fb56b210789bf1e398acef5ed929dfe9862c2fc616e0fa89efe4"
     },
     {
       "path": "integration/dependency_build/README.md",
@@ -3459,6 +3464,11 @@
       "path": "integration/rss_catalog/catalog.py",
       "bytes": 4723,
       "sha256": "4c22b421ec0c8e25ba6a96c9cd2b24038c1c8c930cd6e1f2a98ce07ff45bf9c9"
+    },
+    {
+      "path": "integration/runner199lock-audit.json",
+      "bytes": 305051,
+      "sha256": "14dad7ff287bde14bc6d31f071302dd2b8a77bf00f3ddd697289b745ea078cc4"
     },
     {
       "path": "integration/runtime.py",
@@ -4452,8 +4462,8 @@
     },
     {
       "path": "requirements-future-deploy.lock",
-      "bytes": 2503,
-      "sha256": "4dc6df004ead76ba40e827b5d749447d1738002b152f62e59cce5b3a3fd404bf"
+      "bytes": 39373,
+      "sha256": "4453e25f8de136169235d72d44ace8a5dacd7f7ae5517dce89e58a481739eee2"
     },
     {
       "path": "requirements-offline-reviewed.candidate.txt",
@@ -6159,6 +6169,11 @@
       "path": "tests/test_rss_catalog.py",
       "bytes": 3934,
       "sha256": "915b124532c5d1b1f9ab2c1911879336a467b6fdfca162ef0bc016d8ccaef7d2"
+    },
+    {
+      "path": "tests/test_runner199lock.py",
+      "bytes": 2445,
+      "sha256": "ed206dd75cebd87dbdd29d84fb13571370b294bd1cc5ebc744b843793ad8c927"
     },
     {
       "path": "tests/test_runtime.py",
