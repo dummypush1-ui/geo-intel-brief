@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 1625,
+  "tests": 1664,
   "files": [
     {
       "path": ".env.example",
@@ -1721,6 +1721,11 @@
       "sha256": "7ee36ad80ab3b16f5ec3772893ad756a988ed4018abfcea77db695a6e1556181"
     },
     {
+      "path": "integration/COLLECTOR197B.md",
+      "bytes": 3360,
+      "sha256": "1595adf1efeb9677a827445a6fb3e577bc6b37a09805e4e8f2d71b3382d75291"
+    },
+    {
       "path": "integration/COLLECTOR_MAIL_FIXTURE_LIMITS.md",
       "bytes": 2429,
       "sha256": "6e2d181d296dcfde55c6e66d148a036dfc0018dee458280732435208e8206cfd"
@@ -2281,9 +2286,54 @@
       "sha256": "eab36cafe3774aa1bf33327e6eefa10b368e984c3f617ee3aae063199e87499f"
     },
     {
+      "path": "integration/collector197_connector.py",
+      "bytes": 6660,
+      "sha256": "b0d41ed15199196563c640767dfa4bec5db6d300d2e542118f814cdeb66f0afa"
+    },
+    {
+      "path": "integration/collector197_coordinator.py",
+      "bytes": 4584,
+      "sha256": "23493101dd5866943b4b0ba6249d6beb41f15382d8b81684f052d41a08b22fe2"
+    },
+    {
+      "path": "integration/collector197_coordinator_child.py",
+      "bytes": 1245,
+      "sha256": "aa30fbf17da17b2ecc5a1c40362433be89b3ff64182674900969a62ac8ecbff9"
+    },
+    {
+      "path": "integration/collector197_feed_child.py",
+      "bytes": 2842,
+      "sha256": "84e0ebf31bdf7a1c5a35addcf9f124c8f4427a6652d9639b64246abf8da5545e"
+    },
+    {
+      "path": "integration/collector197_http.py",
+      "bytes": 7480,
+      "sha256": "3d028317e5e7bd1d1d19a46e9f4dd36945e2bf7f732178daa2c46677c1fc08b9"
+    },
+    {
       "path": "integration/collector197_orchestrator.py",
       "bytes": 6054,
       "sha256": "fe9f768feabb8b4e40e49867c1e26685d218f8717c7b86b59b30a78b50efd46f"
+    },
+    {
+      "path": "integration/collector197_parser.py",
+      "bytes": 4460,
+      "sha256": "81df2a6e96a0aa803d619b7f2e9cf17276c5c71c14eb2331466096e55b1dd8f3"
+    },
+    {
+      "path": "integration/collector197_preflight.py",
+      "bytes": 4796,
+      "sha256": "371120e8ad4341121538106b8dc328fb3f82352867f5141daaed1fdb91eb9c9d"
+    },
+    {
+      "path": "integration/collector197_supervisor.py",
+      "bytes": 9099,
+      "sha256": "7564717b1dd787448c0b7a0ae0084e4c03b5ff11aab8ab23b4957fb3cec4aff9"
+    },
+    {
+      "path": "integration/collector197_worker_pins.json",
+      "bytes": 1767,
+      "sha256": "9f356d86c4e6ddfc172d71a336c010e3f1a2c5f0d191331d1b99f865788a5d33"
     },
     {
       "path": "integration/collector_mail_fixture.py",
@@ -2403,12 +2453,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 18581,
-      "sha256": "6f8a7d66a7ab2eb0c0b0071efc34deff0e5a08d2f82b64a7d2fbb1a103e19041"
+      "sha256": "dc49c77f51c41cd2d41a0a28dc86b561f4791ac8542c26efb201e39fbb92f493"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
-      "bytes": 194831,
-      "sha256": "73d00b5a12a27ed5f80adef381870836d863aa0d61e0c4f062245e80af180ede"
+      "bytes": 203703,
+      "sha256": "76c8a284d7a4238cc5e73178cd3f349e48dfcdba380cc91c247abc0c92429ae7"
     },
     {
       "path": "integration/dependency_build/README.md",
@@ -5309,6 +5359,31 @@
       "path": "tests/test_collector197a.py",
       "bytes": 8753,
       "sha256": "0b332f537f47039b4a4a4c2df5cc42470d7635c640bbab021cc8333eaa4600b1"
+    },
+    {
+      "path": "tests/test_collector197b_connector.py",
+      "bytes": 3798,
+      "sha256": "dae9f0a2595c3d798b720ed3b8f2337a371f82ef867cdc1a51bcd835fc92c9ff"
+    },
+    {
+      "path": "tests/test_collector197b_coordinator.py",
+      "bytes": 2297,
+      "sha256": "7edb4be1b926c1e60035de5f0eda03e8fe7be5117d58b3d8bf48e9e096f49882"
+    },
+    {
+      "path": "tests/test_collector197b_http.py",
+      "bytes": 2414,
+      "sha256": "077a84ba9f8f5e833c40a9f729fa4e0cbd2f452c03bbe978d77dd83a62d200dc"
+    },
+    {
+      "path": "tests/test_collector197b_preflight.py",
+      "bytes": 3726,
+      "sha256": "435a017871b0dc78b1e1bdd6fc988c122bcefe3e9e682493d56396af49021206"
+    },
+    {
+      "path": "tests/test_collector197b_supervisor.py",
+      "bytes": 4704,
+      "sha256": "e6fd968d661324b234f1241c9fe831bf2c1c669828e34be609111572439de6e8"
     },
     {
       "path": "tests/test_collector_mail_fixture.py",

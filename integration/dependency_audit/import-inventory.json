@@ -75,6 +75,7 @@
         "source": "sys.stdlib_module_names"
       },
       "files": [
+        "integration/collector197_http.py",
         "integration/public_live_builder.py"
       ]
     },
@@ -83,6 +84,8 @@
       "files": [
         "integration/accounts/passwords.py",
         "integration/article_archive.py",
+        "integration/collector197_connector.py",
+        "integration/collector197_feed_child.py",
         "integration/finder_index.py",
         "integration/finder_offline.py",
         "integration/news_api.py",
@@ -134,6 +137,7 @@
         "tests/news_export/test_original_stream.py",
         "tests/news_export/test_raw_pager.py",
         "tests/test_article_archive.py",
+        "tests/test_collector197b_preflight.py",
         "tests/test_collector_mail_fixture.py",
         "tests/test_digest_windows193.py",
         "tests/test_feature_mail_mount.py",
@@ -252,6 +256,7 @@
       "files": [
         "feature_mail_prep/reports.py",
         "integration/accounts/limiter.py",
+        "integration/collector197_preflight.py",
         "integration/country_page.py",
         "integration/country_signals.py",
         "integration/dashboard_model.py",
@@ -275,6 +280,7 @@
       "import": "collector108_prep",
       "files": [
         "integration/collector197_orchestrator.py",
+        "integration/collector197_preflight.py",
         "tests/test_collector197a.py"
       ],
       "stdlib": false,
@@ -319,7 +325,10 @@
     {
       "import": "collector110_prep",
       "files": [
+        "integration/collector197_coordinator.py",
+        "integration/collector197_http.py",
         "integration/collector197_orchestrator.py",
+        "integration/collector197_supervisor.py",
         "tests/test_collector197a.py"
       ],
       "stdlib": false,
@@ -369,7 +378,14 @@
       },
       "files": [
         "integration/bounded_rss/driver.py",
-        "integration/fulltext_policy/__init__.py"
+        "integration/collector197_connector.py",
+        "integration/collector197_coordinator.py",
+        "integration/collector197_feed_child.py",
+        "integration/collector197_supervisor.py",
+        "integration/fulltext_policy/__init__.py",
+        "tests/test_collector197b_connector.py",
+        "tests/test_collector197b_coordinator.py",
+        "tests/test_collector197b_supervisor.py"
       ]
     },
     {
@@ -417,6 +433,42 @@
       "files": [
         "integration/bounded_rss/driver.py"
       ]
+    },
+    {
+      "import": "collector129_prep",
+      "files": [
+        "integration/collector197_feed_child.py"
+      ],
+      "stdlib": false,
+      "distributions": [],
+      "classification": "local",
+      "provenance": {
+        "source": "197b reviewed local source modules",
+        "paths": [
+          "collector129_prep/__init__.py",
+          "collector129_prep/supplied_feed.py",
+          "collector129_prep/test_selection.py"
+        ]
+      }
+    },
+    {
+      "import": "collector130_prep",
+      "files": [
+        "integration/collector197_http.py"
+      ],
+      "stdlib": false,
+      "distributions": [],
+      "classification": "local",
+      "provenance": {
+        "source": "197b reviewed local source modules",
+        "paths": [
+          "collector130_prep/__init__.py",
+          "collector130_prep/base_profile.py",
+          "collector130_prep/extra_profile.py",
+          "collector130_prep/network_selection.py",
+          "collector130_prep/test_composition.py"
+        ]
+      }
     },
     {
       "import": "concurrent",
@@ -482,6 +534,7 @@
         "tests/test_collection_prepare.py",
         "tests/test_collector122_validation.py",
         "tests/test_collector197a.py",
+        "tests/test_collector197b_preflight.py",
         "tests/test_collector_mail_fixture.py",
         "tests/test_country_alerts.py",
         "tests/test_country_signals.py",
@@ -541,6 +594,19 @@
       "classification": "stdlib"
     },
     {
+      "import": "ctypes",
+      "stdlib": true,
+      "distributions": [],
+      "classification": "stdlib",
+      "provenance": {
+        "source": "sys.stdlib_module_names"
+      },
+      "files": [
+        "integration/collector197_coordinator_child.py",
+        "integration/collector197_supervisor.py"
+      ]
+    },
+    {
       "import": "dataclasses",
       "files": [
         "integration/accounts/limiter.py",
@@ -569,7 +635,11 @@
         "feature_mail_prep/reports.py",
         "integration/accounts/service.py",
         "integration/article_archive.py",
+        "integration/collector197_coordinator.py",
+        "integration/collector197_coordinator_child.py",
+        "integration/collector197_feed_child.py",
         "integration/collector197_orchestrator.py",
+        "integration/collector197_supervisor.py",
         "integration/collector_mail_fixture.py",
         "integration/country_alerts.py",
         "integration/country_signals.py",
@@ -870,6 +940,7 @@
       "files": [
         "feature_mail_mount/http.py",
         "integration/accounts/http_fixture.py",
+        "integration/collector197_http.py",
         "integration/edge_guard.py",
         "integration/geo_probe_http.py",
         "integration/news_api.py",
@@ -977,6 +1048,7 @@
       "import": "gzip",
       "files": [
         "integration/finder_index.py",
+        "tests/test_collector197b_connector.py",
         "tests/test_fulltext172.py"
       ],
       "stdlib": true,
@@ -1003,6 +1075,9 @@
         "integration/article_archive.py",
         "integration/bounded_rss/driver.py",
         "integration/collection_receipts/protocol.py",
+        "integration/collector197_feed_child.py",
+        "integration/collector197_parser.py",
+        "integration/collector197_supervisor.py",
         "integration/collector_mail_fixture.py",
         "integration/country_alerts.py",
         "integration/digest_windows193.py",
@@ -1089,6 +1164,7 @@
         "integration/accounts/limiter.py",
         "integration/accounts/passwords.py",
         "integration/accounts/shared_ledger_fixture.py",
+        "integration/collector197_http.py",
         "integration/geo_probe_http.py",
         "integration/preview_access.py",
         "integration/stream_revision.py"
@@ -1128,11 +1204,13 @@
     {
       "import": "http",
       "files": [
+        "integration/collector197_connector.py",
         "integration/geonews_digest/delivery.py",
         "integration/india_open_data/transport.py",
         "tests/browser_feature_finder.py",
         "tests/geonews_digest/test_digest.py",
-        "tests/news_export/test_fixture_serving.py"
+        "tests/news_export/test_fixture_serving.py",
+        "tests/test_collector197b_connector.py"
       ],
       "stdlib": true,
       "distributions": [],
@@ -1177,7 +1255,12 @@
         "integration/brics_processing_offline.py",
         "integration/brics_streams.py",
         "integration/collection_prepare.py",
+        "integration/collector197_coordinator.py",
+        "integration/collector197_coordinator_child.py",
+        "integration/collector197_feed_child.py",
+        "integration/collector197_http.py",
         "integration/collector197_orchestrator.py",
+        "integration/collector197_preflight.py",
         "integration/collector_mail_fixture.py",
         "integration/country_page.py",
         "integration/critical_stories.py",
@@ -1285,6 +1368,11 @@
         "tests/test_channels171.py",
         "tests/test_collection_prepare.py",
         "tests/test_collector197a.py",
+        "tests/test_collector197b_connector.py",
+        "tests/test_collector197b_coordinator.py",
+        "tests/test_collector197b_http.py",
+        "tests/test_collector197b_preflight.py",
+        "tests/test_collector197b_supervisor.py",
         "tests/test_collector_mail_fixture.py",
         "tests/test_copy191.py",
         "tests/test_copy195.py",
@@ -1614,6 +1702,7 @@
         "tests/news_export/test_keyset_plan.py",
         "tests/news_export/test_original_contract.py",
         "tests/news_export/test_original_stream.py",
+        "tests/test_collector197b_connector.py",
         "tests/test_geo_probe_process.py",
         "tests/test_loaded_news.py",
         "tests/test_rss177.py",
@@ -1657,6 +1746,13 @@
         "integration/accounts/shared_ledger_fixture.py",
         "integration/article_archive.py",
         "integration/collection_receipts/protocol.py",
+        "integration/collector197_connector.py",
+        "integration/collector197_coordinator.py",
+        "integration/collector197_coordinator_child.py",
+        "integration/collector197_feed_child.py",
+        "integration/collector197_http.py",
+        "integration/collector197_parser.py",
+        "integration/collector197_supervisor.py",
         "integration/country_alerts.py",
         "integration/dashboard_snapshots.py",
         "integration/digest_windows193.py",
@@ -1715,6 +1811,8 @@
         "tests/test_bulk147_inventory.py",
         "tests/test_classifier146_inventory.py",
         "tests/test_collector122_inventory.py",
+        "tests/test_collector197b_coordinator.py",
+        "tests/test_collector197b_supervisor.py",
         "tests/test_compulsory_channels.py",
         "tests/test_country_alerts.py",
         "tests/test_edge_guard.py",
@@ -1770,6 +1868,8 @@
         "integration/accounts/store.py",
         "integration/article_archive.py",
         "integration/bounded_rss/driver.py",
+        "integration/collector197_connector.py",
+        "integration/collector197_parser.py",
         "integration/collector_mail_fixture.py",
         "integration/dashboard_model.py",
         "integration/digest_windows193.py",
@@ -1822,6 +1922,11 @@
       "import": "os",
       "files": [
         "integration/accounts/passwords.py",
+        "integration/collector197_coordinator.py",
+        "integration/collector197_coordinator_child.py",
+        "integration/collector197_feed_child.py",
+        "integration/collector197_parser.py",
+        "integration/collector197_supervisor.py",
         "integration/feedparser_audit/child.py",
         "integration/feedparser_audit/runner.py",
         "integration/geo_probe_process.py",
@@ -1835,6 +1940,7 @@
         "tests/geospatial/test_geospatial.py",
         "tests/news_export/test_export.py",
         "tests/publication_dates/test_policy.py",
+        "tests/test_collector197b_supervisor.py",
         "tests/test_digest_cold.py",
         "tests/test_edge_guard.py",
         "tests/test_geo_probe_process.py",
@@ -1874,6 +1980,11 @@
         "integration/accounts/http_fixture.py",
         "integration/accounts/merged_fixture.py",
         "integration/branding_meta.py",
+        "integration/collector197_coordinator.py",
+        "integration/collector197_coordinator_child.py",
+        "integration/collector197_feed_child.py",
+        "integration/collector197_parser.py",
+        "integration/collector197_supervisor.py",
         "integration/collector_mail_fixture.py",
         "integration/feedparser_audit/child.py",
         "integration/feedparser_audit/runner.py",
@@ -1935,6 +2046,8 @@
         "tests/test_bulk147_inventory.py",
         "tests/test_channels171.py",
         "tests/test_classifier146_inventory.py",
+        "tests/test_collector197b_coordinator.py",
+        "tests/test_collector197b_supervisor.py",
         "tests/test_compulsory_channels.py",
         "tests/test_comtrade178.py",
         "tests/test_copy191.py",
@@ -2092,6 +2205,8 @@
       "files": [
         "feature_mail_mount/store.py",
         "integration/accounts/mongo_store.py",
+        "integration/collector197_http.py",
+        "integration/collector197_preflight.py",
         "integration/geo_article_writer.py",
         "integration/geo_read_factory.py",
         "integration/geo_sample_probe.py",
@@ -2447,6 +2562,7 @@
         "integration/branding_meta.py",
         "integration/brics_streams.py",
         "integration/collection_receipts/protocol.py",
+        "integration/collector197_connector.py",
         "integration/country_alerts.py",
         "integration/dashboard_snapshots.py",
         "integration/db_contract/plan.py",
@@ -2543,6 +2659,7 @@
     {
       "import": "resource",
       "files": [
+        "integration/collector197_feed_child.py",
         "integration/feedparser_audit/child.py"
       ],
       "stdlib": true,
@@ -2590,6 +2707,9 @@
     {
       "import": "selectors",
       "files": [
+        "integration/collector197_coordinator.py",
+        "integration/collector197_parser.py",
+        "integration/collector197_supervisor.py",
         "integration/feedparser_audit/runner.py",
         "integration/geo_probe_process.py"
       ],
@@ -2632,6 +2752,21 @@
       "classification": "stdlib"
     },
     {
+      "import": "signal",
+      "stdlib": true,
+      "distributions": [],
+      "classification": "stdlib",
+      "provenance": {
+        "source": "sys.stdlib_module_names"
+      },
+      "files": [
+        "integration/collector197_coordinator.py",
+        "integration/collector197_coordinator_child.py",
+        "integration/collector197_parser.py",
+        "integration/collector197_supervisor.py"
+      ]
+    },
+    {
       "import": "smtplib",
       "files": [
         "integration/geonews_digest/delivery.py",
@@ -2649,6 +2784,7 @@
       "import": "socket",
       "files": [
         "feature_mail_prep/reports.py",
+        "integration/collector197_connector.py",
         "integration/feedparser_audit/child.py",
         "integration/india_open_data/transport.py",
         "tests/accounts/test_accounts.py",
@@ -2657,6 +2793,7 @@
         "tests/geospatial/test_geospatial.py",
         "tests/news_export/test_export.py",
         "tests/news_export/test_fixture_serving.py",
+        "tests/test_collector197b_connector.py",
         "tests/test_feature_mail_prep.py"
       ],
       "stdlib": true,
@@ -2682,8 +2819,10 @@
     {
       "import": "ssl",
       "files": [
+        "integration/collector197_connector.py",
         "integration/geonews_digest/delivery.py",
-        "integration/india_open_data/transport.py"
+        "integration/india_open_data/transport.py",
+        "tests/test_collector197b_connector.py"
       ],
       "stdlib": true,
       "distributions": [],
@@ -2720,6 +2859,9 @@
       "import": "subprocess",
       "files": [
         "integration/apps_script_audit/labeled_run.py",
+        "integration/collector197_coordinator.py",
+        "integration/collector197_parser.py",
+        "integration/collector197_supervisor.py",
         "integration/feedparser_audit/runner.py",
         "integration/geo_probe_process.py",
         "tests/accounts/browser_http_fixture.py",
@@ -2778,6 +2920,11 @@
       "import": "sys",
       "files": [
         "integration/apps_script_audit/labeled_run.py",
+        "integration/collector197_coordinator.py",
+        "integration/collector197_coordinator_child.py",
+        "integration/collector197_feed_child.py",
+        "integration/collector197_parser.py",
+        "integration/collector197_supervisor.py",
         "integration/feedparser_audit/child.py",
         "integration/feedparser_audit/runner.py",
         "integration/geo_probe_process.py",
@@ -2813,6 +2960,8 @@
         "tests/news_export/test_fixture_serving.py",
         "tests/publication_dates/test_policy.py",
         "tests/test_collection_prepare.py",
+        "tests/test_collector197b_coordinator.py",
+        "tests/test_collector197b_supervisor.py",
         "tests/test_digest_cold.py",
         "tests/test_edge_guard.py",
         "tests/test_factory176.py",
@@ -2841,6 +2990,7 @@
         "tests/accounts/browser_http_fixture.py",
         "tests/geospatial/test_geospatial.py",
         "tests/geospatial/test_map_route.py",
+        "tests/test_collector197b_supervisor.py",
         "tests/test_env_example.py",
         "tests/test_feature_finder_prep.py",
         "tests/test_finder_index.py",
@@ -2889,6 +3039,7 @@
       "files": [
         "tests/accounts/test_reservation_terminal.py",
         "tests/news_export/test_fixture_serving.py",
+        "tests/test_collector197b_http.py",
         "tests/test_geo_event_composition.py",
         "tests/test_geo_read_factory.py",
         "tests/test_geo_sample_probe.py",
@@ -3108,7 +3259,13 @@
       "files": [
         "integration/accounts/mongo_store.py",
         "integration/bounded_rss/driver.py",
+        "integration/collector197_connector.py",
+        "integration/collector197_coordinator.py",
+        "integration/collector197_feed_child.py",
+        "integration/collector197_http.py",
         "integration/collector197_orchestrator.py",
+        "integration/collector197_parser.py",
+        "integration/collector197_supervisor.py",
         "integration/edge_guard.py",
         "integration/feedparser_audit/runner.py",
         "integration/geo_probe_http.py",
@@ -3122,6 +3279,8 @@
         "tests/geospatial/test_geospatial.py",
         "tests/news_export/test_export.py",
         "tests/news_export/test_fixture_serving.py",
+        "tests/test_collector197b_coordinator.py",
+        "tests/test_collector197b_supervisor.py",
         "tests/test_db181.py",
         "tests/test_geo_event_composition.py",
         "tests/test_geo_probe_http.py",
@@ -3156,6 +3315,7 @@
         "tests/news_export/test_original_contract.py",
         "tests/test_channels171.py",
         "tests/test_collector197a.py",
+        "tests/test_collector197b_preflight.py",
         "tests/test_feature_mail_mount.py",
         "tests/test_geo_article_writer.py",
         "tests/test_legacy_bulk_outcome.py",
@@ -3239,6 +3399,11 @@
         "tests/test_collector122_receipt_state.py",
         "tests/test_collector122_validation.py",
         "tests/test_collector197a.py",
+        "tests/test_collector197b_connector.py",
+        "tests/test_collector197b_coordinator.py",
+        "tests/test_collector197b_http.py",
+        "tests/test_collector197b_preflight.py",
+        "tests/test_collector197b_supervisor.py",
         "tests/test_collector_mail_fixture.py",
         "tests/test_compulsory_channels.py",
         "tests/test_comtrade178.py",
@@ -3649,6 +3814,7 @@
       "import": "zlib",
       "files": [
         "integration/weekly_report/_pdf.py",
+        "tests/test_collector197b_connector.py",
         "tests/weekly_report/test_report.py"
       ],
       "stdlib": true,
@@ -3876,8 +4042,40 @@
         "sha256": "eab36cafe3774aa1bf33327e6eefa10b368e984c3f617ee3aae063199e87499f"
       },
       {
+        "path": "integration/collector197_connector.py",
+        "sha256": "b0d41ed15199196563c640767dfa4bec5db6d300d2e542118f814cdeb66f0afa"
+      },
+      {
+        "path": "integration/collector197_coordinator.py",
+        "sha256": "23493101dd5866943b4b0ba6249d6beb41f15382d8b81684f052d41a08b22fe2"
+      },
+      {
+        "path": "integration/collector197_coordinator_child.py",
+        "sha256": "aa30fbf17da17b2ecc5a1c40362433be89b3ff64182674900969a62ac8ecbff9"
+      },
+      {
+        "path": "integration/collector197_feed_child.py",
+        "sha256": "84e0ebf31bdf7a1c5a35addcf9f124c8f4427a6652d9639b64246abf8da5545e"
+      },
+      {
+        "path": "integration/collector197_http.py",
+        "sha256": "3d028317e5e7bd1d1d19a46e9f4dd36945e2bf7f732178daa2c46677c1fc08b9"
+      },
+      {
         "path": "integration/collector197_orchestrator.py",
         "sha256": "fe9f768feabb8b4e40e49867c1e26685d218f8717c7b86b59b30a78b50efd46f"
+      },
+      {
+        "path": "integration/collector197_parser.py",
+        "sha256": "81df2a6e96a0aa803d619b7f2e9cf17276c5c71c14eb2331466096e55b1dd8f3"
+      },
+      {
+        "path": "integration/collector197_preflight.py",
+        "sha256": "371120e8ad4341121538106b8dc328fb3f82352867f5141daaed1fdb91eb9c9d"
+      },
+      {
+        "path": "integration/collector197_supervisor.py",
+        "sha256": "7564717b1dd787448c0b7a0ae0084e4c03b5ff11aab8ab23b4957fb3cec4aff9"
       },
       {
         "path": "integration/collector_mail_fixture.py",
@@ -4646,6 +4844,26 @@
       {
         "path": "tests/test_collector197a.py",
         "sha256": "0b332f537f47039b4a4a4c2df5cc42470d7635c640bbab021cc8333eaa4600b1"
+      },
+      {
+        "path": "tests/test_collector197b_connector.py",
+        "sha256": "dae9f0a2595c3d798b720ed3b8f2337a371f82ef867cdc1a51bcd835fc92c9ff"
+      },
+      {
+        "path": "tests/test_collector197b_coordinator.py",
+        "sha256": "7edb4be1b926c1e60035de5f0eda03e8fe7be5117d58b3d8bf48e9e096f49882"
+      },
+      {
+        "path": "tests/test_collector197b_http.py",
+        "sha256": "077a84ba9f8f5e833c40a9f729fa4e0cbd2f452c03bbe978d77dd83a62d200dc"
+      },
+      {
+        "path": "tests/test_collector197b_preflight.py",
+        "sha256": "435a017871b0dc78b1e1bdd6fc988c122bcefe3e9e682493d56396af49021206"
+      },
+      {
+        "path": "tests/test_collector197b_supervisor.py",
+        "sha256": "e6fd968d661324b234f1241c9fe831bf2c1c669828e34be609111572439de6e8"
       },
       {
         "path": "tests/test_collector_mail_fixture.py",
