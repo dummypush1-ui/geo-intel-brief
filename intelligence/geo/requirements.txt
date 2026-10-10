@@ -5,7 +5,7 @@ python-dotenv>=1.2.4
 schedule>=1.2.2
 pymongo>=4.18.2
 Flask>=3.1.3
-gunicorn>=22.0.0
+gunicorn==26.2.0
 
 # SECURITY94: these extras install BY DEFAULT with this plain requirements file,
 # even when ENABLE_* flags are off. They are OUTSIDE the tested 25-package lock.

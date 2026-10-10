@@ -22,5 +22,5 @@ def source(root,manifest):
 def main():
  here=pathlib.Path(__file__).resolve().parent
  m=json.loads((here/'artifacts.json').read_text());a=verify(sys.argv[1],m['artifacts']);s=source(sys.argv[2],json.loads((here/'source-allowlist.json').read_text()))
- print(json.dumps({'scope':SCOPE,'source_anchor':s,'artifacts':a,'selected_profile':'local25-gunicorn22-no-optional-extras','claim':'input validation only'},sort_keys=True,separators=(',',':')))
+ print(json.dumps({'scope':SCOPE,'source_anchor':s,'artifacts':a,'selected_profile':'current25-gunicorn26-no-optional-extras','claim':'input validation only'},sort_keys=True,separators=(',',':')))
 if __name__=='__main__':main()

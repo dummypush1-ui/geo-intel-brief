@@ -14,7 +14,7 @@ class Tests(unittest.TestCase):
  def test_all25_runnerdownloads_and_five_oldmismatches(self):
   rows=self.a['runner_cp312_download_verification'];self.assertEqual(len(rows),25);self.assertEqual({r['name']for r in rows if r['old_lock_would_fail']},{'charset-normalizer','markupsafe','pymongo','pyyaml','sgmllib3k'})
   for row in rows:
-   package=next(p for p in self.a['packages']if p['name']==row['name']);self.assertIn(row['sha256'],package['hashes']);self.assertTrue(any(x['url']==row['url']and x['sha256']==row['sha256']for x in package['artifacts']))
+   package=self.a['gunicorn22_historical_package'] if row['name']=='gunicorn' else next(p for p in self.a['packages']if p['name']==row['name']);self.assertIn(row['sha256'],package['hashes']);self.assertTrue(any(x['url']==row['url']and x['sha256']==row['sha256']for x in package['artifacts']))
  def test_sgmllib_reviewed_buildhash_vs_officialsdist_explicit(self):
   r=next(p for p in self.a['packages']if p['name']=='sgmllib3k');self.assertEqual(r['local_previously_reviewed_hashes'],['d697b1ce32621812e6fbf5d3dac57818192068f47e4b6f39bc76e14a8fb4c534']);self.assertEqual(r['artifacts'][0]['sha256'],'7868fb1c8bfa764c1ac563d3cf369c381d1325d36124933a726f29fcdaa812e9')
  def test_no_version_changes_or_workflowsecret_activation(self):

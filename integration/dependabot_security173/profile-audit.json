@@ -1,14 +1,14 @@
 {
   "scope": "current_security_supersession173_not_historical_rewrite",
   "locks": {
-    "requirements-offline-reviewed.candidate.txt": "c4ad0056483bdfe3a2a06c67b5a65101114bc2eadeb6459eec953b4a8829b576",
-    "integration/dependency_build/requirements-offline-built.txt": "ee9eab27d9ea353fff32cad7ee2c798b3f5bbb5f45b24532222f832561d28228"
+    "requirements-offline-reviewed.candidate.txt": "8f05f424f6f2a56afb8d56de0e40854d043cddbbdd9927cc2a71b1341f331663",
+    "integration/dependency_build/requirements-offline-built.txt": "edccddf2df845689a3bb774d71554fcf92045f6989091fc5fd8bb73d693b87e2"
   },
-  "built_install": "fresh25packagehashedofflineonlybinaryPASS_pipcheckPASS",
+  "built_install": "current_Gunicorn26_profile_full_hashed_install_NOT_RUN; CP310_five_version_fixture_only",
   "candidate_install": "NOT_attempted_missing_sgmllib_wheel_hash_remains",
   "official_artifact_hashes_checked": true,
   "feedparser": "6.0.11_original32sourcepins_unchanged",
-  "gunicorn": "22.0.0historical_unchanged23vs26reviewseparate",
+  "gunicorn": "26.2.0_current_pins_supersede22; historical23vs26questions_not_target_build_approval",
   "staging_dotenv": "1.2.4unchanged",
   "production_ready": false,
   "alert_state_at_research": "24open_not_remediated_yet",
@@ -18,5 +18,13 @@
     "105"
   ],
   "built_sgmllib_new_hash": "c5fb2a0774bdd5ee5dbfb2cfd12d5de846a75d71cd5c059656cdab4b8cef5716",
-  "source_sgmllib_hash": "9180791aa507111207d7c14f36db574a11fbedda257debfb9d030b273b773f44"
+  "source_sgmllib_hash": "9180791aa507111207d7c14f36db574a11fbedda257debfb9d030b273b773f44",
+  "current_gunicorn_supersession": {
+    "version": "26.2.0",
+    "wheel_sha256": "bd249d0b3f7972f7432f0a6b6ff3b3ee2d129f70cd1ff6c09a9dd9e29a2b88e3",
+    "CP310_functional_fixture_tests": 172,
+    "CP312_execution": false,
+    "historical_installed_arrays_unchanged": true
+  },
+  "historical_built_install": "fresh25packagehashedofflineonlybinaryPASS_pipcheckPASS"
 }

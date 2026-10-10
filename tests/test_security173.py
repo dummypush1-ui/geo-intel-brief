@@ -6,7 +6,7 @@ class SecurityProfiles(unittest.TestCase):
  def test_exact_current_security_profile_pins(self):
   for file,req in [('requirements-offline-reviewed.candidate.txt','2.34.2'),('integration/dependency_build/requirements-offline-built.txt','2.33.0')]:
    text=(ROOT/file).read_text();pins={n.lower():v for n,v in re.findall(r'^([A-Za-z0-9_-]+)==([^\s]+)',text,re.M)}
-   for name,value in {'flask':'3.1.3','werkzeug':'3.1.9','pymongo':'4.18.2','python-dotenv':'1.2.2','requests':req,'feedparser':'6.0.11','gunicorn':'22.0.0'}.items():self.assertEqual(pins[name],value)
+   for name,value in {'flask':'3.1.3','werkzeug':'3.1.9','pymongo':'4.18.2','python-dotenv':'1.2.2','requests':req,'feedparser':'6.0.11','gunicorn':'26.2.0'}.items():self.assertEqual(pins[name],value)
   self.assertIn('python-dotenv==1.2.4',(ROOT/'requirements-staging.txt').read_text())
  def test_changed_hashes_and_no_historical_receipt_rewrite(self):
   artifacts=json.loads((ROOT/'integration/dependabot_security173/artifacts.json').read_text())

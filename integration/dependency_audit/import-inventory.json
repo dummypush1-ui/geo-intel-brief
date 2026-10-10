@@ -6611,7 +6611,7 @@
       },
       {
         "path": "tests/test_runner199lock.py",
-        "sha256": "ed206dd75cebd87dbdd29d84fb13571370b294bd1cc5ebc744b843793ad8c927"
+        "sha256": "438d25ef91388126aa726973532acadebdcf71daf3210382368f60ba8defbb13"
       },
       {
         "path": "tests/test_runtime.py",
@@ -6647,7 +6647,7 @@
       },
       {
         "path": "tests/test_security173.py",
-        "sha256": "acb00b4d8ef8de5ad4dded244d10e9b77852be85e669005c6d90c498d3b9e78a"
+        "sha256": "46f8d371299c36e3b1ada44e9875713368fd54f0dddaac1f9abaff6ff5ecc3ea"
       },
       {
         "path": "tests/test_security_headers.py",
@@ -6822,5 +6822,13 @@
     "prior_manifest_sha256": "9ae095da1cf17bf6537ee007075d8665070406ba029fbca6eb4745c256098d5f",
     "current_manifest_sha256": "61f7d74581f490bb0a66e58e3131d6c86130bbe4686a8443241a19d151f6bd69",
     "historical_revision_unchanged": true
+  },
+  "gunicorn26_source_supplement": {
+    "changed_audited_paths": [
+      "tests/test_security173.py",
+      "tests/test_runner199lock.py"
+    ],
+    "current_manifest_sha256": "5ce85b697a3b847602599768a09b1e09d7434c7f13c4ae8dd6a27c5ccc4e7ac3",
+    "metadata_environment_not_reaudited": true
   }
 }

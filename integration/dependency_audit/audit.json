@@ -580,7 +580,7 @@
   ],
   "static_limit": "AST inventory does not prove conditional/dynamic/runtime imports complete",
   "source_baseline_revision": "4d7f7f342140a144f429d03f82b94a3176f341c2",
-  "source_manifest_sha256": "61f7d74581f490bb0a66e58e3131d6c86130bbe4686a8443241a19d151f6bd69",
+  "source_manifest_sha256": "5ce85b697a3b847602599768a09b1e09d7434c7f13c4ae8dd6a27c5ccc4e7ac3",
   "artifact_verification": {
     "status": "verified_in_author_environment",
     "method": "SHA256 of each explicit cache wheel; metadata filename version/tag checks; reviewer cache not transferred",
@@ -596,5 +596,13 @@
     "prior_manifest_sha256": "9ae095da1cf17bf6537ee007075d8665070406ba029fbca6eb4745c256098d5f",
     "current_manifest_sha256": "61f7d74581f490bb0a66e58e3131d6c86130bbe4686a8443241a19d151f6bd69",
     "historical_revision_unchanged": true
+  },
+  "gunicorn26_source_supplement": {
+    "changed_audited_paths": [
+      "tests/test_security173.py",
+      "tests/test_runner199lock.py"
+    ],
+    "current_manifest_sha256": "5ce85b697a3b847602599768a09b1e09d7434c7f13c4ae8dd6a27c5ccc4e7ac3",
+    "metadata_environment_not_reaudited": true
   }
 }

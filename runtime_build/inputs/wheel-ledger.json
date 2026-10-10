@@ -513,22 +513,21 @@
     {
       "profile": "application",
       "name": "gunicorn",
-      "version": "22.0.0",
-      "filename": "gunicorn-22.0.0-py3-none-any.whl",
-      "size": 84443,
-      "sha256": "350679f91b24062c86e386e198a15438d53a7a8207235a78ba1b53df4c4378d9",
-      "origin_url": "https://files.pythonhosted.org/packages/29/97/6d610ae77b5633d24b69c2ff1ac3044e0e565ecbd1ec188f02c45073054c/gunicorn-22.0.0-py3-none-any.whl",
-      "metadata_url": "https://pypi.org/pypi/gunicorn/22.0.0/json",
-      "metadata_payload_sha256": "2e9b1e364df96ca5e66d4656c7f08cef9514ab78b750fbf9fb3cd591f1fcdc41",
-      "observed_at": "2026-10-10T01:45:30.261425+00:00",
-      "preexisting_lock_hash_match": true,
+      "version": "26.2.0",
+      "filename": "gunicorn-26.2.0-py3-none-any.whl",
+      "size": 228389,
+      "sha256": "bd249d0b3f7972f7432f0a6b6ff3b3ee2d129f70cd1ff6c09a9dd9e29a2b88e3",
+      "origin_url": "https://files.pythonhosted.org/packages/fe/85/7522a52e5e2f42faf1a129113ab63e548c42e103e9af395b7bfe65e403e2/gunicorn-26.2.0-py3-none-any.whl",
+      "metadata_url": "https://pypi.org/pypi/gunicorn/26.2.0/json",
+      "metadata_payload_sha256": "69f431e8da68bf196649f83f6ba5adcf5fc66231a0fe04463a1988953feb8481",
+      "observed_at": "2026-10-10T08:35:02.171600+00:00",
+      "preexisting_lock_hash_match": false,
       "cp310_comparison": {
-        "filename": "gunicorn-22.0.0-py3-none-any.whl",
-        "sha256": "350679f91b24062c86e386e198a15438d53a7a8207235a78ba1b53df4c4378d9",
-        "hash_equal": true,
-        "meaning": "shared purePython artifact only if filename same; no CP310native reuse"
+        "filename": "gunicorn-26.2.0-py3-none-any.whl",
+        "sha256": "bd249d0b3f7972f7432f0a6b6ff3b3ee2d129f70cd1ff6c09a9dd9e29a2b88e3",
+        "meaning": "current purePython wheel downloaded and installed in CP310 fixture; CP312 execution not claimed"
       },
-      "artifact_fetch": false
+      "artifact_fetch": true
     },
     {
       "profile": "application",
@@ -912,5 +911,25 @@
     "expected_sha256": "708e7481cc80179af0e556bbf0cc00b8444c7321e2700b8d8580231d13017248",
     "pin_source": "independentlyreviewed27a build-only pin; purePython artifact, CP312execution notclaimed",
     "CP312build": "pending capableexecutor andseparateoutputanchor"
+  },
+  "gunicorn22_historical_row": {
+    "profile": "application",
+    "name": "gunicorn",
+    "version": "22.0.0",
+    "filename": "gunicorn-22.0.0-py3-none-any.whl",
+    "size": 84443,
+    "sha256": "350679f91b24062c86e386e198a15438d53a7a8207235a78ba1b53df4c4378d9",
+    "origin_url": "https://files.pythonhosted.org/packages/29/97/6d610ae77b5633d24b69c2ff1ac3044e0e565ecbd1ec188f02c45073054c/gunicorn-22.0.0-py3-none-any.whl",
+    "metadata_url": "https://pypi.org/pypi/gunicorn/22.0.0/json",
+    "metadata_payload_sha256": "2e9b1e364df96ca5e66d4656c7f08cef9514ab78b750fbf9fb3cd591f1fcdc41",
+    "observed_at": "2026-10-10T01:45:30.261425+00:00",
+    "preexisting_lock_hash_match": true,
+    "cp310_comparison": {
+      "filename": "gunicorn-22.0.0-py3-none-any.whl",
+      "sha256": "350679f91b24062c86e386e198a15438d53a7a8207235a78ba1b53df4c4378d9",
+      "hash_equal": true,
+      "meaning": "shared purePython artifact only if filename same; no CP310native reuse"
+    },
+    "artifact_fetch": false
   }
 }

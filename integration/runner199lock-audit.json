@@ -1,5 +1,5 @@
 {
-  "scope": "Official PyPI exact pinned version complete published artifact hash sets. No version or hash enforcement change. ABI3/py3-any/cp312 verified separately.",
+  "scope": "Official PyPI exact pinned version complete published artifact hash sets. No version or hash enforcement change. ABI3/py3-any/cp312 verified separately.; current gunicorn26 supersession, historical runner CP312 arrays remain unchanged",
   "packages": [
     {
       "name": "blinker",
@@ -1764,34 +1764,35 @@
     },
     {
       "name": "gunicorn",
-      "version": "22.0.0",
-      "metadata_url": "https://pypi.org/pypi/gunicorn/22.0.0/json",
-      "metadata_sha256": "2e9b1e364df96ca5e66d4656c7f08cef9514ab78b750fbf9fb3cd591f1fcdc41",
+      "version": "26.2.0",
+      "metadata_url": "https://pypi.org/pypi/gunicorn/26.2.0/json",
+      "metadata_sha256": "69f431e8da68bf196649f83f6ba5adcf5fc66231a0fe04463a1988953feb8481",
       "local_previously_reviewed_hashes": [],
       "original_hashes": [
-        "350679f91b24062c86e386e198a15438d53a7a8207235a78ba1b53df4c4378d9"
+        "62b864895d9ebff0b2f9867ba04fe811c93121596540830c9c916d0769668447",
+        "bd249d0b3f7972f7432f0a6b6ff3b3ee2d129f70cd1ff6c09a9dd9e29a2b88e3"
       ],
       "artifact_count": 2,
       "hashes": [
-        "350679f91b24062c86e386e198a15438d53a7a8207235a78ba1b53df4c4378d9",
-        "4a0b436239ff76fb33f11c07a16482c521a7e09c1ce3cc293c2330afe01bec63"
+        "62b864895d9ebff0b2f9867ba04fe811c93121596540830c9c916d0769668447",
+        "bd249d0b3f7972f7432f0a6b6ff3b3ee2d129f70cd1ff6c09a9dd9e29a2b88e3"
       ],
       "artifacts": [
         {
-          "filename": "gunicorn-22.0.0-py3-none-any.whl",
-          "url": "https://files.pythonhosted.org/packages/29/97/6d610ae77b5633d24b69c2ff1ac3044e0e565ecbd1ec188f02c45073054c/gunicorn-22.0.0-py3-none-any.whl",
-          "sha256": "350679f91b24062c86e386e198a15438d53a7a8207235a78ba1b53df4c4378d9",
-          "size": 84443,
+          "filename": "gunicorn-26.2.0-py3-none-any.whl",
+          "url": "https://files.pythonhosted.org/packages/fe/85/7522a52e5e2f42faf1a129113ab63e548c42e103e9af395b7bfe65e403e2/gunicorn-26.2.0-py3-none-any.whl",
+          "sha256": "bd249d0b3f7972f7432f0a6b6ff3b3ee2d129f70cd1ff6c09a9dd9e29a2b88e3",
+          "size": 228389,
           "packagetype": "bdist_wheel",
-          "requires_python": ">=3.7"
+          "requires_python": ">=3.10"
         },
         {
-          "filename": "gunicorn-22.0.0.tar.gz",
-          "url": "https://files.pythonhosted.org/packages/1e/88/e2f93c5738a4c1f56a458fc7a5b1676fc31dcdbb182bef6b40a141c17d66/gunicorn-22.0.0.tar.gz",
-          "sha256": "4a0b436239ff76fb33f11c07a16482c521a7e09c1ce3cc293c2330afe01bec63",
-          "size": 3639760,
+          "filename": "gunicorn-26.2.0.tar.gz",
+          "url": "https://files.pythonhosted.org/packages/d9/8a/e4ef6ee11701b6cd64702848415ffb69eeff85cb388a3c6c7fe86f22f3f8/gunicorn-26.2.0.tar.gz",
+          "sha256": "62b864895d9ebff0b2f9867ba04fe811c93121596540830c9c916d0769668447",
+          "size": 787921,
           "packagetype": "sdist",
-          "requires_python": ">=3.7"
+          "requires_python": ">=3.10"
         }
       ]
     },
@@ -5169,5 +5170,48 @@
       "active_cp312_dependencies": []
     }
   ],
-  "fresh310_hashed_install": "PASS all25 exact versions; pip check PASS; no3.12runtimeclaim"
+  "fresh310_hashed_install": "PASS all25 exact versions; pip check PASS; no3.12runtimeclaim",
+  "gunicorn22_historical_package": {
+    "name": "gunicorn",
+    "version": "22.0.0",
+    "metadata_url": "https://pypi.org/pypi/gunicorn/22.0.0/json",
+    "metadata_sha256": "2e9b1e364df96ca5e66d4656c7f08cef9514ab78b750fbf9fb3cd591f1fcdc41",
+    "local_previously_reviewed_hashes": [],
+    "original_hashes": [
+      "350679f91b24062c86e386e198a15438d53a7a8207235a78ba1b53df4c4378d9"
+    ],
+    "artifact_count": 2,
+    "hashes": [
+      "350679f91b24062c86e386e198a15438d53a7a8207235a78ba1b53df4c4378d9",
+      "4a0b436239ff76fb33f11c07a16482c521a7e09c1ce3cc293c2330afe01bec63"
+    ],
+    "artifacts": [
+      {
+        "filename": "gunicorn-22.0.0-py3-none-any.whl",
+        "url": "https://files.pythonhosted.org/packages/29/97/6d610ae77b5633d24b69c2ff1ac3044e0e565ecbd1ec188f02c45073054c/gunicorn-22.0.0-py3-none-any.whl",
+        "sha256": "350679f91b24062c86e386e198a15438d53a7a8207235a78ba1b53df4c4378d9",
+        "size": 84443,
+        "packagetype": "bdist_wheel",
+        "requires_python": ">=3.7"
+      },
+      {
+        "filename": "gunicorn-22.0.0.tar.gz",
+        "url": "https://files.pythonhosted.org/packages/1e/88/e2f93c5738a4c1f56a458fc7a5b1676fc31dcdbb182bef6b40a141c17d66/gunicorn-22.0.0.tar.gz",
+        "sha256": "4a0b436239ff76fb33f11c07a16482c521a7e09c1ce3cc293c2330afe01bec63",
+        "size": 3639760,
+        "packagetype": "sdist",
+        "requires_python": ">=3.7"
+      }
+    ]
+  },
+  "gunicorn26_current_download": {
+    "version": "26.2.0",
+    "filename": "gunicorn-26.2.0-py3-none-any.whl",
+    "url": "https://files.pythonhosted.org/packages/fe/85/7522a52e5e2f42faf1a129113ab63e548c42e103e9af395b7bfe65e403e2/gunicorn-26.2.0-py3-none-any.whl",
+    "sha256": "bd249d0b3f7972f7432f0a6b6ff3b3ee2d129f70cd1ff6c09a9dd9e29a2b88e3",
+    "bytes_verified": true,
+    "CP310_fixture_installed": true,
+    "CP312_execution": false,
+    "active_default_dependencies": []
+  }
 }
