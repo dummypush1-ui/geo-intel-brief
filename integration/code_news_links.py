@@ -8,6 +8,25 @@ import re
 import hashlib
 from copy import deepcopy
 
+EXPLICIT = re.compile(r'(?<!\w)(HSN|HS)\s*(?:code\s*)?[:#-]?\s*([0-9]{4}(?:[0-9]{2}){0,4})(?!\w|\s*[.\-/,]\s*\d|\s+\d)',re.I)
+WHITESPACE = re.compile(r'\s+')
+def explicit_mentions(source):
+ """Linear whitespace normalization, original evidence offsets retained."""
+ from bisect import bisect_right
+ pieces=[];boundaries=[];deltas=[];last=0;removed=0
+ for run in WHITESPACE.finditer(source):
+  pieces.extend((source[last:run.start()], ' '))
+  removed += run.end()-run.start()-1
+  boundaries.append(run.end()-removed);deltas.append(removed)
+  last=run.end()
+ pieces.append(source[last:]);normalized=''.join(pieces)
+ for hit in EXPLICIT.finditer(normalized):
+  start=hit.start();end=hit.end()
+  si=bisect_right(boundaries,start)-1;ei=bisect_right(boundaries,end)-1
+  original_start=start+(deltas[si]if si>=0 else 0)
+  original_end=end+(deltas[ei]if ei>=0 else 0)
+  yield hit.group(1),hit.group(2),source[original_start:original_end]
+
 class Refused(ValueError):pass
 
 def text(value,cap):
@@ -74,12 +93,12 @@ class Links:
   source=title+'\n'+article['summary'];out=[]
   # Explicit attribution still is only a reported code mention. Missing system/
   # edition never selects the first of several national identities.
-  for hit in re.finditer(r'(?<!\w)(HSN|HS)\s*(?:code\s*)?[:#-]?\s*([0-9]{4}(?:[0-9]{2}){0,4})(?!\w|\s*[.\-/,]\s*\d|\s+\d)',source,re.I):
-   label,code=hit.groups();matches=self.resolve(code,'HS'if label.upper()=='HS'else'IN')
+  for label,code,evidence in explicit_mentions(source):
+   matches=self.resolve(code,'HS'if label.upper()=='HS'else'IN')
    # HSN means the India catalogue convention here, not proof of jurisdiction.
    # Four-digit mentions are offered only when the supplied edition resolves.
    if len(code)==4 and matches['state']!='resolved':continue
-   out.append({'article_key':key,'kind':'reported_code_mention','resolution':matches['state'],'targets':matches['items'],'evidence':hit.group(0),'legal_classification_verified':False})
+   out.append({'article_key':key,'kind':'reported_code_mention','resolution':matches['state'],'targets':matches['items'],'evidence':evidence,'legal_classification_verified':False})
   for rule in self.rules:
    matched=[t for t in rule['phrases']if phrase(t,source)]
    cues=[t for t in rule['trade_cues']if phrase(t,source)]

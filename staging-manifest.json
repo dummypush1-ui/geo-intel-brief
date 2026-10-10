@@ -1727,8 +1727,8 @@
     },
     {
       "path": "integration/code_news_links.py",
-      "bytes": 7235,
-      "sha256": "b3aaef9a4f610ed4e8a822ae74fef122ad29a29f7ee112eb9d1c82cecc5b433f"
+      "bytes": 8057,
+      "sha256": "12fd8e76fca034740d4578e4ee6b1a48db2991e86a23ef15669138a0aec708c2"
     },
     {
       "path": "integration/code_news_pins.json",
@@ -5544,6 +5544,11 @@
       "path": "tests/test_code_news_disk.py",
       "bytes": 1469,
       "sha256": "365579fa428b80f582e8dfc8684b88764c7a154d50c8043baf264446cb6ab40a"
+    },
+    {
+      "path": "tests/test_code_news_matcher_regression.py",
+      "bytes": 2547,
+      "sha256": "211e9dc44918ab6452ad74379884ed896c4c4728cdd906fd9d309c7eeaea79db"
     },
     {
       "path": "tests/test_code_news_public.py",
