@@ -22,8 +22,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 920710,
-      "sha256": "5374bf251f622719f7d8d0ef59368717893924d398f56fd41a55703f1cbe41b4"
+      "bytes": 926589,
+      "sha256": "2b241139a1e650573139005e4d3448141ea35a4bed31517e7eb97c90736386cf"
     },
     {
       "path": "ai-agent.mjs",
@@ -34,6 +34,11 @@
       "path": "apply-gst.mjs",
       "bytes": 1071,
       "sha256": "7d7f6321692ff682d20e8896dfb45a9d4205a6d26369a3db3cb2bda0472fccb5"
+    },
+    {
+      "path": "assets/live-demo.gif",
+      "bytes": 523986,
+      "sha256": "3815afe48f1303a99b0b99d43ae0c02d9db465f3194623015661326accf1b2fb"
     },
     {
       "path": "automate.mjs",

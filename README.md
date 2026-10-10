@@ -2,6 +2,101 @@
 
 Copyright (c) 2026 Push. All rights reserved.
 
+Geo Intel Brief combines the HSN trade-code Finder, Geo news and preserved BRICS
+source tools in one repository. The public workspace is for reading news and
+trade context. Source integration does not mean every module is live.
+
+Live app: https://geo-intel-brief.onrender.com/workspace
+
+## Live demo
+
+![Live public workspace and offline Finder demo](assets/live-demo.gif)
+
+A 17-second animated walkthrough made from real live-site captures on October
+11, 2026 (IST). It shows news, latest-100 summary panels and offline Finder
+search/detail. This is a sequence of screenshots, not a continuous screen
+recording. The related-news panel remains locked and unavailable features stay
+visible. No AI feature is active or used. No rates, mail, collector or dormant code-news action is used.
+Stored catalogue rates are dataset labels, not a current customs ruling.
+
+[Open the live workspace](https://geo-intel-brief.onrender.com/workspace)
+
+## Current status
+
+Read-only HTTP checks around 00:32 IST and live browser captures around 00:43-00:46 IST on October 11, 2026 confirmed:
+
+| Feature | Status and limits |
+|---|---|
+| Geo news workspace | Public, HTTP 200. Search, filters and whole-store cursor paging are available. |
+| Full news paging | `/api/news-page?limit=1` returned HTTP 200 with whole-store cursor scope. It is a changing read view, not a fixed snapshot or complete analytics export. |
+| Countries and map | Both public pages returned HTTP 200. |
+| Dashboard summaries and CSV | Source uses the latest up to 100 supplied articles, not whole-history totals or a full export. |
+| Offline Finder | Public offline snapshot is wired in source. Local code search, detail and shortlist work without exposing saved owner keys or notes. Live browser search and detail were reverified around 00:44 IST after warm-up. |
+| Live Finder rates | Reviewed adapter is saved in source, default OFF. `/workspace/finder/live.html` returned 403. It is not active. |
+| Code-news / news-codes | Reviewed source landed at `f7f78e7`, default OFF, not active. `/workspace/code-news` returned 403. Initial scope is reported HS/HSN mentions in supplied latest-100 rows, not full commodity inference or whole-store code search. |
+| Weekly PDF and BRICS streams | Public paths returned 403. Preserved source and prepared modules do not establish live visitor access. |
+| Weather, AI, tariffs and cross-module links | Remaining review/build/activation work. Personal weather use is confirmed; weather implementation and current terms review remain pending. AI provider cost/credential/cutover checks remain unresolved. |
+| Collectors, mail and admin | Never open visitor actions. No public read flag grants sending, collection, account access or database writes. |
+
+A successful HTTP read confirms that path at the stated time. It does not prove
+Render settings, deployed commit, database-role permissions, capacity, provider
+billing or complete feature readiness. The app can cold-start or change later.
+
+## Code and news links
+
+The requested goal is bidirectional: a code leads to commodity-related news,
+and a news item shows relevant codes. The same evidence model will support AI,
+PDF, tariffs and BRICS as those modules are reviewed.
+
+A bare number in a story is not a code match. A country mention alone is not a
+commodity match. Explicit code mentions remain article claims, not verified
+customs classification. Suggested commodity headings must show evidence and
+must not turn into a specific duty rate or national subheading without review.
+Missing links in a supplied page are not proof that no related news exists.
+
+## Repository structure
+
+| Path | Purpose |
+|---|---|
+| `production_entry.py` | Guarded Flask production factory. |
+| `integration/` | Public/private adapters, UI, security, read models and bounded contracts. |
+| `src/`, `index.html`, `offline.html`, data bundle | Preserved Finder source and generated catalogue assets. |
+| `intelligence/geo/` | Preserved Geo news engines and processing. |
+| `intelligence/brics/` | Preserved BRICS engines and source modules. |
+| `collector*_prep/`, `feature*_prep/` | Preparation modules. Some are active imports or test dependencies, so names alone do not make them disposable. |
+| `tests/`, `checks/`, `scripts/` | Regression checks, integrity checks and offline build tools. |
+| `README.md` | The only physical Markdown file, including byte-preserved historical documentation below. |
+
+## Running and changing the app
+
+Use the reviewed Python requirements and the Flask production entrypoint, not
+`npm start`: the Node start command belongs to the preserved updater service,
+not the merged workspace. Do not run old engine launchers as a shortcut; they
+can schedule work, connect to services, send mail or change data.
+
+There is no "enable everything" flag. Public news, rates, code links, providers,
+mail and collection each have separate review and authority boundaries.
+`FINDER_NETWORK_PREVIEW_ENABLED=true` is not a way to unlock public Finder.
+Dormant code is kept OFF until its own source, terms, capacity and deployment
+checks pass and activation is separately approved.
+
+Source tests are not live-provider tests. Historical counts are not a current
+full-suite claim. Active metadata records byte integrity, not production proof.
+Keep credentials out of source, browser responses, logs and this README.
+
+## Maintained source notes and historical archive
+
+The sections below preserve prior setup notes and 240 original documentation
+records byte-for-byte. They include old plans, old versions and historical test
+receipts. Read them as history, not current live status or activation permission.
+The former Markdown paths are lookup keys; they are not extra physical files.
+<details>
+<summary>Prior maintained source guidance (historical)</summary>
+
+# Geo Intel Brief
+
+Copyright (c) 2026 Push. All rights reserved.
+
 Geo Intel Brief brings geopolitical news, trade-code lookup and BRICS source features into one codebase. The Flask workspace connects stored news with country views, story groups, trade context, exports and report tools. The original Finder, Geo and BRICS code remains in the repository.
 
 **The merge is in progress.** A public read-only news preview is implemented, but collectors, mail, account login and the full Finder provider connection are not mounted into that public launcher. Prepared code and passing local tests do not mean a feature is live. The current production entry factory is `production_entry:create_app()`, delegating to the same guarded public builder with collection and mail default OFF.
@@ -12887,3 +12982,5 @@ Unit C does not wire AI/PDF/tariffs/BRICS or enable commodity rules. It does not
 modify original Finder source or existing public-news paging. Tests use fake
 article sources; real extraction tests require `CODE_NEWS_SOURCE_ROOT` pointing
 to the pinned source repo. Without it those checks explicitly skip, not pass.
+
+</details>

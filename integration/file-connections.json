@@ -77,7 +77,7 @@
       "path": "README.md",
       "project": "finder_or_build",
       "role": "preserved_engine_or_asset",
-      "sha256": "5374bf251f622719f7d8d0ef59368717893924d398f56fd41a55703f1cbe41b4",
+      "sha256": "2b241139a1e650573139005e4d3448141ea35a4bed31517e7eb97c90736386cf",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -104,6 +104,15 @@
       "static_file_edges": [
         "updater_runtime/table-edit.mjs"
       ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "assets/live-demo.gif",
+      "project": "finder_or_build",
+      "role": "preserved_engine_or_asset",
+      "sha256": "3815afe48f1303a99b0b99d43ae0c02d9db465f3194623015661326accf1b2fb",
+      "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
     },
@@ -9884,7 +9893,7 @@
       "path": "staging-manifest.json",
       "project": "finder_or_build",
       "role": "preserved_engine_or_asset",
-      "sha256": "dd818629dac7019eb9ceeed1f04655b66d0b0fc0dbb0f322fa4c2047ae54eb28",
+      "sha256": "432ea312933f6d779e03c35dddcaac54285d46f8581f421517fba132243d6dd5",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -14503,7 +14512,7 @@
       "runtime_verified": false
     }
   ],
-  "file_count": 1391,
+  "file_count": 1392,
   "limits": [
     "Dynamic references and network endpoints need runtime adapter tests",
     "Legacy launchers deliberately not connected to merged private entrypoint",
