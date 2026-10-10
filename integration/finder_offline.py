@@ -3,6 +3,7 @@
 """Served-copy offline seam. Original source reviewed for196 token removal; public snapshot only."""
 import re,hashlib,base64
 from integration.branding_meta import HeadTags
+from integration.finder_nested import shortlist_scroll,shortlist_csv_safe
 from integration.finder_network import manual_ships_shell
 
 DATA_NAME='data.d6d1b417562b.js'
@@ -16,6 +17,8 @@ def shell(original):
  if hashlib.sha256(original.encode()).hexdigest()!=OFFLINE_SHA:raise ValueError('Offline source requires review')
  original=HeadTags(original).stripped()
  original=manual_ships_shell(original)
+ # 232: reuse the reviewed online CSV and scroll seams before CSP hashing.
+ original=shortlist_csv_safe(shortlist_scroll(original))
  # All offline network capabilities disabled, including code-level fetch.
  for name in ('AI_PROXY_URL','AIS_PROXY_URL','BUILTIN_GEMINI_KEYS','BUILTIN_GROQ_KEYS','BUILTIN_MISTRAL_KEYS','BUILTIN_NVIDIA_KEYS'):
   pattern=r'(const\s+'+name+r"\s*=\s*)'[^']*'"

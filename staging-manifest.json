@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 2172,
+  "tests": 2175,
   "files": [
     {
       "path": ".env.example",
@@ -2081,6 +2081,11 @@
       "sha256": "1d8c28ed84406b508a242b02f8131c14d76b3ca5ce637338381163ae22e1c387"
     },
     {
+      "path": "integration/OFFLINE232.md",
+      "bytes": 4437,
+      "sha256": "65d3fe2162dcb5d4e1b9ab5a5be7c2510fc882e8065a60c660334075e3d980c9"
+    },
+    {
       "path": "integration/OFFLINE_CYCLE_LIMITS.md",
       "bytes": 1932,
       "sha256": "27486fc2db38e9aea323f3b5afdfb9ba770186d783f294c5a636ea5edcc0cc80"
@@ -2798,12 +2803,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 18581,
-      "sha256": "69e6251435e3bea3970a8a2e88d63b538039e1194d9fc275796693a594d0b7a4"
+      "sha256": "7778835733c5415234590b7bf0cca943a080a19dd98015b90cbbe1d47920184d"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
-      "bytes": 256825,
-      "sha256": "86515b4200c8dd0fa03962f98d8c37b9512239ebfc142c8b322f0802cfba2397"
+      "bytes": 258020,
+      "sha256": "706ef498046ef2b4e23609ee96fc6ba031413d5e6d2eab834020d1e8f0d883e6"
     },
     {
       "path": "integration/dependency_build/README.md",
@@ -3007,8 +3012,8 @@
     },
     {
       "path": "integration/finder_offline.py",
-      "bytes": 3601,
-      "sha256": "29b3d1d48b2cccad00d32a1237de9ce961b3435bde75eb21130501c9c1035b27"
+      "bytes": 3807,
+      "sha256": "36c0442d5096c256685695b1bfa0ef23ca9fcc0b7db748cb7b9137e75a6be2ea"
     },
     {
       "path": "integration/fixed_parser_pipeline.py",
@@ -4338,7 +4343,7 @@
     {
       "path": "integration/ui/finder-offline-sw.js",
       "bytes": 1238,
-      "sha256": "cdb53a8f0defd7ea79de13ad8cc5069ac0ce99b8459c268c726a58512f78b776"
+      "sha256": "115a531add06e5a37121cf3d8f7f57b80ed1c95b5b2f3b98861ecd4f1316b0bf"
     },
     {
       "path": "integration/ui/geo_map.css",
@@ -5622,8 +5627,8 @@
     },
     {
       "path": "tests/browser_finder_offline.py",
-      "bytes": 3208,
-      "sha256": "4a085a0df8f18d263bdc341c45c90178ab3438ffc440fc57d2a5976ac8d42418"
+      "bytes": 3237,
+      "sha256": "65c93057253421f444b0d58dbffa6e8f663c5f2edd78bb6e1d38f4a5206a23f9"
     },
     {
       "path": "tests/browser_finder_report227.py",
@@ -5644,6 +5649,11 @@
       "path": "tests/browser_map.py",
       "bytes": 1774,
       "sha256": "3c360c1b3c0c2cee4c2610841bef27643011a481a14cd0c0bbb01264f6aad55e"
+    },
+    {
+      "path": "tests/browser_offline232.py",
+      "bytes": 7967,
+      "sha256": "1ba7c237f01af81676fdd59cfb01562b99fa70a7aeda13496b99a1ddaee7ba94"
     },
     {
       "path": "tests/browser_report228.py",
@@ -6407,8 +6417,8 @@
     },
     {
       "path": "tests/test_finder_offline.py",
-      "bytes": 2340,
-      "sha256": "9e014300e355211f12b8514d061ba007c505253ce88de4febd309fb97481e585"
+      "bytes": 2439,
+      "sha256": "aec540f052dcced74139766deb41317769c0720a5ab7be87cfdbd4ea2df8966d"
     },
     {
       "path": "tests/test_fixed_feedparser_audit.py",
@@ -6674,6 +6684,11 @@
       "path": "tests/test_niti_data_inventory.py",
       "bytes": 2048,
       "sha256": "4bcad1f9ab5009b02221f73bfc9f6ba718acb3aec9fe51fc381d4cbae131fd66"
+    },
+    {
+      "path": "tests/test_offline232.py",
+      "bytes": 2803,
+      "sha256": "06969377ed352e42c495f14d351a657a108e9a4b174789d0dc9a45717d621516"
     },
     {
       "path": "tests/test_offline_collection_cycle.py",

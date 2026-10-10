@@ -110,7 +110,8 @@
         "tests/browser_finder_report227.py",
         "tests/browser_report228.py",
         "tests/test_finder198bb.py",
-        "tests/test_finder_nested.py"
+        "tests/test_finder_nested.py",
+        "tests/test_offline232.py"
       ],
       "stdlib": true,
       "distributions": [],
@@ -704,6 +705,7 @@
         "integration/news_export/original_contract.py",
         "integration/news_export/original_stream.py",
         "tests/browser_finder_nested.py",
+        "tests/browser_offline232.py",
         "tests/news_export/test_export.py",
         "tests/news_export/test_export_route.py",
         "tests/news_export/test_fixture_http.py",
@@ -840,6 +842,7 @@
         "tests/browser_feature_finder.py",
         "tests/browser_finder_network.py",
         "tests/browser_finder_report227.py",
+        "tests/browser_offline232.py",
         "tests/browser_report228.py",
         "tests/browser_stream_config.py",
         "tests/browser_weather231.py",
@@ -1310,6 +1313,7 @@
         "tests/browser_feature_finder.py",
         "tests/browser_finder_network.py",
         "tests/browser_finder_report227.py",
+        "tests/browser_offline232.py",
         "tests/browser_report228.py",
         "tests/browser_weather231.py",
         "tests/news_export/test_fixture_http.py",
@@ -1345,6 +1349,7 @@
         "tests/test_monitor155.py",
         "tests/test_native200bb.py",
         "tests/test_native_mail_projection224.py",
+        "tests/test_offline232.py",
         "tests/test_package_manifest.py",
         "tests/test_page_watch_contract.py",
         "tests/test_post_json207.py",
@@ -1651,6 +1656,7 @@
         "tests/browser_finder_static.py",
         "tests/browser_loaded_news.py",
         "tests/browser_map.py",
+        "tests/browser_offline232.py",
         "tests/browser_report228.py",
         "tests/browser_report_styles.py",
         "tests/browser_sample_volume.py",
@@ -1774,6 +1780,7 @@
         "tests/test_news182.py",
         "tests/test_news_pages185.py",
         "tests/test_news_scroll186.py",
+        "tests/test_offline232.py",
         "tests/test_offline_collection_cycle.py",
         "tests/test_original_dashboard_payloads.py",
         "tests/test_original_reports.py",
@@ -2062,6 +2069,7 @@
         "integration/news_export/original_stream.py",
         "integration/schedule_occurrence205.py",
         "tests/browser_finder_nested.py",
+        "tests/browser_offline232.py",
         "tests/news_export/test_export.py",
         "tests/news_export/test_export_route.py",
         "tests/news_export/test_fixture_http.py",
@@ -2195,6 +2203,7 @@
         "tests/browser_finder_static.py",
         "tests/browser_loaded_news.py",
         "tests/browser_map.py",
+        "tests/browser_offline232.py",
         "tests/browser_report228.py",
         "tests/browser_report_styles.py",
         "tests/browser_sample_volume.py",
@@ -2245,6 +2254,7 @@
         "tests/test_mail_surface217.py",
         "tests/test_monitor155.py",
         "tests/test_native_mail_projection224.py",
+        "tests/test_offline232.py",
         "tests/test_package_manifest.py",
         "tests/test_page_watch_parser_budget.py",
         "tests/test_post_json207.py",
@@ -2375,6 +2385,7 @@
         "tests/browser_feature_finder.py",
         "tests/browser_finder_network.py",
         "tests/browser_finder_report227.py",
+        "tests/browser_offline232.py",
         "tests/browser_report228.py",
         "tests/browser_weather231.py",
         "tests/digest_cold_probe.py",
@@ -2390,6 +2401,7 @@
         "tests/test_geo_probe_process.py",
         "tests/test_geo_read_factory.py",
         "tests/test_geo_sample_probe.py",
+        "tests/test_offline232.py",
         "tests/test_preview_launcher.py",
         "tests/test_report227.py",
         "tests/test_report228.py",
@@ -2482,6 +2494,7 @@
         "tests/browser_finder_static.py",
         "tests/browser_loaded_news.py",
         "tests/browser_map.py",
+        "tests/browser_offline232.py",
         "tests/browser_report228.py",
         "tests/browser_report_styles.py",
         "tests/browser_sample_volume.py",
@@ -2553,6 +2566,7 @@
         "tests/test_native_mail_projection224.py",
         "tests/test_news182.py",
         "tests/test_news_scroll186.py",
+        "tests/test_offline232.py",
         "tests/test_preservation.py",
         "tests/test_preview_launcher.py",
         "tests/test_protocol145_inventory.py",
@@ -2661,6 +2675,7 @@
         "tests/browser_finder_static.py",
         "tests/browser_loaded_news.py",
         "tests/browser_map.py",
+        "tests/browser_offline232.py",
         "tests/browser_report228.py",
         "tests/browser_report_styles.py",
         "tests/browser_sample_volume.py",
@@ -2669,7 +2684,8 @@
         "tests/browser_tariff_evidence.py",
         "tests/browser_watch_updates.py",
         "tests/browser_weather231.py",
-        "tests/browser_weekly.py"
+        "tests/browser_weekly.py",
+        "tests/test_offline232.py"
       ],
       "stdlib": false,
       "distributions": [
@@ -3168,6 +3184,7 @@
         "tests/test_geo_only_runtime.py",
         "tests/test_geo_probe_http.py",
         "tests/test_mail_surface217.py",
+        "tests/test_offline232.py",
         "tests/test_preview_access.py",
         "tests/test_report227.py",
         "tests/test_report228.py",
@@ -3309,6 +3326,7 @@
         "tests/geospatial/test_geospatial.py",
         "tests/test_finder_browser229.py",
         "tests/test_finder_network230.py",
+        "tests/test_offline232.py",
         "tests/test_report227.py",
         "tests/test_report228.py"
       ],
@@ -3489,6 +3507,7 @@
         "tests/test_monitor155.py",
         "tests/test_native_mail_projection224.py",
         "tests/test_news_scroll186.py",
+        "tests/test_offline232.py",
         "tests/test_page_watch_parser_budget.py",
         "tests/test_preview_access.py",
         "tests/test_proxy164.py",
@@ -3563,6 +3582,7 @@
         "tests/browser_finder_static.py",
         "tests/browser_loaded_news.py",
         "tests/browser_map.py",
+        "tests/browser_offline232.py",
         "tests/browser_report228.py",
         "tests/browser_report_styles.py",
         "tests/browser_sample_volume.py",
@@ -3602,6 +3622,7 @@
         "tests/test_mail_preflight225.py",
         "tests/test_mail_rederive221.py",
         "tests/test_native_mail_projection224.py",
+        "tests/test_offline232.py",
         "tests/test_page_watch_parser_budget.py",
         "tests/test_preview_access.py",
         "tests/test_preview_launcher.py",
@@ -3910,6 +3931,7 @@
         "tests/browser_finder_static.py",
         "tests/browser_loaded_news.py",
         "tests/browser_map.py",
+        "tests/browser_offline232.py",
         "tests/browser_report228.py",
         "tests/browser_sample_volume.py",
         "tests/browser_ships226.py",
@@ -4219,6 +4241,7 @@
         "tests/test_news182.py",
         "tests/test_news_pages185.py",
         "tests/test_news_scroll186.py",
+        "tests/test_offline232.py",
         "tests/test_offline_collection_cycle.py",
         "tests/test_original_dashboard_payloads.py",
         "tests/test_original_reports.py",
@@ -4419,6 +4442,7 @@
         "tests/browser_finder_static.py",
         "tests/browser_loaded_news.py",
         "tests/browser_map.py",
+        "tests/browser_offline232.py",
         "tests/browser_report228.py",
         "tests/browser_sample_volume.py",
         "tests/browser_ships226.py",
@@ -5081,7 +5105,7 @@
       },
       {
         "path": "integration/finder_offline.py",
-        "sha256": "29b3d1d48b2cccad00d32a1237de9ce961b3435bde75eb21130501c9c1035b27"
+        "sha256": "36c0442d5096c256685695b1bfa0ef23ca9fcc0b7db748cb7b9137e75a6be2ea"
       },
       {
         "path": "integration/fixed_parser_pipeline.py",
@@ -5737,7 +5761,7 @@
       },
       {
         "path": "tests/browser_finder_offline.py",
-        "sha256": "4a085a0df8f18d263bdc341c45c90178ab3438ffc440fc57d2a5976ac8d42418"
+        "sha256": "65c93057253421f444b0d58dbffa6e8f663c5f2edd78bb6e1d38f4a5206a23f9"
       },
       {
         "path": "tests/browser_finder_report227.py",
@@ -5754,6 +5778,10 @@
       {
         "path": "tests/browser_map.py",
         "sha256": "3c360c1b3c0c2cee4c2610841bef27643011a481a14cd0c0bbb01264f6aad55e"
+      },
+      {
+        "path": "tests/browser_offline232.py",
+        "sha256": "1ba7c237f01af81676fdd59cfb01562b99fa70a7aeda13496b99a1ddaee7ba94"
       },
       {
         "path": "tests/browser_report228.py",
@@ -6213,7 +6241,7 @@
       },
       {
         "path": "tests/test_finder_offline.py",
-        "sha256": "9e014300e355211f12b8514d061ba007c505253ce88de4febd309fb97481e585"
+        "sha256": "aec540f052dcced74139766deb41317769c0720a5ab7be87cfdbd4ea2df8966d"
       },
       {
         "path": "tests/test_fixed_feedparser_audit.py",
@@ -6414,6 +6442,10 @@
       {
         "path": "tests/test_news_scroll186.py",
         "sha256": "2d117f639470aa87f566a10c4fc7051d6a4716aa21805a08e8ead6632493265d"
+      },
+      {
+        "path": "tests/test_offline232.py",
+        "sha256": "06969377ed352e42c495f14d351a657a108e9a4b174789d0dc9a45717d621516"
       },
       {
         "path": "tests/test_offline_collection_cycle.py",
