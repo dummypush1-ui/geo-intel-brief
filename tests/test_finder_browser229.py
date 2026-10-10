@@ -1,10 +1,11 @@
+# 231: CSS-only weather wrapping, derived snapshot pins.
 """229 source pins plus opt-in simulated browser test, not provider availability."""
 import hashlib,importlib.util,os,shutil,subprocess,sys,unittest
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 class FinderBrowser229(unittest.TestCase):
  def test_exact_source_and_own_key_seams(self):
-  pins={'src/app.js':'bcd406d75b27b053fc5716d141ca278932115f14e39eca74d19a2284fc59d313','index.html':'e2ed3326bfb8ca0805677e026438ff412611eef712526dea17b49d6c7fa30625'}
+  pins={'src/app.js':'bcd406d75b27b053fc5716d141ca278932115f14e39eca74d19a2284fc59d313','index.html':'8e1ce9c7fa5da880085afb2b8a20e6fbc3195d8b24f4ffdde4bee09c787d0967'}
   for name,sha in pins.items():self.assertEqual(hashlib.sha256((ROOT/name).read_bytes()).hexdigest(),sha)
   text=(ROOT/'src/app.js').read_text()
   start=text.index('const ownProvider = () => {');end=text.index('\n};',start)+3

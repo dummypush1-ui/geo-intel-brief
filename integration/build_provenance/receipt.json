@@ -93,7 +93,7 @@
     "src/sancgap.ts": "dcac8cb4f6ee76a59126973cc7174953a63ff8384d0d63931c2413281ccf9800",
     "src/sanctions.ts": "78e3cea19af9e70d7278839b00710d4f241e3e3b6926637c06ce3204d231c0af",
     "src/scomet.ts": "ea4edf02f52a9231f80bfbb1b2bc3eb8cce9d8df03cd244fe9615bd470a545e6",
-    "src/style.css": "48379c05aa832470b15f31373c853699fbb74c4b6e4c7f5dee94a100b6f95937",
+    "src/style.css": "7cf5824ee06937cb03ef31b76733f26e930b02529d0e22340ae4eaf15041518c",
     "src/trademap.ts": "3e38e1ce672af1990df80f1668f237d8b60efda235093e072bc7f3c55d4f09ac",
     "src/tradepartners.ts": "470ff4c944038579e2efe08ef534dca2a219778645a3e7ccfd455e67c9e4893a",
     "src/tradeseson.ts": "5709c3a9044af03c4cfd6fb6290fc87828851c1c61d0a4e9260ca59c89e17c94",
@@ -103,8 +103,8 @@
     "vendor/pako-inflate.min.js": "2ca27e9a8dae569cdeac42752ed1aed1afeff7f19282d3cc12c0aaa54a08bc04"
   },
   "outputs": {
-    "index.html": "e2ed3326bfb8ca0805677e026438ff412611eef712526dea17b49d6c7fa30625",
-    "offline.html": "b55d6b0cf2be2ff3ddf366c4afa23d452367265ef2e85a31b9a4fb6cd411b486",
+    "index.html": "8e1ce9c7fa5da880085afb2b8a20e6fbc3195d8b24f4ffdde4bee09c787d0967",
+    "offline.html": "0e2e85ea54f276c3c50984e8c26b9400e1deee9f4b8a035a8866e56c2455b65b",
     "sw.js": "477ca5f0aa5b784932e11f3f75d67a873798ac5ea85d463b09560c33bcdbcbb6",
     "data.d6d1b417562b.js": "d6d1b417562bad99e7b434605d63966772749d573375fb10d74ee52cb6bb82f6"
   },

@@ -1,3 +1,4 @@
+# 231: CSS-only weather wrapping, derived snapshot pins.
 # 228: reviewed popup CSP repair and local generated snapshot pins.
 import unittest,subprocess,hashlib
 from pathlib import Path
@@ -15,7 +16,7 @@ class Tests(unittest.TestCase):
   self.assertNotIn('/account/signup',s);self.assertNotIn('/account/reset',s)
  def test_original_ownkey_files_unchanged(self):
   # Reviewed base bytes, not a claim of live behavior.
-  expected={'src/app.js': 'bcd406d75b27b053fc5716d141ca278932115f14e39eca74d19a2284fc59d313', 'offline.html': 'b55d6b0cf2be2ff3ddf366c4afa23d452367265ef2e85a31b9a4fb6cd411b486', 'index.html': 'e2ed3326bfb8ca0805677e026438ff412611eef712526dea17b49d6c7fa30625'}
+  expected={'src/app.js': 'bcd406d75b27b053fc5716d141ca278932115f14e39eca74d19a2284fc59d313', 'offline.html': '0e2e85ea54f276c3c50984e8c26b9400e1deee9f4b8a035a8866e56c2455b65b', 'index.html': '8e1ce9c7fa5da880085afb2b8a20e6fbc3195d8b24f4ffdde4bee09c787d0967'}
   for path,digest in expected.items():self.assertEqual(hashlib.sha256((ROOT/path).read_bytes()).hexdigest(),digest,path)
  def test_real_wire_shapes_and_handler_label(self):
   from tests.test_finder198c import Tests as ServerFixture

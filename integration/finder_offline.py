@@ -1,3 +1,4 @@
+# 231: CSS-only weather wrapping, derived snapshot pins.
 # 228: reviewed popup CSP repair and local generated snapshot pins.
 """Served-copy offline seam. Original source reviewed for196 token removal; public snapshot only."""
 import re,hashlib,base64
@@ -9,7 +10,7 @@ PWA_REGISTER="""if ('serviceWorker' in navigator && location.protocol === 'https
     window.addEventListener('load', function () { navigator.serviceWorker.register('./sw.js').catch(function () {}); });
   }"""
 
-OFFLINE_SHA = 'b55d6b0cf2be2ff3ddf366c4afa23d452367265ef2e85a31b9a4fb6cd411b486'
+OFFLINE_SHA = '0e2e85ea54f276c3c50984e8c26b9400e1deee9f4b8a035a8866e56c2455b65b'
 
 def shell(original):
  if hashlib.sha256(original.encode()).hexdigest()!=OFFLINE_SHA:raise ValueError('Offline source requires review')

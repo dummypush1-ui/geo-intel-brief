@@ -1,3 +1,4 @@
+# 231: CSS-only weather wrapping, derived snapshot pins.
 """229 current own-key report fixture. No real provider request or shared failover proof."""
 from pathlib import Path
 import sys,threading,json,os,re,hashlib,subprocess
@@ -9,7 +10,7 @@ from playwright.sync_api import sync_playwright
 root=Path(__file__).resolve().parents[1];sys.path.insert(0,str(root))
 from feature_finder_prep import shell as mod
 APP_SHA='bcd406d75b27b053fc5716d141ca278932115f14e39eca74d19a2284fc59d313'
-INDEX_SHA='e2ed3326bfb8ca0805677e026438ff412611eef712526dea17b49d6c7fa30625'
+INDEX_SHA='8e1ce9c7fa5da880085afb2b8a20e6fbc3195d8b24f4ffdde4bee09c787d0967'
 assert hashlib.sha256((root/'src/app.js').read_bytes()).hexdigest()==APP_SHA
 assert hashlib.sha256((root/'index.html').read_bytes()).hexdigest()==INDEX_SHA
 shell=mod.prepare_shell((root/'index.html').read_text())

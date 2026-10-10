@@ -842,6 +842,7 @@
         "tests/browser_finder_report227.py",
         "tests/browser_report228.py",
         "tests/browser_stream_config.py",
+        "tests/browser_weather231.py",
         "tests/digest_cold_probe.py",
         "tests/geonews_digest/test_digest.py",
         "tests/geospatial/preview/make_payload.py",
@@ -1310,6 +1311,7 @@
         "tests/browser_finder_network.py",
         "tests/browser_finder_report227.py",
         "tests/browser_report228.py",
+        "tests/browser_weather231.py",
         "tests/news_export/test_fixture_http.py",
         "tests/news_export/test_original_contract.py",
         "tests/news_export/test_original_stream.py",
@@ -1365,7 +1367,8 @@
         "tests/test_stream_config.py",
         "tests/test_stream_disk.py",
         "tests/test_stream_fixture_app.py",
-        "tests/test_stream_revision.py"
+        "tests/test_stream_revision.py",
+        "tests/test_weather231.py"
       ],
       "stdlib": true,
       "distributions": [],
@@ -1477,6 +1480,7 @@
         "tests/test_sender_scope222.py",
         "tests/test_smtp_caller213.py",
         "tests/test_smtp_config204.py",
+        "tests/test_weather231.py",
         "tests/text_matching/test_matching.py"
       ],
       "stdlib": true,
@@ -1653,6 +1657,7 @@
         "tests/browser_stream_config.py",
         "tests/browser_tariff_evidence.py",
         "tests/browser_watch_updates.py",
+        "tests/browser_weather231.py",
         "tests/browser_weekly.py",
         "tests/collection_receipts/test_protocol.py",
         "tests/digest_cold_probe.py",
@@ -2197,6 +2202,7 @@
         "tests/browser_stream_config.py",
         "tests/browser_tariff_evidence.py",
         "tests/browser_watch_updates.py",
+        "tests/browser_weather231.py",
         "tests/browser_weekly.py",
         "tests/digest_cold_probe.py",
         "tests/geospatial/preview/make_payload.py",
@@ -2370,6 +2376,7 @@
         "tests/browser_finder_network.py",
         "tests/browser_finder_report227.py",
         "tests/browser_report228.py",
+        "tests/browser_weather231.py",
         "tests/digest_cold_probe.py",
         "tests/geospatial/test_geospatial.py",
         "tests/news_export/test_export.py",
@@ -2388,6 +2395,7 @@
         "tests/test_report228.py",
         "tests/test_smtp_caller213.py",
         "tests/test_stream_disk.py",
+        "tests/test_weather231.py",
         "tests/weekly_report/test_report.py"
       ],
       "stdlib": true,
@@ -2481,6 +2489,7 @@
         "tests/browser_stream_config.py",
         "tests/browser_tariff_evidence.py",
         "tests/browser_watch_updates.py",
+        "tests/browser_weather231.py",
         "tests/browser_weekly.py",
         "tests/collection_outcomes/test_callers.py",
         "tests/collection_outcomes/test_status.py",
@@ -2582,6 +2591,7 @@
         "tests/test_token196.py",
         "tests/test_watch_updates.py",
         "tests/test_watchlist_public_fix.py",
+        "tests/test_weather231.py",
         "tests/text_matching/test_matching.py",
         "tests/weekly_report/test_report.py"
       ],
@@ -2658,6 +2668,7 @@
         "tests/browser_stream_config.py",
         "tests/browser_tariff_evidence.py",
         "tests/browser_watch_updates.py",
+        "tests/browser_weather231.py",
         "tests/browser_weekly.py"
       ],
       "stdlib": false,
@@ -3493,7 +3504,8 @@
         "tests/test_ships226.py",
         "tests/test_table_edit151.py",
         "tests/test_token196.py",
-        "tests/test_watch_updates.py"
+        "tests/test_watch_updates.py",
+        "tests/test_weather231.py"
       ],
       "stdlib": true,
       "distributions": [],
@@ -3558,6 +3570,7 @@
         "tests/browser_stream_config.py",
         "tests/browser_tariff_evidence.py",
         "tests/browser_watch_updates.py",
+        "tests/browser_weather231.py",
         "tests/browser_weekly.py",
         "tests/digest_cold_probe.py",
         "tests/geospatial/preview/make_payload.py",
@@ -3600,6 +3613,7 @@
         "tests/test_sender_scope222.py",
         "tests/test_supplied_feed_fixture.py",
         "tests/test_supplied_fulltext_fixture.py",
+        "tests/test_weather231.py",
         "tests/text_matching/test_matching.py"
       ],
       "stdlib": true,
@@ -3902,6 +3916,7 @@
         "tests/browser_stream_config.py",
         "tests/browser_tariff_evidence.py",
         "tests/browser_watch_updates.py",
+        "tests/browser_weather231.py",
         "tests/browser_weekly.py",
         "tests/native200_wire_fixture.py",
         "tests/news_export/test_fixture_serving.py",
@@ -4280,6 +4295,7 @@
         "tests/test_token196.py",
         "tests/test_watch_updates.py",
         "tests/test_watchlist_public_fix.py",
+        "tests/test_weather231.py",
         "tests/test_weekly_routes.py",
         "tests/test_workspace.py",
         "tests/test_youtube_links.py",
@@ -4335,6 +4351,7 @@
         "tests/browser_finder_network.py",
         "tests/browser_finder_report227.py",
         "tests/browser_report228.py",
+        "tests/browser_weather231.py",
         "tests/test_dashboard167.py",
         "tests/test_dashboard_stats.py",
         "tests/test_geo_queue_fixture.py"
@@ -4408,6 +4425,7 @@
         "tests/browser_stream_config.py",
         "tests/browser_tariff_evidence.py",
         "tests/browser_watch_updates.py",
+        "tests/browser_weather231.py",
         "tests/browser_weekly.py",
         "tests/news_export/test_fixture_http.py",
         "tests/news_export/test_fixture_serving.py",
@@ -4695,7 +4713,7 @@
       },
       {
         "path": "feature_finder_prep/shell.py",
-        "sha256": "ada6e2cdb8966cceebb42a39a9c159d9aba9173b896ca57134631adfd6f184e2"
+        "sha256": "dc2e4d2b34e859cef7180ae880f2f52c303c97502bc836944ff87da6722ed618"
       },
       {
         "path": "feature_mail_mount/__init__.py",
@@ -5063,7 +5081,7 @@
       },
       {
         "path": "integration/finder_offline.py",
-        "sha256": "2b112b3e9806ff7d9efeb70a17b5194dd68cc8a7332689741b6028cc83295309"
+        "sha256": "29b3d1d48b2cccad00d32a1237de9ce961b3435bde75eb21130501c9c1035b27"
       },
       {
         "path": "integration/fixed_parser_pipeline.py",
@@ -5703,7 +5721,7 @@
       },
       {
         "path": "tests/browser_feature_finder.py",
-        "sha256": "56ca6072e029935b821e1fe143f59887cd34e80f933f3a3e38654c2709b15cba"
+        "sha256": "6bfadfa816cd77bf91dccfca25e554953afde41b2b5bc4b60fc7f38680ebdee5"
       },
       {
         "path": "tests/browser_finder198d.py",
@@ -5715,11 +5733,11 @@
       },
       {
         "path": "tests/browser_finder_network.py",
-        "sha256": "6b6613a39a1df74d23b8436ebe5e6445c07de13a36e656b27274a788510dfa8a"
+        "sha256": "d3db170905ab72a383852bcdf11e110c04ae9903db132469687f064451230d02"
       },
       {
         "path": "tests/browser_finder_offline.py",
-        "sha256": "4330334261ecdbce5cba6b16d4b7fb2d36740594c9773eb250c1b344e078646d"
+        "sha256": "4a085a0df8f18d263bdc341c45c90178ab3438ffc440fc57d2a5976ac8d42418"
       },
       {
         "path": "tests/browser_finder_report227.py",
@@ -5764,6 +5782,10 @@
       {
         "path": "tests/browser_watch_updates.py",
         "sha256": "9ed845f92d7c43ee93df92525265f99c9198bf4ce58ea3689e8c167dc5061b59"
+      },
+      {
+        "path": "tests/browser_weather231.py",
+        "sha256": "13685d2ba78a2f93695c2a885789fbd31e464e4d18da03849b60e69ed5f1d596"
       },
       {
         "path": "tests/browser_weekly.py",
@@ -6163,7 +6185,7 @@
       },
       {
         "path": "tests/test_finder198d.py",
-        "sha256": "3bd5ade4889cef2cee091b32d8be1add13b8c7a302bb0c7f34747747c27509ce"
+        "sha256": "984501487b8a0305128aaebbcbdbbca585c07f9222ca8efb71882759ddbc3727"
       },
       {
         "path": "tests/test_finder198ops.py",
@@ -6171,7 +6193,7 @@
       },
       {
         "path": "tests/test_finder_browser229.py",
-        "sha256": "014917f67fc6e9024d74f72e6ad012ec6a04d54f23cc62db3fda17bda9bb1cb3"
+        "sha256": "3ca5f609dd3a7fdb9f73e95cca6fed4cd412fd08a9a4e9e083232f21ada4a505"
       },
       {
         "path": "tests/test_finder_index.py",
@@ -6696,6 +6718,10 @@
       {
         "path": "tests/test_watchlist_public_fix.py",
         "sha256": "c2ec0dd9da121bf9ee302921769a1942e26982d315293d98e46fd5dcf07154a4"
+      },
+      {
+        "path": "tests/test_weather231.py",
+        "sha256": "1a60490cd1986d80e330bc924c1bcd9d39e08539ab8b9e437816bd4d64f2a87e"
       },
       {
         "path": "tests/test_weekly_routes.py",

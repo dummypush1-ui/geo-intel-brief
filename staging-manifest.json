@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 2169,
+  "tests": 2172,
   "files": [
     {
       "path": ".env.example",
@@ -1512,8 +1512,8 @@
     },
     {
       "path": "feature_finder_prep/shell.py",
-      "bytes": 5388,
-      "sha256": "ada6e2cdb8966cceebb42a39a9c159d9aba9173b896ca57134631adfd6f184e2"
+      "bytes": 5441,
+      "sha256": "dc2e4d2b34e859cef7180ae880f2f52c303c97502bc836944ff87da6722ed618"
     },
     {
       "path": "feature_mail_mount/DESIGN.md",
@@ -1717,8 +1717,8 @@
     },
     {
       "path": "index.html",
-      "bytes": 513343,
-      "sha256": "e2ed3326bfb8ca0805677e026438ff412611eef712526dea17b49d6c7fa30625"
+      "bytes": 513727,
+      "sha256": "8e1ce9c7fa5da880085afb2b8a20e6fbc3195d8b24f4ffdde4bee09c787d0967"
     },
     {
       "path": "integration/API-V1-187.md",
@@ -2281,6 +2281,11 @@
       "sha256": "9bc130bfd55e72ea1490a0e0773b172617565cefb10344a151feae322576badb"
     },
     {
+      "path": "integration/WEATHER231.md",
+      "bytes": 4031,
+      "sha256": "402d98ea12a61fbf5416829f83588863f0f8faba2f41758fa1d5516ca80a1a49"
+    },
+    {
       "path": "integration/WEEKLY_REPORT_LIMITS.md",
       "bytes": 961,
       "sha256": "13fd36f41aa34e5d4436ef151406201ede23ff4afd34bc4b0ed327491fbf643c"
@@ -2553,7 +2558,7 @@
     {
       "path": "integration/build_provenance/receipt.json",
       "bytes": 9800,
-      "sha256": "22a369d58fdd0085fbd3982f6d330dd1a67eed41a84c2487ee693994b9e148e6"
+      "sha256": "92ce2a57fc4c87dc9a162b294444ebfe9022e0627738fc9a6c256d36ce4a7640"
     },
     {
       "path": "integration/collection_prepare.py",
@@ -2793,12 +2798,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 18581,
-      "sha256": "06fb7c3ce4ac2a8f3f8f31c0e9c6354f08cbf6d7a8ea05b9827b580f8c2ae2d2"
+      "sha256": "69e6251435e3bea3970a8a2e88d63b538039e1194d9fc275796693a594d0b7a4"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
-      "bytes": 255849,
-      "sha256": "8fb470afd2540a7a9881403e386c13db46ddace369dffb78e11c26e13a26d598"
+      "bytes": 256825,
+      "sha256": "86515b4200c8dd0fa03962f98d8c37b9512239ebfc142c8b322f0802cfba2397"
     },
     {
       "path": "integration/dependency_build/README.md",
@@ -3002,8 +3007,8 @@
     },
     {
       "path": "integration/finder_offline.py",
-      "bytes": 3544,
-      "sha256": "2b112b3e9806ff7d9efeb70a17b5194dd68cc8a7332689741b6028cc83295309"
+      "bytes": 3601,
+      "sha256": "29b3d1d48b2cccad00d32a1237de9ce961b3435bde75eb21130501c9c1035b27"
     },
     {
       "path": "integration/fixed_parser_pipeline.py",
@@ -4333,7 +4338,7 @@
     {
       "path": "integration/ui/finder-offline-sw.js",
       "bytes": 1238,
-      "sha256": "88a84801856db02b0d9a7587bd10795c337d31ee6f67422f6fd36ff771c51dac"
+      "sha256": "cdb53a8f0defd7ea79de13ad8cc5069ac0ce99b8459c268c726a58512f78b776"
     },
     {
       "path": "integration/ui/geo_map.css",
@@ -4822,8 +4827,8 @@
     },
     {
       "path": "offline.html",
-      "bytes": 19876757,
-      "sha256": "b55d6b0cf2be2ff3ddf366c4afa23d452367265ef2e85a31b9a4fb6cd411b486"
+      "bytes": 19877141,
+      "sha256": "0e2e85ea54f276c3c50984e8c26b9400e1deee9f4b8a035a8866e56c2455b65b"
     },
     {
       "path": "package.json",
@@ -5412,8 +5417,8 @@
     },
     {
       "path": "src/style.css",
-      "bytes": 30626,
-      "sha256": "48379c05aa832470b15f31373c853699fbb74c4b6e4c7f5dee94a100b6f95937"
+      "bytes": 31010,
+      "sha256": "7cf5824ee06937cb03ef31b76733f26e930b02529d0e22340ae4eaf15041518c"
     },
     {
       "path": "src/trademap.ts",
@@ -5597,8 +5602,8 @@
     },
     {
       "path": "tests/browser_feature_finder.py",
-      "bytes": 8644,
-      "sha256": "56ca6072e029935b821e1fe143f59887cd34e80f933f3a3e38654c2709b15cba"
+      "bytes": 8701,
+      "sha256": "6bfadfa816cd77bf91dccfca25e554953afde41b2b5bc4b60fc7f38680ebdee5"
     },
     {
       "path": "tests/browser_finder198d.py",
@@ -5612,13 +5617,13 @@
     },
     {
       "path": "tests/browser_finder_network.py",
-      "bytes": 10748,
-      "sha256": "6b6613a39a1df74d23b8436ebe5e6445c07de13a36e656b27274a788510dfa8a"
+      "bytes": 10751,
+      "sha256": "d3db170905ab72a383852bcdf11e110c04ae9903db132469687f064451230d02"
     },
     {
       "path": "tests/browser_finder_offline.py",
-      "bytes": 3176,
-      "sha256": "4330334261ecdbce5cba6b16d4b7fb2d36740594c9773eb250c1b344e078646d"
+      "bytes": 3208,
+      "sha256": "4a085a0df8f18d263bdc341c45c90178ab3438ffc440fc57d2a5976ac8d42418"
     },
     {
       "path": "tests/browser_finder_report227.py",
@@ -5674,6 +5679,11 @@
       "path": "tests/browser_watch_updates.py",
       "bytes": 3240,
       "sha256": "9ed845f92d7c43ee93df92525265f99c9198bf4ce58ea3689e8c167dc5061b59"
+    },
+    {
+      "path": "tests/browser_weather231.py",
+      "bytes": 8718,
+      "sha256": "13685d2ba78a2f93695c2a885789fbd31e464e4d18da03849b60e69ed5f1d596"
     },
     {
       "path": "tests/browser_weekly.py",
@@ -6362,8 +6372,8 @@
     },
     {
       "path": "tests/test_finder198d.py",
-      "bytes": 2825,
-      "sha256": "3bd5ade4889cef2cee091b32d8be1add13b8c7a302bb0c7f34747747c27509ce"
+      "bytes": 2882,
+      "sha256": "984501487b8a0305128aaebbcbdbbca585c07f9222ca8efb71882759ddbc3727"
     },
     {
       "path": "tests/test_finder198ops.py",
@@ -6372,8 +6382,8 @@
     },
     {
       "path": "tests/test_finder_browser229.py",
-      "bytes": 2440,
-      "sha256": "014917f67fc6e9024d74f72e6ad012ec6a04d54f23cc62db3fda17bda9bb1cb3"
+      "bytes": 2497,
+      "sha256": "3ca5f609dd3a7fdb9f73e95cca6fed4cd412fd08a9a4e9e083232f21ada4a505"
     },
     {
       "path": "tests/test_finder_index.py",
@@ -7044,6 +7054,11 @@
       "path": "tests/test_watchlist_public_fix.py",
       "bytes": 2049,
       "sha256": "c2ec0dd9da121bf9ee302921769a1942e26982d315293d98e46fd5dcf07154a4"
+    },
+    {
+      "path": "tests/test_weather231.py",
+      "bytes": 2362,
+      "sha256": "1a60490cd1986d80e330bc924c1bcd9d39e08539ab8b9e437816bd4d64f2a87e"
     },
     {
       "path": "tests/test_weekly_routes.py",

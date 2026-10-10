@@ -1,3 +1,4 @@
+# 231: CSS-only weather wrapping, derived snapshot pins.
 """230 local SIMULATED network fixture, never a real service accuracy check."""
 import sys,threading,json,os,hashlib
 from pathlib import Path
@@ -9,7 +10,7 @@ from integration.finder_network import FINDER_CONNECT_ORIGINS
 from werkzeug.serving import make_server,WSGIRequestHandler
 from playwright.sync_api import sync_playwright
 ROOT=Path(__file__).resolve().parents[1]
-PINS={'src/app.js': 'bcd406d75b27b053fc5716d141ca278932115f14e39eca74d19a2284fc59d313', 'index.html': 'e2ed3326bfb8ca0805677e026438ff412611eef712526dea17b49d6c7fa30625', 'integration/news_api.py': '1b58e128aed786137908675be01f8629462ccaf24bf969cea4d6ecd86a52edb3', 'feature_finder_prep/shell.py': 'ada6e2cdb8966cceebb42a39a9c159d9aba9173b896ca57134631adfd6f184e2', 'integration/finder_network.py': '07fc045266659eadbefef1b52829c4e185ccdc70a3362fbd076a9d79719b3232'}
+PINS={'src/app.js': 'bcd406d75b27b053fc5716d141ca278932115f14e39eca74d19a2284fc59d313', 'index.html': '8e1ce9c7fa5da880085afb2b8a20e6fbc3195d8b24f4ffdde4bee09c787d0967', 'integration/news_api.py': '1b58e128aed786137908675be01f8629462ccaf24bf969cea4d6ecd86a52edb3', 'feature_finder_prep/shell.py': 'dc2e4d2b34e859cef7180ae880f2f52c303c97502bc836944ff87da6722ed618', 'integration/finder_network.py': '07fc045266659eadbefef1b52829c4e185ccdc70a3362fbd076a9d79719b3232'}
 OUT=Path(os.environ.get('FINDER230_OUT','/tmp/finder230-review'));OUT.mkdir(parents=True,exist_ok=True)
 PLACEHOLDER='SYNTHETIC-PLACEHOLDER-NOT-A-KEY'
 NARRATIVE='SIMULATED TEST plain words. Not a verified AI answer. <b>literal marker</b> & test.'
@@ -60,12 +61,12 @@ try:
      page.evaluate("if(!document.getElementById('fixture-label'))document.body.insertAdjacentHTML('beforeend','<div id=fixture-label style=\"position:fixed;bottom:0;left:0;right:0;z-index:999999;background:#fff3cd;padding:5px\">SIMULATED LOCAL TEST - not official weather/FX or verified AI</div>')")
      assert page.evaluate('document.documentElement.scrollWidth<=innerWidth')
      page.screenshot(path=str(OUT/f'{name}-{width}.png'),full_page=False)
+     # 231 supersedes the historical230clipping check; current geometry stays live.
      if width==390 and name=='success-weather':
       table=page.locator('#portwx-pick').locator('..').locator('.report-table-wrap')
-      dims=table.evaluate('(e)=>({client:e.clientWidth,scroll:e.scrollWidth})');assert dims['scroll']>dims['client']
-      table.evaluate('e=>e.scrollLeft=e.scrollWidth');assert table.evaluate('e=>e.scrollLeft')>0
-      page.screenshot(path=str(OUT/'success-weather-390-scrolled.png'),full_page=False)
-      case['weather_mobile_table']='initially clipped; opposite edges seen at different scroll positions, no whole-value or keyboard proof'
+      dims=table.evaluate('(e)=>({client:e.clientWidth,scroll:e.scrollWidth})');assert dims['scroll']<=dims['client']
+      assert table.locator('td').evaluate_all('es=>es.every(e=>e.scrollWidth<=e.clientWidth)')
+      case['weather_mobile_table']='231: full weather cells fit without horizontal scroll'
     page.set_viewport_size({'width':1100,'height':900})
    if mode in ['success','no-key','429']:
     page.get_by_text('Plain words - what this code covers',exact=True).click();page.locator('#plain-go').click();page.wait_for_function('()=>!V.plainBusy')

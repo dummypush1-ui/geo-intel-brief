@@ -1,3 +1,4 @@
+# 231: CSS-only weather wrapping, derived index pin.
 # 228: reviewed popup CSP repair and local generated snapshot pins.
 # Copyright (c) 2026 Push. All rights reserved.
 """Hash-pinned served-copy seams. Original Finder bytes are never edited.
@@ -8,7 +9,7 @@ network gating. AI errors retain the original static report fallback.
 """
 import hashlib
 
-SOURCE_SHA = 'e2ed3326bfb8ca0805677e026438ff412611eef712526dea17b49d6c7fa30625'
+SOURCE_SHA = '8e1ce9c7fa5da880085afb2b8a20e6fbc3195d8b24f4ffdde4bee09c787d0967'
 
 
 def prepare_shell(source):

@@ -474,6 +474,11 @@ html.dark-mode .report-table thead th, html.dark-mode .fta-t th { background: #3
 html.dark-mode .fta-t td.num, html.dark-mode .sl-note, html.dark-mode .duty-val.none { color: var(--ds-ink-2); }
 @media print { html.dark-mode { --ds-page: #fff; --ds-card: #fff; --ds-ink: #000; --ds-ink-2: #333; --ds-hairline: #bbb; color-scheme: light; } .theme-toggle { display: none !important; } }
 
+/* 231: only the successful two-column port-weather panel, not other tables. */
+#portwx-pick + .report-table-wrap .report-table { min-width: 0; width: 100%; table-layout: fixed; }
+#portwx-pick + .report-table-wrap .report-table td { white-space: normal; overflow-wrap: anywhere; }
+#portwx-pick + .report-table-wrap .report-table td:first-child { width: 40%; overflow-wrap: normal; }
+
 </style>
 <link rel="icon" href="/branding/favicon.ico" sizes="16x16 32x32 48x48">
 <link rel="icon" type="image/png" sizes="48x48" href="/branding/icon-48.png">
