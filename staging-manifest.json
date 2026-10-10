@@ -2807,13 +2807,13 @@
     },
     {
       "path": "integration/dependency_audit/audit.json",
-      "bytes": 18581,
-      "sha256": "0c5d529bf9b00f70757ecc6e71701517a7c68fbd40e0406827691657e85e1fc1"
+      "bytes": 19116,
+      "sha256": "406e01e39cae3ef93dcab0727be4d569cef8199f87c8ba7b8b2c6b3a882cfb0b"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
-      "bytes": 258020,
-      "sha256": "5289dbd6402e448f320f3555044c8f17bc3905ff8a590a39c27c5362702c5503"
+      "bytes": 259616,
+      "sha256": "679207cb45964a3826014789d7ec959b3ac26f77a8a684f81f2c61c3609eb178"
     },
     {
       "path": "integration/dependency_build/README.md",
@@ -4852,8 +4852,8 @@
     },
     {
       "path": "production_entry.py",
-      "bytes": 4131,
-      "sha256": "c3d90ff98c12fb0f4e67a5095a5a474516411317114d19d4659a056a646c8083"
+      "bytes": 6368,
+      "sha256": "b8c9ead7adb1217131e3db74fe3652225fa6225295e5c1cd87cf10bf49311cca"
     },
     {
       "path": "proxy.js",
@@ -7274,6 +7274,21 @@
       "path": "vendor/pako-inflate.min.js",
       "bytes": 22682,
       "sha256": "2ca27e9a8dae569cdeac42752ed1aed1afeff7f19282d3cc12c0aaa54a08bc04"
+    },
+    {
+      "path": "integration/mail_mount_binding.py",
+      "bytes": 3174,
+      "sha256": "be84e2dc8ce8abaec4e6bd80b8f1930e346885b789950e833166efdd727e0d99"
+    },
+    {
+      "path": "tests/test_mail_port.py",
+      "bytes": 6857,
+      "sha256": "c10c8261409735114a775e61082746fb63adfab678555c8ee6a6dcda4e316796"
+    },
+    {
+      "path": "tests/test_production_entry_evidence_guard.py",
+      "bytes": 1380,
+      "sha256": "2927f262484458bc8aaa72440c03bc109c70917437522179db25605207d239eb"
     }
   ]
 }

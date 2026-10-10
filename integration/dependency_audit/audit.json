@@ -580,10 +580,21 @@
   ],
   "static_limit": "AST inventory does not prove conditional/dynamic/runtime imports complete",
   "source_baseline_revision": "4d7f7f342140a144f429d03f82b94a3176f341c2",
-  "source_manifest_sha256": "9ae095da1cf17bf6537ee007075d8665070406ba029fbca6eb4745c256098d5f",
+  "source_manifest_sha256": "61f7d74581f490bb0a66e58e3131d6c86130bbe4686a8443241a19d151f6bd69",
   "artifact_verification": {
     "status": "verified_in_author_environment",
     "method": "SHA256 of each explicit cache wheel; metadata filename version/tag checks; reviewer cache not transferred",
     "unavailable_policy": "unavailable bytes are unverified, never passed verification"
+  },
+  "current_source_supplement": {
+    "scope": "append-only mail port + previously landed guard test; no dependency metadata refresh",
+    "added_paths": [
+      "integration/mail_mount_binding.py",
+      "tests/test_mail_port.py",
+      "tests/test_production_entry_evidence_guard.py"
+    ],
+    "prior_manifest_sha256": "9ae095da1cf17bf6537ee007075d8665070406ba029fbca6eb4745c256098d5f",
+    "current_manifest_sha256": "61f7d74581f490bb0a66e58e3131d6c86130bbe4686a8443241a19d151f6bd69",
+    "historical_revision_unchanged": true
   }
 }

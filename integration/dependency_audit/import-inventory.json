@@ -283,7 +283,9 @@
       "files": [
         "tests/digest_cold_probe.py",
         "tests/geospatial/test_geospatial.py",
-        "tests/news_export/test_export.py"
+        "tests/news_export/test_export.py",
+        "tests/test_mail_port.py",
+        "tests/test_production_entry_evidence_guard.py"
       ],
       "stdlib": true,
       "distributions": [],
@@ -747,12 +749,14 @@
         "integration/geonews_digest/delivery.py",
         "integration/geonews_digest/model.py",
         "integration/mail_bridge.py",
+        "integration/mail_mount_binding.py",
         "integration/news_export/keyset_plan.py",
         "integration/single_db_plan.py",
         "integration/storage_settings.py",
         "tests/test_collector197c.py",
         "tests/test_collector197ea.py",
-        "tests/test_finder198a.py"
+        "tests/test_finder198a.py",
+        "tests/test_mail_port.py"
       ],
       "stdlib": true,
       "distributions": [],
@@ -1029,6 +1033,7 @@
     {
       "import": "feature_mail_mount",
       "files": [
+        "integration/mail_mount_binding.py",
         "tests/test_apps_handlers216.py",
         "tests/test_feature_mail_mount.py",
         "tests/test_mail166.py",
@@ -1474,6 +1479,7 @@
         "tests/test_legacy_bulk_outcome.py",
         "tests/test_legacy_geo_p0.py",
         "tests/test_mail_exclusion223.py",
+        "tests/test_mail_port.py",
         "tests/test_mail_preflight225.py",
         "tests/test_mail_rederive221.py",
         "tests/test_native_mail_projection224.py",
@@ -1793,6 +1799,7 @@
         "tests/test_preview_access.py",
         "tests/test_preview_launcher.py",
         "tests/test_private_news_fields.py",
+        "tests/test_production_entry_evidence_guard.py",
         "tests/test_project_reports.py",
         "tests/test_query_validation188.py",
         "tests/test_recipient_scope220.py",
@@ -2558,6 +2565,7 @@
         "tests/test_mail166.py",
         "tests/test_mail_candidate219.py",
         "tests/test_mail_exclusion223.py",
+        "tests/test_mail_port.py",
         "tests/test_mail_preflight225.py",
         "tests/test_mail_rederive221.py",
         "tests/test_mail_surface217.py",
@@ -2718,7 +2726,8 @@
       "files": [
         "tests/test_collector197c.py",
         "tests/test_factory176.py",
-        "tests/test_host197da.py"
+        "tests/test_host197da.py",
+        "tests/test_production_entry_evidence_guard.py"
       ]
     },
     {
@@ -3619,6 +3628,7 @@
         "tests/test_html209.py",
         "tests/test_mail_candidate219.py",
         "tests/test_mail_exclusion223.py",
+        "tests/test_mail_port.py",
         "tests/test_mail_preflight225.py",
         "tests/test_mail_rederive221.py",
         "tests/test_native_mail_projection224.py",
@@ -4047,6 +4057,7 @@
         "tests/test_geo_article_writer.py",
         "tests/test_legacy_bulk_outcome.py",
         "tests/test_mail_ledger212.py",
+        "tests/test_mail_port.py",
         "tests/test_mongo_account_store.py",
         "tests/test_native200cb.py",
         "tests/test_replay199a.py",
@@ -4222,6 +4233,7 @@
         "tests/test_mail_exclusion223.py",
         "tests/test_mail_ledger212.py",
         "tests/test_mail_operations.py",
+        "tests/test_mail_port.py",
         "tests/test_mail_preflight225.py",
         "tests/test_mail_rederive221.py",
         "tests/test_mail_surface217.py",
@@ -4256,6 +4268,7 @@
         "tests/test_preview_access.py",
         "tests/test_preview_launcher.py",
         "tests/test_private_news_fields.py",
+        "tests/test_production_entry_evidence_guard.py",
         "tests/test_project_reports.py",
         "tests/test_protocol145_inventory.py",
         "tests/test_proxy164.py",
@@ -4699,6 +4712,7 @@
     "tests/test_legacy_bulk_outcome.py",
     "tests/test_legacy_geo_p0.py",
     "tests/test_mail_exclusion223.py",
+    "tests/test_mail_port.py",
     "tests/test_mail_preflight225.py",
     "tests/test_mail_rederive221.py",
     "tests/test_native_mail_projection224.py",
@@ -5250,6 +5264,10 @@
       {
         "path": "integration/mail_ledger212.py",
         "sha256": "990dd7327d685e01fc1a25bc19dabdcc7d946ef5c5db7c1db6defce80abc88a6"
+      },
+      {
+        "path": "integration/mail_mount_binding.py",
+        "sha256": "be84e2dc8ce8abaec4e6bd80b8f1930e346885b789950e833166efdd727e0d99"
       },
       {
         "path": "integration/mail_preflight225.py",
@@ -6368,6 +6386,10 @@
         "sha256": "4cd325ba9576354c67d385d241b6c284376111c4d04c297fa1e6f1a5e5b030d2"
       },
       {
+        "path": "tests/test_mail_port.py",
+        "sha256": "c10c8261409735114a775e61082746fb63adfab678555c8ee6a6dcda4e316796"
+      },
+      {
         "path": "tests/test_mail_preflight225.py",
         "sha256": "5eb0c5a49ab854c82f4cb2e770b0dcd4f1f107fff0d9ad9df10cd98e61fcb0dd"
       },
@@ -6502,6 +6524,10 @@
       {
         "path": "tests/test_private_news_fields.py",
         "sha256": "955439872af7f01f9a6b710161dfdb05ac66fcd6172f9b0c85916bd24b36dce6"
+      },
+      {
+        "path": "tests/test_production_entry_evidence_guard.py",
+        "sha256": "2927f262484458bc8aaa72440c03bc109c70917437522179db25605207d239eb"
       },
       {
         "path": "tests/test_project_reports.py",
@@ -6785,5 +6811,16 @@
       }
     ]
   },
-  "unresolved": []
+  "unresolved": [],
+  "current_source_supplement": {
+    "scope": "append-only mail port + previously landed guard test; no dependency metadata refresh",
+    "added_paths": [
+      "integration/mail_mount_binding.py",
+      "tests/test_mail_port.py",
+      "tests/test_production_entry_evidence_guard.py"
+    ],
+    "prior_manifest_sha256": "9ae095da1cf17bf6537ee007075d8665070406ba029fbca6eb4745c256098d5f",
+    "current_manifest_sha256": "61f7d74581f490bb0a66e58e3131d6c86130bbe4686a8443241a19d151f6bd69",
+    "historical_revision_unchanged": true
+  }
 }
