@@ -33,6 +33,12 @@ def build_production_app(environ, public_builder=None, *, runtime_evidence=None,
         probe_app=create_host_probe(environ)
     flag=environ.get('COLLECTION_ENABLED','false')
     if flag not in ('false','true'):raise ValueError('Exact collection switch required')
+    # Do not import the Flask collector stack merely to reject an incomplete
+    # activation request.  This keeps the production entry fail-closed in a
+    # minimal runtime and makes the required evidence explicit at its boundary.
+    if flag == 'true' and runtime_evidence is None:
+        from integration.collector197_runtime_evidence import EvidenceRefused
+        raise EvidenceRefused('Verified runtime evidence required before enabling collection')
     collector=None
     if flag=='true':
         import time
