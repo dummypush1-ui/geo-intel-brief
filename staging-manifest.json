@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 2175,
+  "tests": 1742,
   "files": [
     {
       "path": ".env.example",
@@ -22,8 +22,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 913666,
-      "sha256": "bb3cc4bc9b7388d6568077fcea1e3396114be028faf4d46f46f82e85adbe0b4d"
+      "bytes": 916861,
+      "sha256": "3d066cfc5be5b39e5e25c7f45384fad5692d72172bc68bc93976fded32aa2a28"
     },
     {
       "path": "ai-agent.mjs",
@@ -1801,6 +1801,46 @@
       "sha256": "4cc3dfaedd5b98b46ae72a579b5ed4f43b5c353c8cf14d26349e457c3a20a465"
     },
     {
+      "path": "integration/collector_actions/entry.py",
+      "bytes": 6403,
+      "sha256": "664f9fb04fa0a052580b4a454421d01f6be9c0ca4f340d10c88e3fe056d75ba8"
+    },
+    {
+      "path": "integration/collector_actions/launch.sh",
+      "bytes": 3812,
+      "sha256": "e758f2470d721057d72a83e60b4e489132ee110151e1f9264ae54359122e1925"
+    },
+    {
+      "path": "integration/collector_actions/manual-first.workflow.yml",
+      "bytes": 3238,
+      "sha256": "7537860fa61c2998363079a067da943043c42f4cbefd85be8b61eb6f52babd76"
+    },
+    {
+      "path": "integration/collector_actions/provider.py",
+      "bytes": 5062,
+      "sha256": "59d5cb22c4092668476242fcc61a2d922c3fdaee46ed01147d92e8dcd0aba53d"
+    },
+    {
+      "path": "integration/collector_actions/qualification.py",
+      "bytes": 4171,
+      "sha256": "ca69c723df351e2bd3df1dfdf0ac9957a860a2b992f1a05420abdecc9e9dc369"
+    },
+    {
+      "path": "integration/collector_actions/receipt.py",
+      "bytes": 2506,
+      "sha256": "4a6cd9ea733fe93c033f36567abead87acf3a8bce909bde8cce0c75060a95848"
+    },
+    {
+      "path": "integration/collector_actions/source-files.json",
+      "bytes": 44033,
+      "sha256": "837362f5c442c08e03b773083fcb79b8d6083f022bc0ae6091acaf056a2a96d0"
+    },
+    {
+      "path": "integration/collector_actions/test_candidate.py",
+      "bytes": 15854,
+      "sha256": "ed9cef7e270af6e2e184062128ddffdcfef403fca6eb52ac224c208a0880a08d"
+    },
+    {
       "path": "integration/collector_mail_fixture.py",
       "bytes": 7377,
       "sha256": "c5aace2cf30eb4d3c2179082c3f4e0b1fec8454a4b6f493dd24ecfcd43e7261a"
@@ -1898,12 +1938,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 19742,
-      "sha256": "4ccc14bacfd0fabc6b8be6dff054142f6ba1f8377733ab3c4c2f4e8349f5311f"
+      "sha256": "80eeae6fb18e97f7c706195f71efc628b754d74a7209c54d77714b00f2a4b193"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
-      "bytes": 264538,
-      "sha256": "602ce7bf52bbc0b1a6465cda4480192c959ec12f2d086f4ea7589c45a951babe"
+      "bytes": 265354,
+      "sha256": "2b09ec919f7eb05f5538fe301dd0e26adab3dc439481c3dec3230cbce0778819"
     },
     {
       "path": "integration/dependency_build/executed-orchestrator.txt",
@@ -2646,6 +2686,11 @@
       "sha256": "f01301b538b5a65c7d5501291045644be894cf7267f4301cc28997728db4e12c"
     },
     {
+      "path": "integration/public_finder.py",
+      "bytes": 7172,
+      "sha256": "ac0772c876b74b692063ef76ee1c969997562034431d43df27e5459119a09a0b"
+    },
+    {
       "path": "integration/public_live107/browser.json",
       "bytes": 155,
       "sha256": "f6495e01ad265b59ae29125271de039fe963aba7cc990f7050b28f2dce911029"
@@ -2667,8 +2712,8 @@
     },
     {
       "path": "integration/public_live_builder.py",
-      "bytes": 9915,
-      "sha256": "4fd7750ea83288bafff4fc40563c24762b58a89fbfe1140ba29b7e65d9f24f35"
+      "bytes": 10143,
+      "sha256": "a3b2617f4c324761776b9617628a1f8e830e19b3a209dd0d47d7d09c6b84fdb1"
     },
     {
       "path": "integration/public_news.py",
@@ -2697,8 +2742,8 @@
     },
     {
       "path": "integration/public_preview_builder.py",
-      "bytes": 4938,
-      "sha256": "1d640866e7ef872a33dfbfe985a3f8acdba103312350b212648ef134c5aba989"
+      "bytes": 5166,
+      "sha256": "7c79b918d3d59560cebf30ef7213d6040c00026ebb88f567129702a40be8f558"
     },
     {
       "path": "integration/publication_dates/inventory.json",
@@ -3296,6 +3341,16 @@
       "sha256": "115a531add06e5a37121cf3d8f7f57b80ed1c95b5b2f3b98861ecd4f1316b0bf"
     },
     {
+      "path": "integration/ui/finder_public.html",
+      "bytes": 1942,
+      "sha256": "dd0760f660e01a9cdcd8fb21567bfc63fb7a8c7d4832a1c57552d37cea98e814"
+    },
+    {
+      "path": "integration/ui/finder_public_rates.js",
+      "bytes": 2284,
+      "sha256": "a6e0e0e585df2b29070e737bce923903b9a7dae7840b557d059023f218fb9f30"
+    },
+    {
       "path": "integration/ui/geo_map.css",
       "bytes": 1784,
       "sha256": "201d66d0e709793fbb3badebe004cbd60a9f24af2e6610bb02cc9a9888f8a842"
@@ -3889,6 +3944,16 @@
       "path": "refresh.mjs",
       "bytes": 9283,
       "sha256": "b82c8e0137e77f18258afa79d30194f4a74c1e49a137cfa1a0beebe30014d611"
+    },
+    {
+      "path": "requirements-collector-cp312.lock",
+      "bytes": 2196,
+      "sha256": "12f2bd857417e23da7b39088258b2a846612b0b0a1d3679e468ce029539e6f9e"
+    },
+    {
+      "path": "requirements-collector.txt",
+      "bytes": 309,
+      "sha256": "654c2a269f7aff7470bfc22741c973a692ff3f8c4d1fea09e94a14797bf91a91"
     },
     {
       "path": "requirements-future-deploy.lock",
@@ -6091,6 +6156,11 @@
       "sha256": "9fadd5987c973f108428fd37ada6aa40618012078a145db58be015a544d47aef"
     },
     {
+      "path": "tests/test_public_finder.py",
+      "bytes": 6988,
+      "sha256": "d7732051a7bde5f6272eaabb665ffb8fffc7e0f37b1b252e0a8bb2c71f02f99e"
+    },
+    {
       "path": "tests/test_publication151_inventory.py",
       "bytes": 740,
       "sha256": "430812b874317330c7826a8ed17fdfea8360736459dababdea58f9f0871039be"
@@ -6789,56 +6859,6 @@
       "path": "workflow_package29/workflow-anchors.json",
       "bytes": 1173,
       "sha256": "266c1edb06d28c155d631f9dcb6b67b806e6d1c89e645417e3b58a300fecb94a"
-    },
-    {
-      "path": "requirements-collector.txt",
-      "bytes": 309,
-      "sha256": "654c2a269f7aff7470bfc22741c973a692ff3f8c4d1fea09e94a14797bf91a91"
-    },
-    {
-      "path": "requirements-collector-cp312.lock",
-      "bytes": 2196,
-      "sha256": "12f2bd857417e23da7b39088258b2a846612b0b0a1d3679e468ce029539e6f9e"
-    },
-    {
-      "path": "integration/collector_actions/entry.py",
-      "bytes": 6403,
-      "sha256": "664f9fb04fa0a052580b4a454421d01f6be9c0ca4f340d10c88e3fe056d75ba8"
-    },
-    {
-      "path": "integration/collector_actions/launch.sh",
-      "bytes": 3812,
-      "sha256": "e758f2470d721057d72a83e60b4e489132ee110151e1f9264ae54359122e1925"
-    },
-    {
-      "path": "integration/collector_actions/manual-first.workflow.yml",
-      "bytes": 3238,
-      "sha256": "7537860fa61c2998363079a067da943043c42f4cbefd85be8b61eb6f52babd76"
-    },
-    {
-      "path": "integration/collector_actions/provider.py",
-      "bytes": 5062,
-      "sha256": "59d5cb22c4092668476242fcc61a2d922c3fdaee46ed01147d92e8dcd0aba53d"
-    },
-    {
-      "path": "integration/collector_actions/qualification.py",
-      "bytes": 4171,
-      "sha256": "ca69c723df351e2bd3df1dfdf0ac9957a860a2b992f1a05420abdecc9e9dc369"
-    },
-    {
-      "path": "integration/collector_actions/receipt.py",
-      "bytes": 2506,
-      "sha256": "4a6cd9ea733fe93c033f36567abead87acf3a8bce909bde8cce0c75060a95848"
-    },
-    {
-      "path": "integration/collector_actions/source-files.json",
-      "bytes": 44033,
-      "sha256": "837362f5c442c08e03b773083fcb79b8d6083f022bc0ae6091acaf056a2a96d0"
-    },
-    {
-      "path": "integration/collector_actions/test_candidate.py",
-      "bytes": 15854,
-      "sha256": "ed9cef7e270af6e2e184062128ddffdcfef403fca6eb52ac224c208a0880a08d"
     }
   ]
 }

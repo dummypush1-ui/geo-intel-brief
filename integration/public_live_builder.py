@@ -76,9 +76,11 @@ def build_public_live_preview(environ,client_factory=None,clock=time.monotonic):
   if p.scheme!='https' or not p.hostname or p.netloc!=p.hostname or p.path not in ('','/') or p.query or p.fragment or origin!=origin.lower() or not re.fullmatch(r'[a-z0-9]+(?:[.-][a-z0-9]+)*',p.hostname):raise ValueError()
  except ValueError:raise ValueError('Canonical HTTPS public sample origin required')from None
  origin=origin.rstrip('/')
+ from integration.public_finder import enabled, PATHS, install
+ finder_rates=enabled(environ)
  def allow(req):
   if req.method not in ('GET','HEAD') or req.host_url.rstrip('/')!=origin:return False
-  if req.path in READ_PATHS or req.path=='/':return True
+  if req.path in READ_PATHS or req.path=='/' or (finder_rates and req.path in PATHS):return True
   if req.path.startswith('/workspace/assets/'):return req.path.removeprefix('/workspace/assets/')in ASSETS
   if req.path.startswith('/workspace/branding/'):return req.path.removeprefix('/workspace/branding/')in BRANDING
   return False
@@ -118,6 +120,7 @@ def build_public_live_preview(environ,client_factory=None,clock=time.monotonic):
   atexit.register(pages.close)
  app=create_app(reader=read,authorize=allow,allowed_origin=origin,full_news_pages=pages)
  app.extensions['whole_news_pages']=pages
+ if finder_rates:install(app,origin)
  @app.get('/')
  def home():return redirect('/workspace',302)
  @app.after_request
@@ -140,7 +143,7 @@ def build_public_live_preview(environ,client_factory=None,clock=time.monotonic):
    if pages is not None:html=html.replace('Geo news dashboard. Collection, mail and scraper remain off.','Public read-only Geo news. Scroll the whole article store; totals unknown and source can change. Summary panels and CSV remain latest100 sample. Collection, mail and scraper remain off.')
    html=html.replace('GEO INTEL MONITOR · PRIVATE PREVIEW','GEO INTEL MONITOR · PUBLIC NEWS PREVIEW')
    html=html.replace('Geo news dashboard. Collection, mail and scraper remain off.','Public read-only Geo news. Latest up to 100 stored articles, refreshed on demand at most once per minute. Not whole-database totals. Collection, mail and scraper remain off.')
-   html=html.replace('src="/workspace/finder/index.html"','src="/workspace/finder/offline.html"')
+   html=html.replace('src="/workspace/finder/index.html"','src="/workspace/finder/live.html"' if finder_rates else 'src="/workspace/finder/offline.html"')
    # These heavier/private workflows are deliberately outside the public scope.
    html=html.replace('<a href="/workspace/weekly">Weekly PDF</a>','').replace('<a href="/workspace/brics-streams">BRICS streams</a>','')
    html=html.replace('<button data-view="live" aria-pressed="false">Live news</button>','').replace('<button data-view="channels" aria-pressed="false">My channels</button>','')

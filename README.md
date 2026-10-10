@@ -12780,3 +12780,52 @@ flow throughorchestratorbest-effortstate recording, but forcedkillisnotrecovery.
 Environmentrequired-reviewer+immutablecheckout/cleanchecktemplateimplemented;
 landedSHAandownerapprovalexchange pending. Budget/signals requireindependentreview.
 
+
+## Public Finder reference-rates candidate (not deployed)
+
+This additive candidate is NOT full live AI/weather/ships Finder. Original Finder,
+private network preview and public offline source remain unchanged. The public
+wrapper embeds the offline trade-code search and adds one manual reference-rate
+button. No provider request happens at boot, page render, HEAD or on a timer.
+
+`PUBLIC_FINDER_RATES_ENABLED` defaults to `false`. To enable it, the provider,
+abuse and single-worker reviews must each explicitly be `true` through
+`PUBLIC_FINDER_PROVIDER_REVIEWED`, `PUBLIC_FINDER_ABUSE_REVIEWED` and
+`PUBLIC_FINDER_SINGLE_WORKER_VERIFIED`. These are deployment review assertions,
+not permission to spend, share credentials, change live environment or publish.
+`FINDER_NETWORK_PREVIEW_ENABLED` must remain `false` in public builders.
+
+The only upstream destination is `https://api.frankfurter.dev/v1/latest`, with
+fixed `base`/`symbols` currency parameters. No arbitrary URL, redirects,
+environment proxy, credentials, shared key pool or user storage is used. Allowed
+currencies: USD, EUR, INR, GBP, JPY, CHF, CAD, AUD, CNY, SGD and HKD. Returned data
+is limited to validated pair, positive finite rate, date and source label. This
+is daily reference data, not an executable quote or real-time trading price.
+
+Abuse plan: one upstream request at a time, 3-second socket timeout, 16KB input
+cap, no automatic retry, max30 upstream attempts/minute and200/day including
+failures. A cache holds32 pairs for1hour. Every request, including cache hits,
+counts toward60 total requests/minute and10 per socket-peer/minute. Forwarded
+identity headers are never trusted. Behind a reverse proxy, visitors may share a
+peer limit deliberately. Limits and counters are per process and reset on
+restart, so use exactly one worker, reviewed host-level ingress caps, bounded
+restart policy, and no auto-scaling before enabling. This is not a global or
+restart-proof quota. There is no paid provider rail; overload returns429 or503.
+
+Official provider facts checked October10,2026:
+- https://frankfurter.dev/ and https://frankfurter.dev/license/: API permits
+  commercial use; rates carry underlying provider terms, can lag/revise and
+  have no warranty. No monthly/day caps; upstream abuse limits still apply.
+- https://frankfurter.dev/v1/: v1 remains available, though deprecated; uses
+  `base` and `symbols`. No live endpoint call was made for this build.
+- https://open-meteo.com/en/terms and https://open-meteo.com/en/pricing: free
+  weather service is non-commercial only, with600/minute,5000/hour,10000/day
+  limits. Commercial product use needs a reviewed licence/plan. Weather stays
+  OFF. AI/AIS need a reviewed keyless or separately authorized provider route
+  and cost/abuse plan; no owner keys may be exposed. Neither is implemented.
+
+Candidate review must verify origin guards, fixed destination, sanitization,
+manual-only UI, same-origin CSP, no storage and all private routes still denied.
+Local screenshots validate layout only. Provider reliability and real response
+compatibility were not tested against the live service. No deployment or public
+exposure is authorized by this source candidate.
