@@ -22,8 +22,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 901086,
-      "sha256": "86f78e44d6593273556375eb73584ee5854c01d9b7c51bafadf88544f63ec322"
+      "bytes": 913666,
+      "sha256": "bb3cc4bc9b7388d6568077fcea1e3396114be028faf4d46f46f82e85adbe0b4d"
     },
     {
       "path": "ai-agent.mjs",
@@ -1752,8 +1752,8 @@
     },
     {
       "path": "integration/collector197_job.py",
-      "bytes": 4298,
-      "sha256": "06e6384990b1b421a67c64d29a39c6f2caefca74cc3f22062a7706311f6e39a4"
+      "bytes": 4388,
+      "sha256": "0eef8839ea8f74859ea34a0a793fe302d185ac9c3c00b2057f255b2788c0a912"
     },
     {
       "path": "integration/collector197_job_adversary.py",
@@ -1772,8 +1772,8 @@
     },
     {
       "path": "integration/collector197_orchestrator.py",
-      "bytes": 7273,
-      "sha256": "feba6ad536f52d080633f7956b5e76bfd24c1e424435aec05eebcd0a9cf91b5f"
+      "bytes": 7518,
+      "sha256": "3144fca89cd7ce4dabde5ca7c9e7dc559a821292c976fa0e9a87edb21178a6ee"
     },
     {
       "path": "integration/collector197_parser.py",
@@ -1897,13 +1897,13 @@
     },
     {
       "path": "integration/dependency_audit/audit.json",
-      "bytes": 19412,
-      "sha256": "a0fb89700c0b7f8818c0237924aa1fd195aaf7b76f2471bb9d4005a63c61d31f"
+      "bytes": 19742,
+      "sha256": "4ccc14bacfd0fabc6b8be6dff054142f6ba1f8377733ab3c4c2f4e8349f5311f"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
-      "bytes": 260831,
-      "sha256": "ff0bdf75b7349f9e96e949a71893bbb6cf68aadeeced8d5eb104a858981aba50"
+      "bytes": 264538,
+      "sha256": "602ce7bf52bbc0b1a6465cda4480192c959ec12f2d086f4ea7589c45a951babe"
     },
     {
       "path": "integration/dependency_build/executed-orchestrator.txt",
@@ -6789,6 +6789,56 @@
       "path": "workflow_package29/workflow-anchors.json",
       "bytes": 1173,
       "sha256": "266c1edb06d28c155d631f9dcb6b67b806e6d1c89e645417e3b58a300fecb94a"
+    },
+    {
+      "path": "requirements-collector.txt",
+      "bytes": 309,
+      "sha256": "654c2a269f7aff7470bfc22741c973a692ff3f8c4d1fea09e94a14797bf91a91"
+    },
+    {
+      "path": "requirements-collector-cp312.lock",
+      "bytes": 2196,
+      "sha256": "12f2bd857417e23da7b39088258b2a846612b0b0a1d3679e468ce029539e6f9e"
+    },
+    {
+      "path": "integration/collector_actions/entry.py",
+      "bytes": 6403,
+      "sha256": "664f9fb04fa0a052580b4a454421d01f6be9c0ca4f340d10c88e3fe056d75ba8"
+    },
+    {
+      "path": "integration/collector_actions/launch.sh",
+      "bytes": 3812,
+      "sha256": "e758f2470d721057d72a83e60b4e489132ee110151e1f9264ae54359122e1925"
+    },
+    {
+      "path": "integration/collector_actions/manual-first.workflow.yml",
+      "bytes": 3238,
+      "sha256": "7537860fa61c2998363079a067da943043c42f4cbefd85be8b61eb6f52babd76"
+    },
+    {
+      "path": "integration/collector_actions/provider.py",
+      "bytes": 5062,
+      "sha256": "59d5cb22c4092668476242fcc61a2d922c3fdaee46ed01147d92e8dcd0aba53d"
+    },
+    {
+      "path": "integration/collector_actions/qualification.py",
+      "bytes": 4171,
+      "sha256": "ca69c723df351e2bd3df1dfdf0ac9957a860a2b992f1a05420abdecc9e9dc369"
+    },
+    {
+      "path": "integration/collector_actions/receipt.py",
+      "bytes": 2506,
+      "sha256": "4a6cd9ea733fe93c033f36567abead87acf3a8bce909bde8cce0c75060a95848"
+    },
+    {
+      "path": "integration/collector_actions/source-files.json",
+      "bytes": 44033,
+      "sha256": "837362f5c442c08e03b773083fcb79b8d6083f022bc0ae6091acaf056a2a96d0"
+    },
+    {
+      "path": "integration/collector_actions/test_candidate.py",
+      "bytes": 15854,
+      "sha256": "ed9cef7e270af6e2e184062128ddffdcfef403fca6eb52ac224c208a0880a08d"
     }
   ]
 }

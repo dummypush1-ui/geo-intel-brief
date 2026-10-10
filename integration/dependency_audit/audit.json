@@ -580,7 +580,7 @@
   ],
   "static_limit": "AST inventory does not prove conditional/dynamic/runtime imports complete",
   "source_baseline_revision": "4d7f7f342140a144f429d03f82b94a3176f341c2",
-  "source_manifest_sha256": "3f5bcea385c1e1918599f48f7b98714062e94efee71f2e043415d527bcb59d53",
+  "source_manifest_sha256": "147164bc9b4935e3ff810f7a842f9ae3aae8944e8a99016744457d20783a8ffc",
   "artifact_verification": {
     "status": "verified_in_author_environment",
     "method": "SHA256 of each explicit cache wheel; metadata filename version/tag checks; reviewer cache not transferred",
@@ -604,5 +604,12 @@
     ],
     "current_manifest_sha256": "5ce85b697a3b847602599768a09b1e09d7434c7f13c4ae8dd6a27c5ccc4e7ac3",
     "metadata_environment_not_reaudited": true
+  },
+  "collector_actions_source_supplement": {
+    "base": "59e81a39b4ad6179fef1417ac8c5caf305e07ddd",
+    "source_manifest_sha256": "147164bc9b4935e3ff810f7a842f9ae3aae8944e8a99016744457d20783a8ffc",
+    "source_only": true,
+    "target_CP312_install_unverified": true,
+    "environment_and_historical_receipts_unchanged": true
   }
 }

@@ -1,0 +1,70 @@
+# REVIEW CANDIDATE: owner adds via GitHub UI after independent code review.
+# No schedule. Collect mode is a candidate held until source review/owner approval.
+name: Collector Actions qualification candidate
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'measure performs named public RSS fetches + Atlas preflight READS; collect writes articles after same-run qualification; status only reads durable status'
+        required: true
+        default: measure
+        type: choice
+        options: [measure, collect, status]
+      owner_reference:
+        description: 'Original owner approval reference for this exact mode/network/destination scope'
+        required: true
+        type: string
+permissions:
+  contents: read
+concurrency:
+  group: geo-collector-owner-qualification
+  cancel-in-progress: false
+jobs:
+  qualify:
+    if: github.repository == 'dummypush1-ui/geo-intel-brief' && github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main'
+    # Owner configures Environment with required reviewer before installation.
+    # The writer secret exists ONLY in this protected Environment, not repo scope.
+    environment: collector-owner-approved
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          # Candidate files must be landed and reviewer supplies immutable SHA.
+          ref: REVIEWED_SOURCE_COMMIT_REQUIRED
+          persist-credentials: false
+      - name: Verify immutable reviewed checkout and clean source
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = REVIEWED_SOURCE_COMMIT_REQUIRED
+          test -z "$(git status --porcelain)"
+      - name: Install collector candidate dependencies
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo -n apt-get update
+          sudo -n apt-get install -y bubblewrap
+          python3 -m venv .collector-job-env
+          .collector-job-env/bin/python -m pip install --require-hashes -r requirements-collector-cp312.lock
+          .collector-job-env/bin/python -m pip check
+      - name: Same-run guarded qualification and selected mode
+        shell: bash
+        env:
+          WRITER_URI: ${{ secrets.GEO_WRITER_MONGODB_URI }}
+          PROFILE: ${{ vars.COLLECTOR_PROFILE_FINGERPRINT }}
+          MODE: ${{ inputs.mode }}
+          OWNER_REFERENCE: ${{ inputs.owner_reference }}
+          QUALIFY_REPOSITORY: ${{ github.repository }}
+          QUALIFY_RUN_ID: ${{ github.run_id }}
+          QUALIFY_RUN_ATTEMPT: ${{ github.run_attempt }}
+        run: |
+          set -euo pipefail
+          .collector-job-env/bin/python - <<'PY' | sudo -n /bin/bash integration/collector_actions/launch.sh --candidate
+          import json,os
+          print(json.dumps({'mode':os.environ['MODE'],'repository':os.environ['QUALIFY_REPOSITORY'],
+            'run_id':os.environ['QUALIFY_RUN_ID'],'run_attempt':os.environ['QUALIFY_RUN_ATTEMPT'],
+            'activation_reference':os.environ['OWNER_REFERENCE'],
+            'values':{'GEO_WRITER_MONGODB_URI':os.environ['WRITER_URI'],
+              'COLLECTOR_PROFILE_FINGERPRINT':os.environ['PROFILE']}}))
+          PY

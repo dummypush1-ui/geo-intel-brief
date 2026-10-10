@@ -12610,3 +12610,173 @@ RefusalprintsFAILwithreason/scope andnonzeroexit. KnownmissingreadylockreportedB
 The current application.lock refusal is temporary: 29b must REPLACE it with newly reviewed lock/output anchors and source allowlist when the real lock arrives. Missing always() is recorded from the anchored workflow, not detected by a general semantic YAML parser; a future workflow fix requires re-reviewed workflow/block anchors. This allowlist is exact landed f836bf12/tree04926cec, not general acceptance of other trees.
 
 <!-- END-ORIGINAL-DOC -->
+
+
+---
+
+## Collector Actions: current dormant-source status and owner steps
+
+This source is dormant. Do not install or run the workflow yet. CP312 identity,
+sgmllib build and the complete target dependency closure remain UNVERIFIED.
+The workflow still needs the immutable landed SHA substituted and reviewed.
+
+Current steps, superseding every older instruction in the history below:
+
+1. Independent reviewer accepts the final source and manifests; builder lands
+   dormant source through the reviewed token flow. No workflow is installed by
+   that source landing. Replace the workflow's placeholder with that immutable
+   landed commit. Verify exact HEAD and a clean checkout before running.
+2. Owner creates GitHub Environment `collector-owner-approved`, configures a
+   required reviewer (prevent self-review where supported), and stores
+   `GEO_WRITER_MONGODB_URI` ONLY as an Environment secret. Do not create a
+   repository-level writer secret. Review the matching profile fingerprint,
+   Atlas least-privilege roles, collection/index/TTL/ledger setup and network
+   allowlist. This launcher does not provision or repair the database.
+3. Before workflow installation, finish the exact CP312 interpreter selection
+   and hash-locked target install/build verification. The attached lock is a
+   candidate, not proof of target execution.
+4. Owner pastes the final reviewed manual-first workflow via GitHub UI. The
+   owner separately approves measurement's named scope: actual approved public
+   RSS fetches plus Atlas READ-ONLY privilege/index/ledger preflight using the
+   writer URI. Measurement DOES consume the Environment secret for these reads,
+   but does not claim jobs or write articles. Required Environment review applies.
+5. The qualification producer IS implemented in the current source. It derives
+   same-run cgroup peak/events and aggregate-adversary output, binds source and
+   package bytes, and passes a root-owned read-only qualification descriptor.
+   Its result means qualified for fixture/limit, NOT proven real write memory.
+6. After target qualification review and owner approval for collection's exact
+   writer destination/scope, run one manual `collect` job with the Environment
+   approval click. Real write memory is first observed in that real run. Reruns
+   and `status` read durable state only, without RSS or writes. Active/uncertain
+   jobs hold later claims; no automatic lease steal, clear or blind retry.
+7. Review terminal job, actual peak/events, duplicate outcomes and source coverage
+   before offering a schedule. The current template has NO schedule. Owner
+   chooses cadence only after this review; history64 requires a separate
+   reviewed retention plan. Render remains read-only with collector OFF.
+
+Budget: both measure and collect use an80s installation deadline. Coordinator
+fetch reserves15s; supervisor feed cutoff reserves20s. Soft stop at82s attempts
+held-state recording, outer90s TERM plus2s KILL is last resort. Forced kill or
+DB failure can leave active state requiring separate reconciliation.
+
+The following blocks preserve the earlier drafts exactly as historical records.
+They are NOT current install/run instructions. In particular, their claims of
+no Atlas secret, repository secret, absent producer or measure-only launcher are
+superseded by the current steps above. No workflow reference string by itself
+creates owner approval. Original authenticated owner scope and the reviewed
+Environment policy remain required before any external run.
+
+### HISTORICAL / SUPERSEDED: owner-step drafts v1 through v4
+
+# Free collector route: manual-first candidate
+
+This is source prepared for independent review, not permission to run collection.
+No collector DB writes, pushes or workflow installs have been made.
+
+1. Reviewer checks the source and tests. Builder lands reviewed non-workflow code
+   with current source/import/staging manifests refreshed. Owner handles helper
+   token through the usual secure route. No token in conversation or source.
+2. Reviewer supplies exact landed source SHA and a hash-locked CP312 dependency
+   closure. The workflow candidate currently has REVIEWED_SOURCE_COMMIT_REQUIRED
+   and un-hashed additive pip installation; replace before final owner workflow.
+   A file with that placeholder is NOT a ready execution workflow.
+3. Owner opens repo > Add file > Create new file, name
+   .github/workflows/collector-actions-qualification.yml; pastes final reviewed
+   workflow and commits to main. Then Actions > Collector Actions qualification
+   candidate > Run workflow. This manual diagnostic uses no Atlas secret and
+   does not create triggers or write articles. Review actual bwrap/cgroup/OOM
+   evidence and real workload peak/coverage/deadlines. Failure remains held.
+4. Complete independent qualification producer: maximum supported input,
+   checkpoint/prepare, source drift, privilege drop, all descendant cleanup,
+   memory/OOM/headroom and Mongo serialization/pool overhead must be accounted
+   for. Current launch.sh only permits measurement; collect/status are held.
+5. Review Atlas dedicated writer privileges, indexes, TTL, preinitialized ledger
+   fingerprint and checkpoint stores. No provisioning in this launcher. Owner
+   enters GEO_WRITER_MONGODB_URI under Settings > Secrets and variables > Actions
+   > New repository secret, not in chat. Current measurement never consumes it.
+   Host allowlisting requires review, no automatic broad Atlas access change.
+6. After final producer/workflow review and owner approval: manual one-shot
+   collection. Deterministic repo/run_id nonce is recorded by Atlas CAS ledger
+   before fetch; same run_id rerun only reads status, never reclaims/reexecutes.
+   Any active or uncertain job blocks all later new claims. Read status and
+   reconcile independently before repair, no lease-steal or blind retry.
+7. After actual terminal receipt and duplicate/coverage checks, owner enables
+   reviewed schedule on main, with chosen cadence and off-minute cron.
+   Schedules may be delayed/dropped; after 60 days inactivity public schedules
+   can stop. Durable ledger history has 64 terminal-job limit. Rotation/archival
+   is separate reviewed work, not deleting evidence automatically.
+
+The accepted scheduler217 v4 is mail weekly/critical scheduler, not this
+collector route. Render web remains read-only, COLLECTION_ENABLED absent/false.
+No paid Render instance is part of this route. GitHub public standard Ubuntu
+runner currently lists 4CPU/16GB and free unlimited standard jobs, subject to
+Actions policy. Actual capability is probed rather than inferred from the label.
+
+Source docs:
+https://docs.github.com/en/actions/reference/runners/github-hosted-runners
+https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows
+
+V2: rootproducer derives same-run measuredcgroup peak/events + actualadversarylog, opensread-onlyFD3inroot0700dir; no receiptpathfrompayload. Rootsnippets use/usr/bin/python3 -I -S, no venv interpreterasroot. Fullsource+installedbytesmanifest andfreshcheckbeforeclaim bound90swindow. Maximum1000checkpoint/prepare/GeoWriterBSONfixture + realAtlasreadonlypreflight+RSS measurement implemented, source-onlyunexecutedonActions. HashedCP312artifactcandidate attached;sgmllibsdistbuild/closure notyetproven. Workflowstillrequiresfinalreviewedcommit. Ownerinputreferenceisnotauthoritybyitself: mainmustrecoveroriginalscopebeforeanynetwork/DBrun.
+
+V3 installation prerequisites: create GitHub Environment collector-owner-approved,
+set REQUIRED REVIEWER and prevent self-review if available; place writer secret
+ONLY there. Never repository-level writer secret. Both measure and collect jobs
+require approval click because measurement uses same secret for Atlas read-only
+preflight plus actual approved public RSS network; owner approves this exact scope.
+Workflow hardpins landed SHA and checks HEAD equals it + clean checkout. Placeholder
+cannot be replaced until builder lands dormant reviewed source. No schedule yet.
+Budget:80s cycle total including startup; supervisor cuts fetch20s before cycle
+end, reservingprepare/write/reconcile;82s soft alarm/TERMrecordsheld state where
+possible;90s outerTERM+2sKILLfallback. Forcedkill/DBoutage may leaveactivejob;
+allnewclaimshelduntilseparatelyreviewedreconciliation. History64stillfinite.
+Receipt means qualified for fixture/limit, not proven actualwritepeak. Realcollect
+reports actualmemory.peak/events; no claimbeforeobservingthatrealrun.
+
+Final dormant-source addendum: MEASURE shares80sstart deadline; coordinator reserves15s (deadline-15), supervisor feed cutoffdeadline-20. Priorwording20sreservewascoordinator-inaccurate. Write hasnoindependentforced20stimer; remainingcyclebudget+driver8stimeoutmustbeobserved. Post-writeoverrunremainsuncertain_after_writebyexistingconservativeorchestratorpolicy, notdowngradedjustbecausereceiptarrivedafterdeadline. SIGTERM/softalarmbest-effortterminalrecordcanfail; heldactiveisintentionalratherthanblindretry. 86testsPASS(1historicalartifactcacheunverifiedskip).
+
+
+### HISTORICAL / SUPERSEDED: review-checklist drafts v1 through v4
+
+# Review candidate v1, source only
+
+Implemented: fixed nonroot runner guard, hard95s deadline/2s kill fallback,
+3GiB cgroup/swap0/oomgroup, caps cleared/no-new-privileges, parent512MiB AS before
+imports, input size/schema checks, no secrets argv/logs, exact protected receipt
+binding source/run/reference/age and measured headroom/clean OOM events,
+JobRuntimeEvidence from actual runtime probes, deterministic run_id nonce,
+rerun/read status hold, active/uncertain/history64 hold, no initializer/repair.
+Existing run_job does CAS claim/checkpoint/write fencing and no automatic replay.
+
+Not complete or approved for ON:
+- Qualification producer is intentionally absent. Shell permits measure only.
+  Provider cannot accept an env-ready boolean as substitute. Public workflow
+  has no Atlas secret access and no collection step. No ready proof fabricated.
+- Need root-owned receipt producer with independently verified adverse aggregate
+  kill and maximum input/prepare/checkpoint/Mongo accounting. Current measurement
+  is real RSS+prepare, no DB; it declares writer_memory_proven=false.
+- Need clean CP312 hashed closure/native source-byte compatibility/target probes.
+- Need race tests across different runs: read-status gate can race, but existing
+  Atlas CAS prevents second claim. A concurrent same-run first-attempt launch
+  must not reclaim accepted job; existing CAS advance only one wins, loser stops.
+- Need correct static fingerprint of installed profile, owner authority evidence,
+  Atlas least-privilege collection/index/TTL/ledger provisioning reviewed.
+- Review new receipt path against symlink ancestry races/root-owned protected dir.
+  Arbitrary writable scratch receipt must refuse. Module source digest coverage
+  should include the entire reviewed application code and exact package lock,
+  not only current worker pins and launcher subset.
+- No source-metadata mutation in the live clone; manifest landing belongs builder.
+
+Tests28PASS (11new +17existing job runtime tests), BashsyntaxPASS,
+version-only dependency CP310 install and source SDK hashesPASS. Not actual
+root/cgroup/runner/Atlas execution; real tests await owner manual qualification.
+
+V2 closes first-pass source issues:rootstdlibonly, no payloadreceiptpath, inheritedreadonlyFDrootownership/hashderivedevidence,fullsource/installed-bytebinding,positive/negativeprovider tests31PASS,knownunblocked replayhold included,freshqualificationoncebeforeclaimthen90swindow,90souterdeadline,ledger.profilekeynotliteralgeo108. Qualificationproducer nowimplementedbutnotlivevalidated. Needsmaximumfixture+fetchwithin90s timingreview; fixture/DBserializationnotactualnetworkwritecapacitymeasurement. trustboundaryisreviewedpinnedworkflow/source; malicioussudo stepcanalwaysforgehoststateandisNOTdefendedbyrootreceipt. FullCP312sgmlsourcebuildandpackageclosureexecutionstillrequired.
+
+V3 extends mutanttests:FDreadonly,independentpeakcap/consistency,rawevents/adversarylog,
+allcaps/euid/NoNewPrivs,earlystatusunsupported,eachreceiptproducerbranch andpositive.
+80scyclehard_deadline optionalAPI retains90sdefaultforexistingcallers; collectentry
+passesabsolute80sdeadline, fetchpreserves20sreserve. GracefulSIGTERM/82salarmexception
+flow throughorchestratorbest-effortstate recording, but forcedkillisnotrecovery.
+Environmentrequired-reviewer+immutablecheckout/cleanchecktemplateimplemented;
+landedSHAandownerapprovalexchange pending. Budget/signals requireindependentreview.
+

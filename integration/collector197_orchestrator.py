@@ -32,7 +32,7 @@ def _concerns(collection):
 
 
 def run_cycle(config, *, ledger, checkpoints, nonce, fetch, categories, threshold,
-              clock, monotonic=time.monotonic, writer=None):
+              clock, monotonic=time.monotonic, writer=None, hard_deadline=None):
     if type(config) is not CollectorConfig or config != CollectorConfig(config.enabled):
         raise CycleRefused('Fixed configuration contract required')
     if type(config.enabled) is not bool:
@@ -51,6 +51,10 @@ def run_cycle(config, *, ledger, checkpoints, nonce, fetch, categories, threshol
     if type(start) not in (int, float) or not 0 <= start < float('inf'):
         raise CycleRefused('Monotonic clock required')
     deadline = start + config.whole_cycle_seconds
+    if hard_deadline is not None:
+        if type(hard_deadline)not in (int,float) or not start<hard_deadline<=deadline:
+            raise CycleRefused('Bounded installation deadline required')
+        deadline=hard_deadline
 
     def now():
         n = clock()

@@ -6,6 +6,7 @@
     {
       "import": "ast",
       "files": [
+        "integration/collector_actions/test_candidate.py",
         "integration/feedparser_audit/child.py",
         "integration/geo_collector_contract.py",
         "integration/renderer_scope.py",
@@ -145,6 +146,7 @@
         "feature_mail_mount/reports.py",
         "feature_mail_mount/store.py",
         "integration/article_archive.py",
+        "integration/collector_actions/qualification.py",
         "integration/collector_mail_fixture.py",
         "integration/digest_email218.py",
         "integration/digest_windows193.py",
@@ -326,6 +328,7 @@
         "integration/collector197_archive.py",
         "integration/collector197_orchestrator.py",
         "integration/collector197_preflight.py",
+        "integration/collector_actions/entry.py",
         "integration/replay199_adapters.py",
         "integration/replay199_schema.py",
         "tests/test_collector197a.py",
@@ -352,6 +355,7 @@
       "files": [
         "integration/collector197_coverage.py",
         "integration/collector197_orchestrator.py",
+        "integration/collector_actions/qualification.py",
         "integration/native201_collector.py",
         "integration/native201_coverage.py",
         "integration/replay199_collector.py",
@@ -385,6 +389,7 @@
         "integration/collector197_http.py",
         "integration/collector197_orchestrator.py",
         "integration/collector197_supervisor.py",
+        "integration/collector_actions/qualification.py",
         "integration/native201_collector.py",
         "integration/native201_coverage.py",
         "integration/replay199_collector.py",
@@ -446,6 +451,7 @@
         "integration/collector197_coverage.py",
         "integration/collector197_feed_child.py",
         "integration/collector197_supervisor.py",
+        "integration/collector_actions/qualification.py",
         "integration/fulltext_policy/__init__.py",
         "tests/test_collector197b_connector.py",
         "tests/test_collector197b_coordinator.py",
@@ -522,7 +528,8 @@
       "import": "collector130_prep",
       "files": [
         "integration/collector197_http.py",
-        "integration/collector197_job.py"
+        "integration/collector197_job.py",
+        "integration/collector_actions/entry.py"
       ],
       "stdlib": false,
       "distributions": [],
@@ -582,6 +589,8 @@
         "integration/collection_prepare.py",
         "integration/collection_receipts/protocol.py",
         "integration/collector197_archive.py",
+        "integration/collector_actions/qualification.py",
+        "integration/collector_actions/test_candidate.py",
         "integration/db_contract/plan.py",
         "integration/db_contract/query_plan.py",
         "integration/digest_windows193.py",
@@ -779,6 +788,7 @@
         "integration/collector197_feed_child.py",
         "integration/collector197_orchestrator.py",
         "integration/collector197_supervisor.py",
+        "integration/collector_actions/qualification.py",
         "integration/collector_mail_fixture.py",
         "integration/country_alerts.py",
         "integration/country_signals.py",
@@ -1005,6 +1015,7 @@
     {
       "import": "fcntl",
       "files": [
+        "integration/collector_actions/provider.py",
         "integration/stream_disk.py"
       ],
       "stdlib": true,
@@ -1262,6 +1273,10 @@
         "integration/collector197_feed_child.py",
         "integration/collector197_parser.py",
         "integration/collector197_supervisor.py",
+        "integration/collector_actions/entry.py",
+        "integration/collector_actions/provider.py",
+        "integration/collector_actions/receipt.py",
+        "integration/collector_actions/test_candidate.py",
         "integration/collector_mail_fixture.py",
         "integration/country_alerts.py",
         "integration/digest_email218.py",
@@ -1465,6 +1480,7 @@
     {
       "import": "importlib",
       "files": [
+        "integration/collector_actions/provider.py",
         "integration/mail_ledger212.py",
         "integration/native200_transactions.py",
         "integration/schedule_occurrence205.py",
@@ -1542,6 +1558,10 @@
         "integration/collector197_orchestrator.py",
         "integration/collector197_preflight.py",
         "integration/collector197_runtime_evidence.py",
+        "integration/collector_actions/entry.py",
+        "integration/collector_actions/provider.py",
+        "integration/collector_actions/qualification.py",
+        "integration/collector_actions/test_candidate.py",
         "integration/collector_mail_fixture.py",
         "integration/country_page.py",
         "integration/critical_stories.py",
@@ -2068,6 +2088,7 @@
       "import": "io",
       "files": [
         "integration/accounts/merged_fixture.py",
+        "integration/collector_actions/test_candidate.py",
         "integration/feedparser_audit/child.py",
         "integration/finder_index.py",
         "integration/india_open_data/core.py",
@@ -2147,6 +2168,10 @@
         "integration/collector197_job.py",
         "integration/collector197_parser.py",
         "integration/collector197_supervisor.py",
+        "integration/collector_actions/entry.py",
+        "integration/collector_actions/provider.py",
+        "integration/collector_actions/receipt.py",
+        "integration/collector_actions/test_candidate.py",
         "integration/country_alerts.py",
         "integration/dashboard_snapshots.py",
         "integration/digest_dates202.py",
@@ -2382,6 +2407,9 @@
         "integration/collector197_job_runtime.py",
         "integration/collector197_parser.py",
         "integration/collector197_supervisor.py",
+        "integration/collector_actions/entry.py",
+        "integration/collector_actions/provider.py",
+        "integration/collector_actions/receipt.py",
         "integration/feedparser_audit/child.py",
         "integration/feedparser_audit/runner.py",
         "integration/finder198_transport.py",
@@ -2459,6 +2487,10 @@
         "integration/collector197_job_runtime.py",
         "integration/collector197_parser.py",
         "integration/collector197_supervisor.py",
+        "integration/collector_actions/entry.py",
+        "integration/collector_actions/provider.py",
+        "integration/collector_actions/receipt.py",
+        "integration/collector_actions/test_candidate.py",
         "integration/collector_mail_fixture.py",
         "integration/feedparser_audit/child.py",
         "integration/feedparser_audit/runner.py",
@@ -3128,6 +3160,7 @@
         "integration/broker_json211.py",
         "integration/collection_receipts/protocol.py",
         "integration/collector197_connector.py",
+        "integration/collector_actions/entry.py",
         "integration/country_alerts.py",
         "integration/dashboard_snapshots.py",
         "integration/db_contract/plan.py",
@@ -3252,6 +3285,8 @@
         "integration/collector197_job.py",
         "integration/collector197_job_adversary.py",
         "integration/collector197_job_runtime.py",
+        "integration/collector_actions/entry.py",
+        "integration/collector_actions/provider.py",
         "integration/feedparser_audit/child.py",
         "integration/finder198_transport_child.py"
       ],
@@ -3375,6 +3410,8 @@
         "integration/collector197_host_probe.py",
         "integration/collector197_parser.py",
         "integration/collector197_supervisor.py",
+        "integration/collector_actions/entry.py",
+        "integration/collector_actions/test_candidate.py",
         "integration/finder198_transport.py"
       ]
     },
@@ -3457,6 +3494,7 @@
     {
       "import": "stat",
       "files": [
+        "integration/collector_actions/provider.py",
         "integration/stream_disk.py"
       ],
       "stdlib": true,
@@ -3580,6 +3618,8 @@
         "integration/collector197_job_adversary.py",
         "integration/collector197_parser.py",
         "integration/collector197_supervisor.py",
+        "integration/collector_actions/entry.py",
+        "integration/collector_actions/receipt.py",
         "integration/feedparser_audit/child.py",
         "integration/feedparser_audit/runner.py",
         "integration/finder198_transport.py",
@@ -3672,6 +3712,7 @@
     {
       "import": "tempfile",
       "files": [
+        "integration/collector_actions/test_candidate.py",
         "integration/stream_disk.py",
         "tests/accounts/browser_http_fixture.py",
         "tests/geospatial/test_geospatial.py",
@@ -4002,6 +4043,9 @@
         "integration/collector197_orchestrator.py",
         "integration/collector197_parser.py",
         "integration/collector197_supervisor.py",
+        "integration/collector_actions/entry.py",
+        "integration/collector_actions/provider.py",
+        "integration/collector_actions/receipt.py",
         "integration/edge_guard.py",
         "integration/feedparser_audit/runner.py",
         "integration/finder198_transport.py",
@@ -4055,6 +4099,8 @@
     {
       "import": "types",
       "files": [
+        "integration/collector_actions/qualification.py",
+        "integration/collector_actions/test_candidate.py",
         "integration/native200_admission_store.py",
         "integration/native200_readonly_measurement.py",
         "integration/native200_store.py",
@@ -4116,6 +4162,7 @@
     {
       "import": "unittest",
       "files": [
+        "integration/collector_actions/test_candidate.py",
         "tests/accounts/test_accounts.py",
         "tests/accounts/test_hardening.py",
         "tests/accounts/test_http_fixture.py",
@@ -4964,7 +5011,7 @@
       },
       {
         "path": "integration/collector197_job.py",
-        "sha256": "06e6384990b1b421a67c64d29a39c6f2caefca74cc3f22062a7706311f6e39a4"
+        "sha256": "0eef8839ea8f74859ea34a0a793fe302d185ac9c3c00b2057f255b2788c0a912"
       },
       {
         "path": "integration/collector197_job_adversary.py",
@@ -4976,7 +5023,7 @@
       },
       {
         "path": "integration/collector197_orchestrator.py",
-        "sha256": "feba6ad536f52d080633f7956b5e76bfd24c1e424435aec05eebcd0a9cf91b5f"
+        "sha256": "3144fca89cd7ce4dabde5ca7c9e7dc559a821292c976fa0e9a87edb21178a6ee"
       },
       {
         "path": "integration/collector197_parser.py",
@@ -4993,6 +5040,26 @@
       {
         "path": "integration/collector197_supervisor.py",
         "sha256": "7564717b1dd787448c0b7a0ae0084e4c03b5ff11aab8ab23b4957fb3cec4aff9"
+      },
+      {
+        "path": "integration/collector_actions/entry.py",
+        "sha256": "664f9fb04fa0a052580b4a454421d01f6be9c0ca4f340d10c88e3fe056d75ba8"
+      },
+      {
+        "path": "integration/collector_actions/provider.py",
+        "sha256": "59d5cb22c4092668476242fcc61a2d922c3fdaee46ed01147d92e8dcd0aba53d"
+      },
+      {
+        "path": "integration/collector_actions/qualification.py",
+        "sha256": "ca69c723df351e2bd3df1dfdf0ac9957a860a2b992f1a05420abdecc9e9dc369"
+      },
+      {
+        "path": "integration/collector_actions/receipt.py",
+        "sha256": "4a6cd9ea733fe93c033f36567abead87acf3a8bce909bde8cce0c75060a95848"
+      },
+      {
+        "path": "integration/collector_actions/test_candidate.py",
+        "sha256": "ed9cef7e270af6e2e184062128ddffdcfef403fca6eb52ac224c208a0880a08d"
       },
       {
         "path": "integration/collector_mail_fixture.py",
@@ -6855,5 +6922,12 @@
     ],
     "current_manifest_sha256": "5ce85b697a3b847602599768a09b1e09d7434c7f13c4ae8dd6a27c5ccc4e7ac3",
     "metadata_environment_not_reaudited": true
+  },
+  "collector_actions_source_supplement": {
+    "base": "59e81a39b4ad6179fef1417ac8c5caf305e07ddd",
+    "source_manifest_sha256": "147164bc9b4935e3ff810f7a842f9ae3aae8944e8a99016744457d20783a8ffc",
+    "source_only": true,
+    "target_CP312_install_unverified": true,
+    "environment_and_historical_receipts_unchanged": true
   }
 }

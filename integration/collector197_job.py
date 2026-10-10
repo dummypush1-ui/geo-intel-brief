@@ -13,7 +13,7 @@ from integration.collector197_orchestrator import run_cycle
 from integration.collector197_coordinator import supervised_candidates
 from integration.geo_article_writer import GeoArticleWriter
 
-def run_job(values,*,nonce,runtime_evidence=None,client_factory=None,clock=None,fetch=None):
+def run_job(values,*,nonce,runtime_evidence=None,client_factory=None,clock=None,fetch=None,hard_deadline=None):
     clock=clock or(lambda:int(time.time()))
     if type(values)is not dict or any(type(k)is not str or type(v)is not str for k,v in values.items()):raise JobRefused('Exact job configuration required')
     off={**values,'COLLECTION_ENABLED':'false'};configure(off,{})
@@ -42,7 +42,7 @@ def run_job(values,*,nonce,runtime_evidence=None,client_factory=None,clock=None,
         def bounded_fetch(**kw):
             require_job_provider(runtime_evidence,clock)
             return supervised_candidates(**kw,max_items=profile['max_items'],lookback_hours=profile['lookback_hours'],request_timeout=profile['timeout'],job_mode=True)
-        return run_cycle(config,ledger=handles['ledger'],checkpoints=CoverageCheckpoints(handles['checkpoints']),nonce=nonce,fetch=fetch or bounded_fetch,categories=profile['active_categories'],threshold=profile['threshold'],clock=clock,writer=writer)
+        return run_cycle(config,ledger=handles['ledger'],checkpoints=CoverageCheckpoints(handles['checkpoints']),nonce=nonce,fetch=fetch or bounded_fetch,categories=profile['active_categories'],threshold=profile['threshold'],clock=clock,writer=writer,**({'hard_deadline':hard_deadline}if hard_deadline is not None else{}))
     except Exception:raise JobRefused('Job held; inspect durable state, never retry blindly')from None
     finally:
         if client is not None:
