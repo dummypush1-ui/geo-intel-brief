@@ -1917,8 +1917,8 @@
     },
     {
       "path": "integration/FINDER_PARITY_PLAN.md",
-      "bytes": 10080,
-      "sha256": "373a9a8902e639db1f6e6d1116753606a150873e75c1b00a1c9b7b2685c447c9"
+      "bytes": 10360,
+      "sha256": "d263bfd47db901e3234158758fa2f3d8547862e7bc7cd64c982edaf6c17cbf10"
     },
     {
       "path": "integration/FINDER_SNAPSHOT_NOTES.md",
@@ -2114,6 +2114,11 @@
       "path": "integration/PRIVATE_NEWS_FIELDS_LIMITS.md",
       "bytes": 1682,
       "sha256": "abf477fd8b12df7b4c128e367a0c4e281272cbe4b706a32be0baa2f62a0578cd"
+    },
+    {
+      "path": "integration/READINESS233.md",
+      "bytes": 10032,
+      "sha256": "9c4e466289560800a811385ba876b7eaa074a7ab7ed5f2590e06c3db7b67d9c1"
     },
     {
       "path": "integration/RECIPIENT-SCOPE220.md",
