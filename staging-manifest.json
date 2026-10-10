@@ -1696,6 +1696,11 @@
       "sha256": "8da288c2c17feffd8bcca975f84747c85195645e3f7ef3734f6fd4f51852d15e"
     },
     {
+      "path": "integration/code_news_cursor_prep.py",
+      "bytes": 4592,
+      "sha256": "922207b1551e3c91632def930f2812b84ab6cf02be9a8820b08564db6a3796d0"
+    },
+    {
       "path": "integration/code_news_disk.py",
       "bytes": 3426,
       "sha256": "844feac55f5ede43851f26a61731b6a8901501b3aa2867890394b1cb9f3d4ba7"
@@ -5514,6 +5519,11 @@
       "path": "tests/test_classifier146_inventory.py",
       "bytes": 792,
       "sha256": "9ad66296f9e9895aa136267cc82e385956ef8642dcaa91425825b8eee5fe58ca"
+    },
+    {
+      "path": "tests/test_code_news_cursor_prep.py",
+      "bytes": 5212,
+      "sha256": "065f608177ca25973683f1c6ffebec15a4924b5254a7244232996252362e9e86"
     },
     {
       "path": "tests/test_code_news_disk.py",
