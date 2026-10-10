@@ -1,0 +1,17 @@
+{
+  "scope": "29b1 non-workflow package; hosted execution NOT RUN; items 27/28/29 OPEN",
+  "workflow_in_land": false,
+  "final_workflow_sha256": "PENDING AFTER LANDED COMMIT, not predicted",
+  "files": {
+    "SPEC.md": "aff64de233311383a02bcfa1addeb3ba5514fb64c6765d62f5a18bee7ba777e0",
+    "action-pin-evidence.json": "935fcd344521bf615a86f3525cbab7e173a9c3e927fcd4e077b134bee95bcd65",
+    "adapter.py": "e4e74d3a8b5302a2e0a57c8e25fb9521802252462265d2427afcabc5b18c8b1b",
+    "discover.sh": "260f3f95766c416798ed18e2f29d0795f23f718911ea77c9fbc6e81b2d7f60c9",
+    "evidence/default1.json": "614bc346874eed518ef3a23a7fc28aae336901151c7e16b63e1b7a7ebec10dee",
+    "evidence/default2.json": "614bc346874eed518ef3a23a7fc28aae336901151c7e16b63e1b7a7ebec10dee",
+    "evidence/test-log.txt": "2307665b1a694b52a7b4644beeb7e12a27a1ce2b151c2b58b3108f875dbc7ee5",
+    "source-allowlist.json": "e31a790b566dc596920bbcbd69a8e0952a071a7dc0223820f5a01e10cc10ef58",
+    "test_adapter.py": "87733cac784dea2fc819d524154b8fdff533e1e4fc2d6178120243e92f170f20",
+    "workflow.template.yml": "1f5e43ed45efb3f54b959ac7bb4c6bd9d49e729a9d5a8317c9c6071b9ccc23c6"
+  }
+}

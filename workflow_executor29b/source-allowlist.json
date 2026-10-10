@@ -1,0 +1,15 @@
+{
+  "scope": "29b1 Stage A source inputs only; hosted execution NOT RUN; items 27/28/29 OPEN",
+  "base": "e6244be4b3d1386c7a53039edb68ab484a08f304",
+  "files": {
+    "runtime_build/inputs/apt.sources": "1dc4168a848690ef1afc9c8624ec6a4b9ddde7b7fbb414ca2d0b767452fe0b72",
+    "runtime_build/inputs/ubuntu-archive-keyring.gpg": "1a4dd63e5c76728960a2edddae22e2e0fc53df8e8b87806deb971030ac704eb0",
+    "runtime_build/inputs/ca-certificates-bootstrap.deb": "6bac2a01979e210d9eac1d4d56747ec709ea60654744d66705dc3c36e7629e50",
+    "runtime_build/inputs/bootstrap-ca-derivation.json": "7ab72d0919fec46198859458e2a71c5d8372a5c3fbd5b43cd2a4193734f203e8",
+    "runtime_build/inputs/post-install-anchor.json": "be9eec672211f611f3982df935ffd42c8186ae4fca3d6affd8e993edc5c0ede8",
+    "runtime_build/inputs/base-dpkg-status": "1db55af2a9ec1c77649fbde8eb9b4d3e1038c41e5729932415032d25b4d1125b",
+    "runtime_build/inputs/index-ledger.json": "cd372270ed2ef6ddaee491e0d42bc69683e8118b15bd5781d7799ce3f2a06a13",
+    "runtime_build/inputs/image-digest-evidence.json": "28a0c82e6d299970cb6f1c37d1511b9ed607cecc589d9077c807f3564acc1799",
+    "runtime_build/inputs/base-status-simulate.txt": "b9a77672e7120dc002dfbd2271f5c9afd472a63a9a59251d1e17404182956ae4"
+  }
+}
