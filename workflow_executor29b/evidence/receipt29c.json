@@ -1,0 +1,70 @@
+{
+  "scope": "29c SOURCE AUDIT; revisedhostedNOTRUN; items27/28/29OPEN",
+  "base": "ddcdf78f2ba2b1adeca461e34d7f21a017daa887",
+  "base_tree": "dcd1b29d74ee6cf68a745283e36be29e4828c54d",
+  "real_plan_sha256": "044b11c478c588cbc85c6966fadb31a1d6e5c33a4710b08bcf50894e86d27db6",
+  "signed_index": "owncachedxz+freshgzPASSbothpockets, reviewerMATCH; suppliedkeyringtrustunchanged/debNOTchecked",
+  "baseline_after": [
+    {
+      "suite": "27c",
+      "base": "14PASS",
+      "after": "13PASS/1FAIL",
+      "case": "Tests.test_gateon_still_notexecuted",
+      "reason": "anchor hash drift NOTRUN->REFUSED"
+    },
+    {
+      "suite": "28fixture",
+      "base": "5PASS",
+      "after": "5PASS"
+    },
+    {
+      "suite": "28arunner",
+      "base": "FAIL source_drift:tests/geospatial/test_map_route.py",
+      "after": "IDENTICALFAILsamepath",
+      "new_failure": false
+    },
+    {
+      "suite": "28bfocused",
+      "base": "23OK/1SKIP",
+      "after": "23OK/1SKIP"
+    },
+    {
+      "suite": "29afull",
+      "base": "12PASS",
+      "after": "11PASS/1ERROR",
+      "case": "Negatives.test_baseline_blocked_not_pass",
+      "reason": "source drift:runtime_build/inputs-manifest.json"
+    },
+    {
+      "suite": "29apreflight",
+      "base": "exit0blockedhistoricalreceipt",
+      "after": "exit1source drift:runtime_build/inputs-manifest.json"
+    },
+    {
+      "suite": "27csourcepreflight",
+      "base": "NOTRUN",
+      "after": "REFUSEDsource drift:runtime_build/inputs/post-install-anchor.json"
+    },
+    {
+      "suite": "verify27fixture",
+      "base": "2PASS",
+      "after": "2PASS"
+    },
+    {
+      "suite": "29badapter",
+      "base": "22PASS",
+      "after": "23PASS"
+    }
+  ],
+  "intentional_assertion_change": {
+    "case": "test_historical_simulation_only_parser_fixture",
+    "old": "assert parse_plan()['outcome']=='MATCH'",
+    "new": "assertRaisesRegexStop:entire proposed post-set differs from reviewed146-pairanchor",
+    "fixture_bytes": "runtime_build/inputs/base-status-simulate.txt UNCHANGED"
+  },
+  "synthetic_helper": "54new+1upgrade labelledsynthetic, onlyfixturehelper changed; other21testbodiesunchanged",
+  "historical_policy": "27b/27c/29aallowlists/receipts/testsunchanged, expecteddriftNOTcurrentproof",
+  "CI": "no.githubchanges/nohistoricalharnessreferencesfound",
+  "current_manual_workflow": "inputsmanifesthashchainselfconsistent; application.lockstillabsent",
+  "adapter_delta": "onlylen(changed)54->55; base92/post146/errorstringsunchanged"
+}

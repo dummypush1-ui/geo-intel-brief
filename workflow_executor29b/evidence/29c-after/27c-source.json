@@ -1,0 +1,1 @@
+{"future_adapter":"requires separate contract and review","reason":"source drift:runtime_build/inputs/post-install-anchor.json; discovery not executed","scope":"27c executor-discovery preparation; Docker/CP312 NOT RUN; 27/28/29 OPEN","state":"REFUSED","unimplemented":["execution","failure capture","Stage B"]}

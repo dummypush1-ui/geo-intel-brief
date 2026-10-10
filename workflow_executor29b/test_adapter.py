@@ -17,12 +17,13 @@ spec.loader.exec_module(a)
 def fixture():
     base = {'p%03d' % n: ('1.0', 'amd64') for n in range(92)}
     post = dict(base)
+    post['p000'] = ('2.0', 'amd64')  # synthetic 54 new + one existing upgrade
     for n in range(92, 146):
         post['p%03d' % n] = ('2.0', 'amd64')
     text = 'TOOL\tapt\t2.8.3\n'
     text += ''.join('BASE\t%s\t%s\t%s\tinstalled\n' % (n, v, arch) for n, (v, arch) in base.items())
     text += ''.join('POCKET\t%s\tThu, 08 Oct 2026 00:00:00 UTC\n' % s for s in ('noble', 'noble-updates', 'noble-security'))
-    text += 'PLAN_BEGIN\n' + ''.join('Inst %s (2.0 Ubuntu:24.04/noble [amd64])\n' % n for n in post if n not in base) + 'PLAN_END\n'
+    text += 'PLAN_BEGIN\nInst p000 [1.0] (2.0 Ubuntu:24.04/noble [amd64])\n' + ''.join('Inst %s (2.0 Ubuntu:24.04/noble [amd64])\n' % n for n in post if n not in base) + 'PLAN_END\n'
     return text, post, base
 
 
@@ -71,7 +72,8 @@ class Tests(unittest.TestCase):
         text += ''.join('BASE\t%s\t%s\t%s\tinstalled\n' % (n, v, arch) for n, (v, arch) in base.items())
         text += ''.join('POCKET\t%s\tfixture date\n' % s for s in ('noble', 'noble-updates', 'noble-security'))
         text += 'PLAN_BEGIN\n' + (root / 'runtime_build/inputs/base-status-simulate.txt').read_text() + 'PLAN_END\n'
-        self.assertEqual(a.parse_plan(text, expected, base)['outcome'], 'MATCH')
+        with self.assertRaisesRegex(a.Stop, '^entire proposed post-set differs from reviewed 146-pair anchor$'):
+            a.parse_plan(text, expected, base)
 
     def test_workflow_template_semantics(self):
         text = (HERE / 'workflow.template.yml').read_text()
@@ -225,6 +227,49 @@ class Tests(unittest.TestCase):
                 else:
                     self.assertEqual(r.stdout, 'STAGE apt-update-ok\n')
                     self.assertEqual(r.stderr, '')
+
+    def test_real_run5_and_anchor_tsv_parity(self):
+        root = HERE.parent
+        rows = json.loads((root / 'runtime_build/inputs/post-install-anchor.json').read_text())['post_install']
+        expected = {x['package']: (x['version'], x['architecture']) for x in rows}
+        tsv = {}
+        for line in (root / 'runtime_build/inputs/post-install-pins.tsv').read_text().splitlines():
+            name, version = line.split('\t')
+            tsv[name] = version
+        self.assertEqual(len(expected), 146)
+        self.assertEqual(tsv, {n: v for n, (v, arch) in expected.items()})
+        before = json.loads((HERE / 'evidence/anchor-before29c.json').read_text())
+        after = json.loads((root / 'runtime_build/inputs/post-install-anchor.json').read_text())
+        self.assertEqual(before['planned_inst_changes'], 54)
+        self.assertEqual(after['planned_inst_changes'], 55)
+        old_rows = {x['package']: x for x in before['post_install']}
+        new_rows = {x['package']: x for x in after['post_install']}
+        self.assertEqual(set(old_rows), set(new_rows))
+        self.assertEqual([n for n in old_rows if old_rows[n] != new_rows[n]], ['libssl3t64'])
+        self.assertEqual(old_rows['libssl3t64']['version'], '3.0.13-0ubuntu3.15')
+        self.assertEqual(expected['libssl3t64'], ('3.0.13-0ubuntu3.16', 'amd64'))
+        base = {}
+        for block in (root / 'runtime_build/inputs/base-dpkg-status').read_text().split('\n\n'):
+            d = dict(x.split(': ', 1) for x in block.splitlines() if ': ' in x and not x.startswith(' '))
+            if d.get('Status') == 'install ok installed':
+                base[d['Package']] = (d['Version'], d['Architecture'])
+        self.assertEqual(base['libssl3t64'], ('3.0.13-0ubuntu3.15', 'amd64'))
+        raw = (HERE / 'evidence/real-run5-plan.txt').read_bytes()
+        self.assertEqual(__import__('hashlib').sha256(raw).hexdigest(), '044b11c478c588cbc85c6966fadb31a1d6e5c33a4710b08bcf50894e86d27db6')
+        text = raw.decode()
+        result = a.parse_plan(text, expected, base)
+        self.assertEqual((result['base_packages'], result['planned_changes'], len(result['post_packages'])), (92, 55, 146))
+        self.assertFalse(result['install_permitted'])
+        inst = next(line for line in text.splitlines() if line.startswith('Inst libssl3t64 '))
+        mutations = [
+            (text.replace(inst, inst.replace('(3.0.13-0ubuntu3.16 ', '(3.0.13-0ubuntu3.15 ')), 'added, changed or unreviewed package identity'),
+            (text.replace('PLAN_END', 'Inst extra (1.0 Ubuntu [amd64])\nPLAN_END'), 'added, changed or unreviewed package identity'),
+            (text.replace(inst + '\n', ''), 'entire proposed post-set differs from reviewed 146-pair anchor'),
+            (text.replace(inst, 'Remv libssl3t64'), 'package removal refused'),
+            (text.replace(inst, inst.replace('[amd64])', '[all])')), 'added, changed or unreviewed package identity')]
+        for bad, reason in mutations:
+            with self.assertRaisesRegex(a.Stop, '^' + reason + '$'):
+                a.parse_plan(bad, expected, base)
 
     def test_fixed_allowlist(self):
         cmds = a.commands()

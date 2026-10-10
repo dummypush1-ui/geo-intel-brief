@@ -1,0 +1,16 @@
+........F.....
+======================================================================
+FAIL: test_gateon_still_notexecuted (__main__.Tests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/workflow29c-repo/runtime_executor27c/test_prepare.py", line 19, in test_gateon_still_notexecuted
+    self.assertEqual(p.dispatch(['--stage','A','--gate','on','--source',str(ROOT)])['state'],'NOT RUN');sub.assert_not_called();sock.assert_not_called()
+AssertionError: 'REFUSED' != 'NOT RUN'
+- REFUSED
++ NOT RUN
+
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.004s
+
+FAILED (failures=1)

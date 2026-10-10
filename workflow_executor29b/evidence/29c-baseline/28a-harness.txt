@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "/tmp/workflow29c-repo/portable_validation28/run_local.py", line 13, in <module>
+    run([py,'-I','-m','pip','check']);receipt=run([py,'-I','/tree/portable_validation28/harness.py','/tree']);(work/f'receipt{n}.json').write_bytes(receipt)
+  File "/tmp/workflow29c-repo/portable_validation28/run_local.py", line 8, in run
+    r=subprocess.run(cmd,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,timeout=120,preexec_fn=limits,env={'PATH':'/usr/bin'});logs.append({'argv':args,'exit_code':r.returncode,'output':r.stdout.decode(errors='replace')});(work/'logs.json').write_text(json.dumps(logs,indent=2)+'\n');assert r.returncode==0,r.stdout.decode();return r.stdout
+AssertionError: Traceback (most recent call last):
+  File "/tree/portable_validation28/harness.py", line 117, in <module>
+    if __name__=='__main__':main(sys.argv[1])
+  File "/tree/portable_validation28/harness.py", line 81, in main
+    src=sources(root);row('source_allowlist','PASS','exact immutable read-source hashes match')
+  File "/tree/portable_validation28/harness.py", line 41, in sources
+    if p.is_symlink()or not p.is_file()or hashlib.sha256(p.read_bytes()).hexdigest()!=h:raise ValueError('source_drift:'+n)
+ValueError: source_drift:tests/geospatial/test_map_route.py

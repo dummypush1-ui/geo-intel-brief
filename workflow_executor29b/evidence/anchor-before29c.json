@@ -8,7 +8,7 @@
     "libaudit1",
     "libssl3t64"
   ],
-  "planned_inst_changes": 55,
+  "planned_inst_changes": 54,
   "post_install": [
     {
       "architecture": "amd64",
@@ -1314,38 +1314,13 @@
     },
     {
       "architecture": "amd64",
-      "identity_binding": "signature-valid supplied keyring + exact InRelease/index hashes; deb bytes not verified in29c",
+      "identity_binding": "base layer a60ef8ec184edb5ed91f5983f00261359fb2fe20f603e8d488b9477d32fcad70 / amd64manifest f610ab94648195aa356059f5b41d6085c9d4d903c072430cdd1af7bdb646106b",
       "layer_package_byte_proof": false,
-      "origin": "signed snapshot Packages index, actual apt2.8.3 plan upgrade",
+      "origin": "supplied digest-pinned image dpkg status",
       "package": "libssl3t64",
       "snapshot_deb_hash_meaning": "version identity only, no individual.debhash",
       "status_member_sha256": "1db55af2a9ec1c77649fbde8eb9b4d3e1038c41e5729932415032d25b4d1125b",
-      "version": "3.0.13-0ubuntu3.16",
-      "filename": "pool/main/o/openssl/libssl3t64_3.0.13-0ubuntu3.16_amd64.deb",
-      "size": 1945300,
-      "sha256": "219f43b1cd836a4da550938db5fda93160d269d39a4edcf1f1ce698a470db797",
-      "signed_index_evidence": [
-        {
-          "suite": "noble-updates",
-          "InRelease_sha256": "20c19c7b4265ac3fd6cfa3ef5b9a5bda93d0309655c87a42b23daa0c756bb570",
-          "Packages_gz_sha256": "6d547c2497128521a9b676f9b61c83633362dabed8bbc384780eb6c0d7375c2b",
-          "Packages_gz_size": 1701635,
-          "Packages_xz_sha256": "063be721d476f39e4e8a9930838ae32d3b17ec5523f88d07da4c4eef2bf6b9cf",
-          "Packages_xz_size": 1374692,
-          "Packages_gz_url": "https://snapshot.ubuntu.com/ubuntu/20261009T000000Z/dists/noble-updates/main/binary-amd64/Packages.gz",
-          "url": "https://snapshot.ubuntu.com/ubuntu/20261009T000000Z/dists/noble-updates/main/binary-amd64/Packages.xz"
-        },
-        {
-          "suite": "noble-security",
-          "InRelease_sha256": "802ae17a727fdaf3e561fe0d7620dd62ee6bd560299872a1a4b9a35199423294",
-          "Packages_gz_sha256": "959e7feeba08f5af0e48c4457d816e1a84e3cbed40b19ec969846c12af0077d4",
-          "Packages_gz_size": 1374805,
-          "Packages_xz_sha256": "0d1a329904f5734d70ae2f69bf361d96fa700ce20e22fe756ac8932729d42afd",
-          "Packages_xz_size": 1116336,
-          "Packages_gz_url": "https://snapshot.ubuntu.com/ubuntu/20261009T000000Z/dists/noble-security/main/binary-amd64/Packages.gz",
-          "url": "https://snapshot.ubuntu.com/ubuntu/20261009T000000Z/dists/noble-security/main/binary-amd64/Packages.xz"
-        }
-      ]
+      "version": "3.0.13-0ubuntu3.15"
     },
     {
       "architecture": "amd64",

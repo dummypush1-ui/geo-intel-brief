@@ -152,7 +152,7 @@ def parse_plan(text, expected, expected_base):
                 raise Stop('unparsed Conf row')
         elif line.startswith(('E:', 'W:')):
             raise Stop('apt plan diagnostic')
-    if len(changed) != 54 or actual != expected:
+    if len(changed) != 55 or actual != expected:
         raise Stop('entire proposed post-set differs from reviewed 146-pair anchor')
     return {'outcome': 'MATCH', 'install_permitted': False,
             'base_packages': len(base), 'planned_changes': len(changed),

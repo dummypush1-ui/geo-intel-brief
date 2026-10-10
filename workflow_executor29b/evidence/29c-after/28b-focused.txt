@@ -1,0 +1,20 @@
+......./tmp/workflow29c-repo/tests/geospatial/test_map_route.py:29: ResourceWarning: unclosed file <_io.BufferedReader name='/tmp/workflow29c-repo/integration/ui/map.js'>
+  self.assertEqual(c.get("/workspace/assets/" + name).status_code, 200, name)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/tmp/workflow29c-repo/tests/geospatial/test_map_route.py:29: ResourceWarning: unclosed file <_io.BufferedReader name='/tmp/workflow29c-repo/integration/ui/map.css'>
+  self.assertEqual(c.get("/workspace/assets/" + name).status_code, 200, name)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/tmp/workflow29c-repo/tests/geospatial/test_map_route.py:29: ResourceWarning: unclosed file <_io.BufferedReader name='/tmp/workflow29c-repo/integration/ui/geo_map_ui.js'>
+  self.assertEqual(c.get("/workspace/assets/" + name).status_code, 200, name)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/tmp/workflow29c-repo/tests/geospatial/test_map_route.py:29: ResourceWarning: unclosed file <_io.BufferedReader name='/tmp/workflow29c-repo/integration/ui/geo_map.css'>
+  self.assertEqual(c.get("/workspace/assets/" + name).status_code, 200, name)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.10/unittest/case.py:549: ResourceWarning: unclosed file <_io.BufferedReader name='/tmp/workflow29c-repo/integration/ui/map.html'>
+  method()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+.........s......
+----------------------------------------------------------------------
+Ran 23 tests in 1.174s
+
+OK (skipped=1)

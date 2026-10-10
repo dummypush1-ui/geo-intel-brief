@@ -1,0 +1,19 @@
+.E..........
+======================================================================
+ERROR: test_baseline_blocked_not_pass (__main__.Negatives)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/workflow29c-repo/workflow_package29/test_preflight.py", line 12, in test_baseline_blocked_not_pass
+    r=p.inspect(ROOT);self.assertEqual(r['summary'],'preflight: 1 blocked input, build not attempted');self.assertEqual(r['rows'][1]['status'],'BLOCKED');self.assertEqual(r['rows'][1]['reason'],'inputs/application.lock absent');self.assertEqual(r['totals']['PASS'],1);self.assertEqual(r['totals']['BLOCKED'],3)
+  File "/tmp/workflow29c-repo/workflow_package29/preflight.py", line 41, in inspect
+    sources=source_check(root)
+  File "/tmp/workflow29c-repo/workflow_package29/preflight.py", line 19, in source_check
+    p=root/name;check(p.is_file()and not p.is_symlink()and sha(p)==h,'source drift:'+name)
+  File "/tmp/workflow29c-repo/workflow_package29/preflight.py", line 7, in check
+    if not condition:raise Refused(reason)
+preflight.Refused: source drift:runtime_build/inputs-manifest.json
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.077s
+
+FAILED (errors=1)
