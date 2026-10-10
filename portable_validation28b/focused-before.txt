@@ -1,0 +1,20 @@
+...../tmp/runtime27c-landrepo/tests/geospatial/test_map_route.py:29: ResourceWarning: unclosed file <_io.BufferedReader name='/tmp/runtime27c-landrepo/integration/ui/map.js'>
+  self.assertEqual(c.get("/workspace/assets/" + name).status_code, 200, name)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/tmp/runtime27c-landrepo/tests/geospatial/test_map_route.py:29: ResourceWarning: unclosed file <_io.BufferedReader name='/tmp/runtime27c-landrepo/integration/ui/map.css'>
+  self.assertEqual(c.get("/workspace/assets/" + name).status_code, 200, name)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/tmp/runtime27c-landrepo/tests/geospatial/test_map_route.py:29: ResourceWarning: unclosed file <_io.BufferedReader name='/tmp/runtime27c-landrepo/integration/ui/geo_map_ui.js'>
+  self.assertEqual(c.get("/workspace/assets/" + name).status_code, 200, name)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/tmp/runtime27c-landrepo/tests/geospatial/test_map_route.py:29: ResourceWarning: unclosed file <_io.BufferedReader name='/tmp/runtime27c-landrepo/integration/ui/geo_map.css'>
+  self.assertEqual(c.get("/workspace/assets/" + name).status_code, 200, name)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.10/unittest/case.py:549: ResourceWarning: unclosed file <_io.BufferedReader name='/tmp/runtime27c-landrepo/integration/ui/map.html'>
+  method()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+.........s.....
+----------------------------------------------------------------------
+Ran 20 tests in 1.345s
+
+OK (skipped=1)

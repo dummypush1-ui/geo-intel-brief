@@ -1,0 +1,21 @@
+E
+======================================================================
+ERROR: test_decoder_recursion_refused (tests.geospatial.test_map_route.MapLoaderBounds)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/runtime28b-repo/tests/geospatial/test_map_route.py", line 86, in test_decoder_recursion_refused
+    rows, status = load_chokepoints(p)
+  File "/tmp/runtime28b-repo/integration/geospatial/response.py", line 26, in load_chokepoints
+    doc = json.loads(data.decode("utf-8"))
+  File "/usr/lib/python3.10/unittest/mock.py", line 1114, in __call__
+    return self._mock_call(*args, **kwargs)
+  File "/usr/lib/python3.10/unittest/mock.py", line 1118, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+  File "/usr/lib/python3.10/unittest/mock.py", line 1173, in _execute_mock_call
+    raise effect
+RecursionError
+
+----------------------------------------------------------------------
+Ran 1 test in 0.012s
+
+FAILED (errors=1)

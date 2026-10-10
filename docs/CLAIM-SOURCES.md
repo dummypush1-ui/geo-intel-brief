@@ -31,7 +31,7 @@ Inspected source base: 20649f625838f74a429b61702c9d9a8e2fdaca84. These are sourc
 
 `integration/dependency_audit/audit.json:583` contains `source_manifest_sha256`. It hashes the canonical JSON list in `integration/dependency_audit/import-inventory.json` -> `source_baseline.files`, not the root `staging-manifest.json`.
 
-The test `Tests.test_source_manifest_and_ast_inventory_consistency` in `tests/test_dependency_audit.py` recomputes the list hash, checks source bytes/AST and compares the scoped inventory. The current source hash is `722b33caa7625c6fa23e9c536f69765d1f84e1d5fcb518227cf88a904da6669e`, recomputed from the inspected base. Older dependency receipts remain historical records, not current install evidence.
+The test `Tests.test_source_manifest_and_ast_inventory_consistency` in `tests/test_dependency_audit.py` recomputes the list hash, checks source bytes/AST and compares the scoped inventory. The current source hash is `9ae095da1cf17bf6537ee007075d8665070406ba029fbca6eb4745c256098d5f`, recomputed from the refreshed scoped inventory. Older dependency receipts remain historical records, not current install evidence.
 
 ## Current additions
 

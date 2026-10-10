@@ -1,0 +1,19 @@
+F
+======================================================================
+FAIL: test_decoder_nested_array_bad_shape_refused (tests.geospatial.test_map_route.MapLoaderBounds)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/runtime28b-repo/tests/geospatial/test_map_route.py", line 99, in test_decoder_nested_array_bad_shape_refused
+    self.assertEqual(status, {'ok': False, 'reason': 'bad_shape'})
+AssertionError: {'ok': True, 'reason': 'bad_shape'} != {'ok': False, 'reason': 'bad_shape'}
+- {'ok': True, 'reason': 'bad_shape'}
+?        ^^^
+
++ {'ok': False, 'reason': 'bad_shape'}
+?        ^^^^
+
+
+----------------------------------------------------------------------
+Ran 1 test in 0.012s
+
+FAILED (failures=1)

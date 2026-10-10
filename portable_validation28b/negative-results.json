@@ -1,0 +1,20 @@
+[
+  {
+    "name": "negative-escaped-recursion",
+    "exit_code": 1,
+    "test": "tests.geospatial.test_map_route.MapLoaderBounds.test_decoder_recursion_refused",
+    "expected_failure_observed": true
+  },
+  {
+    "name": "negative-unsafe-shape",
+    "exit_code": 1,
+    "test": "tests.geospatial.test_map_route.MapLoaderBounds.test_decoder_nested_array_bad_shape_refused",
+    "expected_failure_observed": true
+  },
+  {
+    "name": "negative-ambient-marker",
+    "exit_code": 1,
+    "test": "tests.test_dependency_audit.Tests.test_marker_declared_receipt_not_ambient",
+    "expected_failure_observed": true
+  }
+]

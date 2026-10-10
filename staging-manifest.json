@@ -1412,8 +1412,8 @@
     },
     {
       "path": "docs/CLAIM-SOURCES.md",
-      "bytes": 5687,
-      "sha256": "a05cacbe475dab8f551648fa5afadf442b6f6b7b4d3076442dfc828445f63959"
+      "bytes": 5699,
+      "sha256": "0d92048d182b648ee8f7cca178bb987e4ee687b997493dfcc32d4cc5ed0716ba"
     },
     {
       "path": "docs/CONFIGURATION.md",
@@ -2808,12 +2808,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 18581,
-      "sha256": "7778835733c5415234590b7bf0cca943a080a19dd98015b90cbbe1d47920184d"
+      "sha256": "0c5d529bf9b00f70757ecc6e71701517a7c68fbd40e0406827691657e85e1fc1"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
       "bytes": 258020,
-      "sha256": "706ef498046ef2b4e23609ee96fc6ba031413d5e6d2eab834020d1e8f0d883e6"
+      "sha256": "5289dbd6402e448f320f3555044c8f17bc3905ff8a590a39c27c5362702c5503"
     },
     {
       "path": "integration/dependency_build/README.md",
@@ -5817,8 +5817,8 @@
     },
     {
       "path": "tests/geospatial/test_map_route.py",
-      "bytes": 4438,
-      "sha256": "7945a2da38494363394d59c3655dced03e8a7feb3fe8a31240da51506594a14a"
+      "bytes": 5614,
+      "sha256": "f8f6716db3182c6a830abd0095c15b98d15050165a0d11bd677c8402b879aca6"
     },
     {
       "path": "tests/geospatial/url_parity.mjs",
@@ -6257,8 +6257,8 @@
     },
     {
       "path": "tests/test_dependency_audit.py",
-      "bytes": 10648,
-      "sha256": "9cf4aaacaace5d0bc74ef4e0643bab55cde39d24dbe014304ba8d1ae95d02e7b"
+      "bytes": 12601,
+      "sha256": "0deeaead97788cc8b441073591e0e306acf7c4d8ec3fea2d652ac01de45e50b6"
     },
     {
       "path": "tests/test_dependency_build_runner.py",

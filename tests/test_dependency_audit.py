@@ -8,6 +8,16 @@ def historical_lock(path):
  row=json.loads((ROOT/'integration/pypdf_remediation105/historical-locks.json').read_text())['locks'][path]
  raw=row['text'].encode();assert hashlib.sha256(raw).hexdigest()==row['sha256'];return raw
 
+def historical_marker_environment(audit):
+ """Receipt-derived historical identity; remaining keys are labelled test context."""
+ e=audit['environment'];version=e['python'];implementation=e['implementation']
+ assert implementation=='CPython' and e['os']=='Linux'
+ return {'implementation_name':'cpython','implementation_version':version,
+  'os_name':'posix','platform_machine':e['arch'],'platform_release':'historical-test-context',
+  'platform_system':e['os'],'platform_version':'historical-test-context',
+  'python_full_version':version,'platform_python_implementation':implementation,
+  'python_version':'.'.join(version.split('.')[:2]),'sys_platform':'linux','extra':''}
+
 class Tests(unittest.TestCase):
  def setUp(self):
   self.a=json.loads((BASE/'audit.json').read_text());self.inv=json.loads((BASE/'import-inventory.json').read_text())
@@ -30,10 +40,28 @@ class Tests(unittest.TestCase):
    if key in seen:continue
    seen.add(key)
    for s in ds[key]['active_requires']:
-    q=Requirement(s);self.assertTrue(q.marker is None or q.marker.evaluate({'extra':''}));dep=canonicalize_name(q.name);self.assertIn(dep,ds);self.assertIn(ds[dep]['version'],q.specifier);pending.append(dep)
+    q=Requirement(s);self.assertTrue(q.marker is None or q.marker.evaluate(historical_marker_environment(self.a)));dep=canonicalize_name(q.name);self.assertIn(dep,ds);self.assertIn(ds[dep]['version'],q.specifier);pending.append(dep)
    for s in ds[key]['inactive_markers_extras']:
-    q=Requirement(s);self.assertIsNotNone(q.marker);self.assertFalse(q.marker.evaluate({'extra':''}))
+    q=Requirement(s);self.assertIsNotNone(q.marker);self.assertFalse(q.marker.evaluate(historical_marker_environment(self.a)))
   self.assertEqual(seen,set(ds))
+ def test_marker_declared_receipt_not_ambient(self):
+  from unittest.mock import patch
+  from packaging.markers import default_environment
+  from packaging.requirements import Requirement
+  env=historical_marker_environment(self.a)
+  self.assertEqual(len(env),12)
+  self.assertEqual((env['python_full_version'],env['platform_system'],env['platform_machine']),('3.10.12','Linux','x86_64'))
+  # Real historical pypdf Requires-Dist marker, independent literal outcomes.
+  marker_text=next(s for s in self.a['distributions']['pypdf']['active_requires'] if s.startswith('typing_extensions'))
+  self.assertEqual(marker_text, 'typing_extensions>=4.0; python_version < "3.11"')
+  marker=Requirement(marker_text).marker
+  other=dict(env,python_version='3.12',python_full_version='3.12.0',implementation_version='3.12.0')
+  self.assertTrue(marker.evaluate(env));self.assertFalse(marker.evaluate(other))
+  ambient=default_environment();ambient.update(python_version='3.12',python_full_version='3.12.0')
+  with patch('packaging.markers.default_environment',return_value=ambient):
+   self.assertTrue(marker.evaluate(env));self.assertFalse(marker.evaluate(other))
+   self.test_active_dependency_closure_specifiers()
+
  def test_cache_bytes_tags_metadata_or_explicit_unverified(self):
   absent=[x['filename'] for x in self.a['artifacts'] if not (Path(self.a['explicit_cache'])/x['filename']).is_file()]
   if absent:self.skipTest('UNVERIFIED artifact bytes/tags/metadata: unavailable explicit cache: '+', '.join(absent))
@@ -44,7 +72,7 @@ class Tests(unittest.TestCase):
    with zipfile.ZipFile(p) as z:
     metas=[n for n in z.namelist() if n.endswith('.dist-info/METADATA')];self.assertEqual(len(metas),1);meta=email.message_from_bytes(z.read(metas[0]))
    self.assertEqual(canonicalize_name(meta['Name']),str(name));self.assertEqual(meta['Version'],str(version))
-   d=self.a['distributions'][str(name)];active=sorted(str(Requirement(s)) for s in meta.get_all('Requires-Dist',[]) if Requirement(s).marker is None or Requirement(s).marker.evaluate({'extra':''}));self.assertEqual(active,d['active_requires'])
+   d=self.a['distributions'][str(name)];active=sorted(str(Requirement(s)) for s in meta.get_all('Requires-Dist',[]) if Requirement(s).marker is None or Requirement(s).marker.evaluate(historical_marker_environment(self.a)));self.assertEqual(active,d['active_requires'])
  def test_complete_classification(self):
   rows=self.inv['inventory'];self.assertEqual(len({r['import'] for r in rows}),len(rows));self.assertEqual(self.inv['unresolved'],[])
   for r in rows:

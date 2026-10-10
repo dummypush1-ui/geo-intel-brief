@@ -1,0 +1,15 @@
+F
+======================================================================
+FAIL: test_marker_declared_receipt_not_ambient (tests.test_dependency_audit.Tests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/runtime28b-repo/tests/test_dependency_audit.py", line 63, in test_marker_declared_receipt_not_ambient
+    self.test_active_dependency_closure_specifiers()
+  File "/tmp/runtime28b-repo/tests/test_dependency_audit.py", line 43, in test_active_dependency_closure_specifiers
+    q=Requirement(s);self.assertTrue(q.marker is None or q.marker.evaluate({'extra':''}));dep=canonicalize_name(q.name);self.assertIn(dep,ds);self.assertIn(ds[dep]['version'],q.specifier);pending.append(dep)
+AssertionError: False is not true
+
+----------------------------------------------------------------------
+Ran 1 test in 0.024s
+
+FAILED (failures=1)

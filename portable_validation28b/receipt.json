@@ -1,0 +1,314 @@
+{
+  "unit": "28b1 actual two portable test fixes",
+  "base": "4d72c5fc71bb780d01d839ae99dda136cd73a355",
+  "status": "CANDIDATE SOURCE AUDIT; item28 OPEN",
+  "environment": {
+    "python": "CPython3.10.12",
+    "os": "Linux",
+    "arch": "x86_64"
+  },
+  "focused_before": {
+    "run": 20,
+    "pass": 19,
+    "skip": 1
+  },
+  "focused_after": {
+    "run": 23,
+    "pass": 22,
+    "skip": 1
+  },
+  "cache_skip": "UNVERIFIED historical cache bytes/tags/metadata unavailable; current interpreter tag checks unchanged",
+  "cp312": "NOT RUN; mocked ambient3.12 is not execution",
+  "negative_results": [
+    {
+      "name": "negative-escaped-recursion",
+      "exit_code": 1,
+      "test": "tests.geospatial.test_map_route.MapLoaderBounds.test_decoder_recursion_refused",
+      "expected_failure_observed": true
+    },
+    {
+      "name": "negative-unsafe-shape",
+      "exit_code": 1,
+      "test": "tests.geospatial.test_map_route.MapLoaderBounds.test_decoder_nested_array_bad_shape_refused",
+      "expected_failure_observed": true
+    },
+    {
+      "name": "negative-ambient-marker",
+      "exit_code": 1,
+      "test": "tests.test_dependency_audit.Tests.test_marker_declared_receipt_not_ambient",
+      "expected_failure_observed": true
+    }
+  ],
+  "audit_source_hash": "9ae095da1cf17bf6537ee007075d8665070406ba029fbca6eb4745c256098d5f",
+  "doc_old_hash_already_stale_at_base": true,
+  "historical28a": {
+    "status": "EXPECTED SOURCE DRIFT, NOT CURRENT VALID PROOF",
+    "actual_first_stop": "source_drift:tests/geospatial/test_map_route.py",
+    "preserved_hashes": {
+      "portable_validation28/manifest.json": "a04d23ef293baa24313fc00199299a5ba351d2955dfa8d971d6acf34ddf57fcf",
+      "portable_validation28/run_local.py": "2c05ab8f0ef0bd3848fb37206360317efef8946adae46e7e458793ee27677de3",
+      "portable_validation28/SPEC.md": "1be50d743da2ee9235b0dc1acb4bcfd14a52dd38749b9db63b4c5c7ea92d81ec",
+      "portable_validation28/source-allowlist.json": "aee7e0e91b20564fcc654e635b801e4d6d59d3ee3dae702de017198b6ab88202",
+      "portable_validation28/harness.py": "4e4aee416193aa67fa6d5f7467513c7122f9cdb5b885a9cc4c7c574c8883366d",
+      "portable_validation28/test_harness.py": "664a0204e0663377a4f4c200812842c47798237c1369b5af3761c968db8a084b",
+      "portable_validation28/evidence/receipt1.json": "76eee368a0650e3a7c5bff31e2afe561f8129fb200ca86b34c973ee7d763b46e",
+      "portable_validation28/evidence/receipt2.json": "76eee368a0650e3a7c5bff31e2afe561f8129fb200ca86b34c973ee7d763b46e",
+      "portable_validation28/evidence/logs.json": "1ff45e0571cc2c29a76ca1a68e3c2f3f46422c58916858f814a555a6410ea5f3"
+    }
+  },
+  "production_response_unchanged_sha256": "5692908ac290ec10d054ed742ea06b24393ff6a2632931337f6f0edbbba7c534",
+  "historical_audit_except_source_hash_unchanged": true,
+  "changes": [
+    {
+      "path": "docs/CLAIM-SOURCES.md",
+      "old_sha256": "a05cacbe475dab8f551648fa5afadf442b6f6b7b4d3076442dfc828445f63959",
+      "new_sha256": "0d92048d182b648ee8f7cca178bb987e4ee687b997493dfcc32d4cc5ed0716ba",
+      "old_bytes": 5687,
+      "new_bytes": 5699,
+      "ranges": [
+        {
+          "operation": "replace",
+          "old_bytes_half_open": [
+            4135,
+            4538
+          ],
+          "new_bytes_half_open": [
+            4135,
+            4550
+          ],
+          "old_sha256": "c6bcf1e05e28a33b0ca0d82d1b4c6b2244e445cce3be66bcae3e50622a87bcea",
+          "new_sha256": "7fc0418621e296faf5c23ba1c98f667d688006fac0645aa5f4e8b78795942578"
+        }
+      ]
+    },
+    {
+      "path": "integration/dependency_audit/audit.json",
+      "old_sha256": "7778835733c5415234590b7bf0cca943a080a19dd98015b90cbbe1d47920184d",
+      "new_sha256": "0c5d529bf9b00f70757ecc6e71701517a7c68fbd40e0406827691657e85e1fc1",
+      "old_bytes": 18581,
+      "new_bytes": 18581,
+      "ranges": [
+        {
+          "operation": "replace",
+          "old_bytes_half_open": [
+            18191,
+            18287
+          ],
+          "new_bytes_half_open": [
+            18191,
+            18287
+          ],
+          "old_sha256": "72f70b277caa3987473158c48381ae59ab46d1322e10da5d226e200ea22be212",
+          "new_sha256": "4dfa2a72d61a0cfebe90cb50b80924cdc8573e61e9d141d01716462d898d4d13"
+        }
+      ]
+    },
+    {
+      "path": "integration/dependency_audit/import-inventory.json",
+      "old_sha256": "706ef498046ef2b4e23609ee96fc6ba031413d5e6d2eab834020d1e8f0d883e6",
+      "new_sha256": "5289dbd6402e448f320f3555044c8f17bc3905ff8a590a39c27c5362702c5503",
+      "old_bytes": 258020,
+      "new_bytes": 258020,
+      "ranges": [
+        {
+          "operation": "replace",
+          "old_bytes_half_open": [
+            223255,
+            223340
+          ],
+          "new_bytes_half_open": [
+            223255,
+            223340
+          ],
+          "old_sha256": "839f38b6f028e9630799f88a9b92181f50b5366187497a9592d7fcd1e0759cd5",
+          "new_sha256": "e2ca12912cc8d8b670ddc7b301bd2f019d1b6f74ee77a07740a8f458c1fbc398"
+        }
+      ]
+    },
+    {
+      "path": "staging-manifest.json",
+      "old_sha256": "1d61b36cb9ab39de4deccee0ef0faaac3ae033145dc4a84f243111652a30189c",
+      "new_sha256": "44b86cc4268a0ea77656ec7521145f30cee33d53ffa366de63a226795df8f3be",
+      "old_bytes": 244952,
+      "new_bytes": 244952,
+      "ranges": [
+        {
+          "operation": "replace",
+          "old_bytes_half_open": [
+            48527,
+            48631
+          ],
+          "new_bytes_half_open": [
+            48527,
+            48631
+          ],
+          "old_sha256": "a972f12c6c891d5e5cd6ec3903107e48e054a2954532e10c58324ca6d6fee256",
+          "new_sha256": "7071132e692b67b346caec17b8c35b0e9663a945e84600798fa6a2f7b2da4ea2"
+        },
+        {
+          "operation": "replace",
+          "old_bytes_half_open": [
+            95514,
+            95597
+          ],
+          "new_bytes_half_open": [
+            95514,
+            95597
+          ],
+          "old_sha256": "f9583a909c899ac4666291d2d0587164c5f4deba8da083672e98b7753b7c9f7b",
+          "new_sha256": "c3acf00e66051991064c81d8227dc60bd3466f0c93beebdca7f2eb446dd68298"
+        },
+        {
+          "operation": "replace",
+          "old_bytes_half_open": [
+            95701,
+            95784
+          ],
+          "new_bytes_half_open": [
+            95701,
+            95784
+          ],
+          "old_sha256": "12f35e4e9763ec920302a19efd37da3ccf5f14ba95fb2ea8b21d2b410a7a6555",
+          "new_sha256": "37ddd60c0c8a3fc17d229ed11406c556e2cae55a578200c6c7179db89dc084b5"
+        },
+        {
+          "operation": "replace",
+          "old_bytes_half_open": [
+            196669,
+            196773
+          ],
+          "new_bytes_half_open": [
+            196669,
+            196773
+          ],
+          "old_sha256": "2d400a9b6e63be3b6b4acb145377e5b68da9f596365fac07f6428af83b561bd5",
+          "new_sha256": "42d0f59c6ed26ecc1d54a98f4b92e406c521f702af505641dc32185c5b54a492"
+        },
+        {
+          "operation": "replace",
+          "old_bytes_half_open": [
+            211321,
+            211426
+          ],
+          "new_bytes_half_open": [
+            211321,
+            211426
+          ],
+          "old_sha256": "5f12d5a8e3dd4227b952c860b5515f02d0728daedd16778b7df9fa7b23b9745d",
+          "new_sha256": "a74f20ab274080b10cb20332b6d953733b19189a5c448c5b3d0b99402fb8a17b"
+        }
+      ]
+    },
+    {
+      "path": "tests/geospatial/test_map_route.py",
+      "old_sha256": "7945a2da38494363394d59c3655dced03e8a7feb3fe8a31240da51506594a14a",
+      "new_sha256": "f8f6716db3182c6a830abd0095c15b98d15050165a0d11bd677c8402b879aca6",
+      "old_bytes": 4438,
+      "new_bytes": 5614,
+      "ranges": [
+        {
+          "operation": "replace",
+          "old_bytes_half_open": [
+            4321,
+            4438
+          ],
+          "new_bytes_half_open": [
+            4321,
+            5614
+          ],
+          "old_sha256": "c10e6a5434a36c8f9a75ade954deecd76a628be7046fad0eb46e7bed09bc1c81",
+          "new_sha256": "e5eea1b77ab887f401e7692a4756b7c89b53cc37736e2a2ba6284a48dd483077"
+        }
+      ]
+    },
+    {
+      "path": "tests/test_dependency_audit.py",
+      "old_sha256": "9cf4aaacaace5d0bc74ef4e0643bab55cde39d24dbe014304ba8d1ae95d02e7b",
+      "new_sha256": "0deeaead97788cc8b441073591e0e306acf7c4d8ec3fea2d652ac01de45e50b6",
+      "old_bytes": 10648,
+      "new_bytes": 12601,
+      "ranges": [
+        {
+          "operation": "insert",
+          "old_bytes_half_open": [
+            533,
+            533
+          ],
+          "new_bytes_half_open": [
+            533,
+            1208
+          ],
+          "old_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "new_sha256": "f31df849d695a67a48ac35dfadb5a55a8385db625c382ce5e3eb00d4c1993393"
+        },
+        {
+          "operation": "replace",
+          "old_bytes_half_open": [
+            2345,
+            2553
+          ],
+          "new_bytes_half_open": [
+            3020,
+            3253
+          ],
+          "old_sha256": "dc8f281663e62d26fc78fa1d79c7972a7eedf78eb228db3e7456c2fe84736231",
+          "new_sha256": "cb079b9d175e07727042a5e32fa26cbc263e2dbc919ff7698568e5f2f83c42af"
+        },
+        {
+          "operation": "replace",
+          "old_bytes_half_open": [
+            2601,
+            2703
+          ],
+          "new_bytes_half_open": [
+            3301,
+            3428
+          ],
+          "old_sha256": "598ea5c9cff902d565964fbc2dec95392c2f259cff50dae89fe5ef5587f681ad",
+          "new_sha256": "8814b7c49bc595fdd9ae03351f1a2f380f1f5b72ad96791d6ff261789fa7ebe0"
+        },
+        {
+          "operation": "insert",
+          "old_bytes_half_open": [
+            2736,
+            2736
+          ],
+          "new_bytes_half_open": [
+            3461,
+            4664
+          ],
+          "old_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "new_sha256": "3470135ee002af9787315b2a6279a00615d9a0e11f1d1baac56d1231e10fba83"
+        },
+        {
+          "operation": "replace",
+          "old_bytes_half_open": [
+            3849,
+            4093
+          ],
+          "new_bytes_half_open": [
+            5777,
+            6046
+          ],
+          "old_sha256": "21518fdeb8a02c479c1e319c17088584c4669faf487a82b28d99a4d7fe26b9f5",
+          "new_sha256": "70a540f4e5af538a00a53aca1c63138bdc99c72e9165981859a94e039bfb4dd2"
+        }
+      ]
+    }
+  ],
+  "reasons": {
+    "tests": "depth2000 refuse/recursion/shape and historical12-key marker environment",
+    "audit/inventory": "derived map test hash and canonical source hash only",
+    "docs": "one current hash sentence; stale already at base",
+    "staging": "five existing rows only; historicalscope/countpreserved"
+  },
+  "open": [
+    "validators",
+    "pikepdf",
+    "TZ",
+    "512MB",
+    "profile conflicts",
+    "items27/28/29 actual execution"
+  ],
+  "no_activation": "No Docker pull/build/dispatch/live activation by this unit"
+}

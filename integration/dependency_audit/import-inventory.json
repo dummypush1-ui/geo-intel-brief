@@ -5865,7 +5865,7 @@
       },
       {
         "path": "tests/geospatial/test_map_route.py",
-        "sha256": "7945a2da38494363394d59c3655dced03e8a7feb3fe8a31240da51506594a14a"
+        "sha256": "f8f6716db3182c6a830abd0095c15b98d15050165a0d11bd677c8402b879aca6"
       },
       {
         "path": "tests/native200_state_fixture.py",

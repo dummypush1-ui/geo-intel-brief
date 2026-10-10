@@ -73,4 +73,27 @@ class MapLoaderBounds(unittest.TestCase):
         with TemporaryDirectory() as d:
             p=Path(d)/'data.json';p.write_text('['*2000+'0'+']'*2000)
             rows,status=load_chokepoints(p)
-            self.assertEqual(rows,[]);self.assertFalse(status['ok']);self.assertEqual(status['reason'],'unreadable')
+            self.assertEqual(rows, []); self.assertFalse(status['ok'])
+            self.assertIn(status['reason'], {'unreadable', 'bad_shape'})
+
+    def test_decoder_recursion_refused(self):
+        from tempfile import TemporaryDirectory
+        from unittest.mock import patch
+        from integration.geospatial.response import load_chokepoints
+        with TemporaryDirectory() as d:
+            p = Path(d)/'data.json'; p.write_text('[]')
+            with patch('integration.geospatial.response.json.loads', side_effect=RecursionError):
+                rows, status = load_chokepoints(p)
+            self.assertEqual(rows, [])
+            self.assertEqual(status, {'ok': False, 'reason': 'unreadable'})
+
+    def test_decoder_nested_array_bad_shape_refused(self):
+        from tempfile import TemporaryDirectory
+        from unittest.mock import patch
+        from integration.geospatial.response import load_chokepoints
+        with TemporaryDirectory() as d:
+            p = Path(d)/'data.json'; p.write_text('['*2000+'0'+']'*2000)
+            with patch('integration.geospatial.response.json.loads', return_value=[[0]]):
+                rows, status = load_chokepoints(p)
+            self.assertEqual(rows, [])
+            self.assertEqual(status, {'ok': False, 'reason': 'bad_shape'})
