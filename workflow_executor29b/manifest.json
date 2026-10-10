@@ -3,9 +3,8 @@
   "workflow_in_land": false,
   "final_workflow_sha256": "PENDING AFTER LANDED COMMIT, not predicted",
   "files": {
-    "SPEC.md": "0a3886086d64674cc23947e3f8f52c4beb1aed31f5123692886c894ae4491749",
     "action-pin-evidence.json": "935fcd344521bf615a86f3525cbab7e173a9c3e927fcd4e077b134bee95bcd65",
-    "adapter.py": "e95550b06d2255a337098cbf5a6ab5907ca322f8c3cb4550ebcc6bd1de98c7cf",
+    "adapter.py": "886159c80d603e939a9f59ef160cddd6b044823224744b4b3df7b81661cf1072",
     "discover.sh": "f9fe7b8423c79f575333943db3965d500d97f7e91c1c2faf184587dce354096e",
     "evidence/29c-after/27-tests.txt": "fe008aab760eb03ccac7578e2b84665b1b50b0d7f855b17a0c7a8d039435b658",
     "evidence/29c-after/27c-source.json": "073b4b1f94fcf61361d124e542d86e00b23b130e158f7492ecf407493208d1c0",
@@ -39,7 +38,7 @@
     "evidence/test-log29b2.txt": "361e075141ba00738a4ee949c5efee6afbe46f96403473137c226b9e46caf250",
     "evidence/test-log29b3.txt": "ffa300c7e5c68183cee6dfa6e72743ca6d2f1d48af46c0b6a167b1af161d7a97",
     "evidence/test-log29b4.txt": "cd0800ff85792bbaeceb12485ca0e29e9c34f68d065403f8c21504ca2f88f8b8",
-    "source-allowlist.json": "9ae042f97da05d4c164a3fa29f6dbad1ffa47db92c40b04acb937276db39f2a4",
+    "source-allowlist.json": "1fc131088feb98cbbf94e250bc1560856965e38da36fcb3eb0d1962f5454f7d6",
     "test_adapter.py": "f9ff0ec0c50e134987f0afcec462bff7963f865f3d8447b909053abdab446755",
     "workflow.template.yml": "1f5e43ed45efb3f54b959ac7bb4c6bd9d49e729a9d5a8317c9c6071b9ccc23c6"
   }

@@ -1,3 +1,4 @@
+from scripts.doc_lookup import source_bytes, source_text
 import unittest,hashlib
 from unittest.mock import patch
 from datetime import datetime,timezone
@@ -45,4 +46,4 @@ class Tests(unittest.TestCase):
   import json,hashlib
   from pathlib import Path
   b=Path(__file__).resolve().parent;j=json.loads((b/'inventory.json').read_text());expected={'base_profile.py','extra_profile.py','network_selection.py','__init__.py','BOUNDED-COMPOSITION.md'};self.assertEqual(set(j['files']),expected)
-  for n,h in j['files'].items():self.assertEqual(h,hashlib.sha256((b/n).read_bytes()).hexdigest())
+  for n,h in j['files'].items():self.assertEqual(h,hashlib.sha256(source_bytes(b/n)).hexdigest())

@@ -1,3 +1,4 @@
+from scripts.doc_lookup import source_bytes, source_text
 import unittest,json,re,hashlib,zipfile,email
 from pathlib import Path
 from packaging.requirements import Requirement
@@ -18,4 +19,4 @@ class Tests(unittest.TestCase):
  def test_sgmllib_reviewed_buildhash_vs_officialsdist_explicit(self):
   r=next(p for p in self.a['packages']if p['name']=='sgmllib3k');self.assertEqual(r['local_previously_reviewed_hashes'],['d697b1ce32621812e6fbf5d3dac57818192068f47e4b6f39bc76e14a8fb4c534']);self.assertEqual(r['artifacts'][0]['sha256'],'7868fb1c8bfa764c1ac563d3cf369c381d1325d36124933a726f29fcdaa812e9')
  def test_no_version_changes_or_workflowsecret_activation(self):
-  s=(ROOT/'integration/RUNNER199LOCK.md').read_text();self.assertIn('no version change',s);self.assertIn('--require-hashes',s);self.assertIn('3.12 execution not performed',s)
+  s=source_text(ROOT/'integration/RUNNER199LOCK.md');self.assertIn('no version change',s);self.assertIn('--require-hashes',s);self.assertIn('3.12 execution not performed',s)

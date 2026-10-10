@@ -1,5 +1,0 @@
-# Current Gunicorn26.2 supersession, not historical proof
-
-Active app locks/packages/artifact rows use26.2.0; prior22 artifact rows retained as historical fields. Old change-manifest.json, change-manifest27b.json, input/fetch receipts, receipt1/2/run logs and immutable source anchors remain historical and unchanged. They do NOT prove this revised profile installed, passed targetbuild or native/CP312 checks. Current exact runtime_build input manifest includes the supersession and changes; application.lock remains absent/pending. No workflow dispatch/build/deploy or activation.
-
-Fetched Gunicorn26.2 purePythonwheel228389B from officialPyPI, SHA256bd249d0b3f7972f7432f0a6b6ff3b3ee2d129f70cd1ff6c09a9dd9e29a2b88e3. RequiresPython>=3.10, no default RequiresDist; optionalextras not selected. CP310 isolated fixture tests172 passed with current Flask/Werkzeug/PyMongo/requests versions; not CP312target or Gunicornlive-server proof. Existing historicalrunnerdownload arrays stay22 and tests use the historicalpackage row for those observations, not reinterpretoldbytesas26.

@@ -39,7 +39,9 @@
     "intelligence/geo/processing/dedupe.py": "8326042d8a2adccafc690f86c47cc9baa67240792ef90060750313c81fb7382e",
     "intelligence/geo/processing/extract.py": "42aa24d7cb788d45ee5c22e0c4c45ffe901d32fff3ab82227575ffc299eee44a",
     "tests/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    "tests/test_html209.py": "5bbde4065f45437151c30a20b42d10fb81b7013844665e3165a9aced6cd6ed37"
+    "tests/test_html209.py": "5bbde4065f45437151c30a20b42d10fb81b7013844665e3165a9aced6cd6ed37",
+    "scripts/doc_lookup.py": "6ff20667a8f8f1f7a4114801fd86021fb7e5b3d6e9ea27cd003e08e720de4743",
+    "README.md": "86f78e44d6593273556375eb73584ee5854c01d9b7c51bafadf88544f63ec322"
   },
   "scope": "local CPython3.10.12 Linuxx86_64 venv build/import proof"
 }

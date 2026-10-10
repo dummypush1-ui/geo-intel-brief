@@ -3,7 +3,7 @@ from copy import deepcopy
 from threading import RLock
 import json
 class Refused(ValueError): pass
-# Read-only file evidence. Values are authored fixture settings, not live config.
+# Read-only source evidence: former .md paths resolve in root README sections. Values are authored fixture settings, not live config.
 _CATALOG_ROWS=(
  {'id':'nilgiri_watch','evidence':['integration/FEATURE_STATUS.md','integration/nilgiri_watch_fixture/LIMITS.md'],'original_default':'off in isolated fixture92; no production default verified','requested':'unspecified','last_known_configured':'unknown','effective':'unwired_unknown','reason':'Production transport, persistence and activation unverified','settings':{'cadence_seconds':3600},'ranges':{'cadence_seconds':[3600,86400]},'units':{'cadence_seconds':'seconds'}},
  {'id':'tenders','evidence':['integration/FEATURE_STATUS.md'],'original_default':'Earlier references differ; final source absent','requested':'unspecified','last_known_configured':'unknown','effective':'unwired_unknown','reason':'Exact source baseline not selected; no collector integration','settings':{'max_items':20},'ranges':{'max_items':[1,100]},'units':{'max_items':'items per fixture batch'}},

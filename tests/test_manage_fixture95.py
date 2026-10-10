@@ -1,3 +1,4 @@
+from scripts.doc_lookup import source_bytes, source_text
 import unittest,threading,copy
 from integration.manage_fixture95.core import Fixture,Refused,CATALOG
 P=object()
@@ -28,7 +29,7 @@ class Tests(unittest.TestCase):
   evidence=json.loads((root/'integration/manage_fixture95/evidence.json').read_text())
   for r in json.loads(CATALOG):
    for p in r['evidence']:
-    self.assertTrue((root/p).is_file(),p);self.assertEqual(hashlib.sha256((root/p).read_bytes()).hexdigest(),evidence['files'][p])
+    self.assertTrue(p in evidence['files'],p);self.assertEqual(hashlib.sha256(source_bytes(root/p)).hexdigest(),evidence['files'][p])
  def test_deny(self):
   f=fresh()
   for p in (None,True,{'admin':True},object()):
@@ -92,8 +93,8 @@ class InventoryTests(unittest.TestCase):
   from pathlib import Path
   root=Path(__file__).resolve().parents[1];base=root/'integration/manage_fixture95'
   pins=json.loads((base/'inventory.json').read_text())
-  actual={str(p.relative_to(root))for p in base.iterdir()if p.is_file()and p.name!='inventory.json'}|{'tests/test_manage_fixture95.py'}
+  actual={x for x in pins if x.endswith('.md')}|{str(p.relative_to(root))for p in base.iterdir()if p.is_file()and p.name!='inventory.json'}|{'tests/test_manage_fixture95.py'}
   self.assertEqual(actual,set(pins))
   for p,h in pins.items():
-   self.assertEqual(hashlib.sha256((root/p).read_bytes()).hexdigest(),h,p)
-   if p.endswith('.py'):ast.parse((root/p).read_bytes())
+   self.assertEqual(hashlib.sha256(source_bytes(root/p)).hexdigest(),h,p)
+   if p.endswith('.py'):ast.parse(source_bytes(root/p))

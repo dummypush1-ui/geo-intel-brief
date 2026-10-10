@@ -1,3 +1,4 @@
+from scripts.doc_lookup import source_bytes, source_text
 # Copyright (c) 2026 Push. All rights reserved.
 import ast
 import hashlib
@@ -35,7 +36,7 @@ class InventoryTests(unittest.TestCase):
         self.assertEqual(set(inv['files']), EXPECTED)
         self.assertEqual(inv['historical87_excluded_exact'], EXCLUDED)
         for path, digest in inv['files'].items():
-            self.assertEqual(hashlib.sha256((ROOT/path).read_bytes()).hexdigest(), digest)
+            self.assertEqual(hashlib.sha256(source_bytes(ROOT/path)).hexdigest(), digest)
 
     def test_ast_no_new_third_party_imports(self):
         import sys

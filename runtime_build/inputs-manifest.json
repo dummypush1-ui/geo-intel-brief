@@ -1,9 +1,6 @@
 {
   "files": {
-    "CONTRACT27b.md": "53fab7a41602e630db7692240367b1faff8f6d6ffe42de876f1f0b920c8a6801",
     "Dockerfile.candidate": "bfb72c5eef5c9b09736f397d60a8aac0aa80ffd2c6b86273f0073b5fd0a72211",
-    "GUNICORN26-SUPERSESSION.md": "3237773e61323ca801ef19cc1db4fa86eaeec6f75ece0c2117d050591681cab0",
-    "README.md": "a2d3b4d2e5ad44f5432885a5a5506f12f4fd98f1c46ba9f9c83ced9f6f86f47b",
     "app27.lock": "d15aa5549bf92e9aa9a28bd900d61ab38ff256a0069cb8dba38c57dfbcc8f632",
     "artifacts.json": "d08beda91d3c58479632d9fc8a188646ee0629a35abe4bda39270d17f32bd646",
     "bootstrap27.lock": "5f2c3cd18caf2b794d0dbbddc88e314142acda237294b2d8175f4fd1ca45a15b",
@@ -45,12 +42,12 @@
     "negative-real-artifacts.json": "4ee507cf23c6f1cd029a95fae7ab2e89d0132ffc2f89ed360bea9e98b5d8b41e",
     "network-launcher.c": "d4df3c5c61f6ff4c1130327820373cac18739b2b7c099a3746c750ddd4777991",
     "packages.json": "a061f5ab56b8751be73d5e5938ef6701834ce7276e408e28afd60d126b4330df",
-    "prepare27.py": "76be09c9036e4f1f657aa67f9f3b28f957be5c9de16e649f5c9efaff594344f1",
+    "prepare27.py": "921f1201db035ac848a0452a4868c4a804c2d5a7486c33a993e96221bf96aae3",
     "run27.py": "04464f21c76fda5224302947e2d38dff00397de98f32be6c8449439270bbef0f",
     "smoke27.py": "e92b256238fb36a635e9ead5fe72850da5fc1599c5778d664a58d9c40077a35c",
-    "source-allowlist.json": "24855979717b8cef9f14c9f275c259dc8c4cde39043b9babdc15521d2a520440",
+    "source-allowlist.json": "8ee4020e5cb605909c67130ed35511f8fa118cfd71e17bfaa10ff5619a7413bc",
     "test_verify27.py": "a801614bd35fab8181a2136422d40e337603156a9a33b35e7f6cbba603ee01f7",
-    "verify27.py": "f438f7efe5bb188c92535c67df4cd2c1e61dd86bc6b1b790d1f96c21b749d54e",
+    "verify27.py": "4468679cb12d96ee2a211c00c3c07d885d957a44c995b2125127529805ab66e5",
     "wheel-build-observed.json": "a81cdf9834af8bc3d63b4a7eba1e67f34c31d26d4138a672e4ddb9e8d997e65f",
     "wheel-reviewed-anchor.json": "f95f3da4d56fe9913716c28b5336e78b8bd089e5e316878d36c4d3864016d658"
   },

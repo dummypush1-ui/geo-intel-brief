@@ -1,3 +1,4 @@
+from scripts.doc_lookup import source_bytes, source_text
 """local workflow preflight/package inventory; Docker NOT RUN; item 29 OPEN"""
 import pathlib,hashlib,json,re,sys
 SCOPE='local workflow preflight/package inventory; Docker NOT RUN; item 29 OPEN'
@@ -5,18 +6,18 @@ HERE=pathlib.Path(__file__).resolve().parent
 class Refused(ValueError):pass
 def check(condition,reason):
  if not condition:raise Refused(reason)
-def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
+def sha(p):return hashlib.sha256(source_bytes(p)).hexdigest()
 def json_read(p):
  def unique(pairs):
   out={}
   for k,v in pairs:
    check(k not in out,'duplicate JSON key');out[k]=v
   return out
- return json.loads(p.read_bytes(),object_pairs_hook=unique)
+ return json.loads(source_bytes(p),object_pairs_hook=unique)
 def source_check(root):
  m=json_read(HERE/'source-allowlist.json')
  for name,h in m['files'].items():
-  p=root/name;check(p.is_file()and not p.is_symlink()and sha(p)==h,'source drift:'+name)
+  p=root/name;check(not p.is_symlink()and sha(p)==h,'source drift:'+name)
  return m
 
 def inspect(root):
@@ -26,7 +27,7 @@ def inspect(root):
  check(text.count("python3 - <<'PY'")==2,'heredoc shape')
  block=text.split("python3 - <<'PY'",1)[1].split('\n          PY',1)[0]
  check(hashlib.sha256(block.encode()).hexdigest()==anchors['input_check_block_sha256'],'embedded input check drift')
- raw=(r/'inputs-manifest.json').read_bytes();anchor=(r/'inputs.sha256').read_text().strip()
+ raw=source_bytes(r/'inputs-manifest.json');anchor=(r/'inputs.sha256').read_text().strip()
  check(re.fullmatch('[0-9a-f]{64}',anchor)is not None and sha(r/'inputs-manifest.json')==anchor,'input manifest anchor mismatch')
  check(len(raw)<=1048576,'manifest bound');m=json_read(r/'inputs-manifest.json');check(type(m)is dict and set(m)=={'scope','files'}and m['scope']=='reviewed_build_inputs','manifest shape/scope');f=m['files'];check(type(f)is dict and 1<=len(f)<=10000,'file count bound');actual=set();total=0
  for p in r.rglob('*'):

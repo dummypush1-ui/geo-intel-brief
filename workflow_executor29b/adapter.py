@@ -1,3 +1,4 @@
+from scripts.doc_lookup import source_bytes, source_text
 """29b1 Stage A plan only. Hosted execution NOT RUN; items 27/28/29 OPEN."""
 import ctypes
 import hashlib
@@ -28,7 +29,7 @@ class Stop(ValueError):
 
 
 def digest(p):
-    return hashlib.sha256(p.read_bytes()).hexdigest()
+    return hashlib.sha256(source_bytes(p)).hexdigest()
 
 
 def safe_json(data):
@@ -297,7 +298,7 @@ def verify_inputs():
     a = json.loads((HERE / 'source-allowlist.json').read_text())
     for n, h in a['files'].items():
         p = ROOT / n
-        if p.is_symlink() or not p.is_file() or digest(p) != h:
+        if p.is_symlink() or digest(p) != h:
             raise Stop('source input drift: ' + n)
     m = json.loads((HERE / 'manifest.json').read_text())
     actual = {str(p.relative_to(HERE)) for p in HERE.rglob('*') if p.is_file() and p.name != 'manifest.json'}

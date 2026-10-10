@@ -1,3 +1,4 @@
+from scripts.doc_lookup import source_bytes, source_text
 """Source-policy pins and opt-in Chromium diagnostic ledger, not live parity."""
 import hashlib, importlib.util, os, re, shutil, subprocess, sys, unittest
 from pathlib import Path
@@ -5,7 +6,7 @@ ROOT=Path(__file__).resolve().parents[1]
 class Report227(unittest.TestCase):
  def test_preserved_source_and_policy_pins(self):
   pins={'src/app.js':'f8ecf57f73c28c376c4508f2ce7315f3ffad0a8a26d925a9782db6bb53e38f91'}
-  for path,sha in pins.items():self.assertIn(sha,(ROOT/'integration/REPORT227.md').read_text()) # Historical 227 pin, not current source
+  for path,sha in pins.items():self.assertIn(sha,source_text(ROOT/'integration/REPORT227.md')) # Historical 227 pin, not current source
   self.assertIn('sandbox="allow-scripts allow-same-origin allow-downloads allow-modals allow-popups"',(ROOT/'integration/ui/workspace.html').read_text())
   source=(ROOT/'src/app.js').read_text()
   self.assertIn("if (!aiAvailable()) {\n      V.needKey = true; V.settingsOpen = true; V.briefError = null; paintDetail();",source)

@@ -1314,6 +1314,7 @@
         "integration/telegram_format_audit.py",
         "integration/weekly_report/_pdf.py",
         "scripts/audit_connections.py",
+        "scripts/doc_lookup.py",
         "scripts/package_manifest.py",
         "tests/browser_feature_finder.py",
         "tests/browser_finder_network.py",
@@ -1337,6 +1338,7 @@
         "tests/test_context_excerpt208.py",
         "tests/test_country_alerts.py",
         "tests/test_cross_routes.py",
+        "tests/test_doc_lookup.py",
         "tests/test_existing_schema215.py",
         "tests/test_fake_collection_writer.py",
         "tests/test_feature_finder_prep.py",
@@ -2190,6 +2192,7 @@
         "integration/supplied_fulltext_fixture.py",
         "integration/tariff_evidence.py",
         "scripts/audit_connections.py",
+        "scripts/doc_lookup.py",
         "scripts/package_manifest.py",
         "tests/accounts/browser_http_fixture.py",
         "tests/browser_brics_streams.py",
@@ -2242,6 +2245,7 @@
         "tests/test_compulsory_channels.py",
         "tests/test_country_alerts.py",
         "tests/test_digest_email218.py",
+        "tests/test_doc_lookup.py",
         "tests/test_edge_guard.py",
         "tests/test_event_reader.py",
         "tests/test_existing_schema215.py",
@@ -2481,6 +2485,7 @@
         "integration/supplied_multi_feed.py",
         "integration/telegram_format_audit.py",
         "scripts/audit_connections.py",
+        "scripts/doc_lookup.py",
         "scripts/package_manifest.py",
         "tests/accounts/browser_http_fixture.py",
         "tests/browser_brics_streams.py",
@@ -2541,6 +2546,7 @@
         "tests/test_cors190.py",
         "tests/test_digest_cold.py",
         "tests/test_digest_email218.py",
+        "tests/test_doc_lookup.py",
         "tests/test_edge_guard.py",
         "tests/test_env_example.py",
         "tests/test_events210.py",
@@ -3260,8 +3266,17 @@
       "import": "scripts",
       "files": [
         "tests/test_collector122_inventory.py",
+        "tests/test_doc_lookup.py",
         "tests/test_file_audit.py",
-        "tests/test_package_manifest.py"
+        "tests/test_gst154.py",
+        "tests/test_monitor155.py",
+        "tests/test_package_manifest.py",
+        "tests/test_preservation.py",
+        "tests/test_protocol145_inventory.py",
+        "tests/test_publication151_inventory.py",
+        "tests/test_report227.py",
+        "tests/test_runner199lock.py",
+        "tests/test_sanctions152.py"
       ],
       "stdlib": false,
       "distributions": [],
@@ -3662,6 +3677,7 @@
         "tests/geospatial/test_geospatial.py",
         "tests/geospatial/test_map_route.py",
         "tests/test_collector197b_supervisor.py",
+        "tests/test_doc_lookup.py",
         "tests/test_env_example.py",
         "tests/test_feature_finder_prep.py",
         "tests/test_finder_index.py",
@@ -4176,6 +4192,7 @@
         "tests/test_digest_preview_routes.py",
         "tests/test_digest_render203.py",
         "tests/test_digest_windows193.py",
+        "tests/test_doc_lookup.py",
         "tests/test_edge_guard.py",
         "tests/test_env_example.py",
         "tests/test_event_reader.py",
@@ -5686,6 +5703,10 @@
         "sha256": "c52be3bbc75beeb32fba41515fac99f9104aeeb61e3b76b0b2797a0e62401920"
       },
       {
+        "path": "scripts/doc_lookup.py",
+        "sha256": "6ff20667a8f8f1f7a4114801fd86021fb7e5b3d6e9ea27cd003e08e720de4743"
+      },
+      {
         "path": "scripts/package_manifest.py",
         "sha256": "1e4f99de1ecbc562e96b264a99973b723c22783a6fc39de8e29dffc232e3fd81"
       },
@@ -5951,7 +5972,7 @@
       },
       {
         "path": "tests/test_apps_handlers216.py",
-        "sha256": "0903386d8acffa407ec1786a9fdfe7d2b1044499d775501932a8e04206250613"
+        "sha256": "36ed1183fe9b21534db5c7ca7a037975c5a397203a7c1aa2a01b35c450b956d0"
       },
       {
         "path": "tests/test_apps_script_audit.py",
@@ -6007,7 +6028,7 @@
       },
       {
         "path": "tests/test_collector122_inventory.py",
-        "sha256": "20765d62669c45b9fc9508689ab45753a498838dac9a152afa76f2c014c764db"
+        "sha256": "f72187aa13f419527f2330dd5b0a5dbe9062fcfd2ee4ebd0e02d84709285a151"
       },
       {
         "path": "tests/test_collector122_packing.py",
@@ -6158,6 +6179,10 @@
         "sha256": "deb357f534bbece72ab8ed330c8dad1891bdc19ba174f285183c8ff382086a07"
       },
       {
+        "path": "tests/test_doc_lookup.py",
+        "sha256": "191522584673d49729099acec3d39635fd61b3e5d57b10a383a9cac94e3c5326"
+      },
+      {
         "path": "tests/test_edge_guard.py",
         "sha256": "50b2c841303f12093ff1b5db2849da261c5b7eb453ed3bbf21a52b62da3a1c79"
       },
@@ -6211,7 +6236,7 @@
       },
       {
         "path": "tests/test_file_audit.py",
-        "sha256": "ee3d4fbbcf36e1acaa6bfa91d9f31b686e602459b26ef3d52c5ab8d8f6233b1d"
+        "sha256": "2cf9ff1982a8c50efaa437968591e54258af5d181a82c106e4038e43c87bc197"
       },
       {
         "path": "tests/test_finder198a.py",
@@ -6319,7 +6344,7 @@
       },
       {
         "path": "tests/test_gst154.py",
-        "sha256": "78adf50fd64283877b4d355d2532b7ffb4e25392c565f7656773e6431dbfa619"
+        "sha256": "280535c768418f3070e44ec15c1313d68c291702d7ae0b7efd6632b5a2fcb27d"
       },
       {
         "path": "tests/test_host197da.py",
@@ -6411,7 +6436,7 @@
       },
       {
         "path": "tests/test_monitor155.py",
-        "sha256": "a99a1dac7ab037f056b640f5e778a019c64b47278be37c6fba14952f78334083"
+        "sha256": "cfe4b653c5c6c26fcac23516268480e299549b2cce3ffc609bac24de56c321f6"
       },
       {
         "path": "tests/test_native200a.py",
@@ -6511,7 +6536,7 @@
       },
       {
         "path": "tests/test_preservation.py",
-        "sha256": "88cc86c4b29eccdc3bbec7e83857503cc21b1b59a14f62498f52d4b6674bfd8c"
+        "sha256": "8c39ec76f41df638ba98734af7ab0ad09a4c46dd4bd644e570e3f5fe219ee4a0"
       },
       {
         "path": "tests/test_preview_access.py",
@@ -6535,7 +6560,7 @@
       },
       {
         "path": "tests/test_protocol145_inventory.py",
-        "sha256": "b6d28e16fa04f5c740a3a7f8a2f4d04f111f1a1f75444c58f8ddb405eba30acf"
+        "sha256": "1498e74e7e3097c13e6d8cfe4df658fdb6f88bdefab845619533f74439dc5fe4"
       },
       {
         "path": "tests/test_proxy164.py",
@@ -6543,7 +6568,7 @@
       },
       {
         "path": "tests/test_publication151_inventory.py",
-        "sha256": "837f9d993d368d40844b97cc67c1448c34ddea6f2c5bb89ef2fad39215a78bd2"
+        "sha256": "430812b874317330c7826a8ed17fdfea8360736459dababdea58f9f0871039be"
       },
       {
         "path": "tests/test_query_validation188.py",
@@ -6583,7 +6608,7 @@
       },
       {
         "path": "tests/test_report227.py",
-        "sha256": "3ad4d40fb6ed4058171c03ea5b7cce5a3d7a4a7f5313f64e6f009ad11fa9d4dc"
+        "sha256": "771c73cc3de3624b2ce1571bd6771a179f4c9b03dec04bc2278fb03d1874f098"
       },
       {
         "path": "tests/test_report228.py",
@@ -6611,7 +6636,7 @@
       },
       {
         "path": "tests/test_runner199lock.py",
-        "sha256": "438d25ef91388126aa726973532acadebdcf71daf3210382368f60ba8defbb13"
+        "sha256": "96b8c666796a1517d0efa1904cdbe9934d740b224d4a04929cb32c2b6940f14f"
       },
       {
         "path": "tests/test_runtime.py",
@@ -6623,7 +6648,7 @@
       },
       {
         "path": "tests/test_sanctions152.py",
-        "sha256": "930c8b520ee8e732dcf79afd23e7a299552fd57a30f64382ded204ed506d9e71"
+        "sha256": "d5b7e5704bdbc8a1812f4b78b1abeaba9450dcec7db0c950a01f8ff3bb5381fe"
       },
       {
         "path": "tests/test_sanctions183.py",

@@ -11,6 +11,8 @@
     "runtime_build/inputs/index-ledger.json": "cd372270ed2ef6ddaee491e0d42bc69683e8118b15bd5781d7799ce3f2a06a13",
     "runtime_build/inputs/image-digest-evidence.json": "28a0c82e6d299970cb6f1c37d1511b9ed607cecc589d9077c807f3564acc1799",
     "runtime_build/inputs/base-status-simulate.txt": "b9a77672e7120dc002dfbd2271f5c9afd472a63a9a59251d1e17404182956ae4",
-    "runtime_build/inputs/post-install-pins.tsv": "ae42e87cb1f81796be83b688dbf8ae5dab5fc9609bfcb370b8f4209eebe8e172"
+    "runtime_build/inputs/post-install-pins.tsv": "ae42e87cb1f81796be83b688dbf8ae5dab5fc9609bfcb370b8f4209eebe8e172",
+    "scripts/doc_lookup.py": "6ff20667a8f8f1f7a4114801fd86021fb7e5b3d6e9ea27cd003e08e720de4743",
+    "README.md": "86f78e44d6593273556375eb73584ee5854c01d9b7c51bafadf88544f63ec322"
   }
 }

@@ -1,13 +1,12 @@
 {
   "excludes": "manifest.json itself",
   "files": {
-    "SPEC.md": "1be50d743da2ee9235b0dc1acb4bcfd14a52dd38749b9db63b4c5c7ea92d81ec",
     "evidence/logs.json": "1ff45e0571cc2c29a76ca1a68e3c2f3f46422c58916858f814a555a6410ea5f3",
     "evidence/receipt1.json": "76eee368a0650e3a7c5bff31e2afe561f8129fb200ca86b34c973ee7d763b46e",
     "evidence/receipt2.json": "76eee368a0650e3a7c5bff31e2afe561f8129fb200ca86b34c973ee7d763b46e",
-    "harness.py": "4e4aee416193aa67fa6d5f7467513c7122f9cdb5b885a9cc4c7c574c8883366d",
+    "harness.py": "db53bef04e77444ca51b21e938ffa97e9cff6b6c4350ad0b40a96e0899e19bcd",
     "run_local.py": "2c05ab8f0ef0bd3848fb37206360317efef8946adae46e7e458793ee27677de3",
-    "source-allowlist.json": "aee7e0e91b20564fcc654e635b801e4d6d59d3ee3dae702de017198b6ab88202",
+    "source-allowlist.json": "643314a36ea5bd83f8a85b8cb65d4fc6d67462613e89cd23247d0ebf754de7ab",
     "test_harness.py": "664a0204e0663377a4f4c200812842c47798237c1369b5af3761c968db8a084b"
   },
   "scope": "28a SPEC+LOCALCPython3.10.12Linuxx86_64only,28OPEN"

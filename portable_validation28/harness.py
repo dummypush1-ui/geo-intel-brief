@@ -1,3 +1,4 @@
+from scripts.doc_lookup import source_bytes, source_text
 """28a spec + LOCAL CPython3.10.12 Linuxx86_64 harness only; item28 OPEN."""
 import pathlib,sys,json,hashlib,io,os,socket,subprocess,signal,time,ctypes,importlib.metadata as md,resource
 from datetime import datetime,timezone,timedelta
@@ -38,7 +39,7 @@ def sources(root):
  manifest=json.loads((HERE/'source-allowlist.json').read_text())
  for n,h in manifest['files'].items():
   p=pathlib.Path(root)/n
-  if p.is_symlink()or not p.is_file()or hashlib.sha256(p.read_bytes()).hexdigest()!=h:raise ValueError('source_drift:'+n)
+  if p.is_symlink()or hashlib.sha256(source_bytes(p)).hexdigest()!=h:raise ValueError('source_drift:'+n)
  return manifest['files']
 def group_reap():
  # Harmless descendant-only test, no host processes targeted. Subreaper applies to this harness.
@@ -74,7 +75,7 @@ def group_reap():
  return 'harmlesssleepgroup killed; leader and descendantwaited/reaped; no created PID remains'
 def main(root):
  assert sys.version_info[:3]==(3,10,12)
- ident={'version':sys.version.split()[0],'implementation':sys.implementation.name,'machine':'x86_64','binary_sha256':hashlib.sha256(pathlib.Path('/usr/bin/python3.10').read_bytes()).hexdigest()}
+ ident={'version':sys.version.split()[0],'implementation':sys.implementation.name,'machine':'x86_64','binary_sha256':hashlib.sha256(source_bytes(pathlib.Path('/usr/bin/python3.10'))).hexdigest()}
  rows=[]
  def row(name,status,reason,**extra):
   assert status in STATUSES;rows.append({'case':name,'status':status,'reason':reason,'interpreter':ident,**extra})
@@ -112,6 +113,6 @@ def main(root):
  accounting=[{'status':'PASS'},{'status':'SKIP'},{'status':'BLOCKED'},{'status':'NOT RUN'}];assert totals(accounting)['PASS']==1and totals(accounting)['SKIP']==1
  row('skip_not_pass_accounting','PASS','literal4-rownegativeaccounting case countsonepass only')
  package_probe=subprocess.run(['dpkg-query','-W','-f=${Version}','tzdata'],stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True)
- tzmeta={'system_tzdata_header':pathlib.Path('/usr/share/zoneinfo/tzdata.zi').read_text().splitlines()[0],'zone_hashes':{k:hashlib.sha256((pathlib.Path('/usr/share/zoneinfo')/k).read_bytes()).hexdigest()if (pathlib.Path('/usr/share/zoneinfo')/k).is_file()else 'BLOCKED:zonefileabsent'for k in ['Asia/Kolkata','Asia/Calcutta']},'tzdata_package_version':package_probe.stdout.strip()if package_probe.returncode==0 else 'BLOCKED:dpkgpackageDBnotmounted; systemtzdataheader/hashavailable'}
+ tzmeta={'system_tzdata_header':pathlib.Path('/usr/share/zoneinfo/tzdata.zi').read_text().splitlines()[0],'zone_hashes':{k:hashlib.sha256(source_bytes(pathlib.Path('/usr/share/zoneinfo')/k)).hexdigest()if (pathlib.Path('/usr/share/zoneinfo')/k).is_file()else 'BLOCKED:zonefileabsent'for k in ['Asia/Kolkata','Asia/Calcutta']},'tzdata_package_version':package_probe.stdout.strip()if package_probe.returncode==0 else 'BLOCKED:dpkgpackageDBnotmounted; systemtzdataheader/hashavailable'}
  print(json.dumps({'scope':'28a SPEC+LOCALCPython3.10.12Linuxx86_64harness;28OPEN,no targetvalidationclaim','rows':rows,'totals':totals(rows),'source_sha256':src,'tzdata':tzmeta,'no_full_environment_reproducibility_claim':True},sort_keys=True,separators=(',',':')))
 if __name__=='__main__':main(sys.argv[1])

@@ -1,3 +1,4 @@
+from scripts.doc_lookup import source_bytes, source_text
 import unittest
 from datetime import datetime,timezone
 from .supplied_feed import prepare_supplied_feed,FeedRefused
@@ -34,4 +35,4 @@ class Tests(unittest.TestCase):
   base=Path(__file__).resolve().parent
   inv=json.loads((base/'inventory.json').read_text())
   self.assertEqual(set(inv['files']),{'supplied_feed.py','SELECTION-DESIGN.md','__init__.py'})
-  for name,h in inv['files'].items():self.assertEqual(h,hashlib.sha256((base/name).read_bytes()).hexdigest())
+  for name,h in inv['files'].items():self.assertEqual(h,hashlib.sha256(source_bytes(base/name)).hexdigest())

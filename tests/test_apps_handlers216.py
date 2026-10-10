@@ -19,6 +19,9 @@ class Tests(unittest.TestCase):
   self.assertNotRegex(src,r'PropertiesService|ScriptApp|MAIL_V1_ENABLED|GmailApp|MailApp|UrlFetchApp|Logger|console')
   for p in ROOT.rglob('*.gs'):
    if p.name=='handlers216.gs':continue
+   if p==ROOT/'integration/scheduler217/scheduler217.gs':
+    self.assertEqual(hashlib.sha256(p.read_bytes()).hexdigest(),'85362538143755b759da75b92253246fde12ec6d6df72f2e11f3c16a659da3e5')
+    continue  # Accepted guarded217 source backup, not an installed caller
    self.assertNotRegex(p.read_text(),r'mailV1(?:Digest|Critical|Weekly)216\s*\(')
  def test_namespace_and_handlers_unchanged(self):
   from feature_mail_mount.operations import HANDLERS

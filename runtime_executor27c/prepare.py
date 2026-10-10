@@ -1,10 +1,11 @@
+from scripts.doc_lookup import source_bytes, source_text
 """27c executor-discovery preparation; Docker/CP312 NOT RUN; 27/28/29 OPEN"""
 import pathlib,json,hashlib,sys,argparse,subprocess
 SCOPE='27c executor-discovery preparation; Docker/CP312 NOT RUN; 27/28/29 OPEN'
 HERE=pathlib.Path(__file__).resolve().parent
 class Refused(ValueError):pass
 def report(state,reason,**extra):return {'scope':SCOPE,'state':state,'reason':reason,'unimplemented':['execution','failure capture','Stage B'],'future_adapter':'requires separate contract and review',**extra}
-def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
+def sha(p):return hashlib.sha256(source_bytes(p)).hexdigest()
 def pairs(rows):
  out={}
  for r in rows:
@@ -20,7 +21,7 @@ def preflight(root):
  root=pathlib.Path(root);m=json.loads((HERE/'source-allowlist.json').read_text())
  for n,h in m['files'].items():
   p=root/n
-  if p.is_symlink()or not p.is_file()or sha(p)!=h:raise Refused('source drift:'+n)
+  if p.is_symlink()or sha(p)!=h:raise Refused('source drift:'+n)
  anchor=json.loads((root/'runtime_build/inputs/post-install-anchor.json').read_text());expected=anchor['post_install']
  return report('NOT RUN','discovery not executed; base image anchor records apt 2.8.3; target executor behaviour and CP312 execution unobserved; local apt 2.4.14 not reused',expected_pairs=len(expected),source_sha256=m['files'],open_dependencies=['no app source copied','no209helper/goldens','Gunicorn22vs23','bcrypt5','extras','nativeprivateinternals','historicalwheel','ownCP312sgmloutputanchor','realapt/Dockerdiscovery','29bworkflowfailureevidencewrapper','executionadapter','failurecapture','StageBimplementation'])
 def execute_reviewed(command,output_dir):

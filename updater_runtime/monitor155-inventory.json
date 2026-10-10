@@ -5,5 +5,5 @@
   "updater_runtime/MONITOR-HEALTH.md": "b91ca8d2d344f43e27ef4e292b6aec21d56d25a5cba174a6c4c155625152fd45",
   "tests/updater_runtime/test_issue_health.mjs": "d588ccb86279052359c162aa0939b2dffc7fa19dbfe21d6cdb14567a1f9687c9",
   "tests/updater_runtime/test_monitor_pending.mjs": "94c37c95e7ca6489dd6e34bc8a5c5b691cad81b05e5895dd35186326dea250b3",
-  "tests/test_monitor155.py": "a99a1dac7ab037f056b640f5e778a019c64b47278be37c6fba14952f78334083"
+  "tests/test_monitor155.py": "cfe4b653c5c6c26fcac23516268480e299549b2cce3ffc609bac24de56c321f6"
 }

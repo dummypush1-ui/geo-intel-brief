@@ -1,3 +1,4 @@
+from scripts.doc_lookup import source_bytes, source_text
 import ast,json,unittest,hashlib
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
@@ -5,7 +6,7 @@ class PreservationTests(unittest.TestCase):
  def test_reviewed_file_hashes(self):
   m=json.loads((ROOT/'preservation-manifest.json').read_text())
   for row in m['source_files']:
-   self.assertEqual(hashlib.sha256((ROOT/row['path']).read_bytes()).hexdigest(),row['sha256'],row['path'])
+   self.assertEqual(hashlib.sha256(source_bytes(ROOT/row['path'])).hexdigest(),row['sha256'],row['path'])
  def test_classifier_dedupe_extract_unchanged(self):
   m=json.loads((ROOT/'preservation-manifest.json').read_text())
   for row in m['source_files']:

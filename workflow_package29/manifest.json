@@ -1,12 +1,11 @@
 {
   "excludes": "manifest.json itself",
   "files": {
-    "SPEC.md": "fbb3a4c4e4f2ba37a0c501540e57dd280451f685a9fd1fd2df236fda9c6f1f6b",
     "evidence/receipt1.json": "82d2cd9d432ebca4851ef53957b32a5ae1bc751cc2022284cb09a16cb82d0d94",
     "evidence/receipt2.json": "82d2cd9d432ebca4851ef53957b32a5ae1bc751cc2022284cb09a16cb82d0d94",
     "evidence/test-log.txt": "feb7971bab0494a324df2edd4cbdbc91b29190fb0b48eeaf781f78b97e693777",
-    "preflight.py": "293e7b83fda3237eb0b76e5f5f0659d6ce1f70e60dadfa258a309651be5d7eeb",
-    "source-allowlist.json": "8f4272c9b5f40a5ef3e29728379759575a4a789d0719513d3e5c78c5f6fb5d24",
+    "preflight.py": "c68d923191a5fe8d9a6e1c249c309169bde95fafff326e52b48a7bf284f5ad41",
+    "source-allowlist.json": "e590cb288b2c492b4845f97835d1d22f49417514c353170ef9641ab4978946b4",
     "test_preflight.py": "4fd3e2af27cad7b5c31ef656a829df638c756ce44c44de356f06a63666244e29",
     "workflow-anchors.json": "266c1edb06d28c155d631f9dcb6b67b806e6d1c89e645417e3b58a300fecb94a"
   },
