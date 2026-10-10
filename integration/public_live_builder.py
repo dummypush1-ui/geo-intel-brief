@@ -78,9 +78,11 @@ def build_public_live_preview(environ,client_factory=None,clock=time.monotonic):
  origin=origin.rstrip('/')
  from integration.public_finder import enabled, PATHS, install
  finder_rates=enabled(environ)
+ from integration.code_news_public import enabled as code_enabled,PATHS as CODE_PATHS,install as code_install
+ code_news=code_enabled(environ)
  def allow(req):
   if req.method not in ('GET','HEAD') or req.host_url.rstrip('/')!=origin:return False
-  if req.path in READ_PATHS or req.path=='/' or (finder_rates and req.path in PATHS):return True
+  if req.path in READ_PATHS or req.path=='/' or (finder_rates and req.path in PATHS) or (code_news and req.path in CODE_PATHS):return True
   if req.path.startswith('/workspace/assets/'):return req.path.removeprefix('/workspace/assets/')in ASSETS
   if req.path.startswith('/workspace/branding/'):return req.path.removeprefix('/workspace/branding/')in BRANDING
   return False
@@ -121,6 +123,7 @@ def build_public_live_preview(environ,client_factory=None,clock=time.monotonic):
  app=create_app(reader=read,authorize=allow,allowed_origin=origin,full_news_pages=pages)
  app.extensions['whole_news_pages']=pages
  if finder_rates:install(app,origin)
+ if code_news:code_install(app,origin,read)
  @app.get('/')
  def home():return redirect('/workspace',302)
  @app.after_request

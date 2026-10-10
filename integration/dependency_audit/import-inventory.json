@@ -100,6 +100,7 @@
       "files": [
         "integration/accounts/passwords.py",
         "integration/article_archive.py",
+        "integration/code_news_catalogue.py",
         "integration/collector197_connector.py",
         "integration/collector197_feed_child.py",
         "integration/finder198_transport.py",
@@ -314,7 +315,8 @@
         "integration/renderer_scope.py",
         "integration/replay199_preflight.py",
         "integration/storage_reader.py",
-        "integration/weekly_report/report.py"
+        "integration/weekly_report/report.py",
+        "scripts/build_code_news_index.py"
       ],
       "stdlib": true,
       "distributions": [],
@@ -587,6 +589,7 @@
         "integration/accounts/shared_ledger_fixture.py",
         "integration/accounts/store.py",
         "integration/brics_streams.py",
+        "integration/code_news_links.py",
         "integration/collection_prepare.py",
         "integration/collection_receipts/protocol.py",
         "integration/collector197_archive.py",
@@ -1117,6 +1120,7 @@
       "files": [
         "feature_mail_mount/http.py",
         "integration/accounts/http_fixture.py",
+        "integration/code_news_public.py",
         "integration/collector197_host_probe.py",
         "integration/collector197_http.py",
         "integration/edge_guard.py",
@@ -1243,6 +1247,7 @@
     {
       "import": "gzip",
       "files": [
+        "integration/code_news_catalogue.py",
         "integration/finder_index.py",
         "tests/test_collector197b_connector.py",
         "tests/test_fulltext172.py"
@@ -1270,6 +1275,9 @@
         "integration/accounts/shared_service_fixture.py",
         "integration/article_archive.py",
         "integration/bounded_rss/driver.py",
+        "integration/code_news_catalogue.py",
+        "integration/code_news_disk.py",
+        "integration/code_news_links.py",
         "integration/collection_receipts/protocol.py",
         "integration/collector197_archive.py",
         "integration/collector197_coverage.py",
@@ -1332,6 +1340,7 @@
         "integration/telegram_format_audit.py",
         "integration/weekly_report/_pdf.py",
         "scripts/audit_connections.py",
+        "scripts/build_code_news_index.py",
         "scripts/doc_lookup.py",
         "scripts/package_manifest.py",
         "tests/browser_feature_finder.py",
@@ -1350,6 +1359,7 @@
         "tests/test_build_provenance150.py",
         "tests/test_bulk147_inventory.py",
         "tests/test_classifier146_inventory.py",
+        "tests/test_code_news_public.py",
         "tests/test_collector122_inventory.py",
         "tests/test_collector122_packing.py",
         "tests/test_collector197eba.py",
@@ -1550,6 +1560,9 @@
         "integration/agencia_parser.py",
         "integration/brics_processing_offline.py",
         "integration/brics_streams.py",
+        "integration/code_news_disk.py",
+        "integration/code_news_public.py",
+        "integration/code_news_query.py",
         "integration/collection_prepare.py",
         "integration/collector197_archive.py",
         "integration/collector197_coordinator.py",
@@ -1665,6 +1678,7 @@
         "integration/stream_revision.py",
         "integration/supplied_feed_fixture.py",
         "integration/supplied_fulltext_fixture.py",
+        "scripts/build_code_news_index.py",
         "tests/accounts/browser_http_fixture.py",
         "tests/accounts/test_accounts.py",
         "tests/accounts/test_hardening.py",
@@ -1723,6 +1737,8 @@
         "tests/test_bridges.py",
         "tests/test_broker_json211.py",
         "tests/test_channels171.py",
+        "tests/test_code_news_disk.py",
+        "tests/test_code_news_public.py",
         "tests/test_collection_prepare.py",
         "tests/test_collector197a.py",
         "tests/test_collector197b_connector.py",
@@ -2092,6 +2108,7 @@
       "import": "io",
       "files": [
         "integration/accounts/merged_fixture.py",
+        "integration/code_news_catalogue.py",
         "integration/collector_actions/test_candidate.py",
         "integration/feedparser_audit/child.py",
         "integration/finder_index.py",
@@ -2160,6 +2177,9 @@
         "integration/accounts/shared_ledger_fixture.py",
         "integration/article_archive.py",
         "integration/broker_json211.py",
+        "integration/code_news_catalogue.py",
+        "integration/code_news_disk.py",
+        "integration/code_news_public.py",
         "integration/collection_receipts/protocol.py",
         "integration/collector197_archive.py",
         "integration/collector197_connector.py",
@@ -2222,6 +2242,7 @@
         "integration/supplied_fulltext_fixture.py",
         "integration/tariff_evidence.py",
         "scripts/audit_connections.py",
+        "scripts/build_code_news_index.py",
         "scripts/doc_lookup.py",
         "scripts/package_manifest.py",
         "tests/accounts/browser_http_fixture.py",
@@ -2267,6 +2288,7 @@
         "tests/test_build_provenance150.py",
         "tests/test_bulk147_inventory.py",
         "tests/test_classifier146_inventory.py",
+        "tests/test_code_news_disk.py",
         "tests/test_collector122_inventory.py",
         "tests/test_collector197b_coordinator.py",
         "tests/test_collector197b_supervisor.py",
@@ -2391,6 +2413,18 @@
       "classification": "stdlib"
     },
     {
+      "import": "mmap",
+      "stdlib": true,
+      "distributions": [],
+      "classification": "stdlib",
+      "provenance": {
+        "source": "sys.stdlib_module_names"
+      },
+      "files": [
+        "integration/code_news_disk.py"
+      ]
+    },
+    {
       "import": "multiprocessing",
       "files": [
         "tests/test_stream_disk.py"
@@ -2487,6 +2521,9 @@
         "integration/accounts/http_fixture.py",
         "integration/accounts/merged_fixture.py",
         "integration/branding_meta.py",
+        "integration/code_news_catalogue.py",
+        "integration/code_news_disk.py",
+        "integration/code_news_public.py",
         "integration/collector197_coordinator.py",
         "integration/collector197_coordinator_child.py",
         "integration/collector197_feed_child.py",
@@ -2525,6 +2562,7 @@
         "integration/supplied_multi_feed.py",
         "integration/telegram_format_audit.py",
         "scripts/audit_connections.py",
+        "scripts/build_code_news_index.py",
         "scripts/doc_lookup.py",
         "scripts/package_manifest.py",
         "tests/accounts/browser_http_fixture.py",
@@ -2576,6 +2614,7 @@
         "tests/test_bulk147_inventory.py",
         "tests/test_channels171.py",
         "tests/test_classifier146_inventory.py",
+        "tests/test_code_news_disk.py",
         "tests/test_collector197b_coordinator.py",
         "tests/test_collector197b_supervisor.py",
         "tests/test_collector197ea.py",
@@ -3166,6 +3205,11 @@
         "integration/branding_meta.py",
         "integration/brics_streams.py",
         "integration/broker_json211.py",
+        "integration/code_news_catalogue.py",
+        "integration/code_news_disk.py",
+        "integration/code_news_links.py",
+        "integration/code_news_public.py",
+        "integration/code_news_query.py",
         "integration/collection_receipts/protocol.py",
         "integration/collector197_connector.py",
         "integration/collector_actions/entry.py",
@@ -3392,6 +3436,7 @@
       "import": "shutil",
       "files": [
         "tests/geospatial/test_geospatial.py",
+        "tests/test_code_news_disk.py",
         "tests/test_finder_browser229.py",
         "tests/test_finder_network230.py",
         "tests/test_offline232.py",
@@ -3516,6 +3561,8 @@
     {
       "import": "struct",
       "files": [
+        "integration/code_news_disk.py",
+        "scripts/build_code_news_index.py",
         "tests/native200_state_fixture.py",
         "tests/native200_wire_fixture.py",
         "tests/native200cb_read_fixture.py",
@@ -3726,6 +3773,7 @@
         "tests/accounts/browser_http_fixture.py",
         "tests/geospatial/test_geospatial.py",
         "tests/geospatial/test_map_route.py",
+        "tests/test_code_news_disk.py",
         "tests/test_collector197b_supervisor.py",
         "tests/test_doc_lookup.py",
         "tests/test_env_example.py",
@@ -3973,6 +4021,7 @@
         "integration/accounts/shared_service_fixture.py",
         "integration/accounts/store.py",
         "integration/brics_streams.py",
+        "integration/code_news_public.py",
         "integration/collector197_host_probe.py",
         "integration/edge_guard.py",
         "integration/finder198_auth.py",
@@ -4043,6 +4092,7 @@
       "files": [
         "integration/accounts/mongo_store.py",
         "integration/bounded_rss/driver.py",
+        "integration/code_news_public.py",
         "integration/collector197_connector.py",
         "integration/collector197_coordinator.py",
         "integration/collector197_feed_child.py",
@@ -4211,6 +4261,8 @@
         "tests/test_bulk147_inventory.py",
         "tests/test_channels171.py",
         "tests/test_classifier146_inventory.py",
+        "tests/test_code_news_disk.py",
+        "tests/test_code_news_public.py",
         "tests/test_collection_prepare.py",
         "tests/test_collector122_inventory.py",
         "tests/test_collector122_packing.py",
@@ -4975,6 +5027,26 @@
         "sha256": "74009d4bbd3cfd6127db79c33fd3526ef7c7155a3e2f3cb054a8bd374d9dda01"
       },
       {
+        "path": "integration/code_news_catalogue.py",
+        "sha256": "8da288c2c17feffd8bcca975f84747c85195645e3f7ef3734f6fd4f51852d15e"
+      },
+      {
+        "path": "integration/code_news_disk.py",
+        "sha256": "844feac55f5ede43851f26a61731b6a8901501b3aa2867890394b1cb9f3d4ba7"
+      },
+      {
+        "path": "integration/code_news_links.py",
+        "sha256": "b3aaef9a4f610ed4e8a822ae74fef122ad29a29f7ee112eb9d1c82cecc5b433f"
+      },
+      {
+        "path": "integration/code_news_public.py",
+        "sha256": "1298c1d67821ec5adaa65b2bf8e5d55be725db8a680679a18aa81425e02fbd34"
+      },
+      {
+        "path": "integration/code_news_query.py",
+        "sha256": "2b4d1641d6a8e6d2fa9b76139936e32bc805010e7de60cf54319715a96cb705e"
+      },
+      {
         "path": "integration/collection_prepare.py",
         "sha256": "2d0886b3126dfd4da4c7fa647ff414afbd27a6032204a8f9ad2be046f86c25b2"
       },
@@ -5548,7 +5620,7 @@
       },
       {
         "path": "integration/public_live_builder.py",
-        "sha256": "a3b2617f4c324761776b9617628a1f8e830e19b3a209dd0d47d7d09c6b84fdb1"
+        "sha256": "c4afb8cc98d27b90334aadfb30c9fdb7b771ae84e4789ef460d6b77ecc652572"
       },
       {
         "path": "integration/public_news.py",
@@ -5556,7 +5628,7 @@
       },
       {
         "path": "integration/public_preview_builder.py",
-        "sha256": "7c79b918d3d59560cebf30ef7213d6040c00026ebb88f567129702a40be8f558"
+        "sha256": "665a102c6d2e4b767735975177a6841927371259a8dfaea1969392099c5ebf04"
       },
       {
         "path": "integration/publication_dates/policy.py",
@@ -5785,6 +5857,10 @@
       {
         "path": "scripts/audit_connections.py",
         "sha256": "c52be3bbc75beeb32fba41515fac99f9104aeeb61e3b76b0b2797a0e62401920"
+      },
+      {
+        "path": "scripts/build_code_news_index.py",
+        "sha256": "10782e265e39f8be911f0a754dd67af57bf7a981cb31a991b563e8cd9a59aaca"
       },
       {
         "path": "scripts/doc_lookup.py",
@@ -6105,6 +6181,14 @@
       {
         "path": "tests/test_classifier146_inventory.py",
         "sha256": "9ad66296f9e9895aa136267cc82e385956ef8642dcaa91425825b8eee5fe58ca"
+      },
+      {
+        "path": "tests/test_code_news_disk.py",
+        "sha256": "365579fa428b80f582e8dfc8684b88764c7a154d50c8043baf264446cb6ab40a"
+      },
+      {
+        "path": "tests/test_code_news_public.py",
+        "sha256": "86a56dde8194bbdc7d8f6b2f6476ccd470797eeab5c0104c0cd0f5e1117f1a0b"
       },
       {
         "path": "tests/test_collection_prepare.py",

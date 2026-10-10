@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 1742,
+  "tests": 1761,
   "files": [
     {
       "path": ".env.example",
@@ -22,8 +22,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 916861,
-      "sha256": "3d066cfc5be5b39e5e25c7f45384fad5692d72172bc68bc93976fded32aa2a28"
+      "bytes": 920710,
+      "sha256": "5374bf251f622719f7d8d0ef59368717893924d398f56fd41a55703f1cbe41b4"
     },
     {
       "path": "ai-agent.mjs",
@@ -1686,6 +1686,51 @@
       "sha256": "92ce2a57fc4c87dc9a162b294444ebfe9022e0627738fc9a6c256d36ce4a7640"
     },
     {
+      "path": "integration/code_news_catalogue.py",
+      "bytes": 6171,
+      "sha256": "8da288c2c17feffd8bcca975f84747c85195645e3f7ef3734f6fd4f51852d15e"
+    },
+    {
+      "path": "integration/code_news_disk.py",
+      "bytes": 3426,
+      "sha256": "844feac55f5ede43851f26a61731b6a8901501b3aa2867890394b1cb9f3d4ba7"
+    },
+    {
+      "path": "integration/code_news_index/codes.idx",
+      "bytes": 3343056,
+      "sha256": "4f6487562fd144ef42f75724581fc4d206bf2f0df7b78ce6c66270bffff3fb03"
+    },
+    {
+      "path": "integration/code_news_index/manifest.json",
+      "bytes": 658,
+      "sha256": "6edbda1415380b9b99f1f28a79ced563cd72b3ab4ab6323a35cfd531b62e17ea"
+    },
+    {
+      "path": "integration/code_news_index/rows.jsonl",
+      "bytes": 52419842,
+      "sha256": "e258d3a5ae3f285ab135a0c262a30501135b59b8e7bcb3fdd0b0dcd802d1f502"
+    },
+    {
+      "path": "integration/code_news_links.py",
+      "bytes": 7235,
+      "sha256": "b3aaef9a4f610ed4e8a822ae74fef122ad29a29f7ee112eb9d1c82cecc5b433f"
+    },
+    {
+      "path": "integration/code_news_pins.json",
+      "bytes": 194,
+      "sha256": "bd14cdeb8d9ba72bd18614d4ac50a89d24b93e6cc5f1038029133089e7b8ba7a"
+    },
+    {
+      "path": "integration/code_news_public.py",
+      "bytes": 5566,
+      "sha256": "1298c1d67821ec5adaa65b2bf8e5d55be725db8a680679a18aa81425e02fbd34"
+    },
+    {
+      "path": "integration/code_news_query.py",
+      "bytes": 1277,
+      "sha256": "2b4d1641d6a8e6d2fa9b76139936e32bc805010e7de60cf54319715a96cb705e"
+    },
+    {
       "path": "integration/collection_prepare.py",
       "bytes": 2493,
       "sha256": "2d0886b3126dfd4da4c7fa647ff414afbd27a6032204a8f9ad2be046f86c25b2"
@@ -1938,12 +1983,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 19742,
-      "sha256": "80eeae6fb18e97f7c706195f71efc628b754d74a7209c54d77714b00f2a4b193"
+      "sha256": "b936de372649d37d194e67582c4a71b3895498b431671fe04c5401ec7076c3c2"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
-      "bytes": 265354,
-      "sha256": "2b09ec919f7eb05f5538fe301dd0e26adab3dc439481c3dec3230cbce0778819"
+      "bytes": 268543,
+      "sha256": "e842a22c0bc126a1d3c743e4129c8f23733780438cd0f2a0bd620483dff1e031"
     },
     {
       "path": "integration/dependency_build/executed-orchestrator.txt",
@@ -2712,8 +2757,8 @@
     },
     {
       "path": "integration/public_live_builder.py",
-      "bytes": 10143,
-      "sha256": "a3b2617f4c324761776b9617628a1f8e830e19b3a209dd0d47d7d09c6b84fdb1"
+      "bytes": 10372,
+      "sha256": "c4afb8cc98d27b90334aadfb30c9fdb7b771ae84e4789ef460d6b77ecc652572"
     },
     {
       "path": "integration/public_news.py",
@@ -2742,8 +2787,8 @@
     },
     {
       "path": "integration/public_preview_builder.py",
-      "bytes": 5166,
-      "sha256": "7c79b918d3d59560cebf30ef7213d6040c00026ebb88f567129702a40be8f558"
+      "bytes": 5419,
+      "sha256": "665a102c6d2e4b767735975177a6841927371259a8dfaea1969392099c5ebf04"
     },
     {
       "path": "integration/publication_dates/inventory.json",
@@ -3309,6 +3354,16 @@
       "path": "integration/ui/brics_streams.js",
       "bytes": 1699,
       "sha256": "c05a58762faa06df9cf4dde0c7330cfc8f65c9151d34b8586344a420701aa424"
+    },
+    {
+      "path": "integration/ui/code_news.html",
+      "bytes": 1855,
+      "sha256": "fb54dec26cf025f62bf2bf3ed501dd1cd21c0e9ef09fbc7e7532a70c64d39f3f"
+    },
+    {
+      "path": "integration/ui/code_news.js",
+      "bytes": 4028,
+      "sha256": "6e513bbc2486eb4d5115e990cee32610eff6901fd6eff439cb9ef60a57478911"
     },
     {
       "path": "integration/ui/context_excerpt208.js",
@@ -4299,6 +4354,11 @@
       "path": "scripts/audit_connections.py",
       "bytes": 2811,
       "sha256": "c52be3bbc75beeb32fba41515fac99f9104aeeb61e3b76b0b2797a0e62401920"
+    },
+    {
+      "path": "scripts/build_code_news_index.py",
+      "bytes": 1696,
+      "sha256": "10782e265e39f8be911f0a754dd67af57bf7a981cb31a991b563e8cd9a59aaca"
     },
     {
       "path": "scripts/doc_lookup.py",
@@ -5449,6 +5509,16 @@
       "path": "tests/test_classifier146_inventory.py",
       "bytes": 792,
       "sha256": "9ad66296f9e9895aa136267cc82e385956ef8642dcaa91425825b8eee5fe58ca"
+    },
+    {
+      "path": "tests/test_code_news_disk.py",
+      "bytes": 1469,
+      "sha256": "365579fa428b80f582e8dfc8684b88764c7a154d50c8043baf264446cb6ab40a"
+    },
+    {
+      "path": "tests/test_code_news_public.py",
+      "bytes": 4770,
+      "sha256": "86a56dde8194bbdc7d8f6b2f6476ccd470797eeab5c0104c0cd0f5e1117f1a0b"
     },
     {
       "path": "tests/test_collection_prepare.py",

@@ -77,7 +77,7 @@
       "path": "README.md",
       "project": "finder_or_build",
       "role": "preserved_engine_or_asset",
-      "sha256": "3d066cfc5be5b39e5e25c7f45384fad5692d72172bc68bc93976fded32aa2a28",
+      "sha256": "5374bf251f622719f7d8d0ef59368717893924d398f56fd41a55703f1cbe41b4",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -3344,6 +3344,97 @@
       "runtime_verified": false
     },
     {
+      "path": "integration/code_news_catalogue.py",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "8da288c2c17feffd8bcca975f84747c85195645e3f7ef3734f6fd4f51852d15e",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/code_news_disk.py",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "844feac55f5ede43851f26a61731b6a8901501b3aa2867890394b1cb9f3d4ba7",
+      "static_file_edges": [
+        "integration/code_news_links.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/code_news_index/codes.idx",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "4f6487562fd144ef42f75724581fc4d206bf2f0df7b78ce6c66270bffff3fb03",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/code_news_index/manifest.json",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "6edbda1415380b9b99f1f28a79ced563cd72b3ab4ab6323a35cfd531b62e17ea",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/code_news_index/rows.jsonl",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "e258d3a5ae3f285ab135a0c262a30501135b59b8e7bcb3fdd0b0dcd802d1f502",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/code_news_links.py",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "b3aaef9a4f610ed4e8a822ae74fef122ad29a29f7ee112eb9d1c82cecc5b433f",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/code_news_pins.json",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "bd14cdeb8d9ba72bd18614d4ac50a89d24b93e6cc5f1038029133089e7b8ba7a",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/code_news_public.py",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "1298c1d67821ec5adaa65b2bf8e5d55be725db8a680679a18aa81425e02fbd34",
+      "static_file_edges": [
+        "integration/code_news_disk.py",
+        "integration/code_news_links.py",
+        "integration/code_news_query.py",
+        "integration/news_view.py",
+        "integration/public_news.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/code_news_query.py",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "2b4d1641d6a8e6d2fa9b76139936e32bc805010e7de60cf54319715a96cb705e",
+      "static_file_edges": [
+        "integration/code_news_links.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
       "path": "integration/collection_prepare.py",
       "project": "integration",
       "role": "offline_contract_or_private_view",
@@ -3905,7 +3996,7 @@
       "path": "integration/dependency_audit/audit.json",
       "project": "integration",
       "role": "offline_contract_or_private_view",
-      "sha256": "80eeae6fb18e97f7c706195f71efc628b754d74a7209c54d77714b00f2a4b193",
+      "sha256": "b936de372649d37d194e67582c4a71b3895498b431671fe04c5401ec7076c3c2",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -3914,7 +4005,7 @@
       "path": "integration/dependency_audit/import-inventory.json",
       "project": "integration",
       "role": "offline_contract_or_private_view",
-      "sha256": "2b09ec919f7eb05f5538fe301dd0e26adab3dc439481c3dec3230cbce0778819",
+      "sha256": "e842a22c0bc126a1d3c743e4129c8f23733780438cd0f2a0bd620483dff1e031",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -5568,8 +5659,9 @@
       "path": "integration/public_live_builder.py",
       "project": "integration",
       "role": "offline_contract_or_private_view",
-      "sha256": "a3b2617f4c324761776b9617628a1f8e830e19b3a209dd0d47d7d09c6b84fdb1",
+      "sha256": "c4afb8cc98d27b90334aadfb30c9fdb7b771ae84e4789ef460d6b77ecc652572",
       "static_file_edges": [
+        "integration/code_news_public.py",
         "integration/edge_guard.py",
         "integration/geo_read_factory.py",
         "integration/news_api.py",
@@ -5632,9 +5724,10 @@
       "path": "integration/public_preview_builder.py",
       "project": "integration",
       "role": "offline_contract_or_private_view",
-      "sha256": "7c79b918d3d59560cebf30ef7213d6040c00026ebb88f567129702a40be8f558",
+      "sha256": "665a102c6d2e4b767735975177a6841927371259a8dfaea1969392099c5ebf04",
       "static_file_edges": [
         "integration/api_v1.py",
+        "integration/code_news_public.py",
         "integration/news_api.py",
         "integration/preview_launcher.py",
         "integration/public_finder.py"
@@ -6763,6 +6856,24 @@
       "project": "integration",
       "role": "offline_contract_or_private_view",
       "sha256": "c05a58762faa06df9cf4dde0c7330cfc8f65c9151d34b8586344a420701aa424",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/ui/code_news.html",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "fb54dec26cf025f62bf2bf3ed501dd1cd21c0e9ef09fbc7e7532a70c64d39f3f",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/ui/code_news.js",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "6e513bbc2486eb4d5115e990cee32610eff6901fd6eff439cb9ef60a57478911",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -8724,6 +8835,17 @@
       "runtime_verified": false
     },
     {
+      "path": "scripts/build_code_news_index.py",
+      "project": "finder_or_build",
+      "role": "preserved_engine_or_asset",
+      "sha256": "10782e265e39f8be911f0a754dd67af57bf7a981cb31a991b563e8cd9a59aaca",
+      "static_file_edges": [
+        "integration/code_news_catalogue.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
       "path": "scripts/doc_lookup.py",
       "project": "finder_or_build",
       "role": "preserved_engine_or_asset",
@@ -9762,7 +9884,7 @@
       "path": "staging-manifest.json",
       "project": "finder_or_build",
       "role": "preserved_engine_or_asset",
-      "sha256": "87c9e5e4f446200259d025d8751567b4162f02cae8165cec77eccac87d5c6324",
+      "sha256": "dd818629dac7019eb9ceeed1f04655b66d0b0fc0dbb0f322fa4c2047ae54eb28",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -11122,6 +11244,32 @@
       "role": "fixture_test",
       "sha256": "9ad66296f9e9895aa136267cc82e385956ef8642dcaa91425825b8eee5fe58ca",
       "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "tests/test_code_news_disk.py",
+      "project": "test",
+      "role": "fixture_test",
+      "sha256": "365579fa428b80f582e8dfc8684b88764c7a154d50c8043baf264446cb6ab40a",
+      "static_file_edges": [
+        "integration/code_news_disk.py",
+        "integration/code_news_links.py",
+        "integration/code_news_public.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "tests/test_code_news_public.py",
+      "project": "test",
+      "role": "fixture_test",
+      "sha256": "86a56dde8194bbdc7d8f6b2f6476ccd470797eeab5c0104c0cd0f5e1117f1a0b",
+      "static_file_edges": [
+        "integration/code_news_links.py",
+        "integration/code_news_public.py",
+        "integration/public_preview_builder.py"
+      ],
       "unresolved_internal_imports": [],
       "runtime_verified": false
     },
@@ -14355,7 +14503,7 @@
       "runtime_verified": false
     }
   ],
-  "file_count": 1377,
+  "file_count": 1391,
   "limits": [
     "Dynamic references and network endpoints need runtime adapter tests",
     "Legacy launchers deliberately not connected to merged private entrypoint",

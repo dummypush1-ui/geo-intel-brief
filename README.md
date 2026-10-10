@@ -12829,3 +12829,61 @@ manual-only UI, same-origin CSP, no storage and all private routes still denied.
 Local screenshots validate layout only. Provider reliability and real response
 compatibility were not tested against the live service. No deployment or public
 exposure is authorized by this source candidate.
+
+## Code-news unit C dormant candidate
+
+This candidate adds a separate `/workspace/code-news` read page and two manual
+GET routes. Default `PUBLIC_CODE_NEWS_ENABLED=false` keeps all four routes closed.
+Enabling requires `PUBLIC_CODE_NEWS_SCOPE_REVIEWED=true`, not an authorization
+substitute. No live changes, provider calls or database mutation are included.
+
+`/api/code-news-context` accepts bounded query/system/edition parameters and
+resolves exact preserved catalogue identity first. Label variants such as
+HS100630, HS code 100630, HS:100630 and HSN1006 are supported. HS selects HS;
+HSN selects the India catalogue convention. A conflicting system is refused.
+Other mixed digit/word or malformed queries are refused: code alone or words
+alone. No numeric code reaches generic news q matching through this new page.
+The existing generic news search and private Finder bridge are unchanged, so
+this candidate does not claim to fix every existing entry point yet.
+
+`/api/news-code-context` takes exact project/article_key, checks only approved
+supplied rows and returns reported HS/HSN mentions. Commodity vocabulary is
+DRAFT and not enabled. Unknown, ambiguous, conflicting source rows, unsupported
+lengths and unusable descriptions remain explicit states. Reported codes are
+article claims, not verified legal classification. Missing links in this page
+are not evidence that no related news exists. This is latest100 supplied-page
+scope, not full-store code search. Full paging needs its own reviewed unit D.
+
+Preserved snapshot extraction is pinned to original index/bundle bytes. Source
+labels and URLs are unverified claims; national edition identities are snapshot
+fingerprints, not invented current editions. Every numeric source row is kept
+for conflict detection. Conflicting identities never silently select "Other".
+Only 4/6/8/10/12-digit codes with usable descriptions enter the relationship
+model; other lengths, empty descriptions and conflicts have omission-ledger
+states. No rate/duty claim is generated from the preserved catalogue.
+
+One worker-local lock and ten shared requests/minute bound manual operations.
+HEAD and startup never read the index or source data. Runtime does NOT extract
+or decompress the original catalogue. The offline build creates an immutable
+flat index: format code_news_flat_v1, 24-byte big-endian records (12-byte padded
+ASCII code, 8-byte offset, 4-byte payload length), plus JSONL row groups capped
+at64KB. Three generated files retain full source pins and byte hashes. The
+index is sorted and memory-mapped; one bounded row group is read per resolve.
+Conflicts, unsupported lengths and unusable descriptions remain in the index.
+SHA256 verification streams64KB chunks once. Invalid index load is held until
+restart, never automatically retried. No database or provider is involved.
+
+Fresh local app+index cold-load measured0.178seconds, peak/steadyRSS36.7MB.
+This is local Python evidence, not a wholeRender deployment/load/capacity proof.
+Actual hosting capacity, ingress limits and worker topology still require review
+beforeactivation. Quotas reset perworker/restart. Routes have canonical-host
+GET guards but no Sec-Fetch-Site/Origin read restriction; nonbrowser reads are
+allowed within sharedlimits. Responses are no-store, errors sanitized.
+Digit-refusal applies only to this codepage. Future News cutover must retain
+ordinary keywords such as G20 summit, Covid-19 and5G rather than blindly reuse
+this form's code-only contract. No existingNews entrypoint is changed here.
+
+Unit C does not wire AI/PDF/tariffs/BRICS or enable commodity rules. It does not
+modify original Finder source or existing public-news paging. Tests use fake
+article sources; real extraction tests require `CODE_NEWS_SOURCE_ROOT` pointing
+to the pinned source repo. Without it those checks explicitly skip, not pass.
