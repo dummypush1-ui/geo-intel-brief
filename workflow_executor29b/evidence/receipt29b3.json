@@ -1,0 +1,20 @@
+{
+  "scope": "29b3 source revision only; revised hosted execution NOT RUN; items27/28/29 OPEN",
+  "baseline_commit": "4da5e0498a1a541cae66a9790f98ce9595aacca8",
+  "baseline_tree": "998b04499ca52e952356e620c852b84c1663e5a6",
+  "prior_receipt_sha256": "7ea0b1d2a886d789abcd882907fea98edcacba30a39a4335ebd5672e3e322e44",
+  "prior_plan_sha256": "c354a592b2a3c81570460d80447f490a97dd45a102651183b52be6c3ccf8b05f",
+  "verified_prior_facts": "BLOCKED exit2; start/inputs/dpkg/ca reached; exact92BASEanchor; stderr missing apt.conf.d directory",
+  "local_tests": 21,
+  "old_tests_preserved": 19,
+  "changes": "only apt.conf.d mkdir, 4thconfigline sandboxroot, conf-ok marker/whitelist, tests/docs/derivedmanifest",
+  "sandbox_weakening": "deliberate aptdownloadmethodprivilegedropdisabledinsidecapability-freecontainer; signature/Releasehashchecks unchanged",
+  "install": "REFUSED",
+  "risks": [
+    "dpkglockreadonlyroot",
+    "snapshotreachability/apt/network",
+    "conservativeredactionsuppression"
+  ],
+  "workflow_unchanged": true,
+  "nextworkflow": "PENDINGnewlandedSHA/3hashes,separatereview"
+}

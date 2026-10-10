@@ -164,6 +164,39 @@ class Tests(unittest.TestCase):
         for line in ('STAGE start extra', 'STAGE unknown', ' STAGE start', 'STAGE TOKEN=value'):
             self.assertFalse(a.STAGE_LINE.fullmatch(line))
 
+    def test_actual_config_lines_in_fake_root(self):
+        import subprocess
+        text = (HERE / 'discover.sh').read_text()
+        lines = text.splitlines()
+        mkdir = 'mkdir -p /etc/apt/apt.conf.d'
+        i = lines.index(mkdir)
+        actual = '\n'.join(lines[i:i+3]) + '\n'
+        self.assertTrue(lines[i+1].endswith('> /etc/apt/apt.conf.d/99reviewed'))
+        self.assertEqual(lines[i+2], "printf '%s\\n' 'STAGE conf-ok'")
+        self.assertEqual(lines[i+3], 'apt-get update')
+        expected = ('Acquire::https::CaInfo "/tmp/bootstrap-ca.pem";\n'
+                    'Acquire::Retries "0";\n'
+                    'Acquire::https::Timeout "30";\n'
+                    'APT::Sandbox::User "root";\n')
+        with tempfile.TemporaryDirectory() as d:
+            # Execute the actual reviewed mkdir/write/marker lines, redirect only
+            # their absolute target path to a missing directory in harmless scratch.
+            fake = pathlib.Path(d) / 'etc/apt/apt.conf.d'
+            script = actual.replace('/etc/apt/apt.conf.d', str(fake))
+            r = subprocess.run(['/bin/sh', '-eu', '-c', script], capture_output=True, text=True, check=True)
+            self.assertEqual((fake / '99reviewed').read_text(), expected)
+            self.assertEqual(r.stdout, 'STAGE conf-ok\n')
+        self.assertNotIn('--cap-add', text)
+        self.assertNotIn('-o APT::Sandbox', text)
+        self.assertNotIn('--cap-add', ' '.join(a.commands()['run']))
+
+    def test_conf_marker_exact_addition(self):
+        self.assertTrue(a.STAGE_LINE.fullmatch('STAGE conf-ok'))
+        for line in ('STAGE conf-ok2', 'STAGE unknown', 'STAGE conf-ok extra'):
+            self.assertFalse(a.STAGE_LINE.fullmatch(line))
+        d = a.diagnostics(dict(stdout='STAGE conf-ok\nSTAGE conf-ok2\n', stderr='', stop_reason=None))
+        self.assertEqual(d['stage_markers'], ['STAGE conf-ok'])
+
     def test_fixed_allowlist(self):
         cmds = a.commands()
         self.assertEqual(set(cmds), {'info', 'pull', 'run', 'rm', 'inspect'})

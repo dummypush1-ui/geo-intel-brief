@@ -44,7 +44,7 @@ def receipt(state='NOT RUN', reason='technical gate OFF', **extra):
                 stage_b='REFUSED', runtime_ready=False, **extra)
 
 
-STAGE_LINE = re.compile(r'^STAGE (start|inputs-ok|dpkg-ok|ca-ok|apt-update-ok|plan-begin)$')
+STAGE_LINE = re.compile(r'^STAGE (start|inputs-ok|dpkg-ok|ca-ok|conf-ok|apt-update-ok|plan-begin)$')
 STDERR_BYTES = 4096
 STDERR_LINES = 20
 DIAGNOSTIC_BAD = re.compile(
