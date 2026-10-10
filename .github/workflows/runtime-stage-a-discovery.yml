@@ -45,7 +45,7 @@ jobs:
         if: inputs.discovery_gate == true
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # upstream v4.2.2
         with:
-          ref: b1327a232ebd3d284e8de6b86d1e9c9fef68d27f
+          ref: 8bdd2a94e48eaf3a704f4a321c718eae383aee4a
           path: source
           persist-credentials: false
           fetch-depth: 1
@@ -56,8 +56,8 @@ jobs:
         run: |
           set -euo pipefail
           cd source
-          echo '0dd2f543c16e8374c5af30af09485227685bc61b07eba20c23aa1a26f40b50a2  workflow_executor29b/manifest.json' | sha256sum -c -
-          echo '0279ad95cf13e193bc363b043f326463e6036cfc2e81e800c90ce2971d3fb4b0  workflow_executor29b/adapter.py' | sha256sum -c -
+          echo '08d995eec3948684db50ed4e0a30714824deb0332a3e936c526edf62fb3cced5  workflow_executor29b/manifest.json' | sha256sum -c -
+          echo 'e95550b06d2255a337098cbf5a6ab5907ca322f8c3cb4550ebcc6bd1de98c7cf  workflow_executor29b/adapter.py' | sha256sum -c -
           echo 'f9fe7b8423c79f575333943db3965d500d97f7e91c1c2faf184587dce354096e  workflow_executor29b/discover.sh' | sha256sum -c -
           python3 - <<'PY'
           import hashlib,json,pathlib
