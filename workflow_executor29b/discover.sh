@@ -24,9 +24,9 @@ mkdir -p /etc/apt/sources.list.d
 cp apt.sources /etc/apt/sources.list.d/reviewed.sources
 cp ubuntu-archive-keyring.gpg /usr/share/keyrings/runtime27b-ubuntu.gpg
 mkdir -p /etc/apt/apt.conf.d
-printf 'Acquire::https::CaInfo "/tmp/bootstrap-ca.pem";\nAcquire::Retries "0";\nAcquire::https::Timeout "30";\nAPT::Sandbox::User "root";\n' > /etc/apt/apt.conf.d/99reviewed
+printf 'Acquire::https::CaInfo "/tmp/bootstrap-ca.pem";\nAcquire::Retries "0";\nAcquire::https::Timeout "30";\nAPT::Sandbox::User "root";\nDir::Cache::pkgcache "";\nDir::Cache::srcpkgcache "";\n' > /etc/apt/apt.conf.d/99reviewed
 printf '%s\n' 'STAGE conf-ok'
-apt-get update
+apt-get update || { rc=$?; df -P /var/lib/apt/lists /var/cache/apt /tmp >&2; exit "$rc"; }
 printf '%s\n' 'STAGE apt-update-ok'
 check_release() {
  suite=$1 hash=$2

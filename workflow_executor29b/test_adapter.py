@@ -173,18 +173,20 @@ class Tests(unittest.TestCase):
         actual = '\n'.join(lines[i:i+3]) + '\n'
         self.assertTrue(lines[i+1].endswith('> /etc/apt/apt.conf.d/99reviewed'))
         self.assertEqual(lines[i+2], "printf '%s\\n' 'STAGE conf-ok'")
-        self.assertEqual(lines[i+3], 'apt-get update')
+        self.assertEqual(lines[i+3], 'apt-get update || { rc=$?; df -P /var/lib/apt/lists /var/cache/apt /tmp >&2; exit "$rc"; }')
         expected = ('Acquire::https::CaInfo "/tmp/bootstrap-ca.pem";\n'
                     'Acquire::Retries "0";\n'
                     'Acquire::https::Timeout "30";\n'
-                    'APT::Sandbox::User "root";\n')
+                    'APT::Sandbox::User "root";\n'
+                    'Dir::Cache::pkgcache "";\n'
+                    'Dir::Cache::srcpkgcache "";\n')
         with tempfile.TemporaryDirectory() as d:
             # Execute the actual reviewed mkdir/write/marker lines, redirect only
             # their absolute target path to a missing directory in harmless scratch.
             fake = pathlib.Path(d) / 'etc/apt/apt.conf.d'
             script = actual.replace('/etc/apt/apt.conf.d', str(fake))
             r = subprocess.run(['/bin/sh', '-eu', '-c', script], capture_output=True, text=True, check=True)
-            self.assertEqual((fake / '99reviewed').read_text(), expected)
+            self.assertEqual((fake / '99reviewed').read_bytes(), expected.encode())
             self.assertEqual(r.stdout, 'STAGE conf-ok\n')
         self.assertNotIn('--cap-add', text)
         self.assertNotIn('-o APT::Sandbox', text)
@@ -196,6 +198,33 @@ class Tests(unittest.TestCase):
             self.assertFalse(a.STAGE_LINE.fullmatch(line))
         d = a.diagnostics(dict(stdout='STAGE conf-ok\nSTAGE conf-ok2\n', stderr='', stop_reason=None))
         self.assertEqual(d['stage_markers'], ['STAGE conf-ok'])
+
+    def test_actual_update_wrapper_with_command_shims(self):
+        import subprocess
+        text = (HERE / 'discover.sh').read_text()
+        lines = text.splitlines()
+        update = 'apt-get update || { rc=$?; df -P /var/lib/apt/lists /var/cache/apt /tmp >&2; exit "$rc"; }'
+        i = lines.index(update)
+        self.assertEqual(lines[i+1], "printf '%s\\n' 'STAGE apt-update-ok'")
+        actual = 'set -eu\n' + '\n'.join(lines[i:i+2]) + '\n'
+        with tempfile.TemporaryDirectory() as d:
+            root = pathlib.Path(d)
+            apt = root / 'apt-get'
+            df = root / 'df'
+            df.write_text('#!/bin/sh\nprintf "DF-SHIM %s\\n" "$*"\n')
+            df.chmod(0o755)
+            env = dict(os.environ, PATH=str(root))
+            for code in (100, 0):
+                apt.write_text('#!/bin/sh\nexit ' + str(code) + '\n')
+                apt.chmod(0o755)
+                r = subprocess.run(['/bin/sh', '-c', actual], capture_output=True, text=True, env=env)
+                self.assertEqual(r.returncode, code)
+                if code:
+                    self.assertEqual(r.stdout, '')
+                    self.assertEqual(r.stderr, 'DF-SHIM -P /var/lib/apt/lists /var/cache/apt /tmp\n')
+                else:
+                    self.assertEqual(r.stdout, 'STAGE apt-update-ok\n')
+                    self.assertEqual(r.stderr, '')
 
     def test_fixed_allowlist(self):
         cmds = a.commands()

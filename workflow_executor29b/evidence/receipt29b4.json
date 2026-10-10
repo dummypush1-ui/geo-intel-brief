@@ -1,0 +1,20 @@
+{
+  "scope": "29b4 source revision only; revisedhostedNOTRUN; items27/28/29OPEN",
+  "baseline_commit": "3a31008409fa09ca85ec33c63f247dda3cea2573",
+  "baseline_tree": "e73d452c74e08b7f3e0a8d6600ee47c034db8517",
+  "prior_receipt_sha256": "3ebd0b29dca1cc4e73e9e96ba195c61828a69e34da442900fb197a7d5fff863e",
+  "verified_prior_facts": "BLOCKEDexit100/conf-okreached/noPOCKET/sourcecacheENOSPCdiagnostic",
+  "local_tests": 22,
+  "old_tests_preserved": 21,
+  "adapter_unchanged_sha256": "0279ad95cf13e193bc363b043f326463e6036cfc2e81e800c90ce2971d3fb4b0",
+  "changes": "sixlineconfigcachefilesdisabled; actualupdatefailuredf/originalrc; no mount/policychange",
+  "risks": [
+    "listsmountfull",
+    "anonymousmemoryOOM768M",
+    "dpkglockreadonlyroot",
+    "snapshotReleasechecksnotreached",
+    "conservativeredaction"
+  ],
+  "workflow_unchanged": true,
+  "newworkflow": "PENDINGactualcommit/manifest/discoverhashes,separatereview"
+}
