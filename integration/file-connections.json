@@ -7131,6 +7131,15 @@
       "runtime_verified": false
     },
     {
+      "path": "integration/weather_public_prep.py",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "e7b8aead9635f87774a2368b642daaa1acd6771fee4ea07c926280a06e9f4b48",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
       "path": "integration/weekly_report/__init__.py",
       "project": "integration",
       "role": "offline_contract_or_private_view",
@@ -9902,7 +9911,7 @@
       "path": "staging-manifest.json",
       "project": "finder_or_build",
       "role": "preserved_engine_or_asset",
-      "sha256": "820959a90f618ba6021bf1d805695f86718509944793f0a658ae0707b6746ce2",
+      "sha256": "1ac808787ff43d2ebce24640342985607a410f7cd7bd4d08d966836f18145b45",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -13777,6 +13786,17 @@
       "runtime_verified": false
     },
     {
+      "path": "tests/test_weather_public_prep.py",
+      "project": "test",
+      "role": "fixture_test",
+      "sha256": "63a9670183e582fa6fe1c47ccb17cbc293bbbc97dff21ca55846faddc01fe91c",
+      "static_file_edges": [
+        "integration/weather_public_prep.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
       "path": "tests/test_weekly_routes.py",
       "project": "test",
       "role": "fixture_test",
@@ -14532,7 +14552,7 @@
       "runtime_verified": false
     }
   ],
-  "file_count": 1394,
+  "file_count": 1396,
   "limits": [
     "Dynamic references and network endpoints need runtime adapter tests",
     "Legacy launchers deliberately not connected to merged private entrypoint",

@@ -3501,6 +3501,11 @@
       "sha256": "d1c8893753936a8f8b6583ae591c33a9966b5f28cc13af7bf76e0b296f6fab32"
     },
     {
+      "path": "integration/weather_public_prep.py",
+      "bytes": 4356,
+      "sha256": "e7b8aead9635f87774a2368b642daaa1acd6771fee4ea07c926280a06e9f4b48"
+    },
+    {
       "path": "integration/weekly_report/__init__.py",
       "bytes": 589,
       "sha256": "a29dae5559548f4364463ae45db9f70fde82707a16c41244ad6307ad4f1bba90"
@@ -6544,6 +6549,11 @@
       "path": "tests/test_weather231.py",
       "bytes": 2362,
       "sha256": "1a60490cd1986d80e330bc924c1bcd9d39e08539ab8b9e437816bd4d64f2a87e"
+    },
+    {
+      "path": "tests/test_weather_public_prep.py",
+      "bytes": 4551,
+      "sha256": "63a9670183e582fa6fe1c47ccb17cbc293bbbc97dff21ca55846faddc01fe91c"
     },
     {
       "path": "tests/test_weekly_routes.py",
