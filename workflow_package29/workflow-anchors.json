@@ -1,0 +1,32 @@
+{
+  "input_check_block_sha256": "8a05422bb5390b059c198d2b0118903befeb415e753ec38b096fa290447a7767",
+  "observed_facts": {
+    "action_pins_endorsed": false,
+    "artifact_retention_days": 1,
+    "build_log_budget_bytes": 4194304,
+    "build_timeout_seconds": 1800,
+    "checkout_observed_SHA": "11d5960a326750d5838078e36cf38b85af677262",
+    "concurrency": {
+      "cancel-in-progress": false,
+      "group": "runtime-build-review"
+    },
+    "docker_network": "default",
+    "docker_platform": "linux/amd64",
+    "docker_pull": true,
+    "host": "ubuntu-24.04",
+    "job_timeout_minutes": 45,
+    "permissions": {
+      "contents": "read"
+    },
+    "repository_guard": "github.repository == 'dummypush1-ui/geo-intel-brief'",
+    "trigger": "workflow_dispatch only",
+    "upload_failure_finding": {
+      "if_always": false,
+      "line": 76,
+      "meaning": "no always(): failed build step normally skips artifactupload; documentedfinding notfix",
+      "step": "Upload small public evidence only"
+    },
+    "upload_observed_SHA": "ea165f8d65b6e75b540449e92b4886f43607fa02"
+  },
+  "workflow_sha256": "766c3af18eefce60dc684cf8b9007fb95437c390ba8ce1110e3b174e3e08cd25"
+}

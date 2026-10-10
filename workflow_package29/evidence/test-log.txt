@@ -1,0 +1,6 @@
+local workflow preflight/package inventory; Docker NOT RUN; item 29 OPEN
+............
+----------------------------------------------------------------------
+Ran 12 tests in 0.085s
+
+OK
