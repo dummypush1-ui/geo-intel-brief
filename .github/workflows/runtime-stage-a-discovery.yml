@@ -45,7 +45,7 @@ jobs:
         if: inputs.discovery_gate == true
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # upstream v4.2.2
         with:
-          ref: ad5234ad22788b29c315e1cb4993173d2fea3684
+          ref: 20802f817c526a111ba9bbf3d71127e3a3a2cddf
           path: source
           persist-credentials: false
           fetch-depth: 1
@@ -56,8 +56,9 @@ jobs:
         run: |
           set -euo pipefail
           cd source
-          echo 'ba08fe52422e0d927284436b81d3c832882bc6c7541f037f7c7be3c490b75cfe  workflow_executor29b/manifest.json' | sha256sum -c -
-          echo 'e4e74d3a8b5302a2e0a57c8e25fb9521802252462265d2427afcabc5b18c8b1b  workflow_executor29b/adapter.py' | sha256sum -c -
+          echo '6a68bce8c7053d357cabbc2bef936a2a8518eeca01160c4445ea6ad7dc31f8a8  workflow_executor29b/manifest.json' | sha256sum -c -
+          echo '2b8d81c098cc7c87e137f1d25d99b637d4b31d892e8dd243bc209725de112fb0  workflow_executor29b/adapter.py' | sha256sum -c -
+          echo '8111741b0cc287c2410538906d4fd62f01be084a73b461c462e0c14e74a33810  workflow_executor29b/discover.sh' | sha256sum -c -
           python3 - <<'PY'
           import hashlib,json,pathlib
           p=pathlib.Path('workflow_executor29b');m=json.loads((p/'manifest.json').read_text())
