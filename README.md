@@ -98,3 +98,77 @@ This README describes source behavior, not the current Render settings, database
 The preserved `proxy.js` service now uses socket-peer identity by default, with 20 requests/peer per 10 minutes and 60 shared request/upstream-attempt budgets per process. Until actual Render proxy peer IPs and verified single appended XFF topology configure `PROXY_TRUSTED_PEERS`, all users behind one proxy share one 20/10min bucket per instance. This conservative availability regression replaces spoofable XFF buckets; a flood of distinct peers can still drain the shared cap. APP_SECRET is public client material, not login. The public Flask E1 guard is a different boundary. No live proxy configuration or provider call was made.
 
 `PROXY_PER_PEER_LIMIT`/`PROXY_SHARED_LIMIT` default to20/60, bounded1-1000 and per-peer <=shared. After verified trust config, individual client buckets apply. Shared traffic caps are not a billing guarantee; provider free-tier/zero-spend settings still need current verification.
+
+
+## Accepted scheduler217 v4 source backup
+
+This is a source backup only, not an installed or active Apps Script scheduler. Existing Apps Script files remain unchanged. The accepted source and offline fake-service tests are in `integration/scheduler217/`. The setup instructions below were folded into this README at the owner's request; no separate setup Markdown file is added.
+
+# Scheduler 217: source preparation only
+
+No Apps Script install, trigger creation, property change, mail, backend request or repository push was performed. Node fixtures are synthetic and do not prove Apps Script permissions, persistence, quota, event delivery, concurrency or sending. This is not live-proven.
+
+## Deliberately OFF native timers
+
+Every installer, remover and handler requires an exact primitive `true` argument and both `MAIL_V1_SCHEDULER_ENABLED` and `MAIL_V1_ENABLED` properties equal to the string `true`. A missing/non-true argument returns before any service access. With a true argument, only Script Properties are read until the second gate passes. No source caller enables an entry point.
+
+Native Apps Script timers provide an event, not an explicit true argument. Consequently these entry points stay OFF when invoked directly by a native timer. A separately approved and reviewed adapter is required before this can become unattended scheduling. Do not substitute a wrapper passing true without that review. Internal calls to 216 occur only after the handler gates, ownership check and durable occurrence reservation.
+
+## Owner-managed configuration
+
+The owner chose a critical interval of 10 minutes and will manage the weekly schedule directly in Apps Script. He sets and edits day, time and timezone in Script Properties; set MAIL217_CRITICAL_MINUTES to 10 for that choice. No weekly day/time/timezone has been supplied, and this package does not choose it. There is still no source default. Until all required values exist and validate, installation fails closed. Properties must all exist:
+
+- `MAIL217_WEEKLY_DAY`: full uppercase weekday, MONDAY through SUNDAY.
+- `MAIL217_WEEKLY_TIME`: HH:mm, 24-hour local wall time.
+- `MAIL217_CRITICAL_MINUTES`: one of 1, 5, 10, 15, 30.
+- `MAIL217_TIMEZONE`: named timezone, checked by Utilities formatting before trigger mutation.
+
+There are no defaults. Test fixtures (THURSDAY 11:23, 10 minutes, Etc/UTC) are fake, not an owner instruction. Weekly hour/minute is approximate, not guaranteed exact. Apps Script nearMinute allows plus or minus 15 minutes. A delayed timer can cross an occurrence boundary; exact schedule-window semantics remain a live-design blocker.
+
+## Managed installation and recovery
+
+ScriptLock covers validation, trigger enumeration, quota and state mutations. It is never held across 216, which may acquire the same lock.
+
+`MAIL217_OWNED` holds mutually exclusive active, staged and inactive ID arrays. Installer refuses any same-handler trigger not already owned, including a first install with pre-existing same-name triggers. Adoption requires separate manual review of owner-named IDs; there is no automatic adoption tool here. Other creators' triggers may be invisible to getProjectTriggers, so project-wide ownership is not proved.
+
+All visible triggers count toward the 20-trigger limit. Two free staging slots are required before mutation. Actual service quotas may still refuse creation; the check is not a reservation.
+
+The installer writes/readbacks `MAIL217_OPERATION` before the first create. It creates both new triggers before deleting anything, journals each returned ID, persists/readbacks staged IDs, then flips new IDs active and old IDs inactive before retiring old owned IDs. A nonempty operation record blocks handlers and future install/remove attempts. This conservative rule also blocks sending between the active flip and final cleanup.
+
+An exception preserves the operation record and whatever IDs are known. If creation succeeds but the call fails before returning/persisting its ID, the created trigger is unknown, inactive and requires manual reconciliation. No automatic retry, rollback or delete-by-handler is attempted. After staged persistence/readback failure or active flip/delete failure, the same hold applies. Old triggers are retained until successful retirement; deletion is not transactional and cannot recreate an old trigger with the same ID or execution history.
+
+Removal writes/readbacks a removal operation and sets all owned IDs inactive before deletion. It deletes only those IDs, never unrelated or unowned same-name triggers. A failure keeps the hold.
+
+Manual recovery must compare live trigger IDs/handlers against the journal and owner-approved configuration, identify unknown new triggers, inspect occurrence/backend pending records, and receive a reviewed decision before changing state. Do not clear the operation record just to unblock execution. This package intentionally supplies no recovery mutation command.
+
+## Occurrences and sending
+
+Handler requires a string event triggerUid in the persisted active-owned set. Missing, unknown, staged or inactive IDs refuse; any operation hold refuses too.
+
+Before calling 216, it writes/readbacks an occurrence ledger under the shared lock. Weekly keys use the Monday-start local calendar week; critical keys use epoch interval buckets. Both handler paths use the same durable ledger and release the lock before 216. A repeated key never calls 216 again. Failure after reservation loses that occurrence pending manual action, even if 216 returned OFF or failed before sending. It is never automatically resent.
+
+The ledger stops at 128 entries; there is no silent pruning or rollover. Unattended operation therefore remains blocked until an approved retention/archive design exists. These keys are conservative local dedup, not proof of exactly-once email delivery, cross-project dedup or backend claim correctness.
+
+## Collection-completion gate remains downstream
+
+A timer firing does not prove collection or DB save completed. This source does not check collector coverage, completed job ID, durable database commit, freshness or digest readiness. E/backend must prove completed committed data and coverage before digest preparation; 216/bridge claim/ack/pending reconciliation must remain intact. Backend 217 is held and no production sending authority, sender/recipient approval or collection-completion integration is established. Do not mark E/F live or Step 6 complete from these tests.
+
+## Current reference checks
+
+Read on October 10, 2026:
+
+- Installable events include triggerUid: https://developers.google.com/apps-script/guides/triggers/events
+- ClockTriggerBuilder creates a Trigger; Trigger.getUniqueId returns its ID: https://developers.google.com/apps-script/reference/script/clock-trigger-builder and https://developers.google.com/apps-script/reference/script/trigger
+- nearMinute is plus/minus 15 minutes; everyMinutes accepts 1, 5, 10, 15, 30: https://developers.google.com/apps-script/reference/script/clock-trigger-builder
+- Trigger limit is 20 per user per script, and quotas can change: https://developers.google.com/apps-script/guides/services/quotas
+- Installable triggers run as their creator; one account cannot see another account's triggers: https://developers.google.com/apps-script/guides/triggers/installable
+
+Run local checks: `node --check < scheduler217.gs` and `node test_scheduler217.cjs`. They make no service calls. Only source and fake behavior are checked.
+
+## Known held or lost windows and later changes
+
+A trigger firing during installation or removal is held and never automatically retried. Its intended occurrence may be lost; manual review is required rather than catch-up mail. Failure after durable reservation likewise has no auto-retry.
+
+The 128-entry shared ledger serves both weekly and critical paths. A critical timer every 1-30 minutes fills it in roughly 2-64 hours of successful reservations (weekly entries reduce this), then blocks weekly as well. At the owner-chosen 10-minute interval, 128 critical reservations take 1,280 minutes, about 21 hours 20 minutes; weekly reservations reduce the capacity further. A later reviewed change should use separate ledgers per kind and a safe pruning/archive rule for past critical windows. Neither separation nor pruning is implemented here. Delayed/replayed events and backend pending/claim state must be accounted for before designing expiry.
+
+The schedule cannot fire mail as written: native timers pass only an event, so enable !== true keeps every timer invocation OFF until a separately reviewed adapter exists. Creating a trigger does not change this.

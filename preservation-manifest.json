@@ -55,9 +55,10 @@
       "source_path": "requirements.txt",
       "path": "intelligence/geo/requirements.txt",
       "source_sha256": "0063d42c4eecadbd6e1f1ef0d7c6474c4ae7b371cdd38f4f13a0283b53f1dc7f",
-      "sha256": "b7a552a11ce6bcfca8963db1565f39ca6d8775320e49a71dbceb182f2bd7360e",
+      "sha256": "95f0b3625d52f415f044bfcf8e548e26d9ac5b05ed30e652ae7bb71ca35618d3",
       "changes": [
-        "Intentional security-maintenance94 dependency pins; priorbytes recoverable in integration/security_maintenance94/manifest-revisions.json"
+        "Intentional security-maintenance94 dependency pins; priorbytes recoverable in integration/security_maintenance94/manifest-revisions.json",
+        "Gunicorn26.2.0 reviewed upgrade landed736de534; prior requirements SHA256 b7a552a11ce6bcfca8963db1565f39ca6d8775320e49a71dbceb182f2bd7360e retained here; source_repo/source_sha256 provenance unchanged"
       ],
       "prior_preserved_sha256": "0063d42c4eecadbd6e1f1ef0d7c6474c4ae7b371cdd38f4f13a0283b53f1dc7f"
     },
@@ -382,9 +383,10 @@
       "source_path": "requirements.txt",
       "path": "intelligence/brics/requirements.txt",
       "source_sha256": "d7b1f7d52dc5f6ae861d096f9d835dd365c3160e29cf2b3de007a67051f97da4",
-      "sha256": "bfdf9020fd5fa7491f888cb63bd6cbe698f6841fa8a932c3987abba570d49159",
+      "sha256": "04807027e93dd808b65ffb5aa500f75ae3d17c6bc5f873c67074316a0771f459",
       "changes": [
-        "Intentional security-maintenance94 dependency pins; priorbytes recoverable in integration/security_maintenance94/manifest-revisions.json"
+        "Intentional security-maintenance94 dependency pins; priorbytes recoverable in integration/security_maintenance94/manifest-revisions.json",
+        "Gunicorn26.2.0 reviewed upgrade landed736de534; prior requirements SHA256 bfdf9020fd5fa7491f888cb63bd6cbe698f6841fa8a932c3987abba570d49159 retained here; source_repo/source_sha256 provenance unchanged"
       ],
       "prior_preserved_sha256": "d7b1f7d52dc5f6ae861d096f9d835dd365c3160e29cf2b3de007a67051f97da4"
     },
