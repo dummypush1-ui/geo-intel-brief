@@ -3147,6 +3147,15 @@
       "runtime_verified": false
     },
     {
+      "path": "integration/ai_protocol_prep.py",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "8c4c09d1d642cd5f0fab2bffe0862b7098ad1c49101239b7f8e53bc3a81d8b6a",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
       "path": "integration/api_v1.py",
       "project": "integration",
       "role": "offline_contract_or_private_view",
@@ -9911,7 +9920,7 @@
       "path": "staging-manifest.json",
       "project": "finder_or_build",
       "role": "preserved_engine_or_asset",
-      "sha256": "1ac808787ff43d2ebce24640342985607a410f7cd7bd4d08d966836f18145b45",
+      "sha256": "0281d0ace866f2b84fde757d8e7dfcb3809074079ce86183fa041ca6dfe994d7",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -11073,6 +11082,17 @@
       "sha256": "1d93647a48a3f6d2c88d7441273865b4eac3897c1f7d71eb54bc631ddb6971a8",
       "static_file_edges": [
         "integration/agencia_parser.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "tests/test_ai_protocol_prep.py",
+      "project": "test",
+      "role": "fixture_test",
+      "sha256": "941f5da36ad1aac30ef93fcef039726805df6329dc7793babe7924a63fb3745e",
+      "static_file_edges": [
+        "integration/ai_protocol_prep.py"
       ],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -14552,7 +14572,7 @@
       "runtime_verified": false
     }
   ],
-  "file_count": 1396,
+  "file_count": 1398,
   "limits": [
     "Dynamic references and network endpoints need runtime adapter tests",
     "Legacy launchers deliberately not connected to merged private entrypoint",

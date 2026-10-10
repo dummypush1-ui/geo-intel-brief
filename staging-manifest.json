@@ -1581,6 +1581,11 @@
       "sha256": "255c3984d99111d1660fad653e75cd8d874bef1f8ae8da55864be8368ba396e4"
     },
     {
+      "path": "integration/ai_protocol_prep.py",
+      "bytes": 2863,
+      "sha256": "8c4c09d1d642cd5f0fab2bffe0862b7098ad1c49101239b7f8e53bc3a81d8b6a"
+    },
+    {
       "path": "integration/api_v1.py",
       "bytes": 869,
       "sha256": "fe50346ab7d5deb6f9b16d8470b95647953b6c9caee5574bd73c6c2faf06600c"
@@ -5439,6 +5444,11 @@
       "path": "tests/test_agencia_parser.py",
       "bytes": 3584,
       "sha256": "1d93647a48a3f6d2c88d7441273865b4eac3897c1f7d71eb54bc631ddb6971a8"
+    },
+    {
+      "path": "tests/test_ai_protocol_prep.py",
+      "bytes": 5885,
+      "sha256": "941f5da36ad1aac30ef93fcef039726805df6329dc7793babe7924a63fb3745e"
     },
     {
       "path": "tests/test_api_v1_187.py",
