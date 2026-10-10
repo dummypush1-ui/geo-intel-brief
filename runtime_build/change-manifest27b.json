@@ -1,0 +1,38 @@
+{
+  "base": "d51f7dc5ff77be5aa47d0139332d070b890ba0b0",
+  "binary_repo_exception": "inputs/ca-certificates-bootstrap.deb139430bytesTLSbootstraponly, authorized documentedexception",
+  "excluded_manifests": [
+    "change-manifest27b.json",
+    "inputs-manifest.json",
+    "inputs.sha256"
+  ],
+  "new_files": {
+    "CONTRACT27b.md": "53fab7a41602e630db7692240367b1faff8f6d6ffe42de876f1f0b920c8a6801",
+    "Dockerfile.candidate": "bfb72c5eef5c9b09736f397d60a8aac0aa80ffd2c6b86273f0073b5fd0a72211",
+    "build-args.json": "b022d5667d935c1436b048f4c9ba98093c19fc16ae3ff8aca88ac3c1abe08af1",
+    "inputs/application.pending.lock": "c087e509f71cb0d44d8b272d4809939fd01a96f5e1256a6dc6922e856507cc48",
+    "inputs/apt-key-anchor-evidence.json": "a4bf7d39c092898c88f86b1e2f3dcb2b755e7e353dc2f4aab9cddc006a1b8996",
+    "inputs/apt.sources": "1dc4168a848690ef1afc9c8624ec6a4b9ddde7b7fbb414ca2d0b767452fe0b72",
+    "inputs/apt_verify.sh": "502ab0673e2eb4fbeed17e4a7aa722e02fe6b135a3c90f006c5c6562fb3e8023",
+    "inputs/base-dpkg-status": "1db55af2a9ec1c77649fbde8eb9b4d3e1038c41e5729932415032d25b4d1125b",
+    "inputs/base-status-simulate.txt": "b9a77672e7120dc002dfbd2271f5c9afd472a63a9a59251d1e17404182956ae4",
+    "inputs/bootstrap-ca-derivation.json": "7ab72d0919fec46198859458e2a71c5d8372a5c3fbd5b43cd2a4193734f203e8",
+    "inputs/bootstrap.lock": "4d5f80c22605807dad47efe0dcb578d7fae72437f2b6db699940c07513c8539f",
+    "inputs/ca-certificates-bootstrap.deb": "6bac2a01979e210d9eac1d4d56747ec709ea60654744d66705dc3c36e7629e50",
+    "inputs/deb-ledger.json": "4b398e1de879a471d582ca467313884c66e4d9235100f69708a481fe921cef29",
+    "inputs/deb-pins.tsv": "ba577bfd663b70b6758956b7d1d281db1c6c1741a52c5c601be1144359e74ed6",
+    "inputs/fetch-receipt.json": "e9eaacd28c7a913c386e7d15f48f4a6c1f1b9395bc7a15ce21bc17366448e2ff",
+    "inputs/fetch_verify.py": "a71af9fb3bdd19be223ad304937b658649fe8456271579ff9de16e5f6e3317e3",
+    "inputs/image-digest-evidence.json": "28a0c82e6d299970cb6f1c37d1511b9ed607cecc589d9077c807f3564acc1799",
+    "inputs/index-ledger.json": "cd372270ed2ef6ddaee491e0d42bc69683e8118b15bd5781d7799ce3f2a06a13",
+    "inputs/native11-byte-comparison.json": "0973ba1d5bedfc425207e05df9c5bb6cebd3485f2ff4088f8f9ba624eb5f1bbf",
+    "inputs/post-install-anchor.json": "be9eec672211f611f3982df935ffd42c8186ae4fca3d6affd8e993edc5c0ede8",
+    "inputs/post-install-pins.tsv": "ac7bc54fc0adb51c841725b1a90e9fb6f29faa28be5ff1fdaab5191f4634e3a5",
+    "inputs/ubuntu-archive-keyring.gpg": "1a4dd63e5c76728960a2edddae22e2e0fc53df8e8b87806deb971030ac704eb0",
+    "inputs/wheel-ledger.json": "835527c4d56b26b234877e4d7aa60dd25c511fccf9332ea73d0e7a3b85e5dc03",
+    "network-launcher.c": "d4df3c5c61f6ff4c1130327820373cac18739b2b7c099a3746c750ddd4777991"
+  },
+  "no_existing_edits": true,
+  "scope": "candidate inputs, build not run, incomplete until CP312sgmlanchor",
+  "unchanged27a_files": 27
+}

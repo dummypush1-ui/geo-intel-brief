@@ -1,0 +1,144 @@
+NOTE: This is only a simulation!
+      apt-get needs root privileges for real execution.
+      Keep also in mind that locking is deactivated,
+      so don't depend on the relevance to the real current situation!
+Reading package lists...
+Building dependency tree...
+Reading state information...
+ubuntu-keyring is already the newest version (2023.11.28.1).
+The following additional packages will be installed:
+  binutils binutils-common binutils-x86-64-linux-gnu cpp cpp-13
+  cpp-13-x86-64-linux-gnu cpp-x86-64-linux-gnu gcc-13 gcc-13-base
+  gcc-13-x86-64-linux-gnu gcc-x86-64-linux-gnu libasan8 libatomic1 libbinutils
+  libc-dev-bin libcc1-0 libcrypt-dev libctf-nobfd0 libctf0 libexpat1
+  libgcc-13-dev libgomp1 libgprofng0 libhwasan0 libisl23 libitm1 libjansson4
+  liblsan0 libmpc3 libmpfr6 libquadmath0 libreadline8t64 libsframe1
+  libsqlite3-0 libtsan2 libubsan1 linux-libc-dev media-types netbase openssl
+  python3-pip-whl python3-setuptools-whl readline-common rpcsvc-proto tzdata
+Suggested packages:
+  binutils-doc gprofng-gui cpp-doc gcc-13-locales cpp-13-doc gcc-multilib make
+  manpages-dev autoconf automake libtool flex bison gdb gcc-doc
+  gcc-13-multilib gcc-13-doc gdb-x86-64-linux-gnu glibc-doc python3.12-doc
+  binfmt-support readline-doc
+Recommended packages:
+  manpages manpages-dev libc-devtools
+The following NEW packages will be installed:
+  binutils binutils-common binutils-x86-64-linux-gnu bubblewrap
+  ca-certificates cpp cpp-13 cpp-13-x86-64-linux-gnu cpp-x86-64-linux-gnu gcc
+  gcc-13 gcc-13-base gcc-13-x86-64-linux-gnu gcc-x86-64-linux-gnu libasan8
+  libatomic1 libbinutils libc-dev-bin libc6-dev libcc1-0 libcrypt-dev
+  libctf-nobfd0 libctf0 libexpat1 libgcc-13-dev libgomp1 libgprofng0
+  libhwasan0 libisl23 libitm1 libjansson4 liblsan0 libmpc3 libmpfr6
+  libpython3.12-minimal libpython3.12-stdlib libquadmath0 libreadline8t64
+  libsframe1 libsqlite3-0 libtsan2 libubsan1 linux-libc-dev media-types
+  netbase openssl python3-pip-whl python3-setuptools-whl python3.12
+  python3.12-minimal python3.12-venv readline-common rpcsvc-proto tzdata
+0 upgraded, 54 newly installed, 0 to remove and 3 not upgraded.
+Inst libpython3.12-minimal (3.12.3-1ubuntu0.17 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64])
+Inst libexpat1 (2.6.1-2ubuntu0.6 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64])
+Inst python3.12-minimal (3.12.3-1ubuntu0.17 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64])
+Inst openssl (3.0.13-0ubuntu3.16 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64])
+Inst ca-certificates (20260601~24.04.1 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [all])
+Inst media-types (10.1.0 Ubuntu:24.04/noble [all])
+Inst netbase (6.4 Ubuntu:24.04/noble [all])
+Inst tzdata (2026c-0ubuntu0.24.04.1 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [all])
+Inst readline-common (8.2-4build1 Ubuntu:24.04/noble [all])
+Inst libreadline8t64 (8.2-4build1 Ubuntu:24.04/noble [amd64])
+Inst libsqlite3-0 (3.45.1-1ubuntu2.8 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64])
+Inst libpython3.12-stdlib (3.12.3-1ubuntu0.17 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64])
+Inst python3.12 (3.12.3-1ubuntu0.17 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64])
+Inst libjansson4 (2.14-2build2 Ubuntu:24.04/noble [amd64])
+Inst binutils-common (2.42-4ubuntu2.10 Ubuntu:24.04/noble-updates [amd64])
+Inst libsframe1 (2.42-4ubuntu2.10 Ubuntu:24.04/noble-updates [amd64])
+Inst libbinutils (2.42-4ubuntu2.10 Ubuntu:24.04/noble-updates [amd64])
+Inst libctf-nobfd0 (2.42-4ubuntu2.10 Ubuntu:24.04/noble-updates [amd64])
+Inst libctf0 (2.42-4ubuntu2.10 Ubuntu:24.04/noble-updates [amd64])
+Inst libgprofng0 (2.42-4ubuntu2.10 Ubuntu:24.04/noble-updates [amd64])
+Inst binutils-x86-64-linux-gnu (2.42-4ubuntu2.10 Ubuntu:24.04/noble-updates [amd64])
+Inst binutils (2.42-4ubuntu2.10 Ubuntu:24.04/noble-updates [amd64])
+Inst bubblewrap (0.9.0-1ubuntu0.3 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64])
+Inst gcc-13-base (13.3.0-6ubuntu2~24.04.1 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64])
+Inst libisl23 (0.26-3build1.1 Ubuntu:24.04/noble-updates [amd64])
+Inst libmpfr6 (4.2.1-1build1.1 Ubuntu:24.04/noble-updates [amd64])
+Inst libmpc3 (1.3.1-1build1.1 Ubuntu:24.04/noble-updates [amd64])
+Inst cpp-13-x86-64-linux-gnu (13.3.0-6ubuntu2~24.04.1 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64])
+Inst cpp-13 (13.3.0-6ubuntu2~24.04.1 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64])
+Inst cpp-x86-64-linux-gnu (4:13.2.0-7ubuntu1 Ubuntu:24.04/noble [amd64])
+Inst cpp (4:13.2.0-7ubuntu1 Ubuntu:24.04/noble [amd64])
+Inst libcc1-0 (14.2.0-4ubuntu2~24.04.1 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64])
+Inst libgomp1 (14.2.0-4ubuntu2~24.04.1 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64])
+Inst libitm1 (14.2.0-4ubuntu2~24.04.1 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64])
+Inst libatomic1 (14.2.0-4ubuntu2~24.04.1 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64])
+Inst libasan8 (14.2.0-4ubuntu2~24.04.1 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64])
+Inst liblsan0 (14.2.0-4ubuntu2~24.04.1 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64])
+Inst libtsan2 (14.2.0-4ubuntu2~24.04.1 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64])
+Inst libubsan1 (14.2.0-4ubuntu2~24.04.1 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64])
+Inst libhwasan0 (14.2.0-4ubuntu2~24.04.1 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64])
+Inst libquadmath0 (14.2.0-4ubuntu2~24.04.1 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64])
+Inst libgcc-13-dev (13.3.0-6ubuntu2~24.04.1 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64])
+Inst gcc-13-x86-64-linux-gnu (13.3.0-6ubuntu2~24.04.1 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64])
+Inst gcc-13 (13.3.0-6ubuntu2~24.04.1 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64])
+Inst gcc-x86-64-linux-gnu (4:13.2.0-7ubuntu1 Ubuntu:24.04/noble [amd64])
+Inst gcc (4:13.2.0-7ubuntu1 Ubuntu:24.04/noble [amd64])
+Inst libc-dev-bin (2.39-0ubuntu8.9 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64])
+Inst linux-libc-dev (6.8.0-146.146 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64])
+Inst libcrypt-dev (1:4.4.36-4build1 Ubuntu:24.04/noble [amd64])
+Inst rpcsvc-proto (1.4.2-0ubuntu7 Ubuntu:24.04/noble [amd64])
+Inst libc6-dev (2.39-0ubuntu8.9 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64])
+Inst python3-pip-whl (24.0+dfsg-1ubuntu1.3 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [all])
+Inst python3-setuptools-whl (68.1.2-2ubuntu1.2 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [all])
+Inst python3.12-venv (3.12.3-1ubuntu0.17 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64])
+Conf libpython3.12-minimal (3.12.3-1ubuntu0.17 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64])
+Conf libexpat1 (2.6.1-2ubuntu0.6 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64])
+Conf python3.12-minimal (3.12.3-1ubuntu0.17 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64])
+Conf openssl (3.0.13-0ubuntu3.16 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64])
+Conf ca-certificates (20260601~24.04.1 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [all])
+Conf media-types (10.1.0 Ubuntu:24.04/noble [all])
+Conf netbase (6.4 Ubuntu:24.04/noble [all])
+Conf tzdata (2026c-0ubuntu0.24.04.1 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [all])
+Conf readline-common (8.2-4build1 Ubuntu:24.04/noble [all])
+Conf libreadline8t64 (8.2-4build1 Ubuntu:24.04/noble [amd64])
+Conf libsqlite3-0 (3.45.1-1ubuntu2.8 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64])
+Conf libpython3.12-stdlib (3.12.3-1ubuntu0.17 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64])
+Conf python3.12 (3.12.3-1ubuntu0.17 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64])
+Conf libjansson4 (2.14-2build2 Ubuntu:24.04/noble [amd64])
+Conf binutils-common (2.42-4ubuntu2.10 Ubuntu:24.04/noble-updates [amd64])
+Conf libsframe1 (2.42-4ubuntu2.10 Ubuntu:24.04/noble-updates [amd64])
+Conf libbinutils (2.42-4ubuntu2.10 Ubuntu:24.04/noble-updates [amd64])
+Conf libctf-nobfd0 (2.42-4ubuntu2.10 Ubuntu:24.04/noble-updates [amd64])
+Conf libctf0 (2.42-4ubuntu2.10 Ubuntu:24.04/noble-updates [amd64])
+Conf libgprofng0 (2.42-4ubuntu2.10 Ubuntu:24.04/noble-updates [amd64])
+Conf binutils-x86-64-linux-gnu (2.42-4ubuntu2.10 Ubuntu:24.04/noble-updates [amd64])
+Conf binutils (2.42-4ubuntu2.10 Ubuntu:24.04/noble-updates [amd64])
+Conf bubblewrap (0.9.0-1ubuntu0.3 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64])
+Conf gcc-13-base (13.3.0-6ubuntu2~24.04.1 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64])
+Conf libisl23 (0.26-3build1.1 Ubuntu:24.04/noble-updates [amd64])
+Conf libmpfr6 (4.2.1-1build1.1 Ubuntu:24.04/noble-updates [amd64])
+Conf libmpc3 (1.3.1-1build1.1 Ubuntu:24.04/noble-updates [amd64])
+Conf cpp-13-x86-64-linux-gnu (13.3.0-6ubuntu2~24.04.1 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64])
+Conf cpp-13 (13.3.0-6ubuntu2~24.04.1 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64])
+Conf cpp-x86-64-linux-gnu (4:13.2.0-7ubuntu1 Ubuntu:24.04/noble [amd64])
+Conf cpp (4:13.2.0-7ubuntu1 Ubuntu:24.04/noble [amd64])
+Conf libcc1-0 (14.2.0-4ubuntu2~24.04.1 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64])
+Conf libgomp1 (14.2.0-4ubuntu2~24.04.1 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64])
+Conf libitm1 (14.2.0-4ubuntu2~24.04.1 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64])
+Conf libatomic1 (14.2.0-4ubuntu2~24.04.1 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64])
+Conf libasan8 (14.2.0-4ubuntu2~24.04.1 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64])
+Conf liblsan0 (14.2.0-4ubuntu2~24.04.1 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64])
+Conf libtsan2 (14.2.0-4ubuntu2~24.04.1 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64])
+Conf libubsan1 (14.2.0-4ubuntu2~24.04.1 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64])
+Conf libhwasan0 (14.2.0-4ubuntu2~24.04.1 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64])
+Conf libquadmath0 (14.2.0-4ubuntu2~24.04.1 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64])
+Conf libgcc-13-dev (13.3.0-6ubuntu2~24.04.1 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64])
+Conf gcc-13-x86-64-linux-gnu (13.3.0-6ubuntu2~24.04.1 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64])
+Conf gcc-13 (13.3.0-6ubuntu2~24.04.1 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64])
+Conf gcc-x86-64-linux-gnu (4:13.2.0-7ubuntu1 Ubuntu:24.04/noble [amd64])
+Conf gcc (4:13.2.0-7ubuntu1 Ubuntu:24.04/noble [amd64])
+Conf libc-dev-bin (2.39-0ubuntu8.9 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64])
+Conf linux-libc-dev (6.8.0-146.146 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64])
+Conf libcrypt-dev (1:4.4.36-4build1 Ubuntu:24.04/noble [amd64])
+Conf rpcsvc-proto (1.4.2-0ubuntu7 Ubuntu:24.04/noble [amd64])
+Conf libc6-dev (2.39-0ubuntu8.9 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64])
+Conf python3-pip-whl (24.0+dfsg-1ubuntu1.3 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [all])
+Conf python3-setuptools-whl (68.1.2-2ubuntu1.2 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [all])
+Conf python3.12-venv (3.12.3-1ubuntu0.17 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64])

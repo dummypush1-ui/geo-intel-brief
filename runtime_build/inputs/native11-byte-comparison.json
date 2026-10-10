@@ -1,0 +1,86 @@
+{
+  "scope": "fetched candidate inputs, build not run; Python source bytes only, no import or ABI proof",
+  "wheel": "pymongo-4.18.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+  "wheel_sha256": "ecde9e735e1f86559e0a71a5bbec671e59a35549bfd8c60968d9f032b05013de",
+  "modules": [
+    {
+      "module": "pymongo.synchronous.client_session",
+      "wheel_path": "pymongo/synchronous/client_session.py",
+      "expected": "6ab629f01c43ae2b9b4f4876131067f3dcc7384241a118e74be188c96cb1950c",
+      "observed": "6ab629f01c43ae2b9b4f4876131067f3dcc7384241a118e74be188c96cb1950c",
+      "match": true
+    },
+    {
+      "module": "pymongo.synchronous.mongo_client",
+      "wheel_path": "pymongo/synchronous/mongo_client.py",
+      "expected": "823c21afa8d18992fae3176769c46590c9bd389847e3c7269f4050b2f38d03a8",
+      "observed": "823c21afa8d18992fae3176769c46590c9bd389847e3c7269f4050b2f38d03a8",
+      "match": true
+    },
+    {
+      "module": "pymongo.synchronous.database",
+      "wheel_path": "pymongo/synchronous/database.py",
+      "expected": "dd4b23f7b70dba02cfc8f579d0294c447d2cf0bc1e35acc1957941a11fe5141e",
+      "observed": "dd4b23f7b70dba02cfc8f579d0294c447d2cf0bc1e35acc1957941a11fe5141e",
+      "match": true
+    },
+    {
+      "module": "pymongo.synchronous.pool",
+      "wheel_path": "pymongo/synchronous/pool.py",
+      "expected": "c23327cc8f85b62eb276323e8d999f8792d42bb37ffa15a11180ded00ccee135",
+      "observed": "c23327cc8f85b62eb276323e8d999f8792d42bb37ffa15a11180ded00ccee135",
+      "match": true
+    },
+    {
+      "module": "pymongo.synchronous.command_runner",
+      "wheel_path": "pymongo/synchronous/command_runner.py",
+      "expected": "07013ed8ad5471f40b1b652ad0cd2cf8227d182e744dfb149118cf4e777d5838",
+      "observed": "07013ed8ad5471f40b1b652ad0cd2cf8227d182e744dfb149118cf4e777d5838",
+      "match": true
+    },
+    {
+      "module": "pymongo.synchronous.topology",
+      "wheel_path": "pymongo/synchronous/topology.py",
+      "expected": "1ad0072f21ee0ec3bb9d3fd6fa3087ecc209f57f12b9b359ed15ac144848cc4f",
+      "observed": "1ad0072f21ee0ec3bb9d3fd6fa3087ecc209f57f12b9b359ed15ac144848cc4f",
+      "match": true
+    },
+    {
+      "module": "pymongo.network_layer",
+      "wheel_path": "pymongo/network_layer.py",
+      "expected": "1ecaa790fbbf892fc57aba4d6c96c0f9e6f7167d51f0ae3c76a727ab9dc44e84",
+      "observed": "1ecaa790fbbf892fc57aba4d6c96c0f9e6f7167d51f0ae3c76a727ab9dc44e84",
+      "match": true
+    },
+    {
+      "module": "pymongo._csot",
+      "wheel_path": "pymongo/_csot.py",
+      "expected": "8ef5b9e7d500991ae3c41330a508a660bcedab3949f2a4478dbca8e2172cf5d8",
+      "observed": "8ef5b9e7d500991ae3c41330a508a660bcedab3949f2a4478dbca8e2172cf5d8",
+      "match": true
+    },
+    {
+      "module": "pymongo.helpers_shared",
+      "wheel_path": "pymongo/helpers_shared.py",
+      "expected": "072be7783ca8e72bc592e7b53ac5384764bc0d9a4862f0f428daca5a7a6e611e",
+      "observed": "072be7783ca8e72bc592e7b53ac5384764bc0d9a4862f0f428daca5a7a6e611e",
+      "match": true
+    },
+    {
+      "module": "pymongo.synchronous.helpers",
+      "wheel_path": "pymongo/synchronous/helpers.py",
+      "expected": "e16a38e0f719a14d84631137bfb1b44a5903f0104a43d00cc7e8b1227a344091",
+      "observed": "e16a38e0f719a14d84631137bfb1b44a5903f0104a43d00cc7e8b1227a344091",
+      "match": true
+    },
+    {
+      "module": "pymongo.message",
+      "wheel_path": "pymongo/message.py",
+      "expected": "08fd374ac8ff9ff2724cb8014364b9153abca6c0540af1d2c3b122fc68e28c25",
+      "observed": "08fd374ac8ff9ff2724cb8014364b9153abca6c0540af1d2c3b122fc68e28c25",
+      "match": true
+    }
+  ],
+  "import_executed": false,
+  "client_created": false
+}

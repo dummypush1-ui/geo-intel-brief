@@ -1,0 +1,6 @@
+{
+  "BWRAP_VERSION": "0.9.0-1ubuntu0.3",
+  "GCC_VERSION": "4:13.2.0-7ubuntu1",
+  "LIBC6_DEV_VERSION": "2.39-0ubuntu8.9",
+  "REVIEWED_APT_SOURCES_SHA256": "1dc4168a848690ef1afc9c8624ec6a4b9ddde7b7fbb414ca2d0b767452fe0b72"
+}

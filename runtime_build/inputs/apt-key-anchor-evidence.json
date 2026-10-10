@@ -1,0 +1,42 @@
+{
+  "apt_snapshot_evidence": [
+    {
+      "checked_at": "2026-10-10T01:43:07.400743+00:00",
+      "date_header": "Date: Thu, 25 Apr 2024 15:10:33 UTC",
+      "observed_sha256": "cdb2f31d809f589719a53c6ad15f255b27569c4059542ada282aaa21b8e164b0",
+      "signature_fingerprint": "F6ECB3762474EDA9D21B7022871920D1991BC93C",
+      "signature_valid_against_supplied_keyring": true,
+      "snapshot": "20261009T000000Z",
+      "suite": "noble",
+      "url": "https://snapshot.ubuntu.com/ubuntu/20261009T000000Z/dists/noble/InRelease"
+    },
+    {
+      "checked_at": "2026-10-10T01:43:08.386621+00:00",
+      "date_header": "Date: Thu, 08 Oct 2026 22:16:17 UTC",
+      "observed_sha256": "20c19c7b4265ac3fd6cfa3ef5b9a5bda93d0309655c87a42b23daa0c756bb570",
+      "signature_fingerprint": "F6ECB3762474EDA9D21B7022871920D1991BC93C",
+      "signature_valid_against_supplied_keyring": true,
+      "snapshot": "20261009T000000Z",
+      "suite": "noble-updates",
+      "url": "https://snapshot.ubuntu.com/ubuntu/20261009T000000Z/dists/noble-updates/InRelease"
+    },
+    {
+      "checked_at": "2026-10-10T01:43:09.451522+00:00",
+      "date_header": "Date: Thu, 08 Oct 2026 22:15:19 UTC",
+      "observed_sha256": "802ae17a727fdaf3e561fe0d7620dd62ee6bd560299872a1a4b9a35199423294",
+      "signature_fingerprint": "F6ECB3762474EDA9D21B7022871920D1991BC93C",
+      "signature_valid_against_supplied_keyring": true,
+      "snapshot": "20261009T000000Z",
+      "suite": "noble-security",
+      "url": "https://snapshot.ubuntu.com/ubuntu/20261009T000000Z/dists/noble-security/InRelease"
+    }
+  ],
+  "base_image_blob_pulled": false,
+  "docker_build_run": false,
+  "fingerprint_public_corroboration_url": "https://lists.ubuntu.com/archives/foundations-bugs/2020-June/423313.html",
+  "key_verification_tier": "gpgv validated all3 signatures using supplied keyring; fingerprint matches fetched Ubuntu-hosted bug archive. Corroboration, not independent signing-key bootstrap authentication",
+  "keyring_origin": "existing workspace Ubuntu system package bytes supplied; original installation source not independently authenticated",
+  "keyring_sha256": "1a4dd63e5c76728960a2edddae22e2e0fc53df8e8b87806deb971030ac704eb0",
+  "python312_execution": false,
+  "scope": "candidate image target chosen by runtime and reviewer for build-input closure; candidate inputs, build not run"
+}

@@ -1,0 +1,7 @@
+Types: deb
+URIs: https://snapshot.ubuntu.com/ubuntu/20261009T000000Z/
+Suites: noble noble-updates noble-security
+Components: main universe
+Architectures: amd64
+Signed-By: /usr/share/keyrings/runtime27b-ubuntu.gpg
+Check-Valid-Until: yes

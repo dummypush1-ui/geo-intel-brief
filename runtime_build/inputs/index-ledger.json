@@ -1,0 +1,62 @@
+[
+  {
+    "suite": "noble",
+    "component": "main",
+    "url": "https://snapshot.ubuntu.com/ubuntu/20261009T000000Z/dists/noble/main/binary-amd64/Packages.xz",
+    "sha256": "2a6a199e1031a5c279cb346646d594993f35b1c03dd4a82aaa0323980dd92451",
+    "size": 1401160,
+    "pinned_before_index_fetch": "extracted from first-reviewed signature-valid InRelease",
+    "fetched_at": "2026-10-10T01:44:23.531216+00:00",
+    "decoded_bytes": 7165069
+  },
+  {
+    "suite": "noble",
+    "component": "universe",
+    "url": "https://snapshot.ubuntu.com/ubuntu/20261009T000000Z/dists/noble/universe/binary-amd64/Packages.xz",
+    "sha256": "ba9057fa1b91438cc8a1d26808d00c85389fe101d0c1496254df97236405599a",
+    "size": 15037908,
+    "pinned_before_index_fetch": "extracted from first-reviewed signature-valid InRelease",
+    "fetched_at": "2026-10-10T01:44:32.607006+00:00",
+    "decoded_bytes": 73379142
+  },
+  {
+    "suite": "noble-updates",
+    "component": "main",
+    "url": "https://snapshot.ubuntu.com/ubuntu/20261009T000000Z/dists/noble-updates/main/binary-amd64/Packages.xz",
+    "sha256": "063be721d476f39e4e8a9930838ae32d3b17ec5523f88d07da4c4eef2bf6b9cf",
+    "size": 1374692,
+    "pinned_before_index_fetch": "extracted from first-reviewed signature-valid InRelease",
+    "fetched_at": "2026-10-10T01:44:36.349555+00:00",
+    "decoded_bytes": 7434087
+  },
+  {
+    "suite": "noble-updates",
+    "component": "universe",
+    "url": "https://snapshot.ubuntu.com/ubuntu/20261009T000000Z/dists/noble-updates/universe/binary-amd64/Packages.xz",
+    "sha256": "544237163a10405b4f0ef3682e97581b566abe917a580227bb9aeb68b3b57ca7",
+    "size": 1702128,
+    "pinned_before_index_fetch": "extracted from first-reviewed signature-valid InRelease",
+    "fetched_at": "2026-10-10T01:44:39.023563+00:00",
+    "decoded_bytes": 10614442
+  },
+  {
+    "suite": "noble-security",
+    "component": "main",
+    "url": "https://snapshot.ubuntu.com/ubuntu/20261009T000000Z/dists/noble-security/main/binary-amd64/Packages.xz",
+    "sha256": "0d1a329904f5734d70ae2f69bf361d96fa700ce20e22fe756ac8932729d42afd",
+    "size": 1116336,
+    "pinned_before_index_fetch": "extracted from first-reviewed signature-valid InRelease",
+    "fetched_at": "2026-10-10T01:44:41.450036+00:00",
+    "decoded_bytes": 6074034
+  },
+  {
+    "suite": "noble-security",
+    "component": "universe",
+    "url": "https://snapshot.ubuntu.com/ubuntu/20261009T000000Z/dists/noble-security/universe/binary-amd64/Packages.xz",
+    "sha256": "71a7a251910e837a7503d18bb63baa877ce4fb294997b78eb92ecc10c54bdaf1",
+    "size": 1219656,
+    "pinned_before_index_fetch": "extracted from first-reviewed signature-valid InRelease",
+    "fetched_at": "2026-10-10T01:44:43.641757+00:00",
+    "decoded_bytes": 7660536
+  }
+]

@@ -1,0 +1,19 @@
+{
+  "container_blob_pull": false,
+  "index": {
+    "content_type": "application/vnd.oci.image.index.v1+json",
+    "fetched_at": "2026-10-10T01:42:44.221047+00:00",
+    "response_digest": "sha256:534baea6a22c03a63003dbc8dbe78fe34bc0d7e595d9a9dc9834884ff530eb55",
+    "url": "https://registry-1.docker.io/v2/library/ubuntu/manifests/24.04"
+  },
+  "linux_amd64": {
+    "content_type": "application/vnd.oci.image.manifest.v1+json",
+    "fetched_at": "2026-10-10T01:42:44.480484+00:00",
+    "response_digest": "sha256:f610ab94648195aa356059f5b41d6085c9d4d903c072430cdd1af7bdb646106b",
+    "url": "https://registry-1.docker.io/v2/library/ubuntu/manifests/sha256:f610ab94648195aa356059f5b41d6085c9d4d903c072430cdd1af7bdb646106b"
+  },
+  "path_b": "not evaluated",
+  "scope": "candidate image target chosen by runtime and reviewer for build-input closure; candidate inputs, build not run",
+  "selection_reason": "parent reviewer selected PathA at Oct10 07:12:29 IST; existing apt workflow and RUNNER199LOCK cp312 lead",
+  "target": "Ubuntu24.04 linux/amd64 candidate, apt CPython3.12 exact version pending snapshot"
+}
