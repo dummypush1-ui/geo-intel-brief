@@ -580,7 +580,7 @@
   ],
   "static_limit": "AST inventory does not prove conditional/dynamic/runtime imports complete",
   "source_baseline_revision": "4d7f7f342140a144f429d03f82b94a3176f341c2",
-  "source_manifest_sha256": "421ee229085a35b366fc77ea6535e408d6507a41e08aa052acd29766834ef6d3",
+  "source_manifest_sha256": "a5d2cf56106e2afde498a5ebc71abb18a38779bbea3db9b6a93b3623d47aee3e",
   "artifact_verification": {
     "status": "verified_in_author_environment",
     "method": "SHA256 of each explicit cache wheel; metadata filename version/tag checks; reviewer cache not transferred",

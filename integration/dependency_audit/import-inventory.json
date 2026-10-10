@@ -838,6 +838,7 @@
         "tests/browser_digest_preview.py",
         "tests/browser_event_digest.py",
         "tests/browser_feature_finder.py",
+        "tests/browser_finder_network.py",
         "tests/browser_finder_report227.py",
         "tests/browser_report228.py",
         "tests/browser_stream_config.py",
@@ -1306,6 +1307,7 @@
         "scripts/audit_connections.py",
         "scripts/package_manifest.py",
         "tests/browser_feature_finder.py",
+        "tests/browser_finder_network.py",
         "tests/browser_finder_report227.py",
         "tests/browser_report228.py",
         "tests/news_export/test_fixture_http.py",
@@ -1333,6 +1335,7 @@
         "tests/test_finder_browser229.py",
         "tests/test_finder_index.py",
         "tests/test_finder_nested.py",
+        "tests/test_finder_network230.py",
         "tests/test_geo_collector_contract.py",
         "tests/test_gst154.py",
         "tests/test_mail_surface217.py",
@@ -1456,6 +1459,7 @@
         "tests/test_collector122_inventory.py",
         "tests/test_db181.py",
         "tests/test_finder_browser229.py",
+        "tests/test_finder_network230.py",
         "tests/test_geo_probe_http.py",
         "tests/test_geo_read_factory.py",
         "tests/test_geo_sample_probe.py",
@@ -1723,6 +1727,7 @@
         "tests/test_finder_index.py",
         "tests/test_finder_nested.py",
         "tests/test_finder_network.py",
+        "tests/test_finder_network230.py",
         "tests/test_finder_offline.py",
         "tests/test_fixed_feedparser_audit.py",
         "tests/test_fixed_parser_pipeline.py",
@@ -2362,6 +2367,7 @@
         "integration/storage_settings.py",
         "integration/stream_disk.py",
         "tests/browser_feature_finder.py",
+        "tests/browser_finder_network.py",
         "tests/browser_finder_report227.py",
         "tests/browser_report228.py",
         "tests/digest_cold_probe.py",
@@ -2373,6 +2379,7 @@
         "tests/test_digest_cold.py",
         "tests/test_edge_guard.py",
         "tests/test_finder_browser229.py",
+        "tests/test_finder_network230.py",
         "tests/test_geo_probe_process.py",
         "tests/test_geo_read_factory.py",
         "tests/test_geo_sample_probe.py",
@@ -2519,6 +2526,7 @@
         "tests/test_finder_browser229.py",
         "tests/test_finder_index.py",
         "tests/test_finder_nested.py",
+        "tests/test_finder_network230.py",
         "tests/test_finder_offline.py",
         "tests/test_geo_queue_fixture.py",
         "tests/test_gst154.py",
@@ -3289,6 +3297,7 @@
       "files": [
         "tests/geospatial/test_geospatial.py",
         "tests/test_finder_browser229.py",
+        "tests/test_finder_network230.py",
         "tests/test_report227.py",
         "tests/test_report228.py"
       ],
@@ -3457,6 +3466,7 @@
         "tests/test_finder198d.py",
         "tests/test_finder_browser229.py",
         "tests/test_finder_nested.py",
+        "tests/test_finder_network230.py",
         "tests/test_fixed_feedparser_audit.py",
         "tests/test_geo_probe_process.py",
         "tests/test_gst154.py",
@@ -3568,6 +3578,7 @@
         "tests/test_factory176.py",
         "tests/test_finder198bb.py",
         "tests/test_finder_browser229.py",
+        "tests/test_finder_network230.py",
         "tests/test_fixed_feedparser_audit.py",
         "tests/test_geo_probe_process.py",
         "tests/test_geo_read_factory.py",
@@ -4141,6 +4152,7 @@
         "tests/test_finder_index.py",
         "tests/test_finder_nested.py",
         "tests/test_finder_network.py",
+        "tests/test_finder_network230.py",
         "tests/test_finder_offline.py",
         "tests/test_fixed_feedparser_audit.py",
         "tests/test_fixed_parser_pipeline.py",
@@ -4320,6 +4332,7 @@
         "integration/weekly_report/_render.py",
         "integration/weekly_report/report.py",
         "tests/browser_feature_finder.py",
+        "tests/browser_finder_network.py",
         "tests/browser_finder_report227.py",
         "tests/browser_report228.py",
         "tests/test_dashboard167.py",
@@ -5702,7 +5715,7 @@
       },
       {
         "path": "tests/browser_finder_network.py",
-        "sha256": "97b4fcaf1861f06c6752473786c60056153fc3d98839772c399677b301443120"
+        "sha256": "6b6613a39a1df74d23b8436ebe5e6445c07de13a36e656b27274a788510dfa8a"
       },
       {
         "path": "tests/browser_finder_offline.py",
@@ -6171,6 +6184,10 @@
       {
         "path": "tests/test_finder_network.py",
         "sha256": "6b48236705d3aad92490e62509f5aa9f544f085dd82ca4d7f657ce68ab78ec72"
+      },
+      {
+        "path": "tests/test_finder_network230.py",
+        "sha256": "77276459ef37df5ce43d11e4c23ea941287c667353bd00a41f36b2f7784860e4"
       },
       {
         "path": "tests/test_finder_offline.py",

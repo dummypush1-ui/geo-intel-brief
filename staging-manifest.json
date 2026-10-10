@@ -3,7 +3,7 @@
   "collection": false,
   "mail": false,
   "scraper": false,
-  "tests": 2165,
+  "tests": 2169,
   "files": [
     {
       "path": ".env.example",
@@ -1866,6 +1866,11 @@
       "sha256": "d57036cce3e26a852e043e56624898347756688a96169f010d1a9b8fea7bc4e6"
     },
     {
+      "path": "integration/FINDER-NETWORK230.md",
+      "bytes": 5660,
+      "sha256": "abc5d1e4b13f89a0b83c4d3467a2266fb6c4bd35a4c0d767870a60783116f2ad"
+    },
+    {
       "path": "integration/FINDER198A.md",
       "bytes": 3298,
       "sha256": "85e619e6ed305602bd9d5b229681e8509b02d53e3b51313b6d7af5445bcb220e"
@@ -2788,12 +2793,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 18581,
-      "sha256": "4d5205d1bdeb274fd74b0f08a81034ff2459d9e581cfd53cc52abcbd91bfbea3"
+      "sha256": "06fb7c3ce4ac2a8f3f8f31c0e9c6354f08cbf6d7a8ea05b9827b580f8c2ae2d2"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
-      "bytes": 255137,
-      "sha256": "b5013426aba32919a7dc7ade8fb32f411eec473fc6158b9defa018a8cab3aa3e"
+      "bytes": 255849,
+      "sha256": "8fb470afd2540a7a9881403e386c13db46ddace369dffb78e11c26e13a26d598"
     },
     {
       "path": "integration/dependency_build/README.md",
@@ -5607,8 +5612,8 @@
     },
     {
       "path": "tests/browser_finder_network.py",
-      "bytes": 3582,
-      "sha256": "97b4fcaf1861f06c6752473786c60056153fc3d98839772c399677b301443120"
+      "bytes": 10748,
+      "sha256": "6b6613a39a1df74d23b8436ebe5e6445c07de13a36e656b27274a788510dfa8a"
     },
     {
       "path": "tests/browser_finder_offline.py",
@@ -6384,6 +6389,11 @@
       "path": "tests/test_finder_network.py",
       "bytes": 2172,
       "sha256": "6b48236705d3aad92490e62509f5aa9f544f085dd82ca4d7f657ce68ab78ec72"
+    },
+    {
+      "path": "tests/test_finder_network230.py",
+      "bytes": 3673,
+      "sha256": "77276459ef37df5ce43d11e4c23ea941287c667353bd00a41f36b2f7784860e4"
     },
     {
       "path": "tests/test_finder_offline.py",
