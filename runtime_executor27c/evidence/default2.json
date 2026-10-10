@@ -1,0 +1,1 @@
+{"future_adapter":"requires separate contract and review","reason":"default gate OFF; discovery not executed; zero side effects","scope":"27c executor-discovery preparation; Docker/CP312 NOT RUN; 27/28/29 OPEN","state":"NOT RUN","unimplemented":["execution","failure capture","Stage B"]}

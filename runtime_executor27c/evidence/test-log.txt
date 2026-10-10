@@ -1,0 +1,7 @@
+27c executor-discovery preparation; Docker/CP312 NOT RUN; 27/28/29 OPEN
+Unit does NOT implement execution, failure capture or Stage B; future adapter needs separate contract/review
+..............
+----------------------------------------------------------------------
+Ran 14 tests in 0.006s
+
+OK

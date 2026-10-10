@@ -1,0 +1,6 @@
+# Inert placeholder ONLY, not selected by any workflow or preparation path.
+# 27c executor-discovery preparation; Docker/CP312 NOT RUN; 27/28/29 OPEN
+# Unit does NOT implement execution, failure capture or Stage B.
+# Future adapter needs its own contract and review, including image-pull permission.
+# No candidate image, inputs, executable command or entrypoint is present here.
+FROM scratch

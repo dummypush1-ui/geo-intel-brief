@@ -1,0 +1,24 @@
+{
+  "excludes": "manifest.json itself",
+  "files": {
+    "Dockerfile.discovery": "6cdbccfc6d97531984c44e1594c3699afdac2044246393739063347eed3ad217",
+    "SPEC.md": "b5203097aa7df4b061c4541b169d51c996fbc11d1264cfbe8f3b78bbe0190953",
+    "evidence/29a-unchanged-receipt.json": "82d2cd9d432ebca4851ef53957b32a5ae1bc751cc2022284cb09a16cb82d0d94",
+    "evidence/default1.json": "22de81b89576bc16ed4ff923b9d7f9c8b9e966b08b561e216d7afc34a6e14b92",
+    "evidence/default2.json": "22de81b89576bc16ed4ff923b9d7f9c8b9e966b08b561e216d7afc34a6e14b92",
+    "evidence/test-log.txt": "db4135cf92269847b197619070e1feea706e99e652ae7233398157a1af714576",
+    "plan_only.sh": "8657d9060fbfab733ff8caf6e2261e98e05779ad75934df25fa18b97d2abbbd5",
+    "prepare.py": "f7af93aeced774aec18ed28efd55516f578f009b0bbfb61a97dff4fa229d16eb",
+    "source-allowlist.json": "a8f427738a1107c9222f2a0e8be3af6207722f60bdd49b91f304ad2c3b3f23a9",
+    "stage-b-input-pins.json": "46370b2b9d7dc6bf82a8757b9c9b01efe0f3476ee02f6a9770489637b718e2b5",
+    "test_prepare.py": "d3319e7757bbea42753288dd5b33e7ccbf8565caf43826b96639d1d07330cb38"
+  },
+  "future_adapter": "requires separate contract and review",
+  "no_binary_added": true,
+  "scope": "27c executor-discovery preparation; Docker/CP312 NOT RUN; 27/28/29 OPEN",
+  "unimplemented": [
+    "execution",
+    "failure capture",
+    "Stage B"
+  ]
+}

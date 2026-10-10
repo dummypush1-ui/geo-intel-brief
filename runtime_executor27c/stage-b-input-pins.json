@@ -1,0 +1,88 @@
+{
+  "packaging": {
+    "filename": "packaging-26.3-py3-none-any.whl",
+    "origin_url": "https://files.pythonhosted.org/packages/63/34/ba1c580383c9eada3711951fef0795c80b829a078d72188184bcab9dd527/packaging-26.3-py3-none-any.whl",
+    "pin_tier": "reviewed public metadata/lock pin; CP312execution unverified",
+    "sha256": "d7193f7c8e4e93f444fde0262bf90af30e16fa0ad0ad44cb553c87339b23cd1c",
+    "version": "26.3"
+  },
+  "pip": {
+    "filename": "pip-26.2.1-py3-none-any.whl",
+    "origin_url": "https://files.pythonhosted.org/packages/f3/6e/1736e5b4ae2b778ef2f81c47d797de9f891d4d8acb047a24ca37a60294dd/pip-26.2.1-py3-none-any.whl",
+    "pin_tier": "reviewed public metadata/lock pin; CP312execution unverified",
+    "sha256": "71138adf1f4ca900cdb7d289c21b7494329f2332b6d85f0e1c42108c0384ed3e",
+    "version": "26.2.1"
+  },
+  "scope": "27c executor-discovery preparation; Docker/CP312 NOT RUN; 27/28/29 OPEN",
+  "setuptools": {
+    "filename": "setuptools-84.0.0-py3-none-any.whl",
+    "origin_url": "https://files.pythonhosted.org/packages/95/9c/c510029fc6ef33a6275cd2c5d3cecd6613dfd6aa401d57c54f1c18852ccf/setuptools-84.0.0-py3-none-any.whl",
+    "pin_tier": "reviewed public metadata/lock pin; CP312execution unverified",
+    "sha256": "51a52592b3b99e102b609654876bd65f19f999935166d1352678931132b0c670",
+    "version": "84.0.0"
+  },
+  "sgml_sdist": {
+    "filename": "sgmllib3k-1.0.0.tar.gz",
+    "origin_url": "https://files.pythonhosted.org/packages/9e/bd/3704a8c3e0942d711c1299ebf7b9091930adae6675d7c8f476a7ce48653c/sgmllib3k-1.0.0.tar.gz",
+    "pin_tier": "reviewed public metadata/lock pin; CP312execution unverified",
+    "reviewed_file_members": 9,
+    "reviewed_members": [
+      {
+        "bytes": 926,
+        "path": "sgmllib3k-1.0.0/PKG-INFO",
+        "sha256": "01dbf4d6a1a5370fde2568d761e3418a1ecac1fe039c5d486265ffc3f3332823"
+      },
+      {
+        "bytes": 446,
+        "path": "sgmllib3k-1.0.0/README",
+        "sha256": "9ffcc3c846907fefc187aac938c27e4eca333b67f467ebd10ddb3d4a9b2733a2"
+      },
+      {
+        "bytes": 59,
+        "path": "sgmllib3k-1.0.0/setup.cfg",
+        "sha256": "063d04b462ef73e9d86e0b0ae49c4321b51984444a5a2a90aece1e0082b488ee"
+      },
+      {
+        "bytes": 611,
+        "path": "sgmllib3k-1.0.0/setup.py",
+        "sha256": "032f40b9673a557056595efebe21a51e3f70fb2da663d2e0c78fb15143be395b"
+      },
+      {
+        "bytes": 17788,
+        "path": "sgmllib3k-1.0.0/sgmllib.py",
+        "sha256": "9180791aa507111207d7c14f36db574a11fbedda257debfb9d030b273b773f44"
+      },
+      {
+        "bytes": 1,
+        "path": "sgmllib3k-1.0.0/sgmllib3k.egg-info/dependency_links.txt",
+        "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+      },
+      {
+        "bytes": 926,
+        "path": "sgmllib3k-1.0.0/sgmllib3k.egg-info/PKG-INFO",
+        "sha256": "01dbf4d6a1a5370fde2568d761e3418a1ecac1fe039c5d486265ffc3f3332823"
+      },
+      {
+        "bytes": 158,
+        "path": "sgmllib3k-1.0.0/sgmllib3k.egg-info/SOURCES.txt",
+        "sha256": "c508d2ca4769f6f7106f2802613c3db0adf00480d58b938cbaee959322d75ecf"
+      },
+      {
+        "bytes": 8,
+        "path": "sgmllib3k-1.0.0/sgmllib3k.egg-info/top_level.txt",
+        "sha256": "138669627fe1fb966c5c55dd1c39de94a5ee71b72069520d5f097aac67062bf3"
+      }
+    ],
+    "sha256": "7868fb1c8bfa764c1ac563d3cf369c381d1325d36124933a726f29fcdaa812e9",
+    "source_date_epoch": 1704067200,
+    "version": "1.0.0"
+  },
+  "status": "pinned-not-yet-verified by CP312execution",
+  "wheel": {
+    "filename": "wheel-0.45.1-py3-none-any.whl",
+    "origin_url": "https://files.pythonhosted.org/packages/0b/2c/87f3254fd8ffd29e4c02732eee68a83a1d3c346ae39bc6822dcbcb697f2b/wheel-0.45.1-py3-none-any.whl",
+    "pin_tier": "reviewed27a purePythonpin, CP312executionunverified",
+    "sha256": "708e7481cc80179af0e556bbf0cc00b8444c7321e2700b8d8580231d13017248",
+    "version": "0.45.1"
+  }
+}
