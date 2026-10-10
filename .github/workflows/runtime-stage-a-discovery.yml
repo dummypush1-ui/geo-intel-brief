@@ -1,0 +1,119 @@
+# Reviewed manual Stage A plan only. Owner must approve this particular run.
+name: Manual Stage A package-plan discovery
+on:
+  workflow_dispatch:
+    inputs:
+      discovery_gate:
+        description: 'Run reviewed Stage A plan only after owner approval'
+        type: boolean
+        default: false
+        required: true
+      stage:
+        description: 'Stage B is not available'
+        type: choice
+        options: [A]
+        default: A
+permissions:
+  contents: read
+concurrency:
+  group: reviewed-stage-a-29b1
+  cancel-in-progress: false
+jobs:
+  discovery:
+    if: github.repository == 'dummypush1-ui/geo-intel-brief'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+      DISCOVERY_GATE: ${{ inputs.discovery_gate }}
+      DISCOVERY_STAGE: ${{ inputs.stage }}
+      INSTALL_GATE: 'false'
+    steps:
+      - name: Write default NOT RUN receipt before any risky operation
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p stage-a-evidence
+          python3 - <<'PY'
+          import json,os,pathlib
+          gate=os.environ['DISCOVERY_GATE'];stage=os.environ['DISCOVERY_STAGE']
+          if gate not in ('true','false') or stage!='A':raise SystemExit('Exact typed inputs required')
+          r={'scope':'29b1 Stage A only; items 27/28/29 OPEN','state':'NOT RUN','reason':'gate OFF or discovery not started','hosted_execution':'NOT RUN','install_permitted':False,'runtime_ready':False}
+          pathlib.Path('stage-a-evidence/receipt.json').write_text(json.dumps(r,indent=2)+'\n')
+          PY
+      - name: Checkout exact reviewed adapter revision only with gate ON
+        if: inputs.discovery_gate == true
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # upstream v4.2.2
+        with:
+          ref: ad5234ad22788b29c315e1cb4993173d2fea3684
+          path: source
+          persist-credentials: false
+          fetch-depth: 1
+      - name: Verify reviewed adapter content before importing or executing
+        id: verify
+        if: inputs.discovery_gate == true
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd source
+          echo 'ba08fe52422e0d927284436b81d3c832882bc6c7541f037f7c7be3c490b75cfe  workflow_executor29b/manifest.json' | sha256sum -c -
+          echo 'e4e74d3a8b5302a2e0a57c8e25fb9521802252462265d2427afcabc5b18c8b1b  workflow_executor29b/adapter.py' | sha256sum -c -
+          python3 - <<'PY'
+          import hashlib,json,pathlib
+          p=pathlib.Path('workflow_executor29b');m=json.loads((p/'manifest.json').read_text())
+          actual={str(x.relative_to(p)) for x in p.rglob('*') if x.is_file() and x.name!='manifest.json'}
+          if actual!=set(m['files']) or any(x.is_symlink() for x in p.rglob('*')):raise SystemExit('Exact adapter files required')
+          for n,h in m['files'].items():
+           if hashlib.sha256((p/n).read_bytes()).hexdigest()!=h:raise SystemExit('Adapter content drift')
+          PY
+      - name: Run Stage A discovery only
+        if: inputs.discovery_gate == true
+        shell: bash
+        timeout-minutes: 21
+        run: |
+          set -euo pipefail
+          cd source
+          python3 workflow_executor29b/adapter.py
+      - name: Bounded fixed-container cleanup on failure or cancellation
+        if: always() && inputs.discovery_gate == true && steps.verify.outcome == 'success'
+        shell: bash
+        timeout-minutes: 2
+        env:
+          CLEANUP_ONLY: 'true'
+        run: |
+          set -euo pipefail
+          cd source
+          python3 workflow_executor29b/adapter.py
+      - name: Public evidence copy and budget check
+        id: public_evidence
+        if: always()
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import pathlib,shutil,re
+          dest=pathlib.Path('stage-a-evidence');src=pathlib.Path('source/stage-a-evidence')
+          allowed={'receipt.json','plan-prefix.txt'}
+          if src.exists():
+           for p in src.iterdir():
+            if p.is_symlink() or not p.is_file() or p.name not in allowed:raise SystemExit('Unexpected evidence file')
+            shutil.copyfile(p,dest/p.name)
+          total=0
+          bad=re.compile(r'(?i)(github_pat_|gh[pousr]_[a-z0-9]|mongodb(?:\+srv)?://|bearer\s|authorization:|-----BEGIN .*PRIVATE KEY|(?:token|password|secret)\s*[=:])')
+          for p in dest.iterdir():
+           if p.is_symlink() or not p.is_file() or p.name not in allowed:raise SystemExit('Evidence set drift')
+           b=p.read_bytes();total+=len(b)
+           if len(b)>2097152 or bad.search(b.decode(errors='replace')):raise SystemExit('Evidence redaction/budget')
+          if total>4194304:raise SystemExit('Total artifact budget')
+          publish=pathlib.Path('public-stage-a-evidence');publish.mkdir()
+          for p in dest.iterdir():shutil.copyfile(p,publish/p.name)
+          PY
+      - name: Upload bounded public evidence even on failed discovery
+        if: always() && steps.public_evidence.outcome == 'success'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # upstream v4.6.2
+        with:
+          name: reviewed-stage-a-plan
+          path: public-stage-a-evidence/
+          if-no-files-found: error
+          retention-days: 1
+          compression-level: 6
