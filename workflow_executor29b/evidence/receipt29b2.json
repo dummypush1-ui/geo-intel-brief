@@ -1,0 +1,27 @@
+{
+  "scope": "29b2 source revision only; revised hosted execution NOT RUN; items 27/28/29 OPEN",
+  "baseline_commit": "da188db65cc41ffd7ef396ba869a8b449224fcf8",
+  "baseline_tree": "33ab37a8a4020e3c7f8c37cdb9861de84fbde85f",
+  "prior_hosted_run": {
+    "receipt_sha256": "2fe4deb27bec413c0f0636e5d2dc46c7c8b0d6d0bdae67ae92ac3419d9b8d846",
+    "state": "BLOCKED",
+    "docker": "28.0.4",
+    "probe_exit": 0,
+    "pull_exit": 0,
+    "container_exit": 2,
+    "plan_prefix_bytes": 1,
+    "stderr_retained": false,
+    "diagnosis": "0700 bind-input directory permission failure UNPROVEN hypothesis"
+  },
+  "source_changes": [
+    "0755directory/0644filesexplicitchmod",
+    "first/exactstdoutstage markers",
+    "untrustedredactedstderr tail20lines4096bytesafterredaction",
+    "no caps/sandboxuser/policychange"
+  ],
+  "local_tests": 19,
+  "old_tests_preserved": 14,
+  "hosted_run": "NOT RUN on revised code",
+  "workflow_unchanged": true,
+  "next_workflow_hashes": "PENDING newactualLANDEDcommit; separate review"
+}

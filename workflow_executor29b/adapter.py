@@ -44,6 +44,60 @@ def receipt(state='NOT RUN', reason='technical gate OFF', **extra):
                 stage_b='REFUSED', runtime_ready=False, **extra)
 
 
+STAGE_LINE = re.compile(r'^STAGE (start|inputs-ok|dpkg-ok|ca-ok|apt-update-ok|plan-begin)$')
+STDERR_BYTES = 4096
+STDERR_LINES = 20
+DIAGNOSTIC_BAD = re.compile(
+    r'(?i)([A-Za-z_][A-Za-z0-9_]*\s*=|authorization|token|api[_ -]?key|password|'
+    r'\bkey\b|github_pat_|gh[pousr]_[a-z0-9]|-----BEGIN .*PRIVATE KEY|'
+    r'[a-z][a-z0-9+.-]*://[^/\s]*@)')
+
+
+def diagnostics(result):
+    """Untrusted diagnostics only. Never used for state, gating or plan acceptance."""
+    raw = result['stderr']
+    # execute_reviewed decodes its bounded capture using replacement. Remove C0/C1
+    # controls except line separators, then suppress suspicious lines before tailing.
+    clean = ''.join(c for c in raw if c in '\n\r' or not (ord(c) < 32 or 127 <= ord(c) <= 159))
+    lines = clean.splitlines()
+    kept = []
+    suppressed = 0
+    for line in lines:
+        if DIAGNOSTIC_BAD.search(line) or BAD.search(line):
+            suppressed += 1
+        else:
+            kept.append(line)
+    dropped = max(0, len(kept) - STDERR_LINES)
+    tail = kept[-STDERR_LINES:]
+    # Redaction preceded both line and byte truncation.
+    total = 0
+    bounded = []
+    byte_truncated = False
+    for line in reversed(tail):
+        data = line.encode('utf-8')
+        allowance = max(0, STDERR_BYTES - total - (1 if bounded else 0))
+        if len(data) > allowance:
+            data = data[-allowance:] if allowance else b''
+            # Avoid broken-codepoint replacement increasing the byte cap.
+            line = data.decode('utf-8', errors='ignore')
+            byte_truncated = True
+            if line:
+                bounded.append(line)
+            dropped += len(tail) - len(bounded)
+            break
+        bounded.append(line)
+        total += len(data) + (1 if len(bounded) > 1 else 0)
+    text = '\n'.join(reversed(bounded))
+    assert len(text.encode('utf-8')) <= STDERR_BYTES
+    return {'label': 'untrusted diagnostics, never used for state or gating',
+            'stage_markers': [line for line in result['stdout'].splitlines() if STAGE_LINE.fullmatch(line)],
+            'stderr_tail': text, 'stderr_empty': not raw,
+            'suppressed_lines': suppressed, 'truncated_lines': dropped,
+            'byte_truncated': byte_truncated,
+            'capture_truncated': result.get('stop_reason', '') is not None and 'output cap' in (result.get('stop_reason') or ''),
+            'byte_cap': STDERR_BYTES, 'line_cap': STDERR_LINES}
+
+
 def parse_plan(text, expected, expected_base):
     """Strict apt simulation parse, no fixture plan promoted to target evidence."""
     if not text or len(text.encode()) > CAP or text.count('PLAN_BEGIN\n') != 1 or text.count('PLAN_END\n') != 1:
@@ -267,12 +321,15 @@ def verify_inputs():
 def prepare_work():
     if WORK.exists() or WORK.is_symlink():
         raise Stop('fresh work directory required')
-    WORK.mkdir(mode=0o700)
+    WORK.mkdir(mode=0o755)
+    WORK.chmod(0o755)
     names = ['apt.sources', 'ubuntu-archive-keyring.gpg', 'ca-certificates-bootstrap.deb']
     for n in names:
         shutil.copyfile(ROOT / 'runtime_build/inputs' / n, WORK / n)
     shutil.copyfile(HERE / 'discover.sh', WORK / 'discover.sh')
     (WORK / 'inputs.sha256').write_text(''.join(digest(WORK / n) + '  ' + n + '\n' for n in names + ['discover.sh']))
+    for p in WORK.iterdir():
+        p.chmod(0o644)
 
 
 def run(gate, install_gate, stage):
@@ -313,7 +370,8 @@ def run(gate, install_gate, stage):
         began = True
         actual = execute_reviewed('run', timeout=900)
         state['process'] = {k: v for k, v in actual.items() if k not in ('stdout', 'stderr')}
-        retained = [line for line in actual['stdout'].splitlines() if line.startswith(('TOOL\t', 'BASE\t', 'POCKET\t', 'Inst ', 'Remv ', 'PLAN_BEGIN', 'PLAN_END'))]
+        state['diagnostics'] = diagnostics(actual)
+        retained = [line for line in actual['stdout'].splitlines() if line.startswith(('TOOL\t', 'BASE\t', 'POCKET\t', 'Inst ', 'Remv ', 'PLAN_BEGIN', 'PLAN_END')) or STAGE_LINE.fullmatch(line)]
         prefix = '\n'.join(retained)[:CAP]
         if BAD.search(prefix):
             raise Stop('public evidence redaction check failed')

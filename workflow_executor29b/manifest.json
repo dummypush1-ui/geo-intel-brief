@@ -3,15 +3,17 @@
   "workflow_in_land": false,
   "final_workflow_sha256": "PENDING AFTER LANDED COMMIT, not predicted",
   "files": {
-    "SPEC.md": "aff64de233311383a02bcfa1addeb3ba5514fb64c6765d62f5a18bee7ba777e0",
+    "SPEC.md": "c49bfd79df6927fdd5482f2bb16cbd5b9a30a8b377e92dd096929fc282d5725b",
     "action-pin-evidence.json": "935fcd344521bf615a86f3525cbab7e173a9c3e927fcd4e077b134bee95bcd65",
-    "adapter.py": "e4e74d3a8b5302a2e0a57c8e25fb9521802252462265d2427afcabc5b18c8b1b",
-    "discover.sh": "260f3f95766c416798ed18e2f29d0795f23f718911ea77c9fbc6e81b2d7f60c9",
+    "adapter.py": "2b8d81c098cc7c87e137f1d25d99b637d4b31d892e8dd243bc209725de112fb0",
+    "discover.sh": "8111741b0cc287c2410538906d4fd62f01be084a73b461c462e0c14e74a33810",
     "evidence/default1.json": "614bc346874eed518ef3a23a7fc28aae336901151c7e16b63e1b7a7ebec10dee",
     "evidence/default2.json": "614bc346874eed518ef3a23a7fc28aae336901151c7e16b63e1b7a7ebec10dee",
+    "evidence/receipt29b2.json": "a874121a44e0d540905be2c610a65949875c4a6224e46245143dfe0b1b224ce1",
     "evidence/test-log.txt": "2307665b1a694b52a7b4644beeb7e12a27a1ce2b151c2b58b3108f875dbc7ee5",
+    "evidence/test-log29b2.txt": "361e075141ba00738a4ee949c5efee6afbe46f96403473137c226b9e46caf250",
     "source-allowlist.json": "e31a790b566dc596920bbcbd69a8e0952a071a7dc0223820f5a01e10cc10ef58",
-    "test_adapter.py": "87733cac784dea2fc819d524154b8fdff533e1e4fc2d6178120243e92f170f20",
+    "test_adapter.py": "8cf4e5bc6e3a1cbd91285d612d06760aa2af0dfd7899b93c2b3b82907426f487",
     "workflow.template.yml": "1f5e43ed45efb3f54b959ac7bb4c6bd9d49e729a9d5a8317c9c6071b9ccc23c6"
   }
 }

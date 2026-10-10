@@ -97,6 +97,73 @@ class Tests(unittest.TestCase):
         self.assertEqual(text.count("if: inputs.discovery_gate == true"), 3)
         self.assertIn("if: always() && inputs.discovery_gate == true && steps.verify.outcome == 'success'", text)
 
+    def test_public_work_permissions_restrictive_umask(self):
+        import stat
+        with tempfile.TemporaryDirectory() as d, patch.object(a, 'WORK', pathlib.Path(d) / 'work'):
+            old = os.umask(0o077)
+            try:
+                a.prepare_work()
+            finally:
+                os.umask(old)
+            self.assertEqual(stat.S_IMODE(a.WORK.stat().st_mode), 0o755)
+            files = list(a.WORK.iterdir())
+            self.assertEqual(len(files), 5)
+            for p in files:
+                self.assertTrue(p.is_file())
+                self.assertEqual(stat.S_IMODE(p.stat().st_mode), 0o644)
+            self.assertIn('type=bind,src=' + str(a.WORK) + ',dst=/reviewed,readonly', a.commands()['run'])
+
+    def test_stderr_redaction_controls_and_caps(self):
+        raw = 'safe first\nTOKEN=do-not-retain\nAuthorization: hidden\nhttps://user:pass@example.invalid/\nNAME=value\napi_key hidden\npassword hidden\n' + '\n'.join('plain ' + str(n) for n in range(25)) + '\nlast\x00\x1b\x7f line'
+        d = a.diagnostics(dict(stdout='STAGE start\nSTAGE fake\nSTAGE inputs-ok\nSTAGE plan-begin\n', stderr=raw, stop_reason=None))
+        self.assertEqual(d['stage_markers'], ['STAGE start', 'STAGE inputs-ok', 'STAGE plan-begin'])
+        self.assertEqual(d['suppressed_lines'], 6)
+        self.assertGreater(d['truncated_lines'], 0)
+        self.assertFalse(d['stderr_empty'])
+        self.assertLessEqual(len(d['stderr_tail'].splitlines()), a.STDERR_LINES)
+        self.assertNotIn('hidden', d['stderr_tail'])
+        self.assertNotIn('\x1b', d['stderr_tail'])
+        a.safe_json(d)
+        large = a.diagnostics(dict(stdout='', stderr='😀' * 10000, stop_reason='output cap exceeded'))
+        self.assertLessEqual(len(large['stderr_tail'].encode()), a.STDERR_BYTES)
+        self.assertTrue(large['byte_truncated'])
+        self.assertTrue(large['capture_truncated'])
+        a.safe_json(large)
+
+    def test_exit2_empty_stdout_receipt_blocked_and_diagnostics_data_only(self):
+        def fake(kind, **kwargs):
+            base = dict(exit_code=0, stop_reason=None, stdout='', stderr='', leader_waited=True)
+            if kind == 'info':
+                base['stdout'] = json.dumps({'OSType': 'linux', 'Architecture': 'amd64', 'ServerVersion': 'fixture'})
+            if kind == 'run':
+                base.update(exit_code=2, stderr='/bin/sh: cannot open /reviewed/discover.sh: Permission denied\n')
+            return base
+        with tempfile.TemporaryDirectory() as d, patch.object(a, 'EVIDENCE', pathlib.Path(d)), patch.object(a, 'verify_inputs', return_value=({}, {})), patch.object(a, 'prepare_work'), patch.object(a, 'execute_reviewed', side_effect=fake), patch.object(a, 'cleanup', return_value={'state': 'inspect-confirmed absent'}):
+            self.assertEqual(a.run('true', 'false', 'A'), 1)
+            r = json.loads((pathlib.Path(d) / 'receipt.json').read_text())
+            self.assertEqual(r['state'], 'BLOCKED')
+            self.assertEqual(r['diagnostics']['stage_markers'], [])
+            self.assertIn('Permission denied', r['diagnostics']['stderr_tail'])
+            self.assertIn('untrusted', r['diagnostics']['label'])
+            self.assertFalse(r['install_permitted'])
+
+    def test_timeout_and_kill_diagnostics_retained(self):
+        for reason in ('wall timeout', 'output cap exceeded'):
+            d = a.diagnostics(dict(stdout='STAGE start\n', stderr='apt public diagnostic\n', stop_reason=reason))
+            self.assertEqual(d['stage_markers'], ['STAGE start'])
+            self.assertIn('public diagnostic', d['stderr_tail'])
+        empty = a.diagnostics(dict(stdout='', stderr='', stop_reason=None))
+        self.assertTrue(empty['stderr_empty'])
+
+    def test_marker_first_command_and_exact_whitelist(self):
+        text = (HERE / 'discover.sh').read_text()
+        first = next(line for line in text.splitlines() if line.strip() and not line.startswith('#'))
+        self.assertEqual(first, "printf '%s\\n' 'STAGE start'")
+        for name in ('start', 'inputs-ok', 'dpkg-ok', 'ca-ok', 'apt-update-ok', 'plan-begin'):
+            self.assertTrue(a.STAGE_LINE.fullmatch('STAGE ' + name))
+        for line in ('STAGE start extra', 'STAGE unknown', ' STAGE start', 'STAGE TOKEN=value'):
+            self.assertFalse(a.STAGE_LINE.fullmatch(line))
+
     def test_fixed_allowlist(self):
         cmds = a.commands()
         self.assertEqual(set(cmds), {'info', 'pull', 'run', 'rm', 'inspect'})
