@@ -1,0 +1,10 @@
+{
+  "builder_firsthand_origin": "builder directly fetched public PyPI JSON and file bytes; independent reviewer distinction retained",
+  "expected_sha256": "e9700ff7e63fc008b252e8ff564641874f4521d29fdaa9daebe7c234dad83560",
+  "historical_record": "separate, unavailable, unreproduced, not used",
+  "reviewed_anchor_message": "parent original Oct10 2026 07:01:39 IST",
+  "reviewer_origin_corroboration": "wheel0.45.1 and sdist secondary only; direct PyPI metadata inconclusive for reviewer",
+  "reviewer_rerun": "parent reports independent two builds on3.10.12 matched; not my own execution",
+  "scope": "local CPython3.10.12 Linuxx86_64 venv build/import proof",
+  "status": "local venv build proof, candidate wheel"
+}

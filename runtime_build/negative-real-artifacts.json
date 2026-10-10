@@ -1,0 +1,21 @@
+{
+  "cases": {
+    "extra_unpinned_package": {
+      "error": "missing/extra/nonregular artifact",
+      "status": "expected_fail"
+    },
+    "missing_wheel": {
+      "error": "missing/extra/nonregular artifact",
+      "status": "expected_fail"
+    },
+    "tampered_wheel": {
+      "error": "artifact hash mismatch",
+      "status": "expected_fail"
+    },
+    "wrong_hash": {
+      "error": "artifact hash mismatch",
+      "status": "expected_fail"
+    }
+  },
+  "scope": "local CPython3.10.12 Linuxx86_64 venv build/import proof"
+}

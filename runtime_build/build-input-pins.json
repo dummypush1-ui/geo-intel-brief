@@ -1,0 +1,18 @@
+{
+  "sgmllib_sdist": {
+    "expected_sha256": "7868fb1c8bfa764c1ac563d3cf369c381d1325d36124933a726f29fcdaa812e9",
+    "fetched_at": "2026-10-10T01:28:43.510702+00:00",
+    "filename": "sgmllib3k-1.0.0.tar.gz",
+    "metadata_url": "https://pypi.org/pypi/sgmllib3k/1.0.0/json",
+    "url": "https://files.pythonhosted.org/packages/9e/bd/3704a8c3e0942d711c1299ebf7b9091930adae6675d7c8f476a7ce48653c/sgmllib3k-1.0.0.tar.gz"
+  },
+  "wheel": {
+    "filename": "wheel-0.45.1-py3-none-any.whl",
+    "metadata_url": "https://pypi.org/pypi/wheel/0.45.1/json",
+    "name": "wheel",
+    "scope": "public metadata selected expected pin before byte fetch; candidate for independent review",
+    "sha256": "708e7481cc80179af0e556bbf0cc00b8444c7321e2700b8d8580231d13017248",
+    "url": "https://files.pythonhosted.org/packages/0b/2c/87f3254fd8ffd29e4c02732eee68a83a1d3c346ae39bc6822dcbcb697f2b/wheel-0.45.1-py3-none-any.whl",
+    "version": "0.45.1"
+  }
+}

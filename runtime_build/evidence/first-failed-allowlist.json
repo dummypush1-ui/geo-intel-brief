@@ -1,0 +1,90 @@
+[
+  {
+    "command": [
+      "/usr/bin/python3",
+      "-I",
+      "/tree/runtime_build/verify27.py",
+      "/artifacts",
+      "/tree"
+    ],
+    "exit_code": 0,
+    "output": "{\"artifacts\":[\"PyYAML-6.0.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl\",\"blinker-1.9.0-py3-none-any.whl\",\"certifi-2026.7.22-py3-none-any.whl\",\"charset_normalizer-3.5.2-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl\",\"click-8.5.0-py3-none-any.whl\",\"dnspython-2.8.0-py3-none-any.whl\",\"feedparser-6.0.11-py3-none-any.whl\",\"flask-3.1.3-py3-none-any.whl\",\"gunicorn-22.0.0-py3-none-any.whl\",\"idna-3.20-py3-none-any.whl\",\"itsdangerous-2.2.0-py3-none-any.whl\",\"jinja2-3.1.6-py3-none-any.whl\",\"markupsafe-3.0.4-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl\",\"packaging-26.3-py3-none-any.whl\",\"pip-26.2.1-py3-none-any.whl\",\"pymongo-4.18.2-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl\",\"pypdf-6.19.0-py3-none-any.whl\",\"python_dateutil-2.9.0.post0-py2.py3-none-any.whl\",\"python_dotenv-1.2.4-py3-none-any.whl\",\"requests-2.34.2-py3-none-any.whl\",\"schedule-1.2.2-py3-none-any.whl\",\"setuptools-84.0.0-py3-none-any.whl\",\"sgmllib3k-1.0.0-py3-none-any.whl\",\"six-1.17.0-py2.py3-none-any.whl\",\"typing_extensions-4.16.0-py3-none-any.whl\",\"urllib3-2.8.0-py3-none-any.whl\",\"werkzeug-3.1.9-py3-none-any.whl\",\"wheel-0.45.1-py3-none-any.whl\"],\"claim\":\"input validation only\",\"scope\":\"local CPython3.10.12 Linuxx86_64 venv build/import proof\",\"selected_profile\":\"local25-gunicorn22-no-optional-extras\",\"source_anchor\":\"695f7420b15521e73423092abd7f8bc2b7002771\"}\n"
+  },
+  {
+    "command": [
+      "/usr/bin/python3",
+      "/tree/runtime_build/test_verify27.py"
+    ],
+    "exit_code": 0,
+    "output": "..\n----------------------------------------------------------------------\nRan 2 tests in 0.002s\n\nOK\n"
+  },
+  {
+    "command": [
+      "/usr/bin/python3",
+      "-I",
+      "-m",
+      "venv",
+      "/work/venv1"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "command": [
+      "/work/venv1/bin/python",
+      "-I",
+      "-m",
+      "pip",
+      "install",
+      "--no-index",
+      "--no-cache-dir",
+      "--only-binary=:all:",
+      "--find-links",
+      "/artifacts",
+      "--require-hashes",
+      "-r",
+      "/tree/runtime_build/bootstrap27.lock"
+    ],
+    "exit_code": 0,
+    "output": "Looking in links: /artifacts\nProcessing /artifacts/pip-26.2.1-py3-none-any.whl\nProcessing /artifacts/setuptools-84.0.0-py3-none-any.whl\nInstalling collected packages: setuptools, pip\n  Attempting uninstall: setuptools\n    Found existing installation: setuptools 59.6.0\n    Uninstalling setuptools-59.6.0:\n      Successfully uninstalled setuptools-59.6.0\n  Attempting uninstall: pip\n    Found existing installation: pip 22.0.2\n    Uninstalling pip-22.0.2:\n      Successfully uninstalled pip-22.0.2\nSuccessfully installed pip-26.2.1 setuptools-84.0.0\n"
+  },
+  {
+    "command": [
+      "/work/venv1/bin/python",
+      "-I",
+      "-m",
+      "pip",
+      "install",
+      "--no-index",
+      "--no-cache-dir",
+      "--only-binary=:all:",
+      "--find-links",
+      "/artifacts",
+      "--require-hashes",
+      "-r",
+      "/tree/runtime_build/app27.lock"
+    ],
+    "exit_code": 0,
+    "output": "Looking in links: /artifacts\nProcessing /artifacts/flask-3.1.3-py3-none-any.whl (from -r /tree/runtime_build/app27.lock (line 2))\nProcessing /artifacts/jinja2-3.1.6-py3-none-any.whl (from -r /tree/runtime_build/app27.lock (line 3))\nProcessing /artifacts/markupsafe-3.0.4-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (from -r /tree/runtime_build/app27.lock (line 4))\nProcessing /artifacts/PyYAML-6.0.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (from -r /tree/runtime_build/app27.lock (line 5))\nProcessing /artifacts/werkzeug-3.1.9-py3-none-any.whl (from -r /tree/runtime_build/app27.lock (line 6))\nProcessing /artifacts/blinker-1.9.0-py3-none-any.whl (from -r /tree/runtime_build/app27.lock (line 7))\nProcessing /artifacts/certifi-2026.7.22-py3-none-any.whl (from -r /tree/runtime_build/app27.lock (line 8))\nProcessing /artifacts/charset_normalizer-3.5.2-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (from -r /tree/runtime_build/app27.lock (line 9))\nProcessing /artifacts/click-8.5.0-py3-none-any.whl (from -r /tree/runtime_build/app27.lock (line 10))\nProcessing /artifacts/dnspython-2.8.0-py3-none-any.whl (from -r /tree/runtime_build/app27.lock (line 11))\nProcessing /artifacts/feedparser-6.0.11-py3-none-any.whl (from -r /tree/runtime_build/app27.lock (line 12))\nProcessing /artifacts/gunicorn-22.0.0-py3-none-any.whl (from -r /tree/runtime_build/app27.lock (line 13))\nProcessing /artifacts/idna-3.20-py3-none-any.whl (from -r /tree/runtime_build/app27.lock (line 14))\nProcessing /artifacts/itsdangerous-2.2.0-py3-none-any.whl (from -r /tree/runtime_build/app27.lock (line 15))\nProcessing /artifacts/packaging-26.3-py3-none-any.whl (from -r /tree/runtime_build/app27.lock (line 16))\nProcessing /artifacts/pymongo-4.18.2-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (from -r /tree/runtime_build/app27.lock (line 17))\nProcessing /artifacts/pypdf-6.19.0-py3-none-any.whl (from -r /tree/runtime_build/app27.lock (line 18))\nProcessing /artifacts/python_dateutil-2.9.0.post0-py2.py3-none-any.whl (from -r /tree/runtime_build/app27.lock (line 19))\nProcessing /artifacts/python_dotenv-1.2.4-py3-none-any.whl (from -r /tree/runtime_build/app27.lock (line 20))\nProcessing /artifacts/requests-2.34.2-py3-none-any.whl (from -r /tree/runtime_build/app27.lock (line 21))\nProcessing /artifacts/schedule-1.2.2-py3-none-any.whl (from -r /tree/runtime_build/app27.lock (line 22))\nProcessing /artifacts/sgmllib3k-1.0.0-py3-none-any.whl (from -r /tree/runtime_build/app27.lock (line 23))\nProcessing /artifacts/six-1.17.0-py2.py3-none-any.whl (from -r /tree/runtime_build/app27.lock (line 24))\nProcessing /artifacts/typing_extensions-4.16.0-py3-none-any.whl (from -r /tree/runtime_build/app27.lock (line 25))\nProcessing /artifacts/urllib3-2.8.0-py3-none-any.whl (from -r /tree/runtime_build/app27.lock (line 26))\nInstalling collected packages: sgmllib3k, urllib3, typing_extensions, six, schedule, PyYAML, python-dotenv, packaging, MarkupSafe, itsdangerous, idna, feedparser, dnspython, click, charset-normalizer, certifi, blinker, Werkzeug, requests, python-dateutil, pypdf, pymongo, Jinja2, gunicorn, Flask\n\nSuccessfully installed Flask-3.1.3 Jinja2-3.1.6 MarkupSafe-3.0.4 PyYAML-6.0.2 Werkzeug-3.1.9 blinker-1.9.0 certifi-2026.7.22 charset-normalizer-3.5.2 click-8.5.0 dnspython-2.8.0 feedparser-6.0.11 gunicorn-22.0.0 idna-3.20 itsdangerous-2.2.0 packaging-26.3 pymongo-4.18.2 pypdf-6.19.0 python-dateutil-2.9.0.post0 python-dotenv-1.2.4 requests-2.34.2 schedule-1.2.2 sgmllib3k-1.0.0 six-1.17.0 typing_extensions-4.16.0 urllib3-2.8.0\n"
+  },
+  {
+    "command": [
+      "/work/venv1/bin/python",
+      "-I",
+      "-m",
+      "pip",
+      "check"
+    ],
+    "exit_code": 0,
+    "output": "No broken requirements found.\n"
+  },
+  {
+    "command": [
+      "/work/venv1/bin/python",
+      "-I",
+      "/tree/runtime_build/smoke27.py"
+    ],
+    "exit_code": 1,
+    "output": "Traceback (most recent call last):\n  File \"/tree/runtime_build/smoke27.py\", line 15, in <module>\n    importlib.import_module(name)\n  File \"/usr/lib/python3.10/importlib/__init__.py\", line 126, in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n  File \"<frozen importlib._bootstrap>\", line 1050, in _gcd_import\n  File \"<frozen importlib._bootstrap>\", line 1027, in _find_and_load\n  File \"<frozen importlib._bootstrap>\", line 1004, in _find_and_load_unlocked\nModuleNotFoundError: No module named 'bs4'\n"
+  }
+]

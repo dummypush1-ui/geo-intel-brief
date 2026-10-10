@@ -1,0 +1,46 @@
+[
+  {
+    "module": "pymongo.synchronous.client_session",
+    "match": true
+  },
+  {
+    "module": "pymongo.synchronous.mongo_client",
+    "match": true
+  },
+  {
+    "module": "pymongo.synchronous.database",
+    "match": true
+  },
+  {
+    "module": "pymongo.synchronous.pool",
+    "match": true
+  },
+  {
+    "module": "pymongo.synchronous.command_runner",
+    "match": true
+  },
+  {
+    "module": "pymongo.synchronous.topology",
+    "match": true
+  },
+  {
+    "module": "pymongo.network_layer",
+    "match": true
+  },
+  {
+    "module": "pymongo._csot",
+    "match": true
+  },
+  {
+    "module": "pymongo.helpers_shared",
+    "match": true
+  },
+  {
+    "module": "pymongo.synchronous.helpers",
+    "match": true
+  },
+  {
+    "module": "pymongo.message",
+    "match": true
+  }
+]

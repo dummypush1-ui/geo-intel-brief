@@ -1,0 +1,10 @@
+{
+  "machine": "x86_64",
+  "origin": "preexisting Ubuntu system /usr/bin/python3.10; dpkg package metadata checked, installation source not independently recovered",
+  "path": "/usr/bin/python3.10",
+  "platform": "Linux-6.1.158+-x86_64-with-glibc2.35",
+  "scope": "existing_workspace_interpreter_not_reproduced_target",
+  "sha256": "a2f33a6e006989270f4340528eb61f8f97366e00a5d1b602ac8672ea44fc56ae",
+  "soabi": "cpython-310-x86_64-linux-gnu",
+  "version": "3.10.12 (main, Aug 31 2026, 10:18:17) [GCC 11.4.0]"
+}
