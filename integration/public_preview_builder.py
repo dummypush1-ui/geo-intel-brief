@@ -25,6 +25,10 @@ BRANDING=frozenset(('favicon.ico','icon-48.png','icon-192.png','icon-512.png',
 
 def build_public_preview(environ,client_factory=None):
  if type(environ) is not dict or any(type(k)is not str or type(v)is not str for k,v in environ.items()):raise ValueError('Plain environment strings required')
+ from integration.code_news_coverage_ui_prep import enabled as coverage_ui_enabled,PATHS as COVERAGE_UI_PATHS,install as coverage_ui_install
+ from integration.code_news_coverage_route_prep import enabled as coverage_api_enabled
+ coverage_ui=coverage_ui_enabled(environ)
+ if coverage_api_enabled(environ):raise ValueError('Coverage requires reviewed live composition')
  flag=environ.get('PREVIEW_PUBLIC_SAMPLE_ENABLED','false')
  if flag not in ('true','false'):raise ValueError('Exact public sample flag required')
  if flag=='false':return build_preview(environ,client_factory=client_factory)
@@ -49,17 +53,24 @@ def build_public_preview(environ,client_factory=None):
  weather_ui_on=weather_ui_enabled(environ)
  def allow(req):
   if req.method not in ('GET','HEAD') or req.host_url.rstrip('/')!=origin:return False
+  if coverage_ui and req.path in COVERAGE_UI_PATHS:return True
   if req.path in READ_PATHS or req.path=='/' or (finder_rates and req.path in PATHS) or (code_news and req.path in CODE_PATHS) or (weather_on and req.path==WEATHER_PATH) or (weather_ui_on and req.path in WEATHER_UI_PATHS):return True
   if req.path.startswith('/workspace/assets/'):return req.path.removeprefix('/workspace/assets/')in ASSETS
   if req.path.startswith('/workspace/branding/'):return req.path.removeprefix('/workspace/branding/')in BRANDING
   return False
  app=create_app(reader=lambda:{'geo':[],'brics':[]},authorize=allow,allowed_origin=origin)
+ if coverage_ui:coverage_ui_install(app,environ,coverage_available=False)
  if finder_rates:install(app,origin)
  if weather_ui_on:weather_ui_install(app,weather_available=weather_on)
  if weather_on:
   from pathlib import Path
   weather_install(app,origin,environ,source_path=Path(__file__).resolve().parents[1]/'src/worldports.ts')
  if code_news:code_install(app,origin,lambda:{'geo':[],'brics':[]})
+ @app.before_request
+ def coverage_off_paths():
+  from flask import jsonify
+  if (request.path in COVERAGE_UI_PATHS and not coverage_ui)or(request.path=='/api/code-news-coverage'and not False):return jsonify(state='unavailable'),404
+ hooks=app.before_request_funcs[None];hooks.remove(coverage_off_paths);hooks.insert(0,coverage_off_paths)
  @app.get('/')
  def home():return redirect('/workspace',302)
  @app.after_request

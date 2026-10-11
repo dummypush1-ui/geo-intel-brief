@@ -20,7 +20,7 @@ COMPONENTS = {
 _UNWIRED_SWITCHES = ('SCRAPER_ENABLED',)
 
 
-def build_production_app(environ, public_builder=None, *, runtime_evidence=None, collector_client_factory=None, clock=None, mail_binding_provider=None):
+def build_production_app(environ, public_builder=None, *, runtime_evidence=None, collector_client_factory=None, clock=None, mail_binding_provider=None, coverage_binding_provider=None):
     if type(environ) is not dict or any(type(k) is not str or type(v) is not str for k, v in environ.items()):
         raise ValueError('Plain environment strings required')
     bad = [k for k in _UNWIRED_SWITCHES if environ.get(k, 'false') != 'false']
@@ -64,7 +64,7 @@ def build_production_app(environ, public_builder=None, *, runtime_evidence=None,
     if public_builder is None:
         from integration.public_live_builder import guarded_public_app as public_builder
     public_env=environ if flag=='false' and mail_flag=='false' else {**environ,'COLLECTION_ENABLED':'false','MERGED_MAIL_ENABLED':'false','MAIL_V1_ENABLED':'false'}
-    try:app = public_builder(public_env)
+    try:app = public_builder(public_env) if coverage_binding_provider is None else public_builder(public_env,coverage_binding_provider=coverage_binding_provider)
     except Exception:
         if collector is not None:collector.extensions['collector_close']()
         if mail_binding is not None:mail_binding.close()

@@ -99,4 +99,5 @@ def install(app,origin,broker,env=None):
   if request.path==PATH:
    out.headers['Cache-Control']='no-store';out.headers['X-Content-Type-Options']='nosniff';out.headers['Referrer-Policy']='no-referrer';out.headers['Content-Security-Policy']="default-src 'none'; frame-ancestors 'none'";out.headers['Vary']='Origin'
   return out
+ hooks=app.after_request_funcs[None];hooks.remove(coverage_headers);hooks.insert(0,coverage_headers)
  return True

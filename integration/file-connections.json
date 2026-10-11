@@ -3371,6 +3371,18 @@
       "runtime_verified": false
     },
     {
+      "path": "integration/code_news_coverage_binding_prep.py",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "056f9ff6ac8d35e22061932f764c96afbf9ec12dd82cca6019d7c69d881e88b9",
+      "static_file_edges": [
+        "integration/code_news_coverage_route_prep.py",
+        "integration/code_news_coverage_ui_prep.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
       "path": "integration/code_news_coverage_broker_prep.py",
       "project": "integration",
       "role": "offline_contract_or_private_view",
@@ -3404,7 +3416,7 @@
       "path": "integration/code_news_coverage_route_prep.py",
       "project": "integration",
       "role": "offline_contract_or_private_view",
-      "sha256": "543b697146cb02c2a3d828a93b21dc7c7744544be83cead5c8543e13fe780606",
+      "sha256": "0b86a51b9d33ba8988d0782602bee11494202822847dd6714fada482cd620abb",
       "static_file_edges": [
         "integration/code_news_coverage_contract_prep.py"
       ],
@@ -5780,8 +5792,13 @@
       "path": "integration/public_live_builder.py",
       "project": "integration",
       "role": "offline_contract_or_private_view",
-      "sha256": "6ffb49342ec62d0da8192b3066f70fc6217902ebdb817812db5a05a6d6207bcf",
+      "sha256": "2e8b5dbd498436d3052fcae66f36aadcfeff70acc9e4faae545b1bee2384354d",
       "static_file_edges": [
+        "integration/code_news_coverage_binding_prep.py",
+        "integration/code_news_coverage_broker_prep.py",
+        "integration/code_news_coverage_route_prep.py",
+        "integration/code_news_coverage_ui_prep.py",
+        "integration/code_news_disk.py",
         "integration/code_news_public.py",
         "integration/edge_guard.py",
         "integration/geo_read_factory.py",
@@ -5847,9 +5864,11 @@
       "path": "integration/public_preview_builder.py",
       "project": "integration",
       "role": "offline_contract_or_private_view",
-      "sha256": "b883acdc4f0a53bf030e632ca1600dadc095f9c4039eb948346ec0793f0af7dd",
+      "sha256": "9f5a220f21e08f4468cc0f0e67c037d81f609fdeaf794db596a4c96b161deeb8",
       "static_file_edges": [
         "integration/api_v1.py",
+        "integration/code_news_coverage_route_prep.py",
+        "integration/code_news_coverage_ui_prep.py",
         "integration/code_news_public.py",
         "integration/news_api.py",
         "integration/preview_launcher.py",
@@ -8282,7 +8301,7 @@
       "path": "production_entry.py",
       "project": "finder_or_build",
       "role": "preserved_engine_or_asset",
-      "sha256": "b8c9ead7adb1217131e3db74fe3652225fa6225295e5c1cd87cf10bf49311cca",
+      "sha256": "a9329b440fa7e39f7308003b2b5911fd582677a7c6cdf2091c40ea8d4168634e",
       "static_file_edges": [
         "feature_mail_mount/composition.py",
         "integration/collector197_dispatcher.py",
@@ -10092,7 +10111,7 @@
       "path": "staging-manifest.json",
       "project": "finder_or_build",
       "role": "preserved_engine_or_asset",
-      "sha256": "ad8e2b04abda8c8934f44ba4584bb3363699fbfc1c9c060ea55a70803a566220",
+      "sha256": "d46adeabf5afa0202346da5d26d0cedd2d3219ba4d96dca7e28f6bde34da533e",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -10765,6 +10784,15 @@
       "project": "test",
       "role": "fixture_test",
       "sha256": "844feac55f5ede43851f26a61731b6a8901501b3aa2867890394b1cb9f3d4ba7",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "tests/fixtures/public_live_builder_before_coverage.txt",
+      "project": "test",
+      "role": "fixture_test",
+      "sha256": "6ffb49342ec62d0da8192b3066f70fc6217902ebdb817812db5a05a6d6207bcf",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -11484,6 +11512,24 @@
       "role": "fixture_test",
       "sha256": "9ad66296f9e9895aa136267cc82e385956ef8642dcaa91425825b8eee5fe58ca",
       "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "tests/test_code_news_coverage_binding_prep.py",
+      "project": "test",
+      "role": "fixture_test",
+      "sha256": "1f3d539b8365b33ed9057809fe23d8244991cec8b07578c1ae53f01d8d522a31",
+      "static_file_edges": [
+        "integration/code_news_coverage_binding_prep.py",
+        "integration/code_news_coverage_route_prep.py",
+        "integration/code_news_links.py",
+        "integration/code_news_parent_prep.py",
+        "integration/news_pages.py",
+        "integration/public_live_builder.py",
+        "production_entry.py",
+        "tests/test_news_pages185.py"
+      ],
       "unresolved_internal_imports": [],
       "runtime_verified": false
     },
@@ -14921,7 +14967,7 @@
       "runtime_verified": false
     }
   ],
-  "file_count": 1429,
+  "file_count": 1432,
   "limits": [
     "Dynamic references and network endpoints need runtime adapter tests",
     "Legacy launchers deliberately not connected to merged private entrypoint",

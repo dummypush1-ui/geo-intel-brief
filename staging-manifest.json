@@ -1701,6 +1701,11 @@
       "sha256": "8da288c2c17feffd8bcca975f84747c85195645e3f7ef3734f6fd4f51852d15e"
     },
     {
+      "path": "integration/code_news_coverage_binding_prep.py",
+      "bytes": 3241,
+      "sha256": "056f9ff6ac8d35e22061932f764c96afbf9ec12dd82cca6019d7c69d881e88b9"
+    },
+    {
       "path": "integration/code_news_coverage_broker_prep.py",
       "bytes": 4843,
       "sha256": "41719a49c2c68399743b2e70c6bcacc1516be11811d775e6867e142de92d43a5"
@@ -1717,8 +1722,8 @@
     },
     {
       "path": "integration/code_news_coverage_route_prep.py",
-      "bytes": 8182,
-      "sha256": "543b697146cb02c2a3d828a93b21dc7c7744544be83cead5c8543e13fe780606"
+      "bytes": 8283,
+      "sha256": "0b86a51b9d33ba8988d0782602bee11494202822847dd6714fada482cd620abb"
     },
     {
       "path": "integration/code_news_coverage_ui_prep.py",
@@ -2817,8 +2822,8 @@
     },
     {
       "path": "integration/public_live_builder.py",
-      "bytes": 11015,
-      "sha256": "6ffb49342ec62d0da8192b3066f70fc6217902ebdb817812db5a05a6d6207bcf"
+      "bytes": 12956,
+      "sha256": "2e8b5dbd498436d3052fcae66f36aadcfeff70acc9e4faae545b1bee2384354d"
     },
     {
       "path": "integration/public_news.py",
@@ -2847,8 +2852,8 @@
     },
     {
       "path": "integration/public_preview_builder.py",
-      "bytes": 6062,
-      "sha256": "b883acdc4f0a53bf030e632ca1600dadc095f9c4039eb948346ec0793f0af7dd"
+      "bytes": 6906,
+      "sha256": "9f5a220f21e08f4468cc0f0e67c037d81f609fdeaf794db596a4c96b161deeb8"
     },
     {
       "path": "integration/publication_dates/inventory.json",
@@ -4052,8 +4057,8 @@
     },
     {
       "path": "production_entry.py",
-      "bytes": 6368,
-      "sha256": "b8c9ead7adb1217131e3db74fe3652225fa6225295e5c1cd87cf10bf49311cca"
+      "bytes": 6521,
+      "sha256": "a9329b440fa7e39f7308003b2b5911fd582677a7c6cdf2091c40ea8d4168634e"
     },
     {
       "path": "proxy.js",
@@ -5296,6 +5301,11 @@
       "sha256": "844feac55f5ede43851f26a61731b6a8901501b3aa2867890394b1cb9f3d4ba7"
     },
     {
+      "path": "tests/fixtures/public_live_builder_before_coverage.txt",
+      "bytes": 11015,
+      "sha256": "6ffb49342ec62d0da8192b3066f70fc6217902ebdb817812db5a05a6d6207bcf"
+    },
+    {
       "path": "tests/geonews_digest/__init__.py",
       "bytes": 26,
       "sha256": "8c8f4e58b5581824c3ab9932c3b94abf31493161d06eab4e11f1565a4c3b8c74"
@@ -5629,6 +5639,11 @@
       "path": "tests/test_classifier146_inventory.py",
       "bytes": 792,
       "sha256": "9ad66296f9e9895aa136267cc82e385956ef8642dcaa91425825b8eee5fe58ca"
+    },
+    {
+      "path": "tests/test_code_news_coverage_binding_prep.py",
+      "bytes": 15914,
+      "sha256": "1f3d539b8365b33ed9057809fe23d8244991cec8b07578c1ae53f01d8d522a31"
     },
     {
       "path": "tests/test_code_news_coverage_broker_prep.py",

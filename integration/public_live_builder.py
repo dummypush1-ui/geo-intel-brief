@@ -53,8 +53,12 @@ def create_public_geo_client(uri,*,serverSelectionTimeoutMS=5000,connect=False):
    tlsAllowInvalidCertificates=False,tlsAllowInvalidHostnames=False))
  except Exception:raise ValueError('Public Geo client unavailable')from None
 
-def build_public_live_preview(environ,client_factory=None,clock=time.monotonic):
+def build_public_live_preview(environ,client_factory=None,clock=time.monotonic,coverage_binding_provider=None):
  if type(environ) is not dict or any(type(k)is not str or type(v)is not str for k,v in environ.items()):raise ValueError('Plain environment strings required')
+ from integration.code_news_coverage_binding_prep import prepare
+ coverage_ui,coverage_api,coverage_pins=prepare(environ,coverage_binding_provider)
+ from integration.code_news_coverage_ui_prep import PATHS as COVERAGE_UI_PATHS,install as coverage_ui_install
+ from integration.code_news_coverage_route_prep import PATH as COVERAGE_API_PATH,install as coverage_api_install
  pages_flag=environ.get('PUBLIC_NEWS_FULL_PAGES_ENABLED','false')
  if pages_flag not in ('true','false'):raise ValueError('Exact full pages flag required')
  if pages_flag=='true' and environ.get('PUBLIC_NEWS_READ_ENABLED','false')!='true':raise ValueError('Whole-store pages require reviewed public live reads')
@@ -85,7 +89,10 @@ def build_public_live_preview(environ,client_factory=None,clock=time.monotonic):
  from integration.weather_ui import enabled as weather_ui_enabled,PATHS as WEATHER_UI_PATHS,install as weather_ui_install
  weather_ui_on=weather_ui_enabled(environ)
  def allow(req):
-  if req.method not in ('GET','HEAD') or req.host_url.rstrip('/')!=origin:return False
+  if req.host_url.rstrip('/')!=origin:return False
+  if coverage_api and req.path==COVERAGE_API_PATH:return req.method in ('POST','HEAD','OPTIONS')
+  if coverage_ui and req.path in COVERAGE_UI_PATHS:return req.method in ('GET','HEAD')
+  if req.method not in ('GET','HEAD'):return False
   if req.path in READ_PATHS or req.path=='/' or (finder_rates and req.path in PATHS) or (code_news and req.path in CODE_PATHS) or (weather_on and req.path==WEATHER_PATH) or (weather_ui_on and req.path in WEATHER_UI_PATHS):return True
   if req.path.startswith('/workspace/assets/'):return req.path.removeprefix('/workspace/assets/')in ASSETS
   if req.path.startswith('/workspace/branding/'):return req.path.removeprefix('/workspace/branding/')in BRANDING
@@ -118,20 +125,47 @@ def build_public_live_preview(environ,client_factory=None,clock=time.monotonic):
     except Exception:pass
     raise ValueError('Public Geo read unavailable')from None
   finally:lock.release()
- pages=None
- if pages_flag=='true':
-  from integration.news_pages import WholeGeoPages
-  pages=WholeGeoPages(client['geo_intel']['articles'],sanitize_public_geo_rows,verified=True)
-  import atexit
-  atexit.register(pages.close)
- app=create_app(reader=read,authorize=allow,allowed_origin=origin,full_news_pages=pages)
- app.extensions['whole_news_pages']=pages
- if finder_rates:install(app,origin)
- if weather_ui_on:weather_ui_install(app,weather_available=weather_on)
- if weather_on:
-  from pathlib import Path
-  weather_install(app,origin,environ,source_path=Path(__file__).resolve().parents[1]/'src/worldports.ts')
- if code_news:code_install(app,origin,read)
+ pages=None;model=None;closed=[False]
+ def coverage_close():
+  if closed[0]:return
+  closed[0]=True
+  try:
+   if pages is not None:pages.close()
+  finally:
+   try:
+    if model is not None:model.close()
+   finally:client.close()
+ try:
+  if pages_flag=='true':
+   from integration.news_pages import WholeGeoPages
+   pages=WholeGeoPages(client['geo_intel']['articles'],sanitize_public_geo_rows,verified=True)
+   import atexit
+   atexit.register(pages.close)
+  if coverage_api:
+   from integration.code_news_disk import DiskLinks
+   model=DiskLinks(coverage_pins.folder)
+  app=create_app(reader=read,authorize=allow,allowed_origin=origin,full_news_pages=pages)
+  app.extensions['whole_news_pages']=pages
+  if coverage_api:
+   from integration.code_news_coverage_broker_prep import CoverageBroker
+   broker=CoverageBroker(pages,model,coverage_pins.manifest,coverage_pins.matcher_version)
+   coverage_api_install(app,origin,broker,environ)
+   app.extensions['code_news_coverage_broker']=broker
+  if coverage_ui:coverage_ui_install(app,environ,coverage_available='code_news_coverage_broker'in app.extensions)
+  if weather_ui_on:weather_ui_install(app,weather_available=weather_on)
+  if weather_on:
+   from pathlib import Path
+   weather_install(app,origin,environ,source_path=Path(__file__).resolve().parents[1]/'src/worldports.ts')
+  if finder_rates:install(app,origin)
+  if code_news:code_install(app,origin,read)
+ except Exception:
+  if not coverage_api:raise
+  coverage_close();raise ValueError('Public composition unavailable')from None
+ @app.before_request
+ def coverage_off_paths():
+  from flask import jsonify
+  if (request.path in COVERAGE_UI_PATHS and not coverage_ui)or(request.path=='/api/code-news-coverage'and not coverage_api):return jsonify(state='unavailable'),404
+ hooks=app.before_request_funcs[None];hooks.remove(coverage_off_paths);hooks.insert(0,coverage_off_paths)
  @app.get('/')
  def home():return redirect('/workspace',302)
  @app.after_request
@@ -162,6 +196,10 @@ def build_public_live_preview(environ,client_factory=None,clock=time.monotonic):
    response.set_data(html)
   response.headers['X-Preview-Mode']='public_geo_readonly'
   return response
+ if coverage_api:
+  app.extensions['coverage_close']=coverage_close
+  import atexit
+  atexit.register(coverage_close)
  app.extensions.update(preview_launcher_mode='public_geo_readonly',read_only_news_clients=[client],stored_news_projects=('geo',),geo_events_read_enabled=False)
  return app
 
