@@ -13240,3 +13240,101 @@ Builder final named regression sweep:284tests ran,1skipped, OK. Modules: public
 BRICS/PDF, privateBRICS/weeklyreport/routes, Finder navigation/publicFinder,
 coveragebinding/broker/route/UI, weatherpublic/UI, newspages/lockedpages,
 code-newsdisk/safety/parent. Actual browser gate included. No fullsuitepass claim.
+
+# Public AI answers A1: default-OFF, held runtime, fake-only reviewed preparation
+
+A1 adds an optional public AI answers shell and typed app-side fixture service.
+It does NOT connect a live provider. The existing old proxy is the planned service
+for a later reviewed connector, not rebuilt or changed by A1. Provider keys,
+accounts, billing, public-use terms and deployed old-proxy source remain unverified.
+Setting any upstream environment flag cannot enable live calls in this candidate.
+
+`PUBLIC_AI_ANSWERS_ENABLED=true` plus existing
+`PREVIEW_PUBLIC_SAMPLE_ENABLED=true` admits the optional shell only after pinned
+news API and index-manifest hashes match. Default is OFF. Missing, malformed or
+drifted optional AI configuration holds this feature without crashing the app.
+Exact paths: GET/HEAD `/workspace/ai-answers`, `/workspace/ai-answers.js`,
+`/workspace/ai-answers.css`; POST/HEAD `/api/public-ai-answers` and
+`/api/public-ai-answers/status`. HEAD does no admission/read/job/provider work.
+With no explicitly injected fake service, both POST routes return held503.
+No live transport or live model catalog exists. `PUBLIC_AI_PROXY_ENABLED` and
+upstream URL/model/token/review variables are not activation mechanisms here.
+
+Explicit Python fixtures accept only exact FakeTransport/FakeCatalog classes,
+not request/config-selected providers. One manual question creates a bounded fake
+background job; status tickets are opaque bearer capabilities sent ONLY in POST
+bodies, never GET query strings. No-store and no-referrer apply to AI paths.
+Wrong tickets cannot read results. Same-origin/method/Host checks run before
+peer accounting. These checks do not authenticate visitors or defeat direct bots.
+
+News AI fixture scope is only latest-100 supplied sanitized Geo rows, at most four
+source-linked matches. FULL-STORE AI SEARCH IS NOT DONE. No web search, new DB
+client/query/write, collector, mailbox or private data is connected. The news
+Search action remains separate; Ask AI explicitly labels the latest-100 scope.
+Empty/no-source results make no fake AI call. The implementation cannot be called
+full news AI search just because ordinary news browsing supports Load More.
+
+Finder's served-copy original pick button can open a same-origin parent modal
+with question and at most four identity-only candidates. Browser provider fetch
+and device storage stay inert; preserved originals and news_api.py stay unchanged.
+Server fixture resolves exact preserved identities through the bounded disk index;
+ambiguous, odd-length or unusable-description rows become explicit omissions, not
+silently selected replacements. Rate/legal classification fields are not sent.
+Source detail links use the preserved numeric system hashes and remain snapshot
+links, not current official classification proof. The modal hides its page-back
+link so it cannot navigate only the iframe. Hostile frames/origins are refused.
+
+Answers require bounded plain text and provided evidence IDs, with at least one
+valid citation. Model-supplied URLs/markup are refused; server-owned source links
+are rendered with textContent and noopener/noreferrer. Ordinary colon text such
+as 'Summary: India trade rose.' and 'ratio a:b is 2' is accepted. HTTP(S),
+javascript:, data:, mailto:, ftp:, www. and markup link forms are refused.
+Every answer says 'AI answer - not verified. Check the linked sources.' Sources
+were supplied, not independently checked; a citation does not prove the claim.
+Fixture answers also say SIMULATED, with no contradictory unavailable banner
+above a completed fake answer. Live-held notices remain before/following failure.
+
+One app-local job/no queue; conservative socket-peer three admissions/10minutes,
+30 shared admissions/minute, two fake dispatches/rollingminute,20/rolling24hours,
+120 status reads/minute and30 reads/ticket/minute. These are AVAILABILITY controls,
+NOT spending limits. Counters reset on restart and multiply with workers/instances;
+Render socket-peer identity may collapse all visitors into a single bucket,
+reducing everyone's availability. No forwarded-IP identity or browser-key quota.
+The old public-client proxy token and directly reachable proxy bypass these app
+controls. No account-wide or restart-safe spend control is implemented by A1.
+
+Completed-but-invalid responses produce invalid_response without a process-wide
+latch, preserving a later manual question within remaining availability allowance.
+Timeout/disconnect/unknown fake transport outcomes latch AI held for the process;
+reservations are not refunded and no automatic key/provider/model retry follows.
+No claim is made that a future live upstream stopped when the app timed out.
+Fake callback duration/cancellation is a fixture responsibility, not a deployed
+hard deadline. Fixture reading under submit's lock is not a live connector design.
+
+Future ON remains blocked on independently established account-wide HARD ZERO-SPEND
+mode across all old-proxy keys/models/routes/consumers, current public-use/privacy
+terms, approved exact model and token limits, actual old deployed proxy binding,
+secure existing-protocol token availability, worker/instance and capacity facts.
+Gemini key pools must map to PROJECTS: limits are per project, extra keys in the
+same project add no quota. That mapping is manual account evidence, not a unit
+test or health-label inference. No new proxy endpoint, key rotation, AIS cutover
+or new quota DB is implied. App controls cannot repair the old proxy by themselves.
+
+Build evidence: builder39 A1 unit cases PASS, named116test regression PASS,17
+Python mutants and10 JS/browser mutants killed. Contents review: R2 PASS-WITH-NITS, with final nit fixes checked on the
+assembled tree. This is code-content review, not live activation approval.
+The builder's browser mutant results carry exact failure details;
+none is a live-provider test. Real Chrome390/1100 fixture pixels, hostile source
+titles/frame messages, omitted credentials/no-referrer, streamed response limit,
+wrong warning, sandbox, original Finder button/modal Ask/Close were exercised.
+Playwright and /usr/bin/google-chrome are required to run the browser harness.
+
+Instrumented fake memory fixture:19876024byte served Finder shell retained plus
+20 fake jobs, peak229.05MiB processRSS, tracemalloc enabled. NOT whole-container,
+cgroup, combined feature, browser iframe or live provider-child acceptance.
+64MiB child address-space target is unimplemented/untested here; do not raise it
+without measured evidence, and do not relax the combined384MiB build line.
+
+Metadata retains the existing static1761 field by request; it is not a new test
+count or full-suite claim. New A1 source/tests are registered separately. No push,
+live activation, production environment or DB action is part of contents LAND.

@@ -25,6 +25,8 @@ BRANDING=frozenset(('favicon.ico','icon-48.png','icon-192.png','icon-512.png',
 
 def build_public_preview(environ,client_factory=None):
  if type(environ) is not dict or any(type(k)is not str or type(v)is not str for k,v in environ.items()):raise ValueError('Plain environment strings required')
+ from integration.public_ai_answers import prepare as ai_prepare, PATHS as AI_PATHS, PAGES as AI_PAGES, POST as AI_POST, STATUS as AI_STATUS, install as ai_install
+ ai_on=ai_prepare(environ)
  from integration.public_brics_streams import prepare as brics_prepare, PATHS as BRICS_PATHS, install as brics_install
  brics_on=brics_prepare(environ)
  from integration.public_weekly_pdf import prepare as weekly_prepare, PATHS as WEEKLY_PATHS, install as weekly_install
@@ -58,6 +60,7 @@ def build_public_preview(environ,client_factory=None):
  from integration.weather_ui import enabled as weather_ui_enabled,PATHS as WEATHER_UI_PATHS,install as weather_ui_install
  weather_ui_on=weather_ui_enabled(environ)
  def allow(req):
+  if ai_on and req.path in AI_PATHS:return req.host_url.rstrip('/')==origin and req.method in (('GET','HEAD') if req.path in AI_PAGES else ('POST','HEAD'))
   if req.method not in ('GET','HEAD') or req.host_url.rstrip('/')!=origin:return False
   if coverage_ui and req.path in COVERAGE_UI_PATHS:return True
   if (brics_on and req.path in BRICS_PATHS) or (weekly_on and req.path in WEEKLY_PATHS) or req.path in READ_PATHS or req.path=='/' or (finder_rates and req.path in PATHS) or (code_news and req.path in CODE_PATHS) or (weather_on and req.path==WEATHER_PATH) or (weather_ui_on and req.path in WEATHER_UI_PATHS):return True
@@ -65,6 +68,7 @@ def build_public_preview(environ,client_factory=None):
   if req.path.startswith('/workspace/branding/'):return req.path.removeprefix('/workspace/branding/')in BRANDING
   return False
  app=create_app(reader=lambda:{'geo':[],'brics':[]},authorize=allow,allowed_origin=origin)
+ if ai_on:ai_install(app,origin)
  if brics_on:brics_install(app)
  if weekly_on:weekly_install(app,lambda:{'geo':[],'brics':[]})
  from integration.news_finder_navigation_prep import install_mount

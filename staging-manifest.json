@@ -27,8 +27,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 943922,
-      "sha256": "2e3619b071f478c3f53733addd9ef9d760b61a0bbe0f923fd57a28e13c9b5908"
+      "bytes": 950714,
+      "sha256": "c07c32a7b5819753784d07a6f310584ae81946c74cb731dad2ec57443319b30e"
     },
     {
       "path": "ai-agent.mjs",
@@ -2816,6 +2816,16 @@
       "sha256": "f01301b538b5a65c7d5501291045644be894cf7267f4301cc28997728db4e12c"
     },
     {
+      "path": "integration/public_ai_answers.py",
+      "bytes": 18435,
+      "sha256": "22ebc60d590042d18563615477a68686a62f29e0381e32eb6768f21183b0dbc1"
+    },
+    {
+      "path": "integration/public_ai_finder_bridge.py",
+      "bytes": 1958,
+      "sha256": "6ea6f083c0e8d525247c83e894cfefe92727a8721b77dd5c71984dd048a307d7"
+    },
+    {
       "path": "integration/public_brics_streams.py",
       "bytes": 5272,
       "sha256": "caa85ed024751cb199da58608113b3c82000b63e58a5424ddb7fb61056e2355c"
@@ -2847,8 +2857,8 @@
     },
     {
       "path": "integration/public_live_builder.py",
-      "bytes": 13865,
-      "sha256": "8901fa84aba602290cb2162e99ddeeb816abc47b49697e584c15a1b7effd1dbe"
+      "bytes": 14246,
+      "sha256": "d05bcba1be7fc00164dae14cdc053d92c8bd8fe65ff38049ced6090c45043eca"
     },
     {
       "path": "integration/public_news.py",
@@ -2877,8 +2887,8 @@
     },
     {
       "path": "integration/public_preview_builder.py",
-      "bytes": 7655,
-      "sha256": "459edb8bd49488f6ebb570632e766b37c2a95dc7fdaa6772a96bd954fe277ef0"
+      "bytes": 8035,
+      "sha256": "be448f3cd92a7b0305233de3161d5fd0df21ca278affb81c9ca9ca7cbfbe38ff"
     },
     {
       "path": "integration/public_weekly_pdf.py",
@@ -3559,6 +3569,21 @@
       "path": "integration/ui/news_scroll.js",
       "bytes": 1827,
       "sha256": "1fe5950c718c4a7136e853565fc7ec2857ddb209c4ffa01d4278be2165936ea5"
+    },
+    {
+      "path": "integration/ui/public_ai_answers.css",
+      "bytes": 820,
+      "sha256": "bbc08000c71c53109ba4836b5a7da1a4b50a6bd8297b2ca49474acd1511a25fa"
+    },
+    {
+      "path": "integration/ui/public_ai_answers.html",
+      "bytes": 1267,
+      "sha256": "bb202082ced19a2c252cfc86f04e785c6ad82ddedc242713c7ae5008a0d97109"
+    },
+    {
+      "path": "integration/ui/public_ai_answers.js",
+      "bytes": 6778,
+      "sha256": "b060de25371bb22d3ce05ce0eb0da726cef05a63a505d0f08a3740e8a255bcaa"
     },
     {
       "path": "integration/ui/public_brics_streams.css",
@@ -5276,6 +5301,11 @@
       "sha256": "1ba7c237f01af81676fdd59cfb01562b99fa70a7aeda13496b99a1ddaee7ba94"
     },
     {
+      "path": "tests/browser_public_ai_answers.py",
+      "bytes": 9859,
+      "sha256": "2995d87f5d55c0f55f1344ba9357816dcd936468da71d094f2605fc2f993e513"
+    },
+    {
       "path": "tests/browser_public_brics.py",
       "bytes": 7858,
       "sha256": "522354ed29ce4f91758df14fad14664c355eddd99bce8a5915194efdc6c80658"
@@ -5389,6 +5419,16 @@
       "path": "tests/finder198_client_test.mjs",
       "bytes": 3640,
       "sha256": "b383199b4fb5251de98d27ac452dae5ce5d03a79b0a48ccf46fb04567e529cb3"
+    },
+    {
+      "path": "tests/fixtures/ai_base_live.txt",
+      "bytes": 13865,
+      "sha256": "8901fa84aba602290cb2162e99ddeeb816abc47b49697e584c15a1b7effd1dbe"
+    },
+    {
+      "path": "tests/fixtures/ai_base_sample.txt",
+      "bytes": 7655,
+      "sha256": "459edb8bd49488f6ebb570632e766b37c2a95dc7fdaa6772a96bd954fe277ef0"
     },
     {
       "path": "tests/fixtures/brics_base_live.txt",
@@ -5644,6 +5684,11 @@
       "path": "tests/proxy_runtime/test_ships_ui179.cjs",
       "bytes": 1029,
       "sha256": "e0195da6768c0ef8de57c91180421a955573ad605321c2acfe0414627503e87b"
+    },
+    {
+      "path": "tests/public_ai_fixture_memory.py",
+      "bytes": 1321,
+      "sha256": "15b1d8fb3f4f2385bbd988047aad67529863f6f09197e09c41cf0e77ebb4e3af"
     },
     {
       "path": "tests/publication_dates/__init__.py",
@@ -6544,6 +6589,11 @@
       "path": "tests/test_proxy164.py",
       "bytes": 480,
       "sha256": "9fadd5987c973f108428fd37ada6aa40618012078a145db58be015a544d47aef"
+    },
+    {
+      "path": "tests/test_public_ai_answers.py",
+      "bytes": 20216,
+      "sha256": "410e58ff6d3cc8dbae243de0b41c8f62e0c7a74408880fa5e34d05efe08cecd4"
     },
     {
       "path": "tests/test_public_brics_streams.py",
