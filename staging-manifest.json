@@ -1701,6 +1701,11 @@
       "sha256": "8da288c2c17feffd8bcca975f84747c85195645e3f7ef3734f6fd4f51852d15e"
     },
     {
+      "path": "integration/code_news_coverage_prep.py",
+      "bytes": 6088,
+      "sha256": "3962ba949e8ba47d857972acd9ad6f8e2815d26b8abeeb76202d1f00859809d8"
+    },
+    {
       "path": "integration/code_news_cursor_prep.py",
       "bytes": 4592,
       "sha256": "922207b1551e3c91632def930f2812b84ab6cf02be9a8820b08564db6a3796d0"
@@ -1729,6 +1734,11 @@
       "path": "integration/code_news_links.py",
       "bytes": 8057,
       "sha256": "12fd8e76fca034740d4578e4ee6b1a48db2991e86a23ef15669138a0aec708c2"
+    },
+    {
+      "path": "integration/code_news_matcher_prep.py",
+      "bytes": 1438,
+      "sha256": "5afcb9db1462c161698af011bd10ddae49d8f607c5ffd474b6a76cbbdfddcc7e"
     },
     {
       "path": "integration/code_news_pins.json",
@@ -5564,6 +5574,11 @@
       "path": "tests/test_classifier146_inventory.py",
       "bytes": 792,
       "sha256": "9ad66296f9e9895aa136267cc82e385956ef8642dcaa91425825b8eee5fe58ca"
+    },
+    {
+      "path": "tests/test_code_news_coverage_prep.py",
+      "bytes": 10130,
+      "sha256": "79ef16623ce11f4401eda0b4628309c1fbab6ef9ddc92c55522aedfc4222588b"
     },
     {
       "path": "tests/test_code_news_cursor_prep.py",
