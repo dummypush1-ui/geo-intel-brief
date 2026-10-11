@@ -3435,7 +3435,7 @@
       "path": "integration/code_news_disk.py",
       "project": "integration",
       "role": "offline_contract_or_private_view",
-      "sha256": "844feac55f5ede43851f26a61731b6a8901501b3aa2867890394b1cb9f3d4ba7",
+      "sha256": "c7a77b1fc4569deabae2d110af861b7aa2b0c21b6e2dc14fdcadb6df014c53da",
       "static_file_edges": [
         "integration/code_news_links.py"
       ],
@@ -10092,7 +10092,7 @@
       "path": "staging-manifest.json",
       "project": "finder_or_build",
       "role": "preserved_engine_or_asset",
-      "sha256": "3ccf4725cb2d328e5feb9ffacfa7bd693268bdbe16b030e853d7233260c582e0",
+      "sha256": "ad8e2b04abda8c8934f44ba4584bb3363699fbfc1c9c060ea55a70803a566220",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -10757,6 +10757,15 @@
       "static_file_edges": [
         "integration/finder198_ui/client.mjs"
       ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "tests/fixtures/code_news_disk_before_safety.txt",
+      "project": "test",
+      "role": "fixture_test",
+      "sha256": "844feac55f5ede43851f26a61731b6a8901501b3aa2867890394b1cb9f3d4ba7",
+      "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
     },
@@ -11551,6 +11560,18 @@
         "integration/code_news_disk.py",
         "integration/code_news_links.py",
         "integration/code_news_public.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "tests/test_code_news_disk_safety.py",
+      "project": "test",
+      "role": "fixture_test",
+      "sha256": "a609e080cf90c7bb1374a446852388dae727d6e20f9b20921b684d2fa9583b54",
+      "static_file_edges": [
+        "integration/code_news_disk.py",
+        "integration/code_news_links.py"
       ],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -14900,7 +14921,7 @@
       "runtime_verified": false
     }
   ],
-  "file_count": 1427,
+  "file_count": 1429,
   "limits": [
     "Dynamic references and network endpoints need runtime adapter tests",
     "Legacy launchers deliberately not connected to merged private entrypoint",

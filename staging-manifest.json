@@ -1732,8 +1732,8 @@
     },
     {
       "path": "integration/code_news_disk.py",
-      "bytes": 3426,
-      "sha256": "844feac55f5ede43851f26a61731b6a8901501b3aa2867890394b1cb9f3d4ba7"
+      "bytes": 3922,
+      "sha256": "c7a77b1fc4569deabae2d110af861b7aa2b0c21b6e2dc14fdcadb6df014c53da"
     },
     {
       "path": "integration/code_news_index/codes.idx",
@@ -5291,6 +5291,11 @@
       "sha256": "b383199b4fb5251de98d27ac452dae5ce5d03a79b0a48ccf46fb04567e529cb3"
     },
     {
+      "path": "tests/fixtures/code_news_disk_before_safety.txt",
+      "bytes": 3426,
+      "sha256": "844feac55f5ede43851f26a61731b6a8901501b3aa2867890394b1cb9f3d4ba7"
+    },
+    {
       "path": "tests/geonews_digest/__init__.py",
       "bytes": 26,
       "sha256": "8c8f4e58b5581824c3ab9932c3b94abf31493161d06eab4e11f1565a4c3b8c74"
@@ -5654,6 +5659,11 @@
       "path": "tests/test_code_news_disk.py",
       "bytes": 1469,
       "sha256": "365579fa428b80f582e8dfc8684b88764c7a154d50c8043baf264446cb6ab40a"
+    },
+    {
+      "path": "tests/test_code_news_disk_safety.py",
+      "bytes": 7367,
+      "sha256": "a609e080cf90c7bb1374a446852388dae727d6e20f9b20921b684d2fa9583b54"
     },
     {
       "path": "tests/test_code_news_matcher_regression.py",
