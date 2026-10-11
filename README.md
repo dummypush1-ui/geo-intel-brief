@@ -13122,3 +13122,53 @@ from the repository scan root and whether its reported finding path/ID strings
 match these exact entries. First CI run may remain red if either differs; this
 would mean suppression did nothing, not a reason to widen it blindly. The failing
 log was not inspected in this review. Check exact output before revising scope.
+
+## Public supplied-news weekly PDF candidate (P1, default OFF)
+
+`PUBLIC_WEEKLY_PDF_ENABLED=false` (or missing) preserves the old public responses,
+views and hidden Weekly PDF navigation. Exact `true` mounts only the preserved
+weekly page, two weekly assets and PDF GET/HEAD in validated public compositions.
+This local candidate is not a live activation, DB approval or completed deployment.
+Private `news_api.py` is unchanged so the E1a2 Finder mount hash remains valid.
+Startup source pins are startup-only, not continuous file-drift monitoring.
+
+Manual generation reads the existing supplied public view exactly once per admitted
+build. Public live mode supplies newest up to100 Geo rows from its existing reader;
+public empty-sample mode supplies no news, so the PDF says no supplied items, not
+that nothing happened. Whole-store coverage/pagination is not read for reports.
+This public handler fails on malformed/oversized supplied rows instead of silently
+slicing, accepts at most100 per collection (200 total), validates primitive fields
+before normalization, drops private fields, and supplies no tariff evidence.
+The preserved private handler keeps its original slice behavior. India calendar
+start and exclusive end,1..31 days, publication dates with explicit timezone are
+required. No collected-date replacement, AI writing, research, schedule, email,
+saved files or report history. Non-Western-European text prints as "?".
+
+New module-level guards cap public generation at2 builds per process and10 starts
+per rolling60seconds per process. This is a GLOBAL cap shared by all visitors;
+anyone can exhaust it and legitimate visitors can get429 for up to60seconds.
+HEAD validates but never consumes a start or reads/generates. Busy builds do not
+wait in a queue. Guards do not cap retained responses or active downloads; multiple
+workers/instances multiply these limits. Browser timeout only stops browser wait,
+not server generation. The fixed2MiB PDF response cap is post-build, not by itself
+proof of pre-build memory use. Disable flag and restart to rollback; in-flight old
+workers can finish until stopped. Report source links are validated https-only.
+
+Offline combined-app stress with actual Finder proof/coverage objects,2 concurrent
+worst-field100-Geo public PDF builds and retained responses ran under512MiB process
+address-space limit:40.92MiB process RSS highwater,0.75seconds wall,2x17853byte
+PDFs, Finder link ready. Build target is <=384MiB process RSS; a miss fails design.
+This result is NOT whole-container Render512MiB certification or live capacity.
+Independent reviewer must rerun on the final source. Local targeted regression:
+152 tests ran,1 skipped; browser390/1100 manual download/error states/no overflow
+checked, actual page and rendered PDF pixels inspected. No full-suite-pass claim.
+
+P1 review scope caveats: serving the 20MB preserved offline Finder page per request
+is NOT included in the PDF memory number. The 100-row worst-case PDF has NOT been
+pixel-inspected by anyone. Reviewer did NOT check https-only URI/no /JavaScript or
+/Launch on a real PDF-with-rows output; the local producer automated real-output
+check exists, but that is not independent reviewer inspection. Independent review
+ran 16 new tests and 438 regression tests, and reproduced41.16MiB process RSS.
+The no-store-removal mutant is equivalent because the original app also sets it;
+end-to-end no-store assertions on all four paths remain valid. These are offline
+fixture results, not live Render container certification or owner DB grants.
