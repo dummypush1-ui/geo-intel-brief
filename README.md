@@ -13167,8 +13167,76 @@ P1 review scope caveats: serving the 20MB preserved offline Finder page per requ
 is NOT included in the PDF memory number. The 100-row worst-case PDF has NOT been
 pixel-inspected by anyone. Reviewer did NOT check https-only URI/no /JavaScript or
 /Launch on a real PDF-with-rows output; the local producer automated real-output
-check exists, but that is not independent reviewer inspection. Independent review
-ran 16 new tests and 438 regression tests, and reproduced41.16MiB process RSS.
+check exists, but that is not independent reviewer inspection. Reviewer reported
+16 new tests and reproduced41.16MiB process RSS.
 The no-store-removal mutant is equivalent because the original app also sets it;
 end-to-end no-store assertions on all four paths remain valid. These are offline
 fixture results, not live Render container certification or owner DB grants.
+
+## Public supplied-video wall B1 candidate (default OFF)
+
+`PUBLIC_BRICS_STREAMS_ENABLED` is exacttrue/false, missingOFF. OFF preserves the
+old public responses/views and hidden BRICS navigation. ON only mounts the
+public page, two public assets and read-only fixedseed GET/HEAD API in validated
+public compositions; no public POST/DELETE/OPTIONS, server config writes, DB,
+YAML change, account save or owner-management persistence. Authenticated owner
+management of defaults is a future hook, not a working shared fixture service.
+Startup pins are startup-only, not continuous drift checks; news_api.py stays
+77137ebf so Finder and PDF source checks still pass. Public access has no paywall.
+
+Republic is compulsory; four default extras are Al Jazeera English, France24
+English, DW News, ANI News. Recorded video IDs from streams.yaml/live_channels.js
+are pinned, with JS display names winning. These are video IDs, not channel IDs
+or verified-current-live feeds. Visitor extras (maximum8 including fourdefaults)
+are validated before use and saved under a new public browser-localStorage key.
+The private geo-intel-preview-channels-v1 key is never read. Corrupt/oversized/
+prototype-shaped settings restore fourdefaults with a visible message. Saved in
+this browser only, not across devices, cleared storage, accounts or visitors.
+Storage failure means changes last only this page. Republic cannot be removed,
+renamed or replaced by a browser configuration or add form.
+
+1b wall has a big selected player and mini players. Initial five defaults+big
+attempt muted autoplay (sixframes); only default IDs still in the visitor list
+autoplay. Added/custom extras load minis only on click. Maximum9mini+big=10frames.
+Selection replaces big only; Stop removes loaded frames, Start only starts default
+IDs still present. Data/third-party notice and Stop are in the first390px viewport.
+Frames use only canonical youtube-nocookie embed URLs, no YouTube Data API/key,
+remote player JS library, polling, automatic account lookup or server fetch.
+Parent CSP restricts frame-src to that host; API output has no embed_url.
+Open-on-YouTube links are fallback, never opened automatically.
+
+Real YouTube playback, provider restrictions and current live availability have
+NOT been checked by anyone for this candidate. Page no-referrer and iframe
+strict-origin-when-cross-origin policies differ; real provider compatibility is
+unverified. Offline intercepted iframe screenshots are layout/construction ONLY,
+not proof of playback, muted state or availability. YouTube nested content can
+load third-party requests and use heavy data. Browser/phone capacity is NOT
+certified by Python memory measurements. Autoplay is best-effort/browser-controlled.
+
+Parity vectors run against Python brics_streams.video_id, youtube_links helper
+recognizers, existing live_channels.js videoId and new public JS. New public JS
+accepts the same lowercase-scheme forms including non-www watch/live/embed, but
+narrows Python by rejecting uppercase HTTPS:// schemes; inherited narrow JS
+bare/www-watch/youtu.be grammar remains unchanged. 'Short' means youtu.be/ID,
+not /shorts/ID. Bounded labels, URL grammar, NFKC Republic reservation, maxextras,
+fixedseeds and localStorage parsing fail closed; no arbitrary iframe URL/srcdoc.
+
+Local B1+P1+Finder/coverage/weather targeted93tests pass. Offline combined app
+stress:2 concurrent worst-field100Geo PDFs retained, actual Finder proof start,
+and20MB offline Finder page served/retained, peak194.22MiB process RSS,
+3.26seconds wall under512MiB process address-space limit. Build target<=384MiB
+RSS met. NOT whole-container Render512MiB certification; iframe resources in the
+visitor's browser excluded. Browser390/1100 layout-only checks cover initialwall,
+maxextras/Tamillabels, local save/reload/corrupt restore, privatekey ignored,
+removeddefault noautoplay, stop/start and click-to-load, no server writes/errors.
+No push/ON/live DB action or real provider load from this unit.
+
+B1 test-environment note: the real-JS browser gate in test_public_brics_streams
+requires Playwright and /usr/bin/google-chrome installed in the executing test
+environment; missing dependencies error, not silent skip or a pass. Reviewer
+reported product contents LAND after the tests/README resubmit, not live activation.
+
+Builder final named regression sweep:284tests ran,1skipped, OK. Modules: public
+BRICS/PDF, privateBRICS/weeklyreport/routes, Finder navigation/publicFinder,
+coveragebinding/broker/route/UI, weatherpublic/UI, newspages/lockedpages,
+code-newsdisk/safety/parent. Actual browser gate included. No fullsuitepass claim.

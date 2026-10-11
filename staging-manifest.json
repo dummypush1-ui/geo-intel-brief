@@ -27,8 +27,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 939329,
-      "sha256": "69787f01b26a2590f19b7c9ac48dedb3f22688a64a8e399b58ed5a86bfc1ab6d"
+      "bytes": 943922,
+      "sha256": "2e3619b071f478c3f53733addd9ef9d760b61a0bbe0f923fd57a28e13c9b5908"
     },
     {
       "path": "ai-agent.mjs",
@@ -2816,6 +2816,11 @@
       "sha256": "f01301b538b5a65c7d5501291045644be894cf7267f4301cc28997728db4e12c"
     },
     {
+      "path": "integration/public_brics_streams.py",
+      "bytes": 5272,
+      "sha256": "caa85ed024751cb199da58608113b3c82000b63e58a5424ddb7fb61056e2355c"
+    },
+    {
       "path": "integration/public_finder.py",
       "bytes": 7172,
       "sha256": "ac0772c876b74b692063ef76ee1c969997562034431d43df27e5459119a09a0b"
@@ -2842,8 +2847,8 @@
     },
     {
       "path": "integration/public_live_builder.py",
-      "bytes": 13622,
-      "sha256": "0663ae4ca87116f2a680e5599585a4523f79cb709a361a9b40db6d204761ba4a"
+      "bytes": 13865,
+      "sha256": "8901fa84aba602290cb2162e99ddeeb816abc47b49697e584c15a1b7effd1dbe"
     },
     {
       "path": "integration/public_news.py",
@@ -2872,8 +2877,8 @@
     },
     {
       "path": "integration/public_preview_builder.py",
-      "bytes": 7413,
-      "sha256": "a9737c7deec2fd902afd22d86ebd596867eaf612e80895bffb16f29255c60796"
+      "bytes": 7655,
+      "sha256": "459edb8bd49488f6ebb570632e766b37c2a95dc7fdaa6772a96bd954fe277ef0"
     },
     {
       "path": "integration/public_weekly_pdf.py",
@@ -3554,6 +3559,21 @@
       "path": "integration/ui/news_scroll.js",
       "bytes": 1827,
       "sha256": "1fe5950c718c4a7136e853565fc7ec2857ddb209c4ffa01d4278be2165936ea5"
+    },
+    {
+      "path": "integration/ui/public_brics_streams.css",
+      "bytes": 1394,
+      "sha256": "03012562682905040f92a2f297f90c98d9ecca57202638d7ab05b2412a38f0fe"
+    },
+    {
+      "path": "integration/ui/public_brics_streams.html",
+      "bytes": 1605,
+      "sha256": "a509bc1dbcfe91213550ad38a793b7b31032b083bba40eaa16a6dbd0400adcf5"
+    },
+    {
+      "path": "integration/ui/public_brics_streams.js",
+      "bytes": 8091,
+      "sha256": "e8e2fe52fed120a76c570bd7dab65cf7a9ebe2bc5338142df8dd8ed5a254c0a6"
     },
     {
       "path": "integration/ui/public_weekly.css",
@@ -5141,6 +5161,16 @@
       "sha256": "f9d544c177707b2fe843f02aeb27e69a0cf89c3d74bb7518aa0713a09ba2c988"
     },
     {
+      "path": "tests/brics_public_memory.py",
+      "bytes": 3503,
+      "sha256": "7bffe8a907e598a65dfc34a97365301259a428a2d2a772ee6bea36f263df26b2"
+    },
+    {
+      "path": "tests/brics_public_parity.mjs",
+      "bytes": 1464,
+      "sha256": "45973ad5e384342e94877e38dbabf9a84eea6232988d1f098f9a4c483902e9e2"
+    },
+    {
       "path": "tests/browser_brics_streams.py",
       "bytes": 1755,
       "sha256": "76635cec97752e0d3c452e778b26e0a14d690a750b81fc66af51489f7dd598c2"
@@ -5244,6 +5274,11 @@
       "path": "tests/browser_offline232.py",
       "bytes": 7967,
       "sha256": "1ba7c237f01af81676fdd59cfb01562b99fa70a7aeda13496b99a1ddaee7ba94"
+    },
+    {
+      "path": "tests/browser_public_brics.py",
+      "bytes": 7858,
+      "sha256": "522354ed29ce4f91758df14fad14664c355eddd99bce8a5915194efdc6c80658"
     },
     {
       "path": "tests/browser_public_weekly.py",
@@ -5354,6 +5389,21 @@
       "path": "tests/finder198_client_test.mjs",
       "bytes": 3640,
       "sha256": "b383199b4fb5251de98d27ac452dae5ce5d03a79b0a48ccf46fb04567e529cb3"
+    },
+    {
+      "path": "tests/fixtures/brics_base_live.txt",
+      "bytes": 13622,
+      "sha256": "0663ae4ca87116f2a680e5599585a4523f79cb709a361a9b40db6d204761ba4a"
+    },
+    {
+      "path": "tests/fixtures/brics_base_sample.txt",
+      "bytes": 7413,
+      "sha256": "a9737c7deec2fd902afd22d86ebd596867eaf612e80895bffb16f29255c60796"
+    },
+    {
+      "path": "tests/fixtures/brics_url_vectors.json",
+      "bytes": 3144,
+      "sha256": "3b4c210fa8ed9b3fdd3e46d3cf6c0671ad00df207701c1f1e3edc02fc9bb9c07"
     },
     {
       "path": "tests/fixtures/code_news_disk_before_safety.txt",
@@ -6494,6 +6544,11 @@
       "path": "tests/test_proxy164.py",
       "bytes": 480,
       "sha256": "9fadd5987c973f108428fd37ada6aa40618012078a145db58be015a544d47aef"
+    },
+    {
+      "path": "tests/test_public_brics_streams.py",
+      "bytes": 7906,
+      "sha256": "404a16cba372b527314f2e1b65ec55ceecdcbb12423cdc10c9194cfc3f0a3358"
     },
     {
       "path": "tests/test_public_finder.py",

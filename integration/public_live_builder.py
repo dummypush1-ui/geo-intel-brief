@@ -55,6 +55,8 @@ def create_public_geo_client(uri,*,serverSelectionTimeoutMS=5000,connect=False):
 
 def build_public_live_preview(environ,client_factory=None,clock=time.monotonic,coverage_binding_provider=None):
  if type(environ) is not dict or any(type(k)is not str or type(v)is not str for k,v in environ.items()):raise ValueError('Plain environment strings required')
+ from integration.public_brics_streams import prepare as brics_prepare, PATHS as BRICS_PATHS, install as brics_install
+ brics_on=brics_prepare(environ)
  from integration.public_weekly_pdf import prepare as weekly_prepare, PATHS as WEEKLY_PATHS, install as weekly_install
  weekly_on=weekly_prepare(environ)
  from integration.news_finder_navigation_prep import enabled as finder_links_enabled
@@ -97,7 +99,7 @@ def build_public_live_preview(environ,client_factory=None,clock=time.monotonic,c
   if coverage_api and req.path==COVERAGE_API_PATH:return req.method in ('POST','HEAD','OPTIONS')
   if coverage_ui and req.path in COVERAGE_UI_PATHS:return req.method in ('GET','HEAD')
   if req.method not in ('GET','HEAD'):return False
-  if (weekly_on and req.path in WEEKLY_PATHS) or req.path in READ_PATHS or req.path=='/' or (finder_rates and req.path in PATHS) or (code_news and req.path in CODE_PATHS) or (weather_on and req.path==WEATHER_PATH) or (weather_ui_on and req.path in WEATHER_UI_PATHS):return True
+  if (brics_on and req.path in BRICS_PATHS) or (weekly_on and req.path in WEEKLY_PATHS) or req.path in READ_PATHS or req.path=='/' or (finder_rates and req.path in PATHS) or (code_news and req.path in CODE_PATHS) or (weather_on and req.path==WEATHER_PATH) or (weather_ui_on and req.path in WEATHER_UI_PATHS):return True
   if req.path.startswith('/workspace/assets/'):return req.path.removeprefix('/workspace/assets/')in ASSETS
   if req.path.startswith('/workspace/branding/'):return req.path.removeprefix('/workspace/branding/')in BRANDING
   return False
@@ -150,6 +152,7 @@ def build_public_live_preview(environ,client_factory=None,clock=time.monotonic,c
    from integration.code_news_disk import DiskLinks
    model=DiskLinks(coverage_pins.folder)
   app=create_app(reader=read,authorize=allow,allowed_origin=origin,full_news_pages=pages)
+  if brics_on:brics_install(app)
   if weekly_on:weekly_install(app,read)
   from integration.news_finder_navigation_prep import install_mount
   install_mount(app)
@@ -202,7 +205,7 @@ def build_public_live_preview(environ,client_factory=None,clock=time.monotonic,c
    html=html.replace('src="/workspace/finder/index.html"','src="/workspace/finder/live.html"' if finder_rates else 'src="/workspace/finder/offline.html"')
    # These heavier/private workflows are deliberately outside the public scope.
    if not weekly_on:html=html.replace('<a href="/workspace/weekly">Weekly PDF</a>','')
-   html=html.replace('<a href="/workspace/brics-streams">BRICS streams</a>','')
+   if not brics_on:html=html.replace('<a href="/workspace/brics-streams">BRICS streams</a>','')
    html=html.replace('<button data-view="live" aria-pressed="false">Live news</button>','').replace('<button data-view="channels" aria-pressed="false">My channels</button>','')
    html=html.replace('<script type="module" src="/workspace/assets/live_news.js"></script>','')
    response.set_data(html)
