@@ -43,14 +43,19 @@ def build_public_preview(environ,client_factory=None):
  finder_rates=enabled(environ)
  from integration.code_news_public import enabled as code_enabled,PATHS as CODE_PATHS,install as code_install
  code_news=code_enabled(environ)
+ from integration.weather_public import enabled as weather_enabled,PATH as WEATHER_PATH,install_if_enabled as weather_install
+ weather_on=weather_enabled(environ)
  def allow(req):
   if req.method not in ('GET','HEAD') or req.host_url.rstrip('/')!=origin:return False
-  if req.path in READ_PATHS or req.path=='/' or (finder_rates and req.path in PATHS) or (code_news and req.path in CODE_PATHS):return True
+  if req.path in READ_PATHS or req.path=='/' or (finder_rates and req.path in PATHS) or (code_news and req.path in CODE_PATHS) or (weather_on and req.path==WEATHER_PATH):return True
   if req.path.startswith('/workspace/assets/'):return req.path.removeprefix('/workspace/assets/')in ASSETS
   if req.path.startswith('/workspace/branding/'):return req.path.removeprefix('/workspace/branding/')in BRANDING
   return False
  app=create_app(reader=lambda:{'geo':[],'brics':[]},authorize=allow,allowed_origin=origin)
  if finder_rates:install(app,origin)
+ if weather_on:
+  from pathlib import Path
+  weather_install(app,origin,environ,source_path=Path(__file__).resolve().parents[1]/'src/worldports.ts')
  if code_news:code_install(app,origin,lambda:{'geo':[],'brics':[]})
  @app.get('/')
  def home():return redirect('/workspace',302)

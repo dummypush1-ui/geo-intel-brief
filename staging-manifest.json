@@ -2772,8 +2772,8 @@
     },
     {
       "path": "integration/public_live_builder.py",
-      "bytes": 10372,
-      "sha256": "c4afb8cc98d27b90334aadfb30c9fdb7b771ae84e4789ef460d6b77ecc652572"
+      "bytes": 10727,
+      "sha256": "a135f44ce1a6c42535b06fa1fd0c9aef2cdeae0f9d1d86fe230480075003563c"
     },
     {
       "path": "integration/public_news.py",
@@ -2802,8 +2802,8 @@
     },
     {
       "path": "integration/public_preview_builder.py",
-      "bytes": 5419,
-      "sha256": "665a102c6d2e4b767735975177a6841927371259a8dfaea1969392099c5ebf04"
+      "bytes": 5774,
+      "sha256": "66db592fd07fd7d29214275a635044df1ba80fd37257c8f381fbe5c7e519479b"
     },
     {
       "path": "integration/publication_dates/inventory.json",
@@ -3504,6 +3504,11 @@
       "path": "integration/ui/workspace.js",
       "bytes": 40373,
       "sha256": "d1c8893753936a8f8b6583ae591c33a9966b5f28cc13af7bf76e0b296f6fab32"
+    },
+    {
+      "path": "integration/weather_public.py",
+      "bytes": 7051,
+      "sha256": "d1c26ed91c2eef81684713514daa45c274422eeddb8e7a5dd1d8f4d509a025d7"
     },
     {
       "path": "integration/weather_public_prep.py",
@@ -6564,6 +6569,11 @@
       "path": "tests/test_weather231.py",
       "bytes": 2362,
       "sha256": "1a60490cd1986d80e330bc924c1bcd9d39e08539ab8b9e437816bd4d64f2a87e"
+    },
+    {
+      "path": "tests/test_weather_public.py",
+      "bytes": 15448,
+      "sha256": "b63b05edbf68ad8280f1d16c4bbc3da7c32f05a5047149aa971646c2710e3dc2"
     },
     {
       "path": "tests/test_weather_public_prep.py",

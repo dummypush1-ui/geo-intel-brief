@@ -5686,7 +5686,7 @@
       "path": "integration/public_live_builder.py",
       "project": "integration",
       "role": "offline_contract_or_private_view",
-      "sha256": "c4afb8cc98d27b90334aadfb30c9fdb7b771ae84e4789ef460d6b77ecc652572",
+      "sha256": "a135f44ce1a6c42535b06fa1fd0c9aef2cdeae0f9d1d86fe230480075003563c",
       "static_file_edges": [
         "integration/code_news_public.py",
         "integration/edge_guard.py",
@@ -5697,7 +5697,8 @@
         "integration/public_finder.py",
         "integration/public_preview_builder.py",
         "integration/security_headers.py",
-        "integration/storage_reader.py"
+        "integration/storage_reader.py",
+        "integration/weather_public.py"
       ],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -5751,13 +5752,14 @@
       "path": "integration/public_preview_builder.py",
       "project": "integration",
       "role": "offline_contract_or_private_view",
-      "sha256": "665a102c6d2e4b767735975177a6841927371259a8dfaea1969392099c5ebf04",
+      "sha256": "66db592fd07fd7d29214275a635044df1ba80fd37257c8f381fbe5c7e519479b",
       "static_file_edges": [
         "integration/api_v1.py",
         "integration/code_news_public.py",
         "integration/news_api.py",
         "integration/preview_launcher.py",
-        "integration/public_finder.py"
+        "integration/public_finder.py",
+        "integration/weather_public.py"
       ],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -7135,6 +7137,17 @@
       "static_file_edges": [
         "integration/ui/context_excerpt208.js",
         "integration/ui/news_scroll.js"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/weather_public.py",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "d1c26ed91c2eef81684713514daa45c274422eeddb8e7a5dd1d8f4d509a025d7",
+      "static_file_edges": [
+        "integration/weather_public_prep.py"
       ],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -9920,7 +9933,7 @@
       "path": "staging-manifest.json",
       "project": "finder_or_build",
       "role": "preserved_engine_or_asset",
-      "sha256": "3aa3435c6ea0f3fad61ff6f5baab308d1720709fe0d8a52e118a5f9858e345c5",
+      "sha256": "bebcdde2c265b9bd76abbe7c5f2dfb483eca36457767f94a6bfdc053b473a290",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -13817,6 +13830,20 @@
       "runtime_verified": false
     },
     {
+      "path": "tests/test_weather_public.py",
+      "project": "test",
+      "role": "fixture_test",
+      "sha256": "b63b05edbf68ad8280f1d16c4bbc3da7c32f05a5047149aa971646c2710e3dc2",
+      "static_file_edges": [
+        "integration/public_live_builder.py",
+        "integration/public_preview_builder.py",
+        "integration/weather_public.py",
+        "integration/weather_public_prep.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
       "path": "tests/test_weather_public_prep.py",
       "project": "test",
       "role": "fixture_test",
@@ -14583,7 +14610,7 @@
       "runtime_verified": false
     }
   ],
-  "file_count": 1399,
+  "file_count": 1401,
   "limits": [
     "Dynamic references and network endpoints need runtime adapter tests",
     "Legacy launchers deliberately not connected to merged private entrypoint",
