@@ -2772,8 +2772,8 @@
     },
     {
       "path": "integration/public_live_builder.py",
-      "bytes": 10727,
-      "sha256": "a135f44ce1a6c42535b06fa1fd0c9aef2cdeae0f9d1d86fe230480075003563c"
+      "bytes": 11015,
+      "sha256": "6ffb49342ec62d0da8192b3066f70fc6217902ebdb817812db5a05a6d6207bcf"
     },
     {
       "path": "integration/public_news.py",
@@ -2802,8 +2802,8 @@
     },
     {
       "path": "integration/public_preview_builder.py",
-      "bytes": 5774,
-      "sha256": "66db592fd07fd7d29214275a635044df1ba80fd37257c8f381fbe5c7e519479b"
+      "bytes": 6062,
+      "sha256": "b883acdc4f0a53bf030e632ca1600dadc095f9c4039eb948346ec0793f0af7dd"
     },
     {
       "path": "integration/publication_dates/inventory.json",
@@ -3476,6 +3476,21 @@
       "sha256": "1683fb09bfd5b9b58861cf142878a4f2cc75bd643dda48b3527272a31e90e247"
     },
     {
+      "path": "integration/ui/weather.css",
+      "bytes": 1730,
+      "sha256": "bf223bec0c9838e31c493982ecd344ce4268f25aa3e5c9201e43a1839f096ccf"
+    },
+    {
+      "path": "integration/ui/weather.html",
+      "bytes": 1959,
+      "sha256": "bafaebe34da0eb46e8455b403543561aa64162768e5de6993784e580124dacda"
+    },
+    {
+      "path": "integration/ui/weather.js",
+      "bytes": 3838,
+      "sha256": "2eaf439467e9e6c782fe208cfa4ebb86f60e3f748256f4ef52022bedf1c3d7e0"
+    },
+    {
       "path": "integration/ui/weekly.css",
       "bytes": 229,
       "sha256": "fb08165dece27a65431557a168e32126d14cae10a324af2161cae4040f38f243"
@@ -3514,6 +3529,11 @@
       "path": "integration/weather_public_prep.py",
       "bytes": 4356,
       "sha256": "e7b8aead9635f87774a2368b642daaa1acd6771fee4ea07c926280a06e9f4b48"
+    },
+    {
+      "path": "integration/weather_ui.py",
+      "bytes": 1590,
+      "sha256": "9008f6ced2893aef00fa0d44632b19fb4217ec0ff3a07ff32b7d4a5ad2a30723"
     },
     {
       "path": "integration/weekly_report/__init__.py",
@@ -5146,6 +5166,11 @@
       "sha256": "13685d2ba78a2f93695c2a885789fbd31e464e4d18da03849b60e69ed5f1d596"
     },
     {
+      "path": "tests/browser_weather_ui.py",
+      "bytes": 3970,
+      "sha256": "93b154c1f7c5da5f775bc490893448cf53aba2cc63cd2eaa9c2b49a3cc1d38da"
+    },
+    {
       "path": "tests/browser_weekly.py",
       "bytes": 1949,
       "sha256": "5331e36a64282ccd13e54a874d4efc4b1777dd65b66b573d3f405084e55bd71d"
@@ -6579,6 +6604,11 @@
       "path": "tests/test_weather_public_prep.py",
       "bytes": 4551,
       "sha256": "63a9670183e582fa6fe1c47ccb17cbc293bbbc97dff21ca55846faddc01fe91c"
+    },
+    {
+      "path": "tests/test_weather_ui.py",
+      "bytes": 4057,
+      "sha256": "76a8f53772ae05f252179c59b2f704f643c1b0e611372d9b082b13c9c8ff9bda"
     },
     {
       "path": "tests/test_weekly_routes.py",

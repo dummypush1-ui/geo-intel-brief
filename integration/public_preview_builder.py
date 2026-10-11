@@ -45,14 +45,17 @@ def build_public_preview(environ,client_factory=None):
  code_news=code_enabled(environ)
  from integration.weather_public import enabled as weather_enabled,PATH as WEATHER_PATH,install_if_enabled as weather_install
  weather_on=weather_enabled(environ)
+ from integration.weather_ui import enabled as weather_ui_enabled,PATHS as WEATHER_UI_PATHS,install as weather_ui_install
+ weather_ui_on=weather_ui_enabled(environ)
  def allow(req):
   if req.method not in ('GET','HEAD') or req.host_url.rstrip('/')!=origin:return False
-  if req.path in READ_PATHS or req.path=='/' or (finder_rates and req.path in PATHS) or (code_news and req.path in CODE_PATHS) or (weather_on and req.path==WEATHER_PATH):return True
+  if req.path in READ_PATHS or req.path=='/' or (finder_rates and req.path in PATHS) or (code_news and req.path in CODE_PATHS) or (weather_on and req.path==WEATHER_PATH) or (weather_ui_on and req.path in WEATHER_UI_PATHS):return True
   if req.path.startswith('/workspace/assets/'):return req.path.removeprefix('/workspace/assets/')in ASSETS
   if req.path.startswith('/workspace/branding/'):return req.path.removeprefix('/workspace/branding/')in BRANDING
   return False
  app=create_app(reader=lambda:{'geo':[],'brics':[]},authorize=allow,allowed_origin=origin)
  if finder_rates:install(app,origin)
+ if weather_ui_on:weather_ui_install(app,weather_available=weather_on)
  if weather_on:
   from pathlib import Path
   weather_install(app,origin,environ,source_path=Path(__file__).resolve().parents[1]/'src/worldports.ts')
