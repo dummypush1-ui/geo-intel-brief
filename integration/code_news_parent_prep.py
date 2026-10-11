@@ -64,12 +64,13 @@ class Broker:
   self.ledger=Admission(pages);pages.admission=self.ledger
  def head(self):return {'state':'metadata_only'},200
  def page(self,params=None,scope='',manifest=None,matcher_version=None):
-  resolved=None
+  resolved=None;prepared=None
   if not scope:
    if not self.resolve_quota.admit(self.pages.clock()):return {'state':'resolve_busy','message':'New code scans are busy. Wait before starting another scan.'},429
    try:resolved=resolve_target(self.model,params,self.manifest,self.version)
    except Exception:return {'state':'target_unavailable'},400
    if resolved['state']!='resolved':return resolved,200
+   prepared=self._prepare_binding(resolved['target']) # Quota admitted, no slot/News lock yet.
   # One non-blocking actual News lock. No route/client/DB injection here.
   p=self.pages
   if not p.lock.acquire(False):return {'state':'busy'},429
@@ -93,10 +94,11 @@ class Broker:
     if scope==self.replies[active]['last']:
      row['used']=now
      if row['parent']in p.streams:p.streams[row['parent']]['used']=now
-     return deepcopy(self.replies[active]['body']),200
+     return self._reply_copy(active,deepcopy(self.replies[active]['body'])),200
    else:
     active=self.tokens();new=True
     binding={'params':deepcopy(params),'target':resolved['target'],'manifest':self.manifest,'matcher_version':self.version}
+    if prepared is not None:binding['finder_evidence']=prepared
     try:self.ledger.reserve(active,binding,now)
     except PageBusy:return {'state':'shared_capacity'},429
     row=self.ledger.rows[active];self._initialize_locked(active)
@@ -120,7 +122,7 @@ class Broker:
    body.update(scope=next_token,next_cursor=next_token,manifest=self.manifest,matcher_version=self.version)
    if len(serialize(body))>524288:raise Refused('Cached reply byte cap')
    self.replies[active]={'next':next_token,'last':scope or None,'body':deepcopy(body)}
-   return body,200
+   return self._reply_copy(active,body),200
   except PageExpired:
    if active:self.ledger.drop(active);self.replies.pop(active,None)
    return {'state':'expired_restart'},410
@@ -137,6 +139,8 @@ class Broker:
  def _prune_locked(self):
   for old in list(self.replies):
    if old not in self.ledger.rows:self.replies.pop(old,None)
+ def _reply_copy(self,active,body):return body
+ def _prepare_binding(self,target):return None
  def _initialize_locked(self,active):pass
  def _need_parent_locked(self,active):return True
  def _finish_locked(self,active,reply):

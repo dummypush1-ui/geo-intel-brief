@@ -13,11 +13,16 @@ def install(app,env=None,*,coverage_available=False):
  def coverage_shell():
   if request.method=='HEAD':return Response(status=200)
   html=(root/'code_news_coverage.html').read_text().replace('data-coverage-available="false"','data-coverage-available="true"'if coverage_available else'data-coverage-available="false"')
+  from integration.news_finder_navigation_prep import enabled as finder_links_enabled
+  if finder_links_enabled(env or {}):
+   html=html.replace('<main data-coverage-available=', '<main data-finder-links="true" data-coverage-available=',1).replace('<span class="badge">Finder link unavailable</span>','<span id="finder-navigation" class="badge">Finder link unavailable</span>',1)
   return Response(html,mimetype='text/html')
  @app.get('/workspace/assets/code_news_coverage.js')
  def coverage_js():
   if request.method=='HEAD':return Response(status=200)
-  return Response((root/'code_news_coverage.js').read_text(),mimetype='application/javascript')
+  from integration.news_finder_navigation_prep import enabled as finder_links_enabled
+  name='code_news_finder_navigation.js' if finder_links_enabled(env or {}) else 'code_news_coverage.js'
+  return Response((root/name).read_text(),mimetype='application/javascript')
  @app.get('/workspace/assets/code_news_coverage.css')
  def coverage_css():
   if request.method=='HEAD':return Response(status=200)

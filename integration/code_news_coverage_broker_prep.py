@@ -4,7 +4,15 @@ from copy import deepcopy
 from integration.code_news_parent_prep import Broker,Refused
 from integration.code_news_links import explicit_mentions
 class CoverageBroker(Broker):
- def __init__(self,*a,**kw):self.contexts={};super().__init__(*a,**kw)
+ def __init__(self,*a,finder_proof=None,**kw):self.contexts={};self.finder_proof=finder_proof;super().__init__(*a,**kw)
+ def _prepare_binding(self,target):
+  if self.finder_proof is None:return None
+  from integration.news_finder_navigation_prep import prepare
+  return prepare(self.finder_proof,target)
+ def _reply_copy(self,active,body):
+  evidence=self.ledger.rows[active]['binding'].get('finder_evidence')
+  if evidence is not None:body=dict(body,finder_navigation=deepcopy(evidence))
+  return body
  def _prune_locked(self):
   super()._prune_locked()
   for key in list(self.contexts):

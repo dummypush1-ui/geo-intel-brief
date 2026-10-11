@@ -55,6 +55,8 @@ def create_public_geo_client(uri,*,serverSelectionTimeoutMS=5000,connect=False):
 
 def build_public_live_preview(environ,client_factory=None,clock=time.monotonic,coverage_binding_provider=None):
  if type(environ) is not dict or any(type(k)is not str or type(v)is not str for k,v in environ.items()):raise ValueError('Plain environment strings required')
+ from integration.news_finder_navigation_prep import enabled as finder_links_enabled
+ finder_links=finder_links_enabled(environ)
  from integration.code_news_coverage_binding_prep import prepare
  coverage_ui,coverage_api,coverage_pins=prepare(environ,coverage_binding_provider)
  from integration.code_news_coverage_ui_prep import PATHS as COVERAGE_UI_PATHS,install as coverage_ui_install
@@ -125,7 +127,7 @@ def build_public_live_preview(environ,client_factory=None,clock=time.monotonic,c
     except Exception:pass
     raise ValueError('Public Geo read unavailable')from None
   finally:lock.release()
- pages=None;model=None;closed=[False]
+ pages=None;model=None;proof=None;closed=[False]
  def coverage_close():
   if closed[0]:return
   closed[0]=True
@@ -134,6 +136,7 @@ def build_public_live_preview(environ,client_factory=None,clock=time.monotonic,c
   finally:
    try:
     if model is not None:model.close()
+    if proof is not None:proof.close()
    finally:client.close()
  try:
   if pages_flag=='true':
@@ -145,10 +148,15 @@ def build_public_live_preview(environ,client_factory=None,clock=time.monotonic,c
    from integration.code_news_disk import DiskLinks
    model=DiskLinks(coverage_pins.folder)
   app=create_app(reader=read,authorize=allow,allowed_origin=origin,full_news_pages=pages)
+  from integration.news_finder_navigation_prep import install_mount
+  install_mount(app)
   app.extensions['whole_news_pages']=pages
   if coverage_api:
    from integration.code_news_coverage_broker_prep import CoverageBroker
-   broker=CoverageBroker(pages,model,coverage_pins.manifest,coverage_pins.matcher_version)
+   if finder_links:
+    from integration.finder_identity_proof_prep import FinderProof
+    proof=FinderProof()
+   broker=CoverageBroker(pages,model,coverage_pins.manifest,coverage_pins.matcher_version,finder_proof=proof)
    coverage_api_install(app,origin,broker,environ)
    app.extensions['code_news_coverage_broker']=broker
   if coverage_ui:coverage_ui_install(app,environ,coverage_available='code_news_coverage_broker'in app.extensions)

@@ -28,6 +28,12 @@ from integration.finder_offline import shell as offline_shell,opt_in as offline_
 from integration.news_export import snapshot_export,stream_export,guarded,parse_args as parse_export_args,ExportRequestError,ExportUnavailable
 from integration.digest_preview import preview as digest_preview
 
+def offline_finder_snapshot():
+ """Exact pinned network-disabled transformed view; GET/HEAD only."""
+ root=Path(__file__).resolve().parents[1]
+ if request.method=='HEAD':return Response(status=200,mimetype='text/html')
+ return Response(offline_shell((root/'offline.html').read_text(encoding='utf-8')),mimetype='text/html')
+
 def create_app(reader=None,authorize=None,finder_context_reader=None,finder_base=None,finder_index_verified=False,allowed_origin=None,branding_public_base=None,dashboard_snapshot_reader=None,source_health_snapshot=None,tariff_evidence_snapshot=None,finder_network_preview_enabled=False,full_export_pager=None,brics_stream_fixture=None,full_news_pages=None):
  if brics_stream_fixture is not None:
   from integration.brics_streams import FixtureStreams
@@ -85,10 +91,11 @@ def create_app(reader=None,authorize=None,finder_context_reader=None,finder_base
   return send_from_directory(root/'integration/branding',name)
  @app.get('/workspace/manifest.webmanifest')
  def merged_manifest():return send_from_directory(root/'integration/branding','manifest.webmanifest')
+ app.add_url_rule('/workspace/finder/offline.html','offline_finder_snapshot',offline_finder_snapshot,methods=['GET','HEAD'])
  @app.get('/workspace/finder/<name>')
  def finder(name):
   import re
-  if name=='offline.html':return Response(offline_shell((root/'offline.html').read_text(encoding='utf-8')),mimetype='text/html')
+  if name=='offline.html':return offline_finder_snapshot()
   if name=='offline-manifest.webmanifest':return jsonify(name='Public offline trade Finder',short_name='Offline Finder',id='/workspace/finder/offline.html',start_url='/workspace/finder/offline.html',scope='/workspace/finder/',display='standalone',icons=[])
   if name=='offline-sw.js':
    r=send_from_directory(root/'integration/ui','finder-offline-sw.js');r.headers['Service-Worker-Allowed']='/workspace/finder/';return r

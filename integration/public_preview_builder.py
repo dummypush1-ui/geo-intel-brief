@@ -25,6 +25,8 @@ BRANDING=frozenset(('favicon.ico','icon-48.png','icon-192.png','icon-512.png',
 
 def build_public_preview(environ,client_factory=None):
  if type(environ) is not dict or any(type(k)is not str or type(v)is not str for k,v in environ.items()):raise ValueError('Plain environment strings required')
+ from integration.news_finder_navigation_prep import enabled as finder_links_enabled
+ finder_links=finder_links_enabled(environ)
  from integration.code_news_coverage_ui_prep import enabled as coverage_ui_enabled,PATHS as COVERAGE_UI_PATHS,install as coverage_ui_install
  from integration.code_news_coverage_route_prep import enabled as coverage_api_enabled
  coverage_ui=coverage_ui_enabled(environ)
@@ -59,6 +61,8 @@ def build_public_preview(environ,client_factory=None):
   if req.path.startswith('/workspace/branding/'):return req.path.removeprefix('/workspace/branding/')in BRANDING
   return False
  app=create_app(reader=lambda:{'geo':[],'brics':[]},authorize=allow,allowed_origin=origin)
+ from integration.news_finder_navigation_prep import install_mount
+ install_mount(app)
  if coverage_ui:coverage_ui_install(app,environ,coverage_available=False)
  if finder_rates:install(app,origin)
  if weather_ui_on:weather_ui_install(app,weather_available=weather_on)

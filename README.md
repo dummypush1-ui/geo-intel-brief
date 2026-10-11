@@ -13031,3 +13031,54 @@ requires reading live offline page status. Reverse C->N stays held for CSP revie
 Build observed peak RSS 342964 KiB (334.93 MiB); runtime 32 lookups under 512 MiB
 process address-space cap peaked at 14744 KiB (14.40 MiB). Neither is a container,
 multiworker, combined application or production capacity clearance.
+
+
+## E1a2: dormant News to preserved Finder navigation
+
+Independent PUBLIC_NEWS_FINDER_LINKS_ENABLED defaults OFF. Only E001 N->C is
+implemented here; reverse C->N remains held. Other 10 News edges are unavailable
+badge-only in the design, not working links. Offline means fixed preserved snapshot
+from the mounted network-disabled copy, never live-rate Finder. Live cross-linking
+is separate. Labels are source claims, edition_verified is false, no current duty
+or legal clearance. No link when disabled. Text says "Open in the preserved Finder
+snapshot (labeled HS 2022)" or India HSN label, never same/verified snapshot.
+
+A typed offline-copy marker is set only in public builder installation branches.
+Navigation validates the exact installed transformed view function, source pin,
+fixed route and GET+HEAD methods. It never accepts proof/flag/endpoint name alone
+as availability. This is installed scope, not deployment health: activation still
+requires live /workspace/finder/offline.html status inspection. No activation here.
+
+Proof bound() is called once per quota-admitted resolved manual Start, outside
+News lock before any slot is held. Exceptions, TimeoutError, wrong type or drifted
+target become unavailable without failing coverage. Evidence attaches only after
+locked reservation succeeds. It is kept only in that reservation, not global map
+or cached response. Return-copy decoration preserves it through continuation/replay
+while current mount controls whether href exists. Source proof is not re-read on
+continuation. Source drift exposure is bounded by existing scan TTL (120 seconds
+idle, 30 minutes hard). Source files must be immutable while active. Browser abort
+DOES NOT cancel a server reservation; existing TTL release applies. No new cancel
+endpoint. Prune/TTL/close release evidence with ledger entry.
+
+Known cost: quota-admitted refused starts may still stream about92MB before slot
+refusal. Existing limit is GLOBAL10newstarts/minute/worker, not a per-client limit
+or fairness guarantee. Quota counting remains once per start. Synchronous local
+file IO has no hard deadline: a raised TimeoutError is handled, but a blocked file
+read is not cancelled by this hook. No thread timeout/background work is hidden.
+
+Disabled API wire and original UI script/shell remain unchanged. Enabled UI serves
+a separate asset and one target navigation anchor, never per-article links. Ready
+requires exact response target equal to identity captured by trusted manual Start;
+edit/reset/retry/error/bfcache/visibility clears it. Anchor uses textContent,
+rel=noreferrer and referrerPolicy=no-referrer, no storage/automatic request. Reply
+with different target shows no link. Navigation field counts inside524288-byte cap.
+
+
+VIEW_SHA is coupled to the full integration/news_api.py file, not only the view
+function. Any edit there requires re-review and recomputation of this pin; until
+then mounted() fails closed and all Finder links become unavailable. This is
+intentional, not proof that unchanged function bytes alone are installed safely.
+READ_PATHS must retain /workspace/finder/offline.html for the public serving scope.
+Route links flag ON without a broker proof/evidence provider returns503 on a
+successful coverage body lacking metadata. Builder wiring supplies both together;
+standalone route users must honor that coupling. OFF remains unchanged.

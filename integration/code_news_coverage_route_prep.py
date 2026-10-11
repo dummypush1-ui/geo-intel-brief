@@ -70,6 +70,8 @@ def validate(body,status):
 
 def install(app,origin,broker,env=None):
  if not enabled(env or {}):return False
+ from integration.news_finder_navigation_prep import enabled as navigation_enabled
+ navigation_on=navigation_enabled(env or {})
  canonical=origin_value(origin)
  from flask import request,Response
  def response(body,status,extra=None):
@@ -90,7 +92,15 @@ def install(app,origin,broker,env=None):
   try:
    if 'scope'in body:out,status=broker.page(**body)
    else:out,status=broker.page(body)
+   evidence=None
+   if navigation_on and status==200 and type(out)is dict and out.get('state')in SUCCESS:
+    from integration.news_finder_navigation_prep import valid_evidence
+    out=dict(out);evidence=out.pop('finder_navigation',None)
+    if not valid_evidence(evidence):raise Invalid()
    clean,status=validate(out,status)
+   if evidence is not None:
+    from integration.news_finder_navigation_prep import decorate
+    clean=dict(clean,finder_navigation=decorate(app,evidence))
    headers={'Retry-After':'60'}if status==429 and clean['state']in ('quota_wait','resolve_busy')else None
    return response(clean,status,headers)
   except Exception:return response({'state':'source_unavailable'},503)
