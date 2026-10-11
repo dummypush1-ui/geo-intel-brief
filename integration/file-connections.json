@@ -77,7 +77,7 @@
       "path": "README.md",
       "project": "finder_or_build",
       "role": "preserved_engine_or_asset",
-      "sha256": "2b241139a1e650573139005e4d3448141ea35a4bed31517e7eb97c90736386cf",
+      "sha256": "17130f20a8a6138137cc50ace3190db6b160cd5d3ad0fa0fe4d455f052dbef48",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -4498,6 +4498,24 @@
         "integration/finder198_budget.py",
         "integration/finder198_receipts.py"
       ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_identity_proof.bin",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "bfbea25e82ffaddadae5b8e6175ce27d1872477c96d31e085d1a0056fb6e6fc2",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_identity_proof_prep.py",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "82efe7c1cf094e97320adbe0d4983b2e959c7da799db913bff0dbe39ec541c52",
+      "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
     },
@@ -9073,6 +9091,17 @@
       "runtime_verified": false
     },
     {
+      "path": "scripts/build_finder_identity_proof.py",
+      "project": "finder_or_build",
+      "role": "preserved_engine_or_asset",
+      "sha256": "8a0443756c7e0f49892066e1d987d2d29f57ae781e0535bf612c7dfd422be5eb",
+      "static_file_edges": [
+        "integration/finder_identity_proof_prep.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
       "path": "scripts/doc_lookup.py",
       "project": "finder_or_build",
       "role": "preserved_engine_or_asset",
@@ -10111,7 +10140,7 @@
       "path": "staging-manifest.json",
       "project": "finder_or_build",
       "role": "preserved_engine_or_asset",
-      "sha256": "d46adeabf5afa0202346da5d26d0cedd2d3219ba4d96dca7e28f6bde34da533e",
+      "sha256": "4db1408277797cdd0066837395252b9ac51180e8a6c832e63322df4aae139b43",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -10464,6 +10493,19 @@
       "role": "fixture_test",
       "sha256": "74082d446ab62a17c752d2ec32089397e19855a856a0bc5655727f1c43bafeed",
       "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "tests/browser_finder_identity_proof.py",
+      "project": "test",
+      "role": "fixture_test",
+      "sha256": "bdc2dab84c593b88db6cd443657cd94bce783f7f72522862d71d5bd14946e8c1",
+      "static_file_edges": [
+        "integration/code_news_disk.py",
+        "integration/finder_identity_proof_prep.py",
+        "integration/news_api.py"
+      ],
       "unresolved_internal_imports": [],
       "runtime_verified": false
     },
@@ -12443,6 +12485,18 @@
       "role": "fixture_test",
       "sha256": "3ca5f609dd3a7fdb9f73e95cca6fed4cd412fd08a9a4e9e083232f21ada4a505",
       "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "tests/test_finder_identity_proof_prep.py",
+      "project": "test",
+      "role": "fixture_test",
+      "sha256": "efcadc7c03043c040340aa887edf22cb8a723daccf3501a4c599cd45f0e64a78",
+      "static_file_edges": [
+        "integration/__init__.py",
+        "scripts/build_finder_identity_proof.py"
+      ],
       "unresolved_internal_imports": [],
       "runtime_verified": false
     },
@@ -14967,7 +15021,7 @@
       "runtime_verified": false
     }
   ],
-  "file_count": 1432,
+  "file_count": 1437,
   "limits": [
     "Dynamic references and network endpoints need runtime adapter tests",
     "Legacy launchers deliberately not connected to merged private entrypoint",

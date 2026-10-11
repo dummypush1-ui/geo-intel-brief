@@ -22,8 +22,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 926589,
-      "sha256": "2b241139a1e650573139005e4d3448141ea35a4bed31517e7eb97c90736386cf"
+      "bytes": 929760,
+      "sha256": "17130f20a8a6138137cc50ace3190db6b160cd5d3ad0fa0fe4d455f052dbef48"
     },
     {
       "path": "ai-agent.mjs",
@@ -2224,6 +2224,16 @@
       "path": "integration/finder198_v2_preflight.py",
       "bytes": 1924,
       "sha256": "05e31761f5491ee10b8dab5e4edc688fba389efaa51a27d035f83f15c10ab27d"
+    },
+    {
+      "path": "integration/finder_identity_proof.bin",
+      "bytes": 1290240,
+      "sha256": "bfbea25e82ffaddadae5b8e6175ce27d1872477c96d31e085d1a0056fb6e6fc2"
+    },
+    {
+      "path": "integration/finder_identity_proof_prep.py",
+      "bytes": 5421,
+      "sha256": "82efe7c1cf094e97320adbe0d4983b2e959c7da799db913bff0dbe39ec541c52"
     },
     {
       "path": "integration/finder_index.py",
@@ -4471,6 +4481,11 @@
       "sha256": "10782e265e39f8be911f0a754dd67af57bf7a981cb31a991b563e8cd9a59aaca"
     },
     {
+      "path": "scripts/build_finder_identity_proof.py",
+      "bytes": 6496,
+      "sha256": "8a0443756c7e0f49892066e1d987d2d29f57ae781e0535bf612c7dfd422be5eb"
+    },
+    {
       "path": "scripts/doc_lookup.py",
       "bytes": 2477,
       "sha256": "6ff20667a8f8f1f7a4114801fd86021fb7e5b3d6e9ea27cd003e08e720de4743"
@@ -5149,6 +5164,11 @@
       "path": "tests/browser_finder198d.py",
       "bytes": 4928,
       "sha256": "74082d446ab62a17c752d2ec32089397e19855a856a0bc5655727f1c43bafeed"
+    },
+    {
+      "path": "tests/browser_finder_identity_proof.py",
+      "bytes": 3422,
+      "sha256": "bdc2dab84c593b88db6cd443657cd94bce783f7f72522862d71d5bd14946e8c1"
     },
     {
       "path": "tests/browser_finder_nested.py",
@@ -6019,6 +6039,11 @@
       "path": "tests/test_finder_browser229.py",
       "bytes": 2497,
       "sha256": "3ca5f609dd3a7fdb9f73e95cca6fed4cd412fd08a9a4e9e083232f21ada4a505"
+    },
+    {
+      "path": "tests/test_finder_identity_proof_prep.py",
+      "bytes": 5617,
+      "sha256": "efcadc7c03043c040340aa887edf22cb8a723daccf3501a4c599cd45f0e64a78"
     },
     {
       "path": "tests/test_finder_index.py",

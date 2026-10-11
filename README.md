@@ -12984,3 +12984,50 @@ article sources; real extraction tests require `CODE_NEWS_SOURCE_ROOT` pointing
 to the pinned source repo. Without it those checks explicitly skip, not pass.
 
 </details>
+
+
+## E1a1: dormant Finder identity proof
+
+Proof only. No href, route registration, mount, flag, provider, DB or activation.
+Binding requires exactly one offline row and exactly one resolved index row for
+(system, edition, code), with equal descriptions after NFC normalization and
+Unicode whitespace collapse. Case and punctuation stay unchanged. Even identical
+duplicates are not bound. Unsupported systems, wrong edition, conflict, omission,
+invalid code, offline-only and index-only identities are not bound.
+
+Reproduce from pinned sources with `PYTHONPATH=. python scripts/build_finder_identity_proof.py`.
+This generator does not rebuild the catalogue index. It checks the 340232 raw-row
+source parity as diagnostics, never as binding evidence, then reads pinned index
+rowgroups. The 28672 bound HS/IN records occupy 1290240 bytes (45 bytes per sorted
+fixed record). SHA256: bfbea25e82ffaddadae5b8e6175ce27d1872477c96d31e085d1a0056fb6e6fc2.
+The runtime streams source/hash verification in 65536-byte chunks and binary
+searches fixed records with bounded positional reads under a leaf lock. It has
+no whole-source decode, JSON parser, memory map or big map. It checks pins again
+on lookup, including artifact descriptor/path replacement. On drift it returns
+no proof. Current choice deliberately adds about 0.09 seconds of local pin IO per
+lookup rather than caching an unverified freshness claim. Deployment latency is
+not measured. Source files must remain immutable during use; this is not a
+transactional snapshot of files being changed concurrently.
+
+Source labels only: HS 2022 is present in the pinned SYS name/source claims, not
+an edition field or verified official current edition. India edition identifier
+snapshot:d6d1b417562b comes from the preserved bundle hash. No edition field exists
+in the row or fragment. New UI wording must say "labeled HS 2022 / preserved
+snapshot" or "India HSN / preserved snapshot", never current duty/legal clearance.
+Headless Chrome checks local transformed offline HTML at #code=0:090121,
+#code=0:1006, #code=1:090121, #code=1:1006, reads selected row and compares exact
+normalized description; unknown code/system clears selection with no fallback.
+It does not verify every bound code in Chrome or live deployment availability.
+
+E1a2 remains a separate reviewed unit. Call bound() once per user-started target,
+never once per article or relationship: each call re-streams about 92 MB of pins.
+A call-count test must cover a 25-article/32-relationship response. Its only destination is
+/workspace/finder/offline.html, never live.html. Proof alone never means available.
+It must read an app.extensions offline-copy-mounted marker established on the
+actual public-copy installation path, not caller flag/env. Test mounted+bound
+versus not mounted badge/nohref, plus access scope. Deployment activation still
+requires reading live offline page status. Reverse C->N stays held for CSP review.
+
+Build observed peak RSS 342964 KiB (334.93 MiB); runtime 32 lookups under 512 MiB
+process address-space cap peaked at 14744 KiB (14.40 MiB). Neither is a container,
+multiworker, combined application or production capacity clearance.
