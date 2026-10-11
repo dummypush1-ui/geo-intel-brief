@@ -1756,6 +1756,11 @@
       "sha256": "2b4d1641d6a8e6d2fa9b76139936e32bc805010e7de60cf54319715a96cb705e"
     },
     {
+      "path": "integration/code_news_scope_prep.py",
+      "bytes": 4131,
+      "sha256": "65d10860e62a485723020e05e5a58a9b3dfc58a2f39c3e05a7a715108c1d4872"
+    },
+    {
       "path": "integration/collection_prepare.py",
       "bytes": 2493,
       "sha256": "2d0886b3126dfd4da4c7fa647ff414afbd27a6032204a8f9ad2be046f86c25b2"
@@ -5599,6 +5604,11 @@
       "path": "tests/test_code_news_public.py",
       "bytes": 4770,
       "sha256": "86a56dde8194bbdc7d8f6b2f6476ccd470797eeab5c0104c0cd0f5e1117f1a0b"
+    },
+    {
+      "path": "tests/test_code_news_scope_prep.py",
+      "bytes": 9560,
+      "sha256": "b6beca1594fd0744c7e260fe461cfef4da87d605c2e79f57da9028a0af29a145"
     },
     {
       "path": "tests/test_collection_prepare.py",

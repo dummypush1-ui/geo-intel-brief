@@ -3482,6 +3482,15 @@
       "runtime_verified": false
     },
     {
+      "path": "integration/code_news_scope_prep.py",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "65d10860e62a485723020e05e5a58a9b3dfc58a2f39c3e05a7a715108c1d4872",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
       "path": "integration/collection_prepare.py",
       "project": "integration",
       "role": "offline_contract_or_private_view",
@@ -9991,7 +10000,7 @@
       "path": "staging-manifest.json",
       "project": "finder_or_build",
       "role": "preserved_engine_or_asset",
-      "sha256": "bd3e15570bb26f36bd07aee72e0f48e29408c0d76cafd7ed736087def9a899dd",
+      "sha256": "b39e014998356c2fe1903d8b274fae9f03b65d5c025026b029d408d6da731e97",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -11434,6 +11443,18 @@
         "integration/code_news_links.py",
         "integration/code_news_public.py",
         "integration/public_preview_builder.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "tests/test_code_news_scope_prep.py",
+      "project": "test",
+      "role": "fixture_test",
+      "sha256": "b6beca1594fd0744c7e260fe461cfef4da87d605c2e79f57da9028a0af29a145",
+      "static_file_edges": [
+        "integration/code_news_links.py",
+        "integration/code_news_scope_prep.py"
       ],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -14706,7 +14727,7 @@
       "runtime_verified": false
     }
   ],
-  "file_count": 1410,
+  "file_count": 1412,
   "limits": [
     "Dynamic references and network endpoints need runtime adapter tests",
     "Legacy launchers deliberately not connected to merged private entrypoint",
