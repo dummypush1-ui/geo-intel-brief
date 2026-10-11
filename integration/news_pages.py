@@ -23,18 +23,20 @@ def validate(filters,limit,cursor):
 class WholeGeoPages:
  def __init__(self,store,sanitize,*,verified=False,clock=time.monotonic,start_cleaner=True):
   if verified is not True or not callable(sanitize):raise ValueError('Reviewed store and sanitizer required')
-  self.store=store;self.sanitize=sanitize;self.clock=clock;self.lock=Lock();self.streams={};self.stopped=Event()
+  self.store=store;self.sanitize=sanitize;self.clock=clock;self.lock=Lock();self.streams={};self.admission=None;self.stopped=Event()
   if start_cleaner:
    self.cleaner=Thread(target=self._clean,daemon=True,name='news-page-expiry');self.cleaner.start()
- def _drop(self,key):
+ def _drop(self,key,reason='drop'):
   state=self.streams.pop(key,None)
   if state:
    try:state['cursor'].close()
    except Exception:pass
+  if self.admission is not None:self.admission.parent_dropped(key,reason)
  def _expire(self):
   now=self.clock()
   for key,state in list(self.streams.items()):
-   if now-state['used']>=120 or now-state['born']>=1800:self._drop(key)
+   if now-state['used']>=120 or now-state['born']>=1800:self._drop(key,reason='expired')
+  if self.admission is not None:self.admission.expire(now)
  def _clean(self):
   while not self.stopped.wait(15):
    if self.lock.acquire(blocking=False):
@@ -43,7 +45,8 @@ class WholeGeoPages:
  def close(self):
   self.stopped.set()
   with self.lock:
-   for key in list(self.streams):self._drop(key)
+   for key in list(self.streams):self._drop(key,reason='shutdown')
+   if self.admission is not None:self.admission.close()
  def page(self,filters,limit=25,token=''):
   validate(filters,limit,token)
   if not self.lock.acquire(blocking=False):raise PageBusy()
@@ -66,7 +69,9 @@ class WholeGeoPages:
    state['used']=self.clock()
    if token==state['last']:return deepcopy(state['reply'])
   else:
-   if len(self.streams)>=16:raise PageBusy()
+   if self.admission is not None:
+    if not self.admission.can_open(owner_scope):raise PageBusy()
+   elif len(self.streams)>=16:raise PageBusy()
    cursor=None
    try:
     cursor=self.store.find({},{k:1 for k in READ_STORE_FIELDS})
@@ -80,6 +85,7 @@ class WholeGeoPages:
    key=secrets.token_urlsafe(32);now=self.clock()
    state={'cursor':cursor,'owner_scope':owner_scope,'filters':dict(filters),'limit':limit,'born':now,'used':now,'next':None,'last':None,'reply':None,'offset':0,'eof':False}
    self.streams[key]=state
+   if self.admission is not None and owner_scope is not None:self.admission.bind_parent(owner_scope,key)
   items=[];scanned=0;eof=state['eof']
   try:
    while not eof and len(items)<limit and scanned<1000:
@@ -103,7 +109,7 @@ class WholeGeoPages:
   reply={'items':items,'scope':'whole_geo_store_cursor','consistency':'mutable_read_not_snapshot','sort_semantics':'raw_mongo_source_fields_with_id_tiebreak','limit':limit,'offset':state['offset'],'next_cursor':next_token,'exhausted':eof,'scanned_this_page':scanned,'total_count':None}
   state.update(next=next_token,last=token or None,reply=deepcopy(reply),eof=eof,offset=state['offset']+len(items),used=self.clock())
   # Retain the final reply briefly for a lost-response retry; cursor is closed.
-  if eof and not token:self._drop(key)
+  if eof and not token:self._drop(key,reason='first_eof')
   return reply
 
 
