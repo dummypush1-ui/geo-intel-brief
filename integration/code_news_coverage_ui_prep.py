@@ -1,6 +1,6 @@
 """D3a dormant UI fixtures only. No API, source/model or builder wiring."""
 from pathlib import Path
-PATHS=frozenset(('/workspace/code-news-coverage','/workspace/assets/code_news_coverage.js','/workspace/assets/code_news_coverage.css'))
+PATHS=frozenset(('/workspace/code-news-coverage','/workspace/assets/code_news_coverage.js','/workspace/assets/code_news_coverage.css','/workspace/assets/code_news_contract.js'))
 def enabled(env):
  value=env.get('PUBLIC_CODE_NEWS_COVERAGE_UI_ENABLED','false')
  if value not in ('true','false'):raise ValueError('Exact coverage UI flag')
@@ -22,6 +22,11 @@ def install(app,env=None,*,coverage_available=False):
  def coverage_css():
   if request.method=='HEAD':return Response(status=200)
   return Response((root/'code_news_coverage.css').read_text(),mimetype='text/css')
+ @app.get('/workspace/assets/code_news_contract.js')
+ def coverage_contract():
+  if request.method=='HEAD':return Response(status=200)
+  from integration.code_news_coverage_contract_prep import script
+  return Response(script(),mimetype='application/javascript')
  @app.after_request
  def coverage_headers(response):
   if request.path in PATHS:

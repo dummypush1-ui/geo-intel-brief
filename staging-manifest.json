@@ -1706,14 +1706,24 @@
       "sha256": "41719a49c2c68399743b2e70c6bcacc1516be11811d775e6867e142de92d43a5"
     },
     {
+      "path": "integration/code_news_coverage_contract_prep.py",
+      "bytes": 427,
+      "sha256": "526cfb65041135720f5e1ffd6d456bc94ea7370a206bd21f827664eb0c23cb79"
+    },
+    {
       "path": "integration/code_news_coverage_prep.py",
       "bytes": 6088,
       "sha256": "3962ba949e8ba47d857972acd9ad6f8e2815d26b8abeeb76202d1f00859809d8"
     },
     {
+      "path": "integration/code_news_coverage_route_prep.py",
+      "bytes": 8182,
+      "sha256": "543b697146cb02c2a3d828a93b21dc7c7744544be83cead5c8543e13fe780606"
+    },
+    {
       "path": "integration/code_news_coverage_ui_prep.py",
-      "bytes": 1933,
-      "sha256": "338c6f85cfad6df2eb5d3a7fb1d8b1755d84b3d73581887194a34fed2a058dc1"
+      "bytes": 2238,
+      "sha256": "54e942187175993ede8a6c2acb3ef2edf9694da2219cf433e981136e9e68bcbb"
     },
     {
       "path": "integration/code_news_cursor_prep.py",
@@ -1752,8 +1762,8 @@
     },
     {
       "path": "integration/code_news_parent_prep.py",
-      "bytes": 7395,
-      "sha256": "d8766d6e9bddbcb844463e839093092585546ba49c288cdbb94c07550a3f1e03"
+      "bytes": 7433,
+      "sha256": "1f415b890d7caca1bde1a02d6bc144f0cab36405f336982fb91fb20413d1a5f5"
     },
     {
       "path": "integration/code_news_pins.json",
@@ -3422,13 +3432,13 @@
     },
     {
       "path": "integration/ui/code_news_coverage.html",
-      "bytes": 2038,
-      "sha256": "b56832f14367da6a5c50299959b836bd297a8db7dc31388ed554125b35407458"
+      "bytes": 2107,
+      "sha256": "1c81366c90ad34f45c8ad260716f40586e3550af95cc5d2ab4fc26cc57d92a99"
     },
     {
       "path": "integration/ui/code_news_coverage.js",
-      "bytes": 10748,
-      "sha256": "51b47b0de154c534912d50d8fea5da046bc8eec94337cc3d0dc5c7faefff797a"
+      "bytes": 10668,
+      "sha256": "9245a1218481c31fff896e2860557754c822b4791e8ea5d7fc070997a30e1d68"
     },
     {
       "path": "integration/ui/context_excerpt208.js",
@@ -5624,6 +5634,11 @@
       "path": "tests/test_code_news_coverage_prep.py",
       "bytes": 10130,
       "sha256": "79ef16623ce11f4401eda0b4628309c1fbab6ef9ddc92c55522aedfc4222588b"
+    },
+    {
+      "path": "tests/test_code_news_coverage_route_prep.py",
+      "bytes": 10699,
+      "sha256": "03a2a4c2facbb70bbf7481d2ab78520bee0c0687e9c4224a811ce3d3dcd239e7"
     },
     {
       "path": "tests/test_code_news_coverage_ui_prep.py",

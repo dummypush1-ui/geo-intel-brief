@@ -61,7 +61,7 @@
    if(response.status===429)throw Error('busy');if(response.status===410)throw Error('expired');if(response.status===403)throw Error('refused');if(!response.ok)throw Error('unavailable');
    const r=await stream(response);if(id!==generation)return;
    if(r.state==='target_unavailable'){
-    if(!['unknown_code','ambiguous','not_in_link_model','conflicting_source_rows','unusable_description','invalid_code'].includes(r.resolution))throw Error('invalid');
+    if(!globalThis.CODE_NEWS_RESOLUTIONS.includes(r.resolution))throw Error('invalid');
     $('coverage-items').replaceChildren();$('coverage-summary').hidden=true;nextRequest=null;retryRequest=null;root.dataset.state='idle';$('state-heading').textContent='Identity unresolved';$('status').textContent='No identity selected: '+r.resolution+'. Review the system and snapshot edition manually.';return;
    }
    const sent=JSON.parse(body);if(sent.scope&&(r.manifest!==sent.manifest||r.matcher_version!==sent.matcher_version))throw Error('invalid');

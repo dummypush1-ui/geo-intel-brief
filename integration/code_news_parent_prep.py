@@ -4,6 +4,7 @@ All ledger operations use the existing News operational lock, one cleaner.
 """
 import secrets,math,re,json
 from threading import Lock
+from integration.code_news_coverage_contract_prep import serialize
 from copy import deepcopy
 from integration.news_pages import PageBusy,PageExpired,PageUnavailable
 from integration.code_news_scope_prep import target as resolve_target,Refused
@@ -117,7 +118,7 @@ class Broker:
    row['done']=done
    next_token=None if done else self.tokens()
    body.update(scope=next_token,next_cursor=next_token,manifest=self.manifest,matcher_version=self.version)
-   if len(json.dumps(body,ensure_ascii=False).encode())>524288:raise Refused('Cached reply byte cap')
+   if len(serialize(body))>524288:raise Refused('Cached reply byte cap')
    self.replies[active]={'next':next_token,'last':scope or None,'body':deepcopy(body)}
    return body,200
   except PageExpired:
