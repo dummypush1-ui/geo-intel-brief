@@ -4,14 +4,14 @@ from integration.news_pages import WholeGeoPages,PageExpired
 from integration.public_live_builder import sanitize_public_geo_rows
 from integration.news_api import create_app
 from integration.code_news_links import Links
-from integration.code_news_parent_prep import Broker,Admission
+from integration.code_news_parent_prep import Broker,Admission,ResolveQuota
 from tests.test_news_pages185 import Store,rows,F
 T=dict(system='HS',edition='2022',code='8517',description='Phones')
 P={k:T[k]for k in ('system','edition','code')}
 class Tests(unittest.TestCase):
  def make(self,n=105):
   self.now=0;self.store=Store(rows(n));self.p=WholeGeoPages(self.store,sanitize_public_geo_rows,verified=True,clock=lambda:self.now,start_cleaner=False);self.addCleanup(self.p.close)
-  self.m=Links([T],[]);self.b=Broker(self.p,self.m,'a'*64,'v1');return self.b
+  self.m=Links([T],[]);self.b=Broker(self.p,self.m,'a'*64,'v1',resolve_quota=ResolveQuota());return self.b
  def next(self,r,**kw):return self.b.page(scope=r['scope'],manifest='a'*64,matcher_version='v1',**kw)
  def test_HEAD_no_index_reader_lock(self):
   b=self.make();self.p.lock.acquire()

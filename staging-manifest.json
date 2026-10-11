@@ -1701,6 +1701,11 @@
       "sha256": "8da288c2c17feffd8bcca975f84747c85195645e3f7ef3734f6fd4f51852d15e"
     },
     {
+      "path": "integration/code_news_coverage_broker_prep.py",
+      "bytes": 4843,
+      "sha256": "41719a49c2c68399743b2e70c6bcacc1516be11811d775e6867e142de92d43a5"
+    },
+    {
       "path": "integration/code_news_coverage_prep.py",
       "bytes": 6088,
       "sha256": "3962ba949e8ba47d857972acd9ad6f8e2815d26b8abeeb76202d1f00859809d8"
@@ -1742,8 +1747,8 @@
     },
     {
       "path": "integration/code_news_parent_prep.py",
-      "bytes": 6117,
-      "sha256": "805778068a3b1dbfb2b7a98b58853b9cdbb5a842fe4323fcb9b0a27fa7563aaa"
+      "bytes": 7395,
+      "sha256": "d8766d6e9bddbcb844463e839093092585546ba49c288cdbb94c07550a3f1e03"
     },
     {
       "path": "integration/code_news_pins.json",
@@ -5586,6 +5591,11 @@
       "sha256": "9ad66296f9e9895aa136267cc82e385956ef8642dcaa91425825b8eee5fe58ca"
     },
     {
+      "path": "tests/test_code_news_coverage_broker_prep.py",
+      "bytes": 12954,
+      "sha256": "388c8925ab3747f97de716510dcedf898cef08f5d6872125c365a83cf12d241b"
+    },
+    {
       "path": "tests/test_code_news_coverage_prep.py",
       "bytes": 10130,
       "sha256": "79ef16623ce11f4401eda0b4628309c1fbab6ef9ddc92c55522aedfc4222588b"
@@ -5607,8 +5617,8 @@
     },
     {
       "path": "tests/test_code_news_parent_prep.py",
-      "bytes": 8860,
-      "sha256": "c302417560fb6eb2052e53fb9c0c0232eac9fcfeb237c31d7cb319fda1563065"
+      "bytes": 8902,
+      "sha256": "794149e422851bcc06072d0b8a8141349ed3be7b02e7a6d696bc6a18fa563042"
     },
     {
       "path": "tests/test_code_news_public.py",

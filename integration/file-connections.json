@@ -3371,6 +3371,18 @@
       "runtime_verified": false
     },
     {
+      "path": "integration/code_news_coverage_broker_prep.py",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "41719a49c2c68399743b2e70c6bcacc1516be11811d775e6867e142de92d43a5",
+      "static_file_edges": [
+        "integration/code_news_links.py",
+        "integration/code_news_parent_prep.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
       "path": "integration/code_news_coverage_prep.py",
       "project": "integration",
       "role": "offline_contract_or_private_view",
@@ -3450,7 +3462,7 @@
       "path": "integration/code_news_parent_prep.py",
       "project": "integration",
       "role": "offline_contract_or_private_view",
-      "sha256": "805778068a3b1dbfb2b7a98b58853b9cdbb5a842fe4323fcb9b0a27fa7563aaa",
+      "sha256": "d8766d6e9bddbcb844463e839093092585546ba49c288cdbb94c07550a3f1e03",
       "static_file_edges": [
         "integration/code_news_scope_prep.py",
         "integration/news_pages.py"
@@ -10012,7 +10024,7 @@
       "path": "staging-manifest.json",
       "project": "finder_or_build",
       "role": "preserved_engine_or_asset",
-      "sha256": "6f33ea1b900e77652b3d5e8cba50eeeda4be5a5833070d4e50b33ccfa562b225",
+      "sha256": "a5ff61d6f5dd50eed5f5dab4c045bd73dd6826f28f46b91dc0520d899e8c758b",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -11399,6 +11411,22 @@
       "runtime_verified": false
     },
     {
+      "path": "tests/test_code_news_coverage_broker_prep.py",
+      "project": "test",
+      "role": "fixture_test",
+      "sha256": "388c8925ab3747f97de716510dcedf898cef08f5d6872125c365a83cf12d241b",
+      "static_file_edges": [
+        "integration/code_news_coverage_broker_prep.py",
+        "integration/code_news_links.py",
+        "integration/code_news_parent_prep.py",
+        "integration/news_pages.py",
+        "integration/public_live_builder.py",
+        "tests/test_news_pages185.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
       "path": "tests/test_code_news_coverage_prep.py",
       "project": "test",
       "role": "fixture_test",
@@ -11450,7 +11478,7 @@
       "path": "tests/test_code_news_parent_prep.py",
       "project": "test",
       "role": "fixture_test",
-      "sha256": "c302417560fb6eb2052e53fb9c0c0232eac9fcfeb237c31d7cb319fda1563065",
+      "sha256": "794149e422851bcc06072d0b8a8141349ed3be7b02e7a6d696bc6a18fa563042",
       "static_file_edges": [
         "integration/code_news_links.py",
         "integration/code_news_parent_prep.py",
@@ -14769,7 +14797,7 @@
       "runtime_verified": false
     }
   ],
-  "file_count": 1415,
+  "file_count": 1417,
   "limits": [
     "Dynamic references and network endpoints need runtime adapter tests",
     "Legacy launchers deliberately not connected to merged private entrypoint",
