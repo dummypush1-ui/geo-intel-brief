@@ -3392,6 +3392,15 @@
       "runtime_verified": false
     },
     {
+      "path": "integration/code_news_coverage_ui_prep.py",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "338c6f85cfad6df2eb5d3a7fb1d8b1755d84b3d73581887194a34fed2a058dc1",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
       "path": "integration/code_news_cursor_prep.py",
       "project": "integration",
       "role": "offline_contract_or_private_view",
@@ -3946,6 +3955,15 @@
       "project": "integration",
       "role": "offline_contract_or_private_view",
       "sha256": "935ebaa53ff6eebf69f7a2a083e45a1284e92cccfa43d157c335c7f06990dcda",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/cross_link_schema_prep.py",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "ca7b7c64ab9af50ae61dfa5f82b441e28a4d2abb37d108de8870a93fdb6b2f53",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -6958,6 +6976,33 @@
       "project": "integration",
       "role": "offline_contract_or_private_view",
       "sha256": "6e513bbc2486eb4d5115e990cee32610eff6901fd6eff439cb9ef60a57478911",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/ui/code_news_coverage.css",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "a92f220edda7c80ce481aaa16e100a5dbe85c78421e4392ee1ca55359186c864",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/ui/code_news_coverage.html",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "b56832f14367da6a5c50299959b836bd297a8db7dc31388ed554125b35407458",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/ui/code_news_coverage.js",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "51b47b0de154c534912d50d8fea5da046bc8eec94337cc3d0dc5c7faefff797a",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -10024,7 +10069,7 @@
       "path": "staging-manifest.json",
       "project": "finder_or_build",
       "role": "preserved_engine_or_asset",
-      "sha256": "a5ff61d6f5dd50eed5f5dab4c045bd73dd6826f28f46b91dc0520d899e8c758b",
+      "sha256": "03cd5b16ec3cc0ef648280594e7db4ebf606bbf8d5d6560bad04b0e3899afe52",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -11440,6 +11485,17 @@
       "runtime_verified": false
     },
     {
+      "path": "tests/test_code_news_coverage_ui_prep.py",
+      "project": "test",
+      "role": "fixture_test",
+      "sha256": "62ef3f71bd5304c4bbc02b0b5a0226b288c87ce72cf366ad5e41c58ffdb36d73",
+      "static_file_edges": [
+        "integration/code_news_coverage_ui_prep.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
       "path": "tests/test_code_news_cursor_prep.py",
       "project": "test",
       "role": "fixture_test",
@@ -11827,6 +11883,17 @@
       "static_file_edges": [
         "integration/critical_stories.py",
         "integration/news_api.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "tests/test_cross_link_schema_prep.py",
+      "project": "test",
+      "role": "fixture_test",
+      "sha256": "f88a96b55e75955b499845ec9187f832671ee99b104cb994e339380f3bd8b21c",
+      "static_file_edges": [
+        "integration/cross_link_schema_prep.py"
       ],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -14797,7 +14864,7 @@
       "runtime_verified": false
     }
   ],
-  "file_count": 1417,
+  "file_count": 1424,
   "limits": [
     "Dynamic references and network endpoints need runtime adapter tests",
     "Legacy launchers deliberately not connected to merged private entrypoint",

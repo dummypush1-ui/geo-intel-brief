@@ -1711,6 +1711,11 @@
       "sha256": "3962ba949e8ba47d857972acd9ad6f8e2815d26b8abeeb76202d1f00859809d8"
     },
     {
+      "path": "integration/code_news_coverage_ui_prep.py",
+      "bytes": 1933,
+      "sha256": "338c6f85cfad6df2eb5d3a7fb1d8b1755d84b3d73581887194a34fed2a058dc1"
+    },
+    {
       "path": "integration/code_news_cursor_prep.py",
       "bytes": 4592,
       "sha256": "922207b1551e3c91632def930f2812b84ab6cf02be9a8820b08564db6a3796d0"
@@ -1954,6 +1959,11 @@
       "path": "integration/cross-connections.json",
       "bytes": 3668,
       "sha256": "935ebaa53ff6eebf69f7a2a083e45a1284e92cccfa43d157c335c7f06990dcda"
+    },
+    {
+      "path": "integration/cross_link_schema_prep.py",
+      "bytes": 2671,
+      "sha256": "ca7b7c64ab9af50ae61dfa5f82b441e28a4d2abb37d108de8870a93fdb6b2f53"
     },
     {
       "path": "integration/dashboard_model.py",
@@ -3404,6 +3414,21 @@
       "path": "integration/ui/code_news.js",
       "bytes": 4028,
       "sha256": "6e513bbc2486eb4d5115e990cee32610eff6901fd6eff439cb9ef60a57478911"
+    },
+    {
+      "path": "integration/ui/code_news_coverage.css",
+      "bytes": 2098,
+      "sha256": "a92f220edda7c80ce481aaa16e100a5dbe85c78421e4392ee1ca55359186c864"
+    },
+    {
+      "path": "integration/ui/code_news_coverage.html",
+      "bytes": 2038,
+      "sha256": "b56832f14367da6a5c50299959b836bd297a8db7dc31388ed554125b35407458"
+    },
+    {
+      "path": "integration/ui/code_news_coverage.js",
+      "bytes": 10748,
+      "sha256": "51b47b0de154c534912d50d8fea5da046bc8eec94337cc3d0dc5c7faefff797a"
     },
     {
       "path": "integration/ui/context_excerpt208.js",
@@ -5601,6 +5626,11 @@
       "sha256": "79ef16623ce11f4401eda0b4628309c1fbab6ef9ddc92c55522aedfc4222588b"
     },
     {
+      "path": "tests/test_code_news_coverage_ui_prep.py",
+      "bytes": 1960,
+      "sha256": "62ef3f71bd5304c4bbc02b0b5a0226b288c87ce72cf366ad5e41c58ffdb36d73"
+    },
+    {
       "path": "tests/test_code_news_cursor_prep.py",
       "bytes": 5212,
       "sha256": "065f608177ca25973683f1c6ffebec15a4924b5254a7244232996252362e9e86"
@@ -5759,6 +5789,11 @@
       "path": "tests/test_critical_stories.py",
       "bytes": 2593,
       "sha256": "4667df586c67fee181e9435a50cf9717921a7abc56100c5915629cac69dfcb73"
+    },
+    {
+      "path": "tests/test_cross_link_schema_prep.py",
+      "bytes": 4237,
+      "sha256": "f88a96b55e75955b499845ec9187f832671ee99b104cb994e339380f3bd8b21c"
     },
     {
       "path": "tests/test_cross_routes.py",
