@@ -2642,8 +2642,8 @@
     },
     {
       "path": "integration/news_pages.py",
-      "bytes": 4779,
-      "sha256": "3004e1f374ab065a61d320f76e09a8fc991faf7b487fd53ce5453bb1189684e9"
+      "bytes": 5945,
+      "sha256": "f738f742c8458d90250a2370d0f05aeec0500bb9ca24fcece075a48e53bded70"
     },
     {
       "path": "integration/news_refresh.js",
@@ -6204,6 +6204,11 @@
       "path": "tests/test_news_pages185.py",
       "bytes": 6568,
       "sha256": "59ddde9d0853668b1cedaac67cf616d97d2818caabc548a49f6ff9b0ee7ee393"
+    },
+    {
+      "path": "tests/test_news_pages_locked.py",
+      "bytes": 5939,
+      "sha256": "863babcaa737ecc7a2020d733b8243698d6d5879c46ff6abd7b2a3f4aa50a723"
     },
     {
       "path": "tests/test_news_scroll186.py",

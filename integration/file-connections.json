@@ -5428,7 +5428,7 @@
       "path": "integration/news_pages.py",
       "project": "integration",
       "role": "offline_contract_or_private_view",
-      "sha256": "3004e1f374ab065a61d320f76e09a8fc991faf7b487fd53ce5453bb1189684e9",
+      "sha256": "f738f742c8458d90250a2370d0f05aeec0500bb9ca24fcece075a48e53bded70",
       "static_file_edges": [
         "integration/loaded_news.py",
         "integration/news_view.py",
@@ -10000,7 +10000,7 @@
       "path": "staging-manifest.json",
       "project": "finder_or_build",
       "role": "preserved_engine_or_asset",
-      "sha256": "b39e014998356c2fe1903d8b274fae9f03b65d5c025026b029d408d6da731e97",
+      "sha256": "652983ce919fcc0d5cf2739c40ad4d180e210d50675863ca31dd6d81be21b181",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -12946,6 +12946,20 @@
       "runtime_verified": false
     },
     {
+      "path": "tests/test_news_pages_locked.py",
+      "project": "test",
+      "role": "fixture_test",
+      "sha256": "863babcaa737ecc7a2020d733b8243698d6d5879c46ff6abd7b2a3f4aa50a723",
+      "static_file_edges": [
+        "integration/news_api.py",
+        "integration/news_pages.py",
+        "integration/public_live_builder.py",
+        "tests/test_news_pages185.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
       "path": "tests/test_news_scroll186.py",
       "project": "test",
       "role": "fixture_test",
@@ -14727,7 +14741,7 @@
       "runtime_verified": false
     }
   ],
-  "file_count": 1412,
+  "file_count": 1413,
   "limits": [
     "Dynamic references and network endpoints need runtime adapter tests",
     "Legacy launchers deliberately not connected to merged private entrypoint",

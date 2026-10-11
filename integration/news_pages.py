@@ -47,55 +47,72 @@ class WholeGeoPages:
  def page(self,filters,limit=25,token=''):
   validate(filters,limit,token)
   if not self.lock.acquire(blocking=False):raise PageBusy()
-  key=None
-  try:
-   if self.stopped.is_set():raise PageUnavailable()
-   self._expire()
-   if token:
-    key=next((k for k,s in self.streams.items() if token in (s['next'],s['last'])),None)
-    if key is None:raise PageExpired()
-    state=self.streams[key]
-    if state['filters']!=filters or state['limit']!=limit:raise PageExpired()
-    state['used']=self.clock()
-    if token==state['last']:return deepcopy(state['reply'])
-   else:
-    if len(self.streams)>=16:raise PageBusy()
-    cursor=None
-    try:
-     cursor=self.store.find({},{k:1 for k in READ_STORE_FIELDS})
-     order={'newest':[('created_at',-1),('_id',-1)],'title':[('title',1),('_id',1)],'country':[('country',1),('_id',1)],'score':[('score',-1),('_id',-1)]}[filters['sort']]
-     cursor.sort(order);cursor.batch_size(100);cursor.max_time_ms(2000)
-    except Exception:
-     if cursor is not None:
-      try:cursor.close()
-      except Exception:pass
-     raise PageUnavailable()from None
-    key=secrets.token_urlsafe(32);now=self.clock()
-    state={'cursor':cursor,'filters':dict(filters),'limit':limit,'born':now,'used':now,'next':None,'last':None,'reply':None,'offset':0,'eof':False}
-    self.streams[key]=state
-   items=[];scanned=0;eof=state['eof']
-   try:
-    while not eof and len(items)<limit and scanned<1000:
-     try:raw=next(state['cursor'])
-     except StopIteration:eof=True;break
-     scanned+=1
-     clean=self.sanitize([raw])
-     if not clean:continue
-     row=normalize_row(clean[0],'geo')
-     if row is None:continue
-     chosen=selection([row],**filters)['items']
-     if chosen:items.append(public_news_row(chosen[0]))
-   except BaseException as error:
-    self._drop(key)
-    if not isinstance(error,Exception):raise
-    raise PageUnavailable()from None
-   if eof:
-    try:state['cursor'].close()
-    except Exception:pass
-   next_token=None if eof else secrets.token_urlsafe(32)
-   reply={'items':items,'scope':'whole_geo_store_cursor','consistency':'mutable_read_not_snapshot','sort_semantics':'raw_mongo_source_fields_with_id_tiebreak','limit':limit,'offset':state['offset'],'next_cursor':next_token,'exhausted':eof,'scanned_this_page':scanned,'total_count':None}
-   state.update(next=next_token,last=token or None,reply=deepcopy(reply),eof=eof,offset=state['offset']+len(items),used=self.clock())
-   # Retain the final reply briefly for a lost-response retry; cursor is closed.
-   if eof and not token:self._drop(key)
-   return reply
+  try:return self._page_locked(filters,limit,token,owner_scope=None)
   finally:self.lock.release()
+ def _page_locked(self,filters,limit=25,token='',*,owner_scope=None):
+  # Internal only. Caller must already hold this service's operational lock.
+  if not self.lock.locked():raise RuntimeError('News operation lock required')
+  if owner_scope is not None and(type(owner_scope)is not str or not re.fullmatch('[A-Za-z0-9_-]{43}',owner_scope)):raise ValueError('Internal owner scope')
+  validate(filters,limit,token)
+  key=None
+  if self.stopped.is_set():raise PageUnavailable()
+  self._expire()
+  if token:
+   key=next((k for k,s in self.streams.items() if token in (s['next'],s['last'])),None)
+   if key is None:raise PageExpired()
+   state=self.streams[key]
+   if state.get('owner_scope')!=owner_scope:raise PageExpired()
+   if state['filters']!=filters or state['limit']!=limit:raise PageExpired()
+   state['used']=self.clock()
+   if token==state['last']:return deepcopy(state['reply'])
+  else:
+   if len(self.streams)>=16:raise PageBusy()
+   cursor=None
+   try:
+    cursor=self.store.find({},{k:1 for k in READ_STORE_FIELDS})
+    order={'newest':[('created_at',-1),('_id',-1)],'title':[('title',1),('_id',1)],'country':[('country',1),('_id',1)],'score':[('score',-1),('_id',-1)]}[filters['sort']]
+    cursor.sort(order);cursor.batch_size(100);cursor.max_time_ms(2000)
+   except Exception:
+    if cursor is not None:
+     try:cursor.close()
+     except Exception:pass
+    raise PageUnavailable()from None
+   key=secrets.token_urlsafe(32);now=self.clock()
+   state={'cursor':cursor,'owner_scope':owner_scope,'filters':dict(filters),'limit':limit,'born':now,'used':now,'next':None,'last':None,'reply':None,'offset':0,'eof':False}
+   self.streams[key]=state
+  items=[];scanned=0;eof=state['eof']
+  try:
+   while not eof and len(items)<limit and scanned<1000:
+    try:raw=next(state['cursor'])
+    except StopIteration:eof=True;break
+    scanned+=1
+    clean=self.sanitize([raw])
+    if not clean:continue
+    row=normalize_row(clean[0],'geo')
+    if row is None:continue
+    chosen=selection([row],**filters)['items']
+    if chosen:items.append(public_news_row(chosen[0]))
+  except BaseException as error:
+   self._drop(key)
+   if not isinstance(error,Exception):raise
+   raise PageUnavailable()from None
+  if eof:
+   try:state['cursor'].close()
+   except Exception:pass
+  next_token=None if eof else secrets.token_urlsafe(32)
+  reply={'items':items,'scope':'whole_geo_store_cursor','consistency':'mutable_read_not_snapshot','sort_semantics':'raw_mongo_source_fields_with_id_tiebreak','limit':limit,'offset':state['offset'],'next_cursor':next_token,'exhausted':eof,'scanned_this_page':scanned,'total_count':None}
+  state.update(next=next_token,last=token or None,reply=deepcopy(reply),eof=eof,offset=state['offset']+len(items),used=self.clock())
+  # Retain the final reply briefly for a lost-response retry; cursor is closed.
+  if eof and not token:self._drop(key)
+  return reply
+
+
+ def _close_owned_locked(self,token,owner_scope):
+  """Close only an internal owner's parent. Public callers get no close route."""
+  if not self.lock.locked():raise RuntimeError('News operation lock required')
+  if type(owner_scope)is not str or not re.fullmatch('[A-Za-z0-9_-]{43}',owner_scope):raise ValueError('Internal owner scope')
+  if type(token)is not str or not re.fullmatch('[A-Za-z0-9_-]{43}',token):raise PageExpired()
+  key=next((k for k,s in self.streams.items()if token in(s['next'],s['last'])),None)
+  if key is None:raise PageExpired()
+  if self.streams[key].get('owner_scope')!=owner_scope:raise PageExpired()
+  self._drop(key)
