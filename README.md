@@ -13082,3 +13082,43 @@ READ_PATHS must retain /workspace/finder/offline.html for the public serving sco
 Route links flag ON without a broker proof/evidence provider returns503 on a
 successful coverage body lacking metadata. Builder wiring supplies both together;
 standalone route users must honor that coupling. OFF remains unchanged.
+
+
+## Scoped preparation-file Trivy exceptions and licence diagnostics
+
+Root trivy.yaml selects .trivyignore.yaml. The only accepted misconfig pairs are
+DS-0026 on runtime_build/Dockerfile.candidate, DS-0026 and DS-0002 on
+runtime_executor27c/Dockerfile.discovery, each expiring 2026-11-10. All scanner
+classes, severities and exit-on-finding behavior remain unchanged. No vulnerability,
+secret or licence ignores, no Dockerfile edits, no fake health check/user.
+
+Candidate is build-only, already USER65534:65534, refusal-only CMD and no deployed
+app service. It is selected by a manual candidate-build workflow, not unused by CI.
+Discovery is FROM scratch with no executable, CMD or entrypoint. These exceptions
+are not permission for a runnable root image or a production health-check omission.
+Re-review BEFORE either file gains executable/service/runtime use, and on any byte
+change. Structured path/rule exceptions are not automatically content-hash-bound.
+Reviewed byte anchors:
+- runtime_build/Dockerfile.candidate: bfb72c5eef5c9b09736f397d60a8aac0aa80ffd2c6b86273f0073b5fd0a72211
+- runtime_executor27c/Dockerfile.discovery: 6cdbccfc6d97531984c44e1594c3699afdac2044246393739063347eed3ad217
+
+Pinned Trivy v0.75.0 automatically reads root trivy.yaml; current security action
+inputs do not override config/ignorefile. Config schema/source was checked, but
+local pinned Trivy execution and negative/expiry regression checks have not run.
+Do not call these job-green or runtime-safe until CI verifies exact suppression.
+
+ScanCode32.5.0 local single-index reproduction was blocked during pip install by
+full disk (OSError28). No scan ran; timeout cause is unproven. The failed CI run
+retained no inventory. Current CLI has no config hook and save runs only on success.
+The owner must separately paste if:always() onto Save licence inventory in
+.github/workflows/security.yml to retain failure evidence, preserving scan nonzero
+exit. This config package does not edit workflows. Do not exclude the52MB index,
+turn off copyright scanning, remove errors or accept an empty inventory. Read exact
+rows.jsonl scan_errors before any timeout change. A clean scan is inventory evidence,
+not proof of official data rights or legal/licence clearance.
+
+CI validation still unproven: whether this pinned action runs with config loading
+from the repository scan root and whether its reported finding path/ID strings
+match these exact entries. First CI run may remain red if either differs; this
+would mean suppression did nothing, not a reason to widen it blindly. The failing
+log was not inspected in this review. Check exact output before revising scope.

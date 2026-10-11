@@ -16,14 +16,19 @@
       "sha256": "ce9446fdae6598f86928fb1e0b35d5b77bb046d9bd15d612c3b64b75b89b2206"
     },
     {
+      "path": ".trivyignore.yaml",
+      "bytes": 1214,
+      "sha256": "e567ddae8bb1184f0f873eed987195788cbfb51a1fb39883eb6a53bd0ac9ae5f"
+    },
+    {
       "path": "LICENSE",
       "bytes": 928,
       "sha256": "c915bd1498ad0c00ad82dd6f2690aee521ea0873f0e3d1270c02514d3140345c"
     },
     {
       "path": "README.md",
-      "bytes": 933131,
-      "sha256": "c7ec4988288c897aa0c98bf552281de6edd8cb322f4f122a0bfff5d21b818bb4"
+      "bytes": 935774,
+      "sha256": "f511a23a641e70fac94be0fb1e2f6a9e61cd9c65861b88ce925c0d0dfec39b86"
     },
     {
       "path": "ai-agent.mjs",
@@ -6869,6 +6874,11 @@
       "path": "tests/weekly_report/test_report.py",
       "bytes": 22221,
       "sha256": "92770ad9325b0becc57f76e625e2ee7c8e1214ddfc8011df8a9b10ea842dbf6f"
+    },
+    {
+      "path": "trivy.yaml",
+      "bytes": 113,
+      "sha256": "0bcb98617f017ce30e9a282606e824cfec51c89f979071ca0ba86ba5e2e6cdec"
     },
     {
       "path": "updater_runtime/comtrade-publication.mjs",

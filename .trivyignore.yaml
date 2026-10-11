@@ -1,0 +1,27 @@
+# Review or remove BEFORE either target gains a long-lived service/runtime role.
+# Expiry is enforced by Trivy, not a promise that these files are production-safe.
+misconfigurations:
+  - id: DS-0026
+    paths:
+      - runtime_build/Dockerfile.candidate
+    expired_at: 2026-11-10
+    statement: >-
+      Reviewed build-only candidate, not the deployed app image. It has USER
+      65534:65534 and a refusal-only CMD, no service health endpoint. A fake
+      HEALTHCHECK would misrepresent its role. Re-review if launched as a service.
+  - id: DS-0026
+    paths:
+      - runtime_executor27c/Dockerfile.discovery
+    expired_at: 2026-11-10
+    statement: >-
+      FROM scratch discovery placeholder, no copied executable, CMD or
+      ENTRYPOINT. Not selected as a runnable image; no service health endpoint.
+      Re-review before adding any executable content or runtime use.
+  - id: DS-0002
+    paths:
+      - runtime_executor27c/Dockerfile.discovery
+    expired_at: 2026-11-10
+    statement: >-
+      FROM scratch inert discovery placeholder with no executable, CMD or
+      ENTRYPOINT. This is not acceptance of root in a runnable container.
+      Re-review before adding any executable content or runtime use.

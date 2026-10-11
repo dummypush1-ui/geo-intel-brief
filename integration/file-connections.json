@@ -65,6 +65,15 @@
       "runtime_verified": false
     },
     {
+      "path": ".trivyignore.yaml",
+      "project": "finder_or_build",
+      "role": "preserved_engine_or_asset",
+      "sha256": "e567ddae8bb1184f0f873eed987195788cbfb51a1fb39883eb6a53bd0ac9ae5f",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
       "path": "LICENSE",
       "project": "finder_or_build",
       "role": "preserved_engine_or_asset",
@@ -77,7 +86,7 @@
       "path": "README.md",
       "project": "finder_or_build",
       "role": "preserved_engine_or_asset",
-      "sha256": "c7ec4988288c897aa0c98bf552281de6edd8cb322f4f122a0bfff5d21b818bb4",
+      "sha256": "f511a23a641e70fac94be0fb1e2f6a9e61cd9c65861b88ce925c0d0dfec39b86",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -10168,7 +10177,7 @@
       "path": "staging-manifest.json",
       "project": "finder_or_build",
       "role": "preserved_engine_or_asset",
-      "sha256": "247a56fe61d5a9d9dd2b4628aa1be72cd99f2f700333db1bfa5ad0f1be5fb4c5",
+      "sha256": "94486fff0850fa4a49256639a5c110bbaf15a896e09e225f050b985c26b50268",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -14524,6 +14533,15 @@
       "runtime_verified": false
     },
     {
+      "path": "trivy.yaml",
+      "project": "finder_or_build",
+      "role": "preserved_engine_or_asset",
+      "sha256": "0bcb98617f017ce30e9a282606e824cfec51c89f979071ca0ba86ba5e2e6cdec",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
       "path": "updater_runtime/comtrade-publication.mjs",
       "project": "finder_or_build",
       "role": "preserved_engine_or_asset",
@@ -15086,7 +15104,7 @@
       "runtime_verified": false
     }
   ],
-  "file_count": 1441,
+  "file_count": 1443,
   "limits": [
     "Dynamic references and network endpoints need runtime adapter tests",
     "Legacy launchers deliberately not connected to merged private entrypoint",
