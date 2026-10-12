@@ -1,6 +1,6 @@
 import unittest,hashlib,copy,io,json
 from unittest.mock import patch
-from integration.collector_actions import entry
+import integration.collector_actions.entry as entry
 from integration.collector_actions.provider import protected_receipt,MAX_PEAK
 class Tests(unittest.TestCase):
  def payload(self):return dict(mode='collect',repository=entry.REPO,run_id='12345',run_attempt='1',activation_reference='owner-original-message-id',values={'GEO_WRITER_MONGODB_URI':'fixture-only','COLLECTOR_PROFILE_FINGERPRINT':'a'*64})

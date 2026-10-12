@@ -3933,15 +3933,14 @@
       "path": "integration/collector_actions/test_candidate.py",
       "project": "integration",
       "role": "offline_contract_or_private_view",
-      "sha256": "ed9cef7e270af6e2e184062128ddffdcfef403fca6eb52ac224c208a0880a08d",
+      "sha256": "054d40f028162f23ee15acc0dcb35acd84b1973f1351d2042b47b8f9d4abfc4e",
       "static_file_edges": [
         "integration/collector197_job_runtime.py",
+        "integration/collector_actions/entry.py",
         "integration/collector_actions/provider.py",
         "integration/collector_actions/receipt.py"
       ],
-      "unresolved_internal_imports": [
-        "integration.collector_actions"
-      ],
+      "unresolved_internal_imports": [],
       "runtime_verified": false
     },
     {
@@ -4141,7 +4140,7 @@
       "path": "integration/dependency_audit/audit.json",
       "project": "integration",
       "role": "offline_contract_or_private_view",
-      "sha256": "b936de372649d37d194e67582c4a71b3895498b431671fe04c5401ec7076c3c2",
+      "sha256": "629c4b32f51459e6455f18b16db6abd6f65d1ff00311ea404297804287f680ec",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -4150,7 +4149,7 @@
       "path": "integration/dependency_audit/import-inventory.json",
       "project": "integration",
       "role": "offline_contract_or_private_view",
-      "sha256": "e842a22c0bc126a1d3c743e4129c8f23733780438cd0f2a0bd620483dff1e031",
+      "sha256": "41eab78d16a541a834157abd42348d580ef998989d1be8b72732dbfd73753848",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -10372,7 +10371,7 @@
       "path": "staging-manifest.json",
       "project": "finder_or_build",
       "role": "preserved_engine_or_asset",
-      "sha256": "f93512e87a1b2aade3b343d7fea7413aba53c062557f36ffd62b23918a8c69c6",
+      "sha256": "9076597bf7a69f19e80c2051193ce6c295e611c986f2bb3e70ff54667c990e19",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -10899,7 +10898,7 @@
       "path": "tests/browser_public_map_m1.py",
       "project": "test",
       "role": "fixture_test",
-      "sha256": "c28ab7734a2c12c88b48b7c66513a3341b46bb85e5c4c392d9fe40f264fa3c08",
+      "sha256": "3274f4b5292e89cc7b17bc99a5f399c0baef6ebb514be4765560c0717253c112",
       "static_file_edges": [
         "integration/__init__.py",
         "integration/news_api.py"

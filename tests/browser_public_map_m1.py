@@ -1,6 +1,6 @@
 import sys,threading,json,base64,time
 from pathlib import Path
-import os
+import os,tempfile
 ROOT=Path(__file__).resolve().parents[1]
 BASE=Path(os.environ.get('MAP_BASE_ROOT',ROOT))
 if (ROOT/'source').is_dir():sys.path[:0]=[str(ROOT/'source'),str(BASE)]
@@ -9,7 +9,7 @@ from integration.news_api import create_app
 from integration import public_map_prep as m
 from werkzeug.serving import make_server
 from playwright.sync_api import sync_playwright
-out=Path(os.environ.get('MAP_EVIDENCE',ROOT/'map-m1-evidence'));out.mkdir(exist_ok=True);origin='http://127.0.0.1:8788'
+out=Path(os.environ['MAP_EVIDENCE']) if 'MAP_EVIDENCE' in os.environ else Path(tempfile.mkdtemp(prefix='map-m1-evidence-'));out.mkdir(exist_ok=True);origin='http://127.0.0.1:8788'
 raw={'geo':[{'title':'SIMULATED India source <img src=x onerror=alert(1)>','country':'India','source':'Local fixture','url':'https://news.example.com/a','created_at':'2026-10-12T00:00:00Z'},{'title':'SIMULATED Congo unmapped','country':'Congo','source':'Local fixture','url':'https://news.example.com/b'}]}
 app=create_app(authorize=lambda r:True);fixture=m.FakeMap(lambda:raw);m.install(app,origin,fixture)
 server=make_server('127.0.0.1',8788,app,threaded=True);threading.Thread(target=server.serve_forever,daemon=True).start()

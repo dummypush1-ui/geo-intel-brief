@@ -108,8 +108,12 @@
         "integration/finder_index.py",
         "integration/finder_offline.py",
         "integration/news_api.py",
+        "integration/public_ai_answers.py",
+        "integration/public_ai_finder_bridge.py",
+        "scripts/build_finder_identity_proof.py",
         "tests/accounts/test_hardening.py",
         "tests/browser_finder_report227.py",
+        "tests/browser_public_map_m1.py",
         "tests/browser_report228.py",
         "tests/test_finder198bb.py",
         "tests/test_finder_nested.py",
@@ -140,6 +144,18 @@
         "source": "integration/bcrypt189/dependency.json",
         "scope": "supplemental pin, not historical25distributionbaseline"
       }
+    },
+    {
+      "import": "bisect",
+      "stdlib": true,
+      "distributions": [],
+      "provenance": {
+        "source": "sys.stdlib_module_names"
+      },
+      "classification": "stdlib",
+      "files": [
+        "integration/code_news_links.py"
+      ]
     },
     {
       "import": "bson",
@@ -311,12 +327,16 @@
         "integration/geonews_digest/model.py",
         "integration/geonews_digest/render.py",
         "integration/news_api.py",
+        "integration/public_ai_answers.py",
         "integration/public_finder.py",
+        "integration/public_weekly_pdf.py",
         "integration/renderer_scope.py",
         "integration/replay199_preflight.py",
         "integration/storage_reader.py",
         "integration/weekly_report/report.py",
-        "scripts/build_code_news_index.py"
+        "scripts/build_code_news_index.py",
+        "scripts/build_finder_identity_proof.py",
+        "tests/test_public_ai_answers.py"
       ],
       "stdlib": true,
       "distributions": [],
@@ -552,6 +572,7 @@
       "import": "concurrent",
       "files": [
         "tests/test_db181.py",
+        "tests/test_finder_identity_proof_prep.py",
         "tests/test_mail_bridge.py",
         "tests/test_mail_ledger212.py"
       ],
@@ -568,6 +589,7 @@
         "integration/mail_bridge.py",
         "tests/digest_cold_probe.py",
         "tests/news_export/test_fixture_serving.py",
+        "tests/test_ai_protocol_prep.py",
         "tests/test_digest_preview_routes.py",
         "tests/test_geo_probe_process.py",
         "tests/test_rss177.py"
@@ -589,7 +611,10 @@
         "integration/accounts/shared_ledger_fixture.py",
         "integration/accounts/store.py",
         "integration/brics_streams.py",
+        "integration/code_news_coverage_broker_prep.py",
         "integration/code_news_links.py",
+        "integration/code_news_parent_prep.py",
+        "integration/code_news_scope_prep.py",
         "integration/collection_prepare.py",
         "integration/collection_receipts/protocol.py",
         "integration/collector197_archive.py",
@@ -635,8 +660,10 @@
         "integration/smtp_config204.py",
         "integration/source_health.py",
         "integration/stream_fixture_app.py",
+        "integration/weather_public.py",
         "tests/accounts/test_reservation_terminal.py",
         "tests/accounts/test_store_conformance.py",
+        "tests/browser_weather_ui.py",
         "tests/native200_state_fixture.py",
         "tests/native200cb_read_fixture.py",
         "tests/test_article_archive.py",
@@ -701,7 +728,8 @@
         "tests/test_supplied_fulltext_fixture.py",
         "tests/test_supplied_multi_feed.py",
         "tests/test_tariff_evidence_plain.py",
-        "tests/test_telegram_format_audit.py"
+        "tests/test_telegram_format_audit.py",
+        "tests/test_weather_public.py"
       ],
       "stdlib": true,
       "distributions": [],
@@ -754,6 +782,7 @@
       "files": [
         "integration/accounts/limiter.py",
         "integration/accounts/shared_ledger_fixture.py",
+        "integration/code_news_coverage_binding_prep.py",
         "integration/collector197_config.py",
         "integration/collector197_job_runtime.py",
         "integration/collector197_runtime_evidence.py",
@@ -764,8 +793,10 @@
         "integration/mail_bridge.py",
         "integration/mail_mount_binding.py",
         "integration/news_export/keyset_plan.py",
+        "integration/news_finder_navigation_prep.py",
         "integration/single_db_plan.py",
         "integration/storage_settings.py",
+        "tests/test_code_news_coverage_binding_prep.py",
         "tests/test_collector197c.py",
         "tests/test_collector197ea.py",
         "tests/test_finder198a.py",
@@ -833,8 +864,10 @@
         "integration/original_dashboard_payloads.py",
         "integration/page_watch.py",
         "integration/preview_access.py",
+        "integration/public_ai_answers.py",
         "integration/public_finder.py",
         "integration/public_live_builder.py",
+        "integration/public_weekly_pdf.py",
         "integration/publication_dates/policy.py",
         "integration/renderer_scope.py",
         "integration/replay199_collector.py",
@@ -853,6 +886,8 @@
         "integration/supplied_multi_feed.py",
         "integration/tariff_evidence.py",
         "integration/telegram_format_audit.py",
+        "integration/weather_public.py",
+        "integration/weather_public_prep.py",
         "integration/weekly_report/_pdf.py",
         "integration/weekly_report/_render.py",
         "integration/weekly_report/report.py",
@@ -865,6 +900,7 @@
         "tests/browser_report228.py",
         "tests/browser_stream_config.py",
         "tests/browser_weather231.py",
+        "tests/browser_weather_ui.py",
         "tests/digest_cold_probe.py",
         "tests/geonews_digest/test_digest.py",
         "tests/geospatial/preview/make_payload.py",
@@ -896,8 +932,10 @@
         "tests/test_html209.py",
         "tests/test_links170.py",
         "tests/test_mail_rederive221.py",
+        "tests/test_map_m1.py",
         "tests/test_news182.py",
         "tests/test_private_news_fields.py",
+        "tests/test_public_weekly_pdf.py",
         "tests/test_report_preview_frame.py",
         "tests/test_retention_audit.py",
         "tests/test_rss177.py",
@@ -917,6 +955,8 @@
         "tests/test_tariff_evidence.py",
         "tests/test_tariff_evidence_plain.py",
         "tests/test_telegram_format_audit.py",
+        "tests/test_weather_public.py",
+        "tests/test_weather_public_prep.py",
         "tests/weekly_report/test_report.py"
       ],
       "stdlib": true,
@@ -1120,6 +1160,8 @@
       "files": [
         "feature_mail_mount/http.py",
         "integration/accounts/http_fixture.py",
+        "integration/code_news_coverage_route_prep.py",
+        "integration/code_news_coverage_ui_prep.py",
         "integration/code_news_public.py",
         "integration/collector197_host_probe.py",
         "integration/collector197_http.py",
@@ -1128,20 +1170,34 @@
         "integration/news_api.py",
         "integration/news_export/fixture_http.py",
         "integration/preview_access.py",
+        "integration/public_ai_answers.py",
+        "integration/public_brics_streams.py",
         "integration/public_finder.py",
         "integration/public_live_builder.py",
+        "integration/public_map_prep/__init__.py",
         "integration/public_preview_builder.py",
+        "integration/public_weekly_pdf.py",
         "integration/security_headers.py",
+        "integration/weather_public.py",
+        "integration/weather_ui.py",
         "tests/browser_finder198d.py",
+        "tests/browser_public_ai_answers.py",
         "tests/browser_ships226.py",
+        "tests/browser_weather_ui.py",
         "tests/digest_cold_probe.py",
+        "tests/test_code_news_coverage_binding_prep.py",
+        "tests/test_code_news_coverage_route_prep.py",
+        "tests/test_code_news_coverage_ui_prep.py",
         "tests/test_collector197c.py",
         "tests/test_edge_guard.py",
         "tests/test_factory176.py",
         "tests/test_feature_mail_mount.py",
         "tests/test_host197da.py",
         "tests/test_mail166.py",
-        "tests/test_security_headers.py"
+        "tests/test_news_finder_navigation_prep.py",
+        "tests/test_security_headers.py",
+        "tests/test_weather_public.py",
+        "tests/test_weather_ui.py"
       ],
       "stdlib": false,
       "distributions": [
@@ -1241,7 +1297,8 @@
         "source": "sys.stdlib_module_names"
       },
       "files": [
-        "integration/collector197_host_probe.py"
+        "integration/collector197_host_probe.py",
+        "tests/memory_public_map_m1.py"
       ]
     },
     {
@@ -1249,6 +1306,7 @@
       "files": [
         "integration/code_news_catalogue.py",
         "integration/finder_index.py",
+        "scripts/build_finder_identity_proof.py",
         "tests/test_collector197b_connector.py",
         "tests/test_fulltext172.py"
       ],
@@ -1276,6 +1334,7 @@
         "integration/article_archive.py",
         "integration/bounded_rss/driver.py",
         "integration/code_news_catalogue.py",
+        "integration/code_news_coverage_binding_prep.py",
         "integration/code_news_disk.py",
         "integration/code_news_links.py",
         "integration/collection_receipts/protocol.py",
@@ -1300,6 +1359,7 @@
         "integration/finder198_ops.py",
         "integration/finder198_receipts.py",
         "integration/finder198_transport.py",
+        "integration/finder_identity_proof_prep.py",
         "integration/finder_index.py",
         "integration/finder_offline.py",
         "integration/fixed_parser_pipeline.py",
@@ -1319,8 +1379,14 @@
         "integration/news_api.py",
         "integration/news_export/fixture_http.py",
         "integration/news_export/original_stream.py",
+        "integration/news_finder_navigation_prep.py",
         "integration/news_view.py",
         "integration/page_watch.py",
+        "integration/public_ai_answers.py",
+        "integration/public_ai_finder_bridge.py",
+        "integration/public_brics_streams.py",
+        "integration/public_map_prep/__init__.py",
+        "integration/public_weekly_pdf.py",
         "integration/recipient_scope220.py",
         "integration/renderer_scope.py",
         "integration/replay199_adapters.py",
@@ -1338,9 +1404,11 @@
         "integration/supplied_fulltext_fixture.py",
         "integration/supplied_multi_feed.py",
         "integration/telegram_format_audit.py",
+        "integration/weather_public_prep.py",
         "integration/weekly_report/_pdf.py",
         "scripts/audit_connections.py",
         "scripts/build_code_news_index.py",
+        "scripts/build_finder_identity_proof.py",
         "scripts/doc_lookup.py",
         "scripts/package_manifest.py",
         "tests/browser_feature_finder.py",
@@ -1359,6 +1427,7 @@
         "tests/test_build_provenance150.py",
         "tests/test_bulk147_inventory.py",
         "tests/test_classifier146_inventory.py",
+        "tests/test_code_news_disk_safety.py",
         "tests/test_code_news_public.py",
         "tests/test_collector122_inventory.py",
         "tests/test_collector122_packing.py",
@@ -1374,6 +1443,7 @@
         "tests/test_finder198d.py",
         "tests/test_finder198ops.py",
         "tests/test_finder_browser229.py",
+        "tests/test_finder_identity_proof_prep.py",
         "tests/test_finder_index.py",
         "tests/test_finder_nested.py",
         "tests/test_finder_network230.py",
@@ -1381,9 +1451,11 @@
         "tests/test_gst154.py",
         "tests/test_mail_surface217.py",
         "tests/test_map_layers.py",
+        "tests/test_map_m1.py",
         "tests/test_monitor155.py",
         "tests/test_native200bb.py",
         "tests/test_native_mail_projection224.py",
+        "tests/test_news_finder_navigation_prep.py",
         "tests/test_offline232.py",
         "tests/test_package_manifest.py",
         "tests/test_page_watch_contract.py",
@@ -1391,6 +1463,9 @@
         "tests/test_preservation.py",
         "tests/test_private_news_fields.py",
         "tests/test_protocol145_inventory.py",
+        "tests/test_public_ai_answers.py",
+        "tests/test_public_brics_streams.py",
+        "tests/test_public_weekly_pdf.py",
         "tests/test_publication151_inventory.py",
         "tests/test_recipient_scope220.py",
         "tests/test_replay199b.py",
@@ -1425,6 +1500,7 @@
         "integration/accounts/limiter.py",
         "integration/accounts/passwords.py",
         "integration/accounts/shared_ledger_fixture.py",
+        "integration/ai_protocol_prep.py",
         "integration/collector197_host_probe.py",
         "integration/collector197_http.py",
         "integration/geo_probe_http.py",
@@ -1445,6 +1521,7 @@
       "import": "html",
       "files": [
         "integration/agencia_parser.py",
+        "integration/ai_protocol_prep.py",
         "integration/branding_meta.py",
         "integration/digest_email218.py",
         "integration/digest_render203.py",
@@ -1477,6 +1554,7 @@
         "integration/finder198_transport_child.py",
         "integration/geonews_digest/delivery.py",
         "integration/india_open_data/transport.py",
+        "integration/weather_public.py",
         "tests/browser_feature_finder.py",
         "tests/browser_report228.py",
         "tests/geonews_digest/test_digest.py",
@@ -1500,6 +1578,7 @@
         "tests/collection_outcomes/test_status.py",
         "tests/geospatial/test_geospatial.py",
         "tests/news_export/test_export.py",
+        "tests/test_code_news_disk_safety.py",
         "tests/test_collector122_inventory.py",
         "tests/test_db181.py",
         "tests/test_finder_browser229.py",
@@ -1560,7 +1639,13 @@
         "integration/agencia_parser.py",
         "integration/brics_processing_offline.py",
         "integration/brics_streams.py",
+        "integration/code_news_coverage_binding_prep.py",
+        "integration/code_news_coverage_broker_prep.py",
+        "integration/code_news_coverage_route_prep.py",
+        "integration/code_news_coverage_ui_prep.py",
         "integration/code_news_disk.py",
+        "integration/code_news_matcher_prep.py",
+        "integration/code_news_parent_prep.py",
         "integration/code_news_public.py",
         "integration/code_news_query.py",
         "integration/collection_prepare.py",
@@ -1635,6 +1720,7 @@
         "integration/native201_ledger.py",
         "integration/news_api.py",
         "integration/news_export/original_contract.py",
+        "integration/news_finder_navigation_prep.py",
         "integration/news_pages.py",
         "integration/news_view.py",
         "integration/offline_collection_cycle.py",
@@ -1644,8 +1730,12 @@
         "integration/preview_launcher.py",
         "integration/private_router.py",
         "integration/project_reports.py",
+        "integration/public_ai_answers.py",
+        "integration/public_brics_streams.py",
         "integration/public_live_builder.py",
+        "integration/public_map_prep/__init__.py",
         "integration/public_preview_builder.py",
+        "integration/public_weekly_pdf.py",
         "integration/query_validation.py",
         "integration/relevance.py",
         "integration/renderer_scope.py",
@@ -1678,7 +1768,9 @@
         "integration/stream_revision.py",
         "integration/supplied_feed_fixture.py",
         "integration/supplied_fulltext_fixture.py",
+        "integration/weather_public.py",
         "scripts/build_code_news_index.py",
+        "scripts/build_finder_identity_proof.py",
         "tests/accounts/browser_http_fixture.py",
         "tests/accounts/test_accounts.py",
         "tests/accounts/test_hardening.py",
@@ -1686,6 +1778,7 @@
         "tests/accounts/test_merged_fixture.py",
         "tests/accounts/test_reservation_terminal.py",
         "tests/accounts/test_store_conformance.py",
+        "tests/brics_public_memory.py",
         "tests/browser_brics_streams.py",
         "tests/browser_compulsory_channels.py",
         "tests/browser_context208.py",
@@ -1694,6 +1787,7 @@
         "tests/browser_digest_preview.py",
         "tests/browser_event_digest.py",
         "tests/browser_events210.py",
+        "tests/browser_finder_identity_proof.py",
         "tests/browser_finder_nested.py",
         "tests/browser_finder_network.py",
         "tests/browser_finder_offline.py",
@@ -1701,7 +1795,12 @@
         "tests/browser_finder_static.py",
         "tests/browser_loaded_news.py",
         "tests/browser_map.py",
+        "tests/browser_news_finder_navigation.py",
         "tests/browser_offline232.py",
+        "tests/browser_public_ai_answers.py",
+        "tests/browser_public_brics.py",
+        "tests/browser_public_map_m1.py",
+        "tests/browser_public_weekly.py",
         "tests/browser_report228.py",
         "tests/browser_report_styles.py",
         "tests/browser_sample_volume.py",
@@ -1709,6 +1808,7 @@
         "tests/browser_tariff_evidence.py",
         "tests/browser_watch_updates.py",
         "tests/browser_weather231.py",
+        "tests/browser_weather_ui.py",
         "tests/browser_weekly.py",
         "tests/collection_receipts/test_protocol.py",
         "tests/digest_cold_probe.py",
@@ -1716,6 +1816,7 @@
         "tests/geospatial/preview/make_payload.py",
         "tests/geospatial/test_geospatial.py",
         "tests/geospatial/test_map_route.py",
+        "tests/memory_public_map_m1.py",
         "tests/native200_state_fixture.py",
         "tests/native200cb_read_fixture.py",
         "tests/news_export/test_export.py",
@@ -1726,8 +1827,10 @@
         "tests/news_export/test_original_contract.py",
         "tests/news_export/test_original_stream.py",
         "tests/news_export/test_raw_pager.py",
+        "tests/public_ai_fixture_memory.py",
         "tests/publication_dates/test_policy.py",
         "tests/test_agencia_parser.py",
+        "tests/test_ai_protocol_prep.py",
         "tests/test_api_v1_187.py",
         "tests/test_article_archive.py",
         "tests/test_backup184.py",
@@ -1737,8 +1840,18 @@
         "tests/test_bridges.py",
         "tests/test_broker_json211.py",
         "tests/test_channels171.py",
+        "tests/test_code_news_coverage_binding_prep.py",
+        "tests/test_code_news_coverage_broker_prep.py",
+        "tests/test_code_news_coverage_prep.py",
+        "tests/test_code_news_coverage_route_prep.py",
+        "tests/test_code_news_coverage_ui_prep.py",
+        "tests/test_code_news_cursor_prep.py",
         "tests/test_code_news_disk.py",
+        "tests/test_code_news_disk_safety.py",
+        "tests/test_code_news_matcher_regression.py",
+        "tests/test_code_news_parent_prep.py",
         "tests/test_code_news_public.py",
+        "tests/test_code_news_scope_prep.py",
         "tests/test_collection_prepare.py",
         "tests/test_collector197a.py",
         "tests/test_collector197b_connector.py",
@@ -1758,6 +1871,7 @@
         "tests/test_country_signals.py",
         "tests/test_country_signals_routes.py",
         "tests/test_critical_stories.py",
+        "tests/test_cross_link_schema_prep.py",
         "tests/test_cross_routes.py",
         "tests/test_dashboard_model.py",
         "tests/test_dashboard_snapshots.py",
@@ -1782,6 +1896,7 @@
         "tests/test_finder198c.py",
         "tests/test_finder198d.py",
         "tests/test_finder198ops.py",
+        "tests/test_finder_identity_proof_prep.py",
         "tests/test_finder_index.py",
         "tests/test_finder_nested.py",
         "tests/test_finder_network.py",
@@ -1814,6 +1929,7 @@
         "tests/test_mail_ledger212.py",
         "tests/test_mail_surface217.py",
         "tests/test_map_layers.py",
+        "tests/test_map_m1.py",
         "tests/test_mongo_account_store.py",
         "tests/test_native200a.py",
         "tests/test_native200ba.py",
@@ -1825,7 +1941,9 @@
         "tests/test_native201b.py",
         "tests/test_native201guard.py",
         "tests/test_news182.py",
+        "tests/test_news_finder_navigation_prep.py",
         "tests/test_news_pages185.py",
+        "tests/test_news_pages_locked.py",
         "tests/test_news_scroll186.py",
         "tests/test_offline232.py",
         "tests/test_offline_collection_cycle.py",
@@ -1842,7 +1960,10 @@
         "tests/test_private_news_fields.py",
         "tests/test_production_entry_evidence_guard.py",
         "tests/test_project_reports.py",
+        "tests/test_public_ai_answers.py",
+        "tests/test_public_brics_streams.py",
         "tests/test_public_finder.py",
+        "tests/test_public_weekly_pdf.py",
         "tests/test_query_validation188.py",
         "tests/test_recipient_scope220.py",
         "tests/test_replay199a.py",
@@ -1890,10 +2011,14 @@
         "tests/test_telegram_format_audit.py",
         "tests/test_token196.py",
         "tests/test_watchlist_public_fix.py",
+        "tests/test_weather_public.py",
+        "tests/test_weather_public_prep.py",
+        "tests/test_weather_ui.py",
         "tests/test_weekly_routes.py",
         "tests/test_workspace.py",
         "tests/test_youtube_links.py",
         "tests/text_matching/test_matching.py",
+        "tests/weekly_public_memory.py",
         "tests/weekly_report/test_report.py"
       ],
       "stdlib": false,
@@ -2119,21 +2244,28 @@
         "integration/news_export/original_contract.py",
         "integration/news_export/original_stream.py",
         "integration/schedule_occurrence205.py",
+        "scripts/build_finder_identity_proof.py",
         "tests/browser_finder_nested.py",
         "tests/browser_offline232.py",
+        "tests/browser_public_ai_answers.py",
         "tests/news_export/test_export.py",
         "tests/news_export/test_export_route.py",
         "tests/news_export/test_fixture_http.py",
         "tests/news_export/test_keyset_plan.py",
         "tests/news_export/test_original_contract.py",
         "tests/news_export/test_original_stream.py",
+        "tests/test_ai_protocol_prep.py",
         "tests/test_broker_json211.py",
+        "tests/test_code_news_coverage_binding_prep.py",
+        "tests/test_code_news_coverage_route_prep.py",
         "tests/test_collector197b_connector.py",
         "tests/test_collector197ea.py",
         "tests/test_geo_probe_process.py",
         "tests/test_loaded_news.py",
         "tests/test_mail_surface217.py",
         "tests/test_post_json207.py",
+        "tests/test_public_ai_answers.py",
+        "tests/test_public_weekly_pdf.py",
         "tests/test_rss177.py",
         "tests/test_weekly_routes.py",
         "tests/weekly_report/test_report.py"
@@ -2152,6 +2284,7 @@
         "integration/dashboard_snapshots.py",
         "integration/finder198_transport_child.py",
         "integration/india_open_data/transport.py",
+        "integration/public_ai_answers.py",
         "integration/rss_catalog/catalog.py",
         "integration/smtp_config204.py"
       ],
@@ -2175,10 +2308,18 @@
         "integration/accounts/mongo_store.py",
         "integration/accounts/settings.py",
         "integration/accounts/shared_ledger_fixture.py",
+        "integration/ai_protocol_prep.py",
         "integration/article_archive.py",
         "integration/broker_json211.py",
         "integration/code_news_catalogue.py",
+        "integration/code_news_coverage_binding_prep.py",
+        "integration/code_news_coverage_broker_prep.py",
+        "integration/code_news_coverage_contract_prep.py",
+        "integration/code_news_coverage_prep.py",
+        "integration/code_news_coverage_route_prep.py",
+        "integration/code_news_cursor_prep.py",
         "integration/code_news_disk.py",
+        "integration/code_news_parent_prep.py",
         "integration/code_news_public.py",
         "integration/collection_receipts/protocol.py",
         "integration/collector197_archive.py",
@@ -2231,7 +2372,10 @@
         "integration/news_export/geo_snapshot.py",
         "integration/news_export/raw_pager.py",
         "integration/post_json207.py",
+        "integration/public_ai_answers.py",
+        "integration/public_brics_streams.py",
         "integration/public_finder.py",
+        "integration/public_map_prep/__init__.py",
         "integration/recipient_scope220.py",
         "integration/replay199_broker.py",
         "integration/replay199_composition.py",
@@ -2241,11 +2385,15 @@
         "integration/sender_scope222.py",
         "integration/supplied_fulltext_fixture.py",
         "integration/tariff_evidence.py",
+        "integration/weather_public.py",
+        "integration/weather_public_prep.py",
         "scripts/audit_connections.py",
         "scripts/build_code_news_index.py",
+        "scripts/build_finder_identity_proof.py",
         "scripts/doc_lookup.py",
         "scripts/package_manifest.py",
         "tests/accounts/browser_http_fixture.py",
+        "tests/brics_public_memory.py",
         "tests/browser_brics_streams.py",
         "tests/browser_compulsory_channels.py",
         "tests/browser_context208.py",
@@ -2257,6 +2405,7 @@
         "tests/browser_events210.py",
         "tests/browser_feature_finder.py",
         "tests/browser_finder198d.py",
+        "tests/browser_finder_identity_proof.py",
         "tests/browser_finder_nested.py",
         "tests/browser_finder_network.py",
         "tests/browser_finder_offline.py",
@@ -2264,7 +2413,12 @@
         "tests/browser_finder_static.py",
         "tests/browser_loaded_news.py",
         "tests/browser_map.py",
+        "tests/browser_news_finder_navigation.py",
         "tests/browser_offline232.py",
+        "tests/browser_public_ai_answers.py",
+        "tests/browser_public_brics.py",
+        "tests/browser_public_map_m1.py",
+        "tests/browser_public_weekly.py",
         "tests/browser_report228.py",
         "tests/browser_report_styles.py",
         "tests/browser_sample_volume.py",
@@ -2273,13 +2427,19 @@
         "tests/browser_tariff_evidence.py",
         "tests/browser_watch_updates.py",
         "tests/browser_weather231.py",
+        "tests/browser_weather_ui.py",
         "tests/browser_weekly.py",
         "tests/digest_cold_probe.py",
         "tests/geospatial/preview/make_payload.py",
         "tests/geospatial/test_geospatial.py",
         "tests/geospatial/test_map_route.py",
+        "tests/memory_public_map_m1.py",
+        "tests/mutate_map_m1.py",
+        "tests/mutate_map_tile_gate.py",
         "tests/news_export/test_fixture_http.py",
+        "tests/public_ai_fixture_memory.py",
         "tests/publication_dates/test_policy.py",
+        "tests/test_ai_protocol_prep.py",
         "tests/test_apps_script_audit.py",
         "tests/test_article_archive.py",
         "tests/test_bcrypt189.py",
@@ -2288,7 +2448,10 @@
         "tests/test_build_provenance150.py",
         "tests/test_bulk147_inventory.py",
         "tests/test_classifier146_inventory.py",
+        "tests/test_code_news_coverage_broker_prep.py",
+        "tests/test_code_news_coverage_route_prep.py",
         "tests/test_code_news_disk.py",
+        "tests/test_code_news_disk_safety.py",
         "tests/test_collector122_inventory.py",
         "tests/test_collector197b_coordinator.py",
         "tests/test_collector197b_supervisor.py",
@@ -2315,6 +2478,7 @@
         "tests/test_mail_ledger212.py",
         "tests/test_mail_rederive221.py",
         "tests/test_mail_surface217.py",
+        "tests/test_map_m1.py",
         "tests/test_monitor155.py",
         "tests/test_native_mail_projection224.py",
         "tests/test_offline232.py",
@@ -2323,6 +2487,8 @@
         "tests/test_post_json207.py",
         "tests/test_preservation.py",
         "tests/test_protocol145_inventory.py",
+        "tests/test_public_ai_answers.py",
+        "tests/test_public_brics_streams.py",
         "tests/test_public_finder.py",
         "tests/test_publication151_inventory.py",
         "tests/test_recipient_scope220.py",
@@ -2336,7 +2502,9 @@
         "tests/test_sender_scope222.py",
         "tests/test_ships226.py",
         "tests/test_tariff_evidence_plain.py",
-        "tests/test_token196.py"
+        "tests/test_token196.py",
+        "tests/test_weather_public.py",
+        "tests/weekly_public_memory.py"
       ],
       "stdlib": true,
       "distributions": [],
@@ -2349,7 +2517,9 @@
       "import": "logging",
       "files": [
         "integration/edge_guard.py",
-        "integration/geo_sample_probe_child.py"
+        "integration/geo_sample_probe_child.py",
+        "tests/browser_public_ai_answers.py",
+        "tests/test_public_ai_answers.py"
       ],
       "stdlib": true,
       "distributions": [],
@@ -2369,6 +2539,8 @@
         "integration/accounts/store.py",
         "integration/article_archive.py",
         "integration/bounded_rss/driver.py",
+        "integration/code_news_parent_prep.py",
+        "integration/code_news_scope_prep.py",
         "integration/collector197_archive.py",
         "integration/collector197_connector.py",
         "integration/collector197_parser.py",
@@ -2394,6 +2566,8 @@
         "integration/preview_access.py",
         "integration/public_finder.py",
         "integration/public_live_builder.py",
+        "integration/public_map_prep/__init__.py",
+        "integration/public_weekly_pdf.py",
         "integration/replay199_core.py",
         "integration/retention_audit.py",
         "integration/smtp_policy.py",
@@ -2402,6 +2576,7 @@
         "integration/supplied_fulltext_fixture.py",
         "integration/supplied_multi_feed.py",
         "integration/telegram_format_audit.py",
+        "integration/weather_public_prep.py",
         "integration/weekly_report/report.py",
         "tests/geospatial/test_geospatial.py"
       ],
@@ -2440,6 +2615,7 @@
       "import": "os",
       "files": [
         "integration/accounts/passwords.py",
+        "integration/code_news_disk.py",
         "integration/collector197_coordinator.py",
         "integration/collector197_coordinator_child.py",
         "integration/collector197_feed_child.py",
@@ -2455,6 +2631,7 @@
         "integration/feedparser_audit/runner.py",
         "integration/finder198_transport.py",
         "integration/finder198_transport_child.py",
+        "integration/finder_identity_proof_prep.py",
         "integration/geo_probe_process.py",
         "integration/geo_sample_probe_child.py",
         "integration/private_router.py",
@@ -2466,12 +2643,18 @@
         "tests/browser_finder_network.py",
         "tests/browser_finder_report227.py",
         "tests/browser_offline232.py",
+        "tests/browser_public_ai_answers.py",
+        "tests/browser_public_map_m1.py",
         "tests/browser_report228.py",
         "tests/browser_weather231.py",
         "tests/digest_cold_probe.py",
         "tests/geospatial/test_geospatial.py",
+        "tests/memory_public_map_m1.py",
+        "tests/mutate_map_m1.py",
         "tests/news_export/test_export.py",
         "tests/publication_dates/test_policy.py",
+        "tests/test_code_news_coverage_binding_prep.py",
+        "tests/test_code_news_disk_safety.py",
         "tests/test_collector197b_supervisor.py",
         "tests/test_collector197ea.py",
         "tests/test_digest_cold.py",
@@ -2481,6 +2664,7 @@
         "tests/test_geo_probe_process.py",
         "tests/test_geo_read_factory.py",
         "tests/test_geo_sample_probe.py",
+        "tests/test_map_m1.py",
         "tests/test_offline232.py",
         "tests/test_preview_launcher.py",
         "tests/test_report227.py",
@@ -2488,6 +2672,7 @@
         "tests/test_smtp_caller213.py",
         "tests/test_stream_disk.py",
         "tests/test_weather231.py",
+        "tests/test_weather_public_prep.py",
         "tests/weekly_report/test_report.py"
       ],
       "stdlib": true,
@@ -2522,6 +2707,8 @@
         "integration/accounts/merged_fixture.py",
         "integration/branding_meta.py",
         "integration/code_news_catalogue.py",
+        "integration/code_news_coverage_binding_prep.py",
+        "integration/code_news_coverage_ui_prep.py",
         "integration/code_news_disk.py",
         "integration/code_news_public.py",
         "integration/collector197_coordinator.py",
@@ -2540,6 +2727,7 @@
         "integration/feedparser_audit/runner.py",
         "integration/finder198_transport.py",
         "integration/finder198_transport_child.py",
+        "integration/finder_identity_proof_prep.py",
         "integration/finder_index.py",
         "integration/fixed_parser_pipeline.py",
         "integration/geo_collector_contract.py",
@@ -2549,7 +2737,15 @@
         "integration/mail_ledger212.py",
         "integration/native200_transactions.py",
         "integration/news_api.py",
+        "integration/news_finder_navigation_prep.py",
+        "integration/public_ai_answers.py",
+        "integration/public_ai_finder_bridge.py",
+        "integration/public_brics_streams.py",
         "integration/public_finder.py",
+        "integration/public_live_builder.py",
+        "integration/public_map_prep/__init__.py",
+        "integration/public_preview_builder.py",
+        "integration/public_weekly_pdf.py",
         "integration/renderer_scope.py",
         "integration/retention_audit.py",
         "integration/runtime.py",
@@ -2561,11 +2757,15 @@
         "integration/supplied_fulltext_fixture.py",
         "integration/supplied_multi_feed.py",
         "integration/telegram_format_audit.py",
+        "integration/weather_public_prep.py",
+        "integration/weather_ui.py",
         "scripts/audit_connections.py",
         "scripts/build_code_news_index.py",
+        "scripts/build_finder_identity_proof.py",
         "scripts/doc_lookup.py",
         "scripts/package_manifest.py",
         "tests/accounts/browser_http_fixture.py",
+        "tests/brics_public_memory.py",
         "tests/browser_brics_streams.py",
         "tests/browser_compulsory_channels.py",
         "tests/browser_context208.py",
@@ -2577,6 +2777,7 @@
         "tests/browser_events210.py",
         "tests/browser_feature_finder.py",
         "tests/browser_finder198d.py",
+        "tests/browser_finder_identity_proof.py",
         "tests/browser_finder_nested.py",
         "tests/browser_finder_network.py",
         "tests/browser_finder_offline.py",
@@ -2584,7 +2785,12 @@
         "tests/browser_finder_static.py",
         "tests/browser_loaded_news.py",
         "tests/browser_map.py",
+        "tests/browser_news_finder_navigation.py",
         "tests/browser_offline232.py",
+        "tests/browser_public_ai_answers.py",
+        "tests/browser_public_brics.py",
+        "tests/browser_public_map_m1.py",
+        "tests/browser_public_weekly.py",
         "tests/browser_report228.py",
         "tests/browser_report_styles.py",
         "tests/browser_sample_volume.py",
@@ -2593,6 +2799,7 @@
         "tests/browser_tariff_evidence.py",
         "tests/browser_watch_updates.py",
         "tests/browser_weather231.py",
+        "tests/browser_weather_ui.py",
         "tests/browser_weekly.py",
         "tests/collection_outcomes/test_callers.py",
         "tests/collection_outcomes/test_status.py",
@@ -2600,10 +2807,14 @@
         "tests/geospatial/preview/make_payload.py",
         "tests/geospatial/test_geospatial.py",
         "tests/geospatial/test_map_route.py",
+        "tests/memory_public_map_m1.py",
+        "tests/mutate_map_m1.py",
+        "tests/mutate_map_tile_gate.py",
         "tests/news_export/test_export.py",
         "tests/news_export/test_export_route.py",
         "tests/news_export/test_fixture_http.py",
         "tests/news_export/test_original_contract.py",
+        "tests/public_ai_fixture_memory.py",
         "tests/publication_dates/test_policy.py",
         "tests/test_apps_handlers216.py",
         "tests/test_apps_script_audit.py",
@@ -2614,7 +2825,9 @@
         "tests/test_bulk147_inventory.py",
         "tests/test_channels171.py",
         "tests/test_classifier146_inventory.py",
+        "tests/test_code_news_coverage_binding_prep.py",
         "tests/test_code_news_disk.py",
+        "tests/test_code_news_disk_safety.py",
         "tests/test_collector197b_coordinator.py",
         "tests/test_collector197b_supervisor.py",
         "tests/test_collector197ea.py",
@@ -2638,6 +2851,7 @@
         "tests/test_finder198d.py",
         "tests/test_finder198ops.py",
         "tests/test_finder_browser229.py",
+        "tests/test_finder_identity_proof_prep.py",
         "tests/test_finder_index.py",
         "tests/test_finder_nested.py",
         "tests/test_finder_network230.py",
@@ -2654,16 +2868,21 @@
         "tests/test_mail_preflight225.py",
         "tests/test_mail_rederive221.py",
         "tests/test_mail_surface217.py",
+        "tests/test_map_m1.py",
         "tests/test_monitor155.py",
         "tests/test_native201b.py",
         "tests/test_native_mail_projection224.py",
         "tests/test_news182.py",
+        "tests/test_news_finder_navigation_prep.py",
         "tests/test_news_scroll186.py",
         "tests/test_offline232.py",
         "tests/test_preservation.py",
         "tests/test_preview_launcher.py",
         "tests/test_protocol145_inventory.py",
         "tests/test_proxy164.py",
+        "tests/test_public_ai_answers.py",
+        "tests/test_public_brics_streams.py",
+        "tests/test_public_weekly_pdf.py",
         "tests/test_publication151_inventory.py",
         "tests/test_recipient_scope220.py",
         "tests/test_refresh149_gate.py",
@@ -2699,7 +2918,9 @@
         "tests/test_watch_updates.py",
         "tests/test_watchlist_public_fix.py",
         "tests/test_weather231.py",
+        "tests/test_weather_public.py",
         "tests/text_matching/test_matching.py",
+        "tests/weekly_public_memory.py",
         "tests/weekly_report/test_report.py"
       ],
       "stdlib": true,
@@ -2761,6 +2982,7 @@
         "tests/browser_events210.py",
         "tests/browser_feature_finder.py",
         "tests/browser_finder198d.py",
+        "tests/browser_finder_identity_proof.py",
         "tests/browser_finder_nested.py",
         "tests/browser_finder_network.py",
         "tests/browser_finder_offline.py",
@@ -2768,7 +2990,12 @@
         "tests/browser_finder_static.py",
         "tests/browser_loaded_news.py",
         "tests/browser_map.py",
+        "tests/browser_news_finder_navigation.py",
         "tests/browser_offline232.py",
+        "tests/browser_public_ai_answers.py",
+        "tests/browser_public_brics.py",
+        "tests/browser_public_map_m1.py",
+        "tests/browser_public_weekly.py",
         "tests/browser_report228.py",
         "tests/browser_report_styles.py",
         "tests/browser_sample_volume.py",
@@ -2777,6 +3004,7 @@
         "tests/browser_tariff_evidence.py",
         "tests/browser_watch_updates.py",
         "tests/browser_weather231.py",
+        "tests/browser_weather_ui.py",
         "tests/browser_weekly.py",
         "tests/test_offline232.py"
       ],
@@ -2809,6 +3037,7 @@
         "source": "reviewed local production factory source"
       },
       "files": [
+        "tests/test_code_news_coverage_binding_prep.py",
         "tests/test_collector197c.py",
         "tests/test_factory176.py",
         "tests/test_host197da.py",
@@ -3029,6 +3258,7 @@
     {
       "import": "pypdf",
       "files": [
+        "tests/test_public_weekly_pdf.py",
         "tests/test_weekly_routes.py",
         "tests/weekly_report/test_report.py"
       ],
@@ -3177,6 +3407,7 @@
       "files": [
         "tests/geospatial/test_geospatial.py",
         "tests/news_export/test_export.py",
+        "tests/test_code_news_matcher_regression.py",
         "tests/test_html209.py"
       ],
       "stdlib": true,
@@ -3201,19 +3432,24 @@
         "integration/accounts/passwords.py",
         "integration/accounts/validators.py",
         "integration/agencia_parser.py",
+        "integration/ai_protocol_prep.py",
         "integration/article_archive.py",
         "integration/branding_meta.py",
         "integration/brics_streams.py",
         "integration/broker_json211.py",
         "integration/code_news_catalogue.py",
+        "integration/code_news_coverage_route_prep.py",
         "integration/code_news_disk.py",
         "integration/code_news_links.py",
+        "integration/code_news_parent_prep.py",
         "integration/code_news_public.py",
         "integration/code_news_query.py",
+        "integration/code_news_scope_prep.py",
         "integration/collection_receipts/protocol.py",
         "integration/collector197_connector.py",
         "integration/collector_actions/entry.py",
         "integration/country_alerts.py",
+        "integration/cross_link_schema_prep.py",
         "integration/dashboard_snapshots.py",
         "integration/db_contract/plan.py",
         "integration/digest_dates202.py",
@@ -3221,6 +3457,7 @@
         "integration/edge_guard.py",
         "integration/feedparser_audit/child.py",
         "integration/finder198_transport_child.py",
+        "integration/finder_identity_proof_prep.py",
         "integration/finder_index.py",
         "integration/finder_links.py",
         "integration/finder_nested.py",
@@ -3242,13 +3479,18 @@
         "integration/news_export/export.py",
         "integration/news_export/keyset_plan.py",
         "integration/news_export/original_contract.py",
+        "integration/news_finder_navigation_prep.py",
         "integration/news_pages.py",
         "integration/page_watch.py",
         "integration/post_json207.py",
         "integration/preview_access.py",
+        "integration/public_ai_answers.py",
+        "integration/public_ai_finder_bridge.py",
         "integration/public_finder.py",
         "integration/public_live_builder.py",
+        "integration/public_map_prep/__init__.py",
         "integration/public_preview_builder.py",
+        "integration/public_weekly_pdf.py",
         "integration/publication_dates/policy.py",
         "integration/recipient_scope220.py",
         "integration/relevance.py",
@@ -3264,9 +3506,11 @@
         "integration/tariff_evidence.py",
         "integration/taxonomy.py",
         "integration/text_matching/matcher.py",
+        "integration/weather_public_prep.py",
         "integration/weekly_report/report.py",
         "integration/youtube_links.py",
         "scripts/audit_connections.py",
+        "scripts/build_finder_identity_proof.py",
         "tests/accounts/test_merged_fixture.py",
         "tests/browser_feature_finder.py",
         "tests/browser_finder_report227.py",
@@ -3276,6 +3520,7 @@
         "tests/test_apps_handlers216.py",
         "tests/test_bcrypt189.py",
         "tests/test_build_provenance150.py",
+        "tests/test_code_news_matcher_regression.py",
         "tests/test_dashboard167.py",
         "tests/test_digest_email218.py",
         "tests/test_env_example.py",
@@ -3341,7 +3586,11 @@
         "integration/collector_actions/entry.py",
         "integration/collector_actions/provider.py",
         "integration/feedparser_audit/child.py",
-        "integration/finder198_transport_child.py"
+        "integration/finder198_transport_child.py",
+        "tests/brics_public_memory.py",
+        "tests/memory_public_map_m1.py",
+        "tests/public_ai_fixture_memory.py",
+        "tests/weekly_public_memory.py"
       ],
       "stdlib": true,
       "distributions": [],
@@ -3356,6 +3605,7 @@
         "tests/test_collector122_inventory.py",
         "tests/test_doc_lookup.py",
         "tests/test_file_audit.py",
+        "tests/test_finder_identity_proof_prep.py",
         "tests/test_gst154.py",
         "tests/test_monitor155.py",
         "tests/test_package_manifest.py",
@@ -3383,11 +3633,15 @@
         "integration/accounts/limiter.py",
         "integration/accounts/service.py",
         "integration/accounts/shared_ledger_fixture.py",
+        "integration/code_news_coverage_prep.py",
+        "integration/code_news_cursor_prep.py",
+        "integration/code_news_parent_prep.py",
         "integration/geo_probe_http.py",
         "integration/native200_admission_journal.py",
         "integration/native200_journal.py",
         "integration/news_pages.py",
-        "integration/preview_access.py"
+        "integration/preview_access.py",
+        "integration/public_ai_answers.py"
       ],
       "stdlib": true,
       "distributions": [],
@@ -3534,9 +3788,11 @@
         "integration/finder198_transport_child.py",
         "integration/geonews_digest/delivery.py",
         "integration/india_open_data/transport.py",
+        "integration/weather_public.py",
         "tests/test_collector197b_connector.py",
         "tests/test_finder198bb.py",
-        "tests/test_smtp_caller213.py"
+        "tests/test_smtp_caller213.py",
+        "tests/test_weather_public.py"
       ],
       "stdlib": true,
       "distributions": [],
@@ -3562,11 +3818,13 @@
       "import": "struct",
       "files": [
         "integration/code_news_disk.py",
+        "integration/finder_identity_proof_prep.py",
         "scripts/build_code_news_index.py",
         "tests/native200_state_fixture.py",
         "tests/native200_wire_fixture.py",
         "tests/native200cb_read_fixture.py",
-        "tests/news_export/test_fixture_serving.py"
+        "tests/news_export/test_fixture_serving.py",
+        "tests/test_code_news_disk_safety.py"
       ],
       "stdlib": true,
       "distributions": [],
@@ -3592,6 +3850,8 @@
         "tests/browser_finder_report227.py",
         "tests/browser_report228.py",
         "tests/geospatial/test_geospatial.py",
+        "tests/mutate_map_m1.py",
+        "tests/mutate_map_tile_gate.py",
         "tests/news_export/test_fixture_http.py",
         "tests/publication_dates/test_policy.py",
         "tests/test_apps_handlers216.py",
@@ -3629,6 +3889,7 @@
         "tests/test_page_watch_parser_budget.py",
         "tests/test_preview_access.py",
         "tests/test_proxy164.py",
+        "tests/test_public_brics_streams.py",
         "tests/test_recipient_scope220.py",
         "tests/test_refresh149_gate.py",
         "tests/test_refresh_controller.py",
@@ -3684,6 +3945,7 @@
         "integration/geo_sample_probe_child.py",
         "scripts/package_manifest.py",
         "tests/accounts/browser_http_fixture.py",
+        "tests/brics_public_memory.py",
         "tests/browser_brics_streams.py",
         "tests/browser_compulsory_channels.py",
         "tests/browser_context208.py",
@@ -3695,6 +3957,7 @@
         "tests/browser_events210.py",
         "tests/browser_feature_finder.py",
         "tests/browser_finder198d.py",
+        "tests/browser_finder_identity_proof.py",
         "tests/browser_finder_nested.py",
         "tests/browser_finder_network.py",
         "tests/browser_finder_offline.py",
@@ -3702,7 +3965,12 @@
         "tests/browser_finder_static.py",
         "tests/browser_loaded_news.py",
         "tests/browser_map.py",
+        "tests/browser_news_finder_navigation.py",
         "tests/browser_offline232.py",
+        "tests/browser_public_ai_answers.py",
+        "tests/browser_public_brics.py",
+        "tests/browser_public_map_m1.py",
+        "tests/browser_public_weekly.py",
         "tests/browser_report228.py",
         "tests/browser_report_styles.py",
         "tests/browser_sample_volume.py",
@@ -3711,15 +3979,19 @@
         "tests/browser_tariff_evidence.py",
         "tests/browser_watch_updates.py",
         "tests/browser_weather231.py",
+        "tests/browser_weather_ui.py",
         "tests/browser_weekly.py",
         "tests/digest_cold_probe.py",
         "tests/geospatial/preview/make_payload.py",
         "tests/geospatial/test_geospatial.py",
         "tests/geospatial/test_map_route.py",
+        "tests/memory_public_map_m1.py",
+        "tests/mutate_map_m1.py",
         "tests/news_export/test_export.py",
         "tests/news_export/test_export_route.py",
         "tests/news_export/test_fixture_http.py",
         "tests/news_export/test_fixture_serving.py",
+        "tests/public_ai_fixture_memory.py",
         "tests/publication_dates/test_policy.py",
         "tests/test_collection_prepare.py",
         "tests/test_collector197b_coordinator.py",
@@ -3742,11 +4014,13 @@
         "tests/test_mail_port.py",
         "tests/test_mail_preflight225.py",
         "tests/test_mail_rederive221.py",
+        "tests/test_map_m1.py",
         "tests/test_native_mail_projection224.py",
         "tests/test_offline232.py",
         "tests/test_page_watch_parser_budget.py",
         "tests/test_preview_access.py",
         "tests/test_preview_launcher.py",
+        "tests/test_public_brics_streams.py",
         "tests/test_recipient_scope220.py",
         "tests/test_report227.py",
         "tests/test_report228.py",
@@ -3756,7 +4030,8 @@
         "tests/test_supplied_feed_fixture.py",
         "tests/test_supplied_fulltext_fixture.py",
         "tests/test_weather231.py",
-        "tests/text_matching/test_matching.py"
+        "tests/text_matching/test_matching.py",
+        "tests/weekly_public_memory.py"
       ],
       "stdlib": true,
       "distributions": [],
@@ -3771,14 +4046,18 @@
         "integration/collector_actions/test_candidate.py",
         "integration/stream_disk.py",
         "tests/accounts/browser_http_fixture.py",
+        "tests/browser_public_map_m1.py",
         "tests/geospatial/test_geospatial.py",
         "tests/geospatial/test_map_route.py",
         "tests/test_code_news_disk.py",
+        "tests/test_code_news_disk_safety.py",
         "tests/test_collector197b_supervisor.py",
         "tests/test_doc_lookup.py",
         "tests/test_env_example.py",
         "tests/test_feature_finder_prep.py",
+        "tests/test_finder_identity_proof_prep.py",
         "tests/test_finder_index.py",
+        "tests/test_public_ai_answers.py",
         "tests/test_storage_settings.py",
         "tests/test_stream_disk.py"
       ],
@@ -3823,11 +4102,20 @@
       "import": "tests",
       "files": [
         "tests/accounts/test_reservation_terminal.py",
+        "tests/brics_public_memory.py",
         "tests/browser_digest203.py",
+        "tests/browser_public_ai_answers.py",
+        "tests/browser_public_brics.py",
+        "tests/browser_public_weekly.py",
         "tests/native200_state_fixture.py",
         "tests/native200cb_read_fixture.py",
         "tests/news_export/test_fixture_serving.py",
+        "tests/public_ai_fixture_memory.py",
         "tests/test_broker_json211.py",
+        "tests/test_code_news_coverage_binding_prep.py",
+        "tests/test_code_news_coverage_broker_prep.py",
+        "tests/test_code_news_coverage_route_prep.py",
+        "tests/test_code_news_parent_prep.py",
         "tests/test_collector197b_http.py",
         "tests/test_collector197c.py",
         "tests/test_collector197ea.py",
@@ -3846,6 +4134,7 @@
         "tests/test_mail_exclusion223.py",
         "tests/test_mail_preflight225.py",
         "tests/test_mail_rederive221.py",
+        "tests/test_map_m1.py",
         "tests/test_native200a.py",
         "tests/test_native200ba.py",
         "tests/test_native200bb.py",
@@ -3855,13 +4144,20 @@
         "tests/test_native201b.py",
         "tests/test_native201guard.py",
         "tests/test_native_mail_projection224.py",
+        "tests/test_news_finder_navigation_prep.py",
+        "tests/test_news_pages_locked.py",
         "tests/test_preview_launcher.py",
+        "tests/test_public_ai_answers.py",
+        "tests/test_public_brics_streams.py",
+        "tests/test_public_weekly_pdf.py",
         "tests/test_recipient_scope220.py",
         "tests/test_replay199a.py",
         "tests/test_replay199b.py",
         "tests/test_replay199ca.py",
         "tests/test_replay199cb.py",
-        "tests/test_replay199cc.py"
+        "tests/test_replay199cc.py",
+        "tests/test_weather_ui.py",
+        "tests/weekly_public_memory.py"
       ],
       "stdlib": false,
       "distributions": [],
@@ -4021,10 +4317,15 @@
         "integration/accounts/shared_service_fixture.py",
         "integration/accounts/store.py",
         "integration/brics_streams.py",
+        "integration/code_news_coverage_prep.py",
+        "integration/code_news_cursor_prep.py",
+        "integration/code_news_disk.py",
+        "integration/code_news_parent_prep.py",
         "integration/code_news_public.py",
         "integration/collector197_host_probe.py",
         "integration/edge_guard.py",
         "integration/finder198_auth.py",
+        "integration/finder_identity_proof_prep.py",
         "integration/geo_only_runtime.py",
         "integration/geo_probe_http.py",
         "integration/mail_bridge.py",
@@ -4034,13 +4335,18 @@
         "integration/news_export/fixture_http.py",
         "integration/news_pages.py",
         "integration/preview_access.py",
+        "integration/public_ai_answers.py",
         "integration/public_finder.py",
         "integration/public_live_builder.py",
+        "integration/public_map_prep/__init__.py",
+        "integration/public_weekly_pdf.py",
+        "integration/weather_public.py",
         "tests/accounts/browser_http_fixture.py",
         "tests/accounts/test_accounts.py",
         "tests/accounts/test_hardening.py",
         "tests/accounts/test_reservation_terminal.py",
         "tests/accounts/test_store_conformance.py",
+        "tests/brics_public_memory.py",
         "tests/browser_brics_streams.py",
         "tests/browser_compulsory_channels.py",
         "tests/browser_context208.py",
@@ -4050,6 +4356,7 @@
         "tests/browser_events210.py",
         "tests/browser_feature_finder.py",
         "tests/browser_finder198d.py",
+        "tests/browser_finder_identity_proof.py",
         "tests/browser_finder_nested.py",
         "tests/browser_finder_network.py",
         "tests/browser_finder_offline.py",
@@ -4057,7 +4364,12 @@
         "tests/browser_finder_static.py",
         "tests/browser_loaded_news.py",
         "tests/browser_map.py",
+        "tests/browser_news_finder_navigation.py",
         "tests/browser_offline232.py",
+        "tests/browser_public_ai_answers.py",
+        "tests/browser_public_brics.py",
+        "tests/browser_public_map_m1.py",
+        "tests/browser_public_weekly.py",
         "tests/browser_report228.py",
         "tests/browser_sample_volume.py",
         "tests/browser_ships226.py",
@@ -4065,9 +4377,12 @@
         "tests/browser_tariff_evidence.py",
         "tests/browser_watch_updates.py",
         "tests/browser_weather231.py",
+        "tests/browser_weather_ui.py",
         "tests/browser_weekly.py",
         "tests/native200_wire_fixture.py",
         "tests/news_export/test_fixture_serving.py",
+        "tests/test_code_news_disk_safety.py",
+        "tests/test_code_news_scope_prep.py",
         "tests/test_collector197a.py",
         "tests/test_db181.py",
         "tests/test_geo_probe_http.py",
@@ -4075,10 +4390,15 @@
         "tests/test_mail_ledger212.py",
         "tests/test_mongo_account_store.py",
         "tests/test_native200ba.py",
+        "tests/test_news_pages_locked.py",
         "tests/test_preview_access.py",
+        "tests/test_public_ai_answers.py",
+        "tests/test_public_weekly_pdf.py",
         "tests/test_shared_ledger_fixture.py",
         "tests/test_shared_service_fixture.py",
-        "tests/test_weekly_routes.py"
+        "tests/test_weather_public.py",
+        "tests/test_weekly_routes.py",
+        "tests/weekly_public_memory.py"
       ],
       "stdlib": true,
       "distributions": [],
@@ -4092,6 +4412,8 @@
       "files": [
         "integration/accounts/mongo_store.py",
         "integration/bounded_rss/driver.py",
+        "integration/code_news_coverage_prep.py",
+        "integration/code_news_cursor_prep.py",
         "integration/code_news_public.py",
         "integration/collector197_connector.py",
         "integration/collector197_coordinator.py",
@@ -4121,13 +4443,21 @@
         "integration/news_export/original_stream.py",
         "integration/news_pages.py",
         "integration/preview_access.py",
+        "integration/public_ai_answers.py",
         "integration/public_finder.py",
         "integration/public_live_builder.py",
+        "integration/public_weekly_pdf.py",
         "integration/replay199_collector.py",
         "integration/replay199_core.py",
+        "integration/weather_public.py",
+        "tests/brics_public_memory.py",
+        "tests/browser_public_ai_answers.py",
+        "tests/browser_public_map_m1.py",
         "tests/geospatial/test_geospatial.py",
         "tests/news_export/test_export.py",
         "tests/news_export/test_fixture_serving.py",
+        "tests/test_code_news_coverage_prep.py",
+        "tests/test_code_news_matcher_regression.py",
         "tests/test_collector197b_coordinator.py",
         "tests/test_collector197b_supervisor.py",
         "tests/test_db181.py",
@@ -4136,6 +4466,9 @@
         "tests/test_geo_probe_http.py",
         "tests/test_geo_probe_process.py",
         "tests/test_host197da.py",
+        "tests/test_news_pages_locked.py",
+        "tests/test_weather_public.py",
+        "tests/weekly_public_memory.py",
         "tests/weekly_report/test_report.py"
       ],
       "stdlib": true,
@@ -4148,6 +4481,8 @@
     {
       "import": "tracemalloc",
       "files": [
+        "tests/memory_public_map_m1.py",
+        "tests/public_ai_fixture_memory.py",
         "tests/test_tariff_evidence_plain.py"
       ],
       "stdlib": true,
@@ -4202,6 +4537,7 @@
         "integration/country_alerts.py",
         "integration/dashboard_snapshots.py",
         "integration/digest_render203.py",
+        "integration/finder_identity_proof_prep.py",
         "integration/geonews_digest/_safe.py",
         "integration/geospatial/_safe.py",
         "integration/loaded_news.py",
@@ -4230,6 +4566,7 @@
         "tests/accounts/test_merged_fixture.py",
         "tests/accounts/test_reservation_terminal.py",
         "tests/accounts/test_store_conformance.py",
+        "tests/brics_public_memory.py",
         "tests/collection_outcomes/test_callers.py",
         "tests/collection_outcomes/test_status.py",
         "tests/collection_receipts/test_protocol.py",
@@ -4247,6 +4584,7 @@
         "tests/news_export/test_raw_pager.py",
         "tests/publication_dates/test_policy.py",
         "tests/test_agencia_parser.py",
+        "tests/test_ai_protocol_prep.py",
         "tests/test_api_v1_187.py",
         "tests/test_apps_handlers216.py",
         "tests/test_apps_script_audit.py",
@@ -4261,8 +4599,18 @@
         "tests/test_bulk147_inventory.py",
         "tests/test_channels171.py",
         "tests/test_classifier146_inventory.py",
+        "tests/test_code_news_coverage_binding_prep.py",
+        "tests/test_code_news_coverage_broker_prep.py",
+        "tests/test_code_news_coverage_prep.py",
+        "tests/test_code_news_coverage_route_prep.py",
+        "tests/test_code_news_coverage_ui_prep.py",
+        "tests/test_code_news_cursor_prep.py",
         "tests/test_code_news_disk.py",
+        "tests/test_code_news_disk_safety.py",
+        "tests/test_code_news_matcher_regression.py",
+        "tests/test_code_news_parent_prep.py",
         "tests/test_code_news_public.py",
+        "tests/test_code_news_scope_prep.py",
         "tests/test_collection_prepare.py",
         "tests/test_collector122_inventory.py",
         "tests/test_collector122_packing.py",
@@ -4289,6 +4637,7 @@
         "tests/test_country_signals.py",
         "tests/test_country_signals_routes.py",
         "tests/test_critical_stories.py",
+        "tests/test_cross_link_schema_prep.py",
         "tests/test_cross_routes.py",
         "tests/test_dashboard167.py",
         "tests/test_dashboard_model.py",
@@ -4324,6 +4673,7 @@
         "tests/test_finder198d.py",
         "tests/test_finder198ops.py",
         "tests/test_finder_browser229.py",
+        "tests/test_finder_identity_proof_prep.py",
         "tests/test_finder_index.py",
         "tests/test_finder_nested.py",
         "tests/test_finder_network.py",
@@ -4365,6 +4715,7 @@
         "tests/test_mail_rederive221.py",
         "tests/test_mail_surface217.py",
         "tests/test_map_layers.py",
+        "tests/test_map_m1.py",
         "tests/test_mongo_account_store.py",
         "tests/test_monitor155.py",
         "tests/test_native200a.py",
@@ -4378,7 +4729,9 @@
         "tests/test_native201guard.py",
         "tests/test_native_mail_projection224.py",
         "tests/test_news182.py",
+        "tests/test_news_finder_navigation_prep.py",
         "tests/test_news_pages185.py",
+        "tests/test_news_pages_locked.py",
         "tests/test_news_scroll186.py",
         "tests/test_offline232.py",
         "tests/test_offline_collection_cycle.py",
@@ -4399,7 +4752,10 @@
         "tests/test_project_reports.py",
         "tests/test_protocol145_inventory.py",
         "tests/test_proxy164.py",
+        "tests/test_public_ai_answers.py",
+        "tests/test_public_brics_streams.py",
         "tests/test_public_finder.py",
+        "tests/test_public_weekly_pdf.py",
         "tests/test_publication151_inventory.py",
         "tests/test_query_validation188.py",
         "tests/test_recipient_scope220.py",
@@ -4460,10 +4816,14 @@
         "tests/test_watch_updates.py",
         "tests/test_watchlist_public_fix.py",
         "tests/test_weather231.py",
+        "tests/test_weather_public.py",
+        "tests/test_weather_public_prep.py",
+        "tests/test_weather_ui.py",
         "tests/test_weekly_routes.py",
         "tests/test_workspace.py",
         "tests/test_youtube_links.py",
         "tests/text_matching/test_matching.py",
+        "tests/weekly_public_memory.py",
         "tests/weekly_report/test_report.py"
       ],
       "stdlib": true,
@@ -4482,7 +4842,9 @@
         "integration/agencia_parser.py",
         "integration/branding_meta.py",
         "integration/brics_streams.py",
+        "integration/code_news_coverage_route_prep.py",
         "integration/country_alerts.py",
+        "integration/cross_link_schema_prep.py",
         "integration/dashboard_snapshots.py",
         "integration/digest_render203.py",
         "integration/edge_guard.py",
@@ -4502,14 +4864,18 @@
         "integration/news_view.py",
         "integration/page_watch.py",
         "integration/preview_access.py",
+        "integration/public_ai_answers.py",
         "integration/public_finder.py",
         "integration/public_live_builder.py",
+        "integration/public_map_prep/__init__.py",
         "integration/public_preview_builder.py",
         "integration/query_validation.py",
         "integration/rss_catalog/catalog.py",
         "integration/scraper_policy.py",
         "integration/site_parsers.py",
         "integration/tariff_evidence.py",
+        "integration/weather_public.py",
+        "integration/weather_public_prep.py",
         "integration/weekly_report/_render.py",
         "integration/weekly_report/report.py",
         "tests/browser_feature_finder.py",
@@ -4517,9 +4883,11 @@
         "tests/browser_finder_report227.py",
         "tests/browser_report228.py",
         "tests/browser_weather231.py",
+        "tests/test_cross_link_schema_prep.py",
         "tests/test_dashboard167.py",
         "tests/test_dashboard_stats.py",
-        "tests/test_geo_queue_fixture.py"
+        "tests/test_geo_queue_fixture.py",
+        "tests/test_weather_public_prep.py"
       ],
       "stdlib": true,
       "distributions": [],
@@ -4577,6 +4945,7 @@
         "tests/browser_digest_preview.py",
         "tests/browser_events210.py",
         "tests/browser_finder198d.py",
+        "tests/browser_finder_identity_proof.py",
         "tests/browser_finder_nested.py",
         "tests/browser_finder_network.py",
         "tests/browser_finder_offline.py",
@@ -4584,7 +4953,12 @@
         "tests/browser_finder_static.py",
         "tests/browser_loaded_news.py",
         "tests/browser_map.py",
+        "tests/browser_news_finder_navigation.py",
         "tests/browser_offline232.py",
+        "tests/browser_public_ai_answers.py",
+        "tests/browser_public_brics.py",
+        "tests/browser_public_map_m1.py",
+        "tests/browser_public_weekly.py",
         "tests/browser_report228.py",
         "tests/browser_sample_volume.py",
         "tests/browser_ships226.py",
@@ -4592,6 +4966,7 @@
         "tests/browser_tariff_evidence.py",
         "tests/browser_watch_updates.py",
         "tests/browser_weather231.py",
+        "tests/browser_weather_ui.py",
         "tests/browser_weekly.py",
         "tests/news_export/test_fixture_http.py",
         "tests/news_export/test_fixture_serving.py",
@@ -4603,6 +4978,7 @@
         "tests/test_native201b.py",
         "tests/test_post_json207.py",
         "tests/test_preview_access.py",
+        "tests/test_public_ai_answers.py",
         "tests/test_replay199ca.py",
         "tests/test_replay199cc.py",
         "tests/test_runtime.py",
@@ -4830,6 +5206,7 @@
     "integration/country_alerts.py",
     "integration/mail_ledger212.py",
     "integration/native200_transactions.py",
+    "scripts/build_finder_identity_proof.py",
     "tests/browser_sample_volume.py",
     "tests/collection_outcomes/test_status.py",
     "tests/news_export/test_export.py",
@@ -4849,11 +5226,12 @@
     "tests/test_preview_launcher.py",
     "tests/test_recipient_scope220.py",
     "tests/test_sender_scope222.py",
+    "tests/test_weather_public_prep.py",
     "tests/text_matching/test_matching.py",
     "tests/weekly_report/test_report.py"
   ],
   "source_baseline": {
-    "revision": "4d7f7f342140a144f429d03f82b94a3176f341c2",
+    "revision": "09c6d5e8ada75e33f906f9ad166555dbc7fdc985",
     "policy": "all recursive *.py in integration/tests/scripts at revision86; no relative-import roots (resolved as local), no __pycache__; increment87 audit/test files outside baseline",
     "scopes": [
       "integration",
@@ -4991,6 +5369,10 @@
         "sha256": "255c3984d99111d1660fad653e75cd8d874bef1f8ae8da55864be8368ba396e4"
       },
       {
+        "path": "integration/ai_protocol_prep.py",
+        "sha256": "8c4c09d1d642cd5f0fab2bffe0862b7098ad1c49101239b7f8e53bc3a81d8b6a"
+      },
+      {
         "path": "integration/api_v1.py",
         "sha256": "fe50346ab7d5deb6f9b16d8470b95647953b6c9caee5574bd73c6c2faf06600c"
       },
@@ -5031,12 +5413,48 @@
         "sha256": "8da288c2c17feffd8bcca975f84747c85195645e3f7ef3734f6fd4f51852d15e"
       },
       {
+        "path": "integration/code_news_coverage_binding_prep.py",
+        "sha256": "55d31b56ee0293f32d5376847eda78eebaeafbd3006cc29d3374a1e3e6490f19"
+      },
+      {
+        "path": "integration/code_news_coverage_broker_prep.py",
+        "sha256": "bcfc6b8744350cdf9ab65dc27bf4d9adb34a421b0a66be5493d344218b83f5b9"
+      },
+      {
+        "path": "integration/code_news_coverage_contract_prep.py",
+        "sha256": "526cfb65041135720f5e1ffd6d456bc94ea7370a206bd21f827664eb0c23cb79"
+      },
+      {
+        "path": "integration/code_news_coverage_prep.py",
+        "sha256": "3962ba949e8ba47d857972acd9ad6f8e2815d26b8abeeb76202d1f00859809d8"
+      },
+      {
+        "path": "integration/code_news_coverage_route_prep.py",
+        "sha256": "03bf26c4bbe5f17d455173c13362c8d18c63ef8585307fb9fec73aac042961b7"
+      },
+      {
+        "path": "integration/code_news_coverage_ui_prep.py",
+        "sha256": "bbcc3913a5c4f9cde8a97d72b1914190880672fc9711a93638bb2f233ac5dca8"
+      },
+      {
+        "path": "integration/code_news_cursor_prep.py",
+        "sha256": "922207b1551e3c91632def930f2812b84ab6cf02be9a8820b08564db6a3796d0"
+      },
+      {
         "path": "integration/code_news_disk.py",
-        "sha256": "844feac55f5ede43851f26a61731b6a8901501b3aa2867890394b1cb9f3d4ba7"
+        "sha256": "c7a77b1fc4569deabae2d110af861b7aa2b0c21b6e2dc14fdcadb6df014c53da"
       },
       {
         "path": "integration/code_news_links.py",
-        "sha256": "b3aaef9a4f610ed4e8a822ae74fef122ad29a29f7ee112eb9d1c82cecc5b433f"
+        "sha256": "12fd8e76fca034740d4578e4ee6b1a48db2991e86a23ef15669138a0aec708c2"
+      },
+      {
+        "path": "integration/code_news_matcher_prep.py",
+        "sha256": "5afcb9db1462c161698af011bd10ddae49d8f607c5ffd474b6a76cbbdfddcc7e"
+      },
+      {
+        "path": "integration/code_news_parent_prep.py",
+        "sha256": "785cd35a04bfe16d22f264c96a4dbc7951e8b499746c738712ef5b3f3c26aef2"
       },
       {
         "path": "integration/code_news_public.py",
@@ -5045,6 +5463,10 @@
       {
         "path": "integration/code_news_query.py",
         "sha256": "2b4d1641d6a8e6d2fa9b76139936e32bc805010e7de60cf54319715a96cb705e"
+      },
+      {
+        "path": "integration/code_news_scope_prep.py",
+        "sha256": "65d10860e62a485723020e05e5a58a9b3dfc58a2f39c3e05a7a715108c1d4872"
       },
       {
         "path": "integration/collection_prepare.py",
@@ -5144,7 +5566,7 @@
       },
       {
         "path": "integration/collector_actions/test_candidate.py",
-        "sha256": "ed9cef7e270af6e2e184062128ddffdcfef403fca6eb52ac224c208a0880a08d"
+        "sha256": "054d40f028162f23ee15acc0dcb35acd84b1973f1351d2042b47b8f9d4abfc4e"
       },
       {
         "path": "integration/collector_mail_fixture.py",
@@ -5165,6 +5587,10 @@
       {
         "path": "integration/critical_stories.py",
         "sha256": "133217d9751cf48f93d9f4bc230b2ee6666fbeb895eef53437202bd3882a3a33"
+      },
+      {
+        "path": "integration/cross_link_schema_prep.py",
+        "sha256": "ca7b7c64ab9af50ae61dfa5f82b441e28a4d2abb37d108de8870a93fdb6b2f53"
       },
       {
         "path": "integration/dashboard_model.py",
@@ -5269,6 +5695,10 @@
       {
         "path": "integration/finder198_v2_preflight.py",
         "sha256": "05e31761f5491ee10b8dab5e4edc688fba389efaa51a27d035f83f15c10ab27d"
+      },
+      {
+        "path": "integration/finder_identity_proof_prep.py",
+        "sha256": "82efe7c1cf094e97320adbe0d4983b2e959c7da799db913bff0dbe39ec541c52"
       },
       {
         "path": "integration/finder_index.py",
@@ -5536,7 +5966,7 @@
       },
       {
         "path": "integration/news_api.py",
-        "sha256": "1b58e128aed786137908675be01f8629462ccaf24bf969cea4d6ecd86a52edb3"
+        "sha256": "77137ebf1d8debef70bc49bdc0a253c9b4845429135431af9e8e46328217dff7"
       },
       {
         "path": "integration/news_export/__init__.py",
@@ -5571,8 +6001,12 @@
         "sha256": "5ced324a9dbacbe529dd7ba8f88f865c4584ede863132961a34deede1174640b"
       },
       {
+        "path": "integration/news_finder_navigation_prep.py",
+        "sha256": "eecba368eb0773fbaf25f8b07f64a3c633f576fb81a0d2952d2c252a1835f42d"
+      },
+      {
         "path": "integration/news_pages.py",
-        "sha256": "3004e1f374ab065a61d320f76e09a8fc991faf7b487fd53ce5453bb1189684e9"
+        "sha256": "24d25bb917c72f1601cfa7c1d667e6c6663e42f604a3e0f2db4de2c085cbb9f0"
       },
       {
         "path": "integration/news_view.py",
@@ -5615,12 +6049,28 @@
         "sha256": "f01301b538b5a65c7d5501291045644be894cf7267f4301cc28997728db4e12c"
       },
       {
+        "path": "integration/public_ai_answers.py",
+        "sha256": "22ebc60d590042d18563615477a68686a62f29e0381e32eb6768f21183b0dbc1"
+      },
+      {
+        "path": "integration/public_ai_finder_bridge.py",
+        "sha256": "6ea6f083c0e8d525247c83e894cfefe92727a8721b77dd5c71984dd048a307d7"
+      },
+      {
+        "path": "integration/public_brics_streams.py",
+        "sha256": "caa85ed024751cb199da58608113b3c82000b63e58a5424ddb7fb61056e2355c"
+      },
+      {
         "path": "integration/public_finder.py",
         "sha256": "ac0772c876b74b692063ef76ee1c969997562034431d43df27e5459119a09a0b"
       },
       {
         "path": "integration/public_live_builder.py",
-        "sha256": "c4afb8cc98d27b90334aadfb30c9fdb7b771ae84e4789ef460d6b77ecc652572"
+        "sha256": "1433ea1a68aef6bd9c719ed059dd0e006752000f455309f1c34fd56d37d69ec9"
+      },
+      {
+        "path": "integration/public_map_prep/__init__.py",
+        "sha256": "654bfcd541460fc2442ab07f44a044aa01af9ee7890f512a6bf44533cad9f95d"
       },
       {
         "path": "integration/public_news.py",
@@ -5628,7 +6078,11 @@
       },
       {
         "path": "integration/public_preview_builder.py",
-        "sha256": "665a102c6d2e4b767735975177a6841927371259a8dfaea1969392099c5ebf04"
+        "sha256": "df44d8dbfc01baf72a98ba9d4cea6ddc6dfc2447d896083f0ac293934f461846"
+      },
+      {
+        "path": "integration/public_weekly_pdf.py",
+        "sha256": "daa7e07fb45b63e6666c7e112773c32caab91e25f08b2e9d8d96803cef4501ef"
       },
       {
         "path": "integration/publication_dates/policy.py",
@@ -5831,6 +6285,18 @@
         "sha256": "eb9bdc9b113d36da34702ed724ea857ebcfc9649131fdeafe7add3138d2db607"
       },
       {
+        "path": "integration/weather_public.py",
+        "sha256": "d1c26ed91c2eef81684713514daa45c274422eeddb8e7a5dd1d8f4d509a025d7"
+      },
+      {
+        "path": "integration/weather_public_prep.py",
+        "sha256": "e7b8aead9635f87774a2368b642daaa1acd6771fee4ea07c926280a06e9f4b48"
+      },
+      {
+        "path": "integration/weather_ui.py",
+        "sha256": "9008f6ced2893aef00fa0d44632b19fb4217ec0ff3a07ff32b7d4a5ad2a30723"
+      },
+      {
         "path": "integration/weekly_report/__init__.py",
         "sha256": "a29dae5559548f4364463ae45db9f70fde82707a16c41244ad6307ad4f1bba90"
       },
@@ -5861,6 +6327,10 @@
       {
         "path": "scripts/build_code_news_index.py",
         "sha256": "10782e265e39f8be911f0a754dd67af57bf7a981cb31a991b563e8cd9a59aaca"
+      },
+      {
+        "path": "scripts/build_finder_identity_proof.py",
+        "sha256": "8a0443756c7e0f49892066e1d987d2d29f57ae781e0535bf612c7dfd422be5eb"
       },
       {
         "path": "scripts/doc_lookup.py",
@@ -5907,6 +6377,10 @@
         "sha256": "3a46fd4738f2eb8a46edceea2bcd208eea6fdf9f4d9263aa949f87095325d541"
       },
       {
+        "path": "tests/brics_public_memory.py",
+        "sha256": "7bffe8a907e598a65dfc34a97365301259a428a2d2a772ee6bea36f263df26b2"
+      },
+      {
         "path": "tests/browser_brics_streams.py",
         "sha256": "76635cec97752e0d3c452e778b26e0a14d690a750b81fc66af51489f7dd598c2"
       },
@@ -5951,6 +6425,10 @@
         "sha256": "74082d446ab62a17c752d2ec32089397e19855a856a0bc5655727f1c43bafeed"
       },
       {
+        "path": "tests/browser_finder_identity_proof.py",
+        "sha256": "bdc2dab84c593b88db6cd443657cd94bce783f7f72522862d71d5bd14946e8c1"
+      },
+      {
         "path": "tests/browser_finder_nested.py",
         "sha256": "5214ae5786fd8e171febb72990b2254cac16bd403045db90ca3b3c66259e02ea"
       },
@@ -5979,8 +6457,28 @@
         "sha256": "3c360c1b3c0c2cee4c2610841bef27643011a481a14cd0c0bbb01264f6aad55e"
       },
       {
+        "path": "tests/browser_news_finder_navigation.py",
+        "sha256": "51e961ae54087d08e1cf3f338b5b26fcc97ff81d92ce072d0664a9ae96f988ae"
+      },
+      {
         "path": "tests/browser_offline232.py",
         "sha256": "1ba7c237f01af81676fdd59cfb01562b99fa70a7aeda13496b99a1ddaee7ba94"
+      },
+      {
+        "path": "tests/browser_public_ai_answers.py",
+        "sha256": "2995d87f5d55c0f55f1344ba9357816dcd936468da71d094f2605fc2f993e513"
+      },
+      {
+        "path": "tests/browser_public_brics.py",
+        "sha256": "522354ed29ce4f91758df14fad14664c355eddd99bce8a5915194efdc6c80658"
+      },
+      {
+        "path": "tests/browser_public_map_m1.py",
+        "sha256": "3274f4b5292e89cc7b17bc99a5f399c0baef6ebb514be4765560c0717253c112"
+      },
+      {
+        "path": "tests/browser_public_weekly.py",
+        "sha256": "34e298d0904c8bb9c0faa65a318d48f90aa7b259c955a61e5cf6e17409c0fa5e"
       },
       {
         "path": "tests/browser_report228.py",
@@ -6013,6 +6511,10 @@
       {
         "path": "tests/browser_weather231.py",
         "sha256": "13685d2ba78a2f93695c2a885789fbd31e464e4d18da03849b60e69ed5f1d596"
+      },
+      {
+        "path": "tests/browser_weather_ui.py",
+        "sha256": "93b154c1f7c5da5f775bc490893448cf53aba2cc63cd2eaa9c2b49a3cc1d38da"
       },
       {
         "path": "tests/browser_weekly.py",
@@ -6067,6 +6569,18 @@
         "sha256": "f8f6716db3182c6a830abd0095c15b98d15050165a0d11bd677c8402b879aca6"
       },
       {
+        "path": "tests/memory_public_map_m1.py",
+        "sha256": "7ed8f9b924321e79a7cedeb4faab47158036bf7146ca05b4e1bf3b76a3a1c95c"
+      },
+      {
+        "path": "tests/mutate_map_m1.py",
+        "sha256": "4a330c0f3b4216e6ec20838cf4eec4571b5758f0d59569bcdab4ea8f0b71cb72"
+      },
+      {
+        "path": "tests/mutate_map_tile_gate.py",
+        "sha256": "91ab8460f8c35518f0f25fd355e97df53f4b3178236789aa2ad760f4e9db0897"
+      },
+      {
         "path": "tests/native200_state_fixture.py",
         "sha256": "b4d20b90b54041ff31eb396a32dc3866f77999aa84a9b67e6e77710e5ad52721"
       },
@@ -6115,6 +6629,10 @@
         "sha256": "239101cf19da8c2636f4e44635ca2a561148291848a3b680060d08d510df59f0"
       },
       {
+        "path": "tests/public_ai_fixture_memory.py",
+        "sha256": "15b1d8fb3f4f2385bbd988047aad67529863f6f09197e09c41cf0e77ebb4e3af"
+      },
+      {
         "path": "tests/publication_dates/__init__.py",
         "sha256": "222a8cd374241dbbaeca8f60a6e49d21e0be7d4e41906192b9d564cf8e4140c0"
       },
@@ -6125,6 +6643,10 @@
       {
         "path": "tests/test_agencia_parser.py",
         "sha256": "1d93647a48a3f6d2c88d7441273865b4eac3897c1f7d71eb54bc631ddb6971a8"
+      },
+      {
+        "path": "tests/test_ai_protocol_prep.py",
+        "sha256": "941f5da36ad1aac30ef93fcef039726805df6329dc7793babe7924a63fb3745e"
       },
       {
         "path": "tests/test_api_v1_187.py",
@@ -6183,12 +6705,52 @@
         "sha256": "9ad66296f9e9895aa136267cc82e385956ef8642dcaa91425825b8eee5fe58ca"
       },
       {
+        "path": "tests/test_code_news_coverage_binding_prep.py",
+        "sha256": "1f3d539b8365b33ed9057809fe23d8244991cec8b07578c1ae53f01d8d522a31"
+      },
+      {
+        "path": "tests/test_code_news_coverage_broker_prep.py",
+        "sha256": "388c8925ab3747f97de716510dcedf898cef08f5d6872125c365a83cf12d241b"
+      },
+      {
+        "path": "tests/test_code_news_coverage_prep.py",
+        "sha256": "79ef16623ce11f4401eda0b4628309c1fbab6ef9ddc92c55522aedfc4222588b"
+      },
+      {
+        "path": "tests/test_code_news_coverage_route_prep.py",
+        "sha256": "03a2a4c2facbb70bbf7481d2ab78520bee0c0687e9c4224a811ce3d3dcd239e7"
+      },
+      {
+        "path": "tests/test_code_news_coverage_ui_prep.py",
+        "sha256": "62ef3f71bd5304c4bbc02b0b5a0226b288c87ce72cf366ad5e41c58ffdb36d73"
+      },
+      {
+        "path": "tests/test_code_news_cursor_prep.py",
+        "sha256": "065f608177ca25973683f1c6ffebec15a4924b5254a7244232996252362e9e86"
+      },
+      {
         "path": "tests/test_code_news_disk.py",
         "sha256": "365579fa428b80f582e8dfc8684b88764c7a154d50c8043baf264446cb6ab40a"
       },
       {
+        "path": "tests/test_code_news_disk_safety.py",
+        "sha256": "a609e080cf90c7bb1374a446852388dae727d6e20f9b20921b684d2fa9583b54"
+      },
+      {
+        "path": "tests/test_code_news_matcher_regression.py",
+        "sha256": "211e9dc44918ab6452ad74379884ed896c4c4728cdd906fd9d309c7eeaea79db"
+      },
+      {
+        "path": "tests/test_code_news_parent_prep.py",
+        "sha256": "794149e422851bcc06072d0b8a8141349ed3be7b02e7a6d696bc6a18fa563042"
+      },
+      {
         "path": "tests/test_code_news_public.py",
         "sha256": "86a56dde8194bbdc7d8f6b2f6476ccd470797eeab5c0104c0cd0f5e1117f1a0b"
+      },
+      {
+        "path": "tests/test_code_news_scope_prep.py",
+        "sha256": "b6beca1594fd0744c7e260fe461cfef4da87d605c2e79f57da9028a0af29a145"
       },
       {
         "path": "tests/test_collection_prepare.py",
@@ -6293,6 +6855,10 @@
       {
         "path": "tests/test_critical_stories.py",
         "sha256": "4667df586c67fee181e9435a50cf9717921a7abc56100c5915629cac69dfcb73"
+      },
+      {
+        "path": "tests/test_cross_link_schema_prep.py",
+        "sha256": "f88a96b55e75955b499845ec9187f832671ee99b104cb994e339380f3bd8b21c"
       },
       {
         "path": "tests/test_cross_routes.py",
@@ -6433,6 +6999,10 @@
       {
         "path": "tests/test_finder_browser229.py",
         "sha256": "3ca5f609dd3a7fdb9f73e95cca6fed4cd412fd08a9a4e9e083232f21ada4a505"
+      },
+      {
+        "path": "tests/test_finder_identity_proof_prep.py",
+        "sha256": "efcadc7c03043c040340aa887edf22cb8a723daccf3501a4c599cd45f0e64a78"
       },
       {
         "path": "tests/test_finder_index.py",
@@ -6599,6 +7169,10 @@
         "sha256": "64833ebac72836e2f4b2e86149863cb19d9883dff20dad61832f6da7a89fe834"
       },
       {
+        "path": "tests/test_map_m1.py",
+        "sha256": "83acc8ca2f68d890eaa29b9398fa7feae2129277d933b77d77929726fff45e67"
+      },
+      {
         "path": "tests/test_mongo_account_store.py",
         "sha256": "69c36e6c3fea5a172ec228656818407d9268737b97f29e44d7b6fab154456c14"
       },
@@ -6651,8 +7225,16 @@
         "sha256": "c08c4d9addf5844607a287848cb8ed9220de0baf57a92aea5100fb41449a5279"
       },
       {
+        "path": "tests/test_news_finder_navigation_prep.py",
+        "sha256": "572d8226083c5ce0fea075323dbc00c9da8d59166d75811e2a802c5afc8fd929"
+      },
+      {
         "path": "tests/test_news_pages185.py",
         "sha256": "59ddde9d0853668b1cedaac67cf616d97d2818caabc548a49f6ff9b0ee7ee393"
+      },
+      {
+        "path": "tests/test_news_pages_locked.py",
+        "sha256": "863babcaa737ecc7a2020d733b8243698d6d5879c46ff6abd7b2a3f4aa50a723"
       },
       {
         "path": "tests/test_news_scroll186.py",
@@ -6735,8 +7317,20 @@
         "sha256": "9fadd5987c973f108428fd37ada6aa40618012078a145db58be015a544d47aef"
       },
       {
+        "path": "tests/test_public_ai_answers.py",
+        "sha256": "410e58ff6d3cc8dbae243de0b41c8f62e0c7a74408880fa5e34d05efe08cecd4"
+      },
+      {
+        "path": "tests/test_public_brics_streams.py",
+        "sha256": "404a16cba372b527314f2e1b65ec55ceecdcbb12423cdc10c9194cfc3f0a3358"
+      },
+      {
         "path": "tests/test_public_finder.py",
         "sha256": "d7732051a7bde5f6272eaabb665ffb8fffc7e0f37b1b252e0a8bb2c71f02f99e"
+      },
+      {
+        "path": "tests/test_public_weekly_pdf.py",
+        "sha256": "f63c98facb1c4d0a8d0f470cdfd1515020bf422694c60e8bed27d10c6d6a92a9"
       },
       {
         "path": "tests/test_publication151_inventory.py",
@@ -6979,6 +7573,18 @@
         "sha256": "1a60490cd1986d80e330bc924c1bcd9d39e08539ab8b9e437816bd4d64f2a87e"
       },
       {
+        "path": "tests/test_weather_public.py",
+        "sha256": "b63b05edbf68ad8280f1d16c4bbc3da7c32f05a5047149aa971646c2710e3dc2"
+      },
+      {
+        "path": "tests/test_weather_public_prep.py",
+        "sha256": "63a9670183e582fa6fe1c47ccb17cbc293bbbc97dff21ca55846faddc01fe91c"
+      },
+      {
+        "path": "tests/test_weather_ui.py",
+        "sha256": "76a8f53772ae05f252179c59b2f704f643c1b0e611372d9b082b13c9c8ff9bda"
+      },
+      {
         "path": "tests/test_weekly_routes.py",
         "sha256": "2638da026ae46f9c2af494a2808841932c5bf6e99bec9d8fe6061fb166d93b3a"
       },
@@ -6997,6 +7603,10 @@
       {
         "path": "tests/text_matching/test_matching.py",
         "sha256": "dc7fcfe35c135684cfdd9b629db765a391fa3e1e91edffd4f4c17e07ff9c4318"
+      },
+      {
+        "path": "tests/weekly_public_memory.py",
+        "sha256": "678ec11015b98bfe50f58c42e4026aaada53742551777230d98131279494d6ba"
       },
       {
         "path": "tests/weekly_report/__init__.py",
