@@ -1,0 +1,98 @@
+{
+  "sources": {
+    "Natural Earth": "https://naciscdn.org/naturalearth/110m/cultural/ne_110m_admin_0_countries.zip",
+    "WPI": "https://msi.nga.mil/api/publications/download?key=16694622%2FSFH00000%2FWPI_Shapefile.zip&type=download",
+    "NGA disclaimer": "https://msi.nga.mil/api/pageContent"
+  },
+  "evidence_sha256": {
+    "ne.zip": "0f243aeac8ac6cf26f0417285b0bd33ac47f1b5bdb719fd3e0df37d03ea37110",
+    "wpi-2019.zip": "0717cdace0d446b8b16be35c94cc1c4136f23157d8268a8e52b957797cb357ae",
+    "nga-pagecontent.json": "ad125c86ede9966db39f195a14a767e7794093b71536df59af1def58a0482766"
+  },
+  "members": {
+    "wpi-2019.zip": {
+      "sha256": "0717cdace0d446b8b16be35c94cc1c4136f23157d8268a8e52b957797cb357ae",
+      "bytes": 1151082,
+      "members": {
+        "WPI.cpg": {
+          "bytes": 5,
+          "sha256": "3ad3031f5503a4404af825262ee8232cc04d4ea6683d42c5dd0a2f2a27ac9824"
+        },
+        "WPI.dbf": {
+          "bytes": 53780980,
+          "sha256": "9cca35432825aa0619338e5245cdfeceb86855db8f4280efb2b3cc64527177a2"
+        },
+        "WPI.prj": {
+          "bytes": 145,
+          "sha256": "a02a27b1d1982c8516d83398e85a3c8b1aef1713c13ef4d84d7bde17430c07c4"
+        },
+        "WPI.sbn": {
+          "bytes": 34668,
+          "sha256": "494f54bd7182ebe98eeec11a4084a8684e635b1e9990da9bea06789e8d5c3d0d"
+        },
+        "WPI.sbx": {
+          "bytes": 1828,
+          "sha256": "b7af2d3dda47d9a02f2b7ed75a1643bab076f8775e476c78a992d97db5255fdb"
+        },
+        "WPI.shp": {
+          "bytes": 101740,
+          "sha256": "42620f59be7aa3497cab8c178211711dc97e735843ed55fc87319bf5c356ff47"
+        },
+        "WPI.shx": {
+          "bytes": 29140,
+          "sha256": "00b91f9cc67d4e82acc2eb231065f9d0caafe3a1e7dd0027e6df776e93e397cb"
+        },
+        "WPI2019.xls": {
+          "bytes": 2544128,
+          "sha256": "01e87f1733633921d80b32e33a1f951bb9c0feefa302b623ef7e936135627f1e"
+        }
+      }
+    },
+    "ne.zip": {
+      "sha256": "0f243aeac8ac6cf26f0417285b0bd33ac47f1b5bdb719fd3e0df37d03ea37110",
+      "bytes": 214976,
+      "members": {
+        "ne_110m_admin_0_countries.README.html": {
+          "bytes": 41905,
+          "sha256": "505ed31e9d9704a90818095b534465fac7dbb93e4f56a7727d36f4d4f27ecf74"
+        },
+        "ne_110m_admin_0_countries.VERSION.txt": {
+          "bytes": 7,
+          "sha256": "548358969090d629b41888f5fe664ac31b7203dfd849f7c1ef820ac055b62191"
+        },
+        "ne_110m_admin_0_countries.cpg": {
+          "bytes": 5,
+          "sha256": "3ad3031f5503a4404af825262ee8232cc04d4ea6683d42c5dd0a2f2a27ac9824"
+        },
+        "ne_110m_admin_0_countries.dbf": {
+          "bytes": 531808,
+          "sha256": "1fee677cd4e03b367876e03861eb10197e4022a846bf92060e0313432863785b"
+        },
+        "ne_110m_admin_0_countries.prj": {
+          "bytes": 147,
+          "sha256": "3259f0e55290a82b1350646f604e8a7ee1e2136c0320a40fad838ab40819fff8"
+        },
+        "ne_110m_admin_0_countries.shp": {
+          "bytes": 180924,
+          "sha256": "08e341606e8391e458c3f08deb312de664b56bfae376064c5aa0aee6681a5f55"
+        },
+        "ne_110m_admin_0_countries.shx": {
+          "bytes": 1516,
+          "sha256": "8b0be2ad97dd484aee5c2ebc98697d5372e832b8ae58a35a661aeef6b985668d"
+        }
+      }
+    }
+  },
+  "converter_sha256": "c4949bf72122a690a737584b85457b3498e78a32b61bd5321b4ea057105b1196",
+  "raw_disclaimer_sha256": "130cbe259489eee233f460359915cc94c636d1001f1d5e2c66422c2b81afbcdf",
+  "ui_deviation": "Exactly one inserted space: andMapping becomes and Mapping",
+  "coordinate_deviation": {
+    "country": "RUS",
+    "from_lon": 180.00000000000006,
+    "to_lon": 180.0,
+    "latitudes": [
+      71.51571433642829,
+      70.83219920854673
+    ]
+  }
+}

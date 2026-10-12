@@ -86,7 +86,7 @@
       "path": "README.md",
       "project": "finder_or_build",
       "role": "preserved_engine_or_asset",
-      "sha256": "c07c32a7b5819753784d07a6f310584ae81946c74cb731dad2ec57443319b30e",
+      "sha256": "cd68a8a0b67c6ab4ae5c313e2b80d6b6813873c850c7834abe534e34a910d933",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -4140,7 +4140,7 @@
       "path": "integration/dependency_audit/audit.json",
       "project": "integration",
       "role": "offline_contract_or_private_view",
-      "sha256": "629c4b32f51459e6455f18b16db6abd6f65d1ff00311ea404297804287f680ec",
+      "sha256": "b8b1425fbf225afec03dc1930aad3a96ffe4264dd6abae917530cb140d336282",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -4149,7 +4149,7 @@
       "path": "integration/dependency_audit/import-inventory.json",
       "project": "integration",
       "role": "offline_contract_or_private_view",
-      "sha256": "41eab78d16a541a834157abd42348d580ef998989d1be8b72732dbfd73753848",
+      "sha256": "4c26e3cd3f6187e293040e90eac17cb8d30ab40eaaf92b933e835d204cdbf19b",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -5866,7 +5866,7 @@
       "path": "integration/public_live_builder.py",
       "project": "integration",
       "role": "offline_contract_or_private_view",
-      "sha256": "1433ea1a68aef6bd9c719ed059dd0e006752000f455309f1c34fd56d37d69ec9",
+      "sha256": "5e47b604694663d429c4739f8e24e37da09602b3edf8fd819daa8ffecca123a6",
       "static_file_edges": [
         "integration/code_news_coverage_binding_prep.py",
         "integration/code_news_coverage_broker_prep.py",
@@ -5884,6 +5884,7 @@
         "integration/public_ai_answers.py",
         "integration/public_brics_streams.py",
         "integration/public_finder.py",
+        "integration/public_map_m2/__init__.py",
         "integration/public_map_prep/__init__.py",
         "integration/public_preview_builder.py",
         "integration/public_weekly_pdf.py",
@@ -5892,6 +5893,144 @@
         "integration/weather_public.py",
         "integration/weather_ui.py"
       ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/public_map_m2/LICENSE",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "53e8dc25862014e4324741ca18fbe3611e11d42ef69f59f86ea8c5389647d4cb",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/public_map_m2/__init__.py",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "b1e677a986020520e9934207aafb39b135eff45d114e260256dba1e1ea4b8408",
+      "static_file_edges": [
+        "integration/news_api.py",
+        "integration/public_map_prep/__init__.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/public_map_m2/countries.json",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "af2a2a5c48b0d73f2515993a0bca0cf009cc5bc3426c05a9b2fe6f75dc184790",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/public_map_m2/crosswalk.json",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "4feaf2688760b27940017293208a15a94fa88f123afdddc888f44c630ac338bb",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/public_map_m2/leaflet.css",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "a7837102824184820dfa198d1ebcd109ff6d0ff9a2672a074b9a1b4d147d04c6",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/public_map_m2/leaflet.js",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "db49d009c841f5ca34a888c96511ae936fd9f5533e90d8b2c4d57596f4e5641a",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/public_map_m2/map.css",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "46a044e50a2d231fe2633a2d05799e85d33b4e864a122afed94c2f7d4866408a",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/public_map_m2/map.html",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "e683a88f437a2ca0c34ccb5337cba14ce9d93ca0fc2875c25f5204bb4f0e9e2b",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/public_map_m2/map.js",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "751e97116b111b0ee66778d512fb7266fd0507e425d0bf98f3635c3b60d06a83",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/public_map_m2/nga-disclaimer-official.txt",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "130cbe259489eee233f460359915cc94c636d1001f1d5e2c66422c2b81afbcdf",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/public_map_m2/nga-disclaimer-ui.txt",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "811f0461a467b9f0f9ee349401d13394572737ac3bf96aabfc8c56134d12ca19",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/public_map_m2/pins.json",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "ca122a14b2ce28c077b3f25c5cbfde0fc7ac292493655ab5f6945443b21158c2",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/public_map_m2/ports.json",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "df7a89560d2286c8beeed3ba343419b6962f6f975ab23d394e2e1ee4014670a5",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/public_map_m2/provenance.json",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "9a592b2fd9b2bdc016ee7830daeb740ba9dc340b678a6c8a70c7d8d0bf8a6eed",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/public_map_m2/reference_converter.py",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "c4949bf72122a690a737584b85457b3498e78a32b61bd5321b4ea057105b1196",
+      "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
     },
@@ -6011,7 +6150,7 @@
       "path": "integration/public_preview_builder.py",
       "project": "integration",
       "role": "offline_contract_or_private_view",
-      "sha256": "df44d8dbfc01baf72a98ba9d4cea6ddc6dfc2447d896083f0ac293934f461846",
+      "sha256": "3d7cbe6254ed0821d6daa9a96964ea3a90db8a5f478660eaf2eef0627381aba3",
       "static_file_edges": [
         "integration/api_v1.py",
         "integration/code_news_coverage_route_prep.py",
@@ -6023,6 +6162,7 @@
         "integration/public_ai_answers.py",
         "integration/public_brics_streams.py",
         "integration/public_finder.py",
+        "integration/public_map_m2/__init__.py",
         "integration/public_map_prep/__init__.py",
         "integration/public_weekly_pdf.py",
         "integration/weather_public.py",
@@ -10371,7 +10511,7 @@
       "path": "staging-manifest.json",
       "project": "finder_or_build",
       "role": "preserved_engine_or_asset",
-      "sha256": "9076597bf7a69f19e80c2051193ce6c295e611c986f2bb3e70ff54667c990e19",
+      "sha256": "b90cfa3e20fc0fbd5d9f6c945342ae075ec8f7acc3d3d8210de507e59fe7b0e6",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -10907,6 +11047,42 @@
       "runtime_verified": false
     },
     {
+      "path": "tests/browser_public_map_m2.py",
+      "project": "test",
+      "role": "fixture_test",
+      "sha256": "56d96838b4115c0e4bd2565c47fe6b323ea904c8cbce010d14d90cb520c72f7c",
+      "static_file_edges": [
+        "integration/__init__.py",
+        "integration/news_api.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "tests/browser_public_map_m2_gate_mutants.py",
+      "project": "test",
+      "role": "fixture_test",
+      "sha256": "1b5203875449a8ee686b99790bf50c93a06fba7460e7269ce2d206e7499c49aa",
+      "static_file_edges": [
+        "integration/__init__.py",
+        "integration/news_api.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "tests/browser_public_map_m2_lifecycle.py",
+      "project": "test",
+      "role": "fixture_test",
+      "sha256": "0163d6e7ea6a7800b1e5aa5a287a45e6633af0a4a6c80d3c8e969849cac9bba6",
+      "static_file_edges": [
+        "integration/__init__.py",
+        "integration/news_api.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
       "path": "tests/browser_public_weekly.py",
       "project": "test",
       "role": "fixture_test",
@@ -11214,6 +11390,24 @@
       "runtime_verified": false
     },
     {
+      "path": "tests/fixtures/map_m2_base_live.txt",
+      "project": "test",
+      "role": "fixture_test",
+      "sha256": "1433ea1a68aef6bd9c719ed059dd0e006752000f455309f1c34fd56d37d69ec9",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "tests/fixtures/map_m2_base_preview.txt",
+      "project": "test",
+      "role": "fixture_test",
+      "sha256": "df44d8dbfc01baf72a98ba9d4cea6ddc6dfc2447d896083f0ac293934f461846",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
       "path": "tests/fixtures/public_live_builder_before_coverage.txt",
       "project": "test",
       "role": "fixture_test",
@@ -11463,6 +11657,31 @@
       "runtime_verified": false
     },
     {
+      "path": "tests/memory_public_map_m2.py",
+      "project": "test",
+      "role": "fixture_test",
+      "sha256": "4cfc49961d21b9d83b89245223d964a5a4f3ac7a3fb1f0d199d5f27739502349",
+      "static_file_edges": [
+        "integration/__init__.py",
+        "integration/news_api.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "tests/memory_public_map_m2_live.py",
+      "project": "test",
+      "role": "fixture_test",
+      "sha256": "9c365bd2e8b66aef6a4166fba007ad476045511d572ece6d871f94b11939ec7b",
+      "static_file_edges": [
+        "integration/__init__.py",
+        "integration/public_live_builder.py",
+        "tests/test_code_news_coverage_binding_prep.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
       "path": "tests/mutate_map_m1.py",
       "project": "test",
       "role": "fixture_test",
@@ -11477,6 +11696,26 @@
       "role": "fixture_test",
       "sha256": "91ab8460f8c35518f0f25fd355e97df53f4b3178236789aa2ad760f4e9db0897",
       "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "tests/mutate_public_map_m2_gate.py",
+      "project": "test",
+      "role": "fixture_test",
+      "sha256": "27803bcac14dbed3d34eb922798e0a6bd94d2a40c480993c756c0054d60e6bcc",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "tests/mutate_public_map_m2_http.py",
+      "project": "test",
+      "role": "fixture_test",
+      "sha256": "5de6b937d0e2fb3751fa856abffb53d25da018010a1641e63a00ce4c38d9b731",
+      "static_file_edges": [
+        "tests/__init__.py"
+      ],
       "unresolved_internal_imports": [],
       "runtime_verified": false
     },
@@ -11740,6 +11979,15 @@
         "tests/test_code_news_coverage_binding_prep.py",
         "tests/test_public_ai_answers.py"
       ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "tests/public_map_m2_gate.cjs",
+      "project": "test",
+      "role": "fixture_test",
+      "sha256": "b1f42da5fcc4407d39825d275edad9a4aa7b8e1fe315797795e8cc86e92b2d7e",
+      "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
     },
@@ -14035,6 +14283,32 @@
       "runtime_verified": false
     },
     {
+      "path": "tests/test_public_map_m2.py",
+      "project": "test",
+      "role": "fixture_test",
+      "sha256": "7dffe5c852da17b572185c3f6b756a72efab4d8207f0aa2de3c478bdb6ad3b6f",
+      "static_file_edges": [
+        "integration/__init__.py",
+        "integration/news_api.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "tests/test_public_map_m2_composition.py",
+      "project": "test",
+      "role": "fixture_test",
+      "sha256": "7d0f87b62a058a35810aa8198d30acdd81705239b64a9df1662f141c76138a9a",
+      "static_file_edges": [
+        "integration/__init__.py",
+        "integration/public_live_builder.py",
+        "integration/public_preview_builder.py",
+        "tests/test_code_news_coverage_binding_prep.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
       "path": "tests/test_public_weekly_pdf.py",
       "project": "test",
       "role": "fixture_test",
@@ -15589,7 +15863,7 @@
       "runtime_verified": false
     }
   ],
-  "file_count": 1487,
+  "file_count": 1514,
   "limits": [
     "Dynamic references and network endpoints need runtime adapter tests",
     "Legacy launchers deliberately not connected to merged private entrypoint",

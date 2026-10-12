@@ -13338,3 +13338,16 @@ without measured evidence, and do not relax the combined384MiB build line.
 Metadata retains the existing static1761 field by request; it is not a new test
 count or full-suite claim. New A1 source/tests are registered separately. No push,
 live activation, production environment or DB action is part of contents LAND.
+
+
+## M2 OFF-default vector reference candidate
+
+PUBLIC_MAP_M2_ENABLED defaults to false. It requires PUBLIC_MAP_ENABLED=true and the existing explicit public sample/live gates. The public sample has no news. Public live uses the existing cached latest-100 Geo reader; this does not create a new DB client or authorize live access. M1 code/assets and news_api.py are unchanged.
+
+M2 shows Natural Earth 110m countries 5.1.1, historical WPI 2019 ports, and country-tagged latest-100 news counts. Country labels are exact ADMIN aliases with NFC/trim lookup; ambiguous Congo stays unmapped. No sovereignty/fuzzy code mapping. No approved live ship feed. These are reference shapes, not legal borders, navigation or current port availability. Small territories may be absent. Port display caps at100 while showing the viewport total.
+
+OSM is HARD-DISABLED. PUBLIC_MAP_BASE_TILES_ENABLED=true refuses startup. The descriptor is disabled and grants nothing. Provider admission requires a separate owner decision. Production creates no tile requests. A type-checked loopback-only fixture provider exists for tests, not environment promotion. Local scheduler uses500ms quiet time, batches of at most4 starts at least1000ms apart, at most4 active images and64 records. It cancels handlers/src/timeout/jobs on removal, motion, hide, pagehide and pause; no data-GIF substitution. Hidden resume is manual. Three errors pause for60s before deliberate resume; timeouts10s. Oversized tile grid refuses all starts.
+
+Source archive hashes, member hashes, converter hash and raw NGA capture hash are retained in integration/public_map_m2/provenance.json; the reproducible converter is reference_converter.py. Archives and raw capture remain in the review evidence package, not runtime assets. Converter changes only the two disclosed RUS longitudes180.00000000000006 at latitudes71.51571433642829/70.83219920854673 to180.0; all other out-of-bounds coordinates refuse. Deterministic derivatives:177 countries,3630 historical ports. NGA raw disclaimer is retained verbatim; UI deliberately inserts exactly one space in andMapping -> and Mapping. Reverse-removal equivalence is tested. This deliberate deviation and coordinate transform require candidate review.
+
+Candidate evidence includes isolated scheduler/geometry mutants, real Chrome seeded model fuzz, per-step DOM/_tiles/_levels/jobs and state/src/handler conservation, eviction/removal/native-abort mutants, non-vacuous img-src CSP event test, oversized viewport, default-OFF builder byte equality and on-mode boundaries. Local RSS tests use fixtures only and do not establish Render worker count, store profile or live capacity. No feature enablement, deployment, token or push is implied by this candidate.

@@ -114,6 +114,8 @@
         "tests/accounts/test_hardening.py",
         "tests/browser_finder_report227.py",
         "tests/browser_public_map_m1.py",
+        "tests/browser_public_map_m2.py",
+        "tests/browser_public_map_m2_lifecycle.py",
         "tests/browser_report228.py",
         "tests/test_finder198bb.py",
         "tests/test_finder_nested.py",
@@ -711,6 +713,8 @@
         "tests/test_page_watch_contract.py",
         "tests/test_page_watch_parser_budget.py",
         "tests/test_pagewatch_report_contract.py",
+        "tests/test_public_map_m2.py",
+        "tests/test_public_map_m2_composition.py",
         "tests/test_recipient_scope220.py",
         "tests/test_replay199a.py",
         "tests/test_replay199b.py",
@@ -935,6 +939,7 @@
         "tests/test_map_m1.py",
         "tests/test_news182.py",
         "tests/test_private_news_fields.py",
+        "tests/test_public_map_m2_composition.py",
         "tests/test_public_weekly_pdf.py",
         "tests/test_report_preview_frame.py",
         "tests/test_retention_audit.py",
@@ -1174,6 +1179,7 @@
         "integration/public_brics_streams.py",
         "integration/public_finder.py",
         "integration/public_live_builder.py",
+        "integration/public_map_m2/__init__.py",
         "integration/public_map_prep/__init__.py",
         "integration/public_preview_builder.py",
         "integration/public_weekly_pdf.py",
@@ -1182,6 +1188,8 @@
         "integration/weather_ui.py",
         "tests/browser_finder198d.py",
         "tests/browser_public_ai_answers.py",
+        "tests/browser_public_map_m2.py",
+        "tests/browser_public_map_m2_lifecycle.py",
         "tests/browser_ships226.py",
         "tests/browser_weather_ui.py",
         "tests/digest_cold_probe.py",
@@ -1385,6 +1393,8 @@
         "integration/public_ai_answers.py",
         "integration/public_ai_finder_bridge.py",
         "integration/public_brics_streams.py",
+        "integration/public_map_m2/__init__.py",
+        "integration/public_map_m2/reference_converter.py",
         "integration/public_map_prep/__init__.py",
         "integration/public_weekly_pdf.py",
         "integration/recipient_scope220.py",
@@ -1465,6 +1475,7 @@
         "tests/test_protocol145_inventory.py",
         "tests/test_public_ai_answers.py",
         "tests/test_public_brics_streams.py",
+        "tests/test_public_map_m2.py",
         "tests/test_public_weekly_pdf.py",
         "tests/test_publication151_inventory.py",
         "tests/test_recipient_scope220.py",
@@ -1538,7 +1549,8 @@
         "integration/site_parsers.py",
         "tests/test_dashboard167.py",
         "tests/test_html209.py",
-        "tests/test_links170.py"
+        "tests/test_links170.py",
+        "tests/test_public_map_m2.py"
       ],
       "stdlib": true,
       "distributions": [],
@@ -1575,8 +1587,10 @@
         "integration/mail_ledger212.py",
         "integration/native200_transactions.py",
         "integration/schedule_occurrence205.py",
+        "tests/browser_public_map_m2.py",
         "tests/collection_outcomes/test_status.py",
         "tests/geospatial/test_geospatial.py",
+        "tests/mutate_public_map_m2_http.py",
         "tests/news_export/test_export.py",
         "tests/test_code_news_disk_safety.py",
         "tests/test_collector122_inventory.py",
@@ -1595,6 +1609,7 @@
         "tests/test_native_mail_projection224.py",
         "tests/test_news182.py",
         "tests/test_preview_launcher.py",
+        "tests/test_public_map_m2_composition.py",
         "tests/test_recipient_scope220.py",
         "tests/test_report227.py",
         "tests/test_report228.py",
@@ -1733,6 +1748,7 @@
         "integration/public_ai_answers.py",
         "integration/public_brics_streams.py",
         "integration/public_live_builder.py",
+        "integration/public_map_m2/__init__.py",
         "integration/public_map_prep/__init__.py",
         "integration/public_preview_builder.py",
         "integration/public_weekly_pdf.py",
@@ -1800,6 +1816,9 @@
         "tests/browser_public_ai_answers.py",
         "tests/browser_public_brics.py",
         "tests/browser_public_map_m1.py",
+        "tests/browser_public_map_m2.py",
+        "tests/browser_public_map_m2_gate_mutants.py",
+        "tests/browser_public_map_m2_lifecycle.py",
         "tests/browser_public_weekly.py",
         "tests/browser_report228.py",
         "tests/browser_report_styles.py",
@@ -1817,6 +1836,8 @@
         "tests/geospatial/test_geospatial.py",
         "tests/geospatial/test_map_route.py",
         "tests/memory_public_map_m1.py",
+        "tests/memory_public_map_m2.py",
+        "tests/memory_public_map_m2_live.py",
         "tests/native200_state_fixture.py",
         "tests/native200cb_read_fixture.py",
         "tests/news_export/test_export.py",
@@ -1963,6 +1984,8 @@
         "tests/test_public_ai_answers.py",
         "tests/test_public_brics_streams.py",
         "tests/test_public_finder.py",
+        "tests/test_public_map_m2.py",
+        "tests/test_public_map_m2_composition.py",
         "tests/test_public_weekly_pdf.py",
         "tests/test_query_validation188.py",
         "tests/test_recipient_scope220.py",
@@ -2248,6 +2271,7 @@
         "tests/browser_finder_nested.py",
         "tests/browser_offline232.py",
         "tests/browser_public_ai_answers.py",
+        "tests/mutate_public_map_m2_http.py",
         "tests/news_export/test_export.py",
         "tests/news_export/test_export_route.py",
         "tests/news_export/test_fixture_http.py",
@@ -2375,6 +2399,8 @@
         "integration/public_ai_answers.py",
         "integration/public_brics_streams.py",
         "integration/public_finder.py",
+        "integration/public_map_m2/__init__.py",
+        "integration/public_map_m2/reference_converter.py",
         "integration/public_map_prep/__init__.py",
         "integration/recipient_scope220.py",
         "integration/replay199_broker.py",
@@ -2418,6 +2444,9 @@
         "tests/browser_public_ai_answers.py",
         "tests/browser_public_brics.py",
         "tests/browser_public_map_m1.py",
+        "tests/browser_public_map_m2.py",
+        "tests/browser_public_map_m2_gate_mutants.py",
+        "tests/browser_public_map_m2_lifecycle.py",
         "tests/browser_public_weekly.py",
         "tests/browser_report228.py",
         "tests/browser_report_styles.py",
@@ -2434,8 +2463,12 @@
         "tests/geospatial/test_geospatial.py",
         "tests/geospatial/test_map_route.py",
         "tests/memory_public_map_m1.py",
+        "tests/memory_public_map_m2.py",
+        "tests/memory_public_map_m2_live.py",
         "tests/mutate_map_m1.py",
         "tests/mutate_map_tile_gate.py",
+        "tests/mutate_public_map_m2_gate.py",
+        "tests/mutate_public_map_m2_http.py",
         "tests/news_export/test_fixture_http.py",
         "tests/public_ai_fixture_memory.py",
         "tests/publication_dates/test_policy.py",
@@ -2490,6 +2523,8 @@
         "tests/test_public_ai_answers.py",
         "tests/test_public_brics_streams.py",
         "tests/test_public_finder.py",
+        "tests/test_public_map_m2.py",
+        "tests/test_public_map_m2_composition.py",
         "tests/test_publication151_inventory.py",
         "tests/test_recipient_scope220.py",
         "tests/test_retention_audit.py",
@@ -2566,6 +2601,8 @@
         "integration/preview_access.py",
         "integration/public_finder.py",
         "integration/public_live_builder.py",
+        "integration/public_map_m2/__init__.py",
+        "integration/public_map_m2/reference_converter.py",
         "integration/public_map_prep/__init__.py",
         "integration/public_weekly_pdf.py",
         "integration/replay199_core.py",
@@ -2645,12 +2682,18 @@
         "tests/browser_offline232.py",
         "tests/browser_public_ai_answers.py",
         "tests/browser_public_map_m1.py",
+        "tests/browser_public_map_m2.py",
+        "tests/browser_public_map_m2_gate_mutants.py",
+        "tests/browser_public_map_m2_lifecycle.py",
         "tests/browser_report228.py",
         "tests/browser_weather231.py",
         "tests/digest_cold_probe.py",
         "tests/geospatial/test_geospatial.py",
         "tests/memory_public_map_m1.py",
+        "tests/memory_public_map_m2.py",
+        "tests/memory_public_map_m2_live.py",
         "tests/mutate_map_m1.py",
+        "tests/mutate_public_map_m2_http.py",
         "tests/news_export/test_export.py",
         "tests/publication_dates/test_policy.py",
         "tests/test_code_news_coverage_binding_prep.py",
@@ -2667,6 +2710,8 @@
         "tests/test_map_m1.py",
         "tests/test_offline232.py",
         "tests/test_preview_launcher.py",
+        "tests/test_public_map_m2.py",
+        "tests/test_public_map_m2_composition.py",
         "tests/test_report227.py",
         "tests/test_report228.py",
         "tests/test_smtp_caller213.py",
@@ -2743,6 +2788,8 @@
         "integration/public_brics_streams.py",
         "integration/public_finder.py",
         "integration/public_live_builder.py",
+        "integration/public_map_m2/__init__.py",
+        "integration/public_map_m2/reference_converter.py",
         "integration/public_map_prep/__init__.py",
         "integration/public_preview_builder.py",
         "integration/public_weekly_pdf.py",
@@ -2790,6 +2837,9 @@
         "tests/browser_public_ai_answers.py",
         "tests/browser_public_brics.py",
         "tests/browser_public_map_m1.py",
+        "tests/browser_public_map_m2.py",
+        "tests/browser_public_map_m2_gate_mutants.py",
+        "tests/browser_public_map_m2_lifecycle.py",
         "tests/browser_public_weekly.py",
         "tests/browser_report228.py",
         "tests/browser_report_styles.py",
@@ -2808,8 +2858,12 @@
         "tests/geospatial/test_geospatial.py",
         "tests/geospatial/test_map_route.py",
         "tests/memory_public_map_m1.py",
+        "tests/memory_public_map_m2.py",
+        "tests/memory_public_map_m2_live.py",
         "tests/mutate_map_m1.py",
         "tests/mutate_map_tile_gate.py",
+        "tests/mutate_public_map_m2_gate.py",
+        "tests/mutate_public_map_m2_http.py",
         "tests/news_export/test_export.py",
         "tests/news_export/test_export_route.py",
         "tests/news_export/test_fixture_http.py",
@@ -2882,6 +2936,8 @@
         "tests/test_proxy164.py",
         "tests/test_public_ai_answers.py",
         "tests/test_public_brics_streams.py",
+        "tests/test_public_map_m2.py",
+        "tests/test_public_map_m2_composition.py",
         "tests/test_public_weekly_pdf.py",
         "tests/test_publication151_inventory.py",
         "tests/test_recipient_scope220.py",
@@ -2995,6 +3051,9 @@
         "tests/browser_public_ai_answers.py",
         "tests/browser_public_brics.py",
         "tests/browser_public_map_m1.py",
+        "tests/browser_public_map_m2.py",
+        "tests/browser_public_map_m2_gate_mutants.py",
+        "tests/browser_public_map_m2_lifecycle.py",
         "tests/browser_public_weekly.py",
         "tests/browser_report228.py",
         "tests/browser_report_styles.py",
@@ -3405,6 +3464,7 @@
     {
       "import": "random",
       "files": [
+        "tests/browser_public_map_m2.py",
         "tests/geospatial/test_geospatial.py",
         "tests/news_export/test_export.py",
         "tests/test_code_news_matcher_regression.py",
@@ -3514,6 +3574,7 @@
         "tests/accounts/test_merged_fixture.py",
         "tests/browser_feature_finder.py",
         "tests/browser_finder_report227.py",
+        "tests/browser_public_map_m2_lifecycle.py",
         "tests/browser_report228.py",
         "tests/geonews_digest/test_digest.py",
         "tests/geospatial/test_geospatial.py",
@@ -3589,7 +3650,10 @@
         "integration/finder198_transport_child.py",
         "tests/brics_public_memory.py",
         "tests/memory_public_map_m1.py",
+        "tests/memory_public_map_m2.py",
+        "tests/memory_public_map_m2_live.py",
         "tests/public_ai_fixture_memory.py",
+        "tests/test_public_map_m2_composition.py",
         "tests/weekly_public_memory.py"
       ],
       "stdlib": true,
@@ -3690,6 +3754,7 @@
       "import": "shutil",
       "files": [
         "tests/geospatial/test_geospatial.py",
+        "tests/mutate_public_map_m2_gate.py",
         "tests/test_code_news_disk.py",
         "tests/test_finder_browser229.py",
         "tests/test_finder_network230.py",
@@ -3819,6 +3884,7 @@
       "files": [
         "integration/code_news_disk.py",
         "integration/finder_identity_proof_prep.py",
+        "integration/public_map_m2/reference_converter.py",
         "scripts/build_code_news_index.py",
         "tests/native200_state_fixture.py",
         "tests/native200_wire_fixture.py",
@@ -3852,6 +3918,7 @@
         "tests/geospatial/test_geospatial.py",
         "tests/mutate_map_m1.py",
         "tests/mutate_map_tile_gate.py",
+        "tests/mutate_public_map_m2_gate.py",
         "tests/news_export/test_fixture_http.py",
         "tests/publication_dates/test_policy.py",
         "tests/test_apps_handlers216.py",
@@ -3943,6 +4010,7 @@
         "integration/finder198_transport_child.py",
         "integration/geo_probe_process.py",
         "integration/geo_sample_probe_child.py",
+        "integration/public_map_m2/reference_converter.py",
         "scripts/package_manifest.py",
         "tests/accounts/browser_http_fixture.py",
         "tests/brics_public_memory.py",
@@ -3970,6 +4038,9 @@
         "tests/browser_public_ai_answers.py",
         "tests/browser_public_brics.py",
         "tests/browser_public_map_m1.py",
+        "tests/browser_public_map_m2.py",
+        "tests/browser_public_map_m2_gate_mutants.py",
+        "tests/browser_public_map_m2_lifecycle.py",
         "tests/browser_public_weekly.py",
         "tests/browser_report228.py",
         "tests/browser_report_styles.py",
@@ -3986,7 +4057,10 @@
         "tests/geospatial/test_geospatial.py",
         "tests/geospatial/test_map_route.py",
         "tests/memory_public_map_m1.py",
+        "tests/memory_public_map_m2.py",
+        "tests/memory_public_map_m2_live.py",
         "tests/mutate_map_m1.py",
+        "tests/mutate_public_map_m2_http.py",
         "tests/news_export/test_export.py",
         "tests/news_export/test_export_route.py",
         "tests/news_export/test_fixture_http.py",
@@ -4021,6 +4095,8 @@
         "tests/test_preview_access.py",
         "tests/test_preview_launcher.py",
         "tests/test_public_brics_streams.py",
+        "tests/test_public_map_m2.py",
+        "tests/test_public_map_m2_composition.py",
         "tests/test_recipient_scope220.py",
         "tests/test_report227.py",
         "tests/test_report228.py",
@@ -4049,6 +4125,7 @@
         "tests/browser_public_map_m1.py",
         "tests/geospatial/test_geospatial.py",
         "tests/geospatial/test_map_route.py",
+        "tests/mutate_public_map_m2_gate.py",
         "tests/test_code_news_disk.py",
         "tests/test_code_news_disk_safety.py",
         "tests/test_collector197b_supervisor.py",
@@ -4107,6 +4184,8 @@
         "tests/browser_public_ai_answers.py",
         "tests/browser_public_brics.py",
         "tests/browser_public_weekly.py",
+        "tests/memory_public_map_m2_live.py",
+        "tests/mutate_public_map_m2_http.py",
         "tests/native200_state_fixture.py",
         "tests/native200cb_read_fixture.py",
         "tests/news_export/test_fixture_serving.py",
@@ -4149,6 +4228,7 @@
         "tests/test_preview_launcher.py",
         "tests/test_public_ai_answers.py",
         "tests/test_public_brics_streams.py",
+        "tests/test_public_map_m2_composition.py",
         "tests/test_public_weekly_pdf.py",
         "tests/test_recipient_scope220.py",
         "tests/test_replay199a.py",
@@ -4338,6 +4418,7 @@
         "integration/public_ai_answers.py",
         "integration/public_finder.py",
         "integration/public_live_builder.py",
+        "integration/public_map_m2/__init__.py",
         "integration/public_map_prep/__init__.py",
         "integration/public_weekly_pdf.py",
         "integration/weather_public.py",
@@ -4369,6 +4450,9 @@
         "tests/browser_public_ai_answers.py",
         "tests/browser_public_brics.py",
         "tests/browser_public_map_m1.py",
+        "tests/browser_public_map_m2.py",
+        "tests/browser_public_map_m2_gate_mutants.py",
+        "tests/browser_public_map_m2_lifecycle.py",
         "tests/browser_public_weekly.py",
         "tests/browser_report228.py",
         "tests/browser_sample_volume.py",
@@ -4453,6 +4537,8 @@
         "tests/brics_public_memory.py",
         "tests/browser_public_ai_answers.py",
         "tests/browser_public_map_m1.py",
+        "tests/browser_public_map_m2.py",
+        "tests/browser_public_map_m2_lifecycle.py",
         "tests/geospatial/test_geospatial.py",
         "tests/news_export/test_export.py",
         "tests/news_export/test_fixture_serving.py",
@@ -4479,6 +4565,18 @@
       "classification": "stdlib"
     },
     {
+      "import": "traceback",
+      "stdlib": true,
+      "distributions": [],
+      "provenance": {
+        "source": "sys.stdlib_module_names"
+      },
+      "classification": "stdlib",
+      "files": [
+        "tests/browser_public_map_m2_lifecycle.py"
+      ]
+    },
+    {
       "import": "tracemalloc",
       "files": [
         "tests/memory_public_map_m1.py",
@@ -4502,6 +4600,7 @@
         "integration/native200_store.py",
         "integration/renderer_scope.py",
         "tests/geospatial/test_map_route.py",
+        "tests/mutate_public_map_m2_http.py",
         "tests/news_export/test_export.py",
         "tests/news_export/test_original_contract.py",
         "tests/test_channels171.py",
@@ -4544,6 +4643,7 @@
         "integration/news_export/export.py",
         "integration/page_watch.py",
         "integration/pagewatch_report.py",
+        "integration/public_map_m2/__init__.py",
         "integration/rss_catalog/catalog.py",
         "integration/tariff_evidence.py",
         "integration/text_matching/matcher.py",
@@ -4574,6 +4674,8 @@
         "tests/geonews_digest/test_digest.py",
         "tests/geospatial/test_geospatial.py",
         "tests/geospatial/test_map_route.py",
+        "tests/memory_public_map_m2_live.py",
+        "tests/mutate_public_map_m2_http.py",
         "tests/news_export/test_export.py",
         "tests/news_export/test_export_route.py",
         "tests/news_export/test_fixture_http.py",
@@ -4755,6 +4857,8 @@
         "tests/test_public_ai_answers.py",
         "tests/test_public_brics_streams.py",
         "tests/test_public_finder.py",
+        "tests/test_public_map_m2.py",
+        "tests/test_public_map_m2_composition.py",
         "tests/test_public_weekly_pdf.py",
         "tests/test_publication151_inventory.py",
         "tests/test_query_validation188.py",
@@ -4867,6 +4971,7 @@
         "integration/public_ai_answers.py",
         "integration/public_finder.py",
         "integration/public_live_builder.py",
+        "integration/public_map_m2/__init__.py",
         "integration/public_map_prep/__init__.py",
         "integration/public_preview_builder.py",
         "integration/query_validation.py",
@@ -4958,6 +5063,9 @@
         "tests/browser_public_ai_answers.py",
         "tests/browser_public_brics.py",
         "tests/browser_public_map_m1.py",
+        "tests/browser_public_map_m2.py",
+        "tests/browser_public_map_m2_gate_mutants.py",
+        "tests/browser_public_map_m2_lifecycle.py",
         "tests/browser_public_weekly.py",
         "tests/browser_report228.py",
         "tests/browser_sample_volume.py",
@@ -5166,6 +5274,7 @@
         "source": "sys.stdlib_module_names"
       },
       "files": [
+        "integration/public_map_m2/reference_converter.py",
         "tests/test_runner199lock.py"
       ]
     },
@@ -5231,7 +5340,7 @@
     "tests/weekly_report/test_report.py"
   ],
   "source_baseline": {
-    "revision": "09c6d5e8ada75e33f906f9ad166555dbc7fdc985",
+    "revision": "1c5c6a58e0b32a9494bb63c96a7e43cfac07d992",
     "policy": "all recursive *.py in integration/tests/scripts at revision86; no relative-import roots (resolved as local), no __pycache__; increment87 audit/test files outside baseline",
     "scopes": [
       "integration",
@@ -6066,7 +6175,15 @@
       },
       {
         "path": "integration/public_live_builder.py",
-        "sha256": "1433ea1a68aef6bd9c719ed059dd0e006752000f455309f1c34fd56d37d69ec9"
+        "sha256": "5e47b604694663d429c4739f8e24e37da09602b3edf8fd819daa8ffecca123a6"
+      },
+      {
+        "path": "integration/public_map_m2/__init__.py",
+        "sha256": "b1e677a986020520e9934207aafb39b135eff45d114e260256dba1e1ea4b8408"
+      },
+      {
+        "path": "integration/public_map_m2/reference_converter.py",
+        "sha256": "c4949bf72122a690a737584b85457b3498e78a32b61bd5321b4ea057105b1196"
       },
       {
         "path": "integration/public_map_prep/__init__.py",
@@ -6078,7 +6195,7 @@
       },
       {
         "path": "integration/public_preview_builder.py",
-        "sha256": "df44d8dbfc01baf72a98ba9d4cea6ddc6dfc2447d896083f0ac293934f461846"
+        "sha256": "3d7cbe6254ed0821d6daa9a96964ea3a90db8a5f478660eaf2eef0627381aba3"
       },
       {
         "path": "integration/public_weekly_pdf.py",
@@ -6477,6 +6594,18 @@
         "sha256": "3274f4b5292e89cc7b17bc99a5f399c0baef6ebb514be4765560c0717253c112"
       },
       {
+        "path": "tests/browser_public_map_m2.py",
+        "sha256": "56d96838b4115c0e4bd2565c47fe6b323ea904c8cbce010d14d90cb520c72f7c"
+      },
+      {
+        "path": "tests/browser_public_map_m2_gate_mutants.py",
+        "sha256": "1b5203875449a8ee686b99790bf50c93a06fba7460e7269ce2d206e7499c49aa"
+      },
+      {
+        "path": "tests/browser_public_map_m2_lifecycle.py",
+        "sha256": "0163d6e7ea6a7800b1e5aa5a287a45e6633af0a4a6c80d3c8e969849cac9bba6"
+      },
+      {
         "path": "tests/browser_public_weekly.py",
         "sha256": "34e298d0904c8bb9c0faa65a318d48f90aa7b259c955a61e5cf6e17409c0fa5e"
       },
@@ -6573,12 +6702,28 @@
         "sha256": "7ed8f9b924321e79a7cedeb4faab47158036bf7146ca05b4e1bf3b76a3a1c95c"
       },
       {
+        "path": "tests/memory_public_map_m2.py",
+        "sha256": "4cfc49961d21b9d83b89245223d964a5a4f3ac7a3fb1f0d199d5f27739502349"
+      },
+      {
+        "path": "tests/memory_public_map_m2_live.py",
+        "sha256": "9c365bd2e8b66aef6a4166fba007ad476045511d572ece6d871f94b11939ec7b"
+      },
+      {
         "path": "tests/mutate_map_m1.py",
         "sha256": "4a330c0f3b4216e6ec20838cf4eec4571b5758f0d59569bcdab4ea8f0b71cb72"
       },
       {
         "path": "tests/mutate_map_tile_gate.py",
         "sha256": "91ab8460f8c35518f0f25fd355e97df53f4b3178236789aa2ad760f4e9db0897"
+      },
+      {
+        "path": "tests/mutate_public_map_m2_gate.py",
+        "sha256": "27803bcac14dbed3d34eb922798e0a6bd94d2a40c480993c756c0054d60e6bcc"
+      },
+      {
+        "path": "tests/mutate_public_map_m2_http.py",
+        "sha256": "5de6b937d0e2fb3751fa856abffb53d25da018010a1641e63a00ce4c38d9b731"
       },
       {
         "path": "tests/native200_state_fixture.py",
@@ -7327,6 +7472,14 @@
       {
         "path": "tests/test_public_finder.py",
         "sha256": "d7732051a7bde5f6272eaabb665ffb8fffc7e0f37b1b252e0a8bb2c71f02f99e"
+      },
+      {
+        "path": "tests/test_public_map_m2.py",
+        "sha256": "7dffe5c852da17b572185c3f6b756a72efab4d8207f0aa2de3c478bdb6ad3b6f"
+      },
+      {
+        "path": "tests/test_public_map_m2_composition.py",
+        "sha256": "7d0f87b62a058a35810aa8198d30acdd81705239b64a9df1662f141c76138a9a"
       },
       {
         "path": "tests/test_public_weekly_pdf.py",

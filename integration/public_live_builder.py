@@ -57,6 +57,9 @@ def build_public_live_preview(environ,client_factory=None,clock=time.monotonic,c
  if type(environ) is not dict or any(type(k)is not str or type(v)is not str for k,v in environ.items()):raise ValueError('Plain environment strings required')
  from integration.public_map_prep import prepare as map_prepare,PATHS as MAP_PATHS,install as map_install
  map_on=map_prepare(environ)
+ from integration.public_map_m2 import prepare as m2_prepare,PATHS as M2_PATHS,install as m2_install
+ m2_on=m2_prepare(environ)
+ if m2_on:MAP_PATHS=MAP_PATHS|M2_PATHS
  from integration.public_ai_answers import prepare as ai_prepare, PATHS as AI_PATHS, PAGES as AI_PAGES, POST as AI_POST, STATUS as AI_STATUS, install as ai_install
  ai_on=ai_prepare(environ)
  from integration.public_brics_streams import prepare as brics_prepare, PATHS as BRICS_PATHS, install as brics_install
@@ -158,7 +161,8 @@ def build_public_live_preview(environ,client_factory=None,clock=time.monotonic,c
    from integration.code_news_disk import DiskLinks
    model=DiskLinks(coverage_pins.folder)
   app=create_app(reader=read,authorize=allow,allowed_origin=origin,full_news_pages=pages)
-  if map_on:map_install(app,origin)
+  if m2_on:m2_install(app,origin,read)
+  elif map_on:map_install(app,origin)
   if ai_on:ai_install(app,origin)
   if brics_on:brics_install(app)
   if weekly_on:weekly_install(app,read)
