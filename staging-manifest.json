@@ -2857,8 +2857,43 @@
     },
     {
       "path": "integration/public_live_builder.py",
-      "bytes": 14246,
-      "sha256": "d05bcba1be7fc00164dae14cdc053d92c8bd8fe65ff38049ced6090c45043eca"
+      "bytes": 14528,
+      "sha256": "1433ea1a68aef6bd9c719ed059dd0e006752000f455309f1c34fd56d37d69ec9"
+    },
+    {
+      "path": "integration/public_map_prep/LICENSE",
+      "bytes": 1395,
+      "sha256": "53e8dc25862014e4324741ca18fbe3611e11d42ef69f59f86ea8c5389647d4cb"
+    },
+    {
+      "path": "integration/public_map_prep/__init__.py",
+      "bytes": 7809,
+      "sha256": "654bfcd541460fc2442ab07f44a044aa01af9ee7890f512a6bf44533cad9f95d"
+    },
+    {
+      "path": "integration/public_map_prep/leaflet.css",
+      "bytes": 14806,
+      "sha256": "a7837102824184820dfa198d1ebcd109ff6d0ff9a2672a074b9a1b4d147d04c6"
+    },
+    {
+      "path": "integration/public_map_prep/leaflet.js",
+      "bytes": 147552,
+      "sha256": "db49d009c841f5ca34a888c96511ae936fd9f5533e90d8b2c4d57596f4e5641a"
+    },
+    {
+      "path": "integration/public_map_prep/map.css",
+      "bytes": 736,
+      "sha256": "46710624cd8e582c15d666883c97700f43b8f09a22701ffa39f112120d86e6df"
+    },
+    {
+      "path": "integration/public_map_prep/map.html",
+      "bytes": 1641,
+      "sha256": "121260e7aef529bcecbd6acaf646e7e682c25755b18c7975563779b5515db603"
+    },
+    {
+      "path": "integration/public_map_prep/map.js",
+      "bytes": 7311,
+      "sha256": "442f35d803aca1199bb2aff22db8a3e83524d515ad694e2b166ef2711368eb0a"
     },
     {
       "path": "integration/public_news.py",
@@ -2887,8 +2922,8 @@
     },
     {
       "path": "integration/public_preview_builder.py",
-      "bytes": 8035,
-      "sha256": "be448f3cd92a7b0305233de3161d5fd0df21ca278affb81c9ca9ca7cbfbe38ff"
+      "bytes": 8316,
+      "sha256": "df44d8dbfc01baf72a98ba9d4cea6ddc6dfc2447d896083f0ac293934f461846"
     },
     {
       "path": "integration/public_weekly_pdf.py",
@@ -5311,6 +5346,11 @@
       "sha256": "522354ed29ce4f91758df14fad14664c355eddd99bce8a5915194efdc6c80658"
     },
     {
+      "path": "tests/browser_public_map_m1.py",
+      "bytes": 5658,
+      "sha256": "c28ab7734a2c12c88b48b7c66513a3341b46bb85e5c4c392d9fe40f264fa3c08"
+    },
+    {
       "path": "tests/browser_public_weekly.py",
       "bytes": 2742,
       "sha256": "34e298d0904c8bb9c0faa65a318d48f90aa7b259c955a61e5cf6e17409c0fa5e"
@@ -5451,6 +5491,16 @@
       "sha256": "844feac55f5ede43851f26a61731b6a8901501b3aa2867890394b1cb9f3d4ba7"
     },
     {
+      "path": "tests/fixtures/map_m1_base_live.txt",
+      "bytes": 14246,
+      "sha256": "d05bcba1be7fc00164dae14cdc053d92c8bd8fe65ff38049ced6090c45043eca"
+    },
+    {
+      "path": "tests/fixtures/map_m1_base_sample.txt",
+      "bytes": 8035,
+      "sha256": "be448f3cd92a7b0305233de3161d5fd0df21ca278affb81c9ca9ca7cbfbe38ff"
+    },
+    {
       "path": "tests/fixtures/public_live_builder_before_coverage.txt",
       "bytes": 11015,
       "sha256": "6ffb49342ec62d0da8192b3066f70fc6217902ebdb817812db5a05a6d6207bcf"
@@ -5564,6 +5614,21 @@
       "path": "tests/legacy_geo/test_auth.cjs",
       "bytes": 1892,
       "sha256": "014417e876847d06ab117fd9d10318a886776ebf373f26734a2640a605052d39"
+    },
+    {
+      "path": "tests/memory_public_map_m1.py",
+      "bytes": 1213,
+      "sha256": "7ed8f9b924321e79a7cedeb4faab47158036bf7146ca05b4e1bf3b76a3a1c95c"
+    },
+    {
+      "path": "tests/mutate_map_m1.py",
+      "bytes": 1614,
+      "sha256": "4a330c0f3b4216e6ec20838cf4eec4571b5758f0d59569bcdab4ea8f0b71cb72"
+    },
+    {
+      "path": "tests/mutate_map_tile_gate.py",
+      "bytes": 1267,
+      "sha256": "91ab8460f8c35518f0f25fd355e97df53f4b3178236789aa2ad760f4e9db0897"
     },
     {
       "path": "tests/native200_state_fixture.py",
@@ -6401,6 +6466,11 @@
       "sha256": "64833ebac72836e2f4b2e86149863cb19d9883dff20dad61832f6da7a89fe834"
     },
     {
+      "path": "tests/test_map_m1.py",
+      "bytes": 7800,
+      "sha256": "83acc8ca2f68d890eaa29b9398fa7feae2129277d933b77d77929726fff45e67"
+    },
+    {
       "path": "tests/test_mongo_account_store.py",
       "bytes": 7599,
       "sha256": "69c36e6c3fea5a172ec228656818407d9268737b97f29e44d7b6fab154456c14"
@@ -6949,6 +7019,11 @@
       "path": "tests/text_matching/test_matching.py",
       "bytes": 3327,
       "sha256": "dc7fcfe35c135684cfdd9b629db765a391fa3e1e91edffd4f4c17e07ff9c4318"
+    },
+    {
+      "path": "tests/tile_gate.cjs",
+      "bytes": 1696,
+      "sha256": "7a0d4d3bfddd0a4ceb10d6e094a2e8dce8d5849b118da8e17a747804c1a55128"
     },
     {
       "path": "tests/updater_runtime/test_draft_reject.mjs",

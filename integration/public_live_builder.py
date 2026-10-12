@@ -55,6 +55,8 @@ def create_public_geo_client(uri,*,serverSelectionTimeoutMS=5000,connect=False):
 
 def build_public_live_preview(environ,client_factory=None,clock=time.monotonic,coverage_binding_provider=None):
  if type(environ) is not dict or any(type(k)is not str or type(v)is not str for k,v in environ.items()):raise ValueError('Plain environment strings required')
+ from integration.public_map_prep import prepare as map_prepare,PATHS as MAP_PATHS,install as map_install
+ map_on=map_prepare(environ)
  from integration.public_ai_answers import prepare as ai_prepare, PATHS as AI_PATHS, PAGES as AI_PAGES, POST as AI_POST, STATUS as AI_STATUS, install as ai_install
  ai_on=ai_prepare(environ)
  from integration.public_brics_streams import prepare as brics_prepare, PATHS as BRICS_PATHS, install as brics_install
@@ -97,6 +99,7 @@ def build_public_live_preview(environ,client_factory=None,clock=time.monotonic,c
  from integration.weather_ui import enabled as weather_ui_enabled,PATHS as WEATHER_UI_PATHS,install as weather_ui_install
  weather_ui_on=weather_ui_enabled(environ)
  def allow(req):
+  if map_on and req.path in MAP_PATHS:return req.host_url.rstrip('/')==origin and req.method in ('GET','HEAD')
   if ai_on and req.path in AI_PATHS:return req.host_url.rstrip('/')==origin and req.method in (('GET','HEAD') if req.path in AI_PAGES else ('POST','HEAD'))
   if req.host_url.rstrip('/')!=origin:return False
   if coverage_api and req.path==COVERAGE_API_PATH:return req.method in ('POST','HEAD','OPTIONS')
@@ -155,6 +158,7 @@ def build_public_live_preview(environ,client_factory=None,clock=time.monotonic,c
    from integration.code_news_disk import DiskLinks
    model=DiskLinks(coverage_pins.folder)
   app=create_app(reader=read,authorize=allow,allowed_origin=origin,full_news_pages=pages)
+  if map_on:map_install(app,origin)
   if ai_on:ai_install(app,origin)
   if brics_on:brics_install(app)
   if weekly_on:weekly_install(app,read)
