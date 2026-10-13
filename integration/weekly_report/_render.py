@@ -220,6 +220,21 @@ def render_pdf(summary):
     flow.para("Period: %s to %s" % (f(summary["period_start"]), f(summary["period_end"])))
     flow.para("Generated: %s" % f(ga))
     flow.para(scope, size=11, bg=NOTE_BG, after=10, before=4)
+    if 'source_scan' in summary:
+        scan = summary['source_scan']
+        if type(scan) is not dict or set(scan) != {'scanned', 'undated', 'duplicates', 'scanned_at'}:
+            raise ValueError('Exact scan scope required')
+        if any(type(scan[k]) is not int or not 0 <= scan[k] <= 25000 for k in ('scanned', 'undated', 'duplicates')):
+            raise ValueError('Bounded scan counts required')
+        from .report import _parse_dt
+        when = _parse_dt(scan['scanned_at'])
+        if when is None:
+            raise ValueError('Zoned scan timestamp required')
+        flow.para('Scan of current store at %s, not a snapshot. %d rows scanned; undated: %d (excluded from period); duplicate period identities: %d (excluded). Period: %s to exclusive %s. Timezone: %s. Each download scans the store. Changes during the scan can affect results.' %
+                  (f(when), scan['scanned'], scan['undated'], scan['duplicates'],
+                   f(summary['period_start']), f(summary['period_end']), tz),
+                  size=11, bg=NOTE_BG, after=10)
+
 
     flow.heading("Summary in numbers")
     if news:

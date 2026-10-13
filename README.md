@@ -84,6 +84,42 @@ Source tests are not live-provider tests. Historical counts are not a current
 full-suite claim. Active metadata records byte integrity, not production proof.
 Keep credentials out of source, browser responses, logs and this README.
 
+## Candidate: bounded whole-store weekly PDF
+
+`PUBLIC_WEEKLY_FULL_STORE_ENABLED=true` additionally requires
+`PUBLIC_WEEKLY_PDF_ENABLED=true`, `PUBLIC_NEWS_READ_ENABLED=true` and
+`PUBLIC_NEWS_FULL_PAGES_ENABLED=true`. It must mount a period reader before the
+app reports this mode ready. Existing flags alone do not prove readiness or
+activate it on Render. The owner edits Render environment settings.
+
+Each manual download scans the current Geo article store using a read-only
+cursor ordered by `_id`, not a server date filter. This is real database work:
+even a narrow period scans up to 25,000 source rows. Live store size, deployment
+capacity and approval for this new scan workload remain unverified. Do not
+activate the flag solely because local tests pass. There is no live DB check
+in this candidate.
+
+A report requires the scan to finish within 25,000 raw rows, 2,000 unique dated
+period rows, 8 MiB retained UTF-8 row text and a local 10-second scan budget.
+Cursor operations also use a 2-second server query limit. Python objects need
+more memory than the UTF-8 budget; these are not deployment RAM guarantees or
+hard cancellation of a blocked server operation. Two builds and ten starts per
+minute per process remain the shared PDF limits. Browser disconnect does not
+stop server generation.
+
+The period uses publication time, with India-time start and exclusive end.
+Malformed provided dates/rows fail the report; missing publication dates are
+excluded and counted visibly. Repeated period article identities are excluded
+and counted. The PDF prints scan time, scanned/undated/duplicate counts, period
+and timezone. It is a mutable read, not a snapshot: concurrent source changes
+can alter results. The PDF lists up to 25 top items with an omitted count.
+
+Budget failures return no PDF. A store scan over 25,000 rows says the store is
+too large; choosing a narrower period does not reduce scan work. Period/byte
+limits advise a narrower period. No error is presented as "no stories".
+No collection, mail, database writes, provider calls or private fields are
+added. Full stable-snapshot export and unlimited report parity remain separate.
+
 ## Maintained source notes and historical archive
 
 The sections below preserve prior setup notes and 240 original documentation
@@ -13351,3 +13387,54 @@ OSM is HARD-DISABLED. PUBLIC_MAP_BASE_TILES_ENABLED=true refuses startup. The de
 Source archive hashes, member hashes, converter hash and raw NGA capture hash are retained in integration/public_map_m2/provenance.json; the reproducible converter is reference_converter.py. Archives and raw capture remain in the review evidence package, not runtime assets. Converter changes only the two disclosed RUS longitudes180.00000000000006 at latitudes71.51571433642829/70.83219920854673 to180.0; all other out-of-bounds coordinates refuse. Deterministic derivatives:177 countries,3630 historical ports. NGA raw disclaimer is retained verbatim; UI deliberately inserts exactly one space in andMapping -> and Mapping. Reverse-removal equivalence is tested. This deliberate deviation and coordinate transform require candidate review.
 
 Candidate evidence includes isolated scheduler/geometry mutants, real Chrome seeded model fuzz, per-step DOM/_tiles/_levels/jobs and state/src/handler conservation, eviction/removal/native-abort mutants, non-vacuous img-src CSP event test, oversized viewport, default-OFF builder byte equality and on-mode boundaries. Local RSS tests use fixtures only and do not establish Render worker count, store profile or live capacity. No feature enablement, deployment, token or push is implied by this candidate.
+
+### Public reported-mention navigation (local candidate, OFF)
+`PUBLIC_RELATIONSHIP_NAV_ENABLED=false` by default. Turning it on requires
+`PUBLIC_CODE_NEWS_ENABLED=true` and its existing supplied-page review gate.
+No provider, private Finder POST, database write or automatic relationship
+request is added. The preserved Finder stays network-disabled.
+
+The manual button is Geo-only: BRICS rows have no relationship button.
+HS 2022 and the preserved India HSN snapshot can manually check reported
+mentions within the supplied latest-100 Geo page. This is not meaning-based
+commodity search, full-store coverage, verified classification or proof of a
+tariff change. Unknown or conflicting identities remain unavailable. A story
+outside that page is unavailable here, not evidence that it has no related code.
+
+The existing code-news broker admits at most 10 manual starts per minute per
+process across all visitors; busy or exhausted requests return 429. There is no
+automatic retry. Responses are bounded to 250000 bytes and validated before
+painting. Each manual request has a 12-second browser timeout; switching the
+view or Finder context cancels it and ignores stale responses. Frame observers
+are disconnected on navigation and coalesce mutation storms without requests.
+
+Original private assets stay byte-preserved. Startup validates public copied
+asset pins and seams, including workspace navigation. GET lengths cover the
+transformed bytes. HEAD for copied JS advertises its cached length; navigation
+shell HEAD intentionally omits Content-Length rather than advertising an old
+length or invoking a GET. Existing shell CSP and referrer policies are retained.
+The feature remains a local candidate pending independent review, full-suite
+and inventory gates. No live activation or capacity claim is made here.
+
+### Public supplied tariff document page (T1, OFF)
+`PUBLIC_TARIFF_EVIDENCE_ENABLED=false` is the default. Exact `true` mounts a
+passive, manual page and bounded GET API within public composition. Production
+has no evidence reader. Its fixed state is "Evidence source not connected: no
+conclusion about tariffs." It does not report zero changes or zero documents.
+No static source links, official-page scraping, polling, alerts, duty calculation
+or legal review are added. This is not complete tariff detection.
+
+An exact `TariffEvidenceSnapshot` may be injected in Python for fixture or later
+reviewed adapter testing, not through request or environment paths. Its content
+is revalidated, fields are closed, links use the evidence model's official HTTPS
+host rules, and publication/effective dates remain separate. An official host
+alone does not verify legal effect. Current rates and legal effect stay marked
+unverified. The capture time is not a claim of current law or complete history.
+No snapshot is connected by either public builder and no PDF mapping is added.
+
+Manual starts share a rolling 10-per-minute limit per process across all
+visitors; multiple processes multiply it. Busy/exhausted checks return 429.
+The browser never retries automatically. Responses are bounded to 250000 UTF-8
+bytes and validated before display. Manual browser waits abort after 12 seconds.
+HEAD does not consume quota or call the evidence reader. Disable the flag and
+restart to roll back. This local candidate is not a live activation.

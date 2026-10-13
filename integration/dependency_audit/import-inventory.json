@@ -331,6 +331,7 @@
         "integration/news_api.py",
         "integration/public_ai_answers.py",
         "integration/public_finder.py",
+        "integration/public_tariff_evidence.py",
         "integration/public_weekly_pdf.py",
         "integration/renderer_scope.py",
         "integration/replay199_preflight.py",
@@ -665,6 +666,9 @@
         "integration/weather_public.py",
         "tests/accounts/test_reservation_terminal.py",
         "tests/accounts/test_store_conformance.py",
+        "tests/browser_public_tariff_evidence.py",
+        "tests/browser_public_tariff_mutants.py",
+        "tests/browser_relationship_navigation.py",
         "tests/browser_weather_ui.py",
         "tests/native200_state_fixture.py",
         "tests/native200cb_read_fixture.py",
@@ -871,6 +875,7 @@
         "integration/public_ai_answers.py",
         "integration/public_finder.py",
         "integration/public_live_builder.py",
+        "integration/public_tariff_evidence.py",
         "integration/public_weekly_pdf.py",
         "integration/publication_dates/policy.py",
         "integration/renderer_scope.py",
@@ -892,6 +897,7 @@
         "integration/telegram_format_audit.py",
         "integration/weather_public.py",
         "integration/weather_public_prep.py",
+        "integration/weekly_full_store.py",
         "integration/weekly_report/_pdf.py",
         "integration/weekly_report/_render.py",
         "integration/weekly_report/report.py",
@@ -901,6 +907,8 @@
         "tests/browser_finder_network.py",
         "tests/browser_finder_report227.py",
         "tests/browser_offline232.py",
+        "tests/browser_public_tariff_evidence.py",
+        "tests/browser_public_tariff_mutants.py",
         "tests/browser_report228.py",
         "tests/browser_stream_config.py",
         "tests/browser_weather231.py",
@@ -940,6 +948,7 @@
         "tests/test_news182.py",
         "tests/test_private_news_fields.py",
         "tests/test_public_map_m2_composition.py",
+        "tests/test_public_tariff_evidence.py",
         "tests/test_public_weekly_pdf.py",
         "tests/test_report_preview_frame.py",
         "tests/test_retention_audit.py",
@@ -962,6 +971,7 @@
         "tests/test_telegram_format_audit.py",
         "tests/test_weather_public.py",
         "tests/test_weather_public_prep.py",
+        "tests/test_weekly_full_store.py",
         "tests/weekly_report/test_report.py"
       ],
       "stdlib": true,
@@ -1182,7 +1192,9 @@
         "integration/public_map_m2/__init__.py",
         "integration/public_map_prep/__init__.py",
         "integration/public_preview_builder.py",
+        "integration/public_tariff_evidence.py",
         "integration/public_weekly_pdf.py",
+        "integration/relationship_navigation.py",
         "integration/security_headers.py",
         "integration/weather_public.py",
         "integration/weather_ui.py",
@@ -1190,6 +1202,10 @@
         "tests/browser_public_ai_answers.py",
         "tests/browser_public_map_m2.py",
         "tests/browser_public_map_m2_lifecycle.py",
+        "tests/browser_relationship_combined.py",
+        "tests/browser_relationship_lifecycle.py",
+        "tests/browser_relationship_navigation.py",
+        "tests/browser_relationship_real_finder.py",
         "tests/browser_ships226.py",
         "tests/browser_weather_ui.py",
         "tests/digest_cold_probe.py",
@@ -1203,6 +1219,7 @@
         "tests/test_host197da.py",
         "tests/test_mail166.py",
         "tests/test_news_finder_navigation_prep.py",
+        "tests/test_relationship_navigation.py",
         "tests/test_security_headers.py",
         "tests/test_weather_public.py",
         "tests/test_weather_ui.py"
@@ -1396,8 +1413,10 @@
         "integration/public_map_m2/__init__.py",
         "integration/public_map_m2/reference_converter.py",
         "integration/public_map_prep/__init__.py",
+        "integration/public_tariff_evidence.py",
         "integration/public_weekly_pdf.py",
         "integration/recipient_scope220.py",
+        "integration/relationship_navigation.py",
         "integration/renderer_scope.py",
         "integration/replay199_adapters.py",
         "integration/replay199_broker.py",
@@ -1479,6 +1498,7 @@
         "tests/test_public_weekly_pdf.py",
         "tests/test_publication151_inventory.py",
         "tests/test_recipient_scope220.py",
+        "tests/test_relationship_navigation.py",
         "tests/test_replay199b.py",
         "tests/test_report227.py",
         "tests/test_report_preview_frame.py",
@@ -1751,8 +1771,10 @@
         "integration/public_map_m2/__init__.py",
         "integration/public_map_prep/__init__.py",
         "integration/public_preview_builder.py",
+        "integration/public_tariff_evidence.py",
         "integration/public_weekly_pdf.py",
         "integration/query_validation.py",
+        "integration/relationship_navigation.py",
         "integration/relevance.py",
         "integration/renderer_scope.py",
         "integration/replay199_adapters.py",
@@ -1785,6 +1807,7 @@
         "integration/supplied_feed_fixture.py",
         "integration/supplied_fulltext_fixture.py",
         "integration/weather_public.py",
+        "integration/weekly_full_store.py",
         "scripts/build_code_news_index.py",
         "scripts/build_finder_identity_proof.py",
         "tests/accounts/browser_http_fixture.py",
@@ -1819,7 +1842,14 @@
         "tests/browser_public_map_m2.py",
         "tests/browser_public_map_m2_gate_mutants.py",
         "tests/browser_public_map_m2_lifecycle.py",
+        "tests/browser_public_tariff_evidence.py",
+        "tests/browser_public_tariff_mutants.py",
         "tests/browser_public_weekly.py",
+        "tests/browser_relationship_combined.py",
+        "tests/browser_relationship_lifecycle.py",
+        "tests/browser_relationship_mutants.py",
+        "tests/browser_relationship_navigation.py",
+        "tests/browser_relationship_real_finder.py",
         "tests/browser_report228.py",
         "tests/browser_report_styles.py",
         "tests/browser_sample_volume.py",
@@ -1986,9 +2016,11 @@
         "tests/test_public_finder.py",
         "tests/test_public_map_m2.py",
         "tests/test_public_map_m2_composition.py",
+        "tests/test_public_tariff_evidence.py",
         "tests/test_public_weekly_pdf.py",
         "tests/test_query_validation188.py",
         "tests/test_recipient_scope220.py",
+        "tests/test_relationship_navigation.py",
         "tests/test_replay199a.py",
         "tests/test_replay199b.py",
         "tests/test_replay199ca.py",
@@ -2037,6 +2069,7 @@
         "tests/test_weather_public.py",
         "tests/test_weather_public_prep.py",
         "tests/test_weather_ui.py",
+        "tests/test_weekly_full_store.py",
         "tests/test_weekly_routes.py",
         "tests/test_workspace.py",
         "tests/test_youtube_links.py",
@@ -2291,6 +2324,7 @@
         "tests/test_public_ai_answers.py",
         "tests/test_public_weekly_pdf.py",
         "tests/test_rss177.py",
+        "tests/test_weekly_full_store.py",
         "tests/test_weekly_routes.py",
         "tests/weekly_report/test_report.py"
       ],
@@ -2402,6 +2436,7 @@
         "integration/public_map_m2/__init__.py",
         "integration/public_map_m2/reference_converter.py",
         "integration/public_map_prep/__init__.py",
+        "integration/public_tariff_evidence.py",
         "integration/recipient_scope220.py",
         "integration/replay199_broker.py",
         "integration/replay199_composition.py",
@@ -2413,6 +2448,7 @@
         "integration/tariff_evidence.py",
         "integration/weather_public.py",
         "integration/weather_public_prep.py",
+        "integration/weekly_full_store.py",
         "scripts/audit_connections.py",
         "scripts/build_code_news_index.py",
         "scripts/build_finder_identity_proof.py",
@@ -2447,7 +2483,14 @@
         "tests/browser_public_map_m2.py",
         "tests/browser_public_map_m2_gate_mutants.py",
         "tests/browser_public_map_m2_lifecycle.py",
+        "tests/browser_public_tariff_evidence.py",
+        "tests/browser_public_tariff_mutants.py",
         "tests/browser_public_weekly.py",
+        "tests/browser_relationship_combined.py",
+        "tests/browser_relationship_lifecycle.py",
+        "tests/browser_relationship_mutants.py",
+        "tests/browser_relationship_navigation.py",
+        "tests/browser_relationship_real_finder.py",
         "tests/browser_report228.py",
         "tests/browser_report_styles.py",
         "tests/browser_sample_volume.py",
@@ -2539,6 +2582,7 @@
         "tests/test_tariff_evidence_plain.py",
         "tests/test_token196.py",
         "tests/test_weather_public.py",
+        "tests/test_weekly_full_store.py",
         "tests/weekly_public_memory.py"
       ],
       "stdlib": true,
@@ -2685,6 +2729,13 @@
         "tests/browser_public_map_m2.py",
         "tests/browser_public_map_m2_gate_mutants.py",
         "tests/browser_public_map_m2_lifecycle.py",
+        "tests/browser_public_tariff_evidence.py",
+        "tests/browser_public_tariff_mutants.py",
+        "tests/browser_relationship_combined.py",
+        "tests/browser_relationship_lifecycle.py",
+        "tests/browser_relationship_mutants.py",
+        "tests/browser_relationship_navigation.py",
+        "tests/browser_relationship_real_finder.py",
         "tests/browser_report228.py",
         "tests/browser_weather231.py",
         "tests/digest_cold_probe.py",
@@ -2792,7 +2843,9 @@
         "integration/public_map_m2/reference_converter.py",
         "integration/public_map_prep/__init__.py",
         "integration/public_preview_builder.py",
+        "integration/public_tariff_evidence.py",
         "integration/public_weekly_pdf.py",
+        "integration/relationship_navigation.py",
         "integration/renderer_scope.py",
         "integration/retention_audit.py",
         "integration/runtime.py",
@@ -2840,7 +2893,14 @@
         "tests/browser_public_map_m2.py",
         "tests/browser_public_map_m2_gate_mutants.py",
         "tests/browser_public_map_m2_lifecycle.py",
+        "tests/browser_public_tariff_evidence.py",
+        "tests/browser_public_tariff_mutants.py",
         "tests/browser_public_weekly.py",
+        "tests/browser_relationship_combined.py",
+        "tests/browser_relationship_lifecycle.py",
+        "tests/browser_relationship_mutants.py",
+        "tests/browser_relationship_navigation.py",
+        "tests/browser_relationship_real_finder.py",
         "tests/browser_report228.py",
         "tests/browser_report_styles.py",
         "tests/browser_sample_volume.py",
@@ -2938,11 +2998,13 @@
         "tests/test_public_brics_streams.py",
         "tests/test_public_map_m2.py",
         "tests/test_public_map_m2_composition.py",
+        "tests/test_public_tariff_evidence.py",
         "tests/test_public_weekly_pdf.py",
         "tests/test_publication151_inventory.py",
         "tests/test_recipient_scope220.py",
         "tests/test_refresh149_gate.py",
         "tests/test_refresh_controller.py",
+        "tests/test_relationship_navigation.py",
         "tests/test_replay199a.py",
         "tests/test_replay199b.py",
         "tests/test_replay199ca.py",
@@ -2975,6 +3037,7 @@
         "tests/test_watchlist_public_fix.py",
         "tests/test_weather231.py",
         "tests/test_weather_public.py",
+        "tests/test_weekly_full_store.py",
         "tests/text_matching/test_matching.py",
         "tests/weekly_public_memory.py",
         "tests/weekly_report/test_report.py"
@@ -3054,7 +3117,14 @@
         "tests/browser_public_map_m2.py",
         "tests/browser_public_map_m2_gate_mutants.py",
         "tests/browser_public_map_m2_lifecycle.py",
+        "tests/browser_public_tariff_evidence.py",
+        "tests/browser_public_tariff_mutants.py",
         "tests/browser_public_weekly.py",
+        "tests/browser_relationship_combined.py",
+        "tests/browser_relationship_lifecycle.py",
+        "tests/browser_relationship_mutants.py",
+        "tests/browser_relationship_navigation.py",
+        "tests/browser_relationship_real_finder.py",
         "tests/browser_report228.py",
         "tests/browser_report_styles.py",
         "tests/browser_sample_volume.py",
@@ -3318,6 +3388,7 @@
       "import": "pypdf",
       "files": [
         "tests/test_public_weekly_pdf.py",
+        "tests/test_weekly_full_store.py",
         "tests/test_weekly_routes.py",
         "tests/weekly_report/test_report.py"
       ],
@@ -3960,6 +4031,7 @@
         "tests/test_recipient_scope220.py",
         "tests/test_refresh149_gate.py",
         "tests/test_refresh_controller.py",
+        "tests/test_relationship_navigation.py",
         "tests/test_replay199ca.py",
         "tests/test_report227.py",
         "tests/test_report228.py",
@@ -4041,7 +4113,14 @@
         "tests/browser_public_map_m2.py",
         "tests/browser_public_map_m2_gate_mutants.py",
         "tests/browser_public_map_m2_lifecycle.py",
+        "tests/browser_public_tariff_evidence.py",
+        "tests/browser_public_tariff_mutants.py",
         "tests/browser_public_weekly.py",
+        "tests/browser_relationship_combined.py",
+        "tests/browser_relationship_lifecycle.py",
+        "tests/browser_relationship_mutants.py",
+        "tests/browser_relationship_navigation.py",
+        "tests/browser_relationship_real_finder.py",
         "tests/browser_report228.py",
         "tests/browser_report_styles.py",
         "tests/browser_sample_volume.py",
@@ -4123,6 +4202,13 @@
         "integration/stream_disk.py",
         "tests/accounts/browser_http_fixture.py",
         "tests/browser_public_map_m1.py",
+        "tests/browser_public_tariff_evidence.py",
+        "tests/browser_public_tariff_mutants.py",
+        "tests/browser_relationship_combined.py",
+        "tests/browser_relationship_lifecycle.py",
+        "tests/browser_relationship_mutants.py",
+        "tests/browser_relationship_navigation.py",
+        "tests/browser_relationship_real_finder.py",
         "tests/geospatial/test_geospatial.py",
         "tests/geospatial/test_map_route.py",
         "tests/mutate_public_map_m2_gate.py",
@@ -4183,7 +4269,10 @@
         "tests/browser_digest203.py",
         "tests/browser_public_ai_answers.py",
         "tests/browser_public_brics.py",
+        "tests/browser_public_tariff_evidence.py",
+        "tests/browser_public_tariff_mutants.py",
         "tests/browser_public_weekly.py",
+        "tests/browser_relationship_combined.py",
         "tests/memory_public_map_m2_live.py",
         "tests/mutate_public_map_m2_http.py",
         "tests/native200_state_fixture.py",
@@ -4229,14 +4318,17 @@
         "tests/test_public_ai_answers.py",
         "tests/test_public_brics_streams.py",
         "tests/test_public_map_m2_composition.py",
+        "tests/test_public_tariff_evidence.py",
         "tests/test_public_weekly_pdf.py",
         "tests/test_recipient_scope220.py",
+        "tests/test_relationship_navigation.py",
         "tests/test_replay199a.py",
         "tests/test_replay199b.py",
         "tests/test_replay199ca.py",
         "tests/test_replay199cb.py",
         "tests/test_replay199cc.py",
         "tests/test_weather_ui.py",
+        "tests/test_weekly_full_store.py",
         "tests/weekly_public_memory.py"
       ],
       "stdlib": false,
@@ -4420,6 +4512,7 @@
         "integration/public_live_builder.py",
         "integration/public_map_m2/__init__.py",
         "integration/public_map_prep/__init__.py",
+        "integration/public_tariff_evidence.py",
         "integration/public_weekly_pdf.py",
         "integration/weather_public.py",
         "tests/accounts/browser_http_fixture.py",
@@ -4454,6 +4547,11 @@
         "tests/browser_public_map_m2_gate_mutants.py",
         "tests/browser_public_map_m2_lifecycle.py",
         "tests/browser_public_weekly.py",
+        "tests/browser_relationship_combined.py",
+        "tests/browser_relationship_lifecycle.py",
+        "tests/browser_relationship_mutants.py",
+        "tests/browser_relationship_navigation.py",
+        "tests/browser_relationship_real_finder.py",
         "tests/browser_report228.py",
         "tests/browser_sample_volume.py",
         "tests/browser_ships226.py",
@@ -4481,6 +4579,7 @@
         "tests/test_shared_ledger_fixture.py",
         "tests/test_shared_service_fixture.py",
         "tests/test_weather_public.py",
+        "tests/test_weekly_full_store.py",
         "tests/test_weekly_routes.py",
         "tests/weekly_public_memory.py"
       ],
@@ -4530,15 +4629,18 @@
         "integration/public_ai_answers.py",
         "integration/public_finder.py",
         "integration/public_live_builder.py",
+        "integration/public_tariff_evidence.py",
         "integration/public_weekly_pdf.py",
         "integration/replay199_collector.py",
         "integration/replay199_core.py",
         "integration/weather_public.py",
+        "integration/weekly_full_store.py",
         "tests/brics_public_memory.py",
         "tests/browser_public_ai_answers.py",
         "tests/browser_public_map_m1.py",
         "tests/browser_public_map_m2.py",
         "tests/browser_public_map_m2_lifecycle.py",
+        "tests/browser_relationship_navigation.py",
         "tests/geospatial/test_geospatial.py",
         "tests/news_export/test_export.py",
         "tests/news_export/test_fixture_serving.py",
@@ -4554,6 +4656,7 @@
         "tests/test_host197da.py",
         "tests/test_news_pages_locked.py",
         "tests/test_weather_public.py",
+        "tests/test_weekly_full_store.py",
         "tests/weekly_public_memory.py",
         "tests/weekly_report/test_report.py"
       ],
@@ -4859,12 +4962,14 @@
         "tests/test_public_finder.py",
         "tests/test_public_map_m2.py",
         "tests/test_public_map_m2_composition.py",
+        "tests/test_public_tariff_evidence.py",
         "tests/test_public_weekly_pdf.py",
         "tests/test_publication151_inventory.py",
         "tests/test_query_validation188.py",
         "tests/test_recipient_scope220.py",
         "tests/test_refresh149_gate.py",
         "tests/test_refresh_controller.py",
+        "tests/test_relationship_navigation.py",
         "tests/test_replay199a.py",
         "tests/test_replay199b.py",
         "tests/test_replay199ca.py",
@@ -4923,6 +5028,7 @@
         "tests/test_weather_public.py",
         "tests/test_weather_public_prep.py",
         "tests/test_weather_ui.py",
+        "tests/test_weekly_full_store.py",
         "tests/test_weekly_routes.py",
         "tests/test_workspace.py",
         "tests/test_youtube_links.py",
@@ -4986,6 +5092,9 @@
         "tests/browser_feature_finder.py",
         "tests/browser_finder_network.py",
         "tests/browser_finder_report227.py",
+        "tests/browser_public_tariff_evidence.py",
+        "tests/browser_public_tariff_mutants.py",
+        "tests/browser_relationship_combined.py",
         "tests/browser_report228.py",
         "tests/browser_weather231.py",
         "tests/test_cross_link_schema_prep.py",
@@ -5067,6 +5176,11 @@
         "tests/browser_public_map_m2_gate_mutants.py",
         "tests/browser_public_map_m2_lifecycle.py",
         "tests/browser_public_weekly.py",
+        "tests/browser_relationship_combined.py",
+        "tests/browser_relationship_lifecycle.py",
+        "tests/browser_relationship_mutants.py",
+        "tests/browser_relationship_navigation.py",
+        "tests/browser_relationship_real_finder.py",
         "tests/browser_report228.py",
         "tests/browser_sample_volume.py",
         "tests/browser_ships226.py",
@@ -5340,7 +5454,7 @@
     "tests/weekly_report/test_report.py"
   ],
   "source_baseline": {
-    "revision": "1c5c6a58e0b32a9494bb63c96a7e43cfac07d992",
+    "revision": "80cb330c36b4e1635dd5debae242f03930f3f02f",
     "policy": "all recursive *.py in integration/tests/scripts at revision86; no relative-import roots (resolved as local), no __pycache__; increment87 audit/test files outside baseline",
     "scopes": [
       "integration",
@@ -6175,7 +6289,7 @@
       },
       {
         "path": "integration/public_live_builder.py",
-        "sha256": "5e47b604694663d429c4739f8e24e37da09602b3edf8fd819daa8ffecca123a6"
+        "sha256": "560963d38b954252eb405e12367cd2fc1df5f6519dd17cd2067d082f98198785"
       },
       {
         "path": "integration/public_map_m2/__init__.py",
@@ -6195,11 +6309,15 @@
       },
       {
         "path": "integration/public_preview_builder.py",
-        "sha256": "3d7cbe6254ed0821d6daa9a96964ea3a90db8a5f478660eaf2eef0627381aba3"
+        "sha256": "7de9387598bf048b4139ef831a29c36234b70e25dd2489d61bd57fadce2cea9b"
+      },
+      {
+        "path": "integration/public_tariff_evidence.py",
+        "sha256": "8dd43b29bcfea9c404a16e25783123fdadb6fc09734f1bc251b3f91bfd77b569"
       },
       {
         "path": "integration/public_weekly_pdf.py",
-        "sha256": "daa7e07fb45b63e6666c7e112773c32caab91e25f08b2e9d8d96803cef4501ef"
+        "sha256": "19e0114936ab1d68e9e4420da4b440599c4bef1b1e24509b8a9670a15cec53b5"
       },
       {
         "path": "integration/publication_dates/policy.py",
@@ -6212,6 +6330,10 @@
       {
         "path": "integration/recipient_scope220.py",
         "sha256": "33ada1fad1c7169a64e3db0d7fe188f09cdbd78376e9d8c23b2d31438529d4ba"
+      },
+      {
+        "path": "integration/relationship_navigation.py",
+        "sha256": "78497e1e2e995a292617eaec1f2b8fd2f1332de80e1cf2c32a2298fb9d8d13ed"
       },
       {
         "path": "integration/relevance.py",
@@ -6414,6 +6536,10 @@
         "sha256": "9008f6ced2893aef00fa0d44632b19fb4217ec0ff3a07ff32b7d4a5ad2a30723"
       },
       {
+        "path": "integration/weekly_full_store.py",
+        "sha256": "fbee662d7333e0cd469f9b665ade0116df83e184dfd832afa5c72aad81fa5271"
+      },
+      {
         "path": "integration/weekly_report/__init__.py",
         "sha256": "a29dae5559548f4364463ae45db9f70fde82707a16c41244ad6307ad4f1bba90"
       },
@@ -6427,7 +6553,7 @@
       },
       {
         "path": "integration/weekly_report/_render.py",
-        "sha256": "c1f7dfb7bffb01d2c110c926b4ab3b580425cbf6d7646aa9a425f576141233e6"
+        "sha256": "9a8919f173e3b7b10ce1672a4d4c96f5b288c179b125cfef873d920adc6f49c4"
       },
       {
         "path": "integration/weekly_report/report.py",
@@ -6606,8 +6732,36 @@
         "sha256": "0163d6e7ea6a7800b1e5aa5a287a45e6633af0a4a6c80d3c8e969849cac9bba6"
       },
       {
+        "path": "tests/browser_public_tariff_evidence.py",
+        "sha256": "49c1080f598647800de6b7361499f88447fdbe6c5f298ccf6631849d9d3d4162"
+      },
+      {
+        "path": "tests/browser_public_tariff_mutants.py",
+        "sha256": "17fc0b5a1804e133ab9c79bc0b9e9fded84c7878735049c78cf71740bf152a3f"
+      },
+      {
         "path": "tests/browser_public_weekly.py",
         "sha256": "34e298d0904c8bb9c0faa65a318d48f90aa7b259c955a61e5cf6e17409c0fa5e"
+      },
+      {
+        "path": "tests/browser_relationship_combined.py",
+        "sha256": "e90ccf85c6957d21a5b3f22cf8c07f59f9c081e1af751dc41ec678e26ae0ea1f"
+      },
+      {
+        "path": "tests/browser_relationship_lifecycle.py",
+        "sha256": "96d5ffd20a6c3c74225407c6eba5f9d18bc4fafd56bde9ba3f4f50c9d9f2c91a"
+      },
+      {
+        "path": "tests/browser_relationship_mutants.py",
+        "sha256": "634b825f2e2c6276d44bc49c21087a7f739035a42c988e09b2a8e2e2d32ad4cb"
+      },
+      {
+        "path": "tests/browser_relationship_navigation.py",
+        "sha256": "8b1104c3d3213146093f877c1890c6b92d730efb1d5732bf38f5376a1e91da42"
+      },
+      {
+        "path": "tests/browser_relationship_real_finder.py",
+        "sha256": "c1117aaf27c76ed59ae5c615b7020c77fd53589659f12c49e72109a5e7483f6a"
       },
       {
         "path": "tests/browser_report228.py",
@@ -7482,6 +7636,10 @@
         "sha256": "7d0f87b62a058a35810aa8198d30acdd81705239b64a9df1662f141c76138a9a"
       },
       {
+        "path": "tests/test_public_tariff_evidence.py",
+        "sha256": "da8c2a5529eabd589157fffdb137fce1f9257d04449edeb8beab1ba8b7b8dff4"
+      },
+      {
         "path": "tests/test_public_weekly_pdf.py",
         "sha256": "f63c98facb1c4d0a8d0f470cdfd1515020bf422694c60e8bed27d10c6d6a92a9"
       },
@@ -7504,6 +7662,10 @@
       {
         "path": "tests/test_refresh_controller.py",
         "sha256": "cf41f1d36268c4838ea31783560a63518291353672ec3b326457f8ac39c619fa"
+      },
+      {
+        "path": "tests/test_relationship_navigation.py",
+        "sha256": "dc60c1f0ace4753db06377e4135743fa0be4320af5b8fb90907c6cb812f38a07"
       },
       {
         "path": "tests/test_replay199a.py",
@@ -7736,6 +7898,10 @@
       {
         "path": "tests/test_weather_ui.py",
         "sha256": "76a8f53772ae05f252179c59b2f704f643c1b0e611372d9b082b13c9c8ff9bda"
+      },
+      {
+        "path": "tests/test_weekly_full_store.py",
+        "sha256": "d899ab366ed17a11dcfdaa8974150bd3688ab6274e9b0cedd91be032b70ae30a"
       },
       {
         "path": "tests/test_weekly_routes.py",

@@ -27,6 +27,10 @@ def build_public_preview(environ,client_factory=None):
  if type(environ) is not dict or any(type(k)is not str or type(v)is not str for k,v in environ.items()):raise ValueError('Plain environment strings required')
  from integration.public_map_prep import prepare as map_prepare,PATHS as MAP_PATHS,install as map_install
  map_on=map_prepare(environ)
+ from integration.public_tariff_evidence import prepare as tariff_prepare,install as tariff_install,PATHS as TARIFF_PATHS
+ tariff_on=tariff_prepare(environ)
+ from integration.relationship_navigation import prepare as relationship_prepare,install as relationship_install,ASSET as RELATIONSHIP_ASSET
+ relationship_on=relationship_prepare(environ)
  from integration.public_map_m2 import prepare as m2_prepare,PATHS as M2_PATHS,install as m2_install
  m2_on=m2_prepare(environ)
  if m2_on:MAP_PATHS=MAP_PATHS|M2_PATHS
@@ -36,6 +40,8 @@ def build_public_preview(environ,client_factory=None):
  brics_on=brics_prepare(environ)
  from integration.public_weekly_pdf import prepare as weekly_prepare, PATHS as WEEKLY_PATHS, install as weekly_install
  weekly_on=weekly_prepare(environ)
+ from integration.weekly_full_store import enabled as weekly_full_enabled
+ if weekly_full_enabled(environ):raise ValueError('Whole-store PDF requires reviewed live composition')
  from integration.news_finder_navigation_prep import enabled as finder_links_enabled
  finder_links=finder_links_enabled(environ)
  from integration.code_news_coverage_ui_prep import enabled as coverage_ui_enabled,PATHS as COVERAGE_UI_PATHS,install as coverage_ui_install
@@ -65,6 +71,8 @@ def build_public_preview(environ,client_factory=None):
  from integration.weather_ui import enabled as weather_ui_enabled,PATHS as WEATHER_UI_PATHS,install as weather_ui_install
  weather_ui_on=weather_ui_enabled(environ)
  def allow(req):
+  if tariff_on and req.path in TARIFF_PATHS:return req.host_url.rstrip('/')==origin and req.method in ('GET','HEAD')
+  if relationship_on and req.path==RELATIONSHIP_ASSET:return req.host_url.rstrip('/')==origin and req.method in ('GET','HEAD')
   if map_on and req.path in MAP_PATHS:return req.host_url.rstrip('/')==origin and req.method in ('GET','HEAD')
   if ai_on and req.path in AI_PATHS:return req.host_url.rstrip('/')==origin and req.method in (('GET','HEAD') if req.path in AI_PAGES else ('POST','HEAD'))
   if req.method not in ('GET','HEAD') or req.host_url.rstrip('/')!=origin:return False
@@ -88,6 +96,8 @@ def build_public_preview(environ,client_factory=None):
   from pathlib import Path
   weather_install(app,origin,environ,source_path=Path(__file__).resolve().parents[1]/'src/worldports.ts')
  if code_news:code_install(app,origin,lambda:{'geo':[],'brics':[]})
+ if relationship_on:relationship_install(app,origin)
+ if tariff_on:tariff_install(app,origin)
  @app.before_request
  def coverage_off_paths():
   from flask import jsonify
