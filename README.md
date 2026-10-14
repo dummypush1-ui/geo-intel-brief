@@ -13438,3 +13438,30 @@ The browser never retries automatically. Responses are bounded to 250000 UTF-8
 bytes and validated before display. Manual browser waits abort after 12 seconds.
 HEAD does not consume quota or call the evidence reader. Disable the flag and
 restart to roll back. This local candidate is not a live activation.
+
+
+## Default-OFF older-news search progress (S1)
+
+`PUBLIC_NEWS_SEARCH_PROGRESS_ENABLED` accepts only `true` or `false` (default false). It requires `PUBLIC_NEWS_FULL_PAGES_ENABLED=true` and an actually mounted whole-page reader. The original workspace and scroll source files are unchanged; checked served copies show cumulative pages, source rows and matches. A 1,250,000-byte response cap and exact metadata checks reject malformed reads. Empty scans may have later matches. Only cursor exhaustion without error ends this mutable read, never a stable snapshot or a whole-store total. Search checks title, summary, source and country text, not meaning. Continuation replay rejection when parameters change is existing `news_pages` behavior, unchanged here.
+
+Known limitation: cancellation aborts browser work and prevents stale paint, but does not immediately close the server cursor. Existing server expiry is 120 seconds idle or 30 minutes absolute, with 16 shared streams per process. Repeated filter changes can use those slots until expiry. No close API was added; this is not a claim of owner approval or production capacity. DOM remains a moving 200-story window. Related-panel old-row availability remains a separate accepted unit. Local fixtures and Chrome checks are not live source validation. No activation or source access is enabled by this preparation.
+
+
+## Default-OFF BRICS typed-fixture boundary (B2a)
+
+`PUBLIC_BRICS_NEWS_ENABLED` is exact `true` or `false`, default false, with public composition and pinned assets required before any Geo client factory. Both production builders leave the BRICS news source unconnected. The manual `/workspace/brics-news` page is separate from the fixed YouTube seeds; no fixture is supplied by a production builder. Unconnected is not a zero-news result. No configured database, path, URI, native store constructor, Geo fallback, collector or write is added.
+
+Tests inject only an exact typed fixture reader with an independent identity and an explicit critical-keyword snapshot. A closed projection allows at most 100 supplied rows and 250,000 JSON bytes; fields and strings are checked and private fields discarded. Naive `collected_at` means UTC in this fixture contract. Publication timestamps require an explicit timezone; calendar-date-only publication values are refused, not guessed. Critical fixture keys require the supplied keyword policy, BRICS relevance and a collected time in `(now-24h, now]`. Missing corroboration remains "unknown, not cleared"; a supplied source list is not independently verified. Geo risk enums are not reused. These policies are fixture preparation, not proof of current production settings, backend, availability or capacity.
+
+The page fetches only on a manual click, with a 12-second abort, streaming byte cap, literal text rendering and no automatic restart/retry. Startup nav seam checks and mounted route identity prevent a drifted page from advertising the feature. Live source mapping, credentials, disclosure and activation remain separate unresolved work. S1's browser-only cursor cancellation limitation still applies independently.
+
+
+## C1 synthetic commodity-candidate evaluator (offline only)
+
+This preparation does not enable commodity rules, public routes, production matchers, AI, DB reads, legal classification or full-store crosslinks. Only synthetic systems SYN/SYA/SYB with code9999 and edition fixture-only are accepted; real catalogue systems and descriptions are outside the contract. Supplied review references are inert, bounded and labeled supplied_unverified. They never approve a rule or change a match. No Links reviewed-rule conversion is produced.
+
+The supplied callback returns an exact closed HeadingSnapshot. Description hashes are derived locally, never trusted from the callback. Identity/hash/shape failures and raised timeouts return one unavailable state without exception text. Blocking Python callbacks cannot be interrupted here; no hard wall-clock bound is claimed. Input counts, UTF-8 bytes, character limits and total phrase work are checked before calling the callback. Controls, surrogates, format/bidi controls and U+2028/2029 are refused. Matching uses literal Unicode casefold and shared word boundaries, without stemming or ranking. Empty, punctuation-only and duplicate-casefold phrases are rejected. Trade cues are required and exclusions win. Multiple synthetic candidates remain visible in rule-id order, with source-field evidence and not legal/not exhaustive/heading context only warnings.
+
+This is a synthetic candidate review contract, not a real commodity vocabulary, source approval or production coverage claim. DiskLinks rules remain empty; the existing matcher and broker continue to refuse nonempty rules. Existing source files are unchanged except this README appendix and derived inventories.
+
+C1 unmatched articles retain candidate_not_enabled with an empty candidates list, not a claim that no real relationship exists. review_refs_state describes all optional references as supplied_unverified even when none were supplied; no review status is inferred. Phrase and cue lists are independent: the same literal word may satisfy both when explicitly configured. This is not independent evidence; real trade-cue policy remains outside the synthetic contract.

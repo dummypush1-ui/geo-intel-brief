@@ -25,6 +25,8 @@ BRANDING=frozenset(('favicon.ico','icon-48.png','icon-192.png','icon-512.png',
 
 def build_public_preview(environ,client_factory=None):
  if type(environ) is not dict or any(type(k)is not str or type(v)is not str for k,v in environ.items()):raise ValueError('Plain environment strings required')
+ from integration.public_brics_news import prepare as brics_news_prepare,install as brics_news_install,PATHS as BRICS_NEWS_PATHS
+ brics_news_on=brics_news_prepare(environ)
  from integration.public_map_prep import prepare as map_prepare,PATHS as MAP_PATHS,install as map_install
  map_on=map_prepare(environ)
  from integration.public_tariff_evidence import prepare as tariff_prepare,install as tariff_install,PATHS as TARIFF_PATHS
@@ -71,6 +73,7 @@ def build_public_preview(environ,client_factory=None):
  from integration.weather_ui import enabled as weather_ui_enabled,PATHS as WEATHER_UI_PATHS,install as weather_ui_install
  weather_ui_on=weather_ui_enabled(environ)
  def allow(req):
+  if brics_news_on and req.path in BRICS_NEWS_PATHS:return req.host_url.rstrip('/')==origin and req.method in ('GET','HEAD')
   if tariff_on and req.path in TARIFF_PATHS:return req.host_url.rstrip('/')==origin and req.method in ('GET','HEAD')
   if relationship_on and req.path==RELATIONSHIP_ASSET:return req.host_url.rstrip('/')==origin and req.method in ('GET','HEAD')
   if map_on and req.path in MAP_PATHS:return req.host_url.rstrip('/')==origin and req.method in ('GET','HEAD')
@@ -85,6 +88,7 @@ def build_public_preview(environ,client_factory=None):
  if m2_on:m2_install(app,origin,lambda:{'geo':[],'brics':[]})
  elif map_on:map_install(app,origin)
  if ai_on:ai_install(app,origin)
+ if brics_news_on:brics_news_install(app,origin)
  if brics_on:brics_install(app)
  if weekly_on:weekly_install(app,lambda:{'geo':[],'brics':[]})
  from integration.news_finder_navigation_prep import install_mount
