@@ -579,8 +579,8 @@
     "playwright1.48.0+greenlet3.1.1+pyee12.0.0; browser binaries not locked"
   ],
   "static_limit": "AST inventory does not prove conditional/dynamic/runtime imports complete",
-  "source_baseline_revision": "761f8f5657187f994f200db23c78dc55770f607c",
-  "source_manifest_sha256": "d89f60612e5b38803cf783a0a198aa540e498b423887714da4e57beafcb12bc9",
+  "source_baseline_revision": "c6deebf002ad0d7a2d3c5c07ab7567409d21971d",
+  "source_manifest_sha256": "7e774c9508e072e4f8a1497560e85e59030ab00d03a02ea5ec75beeb9f803957",
   "artifact_verification": {
     "status": "verified_in_author_environment",
     "method": "SHA256 of each explicit cache wheel; metadata filename version/tag checks; reviewer cache not transferred",

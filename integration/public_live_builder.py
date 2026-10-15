@@ -53,9 +53,11 @@ def create_public_geo_client(uri,*,serverSelectionTimeoutMS=5000,connect=False):
    tlsAllowInvalidCertificates=False,tlsAllowInvalidHostnames=False))
  except Exception:raise ValueError('Public Geo client unavailable')from None
 
-def build_public_live_preview(environ,client_factory=None,clock=time.monotonic,coverage_binding_provider=None,tariff_snapshot=None,geo_export_binding=None):
+def build_public_live_preview(environ,client_factory=None,clock=time.monotonic,coverage_binding_provider=None,tariff_snapshot=None,geo_export_binding=None,brics_live_binding=None):
  if type(environ) is not dict or any(type(k)is not str or type(v)is not str for k,v in environ.items()):raise ValueError('Plain environment strings required')
  from integration.news_export_e2 import prepare as export_prepare,install as export_install,PATH as EXPORT_PATH
+ from integration.brics_live_b3 import prepare as brics_live_prepare,install as brics_live_install
+ brics_binding=brics_live_prepare(environ,brics_live_binding)
  export_binding=export_prepare(environ,geo_export_binding)
  from integration.code_news_context_d4 import prepare as context_prepare,ContextBroker,validate as context_validate,install_ui as context_ui_install
  context_on=context_prepare(environ)
@@ -191,6 +193,7 @@ def build_public_live_preview(environ,client_factory=None,clock=time.monotonic,c
   if m3_on:m3_install(app,origin)
   if ai_on:ai_install(app,origin)
   if brics_news_on:brics_news_install(app,origin)
+  if brics_binding is not None:brics_live_install(app,brics_binding)
   if brics_on:brics_install(app)
   if weekly_on:weekly_install(app,read,period_reader=PeriodReader(client['geo_intel']['articles']) if weekly_full else None)
   from integration.news_finder_navigation_prep import install_mount

@@ -24,6 +24,7 @@ BRANDING=frozenset(('favicon.ico','icon-48.png','icon-192.png','icon-512.png',
  'apple-touch-icon.png','og-image.png','logo.svg'))
 
 def build_public_preview(environ,client_factory=None,tariff_snapshot=None):
+ if environ.get('PUBLIC_BRICS_LIVE_READ_ENABLED','false')!='false':raise ValueError('BRICS live source requires reviewed public live builder')
  if type(environ) is not dict or any(type(k)is not str or type(v)is not str for k,v in environ.items()):raise ValueError('Plain environment strings required')
  from integration.news_export_e2 import prepare as export_prepare
  if export_prepare(environ) is not None:raise ValueError('Original export requires reviewed live composition')
