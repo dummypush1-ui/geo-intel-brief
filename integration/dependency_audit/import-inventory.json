@@ -900,6 +900,7 @@
         "integration/supplied_multi_feed.py",
         "integration/tariff_evidence.py",
         "integration/telegram_format_audit.py",
+        "integration/usitc_release_source.py",
         "integration/weather_public.py",
         "integration/weather_public_prep.py",
         "integration/weekly_full_store.py",
@@ -975,6 +976,7 @@
         "tests/test_tariff_evidence.py",
         "tests/test_tariff_evidence_plain.py",
         "tests/test_telegram_format_audit.py",
+        "tests/test_usitc_release_source.py",
         "tests/test_weather_public.py",
         "tests/test_weather_public_prep.py",
         "tests/test_weekly_full_store.py",
@@ -1584,6 +1586,7 @@
         "integration/report_adapters.py",
         "integration/scraper_policy.py",
         "integration/site_parsers.py",
+        "integration/usitc_release_source.py",
         "tests/test_dashboard167.py",
         "tests/test_html209.py",
         "tests/test_links170.py",
@@ -1726,6 +1729,7 @@
         "integration/digest_email218.py",
         "integration/digest_preview.py",
         "integration/digest_render203.py",
+        "integration/existing_proxy_codec.py",
         "integration/existing_schema215.py",
         "integration/feedparser_audit/child.py",
         "integration/feedparser_audit/runner.py",
@@ -1827,6 +1831,7 @@
         "integration/stream_revision.py",
         "integration/supplied_feed_fixture.py",
         "integration/supplied_fulltext_fixture.py",
+        "integration/usitc_release_source.py",
         "integration/weather_public.py",
         "integration/weekly_full_store.py",
         "scripts/build_code_news_index.py",
@@ -1962,6 +1967,7 @@
         "tests/test_env_example.py",
         "tests/test_event_reader.py",
         "tests/test_events210.py",
+        "tests/test_existing_proxy_codec.py",
         "tests/test_existing_schema215.py",
         "tests/test_factory176.py",
         "tests/test_fake_collection_writer.py",
@@ -2091,6 +2097,7 @@
         "tests/test_tariff_evidence_plain.py",
         "tests/test_telegram_format_audit.py",
         "tests/test_token196.py",
+        "tests/test_usitc_release_source.py",
         "tests/test_watchlist_public_fix.py",
         "tests/test_weather_public.py",
         "tests/test_weather_public_prep.py",
@@ -2429,6 +2436,7 @@
         "integration/digest_email218.py",
         "integration/digest_windows193.py",
         "integration/event_reader.py",
+        "integration/existing_proxy_codec.py",
         "integration/feedparser_audit/child.py",
         "integration/feedparser_audit/runner.py",
         "integration/finder198_auth.py",
@@ -2571,6 +2579,7 @@
         "tests/test_doc_lookup.py",
         "tests/test_edge_guard.py",
         "tests/test_event_reader.py",
+        "tests/test_existing_proxy_codec.py",
         "tests/test_existing_schema215.py",
         "tests/test_file_audit.py",
         "tests/test_finder198a.py",
@@ -3630,6 +3639,7 @@
         "integration/digest_dates202.py",
         "integration/digest_email218.py",
         "integration/edge_guard.py",
+        "integration/existing_proxy_codec.py",
         "integration/feedparser_audit/child.py",
         "integration/finder198_transport_child.py",
         "integration/finder_identity_proof_prep.py",
@@ -3681,6 +3691,7 @@
         "integration/tariff_evidence.py",
         "integration/taxonomy.py",
         "integration/text_matching/matcher.py",
+        "integration/usitc_release_source.py",
         "integration/weather_public_prep.py",
         "integration/weekly_report/report.py",
         "integration/youtube_links.py",
@@ -4379,6 +4390,7 @@
         "tests/test_replay199ca.py",
         "tests/test_replay199cb.py",
         "tests/test_replay199cc.py",
+        "tests/test_usitc_release_source.py",
         "tests/test_weather_ui.py",
         "tests/test_weekly_full_store.py",
         "tests/weekly_public_memory.py"
@@ -4687,6 +4699,7 @@
         "integration/public_weekly_pdf.py",
         "integration/replay199_collector.py",
         "integration/replay199_core.py",
+        "integration/usitc_release_source.py",
         "integration/weather_public.py",
         "integration/weekly_full_store.py",
         "tests/brics_public_memory.py",
@@ -4920,6 +4933,7 @@
         "tests/test_env_example.py",
         "tests/test_event_reader.py",
         "tests/test_events210.py",
+        "tests/test_existing_proxy_codec.py",
         "tests/test_existing_schema215.py",
         "tests/test_factory176.py",
         "tests/test_fake_collection_writer.py",
@@ -5082,6 +5096,7 @@
         "tests/test_tariff_evidence_plain.py",
         "tests/test_telegram_format_audit.py",
         "tests/test_token196.py",
+        "tests/test_usitc_release_source.py",
         "tests/test_watch_updates.py",
         "tests/test_watchlist_public_fix.py",
         "tests/test_weather231.py",
@@ -5146,6 +5161,7 @@
         "integration/scraper_policy.py",
         "integration/site_parsers.py",
         "integration/tariff_evidence.py",
+        "integration/usitc_release_source.py",
         "integration/weather_public.py",
         "integration/weather_public_prep.py",
         "integration/weekly_report/_render.py",
@@ -5518,7 +5534,7 @@
     "tests/weekly_report/test_report.py"
   ],
   "source_baseline": {
-    "revision": "8089a85c87d1f7ec79f3d82a4cfe505713ffc3cd",
+    "revision": "8d559275e28ede8c19c3adadafcc96403d075fb9",
     "policy": "all recursive *.py in integration/tests/scripts at revision86; no relative-import roots (resolved as local), no __pycache__; increment87 audit/test files outside baseline",
     "scopes": [
       "integration",
@@ -5934,6 +5950,10 @@
       {
         "path": "integration/event_reader.py",
         "sha256": "fbddedabef6ba54c3b47f70e94511310b69a6b7466f393a40088034e23d526df"
+      },
+      {
+        "path": "integration/existing_proxy_codec.py",
+        "sha256": "5f6e81077c9c45472dcab1341cd3f079e3a030ddb1f4509da65054f9b6d21ada"
       },
       {
         "path": "integration/existing_schema215.py",
@@ -6369,7 +6389,7 @@
       },
       {
         "path": "integration/public_live_builder.py",
-        "sha256": "10281f44336c50f6ba5cdaae2cbacbcf3a92cff0fda29102b61ac720a701054c"
+        "sha256": "eddacfb056a4dba5289eee9f6b530b31965298107210a45435f1e935a10459fe"
       },
       {
         "path": "integration/public_map_m2/__init__.py",
@@ -6389,7 +6409,7 @@
       },
       {
         "path": "integration/public_preview_builder.py",
-        "sha256": "bb7a3945d26c6a640eff67dee7e0ce310037477591ae00a5d2b5330923d05fdf"
+        "sha256": "a4338ad0e2d85cb75493d47dc042d19035faf85b812c5b1453d79f68c6d093a4"
       },
       {
         "path": "integration/public_tariff_evidence.py",
@@ -6602,6 +6622,10 @@
       {
         "path": "integration/text_matching/matcher.py",
         "sha256": "eb9bdc9b113d36da34702ed724ea857ebcfc9649131fdeafe7add3138d2db607"
+      },
+      {
+        "path": "integration/usitc_release_source.py",
+        "sha256": "5201d837f747db83264421bdcb095fc9a76062e5038fa12049b8894475b46f6e"
       },
       {
         "path": "integration/weather_public.py",
@@ -7328,6 +7352,10 @@
         "sha256": "bd00bd52428fc70f78746ef1fec47503460cf7ffd145102754a5bd1c106735f7"
       },
       {
+        "path": "tests/test_existing_proxy_codec.py",
+        "sha256": "e147a90afb8d1b3847f9549c7affa3aa10a73287cee7a8423bfce2f4e60f27d9"
+      },
+      {
         "path": "tests/test_existing_schema215.py",
         "sha256": "d60c609cce1597995e7b05fc501ff07f6af8f82409482a4ec406ee6318587108"
       },
@@ -7974,6 +8002,10 @@
       {
         "path": "tests/test_token196.py",
         "sha256": "6b992ceffdd94db06d3fc235463c835de7b9c79e1d4265a404837d9996303135"
+      },
+      {
+        "path": "tests/test_usitc_release_source.py",
+        "sha256": "beca7b6b33fb360a533352639143fd84b3e2dbc0745404719f19653de7ab09d1"
       },
       {
         "path": "tests/test_watch_updates.py",

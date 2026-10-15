@@ -27,8 +27,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 964275,
-      "sha256": "742247c4ebb962f428aa8696454face79283c5f2427864ab1f1c07b2de7b3af0"
+      "bytes": 969632,
+      "sha256": "b19d4c8f8941db78eec0f8ec78bd77fc5f3f4393854b64b21e7eb29962d8e441"
     },
     {
       "path": "ai-agent.mjs",
@@ -2063,12 +2063,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 19742,
-      "sha256": "520a33f92abf8af892e50c9ea7af8805ac74be61c17f081ffc2005ec49195bb5"
+      "sha256": "f65e3a8e73eb2b5b7554714c98e70914836c6329be7f93c77a6abb605ce144e7"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
-      "bytes": 313541,
-      "sha256": "082986c8e65a5114040e6c9861889a5aa8c887b633d5e37bcd3068014edbba8f"
+      "bytes": 314912,
+      "sha256": "67ced92a03e4b8dca57c183e2f58c631e5a95f1e7f24f7c393df7d4e283a9ba6"
     },
     {
       "path": "integration/dependency_build/executed-orchestrator.txt",
@@ -2134,6 +2134,11 @@
       "path": "integration/event_reader.py",
       "bytes": 2907,
       "sha256": "fbddedabef6ba54c3b47f70e94511310b69a6b7466f393a40088034e23d526df"
+    },
+    {
+      "path": "integration/existing_proxy_codec.py",
+      "bytes": 6783,
+      "sha256": "5f6e81077c9c45472dcab1341cd3f079e3a030ddb1f4509da65054f9b6d21ada"
     },
     {
       "path": "integration/existing_schema215.py",
@@ -2877,8 +2882,8 @@
     },
     {
       "path": "integration/public_live_builder.py",
-      "bytes": 16151,
-      "sha256": "10281f44336c50f6ba5cdaae2cbacbcf3a92cff0fda29102b61ac720a701054c"
+      "bytes": 16548,
+      "sha256": "eddacfb056a4dba5289eee9f6b530b31965298107210a45435f1e935a10459fe"
     },
     {
       "path": "integration/public_map_m2/LICENSE",
@@ -3017,8 +3022,8 @@
     },
     {
       "path": "integration/public_preview_builder.py",
-      "bytes": 9754,
-      "sha256": "bb7a3945d26c6a640eff67dee7e0ce310037477591ae00a5d2b5330923d05fdf"
+      "bytes": 10119,
+      "sha256": "a4338ad0e2d85cb75493d47dc042d19035faf85b812c5b1453d79f68c6d093a4"
     },
     {
       "path": "integration/public_tariff_evidence.py",
@@ -3839,6 +3844,11 @@
       "path": "integration/ui/workspace.js",
       "bytes": 40373,
       "sha256": "d1c8893753936a8f8b6583ae591c33a9966b5f28cc13af7bf76e0b296f6fab32"
+    },
+    {
+      "path": "integration/usitc_release_source.py",
+      "bytes": 7927,
+      "sha256": "5201d837f747db83264421bdcb095fc9a76062e5038fa12049b8894475b46f6e"
     },
     {
       "path": "integration/weather_public.py",
@@ -6421,6 +6431,11 @@
       "sha256": "bd00bd52428fc70f78746ef1fec47503460cf7ffd145102754a5bd1c106735f7"
     },
     {
+      "path": "tests/test_existing_proxy_codec.py",
+      "bytes": 6851,
+      "sha256": "e147a90afb8d1b3847f9549c7affa3aa10a73287cee7a8423bfce2f4e60f27d9"
+    },
+    {
       "path": "tests/test_existing_schema215.py",
       "bytes": 6245,
       "sha256": "d60c609cce1597995e7b05fc501ff07f6af8f82409482a4ec406ee6318587108"
@@ -7244,6 +7259,11 @@
       "path": "tests/test_token196.py",
       "bytes": 2682,
       "sha256": "6b992ceffdd94db06d3fc235463c835de7b9c79e1d4265a404837d9996303135"
+    },
+    {
+      "path": "tests/test_usitc_release_source.py",
+      "bytes": 8056,
+      "sha256": "beca7b6b33fb360a533352639143fd84b3e2dbc0745404719f19653de7ab09d1"
     },
     {
       "path": "tests/test_watch_updates.py",

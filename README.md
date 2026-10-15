@@ -13465,3 +13465,87 @@ The supplied callback returns an exact closed HeadingSnapshot. Description hashe
 This is a synthetic candidate review contract, not a real commodity vocabulary, source approval or production coverage claim. DiskLinks rules remain empty; the existing matcher and broker continue to refuse nonempty rules. Existing source files are unchanged except this README appendix and derived inventories.
 
 C1 unmatched articles retain candidate_not_enabled with an empty candidates list, not a claim that no real relationship exists. review_refs_state describes all optional references as supplied_unverified even when none were supplied; no review status is inferred. Phrase and cue lists are independent: the same literal word may satisfy both when explicitly configured. This is not independent evidence; real trade-cue policy remains outside the synthetic contract.
+
+## T2 manual USITC release-document source candidate (OFF)
+
+`integration.usitc_release_source.capture_latest()` is an explicit operator call,
+not an app startup or HTTP fetch. It reads the official USITC modification index,
+follows the first exact USITC release-page link in publisher order, validates that
+page's title and visible Release Date, then returns one exact
+`TariffEvidenceSnapshot`. No duties, affected HS codes, instrument dates or legal
+effects are inferred. It does not claim the selected page is a complete history
+or the current legally applicable schedule. A failed read refuses, never reports
+zero tariff changes. Only US metadata is covered; India and EU remain unconnected.
+
+Both public builders accept `tariff_snapshot=` as an explicit reviewed Python
+input when `PUBLIC_TARIFF_EVIDENCE_ENABLED=true`. The default remains false;
+there is no env/path/DB/network discovery, background task, poll, storage or
+PDF mapping. Neither builder calls the source connector. OFF plus a snapshot
+is refused rather than silently activating it. Snapshots are defensively copied.
+Manual capture happens separately and GET/HEAD only display the supplied capture.
+
+Sources inspected October15,2026:
+https://www.usitc.gov/harmonized_tariff_information/modifications_to_hts
+https://www.usitc.gov/2026_hts_revision_21
+https://www.usitc.gov/data/index.htm
+https://www.usitc.gov/disclaimers.htm
+https://www.usitc.gov/digitalstrategy
+https://www.usitc.gov/robots.txt
+
+USITC's modification index expressly is not legally authoritative. Website
+information is general, not legal advice, and accuracy/completeness are not
+promised. The open-data page publishes HTS API/CSV/Excel/JSON routes, but this
+candidate captures only release metadata and links, not a whole schedule or
+third-party text. USITC follows federal copyright standards; that is not a
+license for third-party linked documents. Attribute USITC and preserve the link
+and capture time. No blanket redistribution or legal-clearance claim is made.
+
+The inspected robots.txt asks for a10-second crawl delay. The two-request manual
+transport enforces10 seconds between starts within one capture, uses fixed
+HTTPS USITC URLs, rejects redirects/compression/non-HTML/status failures, caps
+HTML at1,000,000 bytes and uses8-second socket timeouts plus elapsed checks.
+These do not forcibly interrupt an already blocked socket. No retry. Multiple
+manual captures/processes are not coordinated: operators must serialize them
+and preserve at least10 seconds between separate captures. This is not an
+activated shared public source crawler or an approved polling cadence.
+
+Actual manual capture on October15 selected2026 HTS Revision21 with visible
+release date2026-10-09. Its download link carried a different releaseDate query;
+that query was not used as a publication or effective date. Evidence remains
+candidate, with no review time, affected codes or effective dates. Captures
+are not bundled as a runtime default. Flags remain OFF; review, full regression
+and owner approval are required before any push or later activation.
+
+## A2 existing-proxy codecs (dormant, not live integration)
+
+`integration/existing_proxy_codec.py` prepares bounded request plans for the
+inspected existing Gemini/Groq/Mistral/NVIDIA hsn-ai-proxy endpoints and decodes
+their single completed text replies into the app's answer/citations shape. It has
+no network, credentials, environment discovery, route, builder injection or UI
+change. `execute=false` and cost/privacy-unverified are explicit on every plan.
+No existing fake-only service gate is bypassed. Feature flags remain OFF.
+
+Named tasks cover candidate context, plain wording, trade brief, paperwork,
+comparison, classification context, report context, second-opinion context and
+news context, but this is NOT parity with the original classifier or large
+multi-section reports. Only supplied evidence is used, never invented HS codes,
+current duties, legal verification or live web search. No provider retries,
+key rotation, cross-provider checks or original proxy/AIS changes are added.
+
+Request bodies cap16384 bytes, prompt12000 UTF-8 bytes, output512 tokens, no
+streaming/tools. Responses cap65536 bytes and require one completed text answer;
+tools, multiple candidates/choices, extra part/message keys, truncation, markup,
+links and malformed citations are refused. IDs still need the existing app's
+server-owned evidence validation before display. Model names are only syntax
+checked, not approved as available/free/privacy-cleared. No model calls were made.
+
+Source inspected read-only at Finder main9133270856bb77170956b707bafe260997690d80:
+https://github.com/push2006/finder-hsn-codee/blob/9133270856bb77170956b707bafe260997690d80/proxy.js
+https://github.com/push2006/finder-hsn-codee/blob/9133270856bb77170956b707bafe260997690d80/src/app.js
+The original proxy exposes provider-shaped passthrough, not feature-specific APIs.
+Original source comments about user approvals and free plans are not authority.
+Live activation still requires reviewed fixed provider/model, actual account
+zero-spend/privacy verification, secure server contract, bounded transport,
+whole-proxy budget/legacy cutover and typed feature mapping. Ordinary Finder/news
+must keep working if AI is held, malformed or unavailable. No push or deployment
+is part of this dormant preparation.

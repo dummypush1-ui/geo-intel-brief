@@ -53,7 +53,7 @@ def create_public_geo_client(uri,*,serverSelectionTimeoutMS=5000,connect=False):
    tlsAllowInvalidCertificates=False,tlsAllowInvalidHostnames=False))
  except Exception:raise ValueError('Public Geo client unavailable')from None
 
-def build_public_live_preview(environ,client_factory=None,clock=time.monotonic,coverage_binding_provider=None):
+def build_public_live_preview(environ,client_factory=None,clock=time.monotonic,coverage_binding_provider=None,tariff_snapshot=None):
  if type(environ) is not dict or any(type(k)is not str or type(v)is not str for k,v in environ.items()):raise ValueError('Plain environment strings required')
  from integration.news_search_progress import prepare as search_prepare,install as search_install
  search_on=search_prepare(environ)
@@ -63,6 +63,10 @@ def build_public_live_preview(environ,client_factory=None,clock=time.monotonic,c
  map_on=map_prepare(environ)
  from integration.public_tariff_evidence import prepare as tariff_prepare,install as tariff_install,PATHS as TARIFF_PATHS
  tariff_on=tariff_prepare(environ)
+ if tariff_snapshot is not None:
+  from integration.tariff_evidence import TariffEvidenceSnapshot
+  if not tariff_on or type(tariff_snapshot) is not TariffEvidenceSnapshot:raise ValueError('Explicit enabled tariff snapshot required')
+  tariff_snapshot=TariffEvidenceSnapshot(tariff_snapshot._observed_at,tariff_snapshot._items)
  from integration.relationship_navigation import prepare as relationship_prepare,install as relationship_install,ASSET as RELATIONSHIP_ASSET
  relationship_on=relationship_prepare(environ)
  from integration.public_map_m2 import prepare as m2_prepare,PATHS as M2_PATHS,install as m2_install
@@ -87,7 +91,7 @@ def build_public_live_preview(environ,client_factory=None,clock=time.monotonic,c
  if pages_flag=='true' and environ.get('PUBLIC_NEWS_READ_ENABLED','false')!='true':raise ValueError('Whole-store pages require reviewed public live reads')
  flag=environ.get('PUBLIC_NEWS_READ_ENABLED','false')
  if flag not in ('true','false'):raise ValueError('Exact public news flag required')
- if flag=='false':return build_public_preview(environ,client_factory=client_factory)
+ if flag=='false':return build_public_preview(environ,client_factory=client_factory,tariff_snapshot=tariff_snapshot)
  required={'PREVIEW_PUBLIC_SAMPLE_ENABLED':'true','PREVIEW_GEO_ONLY_ENABLED':'true',
   'PREVIEW_ACCESS_ENABLED':'false','NEWS_READ_ENABLED':'false',
   'NEWS_EVENTS_READ_ENABLED':'false','FINDER_NETWORK_PREVIEW_ENABLED':'false',
@@ -199,7 +203,7 @@ def build_public_live_preview(environ,client_factory=None,clock=time.monotonic,c
   if finder_rates:install(app,origin)
   if code_news:code_install(app,origin,read)
   if relationship_on:relationship_install(app,origin)
-  if tariff_on:tariff_install(app,origin)
+  if tariff_on:tariff_install(app,origin,tariff_snapshot)
   if search_on:search_install(app)
  except Exception:
   if not coverage_api:raise

@@ -86,7 +86,7 @@
       "path": "README.md",
       "project": "finder_or_build",
       "role": "preserved_engine_or_asset",
-      "sha256": "742247c4ebb962f428aa8696454face79283c5f2427864ab1f1c07b2de7b3af0",
+      "sha256": "b19d4c8f8941db78eec0f8ec78bd77fc5f3f4393854b64b21e7eb29962d8e441",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -4163,7 +4163,7 @@
       "path": "integration/dependency_audit/audit.json",
       "project": "integration",
       "role": "offline_contract_or_private_view",
-      "sha256": "520a33f92abf8af892e50c9ea7af8805ac74be61c17f081ffc2005ec49195bb5",
+      "sha256": "f65e3a8e73eb2b5b7554714c98e70914836c6329be7f93c77a6abb605ce144e7",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -4172,7 +4172,7 @@
       "path": "integration/dependency_audit/import-inventory.json",
       "project": "integration",
       "role": "offline_contract_or_private_view",
-      "sha256": "082986c8e65a5114040e6c9861889a5aa8c887b633d5e37bcd3068014edbba8f",
+      "sha256": "67ced92a03e4b8dca57c183e2f58c631e5a95f1e7f24f7c393df7d4e283a9ba6",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -4305,6 +4305,17 @@
       "role": "offline_contract_or_private_view",
       "sha256": "fbddedabef6ba54c3b47f70e94511310b69a6b7466f393a40088034e23d526df",
       "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/existing_proxy_codec.py",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "5f6e81077c9c45472dcab1341cd3f079e3a030ddb1f4509da65054f9b6d21ada",
+      "static_file_edges": [
+        "integration/public_ai_answers.py"
+      ],
       "unresolved_internal_imports": [],
       "runtime_verified": false
     },
@@ -5911,7 +5922,7 @@
       "path": "integration/public_live_builder.py",
       "project": "integration",
       "role": "offline_contract_or_private_view",
-      "sha256": "10281f44336c50f6ba5cdaae2cbacbcf3a92cff0fda29102b61ac720a701054c",
+      "sha256": "eddacfb056a4dba5289eee9f6b530b31965298107210a45435f1e935a10459fe",
       "static_file_edges": [
         "integration/code_news_coverage_binding_prep.py",
         "integration/code_news_coverage_broker_prep.py",
@@ -5939,6 +5950,7 @@
         "integration/relationship_navigation.py",
         "integration/security_headers.py",
         "integration/storage_reader.py",
+        "integration/tariff_evidence.py",
         "integration/weather_public.py",
         "integration/weather_ui.py",
         "integration/weekly_full_store.py"
@@ -6200,7 +6212,7 @@
       "path": "integration/public_preview_builder.py",
       "project": "integration",
       "role": "offline_contract_or_private_view",
-      "sha256": "bb7a3945d26c6a640eff67dee7e0ce310037477591ae00a5d2b5330923d05fdf",
+      "sha256": "a4338ad0e2d85cb75493d47dc042d19035faf85b812c5b1453d79f68c6d093a4",
       "static_file_edges": [
         "integration/api_v1.py",
         "integration/code_news_coverage_route_prep.py",
@@ -6218,6 +6230,7 @@
         "integration/public_tariff_evidence.py",
         "integration/public_weekly_pdf.py",
         "integration/relationship_navigation.py",
+        "integration/tariff_evidence.py",
         "integration/weather_public.py",
         "integration/weather_ui.py",
         "integration/weekly_full_store.py"
@@ -7828,6 +7841,17 @@
       "static_file_edges": [
         "integration/ui/context_excerpt208.js",
         "integration/ui/news_scroll.js"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/usitc_release_source.py",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "5201d837f747db83264421bdcb095fc9a76062e5038fa12049b8894475b46f6e",
+      "static_file_edges": [
+        "integration/tariff_evidence.py"
       ],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -10657,7 +10681,7 @@
       "path": "staging-manifest.json",
       "project": "finder_or_build",
       "role": "preserved_engine_or_asset",
-      "sha256": "ab8bf38cf8bd2ab1f20b571820284eb5d9ff60ce3418fdd1ff6002319b8e481d",
+      "sha256": "dcc86638b526f1118f2f63d738ec8c24104ee0404053b1494cb5fe74715ae1a7",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -13294,6 +13318,18 @@
       "runtime_verified": false
     },
     {
+      "path": "tests/test_existing_proxy_codec.py",
+      "project": "test",
+      "role": "fixture_test",
+      "sha256": "e147a90afb8d1b3847f9549c7affa3aa10a73287cee7a8423bfce2f4e60f27d9",
+      "static_file_edges": [
+        "integration/__init__.py",
+        "integration/public_ai_answers.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
       "path": "tests/test_existing_schema215.py",
       "project": "test",
       "role": "fixture_test",
@@ -15390,6 +15426,21 @@
       "runtime_verified": false
     },
     {
+      "path": "tests/test_usitc_release_source.py",
+      "project": "test",
+      "role": "fixture_test",
+      "sha256": "beca7b6b33fb360a533352639143fd84b3e2dbc0745404719f19653de7ab09d1",
+      "static_file_edges": [
+        "integration/__init__.py",
+        "integration/public_live_builder.py",
+        "integration/public_preview_builder.py",
+        "tests/test_code_news_coverage_binding_prep.py",
+        "tests/test_code_news_public.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
       "path": "tests/test_watch_updates.py",
       "project": "test",
       "role": "fixture_test",
@@ -16260,7 +16311,7 @@
       "runtime_verified": false
     }
   ],
-  "file_count": 1544,
+  "file_count": 1548,
   "limits": [
     "Dynamic references and network endpoints need runtime adapter tests",
     "Legacy launchers deliberately not connected to merged private entrypoint",

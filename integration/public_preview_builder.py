@@ -23,7 +23,7 @@ ASSETS=frozenset(('workspace.js','context_excerpt208.js','news_scroll.js','works
 BRANDING=frozenset(('favicon.ico','icon-48.png','icon-192.png','icon-512.png',
  'apple-touch-icon.png','og-image.png','logo.svg'))
 
-def build_public_preview(environ,client_factory=None):
+def build_public_preview(environ,client_factory=None,tariff_snapshot=None):
  if type(environ) is not dict or any(type(k)is not str or type(v)is not str for k,v in environ.items()):raise ValueError('Plain environment strings required')
  from integration.public_brics_news import prepare as brics_news_prepare,install as brics_news_install,PATHS as BRICS_NEWS_PATHS
  brics_news_on=brics_news_prepare(environ)
@@ -31,6 +31,10 @@ def build_public_preview(environ,client_factory=None):
  map_on=map_prepare(environ)
  from integration.public_tariff_evidence import prepare as tariff_prepare,install as tariff_install,PATHS as TARIFF_PATHS
  tariff_on=tariff_prepare(environ)
+ if tariff_snapshot is not None:
+  from integration.tariff_evidence import TariffEvidenceSnapshot
+  if not tariff_on or type(tariff_snapshot) is not TariffEvidenceSnapshot:raise ValueError('Explicit enabled tariff snapshot required')
+  tariff_snapshot=TariffEvidenceSnapshot(tariff_snapshot._observed_at,tariff_snapshot._items)
  from integration.relationship_navigation import prepare as relationship_prepare,install as relationship_install,ASSET as RELATIONSHIP_ASSET
  relationship_on=relationship_prepare(environ)
  from integration.public_map_m2 import prepare as m2_prepare,PATHS as M2_PATHS,install as m2_install
@@ -101,7 +105,7 @@ def build_public_preview(environ,client_factory=None):
   weather_install(app,origin,environ,source_path=Path(__file__).resolve().parents[1]/'src/worldports.ts')
  if code_news:code_install(app,origin,lambda:{'geo':[],'brics':[]})
  if relationship_on:relationship_install(app,origin)
- if tariff_on:tariff_install(app,origin)
+ if tariff_on:tariff_install(app,origin,tariff_snapshot)
  @app.before_request
  def coverage_off_paths():
   from flask import jsonify
