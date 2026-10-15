@@ -5,7 +5,7 @@
       "path": ".env.example",
       "project": "finder_or_build",
       "role": "preserved_engine_or_asset",
-      "sha256": "8d2c60bed99b49cad3494ab18a61f909483cb9dff7be6b121ecbc007c23f417b",
+      "sha256": "1495f5a689b1fd40886304c123f8142941448efe6b1b3ff46a88dbe481c9889e",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -4163,7 +4163,7 @@
       "path": "integration/dependency_audit/audit.json",
       "project": "integration",
       "role": "offline_contract_or_private_view",
-      "sha256": "f65e3a8e73eb2b5b7554714c98e70914836c6329be7f93c77a6abb605ce144e7",
+      "sha256": "5d6e30934d0e4317a98fbb81992e0c034a93bbdc4f760c8ebca03b351032ee5b",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -4172,7 +4172,7 @@
       "path": "integration/dependency_audit/import-inventory.json",
       "project": "integration",
       "role": "offline_contract_or_private_view",
-      "sha256": "67ced92a03e4b8dca57c183e2f58c631e5a95f1e7f24f7c393df7d4e283a9ba6",
+      "sha256": "5d725cc9549d15b1af9235e99afaa9e1c84090dfbafabc9268b7a9374d86a6c0",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -5922,7 +5922,7 @@
       "path": "integration/public_live_builder.py",
       "project": "integration",
       "role": "offline_contract_or_private_view",
-      "sha256": "eddacfb056a4dba5289eee9f6b530b31965298107210a45435f1e935a10459fe",
+      "sha256": "4567df1e3b43bef70bd2460aecc157a31c91a0f6cedb562a7cf7db0c2fe296d5",
       "static_file_edges": [
         "integration/code_news_coverage_binding_prep.py",
         "integration/code_news_coverage_broker_prep.py",
@@ -5943,6 +5943,7 @@
         "integration/public_brics_streams.py",
         "integration/public_finder.py",
         "integration/public_map_m2/__init__.py",
+        "integration/public_map_m3/__init__.py",
         "integration/public_map_prep/__init__.py",
         "integration/public_preview_builder.py",
         "integration/public_tariff_evidence.py",
@@ -6097,6 +6098,144 @@
       "runtime_verified": false
     },
     {
+      "path": "integration/public_map_m3/LEAFLET-MAPLIBRE-LICENSE.txt",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "eaa721ba158cbeff47ad53b1035dfc26ff744df66662c93ff715c9885197ebf3",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/public_map_m3/LIBERTY-LICENSE.txt",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "932694202d771c52089e87f13105e02f2b68341f584b0f3d8adc557c9d7cefa3",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/public_map_m3/M3-README.txt",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "bd0d7f9dda7d4acb459bf19142c745f11ade94d0cb1e797fc0e7e56860aaa5f3",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/public_map_m3/MAPLIBRE-LICENSE.txt",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "ee5fc05a0677eaf69601d2c7db0d9ecd6cc27c3abc1d0733bc9ed34707cf8ef2",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/public_map_m3/OPENFREEMAP-STYLES-LICENSE.txt",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "d1754e5d291e4e8b9b0047ddba0a6ec75e1046ccd61a02c2cea3dac58f3fe355",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/public_map_m3/__init__.py",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "fe023adf08520cb259a0ae6ec63e831417f75d00033ce64a1f64b8012a331aac",
+      "static_file_edges": [
+        "integration/__init__.py",
+        "integration/public_map_prep/__init__.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/public_map_m3/leaflet-maplibre.js",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "1c33367962e7755c1a16d1f85658fdc96b5baa36f81adfca9493174cd1b526ce",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/public_map_m3/liberty.json",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "14fb22269a626b95d9cac57c51d22d299a3e1cf20067ec828b3c1d28d0171823",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/public_map_m3/maplibre-worker.js",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "7cc71c7e300dc860a24f311a4f1ab3d8a19d4b7ed91322190dd1e91001489dc0",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/public_map_m3/maplibre.css",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "792ac997dcf6ae6f643eb4e2dee4630c85e7056526bd8fb85ffe83c67d6c41b4",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/public_map_m3/maplibre.js",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "ca36a2beeac0834d58e6469f11e7b02f8ac54f1f75ac811937b9e655ebec7590",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/public_map_m3/pins.json",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "1e02d69bda5f5387126c4ec303dbab2d9c17c7828fe1b70e2d944d627de9b2db",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/public_map_m3/provenance.json",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "604ef4ca818f0c1f709c4e111d5c0161b2afb27a601dfa849eea94037f7322a2",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/public_map_m3/streets.css",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "a901ccc0de05d08faf087f432981194a35ffd39099b1a55033ec43acd0050649",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/public_map_m3/streets.js",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "adc2b4fea6eb5371fe4797a993466e2f3f7d54bdf1fd3cab4e89bec5c42ada22",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
       "path": "integration/public_map_prep/LICENSE",
       "project": "integration",
       "role": "offline_contract_or_private_view",
@@ -6212,7 +6351,7 @@
       "path": "integration/public_preview_builder.py",
       "project": "integration",
       "role": "offline_contract_or_private_view",
-      "sha256": "a4338ad0e2d85cb75493d47dc042d19035faf85b812c5b1453d79f68c6d093a4",
+      "sha256": "b697db7c7f14b2d364c488b360000aa7167b380714197a13be660089c6f47692",
       "static_file_edges": [
         "integration/api_v1.py",
         "integration/code_news_coverage_route_prep.py",
@@ -6226,6 +6365,7 @@
         "integration/public_brics_streams.py",
         "integration/public_finder.py",
         "integration/public_map_m2/__init__.py",
+        "integration/public_map_m3/__init__.py",
         "integration/public_map_prep/__init__.py",
         "integration/public_tariff_evidence.py",
         "integration/public_weekly_pdf.py",
@@ -10681,7 +10821,7 @@
       "path": "staging-manifest.json",
       "project": "finder_or_build",
       "role": "preserved_engine_or_asset",
-      "sha256": "dcc86638b526f1118f2f63d738ec8c24104ee0404053b1494cb5fe74715ae1a7",
+      "sha256": "68887d6f28d504a793793ac2d7b1130598e7e723afdc1e128c24f0c5c3e538a7",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -11281,6 +11421,20 @@
       "runtime_verified": false
     },
     {
+      "path": "tests/browser_public_map_m3.py",
+      "project": "test",
+      "role": "fixture_test",
+      "sha256": "9abeaf2c19fe15bfc6a06a1aa31704207b31674224fa0cd44feee831d8153ef8",
+      "static_file_edges": [
+        "integration/__init__.py",
+        "integration/news_api.py",
+        "integration/public_preview_builder.py",
+        "tests/test_code_news_coverage_binding_prep.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
       "path": "tests/browser_public_tariff_evidence.py",
       "project": "test",
       "role": "fixture_test",
@@ -11706,6 +11860,24 @@
       "project": "test",
       "role": "fixture_test",
       "sha256": "df44d8dbfc01baf72a98ba9d4cea6ddc6dfc2447d896083f0ac293934f461846",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "tests/fixtures/map_m3_base_live.txt",
+      "project": "test",
+      "role": "fixture_test",
+      "sha256": "eddacfb056a4dba5289eee9f6b530b31965298107210a45435f1e935a10459fe",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "tests/fixtures/map_m3_base_preview.txt",
+      "project": "test",
+      "role": "fixture_test",
+      "sha256": "a4338ad0e2d85cb75493d47dc042d19035faf85b812c5b1453d79f68c6d093a4",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -12310,6 +12482,15 @@
       "project": "test",
       "role": "fixture_test",
       "sha256": "b1f42da5fcc4407d39825d275edad9a4aa7b8e1fe315797795e8cc86e92b2d7e",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "tests/public_map_m3_sources.cjs",
+      "project": "test",
+      "role": "fixture_test",
+      "sha256": "cac2f279b196e531fd531b1d4bcc9e583235c7587b4ad16bdecbdc7cee80e855",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -14691,6 +14872,21 @@
       "runtime_verified": false
     },
     {
+      "path": "tests/test_public_map_m3.py",
+      "project": "test",
+      "role": "fixture_test",
+      "sha256": "7ed15bfa6e5e15fb51350ba323b272a4cd6e208303be5f25135db2108f2aa37d",
+      "static_file_edges": [
+        "integration/__init__.py",
+        "integration/news_api.py",
+        "integration/public_live_builder.py",
+        "integration/public_preview_builder.py",
+        "tests/test_code_news_coverage_binding_prep.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
       "path": "tests/test_public_tariff_evidence.py",
       "project": "test",
       "role": "fixture_test",
@@ -16311,7 +16507,7 @@
       "runtime_verified": false
     }
   ],
-  "file_count": 1548,
+  "file_count": 1568,
   "limits": [
     "Dynamic references and network endpoints need runtime adapter tests",
     "Legacy launchers deliberately not connected to merged private entrypoint",

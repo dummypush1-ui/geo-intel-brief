@@ -71,6 +71,9 @@ def build_public_live_preview(environ,client_factory=None,clock=time.monotonic,c
  relationship_on=relationship_prepare(environ)
  from integration.public_map_m2 import prepare as m2_prepare,PATHS as M2_PATHS,install as m2_install
  m2_on=m2_prepare(environ)
+ from integration.public_map_m3 import prepare as m3_prepare,install as m3_install,PATHS as M3_PATHS
+ m3_on=m3_prepare(environ)
+ if m3_on:MAP_PATHS=MAP_PATHS|M3_PATHS
  if m2_on:MAP_PATHS=MAP_PATHS|M2_PATHS
  from integration.public_ai_answers import prepare as ai_prepare, PATHS as AI_PATHS, PAGES as AI_PAGES, POST as AI_POST, STATUS as AI_STATUS, install as ai_install
  ai_on=ai_prepare(environ)
@@ -180,6 +183,7 @@ def build_public_live_preview(environ,client_factory=None,clock=time.monotonic,c
   app=create_app(reader=read,authorize=allow,allowed_origin=origin,full_news_pages=pages)
   if m2_on:m2_install(app,origin,read)
   elif map_on:map_install(app,origin)
+  if m3_on:m3_install(app,origin)
   if ai_on:ai_install(app,origin)
   if brics_news_on:brics_news_install(app,origin)
   if brics_on:brics_install(app)

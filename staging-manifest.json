@@ -7,8 +7,8 @@
   "files": [
     {
       "path": ".env.example",
-      "bytes": 7445,
-      "sha256": "8d2c60bed99b49cad3494ab18a61f909483cb9dff7be6b121ecbc007c23f417b"
+      "bytes": 7705,
+      "sha256": "1495f5a689b1fd40886304c123f8142941448efe6b1b3ff46a88dbe481c9889e"
     },
     {
       "path": ".gitignore",
@@ -2063,12 +2063,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 19742,
-      "sha256": "f65e3a8e73eb2b5b7554714c98e70914836c6329be7f93c77a6abb605ce144e7"
+      "sha256": "5d6e30934d0e4317a98fbb81992e0c034a93bbdc4f760c8ebca03b351032ee5b"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
-      "bytes": 314912,
-      "sha256": "67ced92a03e4b8dca57c183e2f58c631e5a95f1e7f24f7c393df7d4e283a9ba6"
+      "bytes": 316550,
+      "sha256": "5d725cc9549d15b1af9235e99afaa9e1c84090dfbafabc9268b7a9374d86a6c0"
     },
     {
       "path": "integration/dependency_build/executed-orchestrator.txt",
@@ -2882,8 +2882,8 @@
     },
     {
       "path": "integration/public_live_builder.py",
-      "bytes": 16548,
-      "sha256": "eddacfb056a4dba5289eee9f6b530b31965298107210a45435f1e935a10459fe"
+      "bytes": 16749,
+      "sha256": "4567df1e3b43bef70bd2460aecc157a31c91a0f6cedb562a7cf7db0c2fe296d5"
     },
     {
       "path": "integration/public_map_m2/LICENSE",
@@ -2961,6 +2961,81 @@
       "sha256": "c4949bf72122a690a737584b85457b3498e78a32b61bd5321b4ea057105b1196"
     },
     {
+      "path": "integration/public_map_m3/LEAFLET-MAPLIBRE-LICENSE.txt",
+      "bytes": 767,
+      "sha256": "eaa721ba158cbeff47ad53b1035dfc26ff744df66662c93ff715c9885197ebf3"
+    },
+    {
+      "path": "integration/public_map_m3/LIBERTY-LICENSE.txt",
+      "bytes": 3223,
+      "sha256": "932694202d771c52089e87f13105e02f2b68341f584b0f3d8adc557c9d7cefa3"
+    },
+    {
+      "path": "integration/public_map_m3/M3-README.txt",
+      "bytes": 5140,
+      "sha256": "bd0d7f9dda7d4acb459bf19142c745f11ade94d0cb1e797fc0e7e56860aaa5f3"
+    },
+    {
+      "path": "integration/public_map_m3/MAPLIBRE-LICENSE.txt",
+      "bytes": 5984,
+      "sha256": "ee5fc05a0677eaf69601d2c7db0d9ecd6cc27c3abc1d0733bc9ed34707cf8ef2"
+    },
+    {
+      "path": "integration/public_map_m3/OPENFREEMAP-STYLES-LICENSE.txt",
+      "bytes": 4118,
+      "sha256": "d1754e5d291e4e8b9b0047ddba0a6ec75e1046ccd61a02c2cea3dac58f3fe355"
+    },
+    {
+      "path": "integration/public_map_m3/__init__.py",
+      "bytes": 6692,
+      "sha256": "fe023adf08520cb259a0ae6ec63e831417f75d00033ce64a1f64b8012a331aac"
+    },
+    {
+      "path": "integration/public_map_m3/leaflet-maplibre.js",
+      "bytes": 13069,
+      "sha256": "1c33367962e7755c1a16d1f85658fdc96b5baa36f81adfca9493174cd1b526ce"
+    },
+    {
+      "path": "integration/public_map_m3/liberty.json",
+      "bytes": 105319,
+      "sha256": "14fb22269a626b95d9cac57c51d22d299a3e1cf20067ec828b3c1d28d0171823"
+    },
+    {
+      "path": "integration/public_map_m3/maplibre-worker.js",
+      "bytes": 377635,
+      "sha256": "7cc71c7e300dc860a24f311a4f1ab3d8a19d4b7ed91322190dd1e91001489dc0"
+    },
+    {
+      "path": "integration/public_map_m3/maplibre.css",
+      "bytes": 69422,
+      "sha256": "792ac997dcf6ae6f643eb4e2dee4630c85e7056526bd8fb85ffe83c67d6c41b4"
+    },
+    {
+      "path": "integration/public_map_m3/maplibre.js",
+      "bytes": 863343,
+      "sha256": "ca36a2beeac0834d58e6469f11e7b02f8ac54f1f75ac811937b9e655ebec7590"
+    },
+    {
+      "path": "integration/public_map_m3/pins.json",
+      "bytes": 1007,
+      "sha256": "1e02d69bda5f5387126c4ec303dbab2d9c17c7828fe1b70e2d944d627de9b2db"
+    },
+    {
+      "path": "integration/public_map_m3/provenance.json",
+      "bytes": 3024,
+      "sha256": "604ef4ca818f0c1f709c4e111d5c0161b2afb27a601dfa849eea94037f7322a2"
+    },
+    {
+      "path": "integration/public_map_m3/streets.css",
+      "bytes": 608,
+      "sha256": "a901ccc0de05d08faf087f432981194a35ffd39099b1a55033ec43acd0050649"
+    },
+    {
+      "path": "integration/public_map_m3/streets.js",
+      "bytes": 3591,
+      "sha256": "adc2b4fea6eb5371fe4797a993466e2f3f7d54bdf1fd3cab4e89bec5c42ada22"
+    },
+    {
       "path": "integration/public_map_prep/LICENSE",
       "bytes": 1395,
       "sha256": "53e8dc25862014e4324741ca18fbe3611e11d42ef69f59f86ea8c5389647d4cb"
@@ -3022,8 +3097,8 @@
     },
     {
       "path": "integration/public_preview_builder.py",
-      "bytes": 10119,
-      "sha256": "a4338ad0e2d85cb75493d47dc042d19035faf85b812c5b1453d79f68c6d093a4"
+      "bytes": 10319,
+      "sha256": "b697db7c7f14b2d364c488b360000aa7167b380714197a13be660089c6f47692"
     },
     {
       "path": "integration/public_tariff_evidence.py",
@@ -5526,6 +5601,11 @@
       "sha256": "0163d6e7ea6a7800b1e5aa5a287a45e6633af0a4a6c80d3c8e969849cac9bba6"
     },
     {
+      "path": "tests/browser_public_map_m3.py",
+      "bytes": 8682,
+      "sha256": "9abeaf2c19fe15bfc6a06a1aa31704207b31674224fa0cd44feee831d8153ef8"
+    },
+    {
       "path": "tests/browser_public_tariff_evidence.py",
       "bytes": 4297,
       "sha256": "49c1080f598647800de6b7361499f88447fdbe6c5f298ccf6631849d9d3d4162"
@@ -5719,6 +5799,16 @@
       "path": "tests/fixtures/map_m2_base_preview.txt",
       "bytes": 8316,
       "sha256": "df44d8dbfc01baf72a98ba9d4cea6ddc6dfc2447d896083f0ac293934f461846"
+    },
+    {
+      "path": "tests/fixtures/map_m3_base_live.txt",
+      "bytes": 16548,
+      "sha256": "eddacfb056a4dba5289eee9f6b530b31965298107210a45435f1e935a10459fe"
+    },
+    {
+      "path": "tests/fixtures/map_m3_base_preview.txt",
+      "bytes": 10119,
+      "sha256": "a4338ad0e2d85cb75493d47dc042d19035faf85b812c5b1453d79f68c6d093a4"
     },
     {
       "path": "tests/fixtures/public_live_builder_before_coverage.txt",
@@ -6009,6 +6099,11 @@
       "path": "tests/public_map_m2_gate.cjs",
       "bytes": 2031,
       "sha256": "b1f42da5fcc4407d39825d275edad9a4aa7b8e1fe315797795e8cc86e92b2d7e"
+    },
+    {
+      "path": "tests/public_map_m3_sources.cjs",
+      "bytes": 1662,
+      "sha256": "cac2f279b196e531fd531b1d4bcc9e583235c7587b4ad16bdecbdc7cee80e855"
     },
     {
       "path": "tests/publication_dates/__init__.py",
@@ -6959,6 +7054,11 @@
       "path": "tests/test_public_map_m2_composition.py",
       "bytes": 6227,
       "sha256": "7d0f87b62a058a35810aa8198d30acdd81705239b64a9df1662f141c76138a9a"
+    },
+    {
+      "path": "tests/test_public_map_m3.py",
+      "bytes": 7558,
+      "sha256": "7ed15bfa6e5e15fb51350ba323b272a4cd6e208303be5f25135db2108f2aa37d"
     },
     {
       "path": "tests/test_public_tariff_evidence.py",
