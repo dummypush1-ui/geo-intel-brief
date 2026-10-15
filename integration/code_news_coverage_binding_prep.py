@@ -8,7 +8,7 @@ from dataclasses import dataclass
 ROOT=Path(__file__).resolve().parents[1]
 PINS={'integration/code_news_index/manifest.json':'6edbda1415380b9b99f1f28a79ced563cd72b3ab4ab6323a35cfd531b62e17ea','integration/code_news_links.py':'12fd8e76fca034740d4578e4ee6b1a48db2991e86a23ef15669138a0aec708c2','integration/code_news_coverage_broker_prep.py':'bcfc6b8744350cdf9ab65dc27bf4d9adb34a421b0a66be5493d344218b83f5b9','integration/code_news_index/codes.idx':'4f6487562fd144ef42f75724581fc4d206bf2f0df7b78ce6c66270bffff3fb03','integration/code_news_index/rows.jsonl':'e258d3a5ae3f285ab135a0c262a30501135b59b8e7bcb3fdd0b0dcd802d1f502'}
 PINS.update({'integration/code_news_parent_prep.py': '785cd35a04bfe16d22f264c96a4dbc7951e8b499746c738712ef5b3f3c26aef2', 'integration/code_news_disk.py': 'c7a77b1fc4569deabae2d110af861b7aa2b0c21b6e2dc14fdcadb6df014c53da', 'integration/news_pages.py': '24d25bb917c72f1601cfa7c1d667e6c6663e42f604a3e0f2db4de2c085cbb9f0'})
-PINS['integration/code_news_coverage_route_prep.py']='03bf26c4bbe5f17d455173c13362c8d18c63ef8585307fb9fec73aac042961b7'
+PINS['integration/code_news_coverage_route_prep.py']='0148993ae102d0ac9814d22b672f7d2ed68d19c79ef8b1f8a210772296196af3'
 VERSION='explicit-C-linear-D2c-v2-wire-D3b-v1'
 @dataclass(frozen=True)
 class VerifiedPins:

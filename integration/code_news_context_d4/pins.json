@@ -1,0 +1,7 @@
+{
+  "integration/code_news_coverage_broker_prep.py": "bcfc6b8744350cdf9ab65dc27bf4d9adb34a421b0a66be5493d344218b83f5b9",
+  "integration/code_news_parent_prep.py": "785cd35a04bfe16d22f264c96a4dbc7951e8b499746c738712ef5b3f3c26aef2",
+  "integration/news_pages.py": "24d25bb917c72f1601cfa7c1d667e6c6663e42f604a3e0f2db4de2c085cbb9f0",
+  "integration/ui/code_news_coverage.js": "9245a1218481c31fff896e2860557754c822b4791e8ea5d7fc070997a30e1d68",
+  "integration/ui/code_news_finder_navigation.js": "ffa4160bf5f142cf3d63e0e1b2bd62406b0feea2f0be4cb4fcdaadca8532f558"
+}

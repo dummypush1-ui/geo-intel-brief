@@ -68,7 +68,7 @@ def validate(body,status):
    if type(t)is not dict or set(t)-{'system','edition','code','description','state'}or not {'system','edition','code','description'}<=set(t)or not matches(t['system'],r'[A-Z]{2,3}')or not matches(t['edition'],r'[A-Za-z0-9:_.-]{1,100}')or not matches(t['code'],r'[0-9]{2,12}')or not plain(t['description'],4000)or not t['description'] or 'state'in t and t['state']!='resolved':raise Invalid()
  return body,200
 
-def install(app,origin,broker,env=None):
+def install(app,origin,broker,env=None,*,response_validator=None):
  if not enabled(env or {}):return False
  from integration.news_finder_navigation_prep import enabled as navigation_enabled
  navigation_on=navigation_enabled(env or {})
@@ -97,7 +97,7 @@ def install(app,origin,broker,env=None):
     from integration.news_finder_navigation_prep import valid_evidence
     out=dict(out);evidence=out.pop('finder_navigation',None)
     if not valid_evidence(evidence):raise Invalid()
-   clean,status=validate(out,status)
+   clean,status=(response_validator or validate)(out,status)
    if evidence is not None:
     from integration.news_finder_navigation_prep import decorate
     clean=dict(clean,finder_navigation=decorate(app,evidence))

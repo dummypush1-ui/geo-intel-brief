@@ -53,8 +53,12 @@ def create_public_geo_client(uri,*,serverSelectionTimeoutMS=5000,connect=False):
    tlsAllowInvalidCertificates=False,tlsAllowInvalidHostnames=False))
  except Exception:raise ValueError('Public Geo client unavailable')from None
 
-def build_public_live_preview(environ,client_factory=None,clock=time.monotonic,coverage_binding_provider=None,tariff_snapshot=None):
+def build_public_live_preview(environ,client_factory=None,clock=time.monotonic,coverage_binding_provider=None,tariff_snapshot=None,geo_export_binding=None):
  if type(environ) is not dict or any(type(k)is not str or type(v)is not str for k,v in environ.items()):raise ValueError('Plain environment strings required')
+ from integration.news_export_e2 import prepare as export_prepare,install as export_install,PATH as EXPORT_PATH
+ export_binding=export_prepare(environ,geo_export_binding)
+ from integration.code_news_context_d4 import prepare as context_prepare,ContextBroker,validate as context_validate,install_ui as context_ui_install
+ context_on=context_prepare(environ)
  from integration.news_search_progress import prepare as search_prepare,install as search_install
  search_on=search_prepare(environ)
  from integration.public_brics_news import prepare as brics_news_prepare,install as brics_news_install,PATHS as BRICS_NEWS_PATHS
@@ -119,6 +123,7 @@ def build_public_live_preview(environ,client_factory=None,clock=time.monotonic,c
  from integration.weather_ui import enabled as weather_ui_enabled,PATHS as WEATHER_UI_PATHS,install as weather_ui_install
  weather_ui_on=weather_ui_enabled(environ)
  def allow(req):
+  if export_binding is not None and req.path==EXPORT_PATH:return req.host_url.rstrip('/')==origin and req.method in ('GET','HEAD')
   if brics_news_on and req.path in BRICS_NEWS_PATHS:return req.host_url.rstrip('/')==origin and req.method in ('GET','HEAD')
   if tariff_on and req.path in TARIFF_PATHS:return req.host_url.rstrip('/')==origin and req.method in ('GET','HEAD')
   if relationship_on and req.path==RELATIONSHIP_ASSET:return req.host_url.rstrip('/')==origin and req.method in ('GET','HEAD')
@@ -196,10 +201,11 @@ def build_public_live_preview(environ,client_factory=None,clock=time.monotonic,c
    if finder_links:
     from integration.finder_identity_proof_prep import FinderProof
     proof=FinderProof()
-   broker=CoverageBroker(pages,model,coverage_pins.manifest,coverage_pins.matcher_version,finder_proof=proof)
-   coverage_api_install(app,origin,broker,environ)
+   broker=(ContextBroker if context_on else CoverageBroker)(pages,model,coverage_pins.manifest,coverage_pins.matcher_version,finder_proof=proof)
+   coverage_api_install(app,origin,broker,environ,**({'response_validator':context_validate} if context_on else {}))
    app.extensions['code_news_coverage_broker']=broker
   if coverage_ui:coverage_ui_install(app,environ,coverage_available='code_news_coverage_broker'in app.extensions)
+  if context_on:context_ui_install(app)
   if weather_ui_on:weather_ui_install(app,weather_available=weather_on)
   if weather_on:
    from pathlib import Path
@@ -209,6 +215,7 @@ def build_public_live_preview(environ,client_factory=None,clock=time.monotonic,c
   if relationship_on:relationship_install(app,origin)
   if tariff_on:tariff_install(app,origin,tariff_snapshot)
   if search_on:search_install(app)
+  if export_binding is not None:export_install(app,origin,export_binding)
  except Exception:
   if not coverage_api:raise
   coverage_close();raise ValueError('Public composition unavailable')from None

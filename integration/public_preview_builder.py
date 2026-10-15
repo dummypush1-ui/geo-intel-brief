@@ -25,6 +25,10 @@ BRANDING=frozenset(('favicon.ico','icon-48.png','icon-192.png','icon-512.png',
 
 def build_public_preview(environ,client_factory=None,tariff_snapshot=None):
  if type(environ) is not dict or any(type(k)is not str or type(v)is not str for k,v in environ.items()):raise ValueError('Plain environment strings required')
+ from integration.news_export_e2 import prepare as export_prepare
+ if export_prepare(environ) is not None:raise ValueError('Original export requires reviewed live composition')
+ from integration.code_news_context_d4 import prepare as context_prepare
+ if context_prepare(environ):raise ValueError('Source context requires reviewed live composition')
  from integration.public_brics_news import prepare as brics_news_prepare,install as brics_news_install,PATHS as BRICS_NEWS_PATHS
  brics_news_on=brics_news_prepare(environ)
  from integration.public_map_prep import prepare as map_prepare,PATHS as MAP_PATHS,install as map_install

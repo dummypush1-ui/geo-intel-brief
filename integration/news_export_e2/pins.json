@@ -1,0 +1,8 @@
+{
+  "integration/news_export/geo_snapshot.py": "3e73e4c4f45b439c6ccf59226fe106f82d01970651f743e92fd35c4c980915c3",
+  "integration/news_export/original_contract.py": "2da03e2e46dfe78d5e30d3a554a2a3fcda9cc37b98ca2787f71f5d494a7c0c7a",
+  "integration/news_export/original_stream.py": "73fd0b34cc5d770a44070f825fd1c2b28814d94f0a2fc86df38d858b9dcee30a",
+  "integration/news_export/raw_pager.py": "5ced324a9dbacbe529dd7ba8f88f865c4584ede863132961a34deede1174640b",
+  "integration/news_export/keyset_plan.py": "516120452e7eacde7daec0a727a19c6803b4d0f3554990ee863761d6368174ca",
+  "integration/news_export/export.py": "fad8c67bb915280cb895db79c553d60e137d9df339d791b8ad554d5ebad614a1"
+}
