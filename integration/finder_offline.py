@@ -15,6 +15,11 @@ OFFLINE_SHA = '0e2e85ea54f276c3c50984e8c26b9400e1deee9f4b8a035a8866e56c2455b65b'
 
 def shell(original):
  if hashlib.sha256(original.encode()).hexdigest()!=OFFLINE_SHA:raise ValueError('Offline source requires review')
+ return _candidate_safety_shell(original)
+
+def _candidate_safety_shell(original):
+ # Internal pure renderer. Caller must bind exact candidate source separately;
+ # this function grants no public mount, runtime pin or review authority.
  original=HeadTags(original).stripped()
  original=manual_ships_shell(original)
  # 232: reuse the reviewed online CSV and scroll seams before CSP hashing.

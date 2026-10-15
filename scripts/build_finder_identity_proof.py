@@ -39,15 +39,17 @@ def source_systems(shell):
   raise Unavailable('Systems changed')
  return tags
 
-def offline_identities(rows, tags):
+def offline_identities(rows, tags, editions=None):
+ editions = EDITIONS if editions is None else editions
  for row in rows:
   if type(row) is not list or len(row) != 6 or type(row[0]) is not int or not 0 <= row[0] < len(tags) or type(row[1]) is not str or type(row[2]) is not str:
    raise Unavailable('Malformed offline row')
   tag = tags[row[0]][0]
-  yield {'system': tag, 'edition': EDITIONS.get(tag, 'unsupported'), 'code': row[1], 'description': row[2]}
+  yield {'system': tag, 'edition': editions.get(tag, 'unsupported'), 'code': row[1], 'description': row[2]}
 
-def derive_records(offline, indexed):
+def derive_records(offline, indexed, editions=None):
  """Exact multiplicity on each side. No list-parity or last-row shortcut."""
+ editions = EDITIONS if editions is None else editions
  groups = collections.defaultdict(list)
  for row in offline:
   if row['system'] in SYSTEMS:
@@ -59,7 +61,7 @@ def derive_records(offline, indexed):
  records = []; reasons = collections.Counter()
  for key in sorted(set(groups) | set(candidates)):
   system, edition, code = key
-  if system not in SYSTEMS or edition != EDITIONS[system]:
+  if system not in SYSTEMS or edition != editions[system]:
    reasons['unsupported_identity'] += 1; continue
   a = groups.get(key, []); b = candidates.get(key, [])
   if len(a) != 1 or len(b) != 1:

@@ -5,7 +5,7 @@
       "path": ".env.example",
       "project": "finder_or_build",
       "role": "preserved_engine_or_asset",
-      "sha256": "e6a724d7ea4aa029d21589fa19bb03bc1ee4454fb340d77f7401df4d1b112e97",
+      "sha256": "7300a731a8cb68a2ad696e8738136e6d168d7ebaf0ace0c4b5851a858973edf8",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -4233,7 +4233,7 @@
       "path": "integration/dependency_audit/audit.json",
       "project": "integration",
       "role": "offline_contract_or_private_view",
-      "sha256": "dc2a933f5fc56f5ed34380e33f7075c9f099c9af740813b20ffb58d36a2a22af",
+      "sha256": "80a89bbfe86a7e9670348c74facc7bbe58c369f03b838310bb1e2c9177cc48b8",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -4242,7 +4242,7 @@
       "path": "integration/dependency_audit/import-inventory.json",
       "project": "integration",
       "role": "offline_contract_or_private_view",
-      "sha256": "f5ef11bea4b88f6b5fbb4026781ac45d2f7ed128ac9acefd01e9d2f2a3ac4bf2",
+      "sha256": "7bdf717a5fb145a2a8f592d1c189cfe79f887e80449b784c9ce4013d4cf00b11",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -4674,11 +4674,33 @@
       "path": "integration/finder_offline.py",
       "project": "integration",
       "role": "offline_contract_or_private_view",
-      "sha256": "36c0442d5096c256685695b1bfa0ef23ca9fcc0b7db748cb7b9137e75a6be2ea",
+      "sha256": "3d032501b4ee852262864e1f15c1ccb6514b5547462a404ebfe8fb96e7cfb1bd",
       "static_file_edges": [
         "integration/branding_meta.py",
         "integration/finder_nested.py",
         "integration/finder_network.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_rebind_f4/F4-README.txt",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "95651a2fae1425373d7d9bfc43179100823d15e42274ab1bfeecdedecb3ae94a",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_rebind_f4/__init__.py",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "f75a682eff470599792ee5a2dfacf04d94ab8315d14ae1b850eacf9b73e53a1b",
+      "static_file_edges": [
+        "integration/code_news_catalogue.py",
+        "integration/finder_identity_proof_prep.py",
+        "scripts/build_finder_identity_proof.py"
       ],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -4754,6 +4776,26 @@
       "role": "offline_contract_or_private_view",
       "sha256": "2a0c4cde4af2d1a17a21be7d5125292dd510e226691e0c9fdbcd4a405d604240",
       "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_render_f5/F5-README.txt",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "0340ee4525d5bf7310a71efeb83c30d9bd85b90e8b9bf7705ce1df6e7c2c53cd",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_render_f5/__init__.py",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "5cb366096e06a0159ab535cefbd1158f5cbfd4b5082988692866bd282846908b",
+      "static_file_edges": [
+        "integration/finder_offline.py"
+      ],
       "unresolved_internal_imports": [],
       "runtime_verified": false
     },
@@ -9975,7 +10017,7 @@
       "path": "scripts/build_finder_identity_proof.py",
       "project": "finder_or_build",
       "role": "preserved_engine_or_asset",
-      "sha256": "8a0443756c7e0f49892066e1d987d2d29f57ae781e0535bf612c7dfd422be5eb",
+      "sha256": "f1b889cd8cd0c19d5cecd6823e9461189d1dda2a5df068136c6db46771579693",
       "static_file_edges": [
         "integration/finder_identity_proof_prep.py"
       ],
@@ -11021,7 +11063,7 @@
       "path": "staging-manifest.json",
       "project": "finder_or_build",
       "role": "preserved_engine_or_asset",
-      "sha256": "134926320d96d11b0291efb11e0a355fdeffd66f259fc2005bb1d5f19d4b124b",
+      "sha256": "334f5c60ec7b73332059eb343043fbb46734dd391f28cb51dff221e12d7e7e14",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -11486,6 +11528,17 @@
       "sha256": "65c93057253421f444b0d58dbffa6e8f663c5f2edd78bb6e1d38f4a5206a23f9",
       "static_file_edges": [
         "integration/news_api.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "tests/browser_finder_render_f5.py",
+      "project": "test",
+      "role": "fixture_test",
+      "sha256": "85a299faf10fad1ca0d2e69d6241d958b8d645274a78abb0aa1e750dd0d0565a",
+      "static_file_edges": [
+        "integration/__init__.py"
       ],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -14096,6 +14149,18 @@
       "runtime_verified": false
     },
     {
+      "path": "tests/test_finder_rebind_f4.py",
+      "project": "test",
+      "role": "fixture_test",
+      "sha256": "76ae4fea99aeae7268bfddc70ab3cdb3a884ffffe9f3a7ba5415ee295258c546",
+      "static_file_edges": [
+        "integration/__init__.py",
+        "scripts/build_finder_identity_proof.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
       "path": "tests/test_finder_reconcile_f2.py",
       "project": "test",
       "role": "fixture_test",
@@ -14113,6 +14178,18 @@
       "sha256": "374591eb31ee877427445f955bf1448da3e0b2af1a9e15de0c9b06026edbd78e",
       "static_file_edges": [
         "integration/__init__.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "tests/test_finder_render_f5.py",
+      "project": "test",
+      "role": "fixture_test",
+      "sha256": "7668e379dd8bfdf918d3dd1b86fc523bdc3b5f3fd41c22a17dcea42b4cc9b387",
+      "static_file_edges": [
+        "integration/__init__.py",
+        "integration/finder_offline.py"
       ],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -16849,7 +16926,7 @@
       "runtime_verified": false
     }
   ],
-  "file_count": 1599,
+  "file_count": 1606,
   "limits": [
     "Dynamic references and network endpoints need runtime adapter tests",
     "Legacy launchers deliberately not connected to merged private entrypoint",

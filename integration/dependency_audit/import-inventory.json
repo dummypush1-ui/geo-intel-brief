@@ -329,6 +329,7 @@
         "integration/country_signals.py",
         "integration/dashboard_model.py",
         "integration/edge_guard.py",
+        "integration/finder_rebind_f4/__init__.py",
         "integration/geo_rolling_breakdown.py",
         "integration/geonews_digest/model.py",
         "integration/geonews_digest/render.py",
@@ -1227,6 +1228,7 @@
         "integration/weather_ui.py",
         "tests/browser_code_news_context_d4.py",
         "tests/browser_finder198d.py",
+        "tests/browser_finder_render_f5.py",
         "tests/browser_news_search_progress.py",
         "tests/browser_public_ai_answers.py",
         "tests/browser_public_map_m2.py",
@@ -1424,8 +1426,10 @@
         "integration/finder_identity_proof_prep.py",
         "integration/finder_index.py",
         "integration/finder_offline.py",
+        "integration/finder_rebind_f4/__init__.py",
         "integration/finder_reconcile_f2/__init__.py",
         "integration/finder_refresh_f1/__init__.py",
+        "integration/finder_render_f5/__init__.py",
         "integration/finder_source_f3/__init__.py",
         "integration/fixed_parser_pipeline.py",
         "integration/fulltext_policy/__init__.py",
@@ -1486,6 +1490,7 @@
         "scripts/package_manifest.py",
         "tests/browser_feature_finder.py",
         "tests/browser_finder_network.py",
+        "tests/browser_finder_render_f5.py",
         "tests/browser_finder_report227.py",
         "tests/browser_offline232.py",
         "tests/browser_report228.py",
@@ -1522,8 +1527,10 @@
         "tests/test_finder_index.py",
         "tests/test_finder_nested.py",
         "tests/test_finder_network230.py",
+        "tests/test_finder_rebind_f4.py",
         "tests/test_finder_reconcile_f2.py",
         "tests/test_finder_refresh_f1.py",
+        "tests/test_finder_render_f5.py",
         "tests/test_finder_source_f3.py",
         "tests/test_geo_collector_contract.py",
         "tests/test_gst154.py",
@@ -1776,7 +1783,9 @@
         "integration/finder198_transport_child.py",
         "integration/finder198_v2_preflight.py",
         "integration/finder_offline.py",
+        "integration/finder_rebind_f4/__init__.py",
         "integration/finder_reconcile_f2/__init__.py",
+        "integration/finder_render_f5/__init__.py",
         "integration/finder_source_f3/__init__.py",
         "integration/geo_article_writer.py",
         "integration/geo_collector_contract.py",
@@ -1898,6 +1907,7 @@
         "tests/browser_finder_nested.py",
         "tests/browser_finder_network.py",
         "tests/browser_finder_offline.py",
+        "tests/browser_finder_render_f5.py",
         "tests/browser_finder_report227.py",
         "tests/browser_finder_static.py",
         "tests/browser_loaded_news.py",
@@ -2028,8 +2038,10 @@
         "tests/test_finder_network.py",
         "tests/test_finder_network230.py",
         "tests/test_finder_offline.py",
+        "tests/test_finder_rebind_f4.py",
         "tests/test_finder_reconcile_f2.py",
         "tests/test_finder_refresh_f1.py",
+        "tests/test_finder_render_f5.py",
         "tests/test_finder_source_f3.py",
         "tests/test_fixed_feedparser_audit.py",
         "tests/test_fixed_parser_pipeline.py",
@@ -2497,6 +2509,7 @@
         "integration/finder198_transport.py",
         "integration/finder198_transport_child.py",
         "integration/finder_index.py",
+        "integration/finder_rebind_f4/__init__.py",
         "integration/finder_reconcile_f2/__init__.py",
         "integration/finder_refresh_f1/__init__.py",
         "integration/finder_source_f3/__init__.py",
@@ -2568,6 +2581,7 @@
         "tests/browser_finder_nested.py",
         "tests/browser_finder_network.py",
         "tests/browser_finder_offline.py",
+        "tests/browser_finder_render_f5.py",
         "tests/browser_finder_report227.py",
         "tests/browser_finder_static.py",
         "tests/browser_loaded_news.py",
@@ -2649,6 +2663,7 @@
         "tests/test_finder198c.py",
         "tests/test_finder198ops.py",
         "tests/test_finder_nested.py",
+        "tests/test_finder_rebind_f4.py",
         "tests/test_finder_reconcile_f2.py",
         "tests/test_finder_refresh_f1.py",
         "tests/test_finder_source_f3.py",
@@ -2941,6 +2956,7 @@
         "integration/finder198_transport_child.py",
         "integration/finder_identity_proof_prep.py",
         "integration/finder_index.py",
+        "integration/finder_rebind_f4/__init__.py",
         "integration/finder_reconcile_f2/__init__.py",
         "integration/finder_refresh_f1/__init__.py",
         "integration/fixed_parser_pipeline.py",
@@ -3006,6 +3022,7 @@
         "tests/browser_finder_nested.py",
         "tests/browser_finder_network.py",
         "tests/browser_finder_offline.py",
+        "tests/browser_finder_render_f5.py",
         "tests/browser_finder_report227.py",
         "tests/browser_finder_static.py",
         "tests/browser_loaded_news.py",
@@ -3101,8 +3118,10 @@
         "tests/test_finder_nested.py",
         "tests/test_finder_network230.py",
         "tests/test_finder_offline.py",
+        "tests/test_finder_rebind_f4.py",
         "tests/test_finder_reconcile_f2.py",
         "tests/test_finder_refresh_f1.py",
+        "tests/test_finder_render_f5.py",
         "tests/test_geo_queue_fixture.py",
         "tests/test_gst154.py",
         "tests/test_html209.py",
@@ -3244,6 +3263,7 @@
         "tests/browser_finder_nested.py",
         "tests/browser_finder_network.py",
         "tests/browser_finder_offline.py",
+        "tests/browser_finder_render_f5.py",
         "tests/browser_finder_report227.py",
         "tests/browser_finder_static.py",
         "tests/browser_loaded_news.py",
@@ -3738,8 +3758,10 @@
         "integration/finder_links.py",
         "integration/finder_nested.py",
         "integration/finder_offline.py",
+        "integration/finder_rebind_f4/__init__.py",
         "integration/finder_reconcile_f2/__init__.py",
         "integration/finder_refresh_f1/__init__.py",
+        "integration/finder_render_f5/__init__.py",
         "integration/finder_source_f3/__init__.py",
         "integration/geo_queue_fixture.py",
         "integration/geonews_digest/_safe.py",
@@ -3887,10 +3909,12 @@
     {
       "import": "scripts",
       "files": [
+        "integration/finder_rebind_f4/__init__.py",
         "tests/test_collector122_inventory.py",
         "tests/test_doc_lookup.py",
         "tests/test_file_audit.py",
         "tests/test_finder_identity_proof_prep.py",
+        "tests/test_finder_rebind_f4.py",
         "tests/test_gst154.py",
         "tests/test_monitor155.py",
         "tests/test_package_manifest.py",
@@ -4110,6 +4134,7 @@
       "files": [
         "integration/code_news_disk.py",
         "integration/finder_identity_proof_prep.py",
+        "integration/finder_rebind_f4/__init__.py",
         "integration/public_map_m2/reference_converter.py",
         "scripts/build_code_news_index.py",
         "tests/browser_public_map_m3.py",
@@ -4264,6 +4289,7 @@
         "tests/browser_finder_nested.py",
         "tests/browser_finder_network.py",
         "tests/browser_finder_offline.py",
+        "tests/browser_finder_render_f5.py",
         "tests/browser_finder_report227.py",
         "tests/browser_finder_static.py",
         "tests/browser_loaded_news.py",
@@ -4725,6 +4751,7 @@
         "tests/browser_finder_nested.py",
         "tests/browser_finder_network.py",
         "tests/browser_finder_offline.py",
+        "tests/browser_finder_render_f5.py",
         "tests/browser_finder_report227.py",
         "tests/browser_finder_static.py",
         "tests/browser_loaded_news.py",
@@ -5090,8 +5117,10 @@
         "tests/test_finder_network.py",
         "tests/test_finder_network230.py",
         "tests/test_finder_offline.py",
+        "tests/test_finder_rebind_f4.py",
         "tests/test_finder_reconcile_f2.py",
         "tests/test_finder_refresh_f1.py",
+        "tests/test_finder_render_f5.py",
         "tests/test_finder_source_f3.py",
         "tests/test_fixed_feedparser_audit.py",
         "tests/test_fixed_parser_pipeline.py",
@@ -5384,6 +5413,7 @@
         "tests/browser_finder_nested.py",
         "tests/browser_finder_network.py",
         "tests/browser_finder_offline.py",
+        "tests/browser_finder_render_f5.py",
         "tests/browser_finder_report227.py",
         "tests/browser_finder_static.py",
         "tests/browser_loaded_news.py",
@@ -5680,7 +5710,7 @@
     "tests/weekly_report/test_report.py"
   ],
   "source_baseline": {
-    "revision": "c6deebf002ad0d7a2d3c5c07ab7567409d21971d",
+    "revision": "b3f1e7fb3cf3dd97e1e870babbf68360429cb967",
     "policy": "all recursive *.py in integration/tests/scripts at revision86; no relative-import roots (resolved as local), no __pycache__; increment87 audit/test files outside baseline",
     "scopes": [
       "integration",
@@ -6187,7 +6217,11 @@
       },
       {
         "path": "integration/finder_offline.py",
-        "sha256": "36c0442d5096c256685695b1bfa0ef23ca9fcc0b7db748cb7b9137e75a6be2ea"
+        "sha256": "3d032501b4ee852262864e1f15c1ccb6514b5547462a404ebfe8fb96e7cfb1bd"
+      },
+      {
+        "path": "integration/finder_rebind_f4/__init__.py",
+        "sha256": "f75a682eff470599792ee5a2dfacf04d94ab8315d14ae1b850eacf9b73e53a1b"
       },
       {
         "path": "integration/finder_reconcile_f2/__init__.py",
@@ -6200,6 +6234,10 @@
       {
         "path": "integration/finder_refresh_f1/__main__.py",
         "sha256": "6834b438d197bcd8ac3a32e661e2667c54dbe84a79f58e7cc98baa2c82d0ee53"
+      },
+      {
+        "path": "integration/finder_render_f5/__init__.py",
+        "sha256": "5cb366096e06a0159ab535cefbd1158f5cbfd4b5082988692866bd282846908b"
       },
       {
         "path": "integration/finder_source_f3/__init__.py",
@@ -6855,7 +6893,7 @@
       },
       {
         "path": "scripts/build_finder_identity_proof.py",
-        "sha256": "8a0443756c7e0f49892066e1d987d2d29f57ae781e0535bf612c7dfd422be5eb"
+        "sha256": "f1b889cd8cd0c19d5cecd6823e9461189d1dda2a5df068136c6db46771579693"
       },
       {
         "path": "scripts/doc_lookup.py",
@@ -6976,6 +7014,10 @@
       {
         "path": "tests/browser_finder_offline.py",
         "sha256": "65c93057253421f444b0d58dbffa6e8f663c5f2edd78bb6e1d38f4a5206a23f9"
+      },
+      {
+        "path": "tests/browser_finder_render_f5.py",
+        "sha256": "85a299faf10fad1ca0d2e69d6241d958b8d645274a78abb0aa1e750dd0d0565a"
       },
       {
         "path": "tests/browser_finder_report227.py",
@@ -7646,12 +7688,20 @@
         "sha256": "aec540f052dcced74139766deb41317769c0720a5ab7be87cfdbd4ea2df8966d"
       },
       {
+        "path": "tests/test_finder_rebind_f4.py",
+        "sha256": "76ae4fea99aeae7268bfddc70ab3cdb3a884ffffe9f3a7ba5415ee295258c546"
+      },
+      {
         "path": "tests/test_finder_reconcile_f2.py",
         "sha256": "e2c5d168ae79e8c5a81d0d80279e582756be520bbfb8f9fd136769ac154ecc52"
       },
       {
         "path": "tests/test_finder_refresh_f1.py",
         "sha256": "374591eb31ee877427445f955bf1448da3e0b2af1a9e15de0c9b06026edbd78e"
+      },
+      {
+        "path": "tests/test_finder_render_f5.py",
+        "sha256": "7668e379dd8bfdf918d3dd1b86fc523bdc3b5f3fd41c22a17dcea42b4cc9b387"
       },
       {
         "path": "tests/test_finder_source_f3.py",
