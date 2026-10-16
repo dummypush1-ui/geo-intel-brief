@@ -43,7 +43,7 @@ def source_state(root):
  except Exception:raise Held('Git baseline unavailable')from None
  return sha
 
-def prepare(env,*,root=ROOT,bundle=None):
+def _prepare(env,*,root=ROOT,bundle=None,package_context=None):
  if not enabled(env):return {'state':'disabled','source_fetches':0,'ai_calls':0,'issues':0,'published':False,'writes':False}
  root=Path(root).resolve();pin_check(root);base=source_state(root)
  inputs=checked_inputs(bundle or {'state':'supplied_candidate_not_approved','source_files':[]})
@@ -87,7 +87,24 @@ def prepare(env,*,root=ROOT,bundle=None):
    if h!=old:rows.append({'path':name,'bytes':len(raw),'sha256':h,'old_sha256':old})
   orphan=[p.name for p in root.glob('data.*.js')if re.fullmatch(r'data\.[a-f0-9]{12}\.js',p.name)and p.name!=data[0]]
   changed=bool(rows or orphan)
-  return {'state':'held_consumer_review_required'if changed else'unchanged_rebuild_not_source_refresh','baseline':base,'changed_files':rows,'orphan_data_delete_proposals':sorted(orphan),'consumer_review':list(DEPENDENTS)if changed else[],'source_fetches':0,'ai_calls':0,'issues':0,'published':False,'writes':False,'source_freshness':'not_checked','catalogue_accuracy':'not_verified','auto_repin':False,'retries':0}
+  report={'state':'held_consumer_review_required'if changed else'unchanged_rebuild_not_source_refresh','baseline':base,'changed_files':rows,'orphan_data_delete_proposals':sorted(orphan),'consumer_review':list(DEPENDENTS)if changed else[],'source_fetches':0,'ai_calls':0,'issues':0,'published':False,'writes':False,'source_freshness':'not_checked','catalogue_accuracy':'not_verified','auto_repin':False,'retries':0}
+  if package_context is None:return report
+  from integration import finder_package_f6 as package
+  pins={name:hashlib.sha256((work/name).read_bytes()).hexdigest()for name in generated}
+  source_pins={name:hashlib.sha256((work/name).read_bytes()).hexdigest()for name in package.SOURCE_FILES}
+  packed=package.prepare(env,root=work,pins=pins,source_pins=source_pins,source_revision=package_context['revision'],baseline=base)
+  return report,packed
+
+def prepare(env,*,root=ROOT,bundle=None):
+ return _prepare(env,root=root,bundle=bundle)
+
+def prepare_package(env,*,root=ROOT,bundle=None,source_revision=None):
+ # This is an explicit new held-artifact path, not a changed ordinary report API.
+ if not enabled(env):return None
+ from integration import finder_package_f6 as package
+ if not package.enabled(env)or not package.rebind.enabled(env)or env.get(package.render.FLAG)!='true':raise Held('Explicit complete candidate/artifact/safety package flags required')
+ if type(source_revision)is not str or not re.fullmatch('[a-f0-9]{40}',source_revision):raise Held('Exact package source revision required')
+ return _prepare(env,root=root,bundle=bundle,package_context={'revision':source_revision})
 
 def main():
  # OFF performs no Git, copy, build or candidate read.

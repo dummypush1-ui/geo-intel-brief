@@ -1,0 +1,59 @@
+Atomic composition research, not a claim these consumers are connected
+
+One selected Binding per app, never module-global repin or regex hash sweep.
+All18F1consumer paths must be dispositioned in one reviewed composition:
+1 finder_offline.py: candidate safe-render bytes from selected binding; exact
+source/hash gate remains for default. Existing CSP/key/network/storage/CSV/manual
+AIS seams survive. No current candidate mount in F8.
+2 public_ai_finder_bridge.py: transform must accept exact selectedsource identity
+and edition; default sourcePIN/edition retained. AIspend/privacy gates unchanged.
+3 finder_identity_proof_prep.py: F8 per-instance profile implemented. Caller must
+choose same root/index/edition as offlineview, not proof alone.
+4 code_news_pins.json: keep default; candidate catalogue consumers get selected
+binding's shell/bundle pins explicitly. This file is not blindly rewritten.
+5 code_news_index/manifest.json: F4candidatebytes already packaged; DiskLinks must
+receive selectedroot folder, no default/candidate mix.
+6 code_news_coverage_binding_prep.py: retain matcher/source safetycode pins;
+choose selected index files/manifest separately before constructing broker.
+7 news_finder_navigation_prep.py: current hardcoded edition and OfflineMount
+identity only recognize old fixedview. Need explicit per-app selected binding,
+verified view/route/origin guard, no forged env mount marker.
+8 public_ai_answers.py: current fixednews_api/indexpins; default gating retained.
+Candidate identity eligibility distinct from unchanged AIservice/spendscope.
+9 ui/finder-offline-sw.js: unique selected render/cache identity, allowlist only
+offline route, explicit deviceoptin, no private caching/automaticregistration.
+10 ui/finder_public.html: wrapper iframe path unchanged; prove it loads selected
+safe offlineview and doesn't request providers automatically.
+11 ui/relationship_navigation.js: explicit selectededition through server-owned
+configuration, strict sameorigin and current HS/IN identity refusal retained.
+12 ui/code_news_finder_navigation.js: same selectededition, no stale/new mix.
+13 code_news_catalogue.py: existing extract explicitpins already supports candidate;
+selection caller must use Binding pins, no sourcefilename inferred approval.
+14 finder_index.py: default loader derives fingerprint; candidate context reader
+must use selectedroot and must not be unreviewed fallback.
+15 code_news_index/rows.jsonl: F4rebuild under newedition already packaged; no
+oldrows globalstringreplace. Exact raw multiplicity/description proof retained.
+16 finder_identity_proof.bin: packaged and per-instance profile hash verified;
+identicalbinaryhash does not authorize cross-edition link or row mix.
+17 scripts/build_code_news_index.py: build-time only, current defaultpins retained;
+candidate preparation uses explicitF4inputs. No runtime index writer.
+18 scripts/build_finder_identity_proof.py: explicitF4helpers support candidate;
+old generate() still pins default. Build-only entrypoint not runtimeexecution.
+
+Additional composition consumers found beyond the18list:
+public_live_builder.py coverage model/proof creation and install order;
+public_preview_builder.py empty-sample defaults/no-client behavior;
+code_news_public.py lazy Service root currently defaults oldindex;
+code_news_coverage_ui_prep.py candidateedition asset serving;
+relationship_navigation.py exactassetPIN and mounted() checks;
+news_api.py current fixedofflineview and CSP hook, generic onlinefinderroute;
+public_finder.py iframe/reference-rates adapter, independent rate gate;
+coveragebroker prepare/decorate calls must receive per-app edition identity,
+not fallback to the globaltarget_fields(). Existing job/cleanup semantics stay.
+
+Tests/pixels required: oldapp/newapp coexistence, unavailable partialbinding,
+root/file mutation, wrongview/route/edition proof, exact090121 target, ambiguous
+mixed HS/IN refusal, no outside/provider/storage/PWAautomatictraffic, allfeature
+flagsOFF byte/header differential, HEAD no read/provider, safety CSP/CSV/shortlist,
+manual AI bridge only under existing gates, coveragecancel/close/cleanup, actual
+Chrome390/1100 with exactselectedbundle. Activation remains separately approved.

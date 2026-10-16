@@ -284,7 +284,8 @@ def install(app,origin,*,service=None):
   if request.path=='/workspace/finder/offline.html' and response.status_code==200 and request.method!='HEAD':
    try:
     from integration.public_ai_finder_bridge import transform
-    response.direct_passthrough=False;response.set_data(transform(response.get_data(as_text=True)))
+    from integration.finder_composition_f9 import selected
+    response.direct_passthrough=False;response.set_data(transform(response.get_data(as_text=True),selection=selected(app)))
     import base64
     scripts=re.findall(r'<script>(.*?)</script>',response.get_data(as_text=True),re.S|re.I)
     hashes=' '.join("'sha256-"+base64.b64encode(hashlib.sha256(s.encode()).digest()).decode()+"'"for s in scripts)

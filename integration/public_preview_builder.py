@@ -23,9 +23,13 @@ ASSETS=frozenset(('workspace.js','context_excerpt208.js','news_scroll.js','works
 BRANDING=frozenset(('favicon.ico','icon-48.png','icon-192.png','icon-512.png',
  'apple-touch-icon.png','og-image.png','logo.svg'))
 
-def build_public_preview(environ,client_factory=None,tariff_snapshot=None):
+def build_public_preview(environ,client_factory=None,tariff_snapshot=None,finder_candidate_binding=None):
  if environ.get('PUBLIC_BRICS_LIVE_READ_ENABLED','false')!='false':raise ValueError('BRICS live source requires reviewed public live builder')
  if type(environ) is not dict or any(type(k)is not str or type(v)is not str for k,v in environ.items()):raise ValueError('Plain environment strings required')
+ from integration.finder_composition_f9 import prepare as finder_select,install as finder_selection_install
+ finder_selection=finder_select(environ,finder_candidate_binding)
+ from integration.finder_device_f10 import prepare as device_prepare,install as device_install
+ finder_device=device_prepare(environ,finder_selection)
  from integration.news_export_e2 import prepare as export_prepare
  if export_prepare(environ) is not None:raise ValueError('Original export requires reviewed live composition')
  from integration.code_news_context_d4 import prepare as context_prepare
@@ -50,6 +54,8 @@ def build_public_preview(environ,client_factory=None,tariff_snapshot=None):
  if m2_on:MAP_PATHS=MAP_PATHS|M2_PATHS
  from integration.public_ai_answers import prepare as ai_prepare, PATHS as AI_PATHS, PAGES as AI_PAGES, POST as AI_POST, STATUS as AI_STATUS, install as ai_install
  ai_on=ai_prepare(environ)
+ from integration.brics_recovery_b4 import prepare as recovery_prepare,install as recovery_install
+ recovery_on=recovery_prepare(environ)
  from integration.public_brics_streams import prepare as brics_prepare, PATHS as BRICS_PATHS, install as brics_install
  brics_on=brics_prepare(environ)
  from integration.public_weekly_pdf import prepare as weekly_prepare, PATHS as WEEKLY_PATHS, install as weekly_install
@@ -85,6 +91,7 @@ def build_public_preview(environ,client_factory=None,tariff_snapshot=None):
  from integration.weather_ui import enabled as weather_ui_enabled,PATHS as WEATHER_UI_PATHS,install as weather_ui_install
  weather_ui_on=weather_ui_enabled(environ)
  def allow(req):
+  if finder_device is not None and req.path in finder_device.paths:return req.host_url.rstrip('/')==origin and req.method in ('GET','HEAD')
   if brics_news_on and req.path in BRICS_NEWS_PATHS:return req.host_url.rstrip('/')==origin and req.method in ('GET','HEAD')
   if tariff_on and req.path in TARIFF_PATHS:return req.host_url.rstrip('/')==origin and req.method in ('GET','HEAD')
   if relationship_on and req.path==RELATIONSHIP_ASSET:return req.host_url.rstrip('/')==origin and req.method in ('GET','HEAD')
@@ -97,12 +104,15 @@ def build_public_preview(environ,client_factory=None,tariff_snapshot=None):
   if req.path.startswith('/workspace/branding/'):return req.path.removeprefix('/workspace/branding/')in BRANDING
   return False
  app=create_app(reader=lambda:{'geo':[],'brics':[]},authorize=allow,allowed_origin=origin)
+ if finder_selection is not None:finder_selection_install(app,finder_selection)
+ if finder_device is not None:device_install(app,finder_device)
  if m2_on:m2_install(app,origin,lambda:{'geo':[],'brics':[]})
  elif map_on:map_install(app,origin)
  if m3_on:m3_install(app,origin)
  if ai_on:ai_install(app,origin)
  if brics_news_on:brics_news_install(app,origin)
  if brics_on:brics_install(app)
+ if recovery_on:recovery_install(app)
  if weekly_on:weekly_install(app,lambda:{'geo':[],'brics':[]})
  from integration.news_finder_navigation_prep import install_mount
  install_mount(app)

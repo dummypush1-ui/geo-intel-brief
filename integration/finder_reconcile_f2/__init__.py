@@ -96,7 +96,7 @@ def candidate(snapshot):
   out[row['path']]=row['content']
  return out
 
-def prepare(env,*,snapshot=None,root=ROOT):
+def plan(env,*,snapshot=None,root=ROOT):
  if not enabled(env):return {'state':'disabled','writes':False,'published':False,'source_fetches':0}
  if not build.enabled(env):raise Held('Explicit isolated-build preparation flag required')
  root=Path(root);incoming=candidate(snapshot)
@@ -122,5 +122,11 @@ def prepare(env,*,snapshot=None,root=ROOT):
  for name,text,has_add in [(FILES[0],partner_text,bool(added)),(FILES[1],sanctions_text,bool(sa))]:
   if has_add:files.append({'path':name,'content':text,'sha256':digest(text.encode())})
  bundle={'state':'supplied_candidate_not_approved','source_files':files}
- result=build.prepare(env,root=root,bundle=bundle)
- return {'state':'held_snapshot_and_consumer_review_required','repository':snapshot['repository'],'source_revision':snapshot['revision'],'source_file_hashes':{n:digest(incoming[n].encode())for n in FILES},'baseline_file_hashes':{n:digest(baseline[n].encode())for n in FILES},'source_freshness':'not_officially_verified','snapshot_is_approval':False,'partners':{'year':year,'previous_count':len(old),'snapshot_count':len(new),'candidate_count':len(merged),'added_codes':added,'held_changed_codes':changed,'retained_missing_codes':removed},'sanctions':{'previous_count':len(prior),'snapshot_count':len(proposed),'candidate_count':len(union),'additions':len(sa),'retained_missing_rows':len(sr),'delta_sha256':digest(json.dumps({'added':sa,'retained_missing':sr},ensure_ascii=False,separators=(',',':')).encode()),'removals_applied':0,'legal_screening_ready':False},'rebuild':result,'source_fetches':0,'ai_calls':0,'writes':False,'published':False,'auto_repin':False}
+ return bundle,{'state':'held_snapshot_and_consumer_review_required','repository':snapshot['repository'],'source_revision':snapshot['revision'],'source_file_hashes':{n:digest(incoming[n].encode())for n in FILES},'baseline_file_hashes':{n:digest(baseline[n].encode())for n in FILES},'source_freshness':'not_officially_verified','snapshot_is_approval':False,'partners':{'year':year,'previous_count':len(old),'snapshot_count':len(new),'candidate_count':len(merged),'added_codes':added,'held_changed_codes':changed,'retained_missing_codes':removed},'sanctions':{'previous_count':len(prior),'snapshot_count':len(proposed),'candidate_count':len(union),'additions':len(sa),'retained_missing_rows':len(sr),'delta_sha256':digest(json.dumps({'added':sa,'retained_missing':sr},ensure_ascii=False,separators=(',',':')).encode()),'removals_applied':0,'legal_screening_ready':False},'source_fetches':0,'ai_calls':0,'writes':False,'published':False,'auto_repin':False}
+
+
+def prepare(env,*,snapshot=None,root=ROOT):
+ if not enabled(env):return {'state':'disabled','writes':False,'published':False,'source_fetches':0}
+ bundle,result=plan(env,snapshot=snapshot,root=root)
+ result['rebuild']=build.prepare(env,root=root,bundle=bundle)
+ return result

@@ -96,7 +96,9 @@ def install(app,origin,broker,env=None,*,response_validator=None):
    if navigation_on and status==200 and type(out)is dict and out.get('state')in SUCCESS:
     from integration.news_finder_navigation_prep import valid_evidence
     out=dict(out);evidence=out.pop('finder_navigation',None)
-    if not valid_evidence(evidence):raise Invalid()
+    from integration.finder_composition_f9 import selected
+    selection=selected(app)
+    if not valid_evidence(evidence,dict(selection.editions)if selection else None):raise Invalid()
    clean,status=(response_validator or validate)(out,status)
    if evidence is not None:
     from integration.news_finder_navigation_prep import decorate

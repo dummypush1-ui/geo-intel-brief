@@ -42,7 +42,10 @@ class Service:
   return [{**public_news_row(r),'article_key':r['article_key'],'project':r['project']}for r in rows]
 
 def install(app,origin,reader,service=None):
- root=Path(__file__).resolve().parents[1];service=service or Service(root,reader)
+ root=Path(__file__).resolve().parents[1]
+ from integration.finder_composition_f9 import selected
+ selection=selected(app)
+ service=service or Service(selection.binding.root if selection else root,reader)
  @app.get('/workspace/code-news')
  def code_news_shell():return Response((root/'integration/ui/code_news.html').read_text(),mimetype='text/html')
  @app.get('/workspace/assets/code_news.js')

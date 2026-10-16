@@ -53,8 +53,12 @@ def create_public_geo_client(uri,*,serverSelectionTimeoutMS=5000,connect=False):
    tlsAllowInvalidCertificates=False,tlsAllowInvalidHostnames=False))
  except Exception:raise ValueError('Public Geo client unavailable')from None
 
-def build_public_live_preview(environ,client_factory=None,clock=time.monotonic,coverage_binding_provider=None,tariff_snapshot=None,geo_export_binding=None,brics_live_binding=None):
+def build_public_live_preview(environ,client_factory=None,clock=time.monotonic,coverage_binding_provider=None,tariff_snapshot=None,geo_export_binding=None,brics_live_binding=None,finder_candidate_binding=None):
  if type(environ) is not dict or any(type(k)is not str or type(v)is not str for k,v in environ.items()):raise ValueError('Plain environment strings required')
+ from integration.finder_composition_f9 import prepare as finder_select,install as finder_selection_install
+ finder_selection=finder_select(environ,finder_candidate_binding)
+ from integration.finder_device_f10 import prepare as device_prepare,install as device_install
+ finder_device=device_prepare(environ,finder_selection)
  from integration.news_export_e2 import prepare as export_prepare,install as export_install,PATH as EXPORT_PATH
  from integration.brics_live_b3 import prepare as brics_live_prepare,install as brics_live_install
  brics_binding=brics_live_prepare(environ,brics_live_binding)
@@ -83,6 +87,8 @@ def build_public_live_preview(environ,client_factory=None,clock=time.monotonic,c
  if m2_on:MAP_PATHS=MAP_PATHS|M2_PATHS
  from integration.public_ai_answers import prepare as ai_prepare, PATHS as AI_PATHS, PAGES as AI_PAGES, POST as AI_POST, STATUS as AI_STATUS, install as ai_install
  ai_on=ai_prepare(environ)
+ from integration.brics_recovery_b4 import prepare as recovery_prepare,install as recovery_install
+ recovery_on=recovery_prepare(environ)
  from integration.public_brics_streams import prepare as brics_prepare, PATHS as BRICS_PATHS, install as brics_install
  brics_on=brics_prepare(environ)
  from integration.public_weekly_pdf import prepare as weekly_prepare, PATHS as WEEKLY_PATHS, install as weekly_install
@@ -92,7 +98,7 @@ def build_public_live_preview(environ,client_factory=None,clock=time.monotonic,c
  from integration.news_finder_navigation_prep import enabled as finder_links_enabled
  finder_links=finder_links_enabled(environ)
  from integration.code_news_coverage_binding_prep import prepare
- coverage_ui,coverage_api,coverage_pins=prepare(environ,coverage_binding_provider)
+ coverage_ui,coverage_api,coverage_pins=prepare(environ,coverage_binding_provider,finder_selection=finder_selection)
  from integration.code_news_coverage_ui_prep import PATHS as COVERAGE_UI_PATHS,install as coverage_ui_install
  from integration.code_news_coverage_route_prep import PATH as COVERAGE_API_PATH,install as coverage_api_install
  pages_flag=environ.get('PUBLIC_NEWS_FULL_PAGES_ENABLED','false')
@@ -100,7 +106,7 @@ def build_public_live_preview(environ,client_factory=None,clock=time.monotonic,c
  if pages_flag=='true' and environ.get('PUBLIC_NEWS_READ_ENABLED','false')!='true':raise ValueError('Whole-store pages require reviewed public live reads')
  flag=environ.get('PUBLIC_NEWS_READ_ENABLED','false')
  if flag not in ('true','false'):raise ValueError('Exact public news flag required')
- if flag=='false':return build_public_preview(environ,client_factory=client_factory,tariff_snapshot=tariff_snapshot)
+ if flag=='false':return build_public_preview(environ,client_factory=client_factory,tariff_snapshot=tariff_snapshot,finder_candidate_binding=finder_candidate_binding)
  required={'PREVIEW_PUBLIC_SAMPLE_ENABLED':'true','PREVIEW_GEO_ONLY_ENABLED':'true',
   'PREVIEW_ACCESS_ENABLED':'false','NEWS_READ_ENABLED':'false',
   'NEWS_EVENTS_READ_ENABLED':'false','FINDER_NETWORK_PREVIEW_ENABLED':'false',
@@ -125,6 +131,7 @@ def build_public_live_preview(environ,client_factory=None,clock=time.monotonic,c
  from integration.weather_ui import enabled as weather_ui_enabled,PATHS as WEATHER_UI_PATHS,install as weather_ui_install
  weather_ui_on=weather_ui_enabled(environ)
  def allow(req):
+  if finder_device is not None and req.path in finder_device.paths:return req.host_url.rstrip('/')==origin and req.method in ('GET','HEAD')
   if export_binding is not None and req.path==EXPORT_PATH:return req.host_url.rstrip('/')==origin and req.method in ('GET','HEAD')
   if brics_news_on and req.path in BRICS_NEWS_PATHS:return req.host_url.rstrip('/')==origin and req.method in ('GET','HEAD')
   if tariff_on and req.path in TARIFF_PATHS:return req.host_url.rstrip('/')==origin and req.method in ('GET','HEAD')
@@ -188,6 +195,8 @@ def build_public_live_preview(environ,client_factory=None,clock=time.monotonic,c
    from integration.code_news_disk import DiskLinks
    model=DiskLinks(coverage_pins.folder)
   app=create_app(reader=read,authorize=allow,allowed_origin=origin,full_news_pages=pages)
+  if finder_selection is not None:finder_selection_install(app,finder_selection)
+  if finder_device is not None:device_install(app,finder_device)
   if m2_on:m2_install(app,origin,read)
   elif map_on:map_install(app,origin)
   if m3_on:m3_install(app,origin)
@@ -195,6 +204,7 @@ def build_public_live_preview(environ,client_factory=None,clock=time.monotonic,c
   if brics_news_on:brics_news_install(app,origin)
   if brics_binding is not None:brics_live_install(app,brics_binding)
   if brics_on:brics_install(app)
+  if recovery_on:recovery_install(app)
   if weekly_on:weekly_install(app,read,period_reader=PeriodReader(client['geo_intel']['articles']) if weekly_full else None)
   from integration.news_finder_navigation_prep import install_mount
   install_mount(app)
@@ -203,7 +213,7 @@ def build_public_live_preview(environ,client_factory=None,clock=time.monotonic,c
    from integration.code_news_coverage_broker_prep import CoverageBroker
    if finder_links:
     from integration.finder_identity_proof_prep import FinderProof
-    proof=FinderProof()
+    proof=finder_selection.binding.proof()if finder_selection else FinderProof()
    broker=(ContextBroker if context_on else CoverageBroker)(pages,model,coverage_pins.manifest,coverage_pins.matcher_version,finder_proof=proof)
    coverage_api_install(app,origin,broker,environ,**({'response_validator':context_validate} if context_on else {}))
    app.extensions['code_news_coverage_broker']=broker
@@ -220,7 +230,7 @@ def build_public_live_preview(environ,client_factory=None,clock=time.monotonic,c
   if search_on:search_install(app)
   if export_binding is not None:export_install(app,origin,export_binding)
  except Exception:
-  if not coverage_api:raise
+  if not coverage_api and finder_selection is None:raise
   coverage_close();raise ValueError('Public composition unavailable')from None
  @app.before_request
  def coverage_off_paths():

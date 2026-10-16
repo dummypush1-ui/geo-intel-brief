@@ -20,6 +20,7 @@
         "tests/news_export/test_original_contract.py",
         "tests/publication_dates/test_policy.py",
         "tests/test_backup184.py",
+        "tests/test_brics_feed_b5.py",
         "tests/test_build_provenance150.py",
         "tests/test_channels171.py",
         "tests/test_collector197ea.py",
@@ -94,6 +95,7 @@
       "files": [
         "integration/brics_live_b3/__init__.py",
         "integration/collector197_http.py",
+        "integration/finder_composition_f9/__init__.py",
         "integration/news_export_e2/__init__.py",
         "integration/public_live_builder.py"
       ]
@@ -108,6 +110,7 @@
         "integration/collector197_feed_child.py",
         "integration/finder198_transport.py",
         "integration/finder198_transport_child.py",
+        "integration/finder_device_f10/__init__.py",
         "integration/finder_index.py",
         "integration/finder_offline.py",
         "integration/news_api.py",
@@ -679,6 +682,7 @@
         "tests/native200_state_fixture.py",
         "tests/native200cb_read_fixture.py",
         "tests/test_article_archive.py",
+        "tests/test_brics_feed_b5.py",
         "tests/test_code_news_context_d4.py",
         "tests/test_collection_prepare.py",
         "tests/test_collector122_validation.py",
@@ -699,6 +703,7 @@
         "tests/test_finder198ba.py",
         "tests/test_finder198bb.py",
         "tests/test_finder198ops.py",
+        "tests/test_finder_binding_f8.py",
         "tests/test_finder_reconcile_f2.py",
         "tests/test_finder_source_f3.py",
         "tests/test_fixed_parser_pipeline.py",
@@ -809,6 +814,10 @@
         "integration/commodity_candidate_eval.py",
         "integration/finder198_auth.py",
         "integration/finder198_connector.py",
+        "integration/finder_binding_f8/__init__.py",
+        "integration/finder_composition_f9/__init__.py",
+        "integration/finder_device_f10/__init__.py",
+        "integration/finder_identity_proof_prep.py",
         "integration/geonews_digest/delivery.py",
         "integration/geonews_digest/model.py",
         "integration/mail_bridge.py",
@@ -823,6 +832,7 @@
         "tests/test_collector197ea.py",
         "tests/test_commodity_candidate_eval.py",
         "tests/test_finder198a.py",
+        "tests/test_finder_binding_f8.py",
         "tests/test_mail_port.py"
       ],
       "stdlib": true,
@@ -841,6 +851,7 @@
         "feature_mail_prep/reports.py",
         "integration/accounts/service.py",
         "integration/article_archive.py",
+        "integration/brics_feed_b5/__init__.py",
         "integration/brics_live_b3/__init__.py",
         "integration/brics_news_boundary.py",
         "integration/collector197_coordinator.py",
@@ -1198,6 +1209,7 @@
         "feature_mail_mount/http.py",
         "integration/accounts/http_fixture.py",
         "integration/brics_live_b3/__init__.py",
+        "integration/brics_recovery_b4/__init__.py",
         "integration/code_news_context_d4/__init__.py",
         "integration/code_news_coverage_route_prep.py",
         "integration/code_news_coverage_ui_prep.py",
@@ -1205,6 +1217,8 @@
         "integration/collector197_host_probe.py",
         "integration/collector197_http.py",
         "integration/edge_guard.py",
+        "integration/finder_composition_f9/__init__.py",
+        "integration/finder_device_f10/__init__.py",
         "integration/geo_probe_http.py",
         "integration/news_api.py",
         "integration/news_export/fixture_http.py",
@@ -1228,6 +1242,7 @@
         "integration/weather_ui.py",
         "tests/browser_code_news_context_d4.py",
         "tests/browser_finder198d.py",
+        "tests/browser_finder_package_f6.py",
         "tests/browser_finder_render_f5.py",
         "tests/browser_news_search_progress.py",
         "tests/browser_public_ai_answers.py",
@@ -1393,8 +1408,10 @@
         "integration/accounts/shared_service_fixture.py",
         "integration/article_archive.py",
         "integration/bounded_rss/driver.py",
+        "integration/brics_feed_b5/__init__.py",
         "integration/brics_live_b3/__init__.py",
         "integration/brics_news_boundary.py",
+        "integration/brics_recovery_b4/__init__.py",
         "integration/code_news_catalogue.py",
         "integration/code_news_context_d4/__init__.py",
         "integration/code_news_coverage_binding_prep.py",
@@ -1423,9 +1440,14 @@
         "integration/finder198_ops.py",
         "integration/finder198_receipts.py",
         "integration/finder198_transport.py",
+        "integration/finder_binding_f8/__init__.py",
+        "integration/finder_chain_f7/__init__.py",
+        "integration/finder_composition_f9/__init__.py",
+        "integration/finder_device_f10/__init__.py",
         "integration/finder_identity_proof_prep.py",
         "integration/finder_index.py",
         "integration/finder_offline.py",
+        "integration/finder_package_f6/__init__.py",
         "integration/finder_rebind_f4/__init__.py",
         "integration/finder_reconcile_f2/__init__.py",
         "integration/finder_refresh_f1/__init__.py",
@@ -1490,6 +1512,7 @@
         "scripts/package_manifest.py",
         "tests/browser_feature_finder.py",
         "tests/browser_finder_network.py",
+        "tests/browser_finder_package_f6.py",
         "tests/browser_finder_render_f5.py",
         "tests/browser_finder_report227.py",
         "tests/browser_offline232.py",
@@ -1502,6 +1525,7 @@
         "tests/test_apps_script_audit.py",
         "tests/test_article_archive.py",
         "tests/test_branding.py",
+        "tests/test_brics_recovery_b4.py",
         "tests/test_build_provenance150.py",
         "tests/test_bulk147_inventory.py",
         "tests/test_classifier146_inventory.py",
@@ -1522,11 +1546,16 @@
         "tests/test_finder198bb.py",
         "tests/test_finder198d.py",
         "tests/test_finder198ops.py",
+        "tests/test_finder_binding_f8.py",
         "tests/test_finder_browser229.py",
+        "tests/test_finder_chain_f7.py",
+        "tests/test_finder_composition_f9.py",
+        "tests/test_finder_device_f10.py",
         "tests/test_finder_identity_proof_prep.py",
         "tests/test_finder_index.py",
         "tests/test_finder_nested.py",
         "tests/test_finder_network230.py",
+        "tests/test_finder_package_f6.py",
         "tests/test_finder_rebind_f4.py",
         "tests/test_finder_reconcile_f2.py",
         "tests/test_finder_refresh_f1.py",
@@ -1732,9 +1761,11 @@
         "feature_related_prep/hybrid.py",
         "integration/accounts/merged_fixture.py",
         "integration/agencia_parser.py",
+        "integration/brics_feed_b5/__init__.py",
         "integration/brics_live_b3/__init__.py",
         "integration/brics_news_boundary.py",
         "integration/brics_processing_offline.py",
+        "integration/brics_recovery_b4/__init__.py",
         "integration/brics_streams.py",
         "integration/code_news_context_d4/__init__.py",
         "integration/code_news_coverage_binding_prep.py",
@@ -1782,9 +1813,15 @@
         "integration/finder198_transport.py",
         "integration/finder198_transport_child.py",
         "integration/finder198_v2_preflight.py",
+        "integration/finder_binding_f8/__init__.py",
+        "integration/finder_chain_f7/__init__.py",
+        "integration/finder_composition_f9/__init__.py",
+        "integration/finder_device_f10/__init__.py",
         "integration/finder_offline.py",
+        "integration/finder_package_f6/__init__.py",
         "integration/finder_rebind_f4/__init__.py",
         "integration/finder_reconcile_f2/__init__.py",
+        "integration/finder_refresh_f1/__init__.py",
         "integration/finder_render_f5/__init__.py",
         "integration/finder_source_f3/__init__.py",
         "integration/geo_article_writer.py",
@@ -1837,6 +1874,7 @@
         "integration/private_router.py",
         "integration/project_reports.py",
         "integration/public_ai_answers.py",
+        "integration/public_ai_finder_bridge.py",
         "integration/public_brics_news.py",
         "integration/public_brics_streams.py",
         "integration/public_live_builder.py",
@@ -1894,6 +1932,7 @@
         "tests/brics_public_memory.py",
         "tests/browser_brics_live_b3.py",
         "tests/browser_brics_news_boundary.py",
+        "tests/browser_brics_recovery_b4.py",
         "tests/browser_brics_streams.py",
         "tests/browser_code_news_context_d4.py",
         "tests/browser_compulsory_channels.py",
@@ -1903,10 +1942,13 @@
         "tests/browser_digest_preview.py",
         "tests/browser_event_digest.py",
         "tests/browser_events210.py",
+        "tests/browser_finder_composition_f9.py",
+        "tests/browser_finder_device_f10.py",
         "tests/browser_finder_identity_proof.py",
         "tests/browser_finder_nested.py",
         "tests/browser_finder_network.py",
         "tests/browser_finder_offline.py",
+        "tests/browser_finder_package_f6.py",
         "tests/browser_finder_render_f5.py",
         "tests/browser_finder_report227.py",
         "tests/browser_finder_static.py",
@@ -1967,8 +2009,10 @@
         "tests/test_backup184.py",
         "tests/test_bcrypt189.py",
         "tests/test_branding.py",
+        "tests/test_brics_feed_b5.py",
         "tests/test_brics_live_b3.py",
         "tests/test_brics_news_boundary.py",
+        "tests/test_brics_recovery_b4.py",
         "tests/test_brics_streams.py",
         "tests/test_bridges.py",
         "tests/test_broker_json211.py",
@@ -2032,12 +2076,17 @@
         "tests/test_finder198c.py",
         "tests/test_finder198d.py",
         "tests/test_finder198ops.py",
+        "tests/test_finder_binding_f8.py",
+        "tests/test_finder_chain_f7.py",
+        "tests/test_finder_composition_f9.py",
+        "tests/test_finder_device_f10.py",
         "tests/test_finder_identity_proof_prep.py",
         "tests/test_finder_index.py",
         "tests/test_finder_nested.py",
         "tests/test_finder_network.py",
         "tests/test_finder_network230.py",
         "tests/test_finder_offline.py",
+        "tests/test_finder_package_f6.py",
         "tests/test_finder_rebind_f4.py",
         "tests/test_finder_reconcile_f2.py",
         "tests/test_finder_refresh_f1.py",
@@ -2386,7 +2435,9 @@
         "integration/code_news_catalogue.py",
         "integration/collector_actions/test_candidate.py",
         "integration/feedparser_audit/child.py",
+        "integration/finder_chain_f7/__init__.py",
         "integration/finder_index.py",
+        "integration/finder_package_f6/__init__.py",
         "integration/india_open_data/core.py",
         "integration/loaded_news.py",
         "integration/news_export/export.py",
@@ -2411,6 +2462,10 @@
         "tests/test_code_news_coverage_route_prep.py",
         "tests/test_collector197b_connector.py",
         "tests/test_collector197ea.py",
+        "tests/test_finder_binding_f8.py",
+        "tests/test_finder_chain_f7.py",
+        "tests/test_finder_composition_f9.py",
+        "tests/test_finder_package_f6.py",
         "tests/test_geo_probe_process.py",
         "tests/test_loaded_news.py",
         "tests/test_mail_surface217.py",
@@ -2463,6 +2518,7 @@
         "integration/accounts/shared_ledger_fixture.py",
         "integration/ai_protocol_prep.py",
         "integration/article_archive.py",
+        "integration/brics_feed_b5/__init__.py",
         "integration/brics_live_b3/__init__.py",
         "integration/brics_news_boundary.py",
         "integration/broker_json211.py",
@@ -2508,7 +2564,12 @@
         "integration/finder198_server.py",
         "integration/finder198_transport.py",
         "integration/finder198_transport_child.py",
+        "integration/finder_binding_f8/__init__.py",
+        "integration/finder_chain_f7/__init__.py",
+        "integration/finder_composition_f9/__init__.py",
+        "integration/finder_device_f10/__init__.py",
         "integration/finder_index.py",
+        "integration/finder_package_f6/__init__.py",
         "integration/finder_rebind_f4/__init__.py",
         "integration/finder_reconcile_f2/__init__.py",
         "integration/finder_refresh_f1/__init__.py",
@@ -2565,6 +2626,7 @@
         "tests/brics_public_memory.py",
         "tests/browser_brics_live_b3.py",
         "tests/browser_brics_news_boundary.py",
+        "tests/browser_brics_recovery_b4.py",
         "tests/browser_brics_streams.py",
         "tests/browser_code_news_context_d4.py",
         "tests/browser_compulsory_channels.py",
@@ -2577,10 +2639,13 @@
         "tests/browser_events210.py",
         "tests/browser_feature_finder.py",
         "tests/browser_finder198d.py",
+        "tests/browser_finder_composition_f9.py",
+        "tests/browser_finder_device_f10.py",
         "tests/browser_finder_identity_proof.py",
         "tests/browser_finder_nested.py",
         "tests/browser_finder_network.py",
         "tests/browser_finder_offline.py",
+        "tests/browser_finder_package_f6.py",
         "tests/browser_finder_render_f5.py",
         "tests/browser_finder_report227.py",
         "tests/browser_finder_static.py",
@@ -2633,6 +2698,7 @@
         "tests/test_article_archive.py",
         "tests/test_bcrypt189.py",
         "tests/test_branding.py",
+        "tests/test_brics_feed_b5.py",
         "tests/test_brics_live_b3.py",
         "tests/test_broker_json211.py",
         "tests/test_build_provenance150.py",
@@ -2662,7 +2728,12 @@
         "tests/test_finder198bb.py",
         "tests/test_finder198c.py",
         "tests/test_finder198ops.py",
+        "tests/test_finder_binding_f8.py",
+        "tests/test_finder_chain_f7.py",
+        "tests/test_finder_composition_f9.py",
+        "tests/test_finder_device_f10.py",
         "tests/test_finder_nested.py",
+        "tests/test_finder_package_f6.py",
         "tests/test_finder_rebind_f4.py",
         "tests/test_finder_reconcile_f2.py",
         "tests/test_finder_refresh_f1.py",
@@ -2743,6 +2814,7 @@
         "integration/accounts/store.py",
         "integration/article_archive.py",
         "integration/bounded_rss/driver.py",
+        "integration/brics_feed_b5/__init__.py",
         "integration/code_news_parent_prep.py",
         "integration/code_news_scope_prep.py",
         "integration/collector197_archive.py",
@@ -2784,7 +2856,8 @@
         "integration/telegram_format_audit.py",
         "integration/weather_public_prep.py",
         "integration/weekly_report/report.py",
-        "tests/geospatial/test_geospatial.py"
+        "tests/geospatial/test_geospatial.py",
+        "tests/test_brics_feed_b5.py"
       ],
       "stdlib": true,
       "distributions": [],
@@ -2931,7 +3004,9 @@
         "integration/accounts/http_fixture.py",
         "integration/accounts/merged_fixture.py",
         "integration/branding_meta.py",
+        "integration/brics_feed_b5/__init__.py",
         "integration/brics_live_b3/__init__.py",
+        "integration/brics_recovery_b4/__init__.py",
         "integration/code_news_catalogue.py",
         "integration/code_news_context_d4/__init__.py",
         "integration/code_news_coverage_binding_prep.py",
@@ -2954,8 +3029,12 @@
         "integration/feedparser_audit/runner.py",
         "integration/finder198_transport.py",
         "integration/finder198_transport_child.py",
+        "integration/finder_binding_f8/__init__.py",
+        "integration/finder_composition_f9/__init__.py",
+        "integration/finder_device_f10/__init__.py",
         "integration/finder_identity_proof_prep.py",
         "integration/finder_index.py",
+        "integration/finder_package_f6/__init__.py",
         "integration/finder_rebind_f4/__init__.py",
         "integration/finder_reconcile_f2/__init__.py",
         "integration/finder_refresh_f1/__init__.py",
@@ -3006,6 +3085,7 @@
         "tests/brics_public_memory.py",
         "tests/browser_brics_live_b3.py",
         "tests/browser_brics_news_boundary.py",
+        "tests/browser_brics_recovery_b4.py",
         "tests/browser_brics_streams.py",
         "tests/browser_code_news_context_d4.py",
         "tests/browser_compulsory_channels.py",
@@ -3018,10 +3098,13 @@
         "tests/browser_events210.py",
         "tests/browser_feature_finder.py",
         "tests/browser_finder198d.py",
+        "tests/browser_finder_composition_f9.py",
+        "tests/browser_finder_device_f10.py",
         "tests/browser_finder_identity_proof.py",
         "tests/browser_finder_nested.py",
         "tests/browser_finder_network.py",
         "tests/browser_finder_offline.py",
+        "tests/browser_finder_package_f6.py",
         "tests/browser_finder_render_f5.py",
         "tests/browser_finder_report227.py",
         "tests/browser_finder_static.py",
@@ -3079,8 +3162,10 @@
         "tests/test_backup184.py",
         "tests/test_bcrypt189.py",
         "tests/test_branding.py",
+        "tests/test_brics_feed_b5.py",
         "tests/test_brics_live_b3.py",
         "tests/test_brics_news_boundary.py",
+        "tests/test_brics_recovery_b4.py",
         "tests/test_build_provenance150.py",
         "tests/test_bulk147_inventory.py",
         "tests/test_channels171.py",
@@ -3112,12 +3197,17 @@
         "tests/test_finder198bb.py",
         "tests/test_finder198d.py",
         "tests/test_finder198ops.py",
+        "tests/test_finder_binding_f8.py",
         "tests/test_finder_browser229.py",
+        "tests/test_finder_chain_f7.py",
+        "tests/test_finder_composition_f9.py",
+        "tests/test_finder_device_f10.py",
         "tests/test_finder_identity_proof_prep.py",
         "tests/test_finder_index.py",
         "tests/test_finder_nested.py",
         "tests/test_finder_network230.py",
         "tests/test_finder_offline.py",
+        "tests/test_finder_package_f6.py",
         "tests/test_finder_rebind_f4.py",
         "tests/test_finder_reconcile_f2.py",
         "tests/test_finder_refresh_f1.py",
@@ -3247,6 +3337,7 @@
         "tests/accounts/browser_http_fixture.py",
         "tests/browser_brics_live_b3.py",
         "tests/browser_brics_news_boundary.py",
+        "tests/browser_brics_recovery_b4.py",
         "tests/browser_brics_streams.py",
         "tests/browser_code_news_context_d4.py",
         "tests/browser_compulsory_channels.py",
@@ -3259,10 +3350,13 @@
         "tests/browser_events210.py",
         "tests/browser_feature_finder.py",
         "tests/browser_finder198d.py",
+        "tests/browser_finder_composition_f9.py",
+        "tests/browser_finder_device_f10.py",
         "tests/browser_finder_identity_proof.py",
         "tests/browser_finder_nested.py",
         "tests/browser_finder_network.py",
         "tests/browser_finder_offline.py",
+        "tests/browser_finder_package_f6.py",
         "tests/browser_finder_render_f5.py",
         "tests/browser_finder_report227.py",
         "tests/browser_finder_static.py",
@@ -3727,6 +3821,7 @@
         "integration/ai_protocol_prep.py",
         "integration/article_archive.py",
         "integration/branding_meta.py",
+        "integration/brics_feed_b5/__init__.py",
         "integration/brics_live_b3/__init__.py",
         "integration/brics_news_boundary.py",
         "integration/brics_streams.py",
@@ -3753,11 +3848,16 @@
         "integration/existing_proxy_codec.py",
         "integration/feedparser_audit/child.py",
         "integration/finder198_transport_child.py",
+        "integration/finder_binding_f8/__init__.py",
+        "integration/finder_chain_f7/__init__.py",
+        "integration/finder_composition_f9/__init__.py",
+        "integration/finder_device_f10/__init__.py",
         "integration/finder_identity_proof_prep.py",
         "integration/finder_index.py",
         "integration/finder_links.py",
         "integration/finder_nested.py",
         "integration/finder_offline.py",
+        "integration/finder_package_f6/__init__.py",
         "integration/finder_rebind_f4/__init__.py",
         "integration/finder_reconcile_f2/__init__.py",
         "integration/finder_refresh_f1/__init__.py",
@@ -4003,6 +4103,7 @@
         "tests/mutate_public_map_m2_gate.py",
         "tests/test_code_news_disk.py",
         "tests/test_finder_browser229.py",
+        "tests/test_finder_composition_f9.py",
         "tests/test_finder_network230.py",
         "tests/test_news_export_e2.py",
         "tests/test_offline232.py",
@@ -4176,6 +4277,8 @@
         "tests/publication_dates/test_policy.py",
         "tests/test_apps_handlers216.py",
         "tests/test_apps_script_audit.py",
+        "tests/test_brics_feed_b5.py",
+        "tests/test_brics_recovery_b4.py",
         "tests/test_build_provenance150.py",
         "tests/test_collection_prepare.py",
         "tests/test_collector197ea.py",
@@ -4192,6 +4295,7 @@
         "tests/test_finder198bb.py",
         "tests/test_finder198d.py",
         "tests/test_finder_browser229.py",
+        "tests/test_finder_device_f10.py",
         "tests/test_finder_nested.py",
         "tests/test_finder_network230.py",
         "tests/test_finder_refresh_f1.py",
@@ -4273,6 +4377,7 @@
         "tests/brics_public_memory.py",
         "tests/browser_brics_live_b3.py",
         "tests/browser_brics_news_boundary.py",
+        "tests/browser_brics_recovery_b4.py",
         "tests/browser_brics_streams.py",
         "tests/browser_code_news_context_d4.py",
         "tests/browser_compulsory_channels.py",
@@ -4285,10 +4390,13 @@
         "tests/browser_events210.py",
         "tests/browser_feature_finder.py",
         "tests/browser_finder198d.py",
+        "tests/browser_finder_composition_f9.py",
+        "tests/browser_finder_device_f10.py",
         "tests/browser_finder_identity_proof.py",
         "tests/browser_finder_nested.py",
         "tests/browser_finder_network.py",
         "tests/browser_finder_offline.py",
+        "tests/browser_finder_package_f6.py",
         "tests/browser_finder_render_f5.py",
         "tests/browser_finder_report227.py",
         "tests/browser_finder_static.py",
@@ -4337,6 +4445,8 @@
         "tests/news_export/test_fixture_serving.py",
         "tests/public_ai_fixture_memory.py",
         "tests/publication_dates/test_policy.py",
+        "tests/test_brics_feed_b5.py",
+        "tests/test_brics_recovery_b4.py",
         "tests/test_collection_prepare.py",
         "tests/test_collector197b_coordinator.py",
         "tests/test_collector197b_supervisor.py",
@@ -4410,14 +4520,19 @@
         "tests/geospatial/test_map_route.py",
         "tests/mutate_public_map_m2_gate.py",
         "tests/test_brics_live_b3.py",
+        "tests/test_brics_recovery_b4.py",
         "tests/test_code_news_disk.py",
         "tests/test_code_news_disk_safety.py",
         "tests/test_collector197b_supervisor.py",
         "tests/test_doc_lookup.py",
         "tests/test_env_example.py",
         "tests/test_feature_finder_prep.py",
+        "tests/test_finder_binding_f8.py",
+        "tests/test_finder_chain_f7.py",
+        "tests/test_finder_composition_f9.py",
         "tests/test_finder_identity_proof_prep.py",
         "tests/test_finder_index.py",
+        "tests/test_finder_package_f6.py",
         "tests/test_finder_reconcile_f2.py",
         "tests/test_finder_refresh_f1.py",
         "tests/test_news_export_e2.py",
@@ -4468,8 +4583,11 @@
       "files": [
         "tests/accounts/test_reservation_terminal.py",
         "tests/brics_public_memory.py",
+        "tests/browser_brics_recovery_b4.py",
         "tests/browser_code_news_context_d4.py",
         "tests/browser_digest203.py",
+        "tests/browser_finder_composition_f9.py",
+        "tests/browser_finder_device_f10.py",
         "tests/browser_news_search_progress.py",
         "tests/browser_public_ai_answers.py",
         "tests/browser_public_brics.py",
@@ -4486,6 +4604,7 @@
         "tests/public_ai_fixture_memory.py",
         "tests/test_brics_live_b3.py",
         "tests/test_brics_news_boundary.py",
+        "tests/test_brics_recovery_b4.py",
         "tests/test_broker_json211.py",
         "tests/test_code_news_context_d4.py",
         "tests/test_code_news_coverage_binding_prep.py",
@@ -4501,6 +4620,9 @@
         "tests/test_finder198c.py",
         "tests/test_finder198d.py",
         "tests/test_finder198ops.py",
+        "tests/test_finder_chain_f7.py",
+        "tests/test_finder_composition_f9.py",
+        "tests/test_finder_device_f10.py",
         "tests/test_geo_event_composition.py",
         "tests/test_geo_read_factory.py",
         "tests/test_geo_sample_probe.py",
@@ -4737,6 +4859,7 @@
         "tests/brics_public_memory.py",
         "tests/browser_brics_live_b3.py",
         "tests/browser_brics_news_boundary.py",
+        "tests/browser_brics_recovery_b4.py",
         "tests/browser_brics_streams.py",
         "tests/browser_code_news_context_d4.py",
         "tests/browser_compulsory_channels.py",
@@ -4747,10 +4870,13 @@
         "tests/browser_events210.py",
         "tests/browser_feature_finder.py",
         "tests/browser_finder198d.py",
+        "tests/browser_finder_composition_f9.py",
+        "tests/browser_finder_device_f10.py",
         "tests/browser_finder_identity_proof.py",
         "tests/browser_finder_nested.py",
         "tests/browser_finder_network.py",
         "tests/browser_finder_offline.py",
+        "tests/browser_finder_package_f6.py",
         "tests/browser_finder_render_f5.py",
         "tests/browser_finder_report227.py",
         "tests/browser_finder_static.py",
@@ -4836,6 +4962,7 @@
         "integration/feedparser_audit/runner.py",
         "integration/finder198_transport.py",
         "integration/finder198_transport_child.py",
+        "integration/finder_chain_f7/__init__.py",
         "integration/finder_source_f3/__init__.py",
         "integration/geo_probe_http.py",
         "integration/geo_probe_process.py",
@@ -4921,6 +5048,7 @@
       "files": [
         "integration/collector_actions/qualification.py",
         "integration/collector_actions/test_candidate.py",
+        "integration/finder_identity_proof_prep.py",
         "integration/native200_admission_store.py",
         "integration/native200_readonly_measurement.py",
         "integration/native200_store.py",
@@ -4929,6 +5057,7 @@
         "tests/mutate_public_map_m2_http.py",
         "tests/news_export/test_export.py",
         "tests/news_export/test_original_contract.py",
+        "tests/test_brics_feed_b5.py",
         "tests/test_channels171.py",
         "tests/test_code_news_context_d4.py",
         "tests/test_collector197a.py",
@@ -4939,6 +5068,7 @@
         "tests/test_feature_mail_mount.py",
         "tests/test_finder198ba.py",
         "tests/test_finder198bb.py",
+        "tests/test_finder_composition_f9.py",
         "tests/test_geo_article_writer.py",
         "tests/test_legacy_bulk_outcome.py",
         "tests/test_mail_ledger212.py",
@@ -5025,8 +5155,10 @@
         "tests/test_backup184.py",
         "tests/test_bcrypt189.py",
         "tests/test_branding.py",
+        "tests/test_brics_feed_b5.py",
         "tests/test_brics_live_b3.py",
         "tests/test_brics_news_boundary.py",
+        "tests/test_brics_recovery_b4.py",
         "tests/test_brics_streams.py",
         "tests/test_bridges.py",
         "tests/test_broker_json211.py",
@@ -5110,13 +5242,18 @@
         "tests/test_finder198c.py",
         "tests/test_finder198d.py",
         "tests/test_finder198ops.py",
+        "tests/test_finder_binding_f8.py",
         "tests/test_finder_browser229.py",
+        "tests/test_finder_chain_f7.py",
+        "tests/test_finder_composition_f9.py",
+        "tests/test_finder_device_f10.py",
         "tests/test_finder_identity_proof_prep.py",
         "tests/test_finder_index.py",
         "tests/test_finder_nested.py",
         "tests/test_finder_network.py",
         "tests/test_finder_network230.py",
         "tests/test_finder_offline.py",
+        "tests/test_finder_package_f6.py",
         "tests/test_finder_rebind_f4.py",
         "tests/test_finder_reconcile_f2.py",
         "tests/test_finder_refresh_f1.py",
@@ -5400,6 +5537,7 @@
         "tests/accounts/test_merged_fixture.py",
         "tests/browser_brics_live_b3.py",
         "tests/browser_brics_news_boundary.py",
+        "tests/browser_brics_recovery_b4.py",
         "tests/browser_brics_streams.py",
         "tests/browser_code_news_context_d4.py",
         "tests/browser_compulsory_channels.py",
@@ -5409,10 +5547,13 @@
         "tests/browser_digest_preview.py",
         "tests/browser_events210.py",
         "tests/browser_finder198d.py",
+        "tests/browser_finder_composition_f9.py",
+        "tests/browser_finder_device_f10.py",
         "tests/browser_finder_identity_proof.py",
         "tests/browser_finder_nested.py",
         "tests/browser_finder_network.py",
         "tests/browser_finder_offline.py",
+        "tests/browser_finder_package_f6.py",
         "tests/browser_finder_render_f5.py",
         "tests/browser_finder_report227.py",
         "tests/browser_finder_static.py",
@@ -5642,7 +5783,15 @@
         "source": "sys.stdlib_module_names"
       },
       "files": [
+        "integration/finder_binding_f8/__init__.py",
+        "integration/finder_chain_f7/__init__.py",
+        "integration/finder_package_f6/__init__.py",
         "integration/public_map_m2/reference_converter.py",
+        "tests/browser_finder_package_f6.py",
+        "tests/test_finder_binding_f8.py",
+        "tests/test_finder_chain_f7.py",
+        "tests/test_finder_composition_f9.py",
+        "tests/test_finder_package_f6.py",
         "tests/test_runner199lock.py"
       ]
     },
@@ -5710,7 +5859,7 @@
     "tests/weekly_report/test_report.py"
   ],
   "source_baseline": {
-    "revision": "b3f1e7fb3cf3dd97e1e870babbf68360429cb967",
+    "revision": "9902d2023d1a87f00735f5f2aa5adadc8b5e9c25",
     "policy": "all recursive *.py in integration/tests/scripts at revision86; no relative-import roots (resolved as local), no __pycache__; increment87 audit/test files outside baseline",
     "scopes": [
       "integration",
@@ -5876,6 +6025,10 @@
         "sha256": "100d7085bb5e1d7b2701325efaf2efad0dfe39b37410757524a5aa51c8631463"
       },
       {
+        "path": "integration/brics_feed_b5/__init__.py",
+        "sha256": "d4ba39a04889d0d38a8addf352cec8490687668fddb3c36c950180decb71d943"
+      },
+      {
         "path": "integration/brics_live_b3/__init__.py",
         "sha256": "39dd2ae32b5feac64dd32169b7abd169b6883ea1b097d48ca8d4cc3359609ed5"
       },
@@ -5886,6 +6039,10 @@
       {
         "path": "integration/brics_processing_offline.py",
         "sha256": "049546d8e83a0db291b04b7741db09cd5468bd9dd2d2e9dc284b0bb1ffd73345"
+      },
+      {
+        "path": "integration/brics_recovery_b4/__init__.py",
+        "sha256": "120333b8a3c2673b14c9026178c6f580a42beaf6d3c237c62551b58f93fc563b"
       },
       {
         "path": "integration/brics_streams.py",
@@ -5905,7 +6062,7 @@
       },
       {
         "path": "integration/code_news_coverage_binding_prep.py",
-        "sha256": "3c0e464789458afcc92cf282715a193f5b74c11857a284a2252ba1bf8244ad06"
+        "sha256": "c190ea15203fd0b4b5d60640029087fcb9aea45ee66c930a031e37a71d934af3"
       },
       {
         "path": "integration/code_news_coverage_broker_prep.py",
@@ -5921,11 +6078,11 @@
       },
       {
         "path": "integration/code_news_coverage_route_prep.py",
-        "sha256": "0148993ae102d0ac9814d22b672f7d2ed68d19c79ef8b1f8a210772296196af3"
+        "sha256": "2aaca4710502951d8ea3189089073968080dd117518546582934649a78cd5452"
       },
       {
         "path": "integration/code_news_coverage_ui_prep.py",
-        "sha256": "bbcc3913a5c4f9cde8a97d72b1914190880672fc9711a93638bb2f233ac5dca8"
+        "sha256": "d3a58ab0be01112b50165d7bc39f997fc9784a3c138469cbf60a42978c27f3e1"
       },
       {
         "path": "integration/code_news_cursor_prep.py",
@@ -5949,7 +6106,7 @@
       },
       {
         "path": "integration/code_news_public.py",
-        "sha256": "1298c1d67821ec5adaa65b2bf8e5d55be725db8a680679a18aa81425e02fbd34"
+        "sha256": "76557220a728c3518328f2a0bef97180ced2a0228f4cf493aef92c5ccf6780a3"
       },
       {
         "path": "integration/code_news_query.py",
@@ -6196,8 +6353,24 @@
         "sha256": "05e31761f5491ee10b8dab5e4edc688fba389efaa51a27d035f83f15c10ab27d"
       },
       {
+        "path": "integration/finder_binding_f8/__init__.py",
+        "sha256": "3aa2763f4ecd10cb3a46c62668d272a619d3f8489cf104e0dc9422094a388182"
+      },
+      {
+        "path": "integration/finder_chain_f7/__init__.py",
+        "sha256": "7b71aad24fd982971aea0452fb094fc141f17aa18a9a74ffa817f433b5ce8457"
+      },
+      {
+        "path": "integration/finder_composition_f9/__init__.py",
+        "sha256": "c3d41b4cd75d93ea6f9e1ac1650435eb69f70a3ea085995987ad427ec8ca28ee"
+      },
+      {
+        "path": "integration/finder_device_f10/__init__.py",
+        "sha256": "23674463d90dc07ac730ebbaf897bf61a7d428e1ae39e968ac722fb348d61814"
+      },
+      {
         "path": "integration/finder_identity_proof_prep.py",
-        "sha256": "82efe7c1cf094e97320adbe0d4983b2e959c7da799db913bff0dbe39ec541c52"
+        "sha256": "a848b91a1310b55e1b7e4db892e2623d398d9985f1dd689bf115656e51905ae9"
       },
       {
         "path": "integration/finder_index.py",
@@ -6220,16 +6393,20 @@
         "sha256": "3d032501b4ee852262864e1f15c1ccb6514b5547462a404ebfe8fb96e7cfb1bd"
       },
       {
+        "path": "integration/finder_package_f6/__init__.py",
+        "sha256": "94c15acecdad433821b7453f3e4c73cec3e3348187728a95a892f3a6839fe9d9"
+      },
+      {
         "path": "integration/finder_rebind_f4/__init__.py",
         "sha256": "f75a682eff470599792ee5a2dfacf04d94ab8315d14ae1b850eacf9b73e53a1b"
       },
       {
         "path": "integration/finder_reconcile_f2/__init__.py",
-        "sha256": "493a88aa0644477964078ce8ef62ab1843f6cec5ba5708e63925880709316c19"
+        "sha256": "4f8c25472bfb0aae85cf7fbb60cfefb37d5d2fb2434c0b3519f1d44cbc233de4"
       },
       {
         "path": "integration/finder_refresh_f1/__init__.py",
-        "sha256": "2aee04885b1bb2a3a5d9cefe9972105a880aca5ca3196beccc379ee0b3f81f1b"
+        "sha256": "a195bc904bfea919b8b08c1cffe8fae9f02ad7a89ecd3eb451eb709672ec8a2a"
       },
       {
         "path": "integration/finder_refresh_f1/__main__.py",
@@ -6529,7 +6706,7 @@
       },
       {
         "path": "integration/news_finder_navigation_prep.py",
-        "sha256": "eecba368eb0773fbaf25f8b07f64a3c633f576fb81a0d2952d2c252a1835f42d"
+        "sha256": "2728c72380ebc1714840255587f2a1de012ab46197bba40a288821d6b38507dd"
       },
       {
         "path": "integration/news_pages.py",
@@ -6581,11 +6758,11 @@
       },
       {
         "path": "integration/public_ai_answers.py",
-        "sha256": "22ebc60d590042d18563615477a68686a62f29e0381e32eb6768f21183b0dbc1"
+        "sha256": "9179a50ea0c5a49d03e074a23b9c75003b47500363f273b07e788a877f8bbc4b"
       },
       {
         "path": "integration/public_ai_finder_bridge.py",
-        "sha256": "6ea6f083c0e8d525247c83e894cfefe92727a8721b77dd5c71984dd048a307d7"
+        "sha256": "a53be1c23360bb42be173510988e8ae5e15dfd0fece6a0e86fd19906dfa962f2"
       },
       {
         "path": "integration/public_brics_news.py",
@@ -6601,7 +6778,7 @@
       },
       {
         "path": "integration/public_live_builder.py",
-        "sha256": "580e81d53d011379064f2e10870283db719e1bea6dedca353a3a3f783c3872e7"
+        "sha256": "465172918299b2f56fb28b549d6b90adf75e08ce6b8052703e894823b66473df"
       },
       {
         "path": "integration/public_map_m2/__init__.py",
@@ -6625,7 +6802,7 @@
       },
       {
         "path": "integration/public_preview_builder.py",
-        "sha256": "800a81d2a94e7a58e1e1c2dc5d9cf87f0569c9992c7d9c66bec4a23107eb1de9"
+        "sha256": "e92a4c8fbdc29b51673e2e2d8d32010142d2a77e8be062592c33545dd2649a21"
       },
       {
         "path": "integration/public_tariff_evidence.py",
@@ -6649,7 +6826,7 @@
       },
       {
         "path": "integration/relationship_navigation.py",
-        "sha256": "78497e1e2e995a292617eaec1f2b8fd2f1332de80e1cf2c32a2298fb9d8d13ed"
+        "sha256": "f7178d60e811fabe7d64f44410936a6e539815ab8dcf49e4b5b0c79382fe25bd"
       },
       {
         "path": "integration/relevance.py",
@@ -6952,6 +7129,10 @@
         "sha256": "2e2e01aefd81b805bbc7023b2e1c3cd11f7cd746eb39467a8395350b4bf1ede3"
       },
       {
+        "path": "tests/browser_brics_recovery_b4.py",
+        "sha256": "55c43d07521fdd66b473219b3a2b28e58ceb7c629bf0bc27b170a8562f7cf9b6"
+      },
+      {
         "path": "tests/browser_brics_streams.py",
         "sha256": "76635cec97752e0d3c452e778b26e0a14d690a750b81fc66af51489f7dd598c2"
       },
@@ -7000,6 +7181,14 @@
         "sha256": "74082d446ab62a17c752d2ec32089397e19855a856a0bc5655727f1c43bafeed"
       },
       {
+        "path": "tests/browser_finder_composition_f9.py",
+        "sha256": "078d89ce3b10ce0fd49dffa5215558985e72c15f99ad1877f8537d2faeabbc82"
+      },
+      {
+        "path": "tests/browser_finder_device_f10.py",
+        "sha256": "f7ae08397ab83ce4bf5093a2a68f1d8ab11c2b0538bc5904d10a9e0d8a4055e9"
+      },
+      {
         "path": "tests/browser_finder_identity_proof.py",
         "sha256": "bdc2dab84c593b88db6cd443657cd94bce783f7f72522862d71d5bd14946e8c1"
       },
@@ -7014,6 +7203,10 @@
       {
         "path": "tests/browser_finder_offline.py",
         "sha256": "65c93057253421f444b0d58dbffa6e8f663c5f2edd78bb6e1d38f4a5206a23f9"
+      },
+      {
+        "path": "tests/browser_finder_package_f6.py",
+        "sha256": "c533561dd37860cce79be4aec877c56a3b85ba227104982e8c6efc422f9157ea"
       },
       {
         "path": "tests/browser_finder_render_f5.py",
@@ -7320,12 +7513,20 @@
         "sha256": "ec04fee6d602819bc53ddef36e53d58b19131faa795263d5f5b859f03de92ee6"
       },
       {
+        "path": "tests/test_brics_feed_b5.py",
+        "sha256": "ea5f4f01cef3cc696425addd92519e7bd685e72b19847506f75bb54696e5985f"
+      },
+      {
         "path": "tests/test_brics_live_b3.py",
         "sha256": "3ee5d2cefaeebc543a736b690f5dfef478aea6837255fc5230aca228163ff5a9"
       },
       {
         "path": "tests/test_brics_news_boundary.py",
         "sha256": "4fe888b9a14a625bb9a8ed0b65d9cf1555f8f56b8f36366866ed0c9e8af7f93a"
+      },
+      {
+        "path": "tests/test_brics_recovery_b4.py",
+        "sha256": "908aca88893266775990767b06300a2b9f91ed5bc85ebb23bd600f3f58d023b2"
       },
       {
         "path": "tests/test_brics_streams.py",
@@ -7660,8 +7861,24 @@
         "sha256": "e347b7577bfe553ea3c911b89d9718e616251923e7565ab203c41ae1983a40a3"
       },
       {
+        "path": "tests/test_finder_binding_f8.py",
+        "sha256": "bd666433a08cde0789d9d68895d169de1a5dc24c36c13b6daaeeb30ff5fa1c1a"
+      },
+      {
         "path": "tests/test_finder_browser229.py",
         "sha256": "3ca5f609dd3a7fdb9f73e95cca6fed4cd412fd08a9a4e9e083232f21ada4a505"
+      },
+      {
+        "path": "tests/test_finder_chain_f7.py",
+        "sha256": "0b64984b37aa7c5e390d84e79581a9b746ef99cc683d0ec1d72ad34f3044505d"
+      },
+      {
+        "path": "tests/test_finder_composition_f9.py",
+        "sha256": "bd766e6e1c760d22b97ae9a57bf9e555342ae66402662eb0f593598ab4c6bf62"
+      },
+      {
+        "path": "tests/test_finder_device_f10.py",
+        "sha256": "0a31b34f08e8226cbaddec5f8fa4472d5b4c40a08b2039fd221f7cd794f16686"
       },
       {
         "path": "tests/test_finder_identity_proof_prep.py",
@@ -7686,6 +7903,10 @@
       {
         "path": "tests/test_finder_offline.py",
         "sha256": "aec540f052dcced74139766deb41317769c0720a5ab7be87cfdbd4ea2df8966d"
+      },
+      {
+        "path": "tests/test_finder_package_f6.py",
+        "sha256": "0e4e883dce6bc431730f39990f1c6ea3c72ba1a4445aac878f1a161d95b3c74f"
       },
       {
         "path": "tests/test_finder_rebind_f4.py",

@@ -11,6 +11,8 @@ import struct
 import unicodedata
 from pathlib import Path
 from threading import Lock
+from dataclasses import dataclass
+from types import MappingProxyType
 
 ROOT = Path(__file__).resolve().parents[1]
 RECORD = struct.Struct('>B12s32s')
@@ -31,6 +33,21 @@ PINS = {
 class Unavailable(ValueError):
  pass
 
+@dataclass(frozen=True)
+class ProofProfile:
+ """Explicit internal candidate identity. Never an approval or public input."""
+ pins:tuple
+ editions:tuple
+ artifact_sha256:str
+ def validate(self):
+  if type(self.pins)is not tuple or any(type(row)is not tuple or len(row)!=2 or any(type(v)is not str for v in row)for row in self.pins):raise Unavailable('Exact proof profile pins required')
+  pins=dict(self.pins)
+  required={'offline.html','index.html','integration/code_news_index/manifest.json','integration/code_news_index/codes.idx','integration/code_news_index/rows.jsonl'}
+  if len(pins)!=6 or len(self.pins)!=6 or not required<set(pins):raise Unavailable('Closed proof profile sources required')
+  data=next(n for n in pins if n not in required)
+  if not re.fullmatch(r'data\.[a-f0-9]{12}\.js',data)or any(not re.fullmatch('[a-f0-9]{64}',v)for v in pins.values())or data[5:17]!=pins[data][:12]:raise Unavailable('Exact proof profile hashes required')
+  if type(self.editions)is not tuple or self.editions!=(('HS','2022'),('IN','snapshot:'+pins[data][:12]))or type(self.artifact_sha256)is not str or not re.fullmatch('[a-f0-9]{64}',self.artifact_sha256):raise Unavailable('Exact proof edition/artifact binding required')
+
 def normalized_description(value):
  """NFC then Unicode whitespace collapse; case/punctuation are preserved.
  No duplicate is collapsed, even if its normalized description is identical.
@@ -49,8 +66,12 @@ def digest_path(path):
    h.update(chunk)
  return h.hexdigest()
 
-def verify_sources(root):
- for name, expected in PINS.items():
+def verify_sources(root,profile=None):
+ if profile is not None:
+  if type(profile)is not ProofProfile:raise Unavailable('Exact proof profile required')
+  profile.validate()
+ for name, expected in (PINS.items()if profile is None else profile.pins):
+  if profile is not None and (any(p.is_symlink()for p in (Path(root)/name,*(Path(root)/name).parents))or not (Path(root)/name).is_file()):raise Unavailable('Regular proof sources required')
   if digest_path(Path(root) / name) != expected:
    raise Unavailable('Proof source drift')
 
@@ -59,10 +80,16 @@ class FinderProof:
  Source pins stream on init AND lookup, so source drift fails before approval.
  This trades bounded IO for no large RAM map and no cached freshness assertion.
  """
- def __init__(self, root=ROOT):
-  self.root = Path(root); self.lock = Lock(); self.fd = None; self.closed = False
+ def __init__(self, root=ROOT,*,profile=None):
+  self.root = Path(root); self.profile=profile; self.lock = Lock(); self.fd = None; self.closed = False
   try:
-   verify_sources(self.root)
+   if profile is not None:
+    if type(profile)is not ProofProfile:raise Unavailable('Exact proof profile required')
+    profile.validate()
+   self.editions=MappingProxyType(dict(EDITIONS if profile is None else profile.editions))
+   self.artifact_sha256=ARTIFACT_SHA if profile is None else profile.artifact_sha256
+   self._verify_sources()
+   if profile is not None and ((self.root/ARTIFACT).is_symlink()or not (self.root/ARTIFACT).is_file()):raise Unavailable('Regular proof artifact required')
    self.fd = os.open(self.root / ARTIFACT, os.O_RDONLY)
    self.size = os.fstat(self.fd).st_size
    if not 0 < self.size <= MAX_ARTIFACT or self.size % RECORD.size:
@@ -79,19 +106,23 @@ class FinderProof:
     previous = key
   except Exception:
    self.close(); raise Unavailable('Finder proof unavailable') from None
+ def _verify_sources(self):
+  if self.profile is None:verify_sources(self.root)
+  else:verify_sources(self.root,self.profile)
  def _read(self, length, offset):
   raw = os.pread(self.fd, length, offset)
   if len(raw) != length:
    raise Unavailable('Short proof read')
   return raw
  def _verify_artifact(self):
+  if self.profile is not None and (self.root/ARTIFACT).is_symlink():raise Unavailable('Regular proof artifact required')
   descriptor = os.fstat(self.fd); current = (self.root / ARTIFACT).stat()
   if (descriptor.st_dev, descriptor.st_ino) != (current.st_dev, current.st_ino) or descriptor.st_size != self.size:
    raise Unavailable('Proof size drift')
   h = hashlib.sha256()
   for offset in range(0, self.size, CHUNK):
    h.update(self._read(min(CHUNK, self.size - offset), offset))
-  if h.hexdigest() != ARTIFACT_SHA:
+  if h.hexdigest() != self.artifact_sha256:
    raise Unavailable('Proof hash drift')
  def close(self):
   with self.lock:
@@ -101,13 +132,13 @@ class FinderProof:
    if self.fd is not None:
     os.close(self.fd); self.fd = None
  def bound(self, system, edition, code):
-  if type(system) is not str or system not in SYSTEMS or type(edition) is not str or edition != EDITIONS[system] or type(code) is not str or not re.fullmatch(r'[0-9]{4}(?:[0-9]{2}){0,4}', code):
+  if type(system) is not str or system not in SYSTEMS or type(edition) is not str or edition != self.editions[system] or type(code) is not str or not re.fullmatch(r'[0-9]{4}(?:[0-9]{2}){0,4}', code):
    return None
   try:
    with self.lock:
     if self.closed:
      return None
-    verify_sources(self.root)
+    self._verify_sources()
     self._verify_artifact()
     needle = (SYSTEMS[system], code.encode().ljust(12, b' ')); lo = 0; hi = self.count
     while lo < hi:

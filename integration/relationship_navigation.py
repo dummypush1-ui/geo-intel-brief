@@ -98,6 +98,9 @@ def install(app,origin):
     raw=(ROOT/'integration/ui/workspace.js').read_text()
     transformed=transform(raw)
     module=(ROOT/'integration/ui/relationship_navigation.js').read_text()
+    from integration.finder_composition_f9 import selected,edition_asset
+    selection=selected(app)
+    if selection is not None:module=edition_asset(module,selection)
     @app.get(ASSET)
     def asset():
         return Response('' if request.method=='HEAD' else

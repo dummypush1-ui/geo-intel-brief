@@ -10,11 +10,17 @@ REPLACEMENT='''async function assistRun(cands) {
  if(parent===window){const slot=el('assist-slot');if(slot)slot.textContent='Open Finder inside the news workspace to ask about these preserved candidates.';return;}
  parent.postMessage({type:'public-ai-question-v1',mode:'finder',question:V.q.slice(0,1000),candidates},location.origin);
 }'''
-def transform(html):
- if hashlib.sha256((ROOT/'offline.html').read_bytes()).hexdigest()!=PIN:raise ValueError('Finder source drift')
+def transform(html,selection=None):
+ replacement=REPLACEMENT
+ if selection is not None:
+  from integration.finder_composition_f9 import Selection
+  if type(selection)is not Selection:raise ValueError('Exact Finder selection required')
+  selection.verify()
+  replacement=replacement.replace('snapshot:d6d1b417562b',dict(selection.editions)['IN'])
+ elif hashlib.sha256((ROOT/'offline.html').read_bytes()).hexdigest()!=PIN:raise ValueError('Finder source drift')
  if html.count(START)!=1 or html.count(END)!=1:raise ValueError('Finder assist seam drift')
  start=html.index(START);end=html.index(END,start)
- html=html[:start]+REPLACEMENT+html[end:]
+ html=html[:start]+replacement+html[end:]
  html=html.replace('Live features off. Local edits last for this page only.','Only manual AI picks can open the parent workspace. Live provider fetch remains off. Local edits last for this page only.')
  # Existing inert OFFLINE_STORE remains inert. Rebuild script hashes after edit.
  html=re.sub(r'<meta http-equiv="Content-Security-Policy"[^>]*>','',html,count=1)

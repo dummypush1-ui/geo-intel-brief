@@ -22,7 +22,11 @@ def install(app,env=None,*,coverage_available=False):
   if request.method=='HEAD':return Response(status=200)
   from integration.news_finder_navigation_prep import enabled as finder_links_enabled
   name='code_news_finder_navigation.js' if finder_links_enabled(env or {}) else 'code_news_coverage.js'
-  return Response((root/name).read_text(),mimetype='application/javascript')
+  text=(root/name).read_text()
+  from integration.finder_composition_f9 import selected,edition_asset
+  selection=selected(app)
+  if selection is not None and name=='code_news_finder_navigation.js':text=edition_asset(text,selection)
+  return Response(text,mimetype='application/javascript')
  @app.get('/workspace/assets/code_news_coverage.css')
  def coverage_css():
   if request.method=='HEAD':return Response(status=200)
