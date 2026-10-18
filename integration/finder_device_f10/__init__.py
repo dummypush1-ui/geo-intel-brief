@@ -22,6 +22,7 @@ class Device:
   self.selection.verify()
   expected=next(pin for name,size,pin in self.selection.binding.files if name=='review/public-offline.html')
   raw=self.selection.rendered.encode()
+  if self.selection.report_enabled:expected=hashlib.sha256(self.selection.rendered.encode()).hexdigest()
   if len(raw)!=self.size or hashlib.sha256(raw).hexdigest()!=self.digest or self.digest!=expected:raise Held('Exact safe render required')
 def prepare(env,selection=None):
  if type(env)is not dict or any(type(k)is not str or type(v)is not str for k,v in env.items()):raise Held('Plain environment strings required')

@@ -16,3 +16,7 @@ let resolve;const delayed=make();const slow=createBrokerClient({enabled:true,non
 const auth=createBrokerClient({enabled:true,nonceFactory:()=> 'a'.repeat(24),fetcher:async(p,o)=>p.includes('finder-broker')?response(401,{}):p==='/account/logout'?Promise.reject(Error('lost')):fetcher(p,o)});await auth.login('alice','password');await auth.request('ships',{port:'ALL'});assert.equal(auth.view().blocked,true);await auth.logout();assert(auth.view().message.includes('not confirmed'));
 const huge=createBrokerClient({enabled:true,nonceFactory:()=> 'b'.repeat(24),fetcher:async(p,o)=>p.includes('finder-broker')?{status:200,text:async()=>'',body:new ReadableStream({start(c){c.enqueue(new Uint8Array(1048577));c.close();}})}:fetcher(p,o)});await huge.login('alice','password');await huge.request('ships',{port:'ALL'});assert.equal(huge.view().request,'unknown');
 console.log('finder198-client PASS: concurrent/authhold/logoutuncertain/streamcap');
+
+// F12 features-mode uses a separate served copy; execute its concrete request
+// state machine alongside the original ships/AI-off client, never substitute it.
+await import('./finder_proxy_f12_client.mjs');

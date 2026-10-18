@@ -5,7 +5,7 @@
       "path": ".env.example",
       "project": "finder_or_build",
       "role": "preserved_engine_or_asset",
-      "sha256": "100fda8c6fd07d895374850d2e7f15ddfe8687ad90b417883d0b9fa7ff1deeb2",
+      "sha256": "a49ae33b520054cf13a547ce02f62d79136a25b984099f5266789f33244330cf",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -4286,7 +4286,7 @@
       "path": "integration/dependency_audit/audit.json",
       "project": "integration",
       "role": "offline_contract_or_private_view",
-      "sha256": "98a06e98bba0dabc686b752c6a4538660b662778ea83df760894f4d203af968b",
+      "sha256": "806e4f54944be18baabef950b56340cd7b209ce54095ab60b83303869fe431be",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -4295,7 +4295,7 @@
       "path": "integration/dependency_audit/import-inventory.json",
       "project": "integration",
       "role": "offline_contract_or_private_view",
-      "sha256": "bb331ee0dbef3dfd88090c6460a973e9c7185d08f70c4e431c708ce004163643",
+      "sha256": "c782708dc699e255b311965c9b5d703980cd58e9a3d6f0ef455278ce631e7fdd",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -4720,6 +4720,56 @@
       "runtime_verified": false
     },
     {
+      "path": "integration/finder_changes_f13/README.txt",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "673d6f29e42efc2ae5eaf96835388e66f1a10f40c2f9832a1b9e6a600056175d",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_changes_f13/__init__.py",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "8fe7cd818be5f38089e36a3961cd6fd499780e5805da0fa96caba20e5f3dd447",
+      "static_file_edges": [
+        "integration/finder_binding_f8/__init__.py",
+        "integration/finder_composition_f9/__init__.py",
+        "integration/finder_proxy_f12/evidence.py",
+        "integration/public_ai_answers.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_changes_f13/view.css",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "7715b16f2ae7ebf64e1b0126b006fcfa57f691aebaef4c36d7ea536b3eb27c3c",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_changes_f13/view.html",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "07f67b5ba6b1699fd9cf147f69c77a854403d264d0a0c4123da3ad4b2bfac6c7",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_changes_f13/view.js",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "b51b717807c84b54bf92451371e97f77506a514f0722fe2ce73e420cd5f86420",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
       "path": "integration/finder_composition_f9/F9-README.txt",
       "project": "integration",
       "role": "offline_contract_or_private_view",
@@ -4732,10 +4782,11 @@
       "path": "integration/finder_composition_f9/__init__.py",
       "project": "integration",
       "role": "offline_contract_or_private_view",
-      "sha256": "c3d41b4cd75d93ea6f9e1ac1650435eb69f70a3ea085995987ad427ec8ca28ee",
+      "sha256": "78828a29dd0cc2216edd027a4353d53b83bd10660281a0bfa3567834842bf84c",
       "static_file_edges": [
         "integration/finder_binding_f8/__init__.py",
         "integration/finder_offline.py",
+        "integration/finder_report_f11/__init__.py",
         "integration/news_api.py"
       ],
       "unresolved_internal_imports": [],
@@ -4745,7 +4796,38 @@
       "path": "integration/finder_composition_f9/pins.json",
       "project": "integration",
       "role": "offline_contract_or_private_view",
-      "sha256": "bc4c5fd0173445ec3aaa3815888e6ae0e0df3e8da37a69a8666c1f37d7abf323",
+      "sha256": "7ac518e3c335776e2fd114e5acecccd2b1100b1a0c3c4cd687929e41f9f1cfef",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_controls_f17/README.txt",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "5fa6730f2df9f9fc68866e94ef3ea3ad7cec8bfd53668447b741a3234691b2d5",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_controls_f17/__init__.py",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "d709ca976021a5cae467ee87f12c5446c04dc4d581846af222fcfdac2226ea31",
+      "static_file_edges": [
+        "integration/finder_composition_f9/__init__.py",
+        "integration/finder_report_f11/__init__.py",
+        "integration/public_ai_answers.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_controls_f17/finder.js",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "842edfeaf6472d7377e5832c4b10d7e6d8fc5c100e3e9c658d8ef169aa0c4960",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -4763,7 +4845,7 @@
       "path": "integration/finder_device_f10/__init__.py",
       "project": "integration",
       "role": "offline_contract_or_private_view",
-      "sha256": "23674463d90dc07ac730ebbaf897bf61a7d428e1ae39e968ac722fb348d61814",
+      "sha256": "29c7beca42adaf0ff035812fa28f0813bc2d874c2d6f01935d32cf939556cc57",
       "static_file_edges": [
         "integration/finder_composition_f9/__init__.py"
       ],
@@ -4784,6 +4866,37 @@
       "project": "integration",
       "role": "offline_contract_or_private_view",
       "sha256": "641bc6dd159158b09c16fb349a240a45f86fe88b3ec81174dd410e121ecca9a2",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_fta_f15/README.txt",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "051c3ffe59d10b8819affb9db4bb42883bb4329ffeb6e3dc0a68c165634c47ec",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_fta_f15/__init__.py",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "bf8a43fc27f8f534e70d4cbace601288b87f75b998fc9ba7712b0092236cf632",
+      "static_file_edges": [
+        "integration/finder_composition_f9/__init__.py",
+        "integration/finder_report_f11/__init__.py",
+        "integration/public_ai_answers.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_fta_f15/finder.js",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "4aa70344f57285cbe9a186be9fb1cffbc4cef0b175961080c64e379265d26afd",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -4873,6 +4986,136 @@
         "integration/__init__.py",
         "integration/finder_refresh_f1/__init__.py"
       ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_proxy_f12/README.txt",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "0cabbb3e2033c6a57f5dcfbc3784a8ca37d24ccce66940fe0376ac36d4411c44",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_proxy_f12/__init__.py",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "2688fa6ef943e09eea3b01ba17be8588eadd5dfa55bfcf889a68a6521b4998b2",
+      "static_file_edges": [
+        "integration/existing_proxy_codec.py",
+        "integration/finder198_auth.py",
+        "integration/finder198_connector.py",
+        "integration/finder198_receipts.py",
+        "integration/finder198_server.py",
+        "integration/finder198_transport.py",
+        "integration/finder_composition_f9/__init__.py",
+        "integration/finder_report_f11/__init__.py",
+        "integration/public_ai_answers.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_proxy_f12/client.mjs",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "451976882044209ef8cd49aec0bf350e79f3efaea1e83a5d983650edb69905c0",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_proxy_f12/evidence.py",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "baf5a7b22a93d85ecd015913da15934de59d4bf640ac482e4364681312c9a1c0",
+      "static_file_edges": [
+        "integration/finder_composition_f9/__init__.py",
+        "integration/public_ai_answers.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_proxy_f12/finder.js",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "2fbc26ca2efef92eb87e1bc35b420bdec47863847e02b9b4d9bf1d44a9987add",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_proxy_f12/panel.css",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "bcffffc6207eb1411b4f3c0ea9f2722d4f5352e9ce906b333d1694eed4158f0d",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_proxy_f12/panel.mjs",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "3459e40c79f0d3073b418bc20b620ec61b13316b0109c1286454d517b1685ff9",
+      "static_file_edges": [
+        "integration/finder_proxy_f12/client.mjs",
+        "integration/finder_proxy_f12/ships226.mjs"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_proxy_f12/ships226.mjs",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "2b5b6b0591dfdc43e95e64cdd579d9276f72a0efea4a1d620bcbfb92e5f56ddb",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_proxy_f12/workspace.js",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "34c3ce1162744798702bbcfd166c779d935edced6fefb94f0e0c1ec9894a8101",
+      "static_file_edges": [
+        "integration/finder_proxy_f12/panel.mjs"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_rates_f14/README.txt",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "da948ec1cd3206377183f831facc242445b1550cb267fb17c50fdb95b6cd9bd1",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_rates_f14/__init__.py",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "a17885f229e4c8121b34207d978471f138c34426ec36183e79356c85aecda9c8",
+      "static_file_edges": [
+        "integration/finder_composition_f9/__init__.py",
+        "integration/finder_report_f11/__init__.py",
+        "integration/public_ai_answers.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_rates_f14/finder.js",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "d29a7934c3c5c9dcf0160ada85bcc9bdc7b5a1aa54ae1083d91df572080dc8a2",
+      "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
     },
@@ -4995,6 +5238,24 @@
       "runtime_verified": false
     },
     {
+      "path": "integration/finder_report_f11/README.txt",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "3555e9c001315b29aac91c32b81a255a63da3512ac786c30105244d345271c0b",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_report_f11/__init__.py",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "1720ab549b4a76440df42a3a1afd5371277822439398ee5b018eb03339ba1b04",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
       "path": "integration/finder_source_f3/F3-README.txt",
       "project": "integration",
       "role": "offline_contract_or_private_view",
@@ -5011,6 +5272,37 @@
       "static_file_edges": [
         "integration/__init__.py"
       ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_trend_f16/README.txt",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "d1a68533202bf9599c10c39838bf08b964de9289e2312dfb439ecd40d9ebc4ec",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_trend_f16/__init__.py",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "50b2ff09ab64b12b59d43f69c9ab81335a9d367b1e2034624612816c1dfb6f6f",
+      "static_file_edges": [
+        "integration/finder_composition_f9/__init__.py",
+        "integration/finder_report_f11/__init__.py",
+        "integration/public_ai_answers.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_trend_f16/finder.js",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "e71fda699ff22f10bc9e2388d97008aa744e27b2058bb2c9e9f94c32928eec1c",
+      "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
     },
@@ -6358,7 +6650,7 @@
       "path": "integration/public_live_builder.py",
       "project": "integration",
       "role": "offline_contract_or_private_view",
-      "sha256": "465172918299b2f56fb28b549d6b90adf75e08ce6b8052703e894823b66473df",
+      "sha256": "2310c24a12b4d5872e3d881369bc5d6c9f57a3945da0b5e72fc509bbc8627cba",
       "static_file_edges": [
         "integration/brics_live_b3/__init__.py",
         "integration/brics_recovery_b4/__init__.py",
@@ -6370,9 +6662,15 @@
         "integration/code_news_disk.py",
         "integration/code_news_public.py",
         "integration/edge_guard.py",
+        "integration/finder_changes_f13/__init__.py",
         "integration/finder_composition_f9/__init__.py",
+        "integration/finder_controls_f17/__init__.py",
         "integration/finder_device_f10/__init__.py",
+        "integration/finder_fta_f15/__init__.py",
         "integration/finder_identity_proof_prep.py",
+        "integration/finder_proxy_f12/__init__.py",
+        "integration/finder_rates_f14/__init__.py",
+        "integration/finder_trend_f16/__init__.py",
         "integration/geo_read_factory.py",
         "integration/news_api.py",
         "integration/news_export_e2/__init__.py",
@@ -6793,7 +7091,7 @@
       "path": "integration/public_preview_builder.py",
       "project": "integration",
       "role": "offline_contract_or_private_view",
-      "sha256": "e92a4c8fbdc29b51673e2e2d8d32010142d2a77e8be062592c33545dd2649a21",
+      "sha256": "bab2ca3dc237b6e8e93c8c3ad9051590c58da131113f4e2d920a6726154e0282",
       "static_file_edges": [
         "integration/api_v1.py",
         "integration/brics_recovery_b4/__init__.py",
@@ -6801,8 +7099,14 @@
         "integration/code_news_coverage_route_prep.py",
         "integration/code_news_coverage_ui_prep.py",
         "integration/code_news_public.py",
+        "integration/finder_changes_f13/__init__.py",
         "integration/finder_composition_f9/__init__.py",
+        "integration/finder_controls_f17/__init__.py",
         "integration/finder_device_f10/__init__.py",
+        "integration/finder_fta_f15/__init__.py",
+        "integration/finder_proxy_f12/__init__.py",
+        "integration/finder_rates_f14/__init__.py",
+        "integration/finder_trend_f16/__init__.py",
         "integration/news_api.py",
         "integration/news_export_e2/__init__.py",
         "integration/news_finder_navigation_prep.py",
@@ -11269,7 +11573,7 @@
       "path": "staging-manifest.json",
       "project": "finder_or_build",
       "role": "preserved_engine_or_asset",
-      "sha256": "b2df42cc85ed94637ab55bbdd591d3431b738f9251a9b8993debc87939a94756",
+      "sha256": "7e3fe10553f78e2474faeb03abd8588cd2cda8d4c2fe7d2e07217131befbea01",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -11714,10 +12018,36 @@
       "runtime_verified": false
     },
     {
+      "path": "tests/browser_finder_changes_f13.py",
+      "project": "test",
+      "role": "fixture_test",
+      "sha256": "cbb85fc686b33425a7964781fc3d2664a0cbd8ae209e49b00ab3c2fff8bd12b9",
+      "static_file_edges": [
+        "integration/__init__.py",
+        "integration/public_preview_builder.py",
+        "tests/test_code_news_coverage_binding_prep.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
       "path": "tests/browser_finder_composition_f9.py",
       "project": "test",
       "role": "fixture_test",
       "sha256": "078d89ce3b10ce0fd49dffa5215558985e72c15f99ad1877f8537d2faeabbc82",
+      "static_file_edges": [
+        "integration/__init__.py",
+        "integration/public_preview_builder.py",
+        "tests/test_code_news_coverage_binding_prep.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "tests/browser_finder_controls_f17.py",
+      "project": "test",
+      "role": "fixture_test",
+      "sha256": "0206d9ad5aca5cb0310fae57592542b2f1b28abad8ca2aa2ea2bf693ba795345",
       "static_file_edges": [
         "integration/__init__.py",
         "integration/public_preview_builder.py",
@@ -11735,6 +12065,19 @@
         "integration/__init__.py",
         "integration/public_preview_builder.py",
         "tests/__init__.py",
+        "tests/test_code_news_coverage_binding_prep.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "tests/browser_finder_fta_f15.py",
+      "project": "test",
+      "role": "fixture_test",
+      "sha256": "8aa68d52d1546aa85ee8fff46e42dcff2760da4ad644c541b306f9b7872de81a",
+      "static_file_edges": [
+        "integration/__init__.py",
+        "integration/public_preview_builder.py",
         "tests/test_code_news_coverage_binding_prep.py"
       ],
       "unresolved_internal_imports": [],
@@ -11799,6 +12142,40 @@
       "runtime_verified": false
     },
     {
+      "path": "tests/browser_finder_proxy_f12.py",
+      "project": "test",
+      "role": "fixture_test",
+      "sha256": "6a45ebfa29a74c18fcd4f81c0c4ed0f9d8f8b00de64f580c9dfba9da040f5bf5",
+      "static_file_edges": [
+        "integration/__init__.py",
+        "integration/accounts/service.py",
+        "integration/accounts/store.py",
+        "integration/finder198_connector.py",
+        "integration/finder198_receipts.py",
+        "integration/finder198_transport.py",
+        "integration/finder_proxy_f12/evidence.py",
+        "integration/public_preview_builder.py",
+        "tests/test_code_news_coverage_binding_prep.py",
+        "tests/test_finder198a.py",
+        "tests/test_finder198ba.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "tests/browser_finder_rates_f14.py",
+      "project": "test",
+      "role": "fixture_test",
+      "sha256": "33a4a89a1481025b6e79c9bade0ab5feea650b39aaffebe2b2a86cf15934d8b7",
+      "static_file_edges": [
+        "integration/__init__.py",
+        "integration/public_preview_builder.py",
+        "tests/test_code_news_coverage_binding_prep.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
       "path": "tests/browser_finder_render_f5.py",
       "project": "test",
       "role": "fixture_test",
@@ -11821,12 +12198,52 @@
       "runtime_verified": false
     },
     {
+      "path": "tests/browser_finder_report_f11.py",
+      "project": "test",
+      "role": "fixture_test",
+      "sha256": "c358e44caf65b3f1443babd5c248490a125e36680c834c0e0d1a9540560fda38",
+      "static_file_edges": [
+        "integration/__init__.py",
+        "integration/public_preview_builder.py",
+        "tests/__init__.py",
+        "tests/test_code_news_coverage_binding_prep.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "tests/browser_finder_report_f11_device.py",
+      "project": "test",
+      "role": "fixture_test",
+      "sha256": "a27bf13b56cc56ccd1207262df7492536f92fae0e2455d608ff7face4a5471a8",
+      "static_file_edges": [
+        "integration/__init__.py",
+        "integration/public_preview_builder.py",
+        "tests/test_code_news_coverage_binding_prep.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
       "path": "tests/browser_finder_static.py",
       "project": "test",
       "role": "fixture_test",
       "sha256": "a3715feb82e530300f3e58550f772294ad1c738c3cd3e51b17364641d6b00d45",
       "static_file_edges": [
         "integration/news_api.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "tests/browser_finder_trend_f16.py",
+      "project": "test",
+      "role": "fixture_test",
+      "sha256": "08a1a2b3cd3356a69edbbd1fac3221a9ced702e7ca68f8c9379828013e16d98e",
+      "static_file_edges": [
+        "integration/__init__.py",
+        "integration/public_preview_builder.py",
+        "tests/test_code_news_coverage_binding_prep.py"
       ],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -12316,10 +12733,19 @@
       "path": "tests/finder198_client_test.mjs",
       "project": "test",
       "role": "fixture_test",
-      "sha256": "b383199b4fb5251de98d27ac452dae5ce5d03a79b0a48ccf46fb04567e529cb3",
+      "sha256": "8aa4ea788f6f8a692fb12742f0b0de489f07f7827782b893995fb69b73a492d6",
       "static_file_edges": [
         "integration/finder198_ui/client.mjs"
       ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "tests/finder_controls_f17.mjs",
+      "project": "test",
+      "role": "fixture_test",
+      "sha256": "0913459b1d7260b13f2e83dc8c662b21cc1660f16bebcb26e50c7af2e152428d",
+      "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
     },
@@ -12337,6 +12763,53 @@
       "project": "test",
       "role": "fixture_test",
       "sha256": "b6c22026a66630fac845bd29a1d8a6407cbabddc48da25289b936f775e015960",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "tests/finder_fta_f15.mjs",
+      "project": "test",
+      "role": "fixture_test",
+      "sha256": "5699b2b3713ff00cc20832b99eb1f5e94de14ba46a6bee193d3b2079bbb45d1d",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "tests/finder_proxy_f12_client.mjs",
+      "project": "test",
+      "role": "fixture_test",
+      "sha256": "fb5a4d747cd845de452296226de8497f2d48c17b344a2f1d605421ad87c79817",
+      "static_file_edges": [
+        "integration/finder_proxy_f12/client.mjs"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "tests/finder_proxy_f12_ui.mjs",
+      "project": "test",
+      "role": "fixture_test",
+      "sha256": "cb372b3986124bcd903624c052bb3066c1e18f5b41fdc908f71df7142330c3af",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "tests/finder_rates_f14.mjs",
+      "project": "test",
+      "role": "fixture_test",
+      "sha256": "884b1bd1a6d0afa29b7b0f319e83a6dbbccdf84fcacc68e8959ec6014ecd59ef",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "tests/finder_trend_f16.mjs",
+      "project": "test",
+      "role": "fixture_test",
+      "sha256": "eda48e5064bdd58b5712c7dc5426a054f4de89ef3c98c32e348733672eef5ff1",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -14445,6 +14918,21 @@
       "runtime_verified": false
     },
     {
+      "path": "tests/test_finder_changes_f13.py",
+      "project": "test",
+      "role": "fixture_test",
+      "sha256": "705a0f64a38f938b308cd02ab0434acf73358cac0e8b2413835a1eff213458d6",
+      "static_file_edges": [
+        "integration/__init__.py",
+        "integration/public_ai_answers.py",
+        "integration/public_preview_builder.py",
+        "tests/__init__.py",
+        "tests/test_code_news_coverage_binding_prep.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
       "path": "tests/test_finder_composition_f9.py",
       "project": "test",
       "role": "fixture_test",
@@ -14460,6 +14948,20 @@
       "runtime_verified": false
     },
     {
+      "path": "tests/test_finder_controls_f17.py",
+      "project": "test",
+      "role": "fixture_test",
+      "sha256": "2943711aaba1d7f236674e413f58c5945ca06e4c3f9c29cc08a73c2c360719da",
+      "static_file_edges": [
+        "integration/__init__.py",
+        "integration/public_preview_builder.py",
+        "tests/__init__.py",
+        "tests/test_code_news_coverage_binding_prep.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
       "path": "tests/test_finder_device_f10.py",
       "project": "test",
       "role": "fixture_test",
@@ -14467,6 +14969,20 @@
       "static_file_edges": [
         "integration/__init__.py",
         "integration/public_live_builder.py",
+        "integration/public_preview_builder.py",
+        "tests/__init__.py",
+        "tests/test_code_news_coverage_binding_prep.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "tests/test_finder_fta_f15.py",
+      "project": "test",
+      "role": "fixture_test",
+      "sha256": "8cd0ffaadf88224451f75aeeb4589f744d553ad5155bc64ed6b5064344f828cb",
+      "static_file_edges": [
+        "integration/__init__.py",
         "integration/public_preview_builder.py",
         "tests/__init__.py",
         "tests/test_code_news_coverage_binding_prep.py"
@@ -14560,6 +15076,42 @@
       "runtime_verified": false
     },
     {
+      "path": "tests/test_finder_proxy_f12.py",
+      "project": "test",
+      "role": "fixture_test",
+      "sha256": "e065ab7b8699f646b8034f482345b51c46932c5734d66ba9b18f584d6c91470b",
+      "static_file_edges": [
+        "integration/__init__.py",
+        "integration/accounts/service.py",
+        "integration/accounts/store.py",
+        "integration/finder198_connector.py",
+        "integration/finder198_receipts.py",
+        "integration/finder198_transport.py",
+        "integration/finder_proxy_f12/evidence.py",
+        "integration/public_preview_builder.py",
+        "tests/__init__.py",
+        "tests/test_code_news_coverage_binding_prep.py",
+        "tests/test_finder198a.py",
+        "tests/test_finder198ba.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "tests/test_finder_rates_f14.py",
+      "project": "test",
+      "role": "fixture_test",
+      "sha256": "0de66c8a0f7f59f78acb90f44cfe07a3f43bfdeccd9f8c87f8056b7dd96e150a",
+      "static_file_edges": [
+        "integration/__init__.py",
+        "integration/public_preview_builder.py",
+        "tests/__init__.py",
+        "tests/test_code_news_coverage_binding_prep.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
       "path": "tests/test_finder_rebind_f4.py",
       "project": "test",
       "role": "fixture_test",
@@ -14606,12 +15158,40 @@
       "runtime_verified": false
     },
     {
+      "path": "tests/test_finder_report_f11.py",
+      "project": "test",
+      "role": "fixture_test",
+      "sha256": "644df95d22f0a6b8a17b7160537d2bbf2d420850b5fb1196da5e79af73a2262e",
+      "static_file_edges": [
+        "integration/__init__.py",
+        "integration/public_preview_builder.py",
+        "tests/__init__.py",
+        "tests/test_code_news_coverage_binding_prep.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
       "path": "tests/test_finder_source_f3.py",
       "project": "test",
       "role": "fixture_test",
       "sha256": "7c215983fd948d130cea289a91dc485a6115001acf7b05ddad8038a8264233b4",
       "static_file_edges": [
         "integration/__init__.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "tests/test_finder_trend_f16.py",
+      "project": "test",
+      "role": "fixture_test",
+      "sha256": "78d96e8a41a738964451ded934c629b0a76d467ba3dd38e5bcd0f35640d1b7e2",
+      "static_file_edges": [
+        "integration/__init__.py",
+        "integration/public_preview_builder.py",
+        "tests/__init__.py",
+        "tests/test_code_news_coverage_binding_prep.py"
       ],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -17337,7 +17917,7 @@
       "runtime_verified": false
     }
   ],
-  "file_count": 1643,
+  "file_count": 1692,
   "limits": [
     "Dynamic references and network endpoints need runtime adapter tests",
     "Legacy launchers deliberately not connected to merged private entrypoint",

@@ -53,10 +53,22 @@ def create_public_geo_client(uri,*,serverSelectionTimeoutMS=5000,connect=False):
    tlsAllowInvalidCertificates=False,tlsAllowInvalidHostnames=False))
  except Exception:raise ValueError('Public Geo client unavailable')from None
 
-def build_public_live_preview(environ,client_factory=None,clock=time.monotonic,coverage_binding_provider=None,tariff_snapshot=None,geo_export_binding=None,brics_live_binding=None,finder_candidate_binding=None):
+def build_public_live_preview(environ,client_factory=None,clock=time.monotonic,coverage_binding_provider=None,tariff_snapshot=None,geo_export_binding=None,brics_live_binding=None,finder_candidate_binding=None,finder_comparison_baseline=None):
  if type(environ) is not dict or any(type(k)is not str or type(v)is not str for k,v in environ.items()):raise ValueError('Plain environment strings required')
  from integration.finder_composition_f9 import prepare as finder_select,install as finder_selection_install
  finder_selection=finder_select(environ,finder_candidate_binding)
+ from integration.finder_proxy_f12 import enabled as proxy_features_enabled,install as proxy_features_install,PATH as PROXY_FEATURE_PATH,ASSETS as PROXY_FEATURE_ASSETS
+ proxy_features_on=proxy_features_enabled(environ)
+ from integration.finder_changes_f13 import prepare as changes_prepare,install as changes_install,PATHS as CHANGES_PATHS
+ finder_changes=changes_prepare(environ,finder_selection,finder_comparison_baseline)
+ from integration.finder_controls_f17 import prepare as controls_prepare,install as controls_install
+ finder_control_evidence=controls_prepare(environ,finder_selection)
+ from integration.finder_trend_f16 import prepare as trend_prepare,install as trend_install
+ finder_trade_trend=trend_prepare(environ,finder_selection)
+ from integration.finder_fta_f15 import prepare as fta_prepare,install as fta_install
+ finder_fta_staging=fta_prepare(environ,finder_selection)
+ from integration.finder_rates_f14 import prepare as rates_prepare,install as rates_install
+ finder_rates_drawer=rates_prepare(environ,finder_selection)
  from integration.finder_device_f10 import prepare as device_prepare,install as device_install
  finder_device=device_prepare(environ,finder_selection)
  from integration.news_export_e2 import prepare as export_prepare,install as export_install,PATH as EXPORT_PATH
@@ -131,6 +143,8 @@ def build_public_live_preview(environ,client_factory=None,clock=time.monotonic,c
  from integration.weather_ui import enabled as weather_ui_enabled,PATHS as WEATHER_UI_PATHS,install as weather_ui_install
  weather_ui_on=weather_ui_enabled(environ)
  def allow(req):
+  if finder_changes is not None and req.path in CHANGES_PATHS:return req.host_url.rstrip('/')==origin and req.method in ('GET','HEAD')
+  if proxy_features_on and req.path in (PROXY_FEATURE_ASSETS|{PROXY_FEATURE_PATH}):return req.host_url.rstrip('/')==origin and req.method in (('POST',)if req.path==PROXY_FEATURE_PATH else('GET','HEAD'))
   if finder_device is not None and req.path in finder_device.paths:return req.host_url.rstrip('/')==origin and req.method in ('GET','HEAD')
   if export_binding is not None and req.path==EXPORT_PATH:return req.host_url.rstrip('/')==origin and req.method in ('GET','HEAD')
   if brics_news_on and req.path in BRICS_NEWS_PATHS:return req.host_url.rstrip('/')==origin and req.method in ('GET','HEAD')
@@ -197,6 +211,12 @@ def build_public_live_preview(environ,client_factory=None,clock=time.monotonic,c
   app=create_app(reader=read,authorize=allow,allowed_origin=origin,full_news_pages=pages)
   if finder_selection is not None:finder_selection_install(app,finder_selection)
   if finder_device is not None:device_install(app,finder_device)
+  if finder_control_evidence is not None:controls_install(app,finder_control_evidence)
+  if finder_trade_trend is not None:trend_install(app,finder_trade_trend)
+  if finder_fta_staging is not None:fta_install(app,finder_fta_staging)
+  if finder_rates_drawer is not None:rates_install(app,finder_rates_drawer)
+  if proxy_features_on:proxy_features_install(app,finder_selection,origin)
+  if finder_changes is not None:changes_install(app,finder_changes)
   if m2_on:m2_install(app,origin,read)
   elif map_on:map_install(app,origin)
   if m3_on:m3_install(app,origin)

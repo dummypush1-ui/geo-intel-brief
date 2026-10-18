@@ -14,10 +14,19 @@ class Selection:
  binding:Binding
  rendered:str
  editions:tuple
- def verify(self):self.binding.verify()
+ report_enabled:bool=False
+ def verify(self):
+  self.binding.verify()
+  if self.report_enabled:
+   from integration.finder_report_f11 import transform
+   base=(self.binding.root/'review/public-offline.html').read_text()
+   expected=next(pin for name,size,pin in self.binding.files if name=='review/public-offline.html')
+   if hashlib.sha256(base.encode()).hexdigest()!=expected or transform(base)!=self.rendered:raise Held('Report derived render drift')
 
 def prepare(env,binding=None):
  if type(env)is not dict or any(type(k)is not str or type(v)is not str for k,v in env.items()):raise Held('Plain environment strings required')
+ from integration.finder_report_f11 import enabled as report_enabled,transform as report_transform
+ report_on=report_enabled(env)
  flag=env.get(FLAG,'false')
  if flag not in ('true','false'):raise Held('Exact Finder composition flag required')
  if flag=='false':
@@ -25,13 +34,13 @@ def prepare(env,binding=None):
   return None
  if type(binding)is not Binding or env.get('PREVIEW_PUBLIC_SAMPLE_ENABLED')!='true':raise Held('Exact internal candidate binding and public composition required')
  pins=json.loads((ROOT/'integration/finder_composition_f9/pins.json').read_text())
- expected={'integration/'+name for name in ('news_api.py','finder_offline.py','finder_network.py','finder_nested.py','finder_binding_f8/__init__.py','finder_identity_proof_prep.py','news_finder_navigation_prep.py','public_ai_finder_bridge.py','code_news_disk.py','code_news_coverage_binding_prep.py','code_news_coverage_route_prep.py','code_news_public.py','relationship_navigation.py','code_news_coverage_ui_prep.py','public_ai_answers.py','public_live_builder.py','public_preview_builder.py')}
+ expected={'integration/'+name for name in ('news_api.py','finder_offline.py','finder_network.py','finder_nested.py','finder_binding_f8/__init__.py','finder_identity_proof_prep.py','news_finder_navigation_prep.py','public_ai_finder_bridge.py','code_news_disk.py','code_news_coverage_binding_prep.py','code_news_coverage_route_prep.py','code_news_public.py','relationship_navigation.py','code_news_coverage_ui_prep.py','public_ai_answers.py','public_live_builder.py','public_preview_builder.py','finder_report_f11/__init__.py','finder_proxy_f12/__init__.py','finder_proxy_f12/evidence.py','finder_proxy_f12/finder.js','finder_proxy_f12/workspace.js','finder_proxy_f12/client.mjs','finder_proxy_f12/panel.mjs','finder_proxy_f12/ships226.mjs','finder_proxy_f12/panel.css','finder_changes_f13/__init__.py','finder_changes_f13/view.html','finder_changes_f13/view.js','finder_changes_f13/view.css','finder_rates_f14/__init__.py','finder_rates_f14/finder.js','finder_fta_f15/__init__.py','finder_fta_f15/finder.js','finder_trend_f16/__init__.py','finder_trend_f16/finder.js','finder_controls_f17/__init__.py','finder_controls_f17/finder.js')}
  if type(pins)is not dict or set(pins)!=expected or any(hashlib.sha256((ROOT/n).read_bytes()).hexdigest()!=h for n,h in pins.items()):raise Held('Candidate composition consumer drift')
  binding.verify()
  raw=(binding.root/'offline.html').read_text();rendered=_candidate_safety_shell(raw)
  expected=next(pin for n,size,pin in binding.files if n=='review/public-offline.html')
  if hashlib.sha256(rendered.encode()).hexdigest()!=expected:raise Held('Candidate safe-render derivation drift')
- return Selection(binding,rendered,binding.profile.editions)
+ return Selection(binding,report_transform(rendered)if report_on else rendered,binding.profile.editions,report_on)
 
 def selected(app):
  value=app.extensions.get(KEY)
