@@ -21,26 +21,52 @@ Stored catalogue rates are dataset labels, not a current customs ruling.
 
 [Open the live workspace](https://geo-intel-brief.onrender.com/workspace)
 
-## Current status
+## Current repository status - October 19, 2026
 
-Read-only HTTP checks around 00:32 IST and live browser captures around 00:43-00:46 IST on October 11, 2026 confirmed:
+GitHub main was checked at `e119b5276bc3bb08e0ea9a8668e84d2682275363`.
+The 60-path F11-F17 batch is uploaded. The code follow-up described below is
+local and unpushed until its separate review and owner approval. This table is
+repository status, not a new check of the deployed app or its configuration.
 
-| Feature | Status and limits |
+| Feature | Code status and limits |
 |---|---|
-| Geo news workspace | Public, HTTP 200. Search, filters and whole-store cursor paging are available. |
-| Full news paging | `/api/news-page?limit=1` returned HTTP 200 with whole-store cursor scope. It is a changing read view, not a fixed snapshot or complete analytics export. |
-| Countries and map | Both public pages returned HTTP 200. |
-| Dashboard summaries and CSV | Source uses the latest up to 100 supplied articles, not whole-history totals or a full export. |
-| Offline Finder | Public offline snapshot is wired in source. Local code search, detail and shortlist work without exposing saved owner keys or notes. Live browser search and detail were reverified around 00:44 IST after warm-up. |
-| Live Finder rates | Reviewed adapter is saved in source, default OFF. `/workspace/finder/live.html` returned 403. It is not active. |
-| Code-news / news-codes | Reviewed source landed at `f7f78e7`, default OFF, not active. `/workspace/code-news` returned 403. Initial scope is reported HS/HSN mentions in supplied latest-100 rows, not full commodity inference or whole-store code search. |
-| Weekly PDF and BRICS streams | Public paths returned 403. Preserved source and prepared modules do not establish live visitor access. |
-| Weather, AI, tariffs and cross-module links | Remaining review/build/activation work. Personal weather use is confirmed; weather implementation and current terms review remain pending. AI provider cost/credential/cutover checks remain unresolved. |
-| Collectors, mail and admin | Never open visitor actions. No public read flag grants sending, collection, account access or database writes. |
+| Geo news workspace | Read-only news, search/filter, country/map and whole-store cursor paging code present. Dashboard summaries use latest up to 100 supplied articles, not whole-history analytics. |
+| Offline Finder | Preserved search, details, comparison, shortlist, manual landed inputs and baked trade panels. Public edits are session-only; saved owner keys/notes are not read. |
+| News/code links | Guarded reported-code links and source-context code present, default OFF. Not broad commodity inference or whole-store semantic search. |
+| BRICS watch | Stored-news read adapter, video wall and retry controls present, guarded/default OFF. BRICS collection is outside current work. |
+| Maps, weather and reference rates | Guarded adapters present. Hosted street layer and live Finder rate paths default OFF; full live coverage is not certified. |
+| Reports and exports | Bounded weekly PDF and original-column Geo CSV adapters present, guarded/default OFF. Not an unlimited stable whole-history export. |
+| F6-F8 | Held Finder package, source-chain and exact binding preparation, default OFF. Not unattended publication. |
+| F9-F10 | Selected Finder composition and opt-in public-device cache, default OFF. No private account/news caching. |
+| F11 | Data-only Finder report with 21 preserved sections, default OFF. No AI key or live research. |
+| F12 | Six existing-proxy context controls and data-report fallback, default OFF and HELD. Model catalog empty; real access/privacy/spend/retention proof outstanding. |
+| F13 | Two-artifact wording/duty/GST/presence/link comparison, default OFF. Two distinct real editions and deployed memory acceptance not proven. Local follow-up avoids unused and exact-object duplicate projections only. |
+| F14 | Preserved GST/BCD/RoDTEP source-evidence drawer, default OFF. Not current official-rate certification. |
+| F15 | UAE years 1-10 and Australia FTA category staging, default OFF. Not current effective duty, savings or eligibility. |
+| F16 | Supplied trade-year comparison, default OFF. No forecast or missing-as-zero claims. |
+| F17 | Documents/certificates/SCOMET/anti-dumping source sheet, default OFF. No shipment clearance; ongoing investigations not screened. |
+| Accounts, collectors and mail | Preserved/prepared guarded code, not public mounted operational services. No public read flag permits sending or collection. |
 
-A successful HTTP read confirms that path at the stated time. It does not prove
-Render settings, deployed commit, database-role permissions, capacity, provider
-billing or complete feature readiness. The app can cold-start or change later.
+Buyer/seller country trade panels and an external company-lookup reference
+exist in the original Finder; an integrated company-level buyer/seller dataset
+does not. Port-to-port straight-line estimates and tracking references exist;
+actual voyage/routes/history do not. Company ownership and satellite before/
+after datasets remain unbuilt. F13 is artifact comparison, not verified daily
+history. The paste-ready `integration/finder_refresh_f1/finder-refresh-prep.yml.txt`
+is present for a separate GitHub UI step; it performs held read-only rebuild
+preparation, not automatic acquisition/publishing of current merged data.
+
+Full function-source reconciliation is in
+`integration/finder_changes_f13/PARITY-FUNCTIONS.csv` and `.json`.
+The source parser finds 271 named/bound app functions, including 196 top-level
+function declarations. The earlier 195 label is not the complete inventory.
+Presence and identical bodies are not per-function runtime acceptance.
+`integration/finder_changes_f13/PARITY-READINESS.txt` keeps the before-ON gates.
+There is no unconditional enable-all step and no zero-pending live claim.
+
+The October 11 demo is a historical capture; the old HTTP results are not
+fresh deployment evidence. Source tests and local screenshots do not prove
+provider entitlement, database role, capacity, official currentness or billing.
 
 ## Code and news links
 
@@ -135,7 +161,7 @@ Copyright (c) 2026 Push. All rights reserved.
 
 Geo Intel Brief brings geopolitical news, trade-code lookup and BRICS source features into one codebase. The Flask workspace connects stored news with country views, story groups, trade context, exports and report tools. The original Finder, Geo and BRICS code remains in the repository.
 
-**The merge is in progress.** A public read-only news preview is implemented, but collectors, mail, account login and the full Finder provider connection are not mounted into that public launcher. Prepared code and passing local tests do not mean a feature is live. The current production entry factory is `production_entry:create_app()`, delegating to the same guarded public builder with collection and mail default OFF.
+**Historical overview (retained documentation).** This section predates the October 19 F11-F17 upload; use the current repository table above for code status. A public read-only news preview is implemented, but collectors, mail, account login and the full Finder provider connection are not mounted into that public launcher. Prepared code and passing local tests do not mean a feature is live. The current production entry factory is `production_entry:create_app()`, delegating to the same guarded public builder with collection and mail default OFF.
 
 ## Start here
 

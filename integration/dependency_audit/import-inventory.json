@@ -805,6 +805,7 @@
         "tests/news_export/test_keyset_plan.py",
         "tests/news_export/test_original_contract.py",
         "tests/news_export/test_original_stream.py",
+        "tests/test_finder_parity_inventory.py",
         "tests/test_loaded_news.py",
         "tests/test_news_export_e2.py"
       ],
@@ -856,12 +857,15 @@
         "integration/news_finder_navigation_prep.py",
         "integration/single_db_plan.py",
         "integration/storage_settings.py",
+        "tests/measure_finder_changes_f13.py",
         "tests/test_code_news_coverage_binding_prep.py",
         "tests/test_collector197c.py",
         "tests/test_collector197ea.py",
         "tests/test_commodity_candidate_eval.py",
         "tests/test_finder198a.py",
         "tests/test_finder_binding_f8.py",
+        "tests/test_finder_changes_f13.py",
+        "tests/test_finder_proxy_f12.py",
         "tests/test_finder_report_f11.py",
         "tests/test_mail_port.py"
       ],
@@ -1604,6 +1608,7 @@
         "tests/test_finder_nested.py",
         "tests/test_finder_network230.py",
         "tests/test_finder_package_f6.py",
+        "tests/test_finder_parity_inventory.py",
         "tests/test_finder_proxy_f12.py",
         "tests/test_finder_rates_f14.py",
         "tests/test_finder_rebind_f4.py",
@@ -2055,6 +2060,7 @@
         "tests/geospatial/preview/make_payload.py",
         "tests/geospatial/test_geospatial.py",
         "tests/geospatial/test_map_route.py",
+        "tests/measure_finder_changes_f13.py",
         "tests/memory_public_map_m1.py",
         "tests/memory_public_map_m2.py",
         "tests/memory_public_map_m2_live.py",
@@ -2775,6 +2781,7 @@
         "tests/geospatial/preview/make_payload.py",
         "tests/geospatial/test_geospatial.py",
         "tests/geospatial/test_map_route.py",
+        "tests/measure_finder_changes_f13.py",
         "tests/memory_public_map_m1.py",
         "tests/memory_public_map_m2.py",
         "tests/memory_public_map_m2_live.py",
@@ -2827,6 +2834,7 @@
         "tests/test_finder_device_f10.py",
         "tests/test_finder_nested.py",
         "tests/test_finder_package_f6.py",
+        "tests/test_finder_parity_inventory.py",
         "tests/test_finder_proxy_f12.py",
         "tests/test_finder_rebind_f4.py",
         "tests/test_finder_reconcile_f2.py",
@@ -3253,6 +3261,7 @@
         "tests/geospatial/preview/make_payload.py",
         "tests/geospatial/test_geospatial.py",
         "tests/geospatial/test_map_route.py",
+        "tests/measure_finder_changes_f13.py",
         "tests/memory_public_map_m1.py",
         "tests/memory_public_map_m2.py",
         "tests/memory_public_map_m2_live.py",
@@ -3320,6 +3329,7 @@
         "tests/test_finder_network230.py",
         "tests/test_finder_offline.py",
         "tests/test_finder_package_f6.py",
+        "tests/test_finder_parity_inventory.py",
         "tests/test_finder_proxy_f12.py",
         "tests/test_finder_rates_f14.py",
         "tests/test_finder_rebind_f4.py",
@@ -4126,6 +4136,7 @@
         "integration/feedparser_audit/child.py",
         "integration/finder198_transport_child.py",
         "tests/brics_public_memory.py",
+        "tests/measure_finder_changes_f13.py",
         "tests/memory_public_map_m1.py",
         "tests/memory_public_map_m2.py",
         "tests/memory_public_map_m2_live.py",
@@ -4584,6 +4595,7 @@
         "tests/geospatial/preview/make_payload.py",
         "tests/geospatial/test_geospatial.py",
         "tests/geospatial/test_map_route.py",
+        "tests/measure_finder_changes_f13.py",
         "tests/memory_public_map_m1.py",
         "tests/memory_public_map_m2.py",
         "tests/memory_public_map_m2_live.py",
@@ -5167,6 +5179,7 @@
         "tests/browser_public_map_m2_lifecycle.py",
         "tests/browser_relationship_navigation.py",
         "tests/geospatial/test_geospatial.py",
+        "tests/measure_finder_changes_f13.py",
         "tests/news_export/test_export.py",
         "tests/news_export/test_fixture_serving.py",
         "tests/test_code_news_coverage_prep.py",
@@ -5433,6 +5446,7 @@
         "tests/test_finder_network230.py",
         "tests/test_finder_offline.py",
         "tests/test_finder_package_f6.py",
+        "tests/test_finder_parity_inventory.py",
         "tests/test_finder_proxy_f12.py",
         "tests/test_finder_rates_f14.py",
         "tests/test_finder_rebind_f4.py",
@@ -6554,7 +6568,7 @@
       },
       {
         "path": "integration/finder_changes_f13/__init__.py",
-        "sha256": "8fe7cd818be5f38089e36a3961cd6fd499780e5805da0fa96caba20e5f3dd447"
+        "sha256": "5b2c18f3b8b40b14c773a959c70df374fd9e68df2ca0384d76ae2f7b6c9fabda"
       },
       {
         "path": "integration/finder_composition_f9/__init__.py",
@@ -7645,6 +7659,10 @@
         "sha256": "f8f6716db3182c6a830abd0095c15b98d15050165a0d11bd677c8402b879aca6"
       },
       {
+        "path": "tests/measure_finder_changes_f13.py",
+        "sha256": "9bd5c06b8858f00237e2afe53af28eb7592da99c46e0df7dc58569e14fe3ee5c"
+      },
+      {
         "path": "tests/memory_public_map_m1.py",
         "sha256": "7ed8f9b924321e79a7cedeb4faab47158036bf7146ca05b4e1bf3b76a3a1c95c"
       },
@@ -8130,7 +8148,7 @@
       },
       {
         "path": "tests/test_finder_changes_f13.py",
-        "sha256": "705a0f64a38f938b308cd02ab0434acf73358cac0e8b2413835a1eff213458d6"
+        "sha256": "747278188555717ac5b9c72b8b27369d1540ca9ce4c24006c2c92264a04aca91"
       },
       {
         "path": "tests/test_finder_composition_f9.py",
@@ -8177,8 +8195,12 @@
         "sha256": "0e4e883dce6bc431730f39990f1c6ea3c72ba1a4445aac878f1a161d95b3c74f"
       },
       {
+        "path": "tests/test_finder_parity_inventory.py",
+        "sha256": "e1e4fd77e6db2be19ead211d55c042944722444de06aeda41e0f945f0934a662"
+      },
+      {
         "path": "tests/test_finder_proxy_f12.py",
-        "sha256": "e065ab7b8699f646b8034f482345b51c46932c5734d66ba9b18f584d6c91470b"
+        "sha256": "f7d283e80b83e2d6a1605309b5c5a0a0dde4dbeca8adcd77fa9357d01a0ea674"
       },
       {
         "path": "tests/test_finder_rates_f14.py",

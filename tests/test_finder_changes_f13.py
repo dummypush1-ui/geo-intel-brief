@@ -52,6 +52,24 @@ class Tests(unittest.TestCase):
   self.assertEqual(a['extension_sample'],b['extension_sample']);self.assertEqual(a['extension_count'],b['extension_count']);self.assertNotEqual(a['extension_membership_sha256'],b['extension_membership_sha256'])
  def test_no_baseline_no_comparison(self):
   c=m.prepare(self.env,self.selection);result=c.read('HS','090121');self.assertEqual(result['state'],'baseline_unavailable');self.assertNotIn('changes',result)
+ def test_missing_baseline_never_builds_dataset_projection(self):
+  with patch.object(m.Snapshot,'__init__',side_effect=AssertionError('unused dataset projection')):
+   c=m.Comparison(self.selection);result=c.read('HS','090121')
+  self.assertIsNone(c.after);self.assertIsNone(c.before);self.assertEqual(result['state'],'baseline_unavailable');self.assertEqual(result['after_snapshot']['package_sha256'],self.binding.package_sha256)
+ def test_same_binding_reuses_one_projection_but_still_checks_drift(self):
+  original=m.Snapshot
+  with patch.object(m,'Snapshot',wraps=original)as construct:
+   c=m.Comparison(self.selection,self.binding)
+   self.assertEqual(construct.call_count,1);self.assertIs(c.before,c.after)
+  self.assertEqual(c.read('HS','090121')['snapshot_relationship'],'identical_artifact')
+  with patch.object(type(self.binding),'verify',side_effect=ValueError('drift')):
+   with self.assertRaises(ValueError):c.read('HS','090121')
+ def test_distinct_binding_object_never_shares_projection(self):
+  from dataclasses import replace
+  other=replace(self.binding);self.assertIsNot(other,self.binding)
+  c=m.Comparison(self.selection,other);self.assertIsNot(c.before,c.after)
+  with patch.object(type(other),'verify',side_effect=lambda:None)as verify:
+   c.read('HS','090121');self.assertGreaterEqual(verify.call_count,3)
  def test_wrong_inputs_and_drift_fail_closed(self):
   with self.assertRaises(Refused):m.Snapshot(object())
   c=m.Comparison(self.selection,self.binding)

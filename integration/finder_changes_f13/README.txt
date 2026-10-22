@@ -47,3 +47,15 @@ label identical artifacts as an identity diagnostic, not historical change;
 distinct supplied artifacts have unverified baseline age/chronological order.
 No lexical build-label date guessing or forced older-baseline claim. Both full
 hash sets remain visible. Memory/headroom remains an ON gate, not measured here.
+
+Code follow-up F18: when no baseline exists, only selected metadata is read and
+no full dataset projection is allocated. The identical-artifact diagnostic
+reuses a projection ONLY when both inputs are the exact same Binding object.
+Equal-hash but distinct bindings keep separate projections and drift checks.
+This is not a general content-addressed cache or a two-edition memory solution.
+Opt-in local measurement (one fresh process per case):
+ python -B tests/measure_finder_changes_f13.py ARCHIVE SHA ROOT none
+ python -B tests/measure_finder_changes_f13.py ARCHIVE SHA ROOT same
+ python -B tests/measure_finder_changes_f13.py ARCHIVE SHA ROOT distinct-object
+Reports local peak RSS, not deployed RAM/headroom or permission to turn ON.
+No Render inspection or capacity work is performed by this harness.

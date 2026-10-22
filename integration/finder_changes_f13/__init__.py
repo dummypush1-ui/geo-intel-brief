@@ -21,6 +21,11 @@ def enabled(env):
  if value not in ('true','false'):raise Refused('Exact snapshot change flag required')
  if value=='true'and env.get('PUBLIC_FINDER_CANDIDATE_COMPOSITION_ENABLED')!='true':raise Refused('Selected Finder required')
  return value=='true'
+def snapshot_meta(binding,source=None):
+ # Binding integrity is checked by the caller. Metadata-only missing-baseline
+ # state must not decompress or index the full code dataset.
+ build=Evidence.literal((binding.root/'offline.html').read_text()if source is None else source,'DATA_BUILD');plain(build,100)
+ return {'dataset_build_label':build,'source_revision':binding.source_revision,'package_sha256':binding.package_sha256,'offline_sha256':next(pin for name,size,pin in binding.files if name=='offline.html'),'proof':'supplied_F8_artifact_integrity_not_official_freshness'}
 class Snapshot:
  def __init__(self,binding):
   if type(binding)is not Binding:raise Refused('Exact reviewed public snapshot binding required')
@@ -38,8 +43,7 @@ class Snapshot:
    if key in self.rows:self.duplicates.add(key)
    self.rows[key]=tuple(r)
   self.sorted={tag:sorted(code for system,code in self.rows if system==tag)for tag in SYSTEMS}
-  self.gst=Evidence.literal(s,'GST_MAP');build=Evidence.literal(s,'DATA_BUILD');plain(build,100)
-  self.meta={'dataset_build_label':build,'source_revision':binding.source_revision,'package_sha256':binding.package_sha256,'offline_sha256':next(pin for name,size,pin in binding.files if name=='offline.html'),'proof':'supplied_F8_artifact_integrity_not_official_freshness'}
+  self.gst=Evidence.literal(s,'GST_MAP');self.meta=snapshot_meta(binding,s)
  def value(self,system,code):
   key=(system,code);r=self.rows.get(key)
   if r is None:return {'state':'not_present_in_snapshot','wording':None,'listed_duty':None,'gst':None,'duplicate_identity':False}
@@ -76,11 +80,16 @@ def compare(before,after,system,code):
 class Comparison:
  def __init__(self,selection,baseline=None):
   if type(selection)is not Selection:raise Refused('Selected Finder required')
-  selection.verify();self.selection=selection;self.after=Snapshot(selection.binding);self.before=Snapshot(baseline)if baseline is not None else None
+  selection.verify();self.selection=selection
+  # No baseline means no comparison: avoid allocating an unused full index.
+  # Reuse only the exact same immutable Binding object, never a matching hash
+  # from another root whose drift must remain independently detectable.
+  self.after=Snapshot(selection.binding)if baseline is not None else None
+  self.before=(self.after if baseline is selection.binding else Snapshot(baseline))if baseline is not None else None
  def read(self,system,code):
   if type(system)is not str or system not in SYSTEMS or type(code)is not str or not re.fullmatch('[0-9]{2,12}',code):raise Refused('Exact identity required')
   self.selection.verify()
-  if self.before is None:return {'state':'baseline_unavailable','notice':'A second verified public snapshot has not been supplied. No comparison or change claim is made. '+NOTICE,'after_snapshot':dict(self.after.meta)}
+  if self.before is None:return {'state':'baseline_unavailable','notice':'A second verified public snapshot has not been supplied. No comparison or change claim is made. '+NOTICE,'after_snapshot':dict(self.after.meta)if self.after is not None else snapshot_meta(self.selection.binding)}
   return compare(self.before,self.after,system,code)
 def prepare(env,selection,baseline=None):
  if not enabled(env):

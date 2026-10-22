@@ -1,0 +1,68 @@
+Finder parity reconciliation, 19 October 2026
+Baseline: e119b5276bc3bb08e0ea9a8668e84d2682275363 (60 paths landed).
+This follow-up is local/unpushed. All feature defaults stay OFF.
+
+Earlier source audit compared original91332708 against merged761f8f56.
+Its NO/PARTIAL entries are not a new current live finding. Reconciled below
+against landed F11-F17 and retained local browser/test evidence, not a fresh
+provider/deployment audit. Original Finder remains preserved, extended only.
+
+Closed or narrowed code gaps:
+- Data-only full Finder report button: F11 connects the preserved21-section
+  report without an AI key. Earlier static button-held finding is superseded
+  for selected F11 composition, not for every legacy report branch.
+- Six AI controls: F12 connects classification context, plain words, trade
+  brief, paperwork, comparison and optional report context through the fixed
+  existing proxy/auth/receipt path, with data fallback. Simulated execution
+  and negative guards tested; live entitlement/privacy/spend remain HELD.
+- Yesterday/today idea: F13 supplies artifact comparison of wording, listed
+  duty, GST, presence and linked-code membership. Not actual dated daily
+  changes: distinct real editions and chronology remain unverified.
+- Duty source detail: F14 displays preserved GST/BCD/RoDTEP entries. It does
+  not repair malformed source strings or certify current official duties.
+- FTA idea: F15 shows UAE years1-10 and Australia category source schedules.
+  Complete effective duty/eligibility/savings is NOT implemented by staging.
+- Trade trend: F16 compares supplied annual values with missing-not-zero
+  semantics. Current coverage, unit price and forecasts are not implied.
+- Paperwork/control sheet: F17 joins source documents, certificates, SCOMET
+  and anti-dumping observations. Ongoing investigations are not screened,
+  absent matches are not clearance, official currentness is not verified.
+- Original static interactions: retained Oct16 local390/1100 audit passed
+  search/filter/keyboard/detail, favorites/notes/shortlist CSV/print/remove,
+  compare, chapter/reverse lookup, baked screening/trade/payment/port/transit,
+  manual landed inputs, theme/client view. Session state is intentionally
+  memory-only. Prior evidence is not a new browser run on this follow-up.
+- Reference-rate wrapper: selected-root actual browser load was previously
+  verified390/1100 with zero outside requests; F12 nested AI bridge remains
+  synthetic-only, not actual browser/provider acceptance.
+
+This code-only follow-up:
+- No-baseline F13 no longer allocates a full unused dataset projection.
+- Exact same Binding object reuses one comparison projection. Different
+  Binding objects remain separate and independently integrity-checked.
+- Opt-in subprocess-local peak-RSS measurement harness; not Render capacity.
+- Additional F12 permission/catalog expiry/schema/source-drift negative
+  proofs refuse before receipt writes/transport and do not echo typed text.
+
+Still held before selected features can be ON:
+1. F12 actual credential/access binding, current model/free entitlement,
+   upstream retry/no-paid-fallback cost, owner disclosure of typed queries,
+   retention and production auth/receipt selection. No live calls here.
+2. F13 two distinct real exact F8 artifacts and chronology decisions, plus
+   selected-composition memory proof. Local distinct-object diagnostic still
+   uses one real artifact and exceeds512MiB peak; not an ON acceptance.
+3. Selected source/binding and end-to-end acceptance per enabled feature.
+   Owner GitHub refresh-prep/UI and per-feature deployment decisions remain
+   separate. No unconditional enable-all instruction is supported.
+4. Actual nested reference-rate/F12 browser integration proof remains absent.
+
+Not claimed completed by F11-F17:
+- Full live AIS/weather/rate/provider coverage, per-user durable watchlists,
+  complete semantic news/code inference, whole-history stable exports,
+  current effective FTA duty, company-family/port hazard/satellite ideas.
+- Source-refresh packages/workflows are held preparation, not an unattended
+  merged source-to-published-app acceptance. Preserved timers/mail/collectors
+  are not permission to run them. BRICS collection excluded by current scope.
+- Deferred/declined ideas are not silently reinstated as new assignments.
+No live source/proxy/key call, push, flags ON, Render/env/capacity work or BRICS
+collection was performed. Code review cannot grant any of those effects.

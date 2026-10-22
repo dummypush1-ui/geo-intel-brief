@@ -94,3 +94,32 @@ class Tests(unittest.TestCase):
   cached=c.get(d.base+'snapshot.html',base_url=SAMPLE_ORIGIN);self.assertEqual(cached.data,s.rendered.encode());self.assertNotIn('finder-proxy-f12-request',cached.text)
   self.assertEqual(c.post(m.PATH,base_url=SAMPLE_ORIGIN,json=self.data(),headers={'Origin':SAMPLE_ORIGIN}).status_code,409)
   for path in m.ASSETS:self.assertEqual(c.get(path,base_url=SAMPLE_ORIGIN).status_code,200,path)
+ def test_permission_validation_matrix_no_budget_or_transport(self):
+  from dataclasses import replace
+  good=self.handler.permission
+  bad=[replace(good,**{field:value})for field in ('disclosure_reference','spend_reference','retention_reference','no_paid_fallback_reference')for value in ('','contains space','\n',None)]
+  bad += [replace(good,observed_at=102),replace(good,expires_at=101),replace(good,expires_at=3701),replace(good,observed_at=True),replace(good,expires_at=True)]
+  with self.catalog(),patch.object(FixedProxyTransport,'execute')as call:
+   for permission in bad:
+    with self.subTest(permission=permission):
+     self.handler.permission=permission;self.assertEqual(self.request(self.data()).status_code,409)
+   call.assert_not_called()
+  self.assertEqual(self.c.writes,0)
+ def test_catalog_validation_matrix_no_budget_or_transport(self):
+  base=ModelEntry('groq','fixture-reviewed','fixture-owner','fixture-vendor','fixture-entitlement',100,200)
+  from dataclasses import replace
+  entries=[(),(base,base),(replace(base,expires_at=101),),(replace(base,observed_at=102),),(replace(base,free_entitlement_reference=''),),(replace(base,owner_reference='contains space'),),(replace(base,vendor_reference=''),),(replace(base,expires_at=3701),)]
+  with patch.object(FixedProxyTransport,'execute')as call:
+   for catalog in entries:
+    with self.subTest(catalog=catalog),patch('integration.finder198_connector.MODEL_CATALOG',catalog):self.assertEqual(self.request(self.data()).status_code,409)
+   call.assert_not_called()
+  self.assertEqual(self.c.writes,0)
+ def test_source_drift_no_budget_or_dispatch(self):
+  with self.catalog(),patch.object(f9.Selection,'verify',side_effect=ValueError('drift')),patch.object(FixedProxyTransport,'execute')as call:
+   self.assertEqual(self.request(self.data()).status_code,409);call.assert_not_called()
+  self.assertEqual(self.c.writes,0)
+ def test_held_errors_do_not_echo_private_caller_text(self):
+  secret='PRIVATE-FIXTURE-QUERY-DO-NOT-ECHO'
+  self.handler.permission=None
+  data=self.data('classification_context');data['question']=secret
+  r=self.request(data);self.assertEqual(r.status_code,409);self.assertNotIn(secret,r.get_data(as_text=True));self.assertEqual(self.c.writes,0)
