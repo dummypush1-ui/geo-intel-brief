@@ -32,7 +32,8 @@ jobs:
             echo "::endgroup::"
           done < <(find tests -type f -name '*.mjs' -print | sort)
   python-regression:
-    runs-on: ubuntu-24.04
+    # The reviewed parser fixtures pin Expat 2.4.7; Ubuntu 24.04 ships a newer Expat.
+    runs-on: ubuntu-22.04
     timeout-minutes: 45
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
