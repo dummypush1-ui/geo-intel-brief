@@ -12,8 +12,8 @@
     },
     {
       "path": ".gitignore",
-      "bytes": 117,
-      "sha256": "ce9446fdae6598f86928fb1e0b35d5b77bb046d9bd15d612c3b64b75b89b2206"
+      "bytes": 302,
+      "sha256": "12472afda90961d62b8da570c14046e6892003552c0db440e2b821a147f414d0"
     },
     {
       "path": ".trivyignore.yaml",
