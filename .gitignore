@@ -8,3 +8,19 @@ node_modules/
 
 # Keep only the blank configuration template.
 !.env.example
+
+# Local test, lint, and package-build artifacts
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.tox/
+.venv/
+venv/
+.coverage
+coverage.xml
+htmlcov/
+dist/
+*.egg-info/
+.DS_Store
+Thumbs.db
+*.tmp
