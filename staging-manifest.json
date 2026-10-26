@@ -1907,8 +1907,8 @@
     },
     {
       "path": "integration/collector_actions/source-files.json",
-      "bytes": 44033,
-      "sha256": "837362f5c442c08e03b773083fcb79b8d6083f022bc0ae6091acaf056a2a96d0"
+      "bytes": 43972,
+      "sha256": "0d403c6d0bb04aba83a5620b07662e5796d7c729858c50c13a83c62b26ef6291"
     },
     {
       "path": "integration/collector_actions/test_candidate.py",
@@ -3022,8 +3022,8 @@
     },
     {
       "path": "integration/news_api.py",
-      "bytes": 28102,
-      "sha256": "77137ebf1d8debef70bc49bdc0a253c9b4845429135431af9e8e46328217dff7"
+      "bytes": 28329,
+      "sha256": "c16b2241c74835536e60c67cb5279d3e8619431e5e37fb604b6d1e0489a3612c"
     },
     {
       "path": "integration/news_export_e2/__init__.py",
@@ -4126,16 +4126,6 @@
       "sha256": "115a531add06e5a37121cf3d8f7f57b80ed1c95b5b2f3b98861ecd4f1316b0bf"
     },
     {
-      "path": "integration/ui/geo_map_ui.js",
-      "bytes": 11433,
-      "sha256": "c03076735b59842d1135983d752fa2ab26244726363a3b213e78bd322e8b98a6"
-    },
-    {
-      "path": "integration/ui/geo_map.css",
-      "bytes": 1784,
-      "sha256": "201d66d0e709793fbb3badebe004cbd60a9f24af2e6610bb02cc9a9888f8a842"
-    },
-    {
       "path": "integration/ui/live_channels.js",
       "bytes": 2842,
       "sha256": "3d3dd9ac5ae6849679caddaafdda0276002ca929b35287d77e5d98825e2a171b"
@@ -4144,21 +4134,6 @@
       "path": "integration/ui/live_news.js",
       "bytes": 4624,
       "sha256": "905ef37da5badb95bee57b4e3cebb1bcad8ad66acebf3d8b4aa78189adb199be"
-    },
-    {
-      "path": "integration/ui/map.css",
-      "bytes": 647,
-      "sha256": "81eaad5a5e68ea869e706152a7c71043a9ee478c8e155f099a7442c690e6ac02"
-    },
-    {
-      "path": "integration/ui/map.html",
-      "bytes": 999,
-      "sha256": "fd07ccd0bb3d81a03e6f29e170c9b0ef411ab68b64b20689a9d29293c127a7dd"
-    },
-    {
-      "path": "integration/ui/map.js",
-      "bytes": 1867,
-      "sha256": "74a209c51f1ee9c2b5fa97e3fcbf0864254949e1dee4996fb14294f75754867e"
     },
     {
       "path": "integration/ui/news_scroll.js",
@@ -6432,8 +6407,8 @@
     },
     {
       "path": "tests/geospatial/test_map_route.py",
-      "bytes": 5614,
-      "sha256": "f8f6716db3182c6a830abd0095c15b98d15050165a0d11bd677c8402b879aca6"
+      "bytes": 5858,
+      "sha256": "78150f1f2829ddb2e091c8467645e0290644041d0cc94bb7aee382fb8bc8f559"
     },
     {
       "path": "tests/geospatial/url_parity.mjs",

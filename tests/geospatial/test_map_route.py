@@ -45,12 +45,21 @@ class MapRoutes(unittest.TestCase):
         def boom(): raise RuntimeError("db down")
         r = self.client(reader=boom).get("/api/map-data")
         self.assertEqual(r.status_code, 200); self.assertEqual(r.get_json()["layers"]["chokepoints"]["count"], 12)
-    def test_assets_in_sync_with_package(self):
-        pairs = [("integration/geospatial/map_ui.js", "integration/ui/geo_map_ui.js"), ("integration/geospatial/geo_map.css", "integration/ui/geo_map.css"),
-                 ("integration/geospatial/ui/map.js", "integration/ui/map.js"), ("integration/geospatial/ui/map.css", "integration/ui/map.css"),
-                 ("integration/geospatial/ui/map.html", "integration/ui/map.html")]
-        for a, b in pairs:
-            self.assertEqual((ROOT / a).read_bytes(), (ROOT / b).read_bytes(), b)
+    def test_routes_serve_geospatial_package_assets(self):
+        c = self.client()
+        pairs = {
+            "geo_map_ui.js": "integration/geospatial/map_ui.js",
+            "geo_map.css": "integration/geospatial/geo_map.css",
+            "map.js": "integration/geospatial/ui/map.js",
+            "map.css": "integration/geospatial/ui/map.css",
+        }
+        for name, source in pairs.items():
+            response = c.get("/workspace/assets/" + name)
+            self.assertEqual(response.status_code, 200, name)
+            self.assertEqual(response.data, (ROOT / source).read_bytes(), name)
+        page = c.get("/workspace/map")
+        self.assertEqual(page.status_code, 200)
+        self.assertEqual(page.data, (ROOT / "integration/geospatial/ui/map.html").read_bytes())
     def test_workspace_links_map(self):
         self.assertIn(b'href="/workspace/map"', self.client().get("/workspace").data)
 
