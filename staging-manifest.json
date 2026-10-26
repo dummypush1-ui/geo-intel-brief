@@ -7552,8 +7552,8 @@
     },
     {
       "path": "tests/test_news_export_e2.py",
-      "bytes": 13150,
-      "sha256": "191957928b09434fca73bde2570ebf7bad401a78769853f097025c913eb3c446"
+      "bytes": 13198,
+      "sha256": "e46915ed272029b4d98aaf0484d6364fde6267e3cae310d94c4899760061ddbc"
     },
     {
       "path": "tests/test_news_finder_navigation_prep.py",
