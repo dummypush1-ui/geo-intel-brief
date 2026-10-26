@@ -50,9 +50,10 @@ production module:
 - `runtime_build/`, `runtime_executor27c/`, `workflow_executor29b/`,
   `workflow_package29/` and `portable_validation28*/` retain staged build,
   packaging and review evidence.
-- `README.md` also stores exact historical Markdown sections. Use
-  `scripts/doc_lookup.py` for those archived sections instead of deleting
-  their content to make the README visually shorter.
+- `README.md` is the short project entry page. The complete former README and
+  its 240 byte-checked historical Markdown sections are preserved in
+  `docs/archive/original-readme.archive`. `scripts/doc_lookup.py` reads
+  that archive while keeping the previous virtual document paths compatible.
 - `preservation-manifest.json` and `staging-manifest.json` record hashes and
   sizes. Changes to covered source files must update the relevant manifest.
 

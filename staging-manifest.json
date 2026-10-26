@@ -1216,9 +1216,14 @@
       "sha256": "d6d1b417562bad99e7b434605d63966772749d573375fb10d74ee52cb6bb82f6"
     },
     {
+      "path": "docs/archive/original-readme.archive",
+      "bytes": 971836,
+      "sha256": "f336620b796be75f9343f2895b50ef2d36c8aa02b586f362c076755709b2f834"
+    },
+    {
       "path": "docs/PROJECT_MAP.md",
-      "bytes": 4017,
-      "sha256": "06e0371fef3fee315d6d1b1c91d26963a120c3140f04ca5b0b0f017518b2bb44"
+      "bytes": 4120,
+      "sha256": "de160c7f90056ab7a0802c120d8203d1e021d74081ad63dbb0d8cb4151a3f7ed"
     },
     {
       "path": "feature_carrier_prep/__init__.py",
@@ -4827,8 +4832,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 971836,
-      "sha256": "f336620b796be75f9343f2895b50ef2d36c8aa02b586f362c076755709b2f834"
+      "bytes": 2780,
+      "sha256": "1d8f9176c1cebd70d9ccdacf047b766813b6997cab1d90a6386ef55025295f39"
     },
     {
       "path": "refresh.mjs",
@@ -5202,8 +5207,8 @@
     },
     {
       "path": "scripts/doc_lookup.py",
-      "bytes": 2477,
-      "sha256": "6ff20667a8f8f1f7a4114801fd86021fb7e5b3d6e9ea27cd003e08e720de4743"
+      "bytes": 2997,
+      "sha256": "87220fc885ccbca5d74502db5403fd7b07f6429566187ec15018fd498d86f62f"
     },
     {
       "path": "scripts/finder_provenance.mjs",
@@ -7067,8 +7072,8 @@
     },
     {
       "path": "tests/test_doc_lookup.py",
-      "bytes": 1839,
-      "sha256": "191522584673d49729099acec3d39635fd61b3e5d57b10a383a9cac94e3c5326"
+      "bytes": 1870,
+      "sha256": "a70583ae865005a98fa8fc8e39deec1171e2dd70c8591f8f05ac1b62fe9af82f"
     },
     {
       "path": "tests/test_edge_guard.py",
