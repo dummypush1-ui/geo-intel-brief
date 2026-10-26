@@ -11,8 +11,16 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[0]
 
 
-def _sha(path):
-    return hashlib.sha256(path.read_bytes()).hexdigest()
+def _sha(path, root=ROOT):
+    if path.is_file():
+        data = path.read_bytes()
+    elif path.suffix == '.md':
+        # The historical README files were intentionally embedded in root README.md.
+        from scripts.doc_lookup import source_bytes
+        data = source_bytes(path, root)
+    else:
+        raise FileNotFoundError(path)
+    return hashlib.sha256(data).hexdigest()
 
 
 def drift_report(root=ROOT, manifest=None, upstream=None):
@@ -25,10 +33,13 @@ def drift_report(root=ROOT, manifest=None, upstream=None):
            'upstream_drift': [], 'upstream_unknown': [], 'upstream_checked': upstream is not None}
     for e in entries:
         p = root / e['path']
-        if not p.is_file():
+        try:
+            actual_sha = _sha(p, root)
+        except FileNotFoundError:
             rep['missing'].append(e['path'])
-        elif _sha(p) != e['sha256']:
-            rep['local_drift'].append(e['path'])
+        else:
+            if actual_sha != e['sha256']:
+                rep['local_drift'].append(e['path'])
         if e['sha256'] == e['source_sha256']:
             rep['identical_to_source'] += 1
         else:
