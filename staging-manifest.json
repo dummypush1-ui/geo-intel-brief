@@ -6296,11 +6296,6 @@
       "sha256": "4567df1e3b43bef70bd2460aecc157a31c91a0f6cedb562a7cf7db0c2fe296d5"
     },
     {
-      "path": "tests/fixtures/export_e2_base_live.txt",
-      "bytes": 16749,
-      "sha256": "4567df1e3b43bef70bd2460aecc157a31c91a0f6cedb562a7cf7db0c2fe296d5"
-    },
-    {
       "path": "tests/fixtures/export_e2_base_preview.txt",
       "bytes": 10319,
       "sha256": "b697db7c7f14b2d364c488b360000aa7167b380714197a13be660089c6f47692"
