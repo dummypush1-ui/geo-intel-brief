@@ -1,6 +1,9 @@
-"""Read exact historical documentation sections from the single root README.
+"""Read and verify preserved Markdown sections in README archives.
 
-No filesystem monkeypatching, writes, activation or runtime app imports.
+The root README is now a concise guide. Its original bytes, including every
+embedded historical section, live in docs/archive/original-readme.archive.
+The reader still supports sections left in README.md for older checkouts.
+No filesystem monkeypatching, writes, network requests or runtime app imports.
 """
 import hashlib
 import json
@@ -9,14 +12,13 @@ from pathlib import Path
 _MARKER = b'<!-- ORIGINAL-DOC '
 _END = b'\n<!-- END-ORIGINAL-DOC -->'
 
-def documentation(root):
-    raw = (Path(root) / 'README.md').read_bytes()
-    docs = {}
+
+def _read_sections(raw, docs):
     offset = 0
     while True:
         start = raw.find(_MARKER, offset)
         if start < 0:
-            return docs
+            return
         end = raw.find(b' -->\n', start)
         if end < 0:
             raise ValueError('Malformed documentation section')
@@ -39,6 +41,20 @@ def documentation(root):
         docs[name] = content
         offset = begin + size + len(_END)
 
+
+def documentation(root):
+    root = Path(root)
+    sources = [root / 'README.md']
+    archive_dir = root / 'docs' / 'archive'
+    if archive_dir.is_dir():
+        sources.extend(sorted(archive_dir.glob('*.archive')))
+    docs = {}
+    for source in sources:
+        if source.is_file():
+            _read_sections(source.read_bytes(), docs)
+    return docs
+
+
 def source_bytes(path, root=None):
     """Regular source file, or exact archived .md bytes at its former path."""
     path = Path(path)
@@ -59,6 +75,7 @@ def source_bytes(path, root=None):
     if name not in docs:
         raise FileNotFoundError(path)
     return docs[name]
+
 
 def source_text(path, root=None):
     return source_bytes(path, root).decode('utf-8')

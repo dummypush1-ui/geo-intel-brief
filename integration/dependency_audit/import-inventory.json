@@ -7312,7 +7312,7 @@
       },
       {
         "path": "scripts/doc_lookup.py",
-        "sha256": "6ff20667a8f8f1f7a4114801fd86021fb7e5b3d6e9ea27cd003e08e720de4743"
+        "sha256": "87220fc885ccbca5d74502db5403fd7b07f6429566187ec15018fd498d86f62f"
       },
       {
         "path": "scripts/package_manifest.py",
@@ -8048,7 +8048,7 @@
       },
       {
         "path": "tests/test_doc_lookup.py",
-        "sha256": "191522584673d49729099acec3d39635fd61b3e5d57b10a383a9cac94e3c5326"
+        "sha256": "a70583ae865005a98fa8fc8e39deec1171e2dd70c8591f8f05ac1b62fe9af82f"
       },
       {
         "path": "tests/test_edge_guard.py",
