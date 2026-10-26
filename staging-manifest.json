@@ -2123,7 +2123,7 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 19742,
-      "sha256": "75468b7a1a1e3bce60f3cc8e4dcebccc46a85c834935b7b538cc6da2d3cd94a3"
+      "sha256": "3053459e7156bb2b64681a17111aa590def7968d4c1f765025f60d78d7c2cfd8"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
