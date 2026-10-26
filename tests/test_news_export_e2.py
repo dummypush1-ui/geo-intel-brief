@@ -79,7 +79,7 @@ class Tests(unittest.TestCase):
  def test_off_parity_against_frozen_builders(self):
   root=Path(__file__).resolve().parents[1]
   for name,builder,env in [('preview',build_public_preview,SAMPLE),('live',build_public_live_preview,{**LIVE,'PUBLIC_CODE_NEWS_COVERAGE_API_ENABLED':'false','PUBLIC_CODE_NEWS_COVERAGE_UI_ENABLED':'false'})]:
-   ns={'__file__':str(root/'integration'/('public_'+name+'_builder.py'))};text=(root/'tests/fixtures'/('export_e2_base_'+name+'.txt')).read_text();exec(compile(text,ns['__file__'],'exec'),ns);old=ns['build_public_preview'if name=='preview'else'build_public_live_preview'];make=lambda b:b(env)if name=='preview'else b(env,client_factory=lambda *a,**k:ReadClient())
+   ns={'__file__':str(root/'integration'/('public_'+name+'_builder.py'))};text=(root/'tests/fixtures'/('context_d4_base_live.txt' if name=='live' else 'export_e2_base_'+name+'.txt')).read_text();exec(compile(text,ns['__file__'],'exec'),ns);old=ns['build_public_preview'if name=='preview'else'build_public_live_preview'];make=lambda b:b(env)if name=='preview'else b(env,client_factory=lambda *a,**k:ReadClient())
    a,b=make(old),make(builder);self.addCleanup(a.extensions['whole_news_pages'].close)if name=='live'else None;self.addCleanup(b.extensions['whole_news_pages'].close)if name=='live'else None
    for path in ['/workspace','/api/news-export.csv',m.PATH,'/api/export-full.csv']:
     for verb in ['get','head','options','post']:
