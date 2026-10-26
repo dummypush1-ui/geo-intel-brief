@@ -6032,8 +6032,8 @@
     },
     {
       "path": "tests/browser_public_brics.py",
-      "bytes": 7858,
-      "sha256": "522354ed29ce4f91758df14fad14664c355eddd99bce8a5915194efdc6c80658"
+      "bytes": 7874,
+      "sha256": "a64c1609f923cf33bfe1d2654c2ad653ee59511ae9967aeff5d0de8a5d504f4a"
     },
     {
       "path": "tests/browser_public_map_m1.py",
