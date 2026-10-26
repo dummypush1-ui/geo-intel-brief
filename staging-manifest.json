@@ -2123,12 +2123,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 19742,
-      "sha256": "3053459e7156bb2b64681a17111aa590def7968d4c1f765025f60d78d7c2cfd8"
+      "sha256": "007d06241968352b1877d0c9ac50686a2851bd76cb7b2e3f9581ab2bc5d5095d"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
       "bytes": 349796,
-      "sha256": "b6a70957343b851a1b439fb4e1875f21dfb46114d83f5dbd15c860f164081be0"
+      "sha256": "4f999a92c82750478dcb44262a328a9f22f2cbbea650f1e88a552f3e05b37842"
     },
     {
       "path": "integration/dependency_build/executed-orchestrator.txt",
