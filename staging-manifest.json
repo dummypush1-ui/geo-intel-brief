@@ -2128,7 +2128,7 @@
     {
       "path": "integration/dependency_audit/import-inventory.json",
       "bytes": 349796,
-      "sha256": "23ca1d5011ff9b2ec802872fe89eb0f01d16512813dcc2065eb2d7603bc47036"
+      "sha256": "b6a70957343b851a1b439fb4e1875f21dfb46114d83f5dbd15c860f164081be0"
     },
     {
       "path": "integration/dependency_build/executed-orchestrator.txt",
