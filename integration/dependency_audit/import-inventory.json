@@ -7516,7 +7516,7 @@
       },
       {
         "path": "tests/browser_public_brics.py",
-        "sha256": "522354ed29ce4f91758df14fad14664c355eddd99bce8a5915194efdc6c80658"
+        "sha256": "9f7fe02c1371cb6303cdfd0efb009e550ca5f49dcb10dd95ffc94af697f19c3b"
       },
       {
         "path": "tests/browser_public_map_m1.py",
