@@ -6,7 +6,11 @@
   "scripts": {
     "start": "node server.js",
     "build": "node build.mjs",
-    "refresh": "node refresh.mjs"
+    "refresh": "node refresh.mjs",
+    "test": "npm run test:node",
+    "test:node": "node scripts/test-node.mjs",
+    "test:python": "python -m unittest discover -s tests -v && python -m unittest discover -s checks -v",
+    "check": "npm run build && npm test"
   },
   "engines": {
     "node": ">=22"

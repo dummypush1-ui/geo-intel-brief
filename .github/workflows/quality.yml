@@ -23,14 +23,7 @@ jobs:
       - name: Build Finder outputs from reviewed source
         run: npm run build
       - name: Run standalone Node regression tests
-        shell: bash
-        run: |
-          set -euo pipefail
-          while IFS= read -r file; do
-            echo "::group::node $file"
-            node "$file"
-            echo "::endgroup::"
-          done < <(find tests -type f -name '*.mjs' -print | sort)
+        run: npm run test:node
   python-regression:
     # The reviewed parser fixtures pin Expat 2.4.7; Ubuntu 24.04 ships a newer Expat.
     runs-on: ubuntu-22.04
