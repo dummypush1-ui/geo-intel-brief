@@ -1,0 +1,58 @@
+# One-time, guarded repository cleanup. Remove this workflow after it runs.
+name: One-time branch cleanup
+on:
+  push:
+    branches:
+      - main
+permissions:
+  contents: write
+  pull-requests: read
+jobs:
+  prune:
+    if: ${{ github.event.head_commit.message == 'One-time cleanup of non-main branches' }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Delete every non-main branch ref after the repair PR is merged
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          api="https://api.github.com/repos/${GITHUB_REPOSITORY}"
+          headers=(
+            -H "Authorization: Bearer ${GH_TOKEN}"
+            -H "Accept: application/vnd.github+json"
+            -H "X-GitHub-Api-Version: 2022-11-28"
+          )
+
+          repo_info="$(curl -fsSL "${headers[@]}" "$api")"
+          jq -e '.default_branch == "main" and .full_name == "dummypush1-ui/geo-intel-brief"' <<<"$repo_info" >/dev/null
+          pr="$(curl -fsSL "${headers[@]}" "$api/pulls/28")"
+          jq -e '.merged == true and .base.ref == "main"' <<<"$pr" >/dev/null
+
+          branches="$(curl -fsSL "${headers[@]}" "$api/branches?per_page=100")"
+          jq -e 'type == "array" and any(.[]; .name == "main")' <<<"$branches" >/dev/null
+          mapfile -t names < <(jq -r '.[] | select(.name != "main") | .name' <<<"$branches")
+
+          for branch in "${names[@]}"; do
+            encoded="$(python3 -c 'import sys, urllib.parse; print(urllib.parse.quote(sys.argv[1], safe=""))' "$branch")"
+            response="$(mktemp)"
+            code="$(curl --silent --show-error --output "$response" --write-out '%{http_code}' -X DELETE "${headers[@]}" "$api/git/refs/heads/$encoded")"
+            if [[ "$code" == "404" ]]; then
+              code="$(curl --silent --show-error --output "$response" --write-out '%{http_code}' -X DELETE "${headers[@]}" "$api/git/refs/heads/$branch")"
+            fi
+            if [[ "$code" == "204" ]]; then
+              echo "Deleted branch: $branch"
+            elif [[ "$code" == "404" ]]; then
+              echo "Branch already absent: $branch"
+            else
+              cat "$response"
+              exit 1
+            fi
+            rm -f "$response"
+          done
+
+          remaining="$(curl -fsSL "${headers[@]}" "$api/branches?per_page=100")"
+          jq -e 'type == "array" and length == 1 and .[0].name == "main"' <<<"$remaining" >/dev/null
+          echo "Verified: only main remains."
