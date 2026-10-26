@@ -22,7 +22,7 @@ npm start           # start the Node server
 
 ## Project map
 
-See [the project map](docs/PROJECT_MAP.md) for a short guide to the source
+See [the project map](docs/PROJECT_MAP.txt) for a short guide to the source
 folders, build outputs, tests and staged modules.
 
 | Path | What it contains |

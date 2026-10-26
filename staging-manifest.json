@@ -1221,7 +1221,7 @@
       "sha256": "f336620b796be75f9343f2895b50ef2d36c8aa02b586f362c076755709b2f834"
     },
     {
-      "path": "docs/PROJECT_MAP.md",
+      "path": "docs/PROJECT_MAP.txt",
       "bytes": 4120,
       "sha256": "de160c7f90056ab7a0802c120d8203d1e021d74081ad63dbb0d8cb4151a3f7ed"
     },
@@ -4832,8 +4832,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 2780,
-      "sha256": "1d8f9176c1cebd70d9ccdacf047b766813b6997cab1d90a6386ef55025295f39"
+      "bytes": 2781,
+      "sha256": "23b184df11e5e1c0e7b8d6de5710c1594406c40834436d561df61b3b471ad8a8"
     },
     {
       "path": "refresh.mjs",
@@ -7067,8 +7067,8 @@
     },
     {
       "path": "tests/test_doc_lookup.py",
-      "bytes": 1870,
-      "sha256": "a70583ae865005a98fa8fc8e39deec1171e2dd70c8591f8f05ac1b62fe9af82f"
+      "bytes": 1907,
+      "sha256": "5e03b8544b62b2569593228bf35c13bf0fb041800cbac4d96bbf1e618eb2ebfb"
     },
     {
       "path": "tests/test_edge_guard.py",

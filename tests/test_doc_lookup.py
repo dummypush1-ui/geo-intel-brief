@@ -9,7 +9,8 @@ ROOT = Path(__file__).resolve().parents[1]
 class DocumentationTests(unittest.TestCase):
  def test_project_docs_and_all_original_sections(self):
   physical=sorted(p.relative_to(ROOT).as_posix() for p in ROOT.rglob('*.md') if '.git' not in p.parts)
-  self.assertEqual(physical,['README.md','docs/PROJECT_MAP.md'])
+  self.assertEqual(physical,['README.md'])
+  self.assertTrue((ROOT/'docs/PROJECT_MAP.txt').is_file())
   docs=documentation(ROOT);self.assertEqual(len(docs),240)
   self.assertEqual(hashlib.sha256(docs['intelligence/geo/README.md']).hexdigest(),'adc826e5af1937625e557e98d9d851d4882cd33f4ab98769ad090cb94162522c')
  def section(self,path='docs/a.md',size=1,digest=None,content=b'x'):
