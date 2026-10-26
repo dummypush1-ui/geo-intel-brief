@@ -28,7 +28,7 @@ with sync_playwright()as p:
   page.add_init_script('''window.localStorage.setItem('geo-intel-preview-channels-v1',JSON.stringify([{name:'Republic',video:'abcdefghijk'}]));window.__reads=[];const get=Storage.prototype.getItem;Storage.prototype.getItem=function(k){window.__reads.push(k);return get.call(this,k);};''')
   page.goto('http://127.0.0.1:8785/workspace/brics-streams');page.locator('#wall article').nth(4).wait_for();assert page.locator('iframe').count()==6
   assert 'geo-intel-preview-channels-v1'not in page.evaluate('window.__reads')
-  attrs=page.locator('iframe').evaluate_all('(fs)=>fs.map(f=>({url:f.src,sandbox:f.getAttribute("sandbox"),referrer:f.referrerPolicy}))')
+  attrs=page.locator('iframe').evaluate_all('(fs)=>fs.map(f=>({url:f.src,sandbox:f.getAttribute("sandbox"),referrer:f.getAttribute("referrerpolicy")}))')
   for f in attrs:
    assert f['url'].startswith('https://www.youtube-nocookie.com/embed/')and'autoplay=1&mute=1' in f['url']
    assert f['sandbox']=='allow-scripts allow-same-origin allow-presentation'and f['referrer']=='strict-origin-when-cross-origin'

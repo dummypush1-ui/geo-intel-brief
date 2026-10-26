@@ -12,8 +12,8 @@
     },
     {
       "path": ".gitignore",
-      "bytes": 117,
-      "sha256": "ce9446fdae6598f86928fb1e0b35d5b77bb046d9bd15d612c3b64b75b89b2206"
+      "bytes": 302,
+      "sha256": "12472afda90961d62b8da570c14046e6892003552c0db440e2b821a147f414d0"
     },
     {
       "path": ".trivyignore.yaml",
@@ -2123,12 +2123,12 @@
     {
       "path": "integration/dependency_audit/audit.json",
       "bytes": 19742,
-      "sha256": "29305c38e04f169c40855cfe55022291cd0303f0bdfe488d85053a635f81be21"
+      "sha256": "75468b7a1a1e3bce60f3cc8e4dcebccc46a85c834935b7b538cc6da2d3cd94a3"
     },
     {
       "path": "integration/dependency_audit/import-inventory.json",
       "bytes": 349796,
-      "sha256": "22e40fad38b19c88dfe7687d4a2779e697f46e9f07b1b5a4d4e35cf9ff84a4f2"
+      "sha256": "23ca1d5011ff9b2ec802872fe89eb0f01d16512813dcc2065eb2d7603bc47036"
     },
     {
       "path": "integration/dependency_build/executed-orchestrator.txt",
@@ -6032,8 +6032,8 @@
     },
     {
       "path": "tests/browser_public_brics.py",
-      "bytes": 7858,
-      "sha256": "522354ed29ce4f91758df14fad14664c355eddd99bce8a5915194efdc6c80658"
+      "bytes": 7874,
+      "sha256": "9f7fe02c1371cb6303cdfd0efb009e550ca5f49dcb10dd95ffc94af697f19c3b"
     },
     {
       "path": "tests/browser_public_map_m1.py",
