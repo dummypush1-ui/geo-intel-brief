@@ -4,7 +4,7 @@ import hashlib
 from flask import request
 ROOT=Path(__file__).resolve().parents[1]
 FLAG='PUBLIC_NEWS_SEARCH_PROGRESS_ENABLED'
-PINS={'integration/ui/workspace.js':'d1c8893753936a8f8b6583ae591c33a9966b5f28cc13af7bf76e0b296f6fab32', 'integration/ui/news_search_progress.js': '182a51d5f93e8be8c9fc737bcbb17dcc3e6ea9c353270e5d9a78341229ce24e5', 'integration/ui/news_scroll.js': '1fe5950c718c4a7136e853565fc7ec2857ddb209c4ffa01d4278be2165936ea5', 'integration/ui/workspace.html': 'f0947e8b67b2c579f105ce3f24752d96e1d7633718a7ba0972be41b455a8324f', 'integration/news_pages.py': '24d25bb917c72f1601cfa7c1d667e6c6663e42f604a3e0f2db4de2c085cbb9f0'}
+PINS={'integration/ui/workspace.js':'d1c8893753936a8f8b6583ae591c33a9966b5f28cc13af7bf76e0b296f6fab32', 'integration/ui/news_search_progress.js': '7534389119161d9f5c425a50c91e532588160feec818aeaf8ae6b1480452b9ad', 'integration/ui/news_scroll.js': '1fe5950c718c4a7136e853565fc7ec2857ddb209c4ffa01d4278be2165936ea5', 'integration/ui/workspace.html': 'f0947e8b67b2c579f105ce3f24752d96e1d7633718a7ba0972be41b455a8324f', 'integration/news_pages.py': '24d25bb917c72f1601cfa7c1d667e6c6663e42f604a3e0f2db4de2c085cbb9f0'}
 PATH='/workspace/assets/news_scroll.js'
 WORKSPACE='/workspace/assets/workspace.js'
 SEAM='  return r.json();'
