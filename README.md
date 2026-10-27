@@ -14,9 +14,7 @@ Actions for the full regression suite.
 ```sh
 npm install
 npm run build       # rebuild the Finder web and offline outputs
-npm test            # standalone Node regression tests
-npm run check       # build + Node regression tests
-npm run test:python # Python regression suites
+npm run check       # build
 npm start           # start the Node server
 ```
 

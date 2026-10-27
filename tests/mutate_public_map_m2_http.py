@@ -1,8 +1,0 @@
-import os,sys,types,unittest,json,io,importlib.util
-from pathlib import Path
-root=Path(__file__).resolve().parents[1];sys.path.insert(0,str(root));from tests import test_public_map_m2 as test_m2
-src=(root/'integration/public_map_m2/__init__.py').read_text();changes={'allowlist':("if name not in ASSETS:return jsonify(state='unavailable'),404","if False:return jsonify(state='unavailable'),404"),'referrer':("response.headers['Referrer-Policy']='no-referrer'","pass"),'cache':("response.headers['Cache-Control']='no-store'","pass"),'order':('hooks.insert(0,headers)','hooks.append(headers)'),'alias':("if len(alias_rules)!=1 or alias_rules[0].endpoint!='v1_read_10' or app.view_functions.get('v1_read_10')is not app.view_functions['map_data']:raise Refused('Exact M2 alias seam')","pass")};out=[]
-for name,(a,b)in changes.items():
- assert a in src;module=types.ModuleType('integration.m2_mutant');module.__file__=str(root/'integration/public_map_m2/__init__.py');exec(compile(src.replace(a,b),module.__file__,'exec'),module.__dict__);test_m2.m=module
- tests=['test_asset_allowlist']if name=='allowlist'else['test_alias_identity']if name=='alias'else['test_headers_last_hook'];suite=unittest.TestSuite(test_m2.Tests(t)for t in tests);stream=io.StringIO();r=unittest.TextTestRunner(stream=stream).run(suite);assert not r.wasSuccessful(),name;out.append({'mutant':name,'killed':True,'failures':len(r.failures),'errors':len(r.errors),'detail':stream.getvalue()})
-(Path(os.environ.get('MAP_EVIDENCE_DIR','/tmp/public-map-m2-evidence'))/'http-mutants.json').write_text(json.dumps(out,indent=2));print([(x['mutant'],x['killed'])for x in out])

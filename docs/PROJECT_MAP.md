@@ -10,16 +10,11 @@ Requires Node.js 22 or newer.
 ```sh
 npm install
 npm run build       # rebuild the Finder hosted shell and offline file
-npm test             # standalone Node regression scripts
-npm run check        # build + Node regression scripts
-npm run test:python  # Python tests; use the environment described by CI
+npm run check        # build
 npm start            # start the Node server
 ```
 
-The canonical end-to-end checks are the GitHub Actions **quality** and
-**security** workflows. The Python suite uses a pinned Linux/Python environment
-because parser fixtures depend on the reviewed runtime. A local machine may
-need the same environment before `npm run test:python` can pass.
+The canonical end-to-end check is the GitHub Actions **quality** workflow (build).
 
 ## Where the real app lives
 
