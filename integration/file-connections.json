@@ -83,24 +83,6 @@
       "runtime_verified": false
     },
     {
-      "path": "LICENSE",
-      "project": "finder_or_build",
-      "role": "preserved_engine_or_asset",
-      "sha256": "c915bd1498ad0c00ad82dd6f2690aee521ea0873f0e3d1270c02514d3140345c",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "README.md",
-      "project": "finder_or_build",
-      "role": "preserved_engine_or_asset",
-      "sha256": "24bb7034c28fefcf85b650f776b4b40deaa0b6641a98844d15f52c28857ffc5d",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
       "path": "ai-agent.mjs",
       "project": "finder_or_build",
       "role": "preserved_engine_or_asset",
@@ -2008,19 +1990,19 @@
       "runtime_verified": false
     },
     {
-      "path": "docs/PROJECT_MAP.md",
+      "path": "docs/archive/original-readme.archive",
       "project": "finder_or_build",
       "role": "preserved_engine_or_asset",
-      "sha256": "eaaba53cc5a6680396e08e54da3a3aa68a190ba37433b0c4a439facd1c17cd6a",
+      "sha256": "f336620b796be75f9343f2895b50ef2d36c8aa02b586f362c076755709b2f834",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
     },
     {
-      "path": "docs/archive/original-readme.archive",
+      "path": "docs/PROJECT_MAP.txt",
       "project": "finder_or_build",
       "role": "preserved_engine_or_asset",
-      "sha256": "f336620b796be75f9343f2895b50ef2d36c8aa02b586f362c076755709b2f834",
+      "sha256": "38a3ccf8fbf823e6634a5cc2cc7b6090d86702627cafd241e7e500ab19c8ddbe",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -2681,19 +2663,19 @@
       "runtime_verified": false
     },
     {
-      "path": "integration/bcrypt189/LICENSE.txt",
+      "path": "integration/bcrypt189/dependency.json",
       "project": "integration",
       "role": "offline_contract_or_private_view",
-      "sha256": "8173d5c29b4f956d532781d2b86e4e30f83e6b7878dce18c919451d6ba707c90",
+      "sha256": "849decfd157c566a662e25cab9a03e8920894eb3f06a67e4f3468bbf833a02b2",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
     },
     {
-      "path": "integration/bcrypt189/dependency.json",
+      "path": "integration/bcrypt189/LICENSE.txt",
       "project": "integration",
       "role": "offline_contract_or_private_view",
-      "sha256": "849decfd157c566a662e25cab9a03e8920894eb3f06a67e4f3468bbf833a02b2",
+      "sha256": "8173d5c29b4f956d532781d2b86e4e30f83e6b7878dce18c919451d6ba707c90",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -2717,6 +2699,15 @@
         "collector124_prep/runner.py",
         "collector128_prep/parser_runner.py"
       ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/branding_meta.py",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "100d7085bb5e1d7b2701325efaf2efad0dfe39b37410757524a5aa51c8631463",
+      "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
     },
@@ -2802,24 +2793,6 @@
       "runtime_verified": false
     },
     {
-      "path": "integration/branding_meta.py",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "100d7085bb5e1d7b2701325efaf2efad0dfe39b37410757524a5aa51c8631463",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/brics_feed_b5/B5-README.txt",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "317eb9ed5f72f742ee30d79ae7f1a3801ad6f679dbfd980b0091760577226ff8",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
       "path": "integration/brics_feed_b5/__init__.py",
       "project": "integration",
       "role": "offline_contract_or_private_view",
@@ -2831,10 +2804,10 @@
       "runtime_verified": false
     },
     {
-      "path": "integration/brics_live_b3/B3-README.txt",
+      "path": "integration/brics_feed_b5/B5-README.txt",
       "project": "integration",
       "role": "offline_contract_or_private_view",
-      "sha256": "d1d7b0409523b8fb128ab88625aaa710a198f924b16fde990c5558f35304b553",
+      "sha256": "317eb9ed5f72f742ee30d79ae7f1a3801ad6f679dbfd980b0091760577226ff8",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -2849,6 +2822,15 @@
         "integration/brics_news_boundary.py",
         "integration/geo_read_factory.py"
       ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/brics_live_b3/B3-README.txt",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "d1d7b0409523b8fb128ab88625aaa710a198f924b16fde990c5558f35304b553",
+      "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
     },
@@ -2894,15 +2876,6 @@
       "runtime_verified": false
     },
     {
-      "path": "integration/brics_recovery_b4/B4-README.txt",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "1c6d8c0068812e5bf334cd9aa60898c1601f3c11f8c9d04ccf790f75f6a8c129",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
       "path": "integration/brics_recovery_b4/__init__.py",
       "project": "integration",
       "role": "offline_contract_or_private_view",
@@ -2910,6 +2883,15 @@
       "static_file_edges": [
         "integration/__init__.py"
       ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/brics_recovery_b4/B4-README.txt",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "1c6d8c0068812e5bf334cd9aa60898c1601f3c11f8c9d04ccf790f75f6a8c129",
+      "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
     },
@@ -2961,15 +2943,6 @@
       "runtime_verified": false
     },
     {
-      "path": "integration/code_news_context_d4/D4-README.txt",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "a8698a4fbbc8666652ae770083cc18cf1d9965e52d94c949df22e6c1d75cdd80",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
       "path": "integration/code_news_context_d4/__init__.py",
       "project": "integration",
       "role": "offline_contract_or_private_view",
@@ -2978,6 +2951,15 @@
         "integration/code_news_coverage_broker_prep.py",
         "integration/code_news_coverage_route_prep.py"
       ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/code_news_context_d4/D4-README.txt",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "a8698a4fbbc8666652ae770083cc18cf1d9965e52d94c949df22e6c1d75cdd80",
+      "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
     },
@@ -3217,250 +3199,6 @@
       "runtime_verified": false
     },
     {
-      "path": "integration/collector197_archive.py",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "3e066f22946f93fce85cf4353df5d690a194c5a509bd5ce0942eaae626519ce0",
-      "static_file_edges": [
-        "collector108_prep/durable_ledger.py",
-        "collector110_prep/durable_checkpoint.py",
-        "integration/collector197_coverage.py",
-        "integration/collector197_orchestrator.py"
-      ],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/collector197_config.py",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "eab36cafe3774aa1bf33327e6eefa10b368e984c3f617ee3aae063199e87499f",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/collector197_connector.py",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "b0d41ed15199196563c640767dfa4bec5db6d300d2e542118f814cdeb66f0afa",
-      "static_file_edges": [
-        "collector113_prep/transport_policy.py"
-      ],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/collector197_coordinator.py",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "6f26d8270ffde995334d61543283bf8c69ae8db9a7d18f6ccdb3a75b994431ff",
-      "static_file_edges": [
-        "collector110_prep/input_budget.py",
-        "collector113_prep/feed_composition.py",
-        "integration/collector197_supervisor.py"
-      ],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/collector197_coordinator_child.py",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "338b99cc52cc6ac83c457418a1659dda0d91126eab37774c73387c993b27367a",
-      "static_file_edges": [
-        "integration/collector197_supervisor.py"
-      ],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/collector197_coverage.py",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "1693473ecc0913796fc19a1d74c7d0e86e683236d5efae26abbeb861e9cb799a",
-      "static_file_edges": [
-        "collector109_prep/checkpoint.py",
-        "collector110_prep/durable_checkpoint.py",
-        "collector110_prep/input_budget.py",
-        "collector113_prep/feed_composition.py"
-      ],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/collector197_dispatcher.py",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "e15d3ac23d102148466a60bccf66126a560a9be524304707784d76236dee140f",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/collector197_feed_child.py",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "84e0ebf31bdf7a1c5a35addcf9f124c8f4427a6652d9639b64246abf8da5545e",
-      "static_file_edges": [
-        "collector113_prep/feed_composition.py",
-        "collector129_prep/supplied_feed.py",
-        "integration/collector197_connector.py",
-        "integration/collector197_parser.py"
-      ],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/collector197_host_probe.py",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "5515e043570c4de3a9d69f1c150694c30c6483e0952518e50aa68f69fac0614d",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/collector197_http.py",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "27772c76ef30611a37c49c5e7da4829bab4d2a177201ef735dac7aeb8ed1220b",
-      "static_file_edges": [
-        "collector110_prep/durable_checkpoint.py",
-        "collector130_prep/base_profile.py",
-        "integration/collector197_config.py",
-        "integration/collector197_coordinator.py",
-        "integration/collector197_coverage.py",
-        "integration/collector197_orchestrator.py",
-        "integration/collector197_preflight.py",
-        "integration/geo_article_writer.py"
-      ],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/collector197_job.py",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "0eef8839ea8f74859ea34a0a793fe302d185ac9c3c00b2057f255b2788c0a912",
-      "static_file_edges": [
-        "collector130_prep/base_profile.py",
-        "integration/collector197_config.py",
-        "integration/collector197_coordinator.py",
-        "integration/collector197_coverage.py",
-        "integration/collector197_http.py",
-        "integration/collector197_job_runtime.py",
-        "integration/collector197_orchestrator.py",
-        "integration/collector197_preflight.py",
-        "integration/geo_article_writer.py"
-      ],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/collector197_job_adversary.py",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "553dc040261b77fddbffcd2ad3f78e9c6f652099243fc1e5dd5f08d38f140d9e",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/collector197_job_diagnostic.sh",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "788ab4c849d8f4e14c3102b6767561585fbed25d66c8bc6f1292caeb0836e36c",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/collector197_job_runtime.py",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "4f490cfc33ff82a274484d612c51155abf01d4e75fb7735cf6d35df2a87904c7",
-      "static_file_edges": [
-        "integration/collector197_coverage.py",
-        "integration/collector197_host_probe.py",
-        "integration/collector197_supervisor.py"
-      ],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/collector197_orchestrator.py",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "3144fca89cd7ce4dabde5ca7c9e7dc559a821292c976fa0e9a87edb21178a6ee",
-      "static_file_edges": [
-        "collector108_prep/durable_ledger.py",
-        "collector109_prep/checkpoint.py",
-        "collector110_prep/durable_checkpoint.py",
-        "collector110_prep/input_budget.py",
-        "collector111_prep/drive_durable.py",
-        "integration/collector197_config.py",
-        "integration/collector197_coverage.py",
-        "integration/geo_article_writer.py",
-        "integration/geo_collector_contract.py"
-      ],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/collector197_parser.py",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "81df2a6e96a0aa803d619b7f2e9cf17276c5c71c14eb2331466096e55b1dd8f3",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/collector197_preflight.py",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "371120e8ad4341121538106b8dc328fb3f82352867f5141daaed1fdb91eb9c9d",
-      "static_file_edges": [
-        "collector108_prep/durable_ledger.py",
-        "integration/collector197_orchestrator.py"
-      ],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/collector197_runtime_evidence.py",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "f7f69b3dd53f6d29a6816b2a64df054f4f627e9c9d5ff7e67b54bdb5ebca7912",
-      "static_file_edges": [
-        "integration/collector197_coverage.py"
-      ],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/collector197_supervisor.py",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "7564717b1dd787448c0b7a0ae0084e4c03b5ff11aab8ab23b4957fb3cec4aff9",
-      "static_file_edges": [
-        "collector110_prep/input_budget.py",
-        "collector113_prep/feed_composition.py"
-      ],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/collector197_worker_pins.json",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "4cc3dfaedd5b98b46ae72a579b5ed4f43b5c353c8cf14d26349e457c3a20a465",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
       "path": "integration/collector_actions/entry.py",
       "project": "integration",
       "role": "offline_contract_or_private_view",
@@ -3557,6 +3295,250 @@
       "runtime_verified": false
     },
     {
+      "path": "integration/collector197_archive.py",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "3e066f22946f93fce85cf4353df5d690a194c5a509bd5ce0942eaae626519ce0",
+      "static_file_edges": [
+        "collector108_prep/durable_ledger.py",
+        "collector110_prep/durable_checkpoint.py",
+        "integration/collector197_coverage.py",
+        "integration/collector197_orchestrator.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/collector197_config.py",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "eab36cafe3774aa1bf33327e6eefa10b368e984c3f617ee3aae063199e87499f",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/collector197_connector.py",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "b0d41ed15199196563c640767dfa4bec5db6d300d2e542118f814cdeb66f0afa",
+      "static_file_edges": [
+        "collector113_prep/transport_policy.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/collector197_coordinator_child.py",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "338b99cc52cc6ac83c457418a1659dda0d91126eab37774c73387c993b27367a",
+      "static_file_edges": [
+        "integration/collector197_supervisor.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/collector197_coordinator.py",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "6f26d8270ffde995334d61543283bf8c69ae8db9a7d18f6ccdb3a75b994431ff",
+      "static_file_edges": [
+        "collector110_prep/input_budget.py",
+        "collector113_prep/feed_composition.py",
+        "integration/collector197_supervisor.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/collector197_coverage.py",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "1693473ecc0913796fc19a1d74c7d0e86e683236d5efae26abbeb861e9cb799a",
+      "static_file_edges": [
+        "collector109_prep/checkpoint.py",
+        "collector110_prep/durable_checkpoint.py",
+        "collector110_prep/input_budget.py",
+        "collector113_prep/feed_composition.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/collector197_dispatcher.py",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "e15d3ac23d102148466a60bccf66126a560a9be524304707784d76236dee140f",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/collector197_feed_child.py",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "84e0ebf31bdf7a1c5a35addcf9f124c8f4427a6652d9639b64246abf8da5545e",
+      "static_file_edges": [
+        "collector113_prep/feed_composition.py",
+        "collector129_prep/supplied_feed.py",
+        "integration/collector197_connector.py",
+        "integration/collector197_parser.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/collector197_host_probe.py",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "5515e043570c4de3a9d69f1c150694c30c6483e0952518e50aa68f69fac0614d",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/collector197_http.py",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "27772c76ef30611a37c49c5e7da4829bab4d2a177201ef735dac7aeb8ed1220b",
+      "static_file_edges": [
+        "collector110_prep/durable_checkpoint.py",
+        "collector130_prep/base_profile.py",
+        "integration/collector197_config.py",
+        "integration/collector197_coordinator.py",
+        "integration/collector197_coverage.py",
+        "integration/collector197_orchestrator.py",
+        "integration/collector197_preflight.py",
+        "integration/geo_article_writer.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/collector197_job_adversary.py",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "553dc040261b77fddbffcd2ad3f78e9c6f652099243fc1e5dd5f08d38f140d9e",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/collector197_job_diagnostic.sh",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "788ab4c849d8f4e14c3102b6767561585fbed25d66c8bc6f1292caeb0836e36c",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/collector197_job_runtime.py",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "4f490cfc33ff82a274484d612c51155abf01d4e75fb7735cf6d35df2a87904c7",
+      "static_file_edges": [
+        "integration/collector197_coverage.py",
+        "integration/collector197_host_probe.py",
+        "integration/collector197_supervisor.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/collector197_job.py",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "0eef8839ea8f74859ea34a0a793fe302d185ac9c3c00b2057f255b2788c0a912",
+      "static_file_edges": [
+        "collector130_prep/base_profile.py",
+        "integration/collector197_config.py",
+        "integration/collector197_coordinator.py",
+        "integration/collector197_coverage.py",
+        "integration/collector197_http.py",
+        "integration/collector197_job_runtime.py",
+        "integration/collector197_orchestrator.py",
+        "integration/collector197_preflight.py",
+        "integration/geo_article_writer.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/collector197_orchestrator.py",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "3144fca89cd7ce4dabde5ca7c9e7dc559a821292c976fa0e9a87edb21178a6ee",
+      "static_file_edges": [
+        "collector108_prep/durable_ledger.py",
+        "collector109_prep/checkpoint.py",
+        "collector110_prep/durable_checkpoint.py",
+        "collector110_prep/input_budget.py",
+        "collector111_prep/drive_durable.py",
+        "integration/collector197_config.py",
+        "integration/collector197_coverage.py",
+        "integration/geo_article_writer.py",
+        "integration/geo_collector_contract.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/collector197_parser.py",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "81df2a6e96a0aa803d619b7f2e9cf17276c5c71c14eb2331466096e55b1dd8f3",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/collector197_preflight.py",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "371120e8ad4341121538106b8dc328fb3f82352867f5141daaed1fdb91eb9c9d",
+      "static_file_edges": [
+        "collector108_prep/durable_ledger.py",
+        "integration/collector197_orchestrator.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/collector197_runtime_evidence.py",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "f7f69b3dd53f6d29a6816b2a64df054f4f627e9c9d5ff7e67b54bdb5ebca7912",
+      "static_file_edges": [
+        "integration/collector197_coverage.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/collector197_supervisor.py",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "7564717b1dd787448c0b7a0ae0084e4c03b5ff11aab8ab23b4957fb3cec4aff9",
+      "static_file_edges": [
+        "collector110_prep/input_budget.py",
+        "collector113_prep/feed_composition.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/collector197_worker_pins.json",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "4cc3dfaedd5b98b46ae72a579b5ed4f43b5c353c8cf14d26349e457c3a20a465",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
       "path": "integration/commodity_candidate_eval.py",
       "project": "integration",
       "role": "offline_contract_or_private_view",
@@ -3609,19 +3591,19 @@
       "runtime_verified": false
     },
     {
-      "path": "integration/cross-connections.json",
+      "path": "integration/cross_link_schema_prep.py",
       "project": "integration",
       "role": "offline_contract_or_private_view",
-      "sha256": "935ebaa53ff6eebf69f7a2a083e45a1284e92cccfa43d157c335c7f06990dcda",
+      "sha256": "ca7b7c64ab9af50ae61dfa5f82b441e28a4d2abb37d108de8870a93fdb6b2f53",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
     },
     {
-      "path": "integration/cross_link_schema_prep.py",
+      "path": "integration/cross-connections.json",
       "project": "integration",
       "role": "offline_contract_or_private_view",
-      "sha256": "ca7b7c64ab9af50ae61dfa5f82b441e28a4d2abb37d108de8870a93fdb6b2f53",
+      "sha256": "935ebaa53ff6eebf69f7a2a083e45a1284e92cccfa43d157c335c7f06990dcda",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -3984,6 +3966,679 @@
       "runtime_verified": false
     },
     {
+      "path": "integration/finder_binding_f8/__init__.py",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "3aa2763f4ecd10cb3a46c62668d272a619d3f8489cf104e0dc9422094a388182",
+      "static_file_edges": [
+        "integration/finder_identity_proof_prep.py",
+        "integration/finder_refresh_f1/__init__.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_binding_f8/ATOMIC-CONSUMERS.txt",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "3244a95703cfc3c0eed2056377e1db22338a300c93c2157493ba3ce6f56638da",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_binding_f8/F8-README.txt",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "31474c00ddfd20a2423546d38b41a0fa4a91017b98ba1bd35df2d1fab97fdae3",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_chain_f7/__init__.py",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "7b71aad24fd982971aea0452fb094fc141f17aa18a9a74ffa817f433b5ce8457",
+      "static_file_edges": [
+        "integration/__init__.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_chain_f7/F7-README.txt",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "7b4a114433cce4600a131aac3312455d1c081c159551b12fd0f6e105b38beb8a",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_changes_f13/__init__.py",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "5b2c18f3b8b40b14c773a959c70df374fd9e68df2ca0384d76ae2f7b6c9fabda",
+      "static_file_edges": [
+        "integration/finder_binding_f8/__init__.py",
+        "integration/finder_composition_f9/__init__.py",
+        "integration/finder_proxy_f12/evidence.py",
+        "integration/public_ai_answers.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_changes_f13/COMPLETENESS.txt",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "078149d02445b06bba4545bc3d138beb0f56f327a2c740131b41a65844989fc6",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_changes_f13/PARITY-FUNCTIONS.csv",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "9edd7ad19759328d8ac61f26631a06d3914ed3a8d7e9191fad808d72066428aa",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_changes_f13/PARITY-FUNCTIONS.json",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "3c5c03739f6c6ce38c6c05221cfcfade1ee3d37dd4910b88aee728db5e96287e",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_changes_f13/PARITY-READINESS.txt",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "f9edb83ca2cda76b0306f11fcc8d1a563b9b8a0b96bcec2fc47c0f9890c69b89",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_changes_f13/README.txt",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "0979938dd8585ecd98c028001df89b86fb956c15fdf5ea5b0661748c56cb2965",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_changes_f13/view.css",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "7715b16f2ae7ebf64e1b0126b006fcfa57f691aebaef4c36d7ea536b3eb27c3c",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_changes_f13/view.html",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "07f67b5ba6b1699fd9cf147f69c77a854403d264d0a0c4123da3ad4b2bfac6c7",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_changes_f13/view.js",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "b51b717807c84b54bf92451371e97f77506a514f0722fe2ce73e420cd5f86420",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_composition_f9/__init__.py",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "78828a29dd0cc2216edd027a4353d53b83bd10660281a0bfa3567834842bf84c",
+      "static_file_edges": [
+        "integration/finder_binding_f8/__init__.py",
+        "integration/finder_offline.py",
+        "integration/finder_report_f11/__init__.py",
+        "integration/news_api.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_composition_f9/F9-README.txt",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "756537a4cfc0957ad26eb15812c00054c50944989693dc8e1d4f12a5f9024362",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_composition_f9/pins.json",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "8152f80592f40afac03d61b7e7aa84a36d683096a5d89cd39937e091947f585a",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_controls_f17/__init__.py",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "d709ca976021a5cae467ee87f12c5446c04dc4d581846af222fcfdac2226ea31",
+      "static_file_edges": [
+        "integration/finder_composition_f9/__init__.py",
+        "integration/finder_report_f11/__init__.py",
+        "integration/public_ai_answers.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_controls_f17/finder.js",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "842edfeaf6472d7377e5832c4b10d7e6d8fc5c100e3e9c658d8ef169aa0c4960",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_controls_f17/README.txt",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "5fa6730f2df9f9fc68866e94ef3ea3ad7cec8bfd53668447b741a3234691b2d5",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_device_f10/__init__.py",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "29c7beca42adaf0ff035812fa28f0813bc2d874c2d6f01935d32cf939556cc57",
+      "static_file_edges": [
+        "integration/finder_composition_f9/__init__.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_device_f10/control.js",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "f0dc60db9fbb89f4dd4b51e63b805d2df418f37371bce7169e430d7c58c28ad6",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_device_f10/F10-README.txt",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "498d11be09a588256ef8e9cc9147818f7b63470bd0ed033f523b3f83e6be42a4",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_device_f10/worker.js",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "641bc6dd159158b09c16fb349a240a45f86fe88b3ec81174dd410e121ecca9a2",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_fta_f15/__init__.py",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "bf8a43fc27f8f534e70d4cbace601288b87f75b998fc9ba7712b0092236cf632",
+      "static_file_edges": [
+        "integration/finder_composition_f9/__init__.py",
+        "integration/finder_report_f11/__init__.py",
+        "integration/public_ai_answers.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_fta_f15/finder.js",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "4aa70344f57285cbe9a186be9fb1cffbc4cef0b175961080c64e379265d26afd",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_fta_f15/README.txt",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "051c3ffe59d10b8819affb9db4bb42883bb4329ffeb6e3dc0a68c165634c47ec",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_identity_proof_prep.py",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "a848b91a1310b55e1b7e4db892e2623d398d9985f1dd689bf115656e51905ae9",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_identity_proof.bin",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "bfbea25e82ffaddadae5b8e6175ce27d1872477c96d31e085d1a0056fb6e6fc2",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_index.py",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "cb3a41af1a85a03e31770c2735a0b823a46c41971804189e68597ec602763265",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_links.py",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "7a5d02def15e5a03790edb6d7b11c9a922df4e4dbd3de2c309e3b188aee2453b",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_nested.py",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "8aed1a572e4b8d5d5580194937324bc0f168d1618c5bc3017cf90c23ed7a06d6",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_network.py",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "07fc045266659eadbefef1b52829c4e185ccdc70a3362fbd076a9d79719b3232",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_offline.py",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "3d032501b4ee852262864e1f15c1ccb6514b5547462a404ebfe8fb96e7cfb1bd",
+      "static_file_edges": [
+        "integration/branding_meta.py",
+        "integration/finder_nested.py",
+        "integration/finder_network.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_package_f6/__init__.py",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "94c15acecdad433821b7453f3e4c73cec3e3348187728a95a892f3a6839fe9d9",
+      "static_file_edges": [
+        "integration/__init__.py",
+        "integration/finder_refresh_f1/__init__.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_package_f6/F6-README.txt",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "e8fe7fb709c8734ccce5235dc536bf040a0afef192393df874007e1c1475e27c",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_proxy_f12/__init__.py",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "2688fa6ef943e09eea3b01ba17be8588eadd5dfa55bfcf889a68a6521b4998b2",
+      "static_file_edges": [
+        "integration/existing_proxy_codec.py",
+        "integration/finder198_auth.py",
+        "integration/finder198_connector.py",
+        "integration/finder198_receipts.py",
+        "integration/finder198_server.py",
+        "integration/finder198_transport.py",
+        "integration/finder_composition_f9/__init__.py",
+        "integration/finder_report_f11/__init__.py",
+        "integration/public_ai_answers.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_proxy_f12/client.mjs",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "451976882044209ef8cd49aec0bf350e79f3efaea1e83a5d983650edb69905c0",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_proxy_f12/evidence.py",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "baf5a7b22a93d85ecd015913da15934de59d4bf640ac482e4364681312c9a1c0",
+      "static_file_edges": [
+        "integration/finder_composition_f9/__init__.py",
+        "integration/public_ai_answers.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_proxy_f12/finder.js",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "2fbc26ca2efef92eb87e1bc35b420bdec47863847e02b9b4d9bf1d44a9987add",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_proxy_f12/panel.css",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "bcffffc6207eb1411b4f3c0ea9f2722d4f5352e9ce906b333d1694eed4158f0d",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_proxy_f12/panel.mjs",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "3459e40c79f0d3073b418bc20b620ec61b13316b0109c1286454d517b1685ff9",
+      "static_file_edges": [
+        "integration/finder_proxy_f12/client.mjs",
+        "integration/finder_proxy_f12/ships226.mjs"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_proxy_f12/README.txt",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "0cabbb3e2033c6a57f5dcfbc3784a8ca37d24ccce66940fe0376ac36d4411c44",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_proxy_f12/ships226.mjs",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "2b5b6b0591dfdc43e95e64cdd579d9276f72a0efea4a1d620bcbfb92e5f56ddb",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_proxy_f12/workspace.js",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "34c3ce1162744798702bbcfd166c779d935edced6fefb94f0e0c1ec9894a8101",
+      "static_file_edges": [
+        "integration/finder_proxy_f12/panel.mjs"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_rates_f14/__init__.py",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "a17885f229e4c8121b34207d978471f138c34426ec36183e79356c85aecda9c8",
+      "static_file_edges": [
+        "integration/finder_composition_f9/__init__.py",
+        "integration/finder_report_f11/__init__.py",
+        "integration/public_ai_answers.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_rates_f14/finder.js",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "d29a7934c3c5c9dcf0160ada85bcc9bdc7b5a1aa54ae1083d91df572080dc8a2",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_rates_f14/README.txt",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "da948ec1cd3206377183f831facc242445b1550cb267fb17c50fdb95b6cd9bd1",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_rebind_f4/__init__.py",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "f75a682eff470599792ee5a2dfacf04d94ab8315d14ae1b850eacf9b73e53a1b",
+      "static_file_edges": [
+        "integration/code_news_catalogue.py",
+        "integration/finder_identity_proof_prep.py",
+        "scripts/build_finder_identity_proof.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_rebind_f4/F4-README.txt",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "95651a2fae1425373d7d9bfc43179100823d15e42274ab1bfeecdedecb3ae94a",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_reconcile_f2/__init__.py",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "4f8c25472bfb0aae85cf7fbb60cfefb37d5d2fb2434c0b3519f1d44cbc233de4",
+      "static_file_edges": [
+        "integration/__init__.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_reconcile_f2/F2-README.txt",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "585d7f9164f8ee0b8ec5ddd938ec51ceacbc647920c4bcca4ffeb34c0dabf34f",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_reconcile_f2/partner-declaration.txt",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "8efcd31eb541857022eb8cb375e5b13099438f046f8e62b9e099cfe07f965b47",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_refresh_f1/__init__.py",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "a195bc904bfea919b8b08c1cffe8fae9f02ad7a89ecd3eb451eb709672ec8a2a",
+      "static_file_edges": [
+        "integration/__init__.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_refresh_f1/__main__.py",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "6834b438d197bcd8ac3a32e661e2667c54dbe84a79f58e7cc98baa2c82d0ee53",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_refresh_f1/F1-README.txt",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "a58ffaf08743174169b4391472be89a12738522116584d9e2de7e84969613e78",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_refresh_f1/finder-refresh-prep.yml.txt",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "009340f1d17329d66415b754b0d040d816132d05f67e45be32bbc7f1543f653d",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_refresh_f1/pins.json",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "2a0c4cde4af2d1a17a21be7d5125292dd510e226691e0c9fdbcd4a405d604240",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_render_f5/__init__.py",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "5cb366096e06a0159ab535cefbd1158f5cbfd4b5082988692866bd282846908b",
+      "static_file_edges": [
+        "integration/finder_offline.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_render_f5/F5-README.txt",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "0340ee4525d5bf7310a71efeb83c30d9bd85b90e8b9bf7705ce1df6e7c2c53cd",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_report_f11/__init__.py",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "1720ab549b4a76440df42a3a1afd5371277822439398ee5b018eb03339ba1b04",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_report_f11/README.txt",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "3555e9c001315b29aac91c32b81a255a63da3512ac786c30105244d345271c0b",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_source_f3/__init__.py",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "1ae7f688e68e99b9cebab20eb5f6be5b7e71f109ea088d0fba85afccd87c1a59",
+      "static_file_edges": [
+        "integration/__init__.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_source_f3/F3-README.txt",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "c0a1b3666b9546aa6fcd94423c83a0bbc42edd6ccbd6341c529246be81c0fcfd",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_trend_f16/__init__.py",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "50b2ff09ab64b12b59d43f69c9ab81335a9d367b1e2034624612816c1dfb6f6f",
+      "static_file_edges": [
+        "integration/finder_composition_f9/__init__.py",
+        "integration/finder_report_f11/__init__.py",
+        "integration/public_ai_answers.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_trend_f16/finder.js",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "e71fda699ff22f10bc9e2388d97008aa744e27b2058bb2c9e9f94c32928eec1c",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/finder_trend_f16/README.txt",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "d1a68533202bf9599c10c39838bf08b964de9289e2312dfb439ecd40d9ebc4ec",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
       "path": "integration/finder-news.js",
       "project": "integration",
       "role": "offline_contract_or_private_view",
@@ -4062,6 +4717,17 @@
       "runtime_verified": false
     },
     {
+      "path": "integration/finder198_transport_child.py",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "f0033e40c26ea4c787e0a465cab32f26881244d8916d4226e737abf2f0f2e918",
+      "static_file_edges": [
+        "integration/finder198_connector.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
       "path": "integration/finder198_transport.py",
       "project": "integration",
       "role": "offline_contract_or_private_view",
@@ -4069,17 +4735,6 @@
       "static_file_edges": [
         "integration/finder198_connector.py",
         "integration/finder198_receipts.py"
-      ],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/finder198_transport_child.py",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "f0033e40c26ea4c787e0a465cab32f26881244d8916d4226e737abf2f0f2e918",
-      "static_file_edges": [
-        "integration/finder198_connector.py"
       ],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -4132,679 +4787,6 @@
         "integration/finder198_budget.py",
         "integration/finder198_receipts.py"
       ],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/finder_binding_f8/ATOMIC-CONSUMERS.txt",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "3244a95703cfc3c0eed2056377e1db22338a300c93c2157493ba3ce6f56638da",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/finder_binding_f8/F8-README.txt",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "31474c00ddfd20a2423546d38b41a0fa4a91017b98ba1bd35df2d1fab97fdae3",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/finder_binding_f8/__init__.py",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "3aa2763f4ecd10cb3a46c62668d272a619d3f8489cf104e0dc9422094a388182",
-      "static_file_edges": [
-        "integration/finder_identity_proof_prep.py",
-        "integration/finder_refresh_f1/__init__.py"
-      ],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/finder_chain_f7/F7-README.txt",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "7b4a114433cce4600a131aac3312455d1c081c159551b12fd0f6e105b38beb8a",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/finder_chain_f7/__init__.py",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "7b71aad24fd982971aea0452fb094fc141f17aa18a9a74ffa817f433b5ce8457",
-      "static_file_edges": [
-        "integration/__init__.py"
-      ],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/finder_changes_f13/COMPLETENESS.txt",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "078149d02445b06bba4545bc3d138beb0f56f327a2c740131b41a65844989fc6",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/finder_changes_f13/PARITY-FUNCTIONS.csv",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "9edd7ad19759328d8ac61f26631a06d3914ed3a8d7e9191fad808d72066428aa",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/finder_changes_f13/PARITY-FUNCTIONS.json",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "3c5c03739f6c6ce38c6c05221cfcfade1ee3d37dd4910b88aee728db5e96287e",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/finder_changes_f13/PARITY-READINESS.txt",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "f9edb83ca2cda76b0306f11fcc8d1a563b9b8a0b96bcec2fc47c0f9890c69b89",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/finder_changes_f13/README.txt",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "0979938dd8585ecd98c028001df89b86fb956c15fdf5ea5b0661748c56cb2965",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/finder_changes_f13/__init__.py",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "5b2c18f3b8b40b14c773a959c70df374fd9e68df2ca0384d76ae2f7b6c9fabda",
-      "static_file_edges": [
-        "integration/finder_binding_f8/__init__.py",
-        "integration/finder_composition_f9/__init__.py",
-        "integration/finder_proxy_f12/evidence.py",
-        "integration/public_ai_answers.py"
-      ],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/finder_changes_f13/view.css",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "7715b16f2ae7ebf64e1b0126b006fcfa57f691aebaef4c36d7ea536b3eb27c3c",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/finder_changes_f13/view.html",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "07f67b5ba6b1699fd9cf147f69c77a854403d264d0a0c4123da3ad4b2bfac6c7",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/finder_changes_f13/view.js",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "b51b717807c84b54bf92451371e97f77506a514f0722fe2ce73e420cd5f86420",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/finder_composition_f9/F9-README.txt",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "756537a4cfc0957ad26eb15812c00054c50944989693dc8e1d4f12a5f9024362",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/finder_composition_f9/__init__.py",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "78828a29dd0cc2216edd027a4353d53b83bd10660281a0bfa3567834842bf84c",
-      "static_file_edges": [
-        "integration/finder_binding_f8/__init__.py",
-        "integration/finder_offline.py",
-        "integration/finder_report_f11/__init__.py",
-        "integration/news_api.py"
-      ],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/finder_composition_f9/pins.json",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "8152f80592f40afac03d61b7e7aa84a36d683096a5d89cd39937e091947f585a",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/finder_controls_f17/README.txt",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "5fa6730f2df9f9fc68866e94ef3ea3ad7cec8bfd53668447b741a3234691b2d5",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/finder_controls_f17/__init__.py",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "d709ca976021a5cae467ee87f12c5446c04dc4d581846af222fcfdac2226ea31",
-      "static_file_edges": [
-        "integration/finder_composition_f9/__init__.py",
-        "integration/finder_report_f11/__init__.py",
-        "integration/public_ai_answers.py"
-      ],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/finder_controls_f17/finder.js",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "842edfeaf6472d7377e5832c4b10d7e6d8fc5c100e3e9c658d8ef169aa0c4960",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/finder_device_f10/F10-README.txt",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "498d11be09a588256ef8e9cc9147818f7b63470bd0ed033f523b3f83e6be42a4",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/finder_device_f10/__init__.py",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "29c7beca42adaf0ff035812fa28f0813bc2d874c2d6f01935d32cf939556cc57",
-      "static_file_edges": [
-        "integration/finder_composition_f9/__init__.py"
-      ],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/finder_device_f10/control.js",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "f0dc60db9fbb89f4dd4b51e63b805d2df418f37371bce7169e430d7c58c28ad6",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/finder_device_f10/worker.js",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "641bc6dd159158b09c16fb349a240a45f86fe88b3ec81174dd410e121ecca9a2",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/finder_fta_f15/README.txt",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "051c3ffe59d10b8819affb9db4bb42883bb4329ffeb6e3dc0a68c165634c47ec",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/finder_fta_f15/__init__.py",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "bf8a43fc27f8f534e70d4cbace601288b87f75b998fc9ba7712b0092236cf632",
-      "static_file_edges": [
-        "integration/finder_composition_f9/__init__.py",
-        "integration/finder_report_f11/__init__.py",
-        "integration/public_ai_answers.py"
-      ],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/finder_fta_f15/finder.js",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "4aa70344f57285cbe9a186be9fb1cffbc4cef0b175961080c64e379265d26afd",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/finder_identity_proof.bin",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "bfbea25e82ffaddadae5b8e6175ce27d1872477c96d31e085d1a0056fb6e6fc2",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/finder_identity_proof_prep.py",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "a848b91a1310b55e1b7e4db892e2623d398d9985f1dd689bf115656e51905ae9",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/finder_index.py",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "cb3a41af1a85a03e31770c2735a0b823a46c41971804189e68597ec602763265",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/finder_links.py",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "7a5d02def15e5a03790edb6d7b11c9a922df4e4dbd3de2c309e3b188aee2453b",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/finder_nested.py",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "8aed1a572e4b8d5d5580194937324bc0f168d1618c5bc3017cf90c23ed7a06d6",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/finder_network.py",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "07fc045266659eadbefef1b52829c4e185ccdc70a3362fbd076a9d79719b3232",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/finder_offline.py",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "3d032501b4ee852262864e1f15c1ccb6514b5547462a404ebfe8fb96e7cfb1bd",
-      "static_file_edges": [
-        "integration/branding_meta.py",
-        "integration/finder_nested.py",
-        "integration/finder_network.py"
-      ],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/finder_package_f6/F6-README.txt",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "e8fe7fb709c8734ccce5235dc536bf040a0afef192393df874007e1c1475e27c",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/finder_package_f6/__init__.py",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "94c15acecdad433821b7453f3e4c73cec3e3348187728a95a892f3a6839fe9d9",
-      "static_file_edges": [
-        "integration/__init__.py",
-        "integration/finder_refresh_f1/__init__.py"
-      ],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/finder_proxy_f12/README.txt",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "0cabbb3e2033c6a57f5dcfbc3784a8ca37d24ccce66940fe0376ac36d4411c44",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/finder_proxy_f12/__init__.py",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "2688fa6ef943e09eea3b01ba17be8588eadd5dfa55bfcf889a68a6521b4998b2",
-      "static_file_edges": [
-        "integration/existing_proxy_codec.py",
-        "integration/finder198_auth.py",
-        "integration/finder198_connector.py",
-        "integration/finder198_receipts.py",
-        "integration/finder198_server.py",
-        "integration/finder198_transport.py",
-        "integration/finder_composition_f9/__init__.py",
-        "integration/finder_report_f11/__init__.py",
-        "integration/public_ai_answers.py"
-      ],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/finder_proxy_f12/client.mjs",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "451976882044209ef8cd49aec0bf350e79f3efaea1e83a5d983650edb69905c0",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/finder_proxy_f12/evidence.py",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "baf5a7b22a93d85ecd015913da15934de59d4bf640ac482e4364681312c9a1c0",
-      "static_file_edges": [
-        "integration/finder_composition_f9/__init__.py",
-        "integration/public_ai_answers.py"
-      ],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/finder_proxy_f12/finder.js",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "2fbc26ca2efef92eb87e1bc35b420bdec47863847e02b9b4d9bf1d44a9987add",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/finder_proxy_f12/panel.css",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "bcffffc6207eb1411b4f3c0ea9f2722d4f5352e9ce906b333d1694eed4158f0d",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/finder_proxy_f12/panel.mjs",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "3459e40c79f0d3073b418bc20b620ec61b13316b0109c1286454d517b1685ff9",
-      "static_file_edges": [
-        "integration/finder_proxy_f12/client.mjs",
-        "integration/finder_proxy_f12/ships226.mjs"
-      ],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/finder_proxy_f12/ships226.mjs",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "2b5b6b0591dfdc43e95e64cdd579d9276f72a0efea4a1d620bcbfb92e5f56ddb",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/finder_proxy_f12/workspace.js",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "34c3ce1162744798702bbcfd166c779d935edced6fefb94f0e0c1ec9894a8101",
-      "static_file_edges": [
-        "integration/finder_proxy_f12/panel.mjs"
-      ],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/finder_rates_f14/README.txt",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "da948ec1cd3206377183f831facc242445b1550cb267fb17c50fdb95b6cd9bd1",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/finder_rates_f14/__init__.py",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "a17885f229e4c8121b34207d978471f138c34426ec36183e79356c85aecda9c8",
-      "static_file_edges": [
-        "integration/finder_composition_f9/__init__.py",
-        "integration/finder_report_f11/__init__.py",
-        "integration/public_ai_answers.py"
-      ],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/finder_rates_f14/finder.js",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "d29a7934c3c5c9dcf0160ada85bcc9bdc7b5a1aa54ae1083d91df572080dc8a2",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/finder_rebind_f4/F4-README.txt",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "95651a2fae1425373d7d9bfc43179100823d15e42274ab1bfeecdedecb3ae94a",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/finder_rebind_f4/__init__.py",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "f75a682eff470599792ee5a2dfacf04d94ab8315d14ae1b850eacf9b73e53a1b",
-      "static_file_edges": [
-        "integration/code_news_catalogue.py",
-        "integration/finder_identity_proof_prep.py",
-        "scripts/build_finder_identity_proof.py"
-      ],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/finder_reconcile_f2/F2-README.txt",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "585d7f9164f8ee0b8ec5ddd938ec51ceacbc647920c4bcca4ffeb34c0dabf34f",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/finder_reconcile_f2/__init__.py",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "4f8c25472bfb0aae85cf7fbb60cfefb37d5d2fb2434c0b3519f1d44cbc233de4",
-      "static_file_edges": [
-        "integration/__init__.py"
-      ],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/finder_reconcile_f2/partner-declaration.txt",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "8efcd31eb541857022eb8cb375e5b13099438f046f8e62b9e099cfe07f965b47",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/finder_refresh_f1/F1-README.txt",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "a58ffaf08743174169b4391472be89a12738522116584d9e2de7e84969613e78",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/finder_refresh_f1/__init__.py",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "a195bc904bfea919b8b08c1cffe8fae9f02ad7a89ecd3eb451eb709672ec8a2a",
-      "static_file_edges": [
-        "integration/__init__.py"
-      ],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/finder_refresh_f1/__main__.py",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "6834b438d197bcd8ac3a32e661e2667c54dbe84a79f58e7cc98baa2c82d0ee53",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/finder_refresh_f1/finder-refresh-prep.yml.txt",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "009340f1d17329d66415b754b0d040d816132d05f67e45be32bbc7f1543f653d",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/finder_refresh_f1/pins.json",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "2a0c4cde4af2d1a17a21be7d5125292dd510e226691e0c9fdbcd4a405d604240",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/finder_render_f5/F5-README.txt",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "0340ee4525d5bf7310a71efeb83c30d9bd85b90e8b9bf7705ce1df6e7c2c53cd",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/finder_render_f5/__init__.py",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "5cb366096e06a0159ab535cefbd1158f5cbfd4b5082988692866bd282846908b",
-      "static_file_edges": [
-        "integration/finder_offline.py"
-      ],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/finder_report_f11/README.txt",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "3555e9c001315b29aac91c32b81a255a63da3512ac786c30105244d345271c0b",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/finder_report_f11/__init__.py",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "1720ab549b4a76440df42a3a1afd5371277822439398ee5b018eb03339ba1b04",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/finder_source_f3/F3-README.txt",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "c0a1b3666b9546aa6fcd94423c83a0bbc42edd6ccbd6341c529246be81c0fcfd",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/finder_source_f3/__init__.py",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "1ae7f688e68e99b9cebab20eb5f6be5b7e71f109ea088d0fba85afccd87c1a59",
-      "static_file_edges": [
-        "integration/__init__.py"
-      ],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/finder_trend_f16/README.txt",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "d1a68533202bf9599c10c39838bf08b964de9289e2312dfb439ecd40d9ebc4ec",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/finder_trend_f16/__init__.py",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "50b2ff09ab64b12b59d43f69c9ab81335a9d367b1e2034624612816c1dfb6f6f",
-      "static_file_edges": [
-        "integration/finder_composition_f9/__init__.py",
-        "integration/finder_report_f11/__init__.py",
-        "integration/public_ai_answers.py"
-      ],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/finder_trend_f16/finder.js",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "e71fda699ff22f10bc9e2388d97008aa744e27b2058bb2c9e9f94c32928eec1c",
-      "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
     },
@@ -4912,17 +4894,6 @@
       "runtime_verified": false
     },
     {
-      "path": "integration/geo_sample_probe.py",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "875990c2646571fbf5741000540d3211e63081d8c03af396d8fde0f343de39f7",
-      "static_file_edges": [
-        "integration/geonews_digest/_safe.py"
-      ],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
       "path": "integration/geo_sample_probe_child.py",
       "project": "integration",
       "role": "offline_contract_or_private_view",
@@ -4930,6 +4901,17 @@
       "static_file_edges": [
         "integration/geo_read_factory.py",
         "integration/geo_sample_probe.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/geo_sample_probe.py",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "875990c2646571fbf5741000540d3211e63081d8c03af396d8fde0f343de39f7",
+      "static_file_edges": [
+        "integration/geonews_digest/_safe.py"
       ],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -5347,6 +5329,15 @@
       "runtime_verified": false
     },
     {
+      "path": "integration/native_mail_projection224.py",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "993257042c2802298c8a211c0180afd7b22fd829d94c981e090cc35d26e1ce8d",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
       "path": "integration/native200_adapters.py",
       "project": "integration",
       "role": "offline_contract_or_private_view",
@@ -5627,15 +5618,6 @@
       "runtime_verified": false
     },
     {
-      "path": "integration/native_mail_projection224.py",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "993257042c2802298c8a211c0180afd7b22fd829d94c981e090cc35d26e1ce8d",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
       "path": "integration/news_api.py",
       "project": "integration",
       "role": "offline_contract_or_private_view",
@@ -5669,6 +5651,37 @@
         "integration/tariff_evidence.py",
         "integration/weekly_report/__init__.py"
       ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/news_export_e2/__init__.py",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "11dc6e36c26c14a2f89a4bdceed82d73c915b8425218f153d752655c11d74f9b",
+      "static_file_edges": [
+        "integration/news_export/export.py",
+        "integration/news_export/geo_snapshot.py",
+        "integration/news_export/original_contract.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/news_export_e2/E2-README.txt",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "26be466a3cfc011869f13b84636ea1f713db32e51cb780ebfffc9d6e254b9cc0",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/news_export_e2/pins.json",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "781f7f49da7cb17490cccf06dacd7a2e263d0ae13e75022bce9e95f758185ce3",
+      "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
     },
@@ -5747,37 +5760,6 @@
       "runtime_verified": false
     },
     {
-      "path": "integration/news_export_e2/E2-README.txt",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "26be466a3cfc011869f13b84636ea1f713db32e51cb780ebfffc9d6e254b9cc0",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/news_export_e2/__init__.py",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "11dc6e36c26c14a2f89a4bdceed82d73c915b8425218f153d752655c11d74f9b",
-      "static_file_edges": [
-        "integration/news_export/export.py",
-        "integration/news_export/geo_snapshot.py",
-        "integration/news_export/original_contract.py"
-      ],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/news_export_e2/pins.json",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "781f7f49da7cb17490cccf06dacd7a2e263d0ae13e75022bce9e95f758185ce3",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
       "path": "integration/news_finder_navigation_prep.py",
       "project": "integration",
       "role": "offline_contract_or_private_view",
@@ -5836,19 +5818,19 @@
       "runtime_verified": false
     },
     {
-      "path": "integration/nilgiri_transport_research93/cycle-results.json",
+      "path": "integration/nilgiri_transport_research93/cycle_fixture.py.txt",
       "project": "integration",
       "role": "offline_contract_or_private_view",
-      "sha256": "1c1c8e7b01791a3d2f97652ad0e9980fd961f495bacb8a8cfa60571ea467b4bd",
+      "sha256": "6c15b9ffef02fde50d221860ab951fd1ab300aeedc5792624ccf9974592247d6",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
     },
     {
-      "path": "integration/nilgiri_transport_research93/cycle_fixture.py.txt",
+      "path": "integration/nilgiri_transport_research93/cycle-results.json",
       "project": "integration",
       "role": "offline_contract_or_private_view",
-      "sha256": "6c15b9ffef02fde50d221860ab951fd1ab300aeedc5792624ccf9974592247d6",
+      "sha256": "1c1c8e7b01791a3d2f97652ad0e9980fd961f495bacb8a8cfa60571ea467b4bd",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -6082,42 +6064,6 @@
       "runtime_verified": false
     },
     {
-      "path": "integration/public_live107/browser.json",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "f6495e01ad265b59ae29125271de039fe963aba7cc990f7050b28f2dce911029",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/public_live107/focused-tests.py.txt",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "3f8a5a4b0d3ba1d19caf7b74687f5f031e419eeafa294af8802798b757d01fef",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/public_live107/focused.log",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "f29036f9ffbc6507ee96258de9cfe117222a12fa78846ce4afe4a786b405e1bc",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/public_live107/full-regression.json",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "999ae9987ccff752dffbd790c7a5fdce4e7953a6db77e552ce6403a41f020400",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
       "path": "integration/public_live_builder.py",
       "project": "integration",
       "role": "offline_contract_or_private_view",
@@ -6171,10 +6117,37 @@
       "runtime_verified": false
     },
     {
-      "path": "integration/public_map_m2/LICENSE",
+      "path": "integration/public_live107/browser.json",
       "project": "integration",
       "role": "offline_contract_or_private_view",
-      "sha256": "53e8dc25862014e4324741ca18fbe3611e11d42ef69f59f86ea8c5389647d4cb",
+      "sha256": "f6495e01ad265b59ae29125271de039fe963aba7cc990f7050b28f2dce911029",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/public_live107/focused-tests.py.txt",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "3f8a5a4b0d3ba1d19caf7b74687f5f031e419eeafa294af8802798b757d01fef",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/public_live107/focused.log",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "f29036f9ffbc6507ee96258de9cfe117222a12fa78846ce4afe4a786b405e1bc",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/public_live107/full-regression.json",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "999ae9987ccff752dffbd790c7a5fdce4e7953a6db77e552ce6403a41f020400",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -6223,6 +6196,15 @@
       "project": "integration",
       "role": "offline_contract_or_private_view",
       "sha256": "db49d009c841f5ca34a888c96511ae936fd9f5533e90d8b2c4d57596f4e5641a",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/public_map_m2/LICENSE",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "53e8dc25862014e4324741ca18fbe3611e11d42ef69f59f86ea8c5389647d4cb",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -6309,6 +6291,18 @@
       "runtime_verified": false
     },
     {
+      "path": "integration/public_map_m3/__init__.py",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "fe023adf08520cb259a0ae6ec63e831417f75d00033ce64a1f64b8012a331aac",
+      "static_file_edges": [
+        "integration/__init__.py",
+        "integration/public_map_prep/__init__.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
       "path": "integration/public_map_m3/LEAFLET-MAPLIBRE-LICENSE.txt",
       "project": "integration",
       "role": "offline_contract_or_private_view",
@@ -6318,10 +6312,28 @@
       "runtime_verified": false
     },
     {
+      "path": "integration/public_map_m3/leaflet-maplibre.js",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "1c33367962e7755c1a16d1f85658fdc96b5baa36f81adfca9493174cd1b526ce",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
       "path": "integration/public_map_m3/LIBERTY-LICENSE.txt",
       "project": "integration",
       "role": "offline_contract_or_private_view",
       "sha256": "932694202d771c52089e87f13105e02f2b68341f584b0f3d8adc557c9d7cefa3",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/public_map_m3/liberty.json",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "14fb22269a626b95d9cac57c51d22d299a3e1cf20067ec828b3c1d28d0171823",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -6340,45 +6352,6 @@
       "project": "integration",
       "role": "offline_contract_or_private_view",
       "sha256": "ee5fc05a0677eaf69601d2c7db0d9ecd6cc27c3abc1d0733bc9ed34707cf8ef2",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/public_map_m3/OPENFREEMAP-STYLES-LICENSE.txt",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "d1754e5d291e4e8b9b0047ddba0a6ec75e1046ccd61a02c2cea3dac58f3fe355",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/public_map_m3/__init__.py",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "fe023adf08520cb259a0ae6ec63e831417f75d00033ce64a1f64b8012a331aac",
-      "static_file_edges": [
-        "integration/__init__.py",
-        "integration/public_map_prep/__init__.py"
-      ],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/public_map_m3/leaflet-maplibre.js",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "1c33367962e7755c1a16d1f85658fdc96b5baa36f81adfca9493174cd1b526ce",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/public_map_m3/liberty.json",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "14fb22269a626b95d9cac57c51d22d299a3e1cf20067ec828b3c1d28d0171823",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -6406,6 +6379,15 @@
       "project": "integration",
       "role": "offline_contract_or_private_view",
       "sha256": "ca36a2beeac0834d58e6469f11e7b02f8ac54f1f75ac811937b9e655ebec7590",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/public_map_m3/OPENFREEMAP-STYLES-LICENSE.txt",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "d1754e5d291e4e8b9b0047ddba0a6ec75e1046ccd61a02c2cea3dac58f3fe355",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -6447,15 +6429,6 @@
       "runtime_verified": false
     },
     {
-      "path": "integration/public_map_prep/LICENSE",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "53e8dc25862014e4324741ca18fbe3611e11d42ef69f59f86ea8c5389647d4cb",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
       "path": "integration/public_map_prep/__init__.py",
       "project": "integration",
       "role": "offline_contract_or_private_view",
@@ -6482,6 +6455,15 @@
       "project": "integration",
       "role": "offline_contract_or_private_view",
       "sha256": "db49d009c841f5ca34a888c96511ae936fd9f5533e90d8b2c4d57596f4e5641a",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/public_map_prep/LICENSE",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "53e8dc25862014e4324741ca18fbe3611e11d42ef69f59f86ea8c5389647d4cb",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -6518,42 +6500,6 @@
       "project": "integration",
       "role": "offline_contract_or_private_view",
       "sha256": "08a002863831a1e7cf9336e10b2f9d61aa1ce0ecf4b4367027dd34ed1dbd8145",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/public_preview106/browser.json",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "e0073daccc90494643aaa7d783f40dc9148394f55ba4a46c28298640376c847e",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/public_preview106/focused-tests.py.txt",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "631398de427a49ed39f8cd38b0bca2bc5e11f2ed03972530b208e735699f8f7c",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/public_preview106/focused.log",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "5c3c09a9be4876e86bfab49e047a57b555f2312200ac97b93a761cd479908430",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/public_preview106/full-regression.json",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "f228e17ff82d7fac7c1549c1c7ea3935669d4c871b41f7e0876c3db4838ceea7",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -6597,6 +6543,42 @@
         "integration/weather_ui.py",
         "integration/weekly_full_store.py"
       ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/public_preview106/browser.json",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "e0073daccc90494643aaa7d783f40dc9148394f55ba4a46c28298640376c847e",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/public_preview106/focused-tests.py.txt",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "631398de427a49ed39f8cd38b0bca2bc5e11f2ed03972530b208e735699f8f7c",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/public_preview106/focused.log",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "5c3c09a9be4876e86bfab49e047a57b555f2312200ac97b93a761cd479908430",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/public_preview106/full-regression.json",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "f228e17ff82d7fac7c1549c1c7ea3935669d4c871b41f7e0876c3db4838ceea7",
+      "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
     },
@@ -7033,19 +7015,19 @@
       "runtime_verified": false
     },
     {
-      "path": "integration/scheduler217/scheduler217.gs",
+      "path": "integration/scheduler_policy.py",
       "project": "integration",
       "role": "offline_contract_or_private_view",
-      "sha256": "85362538143755b759da75b92253246fde12ec6d6df72f2e11f3c16a659da3e5",
+      "sha256": "f16399cec504c0d143c9972a3c0df731331e6341b21f08285a37a86ee25db55f",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
     },
     {
-      "path": "integration/scheduler_policy.py",
+      "path": "integration/scheduler217/scheduler217.gs",
       "project": "integration",
       "role": "offline_contract_or_private_view",
-      "sha256": "f16399cec504c0d143c9972a3c0df731331e6341b21f08285a37a86ee25db55f",
+      "sha256": "85362538143755b759da75b92253246fde12ec6d6df72f2e11f3c16a659da3e5",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -7152,6 +7134,15 @@
       "runtime_verified": false
     },
     {
+      "path": "integration/security_candidate/regression_capture.txt",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "5a7b861f121ab032b25e0d3a319b73e1add0afb22e2dec35cf644e659951e90c",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
       "path": "integration/security_candidate/regression-coverage.json",
       "project": "integration",
       "role": "offline_contract_or_private_view",
@@ -7174,15 +7165,6 @@
       "project": "integration",
       "role": "offline_contract_or_private_view",
       "sha256": "9ab3d20e22b0bda1dff3f41f8a2f5c63db73062dca939e28f89c634e08c070f7",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/security_candidate/regression_capture.txt",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "5a7b861f121ab032b25e0d3a319b73e1add0afb22e2dec35cf644e659951e90c",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -7759,24 +7741,6 @@
       "runtime_verified": false
     },
     {
-      "path": "integration/ui/code_news.html",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "fb54dec26cf025f62bf2bf3ed501dd1cd21c0e9ef09fbc7e7532a70c64d39f3f",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/ui/code_news.js",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "6e513bbc2486eb4d5115e990cee32610eff6901fd6eff439cb9ef60a57478911",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
       "path": "integration/ui/code_news_coverage.css",
       "project": "integration",
       "role": "offline_contract_or_private_view",
@@ -7808,6 +7772,24 @@
       "project": "integration",
       "role": "offline_contract_or_private_view",
       "sha256": "ffa4160bf5f142cf3d63e0e1b2bd62406b0feea2f0be4cb4fcdaadca8532f558",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/ui/code_news.html",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "fb54dec26cf025f62bf2bf3ed501dd1cd21c0e9ef09fbc7e7532a70c64d39f3f",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/ui/code_news.js",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "6e513bbc2486eb4d5115e990cee32610eff6901fd6eff439cb9ef60a57478911",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -7851,6 +7833,24 @@
       "runtime_verified": false
     },
     {
+      "path": "integration/ui/finder_public_rates.js",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "a6e0e0e585df2b29070e737bce923903b9a7dae7840b557d059023f218fb9f30",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "integration/ui/finder_public.html",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "dd0760f660e01a9cdcd8fb21567bfc63fb7a8c7d4832a1c57552d37cea98e814",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
       "path": "integration/ui/finder-offline-control.js",
       "project": "integration",
       "role": "offline_contract_or_private_view",
@@ -7869,19 +7869,10 @@
       "runtime_verified": false
     },
     {
-      "path": "integration/ui/finder_public.html",
+      "path": "integration/ui/geo_map_ui.js",
       "project": "integration",
       "role": "offline_contract_or_private_view",
-      "sha256": "dd0760f660e01a9cdcd8fb21567bfc63fb7a8c7d4832a1c57552d37cea98e814",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/ui/finder_public_rates.js",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "a6e0e0e585df2b29070e737bce923903b9a7dae7840b557d059023f218fb9f30",
+      "sha256": "c03076735b59842d1135983d752fa2ab26244726363a3b213e78bd322e8b98a6",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -7891,15 +7882,6 @@
       "project": "integration",
       "role": "offline_contract_or_private_view",
       "sha256": "201d66d0e709793fbb3badebe004cbd60a9f24af2e6610bb02cc9a9888f8a842",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/ui/geo_map_ui.js",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "c03076735b59842d1135983d752fa2ab26244726363a3b213e78bd322e8b98a6",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -8211,6 +8193,15 @@
       "runtime_verified": false
     },
     {
+      "path": "integration/weather_public_prep.py",
+      "project": "integration",
+      "role": "offline_contract_or_private_view",
+      "sha256": "e7b8aead9635f87774a2368b642daaa1acd6771fee4ea07c926280a06e9f4b48",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
       "path": "integration/weather_public.py",
       "project": "integration",
       "role": "offline_contract_or_private_view",
@@ -8218,15 +8209,6 @@
       "static_file_edges": [
         "integration/weather_public_prep.py"
       ],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "integration/weather_public_prep.py",
-      "project": "integration",
-      "role": "offline_contract_or_private_view",
-      "sha256": "e7b8aead9635f87774a2368b642daaa1acd6771fee4ea07c926280a06e9f4b48",
-      "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
     },
@@ -8316,15 +8298,6 @@
       "runtime_verified": false
     },
     {
-      "path": "intelligence/brics/Procfile",
-      "project": "brics",
-      "role": "isolated_legacy_execution",
-      "sha256": "fe85ba8859699502e80c2114407d4aecf5c8bf39a79afea952e86b2299996a9d",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
       "path": "intelligence/brics/__init__.py",
       "project": "brics",
       "role": "preserved_engine_or_asset",
@@ -8382,6 +8355,26 @@
       "runtime_verified": false
     },
     {
+      "path": "intelligence/brics/config_check.py",
+      "project": "brics",
+      "role": "preserved_engine_or_asset",
+      "sha256": "865f505366e9a14f05a09dc799e1d3a41e84c032d0fc2944d99c7a3f6c9ef05a",
+      "static_file_edges": [
+        "intelligence/brics/__init__.py"
+      ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "intelligence/brics/config.py",
+      "project": "brics",
+      "role": "preserved_engine_or_asset",
+      "sha256": "2419339566c5946dd0daeae7147eba7a49dffdd379b3c34769d6d62860afc82d",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
       "path": "intelligence/brics/config/sources.yaml",
       "project": "brics",
       "role": "preserved_engine_or_asset",
@@ -8396,26 +8389,6 @@
       "role": "preserved_engine_or_asset",
       "sha256": "65c676f7112813ac6196e859ecf88dd0a866118b9ad5801dd8982b2ea9afc0dd",
       "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "intelligence/brics/config.py",
-      "project": "brics",
-      "role": "preserved_engine_or_asset",
-      "sha256": "2419339566c5946dd0daeae7147eba7a49dffdd379b3c34769d6d62860afc82d",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "intelligence/brics/config_check.py",
-      "project": "brics",
-      "role": "preserved_engine_or_asset",
-      "sha256": "865f505366e9a14f05a09dc799e1d3a41e84c032d0fc2944d99c7a3f6c9ef05a",
-      "static_file_edges": [
-        "intelligence/brics/__init__.py"
-      ],
       "unresolved_internal_imports": [],
       "runtime_verified": false
     },
@@ -8459,6 +8432,15 @@
       "static_file_edges": [
         "intelligence/brics/__init__.py"
       ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "intelligence/brics/Procfile",
+      "project": "brics",
+      "role": "isolated_legacy_execution",
+      "sha256": "fe85ba8859699502e80c2114407d4aecf5c8bf39a79afea952e86b2299996a9d",
+      "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
     },
@@ -8582,15 +8564,6 @@
         "intelligence/brics/processing/classifier.py",
         "intelligence/brics/video.py"
       ],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "intelligence/geo/Procfile",
-      "project": "geo",
-      "role": "isolated_legacy_execution",
-      "sha256": "44d70ad2f89d0965e430c7d3df48162fd9def5bb5c29e2da92410883447bbf26",
-      "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
     },
@@ -8734,11 +8707,13 @@
       "runtime_verified": false
     },
     {
-      "path": "intelligence/geo/config/sources.example.yaml",
+      "path": "intelligence/geo/config_check.py",
       "project": "geo",
       "role": "preserved_engine_or_asset",
-      "sha256": "a97e256c6bf2bc4518336ff38507c4837f206a32f1e09aecbd9777e913794440",
-      "static_file_edges": [],
+      "sha256": "79b9723aa6a9c3eb479bd4cdf8f7d2d781ae8c78be812b9e72eca1c0fcbcb50a",
+      "static_file_edges": [
+        "intelligence/geo/__init__.py"
+      ],
       "unresolved_internal_imports": [],
       "runtime_verified": false
     },
@@ -8752,13 +8727,11 @@
       "runtime_verified": false
     },
     {
-      "path": "intelligence/geo/config_check.py",
+      "path": "intelligence/geo/config/sources.example.yaml",
       "project": "geo",
       "role": "preserved_engine_or_asset",
-      "sha256": "79b9723aa6a9c3eb479bd4cdf8f7d2d781ae8c78be812b9e72eca1c0fcbcb50a",
-      "static_file_edges": [
-        "intelligence/geo/__init__.py"
-      ],
+      "sha256": "a97e256c6bf2bc4518336ff38507c4837f206a32f1e09aecbd9777e913794440",
+      "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
     },
@@ -8811,6 +8784,15 @@
       "project": "geo",
       "role": "preserved_engine_or_asset",
       "sha256": "42aa24d7cb788d45ee5c22e0c4c45ffe901d32fff3ab82227575ffc299eee44a",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "intelligence/geo/Procfile",
+      "project": "geo",
+      "role": "isolated_legacy_execution",
+      "sha256": "44d70ad2f89d0965e430c7d3df48162fd9def5bb5c29e2da92410883447bbf26",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -8995,6 +8977,15 @@
       "project": "finder_or_build",
       "role": "preserved_engine_or_asset",
       "sha256": "8bd9064f99f7b090ec63f6d08b84780718f1434b826beddc5dfb950f51479d36",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "LICENSE",
+      "project": "finder_or_build",
+      "role": "preserved_engine_or_asset",
+      "sha256": "c915bd1498ad0c00ad82dd6f2690aee521ea0873f0e3d1270c02514d3140345c",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -9201,15 +9192,6 @@
       "runtime_verified": false
     },
     {
-      "path": "proxy.js",
-      "project": "finder_or_build",
-      "role": "preserved_engine_or_asset",
-      "sha256": "dc6a77bd88d294a84c012d9e6928fb24ed5e8b3504877f7dcf13950829e0869c",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
       "path": "proxy_runtime/ais-frame.cjs",
       "project": "finder_or_build",
       "role": "preserved_engine_or_asset",
@@ -9264,6 +9246,15 @@
       "runtime_verified": false
     },
     {
+      "path": "proxy.js",
+      "project": "finder_or_build",
+      "role": "preserved_engine_or_asset",
+      "sha256": "dc6a77bd88d294a84c012d9e6928fb24ed5e8b3504877f7dcf13950829e0869c",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
       "path": "public_live107.py",
       "project": "finder_or_build",
       "role": "preserved_engine_or_asset",
@@ -9282,6 +9273,15 @@
       "static_file_edges": [
         "integration/public_preview_builder.py"
       ],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "README.md",
+      "project": "finder_or_build",
+      "role": "preserved_engine_or_asset",
+      "sha256": "dd699792f9571f7f3fbd705d228d93c8b2715aa2669badfa7d3b8cec7c7f9aec",
+      "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
     },
@@ -9347,15 +9347,6 @@
       "project": "finder_or_build",
       "role": "preserved_engine_or_asset",
       "sha256": "724b33ddfeb38efa530b8867c4b67cc1fa6307fd3f6af23ac17dbf5c59a05273",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "runtime_build/Dockerfile.candidate",
-      "project": "finder_or_build",
-      "role": "preserved_engine_or_asset",
-      "sha256": "bfb72c5eef5c9b09736f397d60a8aac0aa80ffd2c6b86273f0073b5fd0a72211",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -9428,6 +9419,15 @@
       "project": "finder_or_build",
       "role": "preserved_engine_or_asset",
       "sha256": "9a5bb85c0bddbdedba136d710e3ab369aa9e0ca0f1266585b460fec17914f107",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "runtime_build/Dockerfile.candidate",
+      "project": "finder_or_build",
+      "role": "preserved_engine_or_asset",
+      "sha256": "bfb72c5eef5c9b09736f397d60a8aac0aa80ffd2c6b86273f0073b5fd0a72211",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -9514,10 +9514,37 @@
       "runtime_verified": false
     },
     {
+      "path": "runtime_build/inputs-manifest.json",
+      "project": "finder_or_build",
+      "role": "preserved_engine_or_asset",
+      "sha256": "a11ad36b99dedf0dc3736ba42dd0ed05c91289d7ac8a295c35ff3584e42a003c",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "runtime_build/inputs.sha256",
+      "project": "finder_or_build",
+      "role": "preserved_engine_or_asset",
+      "sha256": "017e4b7276a78dd68cfe31760861bd0fd1980285466458e9b538ba6d759c8c21",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
       "path": "runtime_build/inputs/application.pending.lock",
       "project": "finder_or_build",
       "role": "preserved_engine_or_asset",
       "sha256": "bd0919c923029e79e8df62cc232ea755a395525163eda7be7128f20b0c898ab5",
+      "static_file_edges": [],
+      "unresolved_internal_imports": [],
+      "runtime_verified": false
+    },
+    {
+      "path": "runtime_build/inputs/apt_verify.sh",
+      "project": "finder_or_build",
+      "role": "preserved_engine_or_asset",
+      "sha256": "502ab0673e2eb4fbeed17e4a7aa722e02fe6b135a3c90f006c5c6562fb3e8023",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -9536,15 +9563,6 @@
       "project": "finder_or_build",
       "role": "preserved_engine_or_asset",
       "sha256": "1dc4168a848690ef1afc9c8624ec6a4b9ddde7b7fbb414ca2d0b767452fe0b72",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "runtime_build/inputs/apt_verify.sh",
-      "project": "finder_or_build",
-      "role": "preserved_engine_or_asset",
-      "sha256": "502ab0673e2eb4fbeed17e4a7aa722e02fe6b135a3c90f006c5c6562fb3e8023",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -9613,19 +9631,19 @@
       "runtime_verified": false
     },
     {
-      "path": "runtime_build/inputs/fetch-receipt.json",
+      "path": "runtime_build/inputs/fetch_verify.py",
       "project": "finder_or_build",
       "role": "preserved_engine_or_asset",
-      "sha256": "e9eaacd28c7a913c386e7d15f48f4a6c1f1b9395bc7a15ce21bc17366448e2ff",
+      "sha256": "a71af9fb3bdd19be223ad304937b658649fe8456271579ff9de16e5f6e3317e3",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
     },
     {
-      "path": "runtime_build/inputs/fetch_verify.py",
+      "path": "runtime_build/inputs/fetch-receipt.json",
       "project": "finder_or_build",
       "role": "preserved_engine_or_asset",
-      "sha256": "a71af9fb3bdd19be223ad304937b658649fe8456271579ff9de16e5f6e3317e3",
+      "sha256": "e9eaacd28c7a913c386e7d15f48f4a6c1f1b9395bc7a15ce21bc17366448e2ff",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -9689,24 +9707,6 @@
       "project": "finder_or_build",
       "role": "preserved_engine_or_asset",
       "sha256": "46f67972268c7da0bee476a3d104e87fc93091740f36b5882c7c36b931c33ce1",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "runtime_build/inputs-manifest.json",
-      "project": "finder_or_build",
-      "role": "preserved_engine_or_asset",
-      "sha256": "a11ad36b99dedf0dc3736ba42dd0ed05c91289d7ac8a295c35ff3584e42a003c",
-      "static_file_edges": [],
-      "unresolved_internal_imports": [],
-      "runtime_verified": false
-    },
-    {
-      "path": "runtime_build/inputs.sha256",
-      "project": "finder_or_build",
-      "role": "preserved_engine_or_asset",
-      "sha256": "017e4b7276a78dd68cfe31760861bd0fd1980285466458e9b538ba6d759c8c21",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -10992,7 +10992,7 @@
       "path": "staging-manifest.json",
       "project": "finder_or_build",
       "role": "preserved_engine_or_asset",
-      "sha256": "b949952f035e207417812c5bb1eeb0f84850b51900729dc2e810794478603344",
+      "sha256": "1bd4e62c1e66a7e4900c725e2a23e3cc0cae8c73012ce1ca399ccbdded4c43d1",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
