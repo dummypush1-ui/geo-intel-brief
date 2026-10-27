@@ -1,8 +1,7 @@
 {
   "scope": "separate_current_world_package_not_historical87",
   "excluded_exact": [
-    "feature_world_views/inventory.json",
-    "feature_world_views/test_inventory.py"
+    "feature_world_views/inventory.json"
   ],
   "python_paths_exact": [
     "feature_world_views/__init__.py",
@@ -11,11 +10,7 @@
     "feature_world_views/filters.py",
     "feature_world_views/fixtures.py",
     "feature_world_views/model.py",
-    "feature_world_views/routes.py",
-    "feature_world_views/test_detail.py",
-    "feature_world_views/test_export.py",
-    "feature_world_views/test_filters.py",
-    "feature_world_views/test_world.py"
+    "feature_world_views/routes.py"
   ],
   "files": [
     {
@@ -98,70 +93,6 @@
           ".model",
           "flask",
           "pathlib"
-        ],
-        "dynamic_import": false
-      }
-    },
-    {
-      "path": "feature_world_views/test_detail.py",
-      "bytes": 1285,
-      "sha256": "8d9ec46a8f0346577ce073b60bce8581b5d23597a5a877ee7fbdaf59f008af40",
-      "ast": {
-        "imports": [
-          ".detail",
-          ".fixtures",
-          ".model",
-          "unittest"
-        ],
-        "dynamic_import": false
-      }
-    },
-    {
-      "path": "feature_world_views/test_export.py",
-      "bytes": 1593,
-      "sha256": "01773b6999fdcec71dff78d535ad59d81e47a964302f057434fe9bf275fb24ac",
-      "ast": {
-        "imports": [
-          ".export",
-          ".filters",
-          ".fixtures",
-          ".model",
-          "csv",
-          "integration.loaded_news",
-          "io",
-          "unittest"
-        ],
-        "dynamic_import": false
-      }
-    },
-    {
-      "path": "feature_world_views/test_filters.py",
-      "bytes": 1680,
-      "sha256": "ae0e67fd84e364a8ee53c9590ae89385c6de1eb9c8bf4a4d4255a5ef03a2061a",
-      "ast": {
-        "imports": [
-          ".filters",
-          ".fixtures",
-          ".model",
-          "unittest",
-          "werkzeug.datastructures"
-        ],
-        "dynamic_import": false
-      }
-    },
-    {
-      "path": "feature_world_views/test_world.py",
-      "bytes": 3790,
-      "sha256": "4071bef5768d3ec04cae97efabc4cc05c5bf68d56eed2136bf60163809b5be94",
-      "ast": {
-        "imports": [
-          ".fixtures",
-          ".model",
-          ".routes",
-          "datetime",
-          "flask",
-          "integration.finder_index",
-          "unittest"
         ],
         "dynamic_import": false
       }

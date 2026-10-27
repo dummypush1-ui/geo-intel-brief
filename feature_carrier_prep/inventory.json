@@ -47,43 +47,19 @@
     {
       "path": "feature_carrier_prep/ui.py",
       "sha256": "d15fd88828d1ea677986142645bf4b19ec3feacf2a534c4be17942a7b207a7b2"
-    },
-    {
-      "path": "tests/test_carrier_boundary.py",
-      "sha256": "53d0d4375ea72a258653e816d1625cc9a04307a6b3da3a3702f09c10f88d6fb3"
-    },
-    {
-      "path": "tests/test_carrier_core.py",
-      "sha256": "016fa21ce7537ebce05b4197212c0c456441f37ad3effcba15ce7ef6d7bee762"
     }
   ],
   "imports": {
-    "contextlib": [
-      "tests/test_carrier_boundary.py",
-      "tests/test_carrier_core.py"
-    ],
-    "copy": [
-      "tests/test_carrier_boundary.py",
-      "tests/test_carrier_core.py"
-    ],
     "datetime": [
       "feature_carrier_prep/models.py"
     ],
-    "feature_carrier_prep": [
-      "tests/test_carrier_boundary.py"
-    ],
     "flask": [
-      "feature_carrier_prep/api.py",
-      "tests/test_carrier_boundary.py"
-    ],
-    "importlib": [
-      "tests/test_carrier_core.py"
+      "feature_carrier_prep/api.py"
     ],
     "integration": [
       "feature_carrier_prep/api.py",
       "feature_carrier_prep/news_context.py",
-      "feature_carrier_prep/preview.py",
-      "tests/test_carrier_boundary.py"
+      "feature_carrier_prep/preview.py"
     ],
     "ipaddress": [
       "feature_carrier_prep/models.py"
@@ -93,23 +69,9 @@
     ],
     "re": [
       "feature_carrier_prep/models.py",
-      "feature_carrier_prep/news_context.py",
-      "tests/test_carrier_boundary.py"
-    ],
-    "socket": [
-      "tests/test_carrier_core.py"
-    ],
-    "tests": [
-      "tests/test_carrier_boundary.py"
-    ],
-    "unittest": [
-      "tests/test_carrier_boundary.py",
-      "tests/test_carrier_core.py"
-    ],
-    "werkzeug": [
-      "tests/test_carrier_boundary.py"
+      "feature_carrier_prep/news_context.py"
     ]
   },
   "scope": "carrier_additive_fixture_separate_from_historical87",
-  "notes": "tests/test_carrier_inventory.py is intentionally outside its own hash list to avoid recursive self-hashing; it is covered by staging-manifest.json"
+  "notes": "Feature source inventory only; test files are removed and tracked in the repository-wide build inventory."
 }

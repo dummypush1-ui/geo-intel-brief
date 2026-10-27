@@ -7,7 +7,6 @@
     "tests/collection_receipts/__init__.py": "c506d572a238d735bff0efb7521c10cb384505e4cff008f8b7263429e6cc2c25"
   },
   "excluded_exact": [
-    "integration/collection_receipts/inventory.json",
-    "tests/test_protocol145_inventory.py"
+    "integration/collection_receipts/inventory.json"
   ]
 }

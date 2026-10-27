@@ -1,29 +1,25 @@
 # Geo Intel Brief
 
 Geo Intel Brief brings together a public Geo news workspace, the Worldwide HSN
-Code Finder and preserved BRICS/source tools. The app's existing layout and
-runtime assets remain unchanged by repository cleanup.
+Code Finder and preserved BRICS/source tools.
 
 **Live workspace:** https://geo-intel-brief.onrender.com/workspace
 
 ## Start here
 
-Requirements: Node.js 22+ and the Python version/runtime documented in GitHub
-Actions for the full regression suite.
+Requirements: Node.js 22+.
 
 ```sh
 npm install
 npm run build       # rebuild the Finder web and offline outputs
-npm test            # standalone Node regression tests
-npm run check       # build + Node regression tests
-npm run test:python # Python regression suites
+npm run check       # build outputs
 npm start           # start the Node server
 ```
 
 ## Project map
 
 See [the project map](docs/PROJECT_MAP.txt) for a short guide to the source
-folders, build outputs, tests and staged modules.
+folders, build outputs and staged modules.
 
 | Path | What it contains |
 | --- | --- |
@@ -31,7 +27,6 @@ folders, build outputs, tests and staged modules.
 | `intelligence/geo/` | Geo news collection, processing and reports |
 | `intelligence/brics/` | Preserved BRICS monitoring and report sources |
 | `integration/` | Adapters, fixtures, feature preparation, reviews and evidence |
-| `tests/`, `checks/` | Regression tests and preservation/production checks |
 | `state/` | Stored data snapshots used by application code |
 | `docs/archive/` | Exact historical README and embedded documentation archive |
 
@@ -50,17 +45,18 @@ feature.
 
 ## Verification
 
-- **quality** — Finder build, standalone Node tests and Python regression tests.
+- **quality** — Finder build.
 - **security** — Trivy, license checks and pip-audit.
 
-See [GitHub Actions](https://github.com/dummypush1-ui/geo-intel-brief/actions)
-for the latest results.
+The repository does not include automated regression test suites. See
+[GitHub Actions](https://github.com/dummypush1-ui/geo-intel-brief/actions)
+for the latest build and security results.
 
 ## Documentation archive
 
 The complete previous README is preserved byte-for-byte in
 [`docs/archive/original-readme.archive`](docs/archive/original-readme.archive).
-Its 240 embedded historical Markdown sections are still parsed and validated
-by `scripts/doc_lookup.py`; former logical source paths and SHA-256 checks
-remain available to the preservation checks. The archive keeps historical
-detail without turning the main project entry page into a 1 MB document.
+Its 240 embedded historical Markdown sections remain accessible through
+`scripts/doc_lookup.py`; former logical source paths and SHA-256 records are
+preserved in the archive. The archive keeps historical detail without turning
+the main project entry page into a 1 MB document.

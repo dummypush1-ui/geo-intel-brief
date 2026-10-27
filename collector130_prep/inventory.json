@@ -8,7 +8,6 @@
     "BOUNDED-COMPOSITION.md": "8bfad21858b2157ff42e5a8e560a97a5547bf40723db84f209625b7ebcb7ec63"
   },
   "excluded_exact": [
-    "test_composition.py",
     "inventory.json"
   ]
 }

@@ -6,7 +6,6 @@
     "__init__.py": "093f5aa9c8926124fb7d96c28c7d41cda889990ec21ee651ef43f394354c0107"
   },
   "excluded_exact": [
-    "test_selection.py",
     "inventory.json"
   ]
 }
