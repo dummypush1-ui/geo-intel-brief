@@ -23,7 +23,7 @@ The canonical end-to-end check is the GitHub Actions **quality** workflow (build
 | `src/` | Finder UI, styles, tariff/trade datasets and app source | Edit source here, then run `npm run build`; do not hand-edit generated bundles |
 | `build.mjs` | Builds the hosted Finder, offline single-file version, service worker and versioned data | Treat it as the output generator |
 | `index.html`, `offline.html`, `sw.js`, `data.*.js` | Generated/packaged Finder output | Regenerate from source instead of manually changing |
-| `server.js`, `proxy.js`, `production_entry.py` | Server/proxy and guarded Python application entry points | Check related tests and configuration before changing |
+| `server.js`, `proxy.js`, `production_entry.py` | Server/proxy and guarded Python application entry points | Check related configuration before changing |
 | `intelligence/geo/` | Geo-news collection, processing, reports and dashboard code | Keep its source-preservation checks green |
 | `intelligence/brics/` | BRICS monitoring and report sources | Prepared/preserved code is not proof that a service is deployed |
 | `state/` | Stored trade/data snapshots used by the application | Check data consumers and data provenance before replacing files |
@@ -34,12 +34,12 @@ The canonical end-to-end check is the GitHub Actions **quality** workflow (build
 The repository brings multiple source projects together. Not every path is a
 production module:
 
-- `tests/` and `checks/` protect UI/build behavior, application contracts,
-  safety gates and source-preservation expectations.
+- Automated regression test files and their fixtures were removed; the Finder
+  build and security workflows remain enabled.
 - `integration/` contains adapters, review candidates, fixtures, manifests,
   evidence and feature work at different readiness levels. A file existing
   here does not mean the feature is enabled or deployed.
-- `collector*_prep/` contains versioned collector/parser preparation, tests,
+- `collector*_prep/` contains versioned collector/parser preparation,
   pins and compatibility records. Some paths are imported by later stages;
   similarly named modules are not automatically duplicates.
 - `runtime_build/`, `runtime_executor27c/`, `workflow_executor29b/`,
@@ -56,10 +56,10 @@ production module:
 
 1. Change one logical module at a time; keep the current UI and public paths.
 2. Do not delete or merge files based on matching hashes alone. Check imports,
-   data consumers, tests, generated-artifact inputs and manifest references.
+   data consumers, generated-artifact inputs and manifest references.
 3. Keep guarded/default-off features guarded unless separately reviewed.
-4. Run `npm run check` after Finder changes and the full quality/security
-   workflows before accepting a refactor.
+4. Run `npm run check` after Finder changes and the quality/security workflows
+   before accepting a refactor.
 5. Record the result of each phase so a failed change can be isolated or
    reverted without losing unrelated features.
 
