@@ -2962,8 +2962,8 @@
     },
     {
       "path": "integration/public_live_builder.py",
-      "bytes": 20583,
-      "sha256": "2310c24a12b4d5872e3d881369bc5d6c9f57a3945da0b5e72fc509bbc8627cba"
+      "bytes": 21127,
+      "sha256": "eeadec2d8c1a6b2b4d36864da147c0fed93814f558c46846cd2066b8be349349"
     },
     {
       "path": "integration/public_live107/browser.json",

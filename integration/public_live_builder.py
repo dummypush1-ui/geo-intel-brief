@@ -55,6 +55,12 @@ def create_public_geo_client(uri,*,serverSelectionTimeoutMS=5000,connect=False):
 
 def build_public_live_preview(environ,client_factory=None,clock=time.monotonic,coverage_binding_provider=None,tariff_snapshot=None,geo_export_binding=None,brics_live_binding=None,finder_candidate_binding=None,finder_comparison_baseline=None):
  if type(environ) is not dict or any(type(k)is not str or type(v)is not str for k,v in environ.items()):raise ValueError('Plain environment strings required')
+ # Keep every live WSGI entry consistent: full-store paging is the default only
+ # after the reviewed public-read gate is selected. An explicit false remains an opt-out.
+ if 'PUBLIC_NEWS_FULL_PAGES_ENABLED' not in environ:
+  environ={**environ,'PUBLIC_NEWS_FULL_PAGES_ENABLED':'true' if environ.get('PUBLIC_NEWS_READ_ENABLED')=='true' else 'false'}
+ if 'PUBLIC_NEWS_SEARCH_PROGRESS_ENABLED' not in environ:
+  environ={**environ,'PUBLIC_NEWS_SEARCH_PROGRESS_ENABLED':'true' if environ.get('PUBLIC_NEWS_FULL_PAGES_ENABLED')=='true' else 'false'}
  from integration.finder_composition_f9 import prepare as finder_select,install as finder_selection_install
  finder_selection=finder_select(environ,finder_candidate_binding)
  from integration.finder_proxy_f12 import enabled as proxy_features_enabled,install as proxy_features_install,PATH as PROXY_FEATURE_PATH,ASSETS as PROXY_FEATURE_ASSETS
