@@ -14,5 +14,5 @@ export function newsScrollController({fetchPage,onPage,onState}){
   }catch(e){if(mine!==generation)return false;blocked=true;state(e.message||'Search unavailable. Not complete. Refresh to restart.');return false;}
   finally{if(mine===generation){busy=false;abort=null;onState(null,{busy,ended,canLoad:!!next&&!blocked});}}
  }
- return{reset(f){generation++;abort?.abort();busy=false;next=null;ended=false;blocked=false;pages=scanned=matches=0;filters={...f};return load(true);},more(){return load();},cancel(){generation++;abort?.abort();busy=false;next=null;blocked=true;state('Browser search paused. Server cursor closes after idle expiry, not immediately. Open Geo news to restart.');}};
+ return{reset(f){generation++;abort?.abort();busy=false;next=null;ended=false;blocked=false;pages=scanned=matches=0;filters={...f};return load(true);},more(){return load();},cancel(){generation++;abort?.abort();busy=false;next=null;blocked=true;state('Search paused. No database cursor remains open; refresh or search again to restart.');}};
 }
