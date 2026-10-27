@@ -72,12 +72,29 @@ def build_production_app(environ, public_builder=None, *, runtime_evidence=None,
                 build=lambda selected_environ: build_public_live_preview(selected_environ, **builder_bindings),
             )
     public_env=environ if flag=='false' and mail_flag=='false' else {**environ,'COLLECTION_ENABLED':'false','MERGED_MAIL_ENABLED':'false','MAIL_V1_ENABLED':'false'}
+    if 'PUBLIC_NEWS_FULL_PAGES_ENABLED' not in public_env:
+        public_env={**public_env,'PUBLIC_NEWS_FULL_PAGES_ENABLED':'true' if public_env.get('PUBLIC_NEWS_READ_ENABLED')=='true' else 'false'}
+    if 'PUBLIC_NEWS_SEARCH_PROGRESS_ENABLED' not in public_env:
+        public_env={**public_env,'PUBLIC_NEWS_SEARCH_PROGRESS_ENABLED':'true' if public_env.get('PUBLIC_NEWS_FULL_PAGES_ENABLED')=='true' else 'false'}
     builder_bindings={}
     if coverage_binding_provider is not None:builder_bindings['coverage_binding_provider']=coverage_binding_provider
     if finder_candidate_binding is not None:builder_bindings['finder_candidate_binding']=finder_candidate_binding
     if finder_comparison_baseline is not None:builder_bindings['finder_comparison_baseline']=finder_comparison_baseline
-    try:app = public_builder(public_env,**builder_bindings) if builder_bindings else public_builder(public_env)
+    app=None
+    try:
+        app = public_builder(public_env,**builder_bindings) if builder_bindings else public_builder(public_env)
+        if public_env.get('PUBLIC_NEWS_FULL_PAGES_ENABLED')=='true':
+            from integration.public_news_keyset import install as install_public_news_keyset
+            install_public_news_keyset(app,public_env.get('GEO_MONGODB_URI',''))
     except Exception:
+        if app is not None:
+            cleanup=app.extensions.get('coverage_close')
+            if callable(cleanup):
+                cleanup()
+            else:
+                for client in app.extensions.get('read_only_news_clients',[]):
+                    try:client.close()
+                    except Exception:pass
         if collector is not None:collector.extensions['collector_close']()
         if mail_binding is not None:mail_binding.close()
         raise
