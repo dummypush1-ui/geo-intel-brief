@@ -20,7 +20,7 @@ COMPONENTS = {
 _UNWIRED_SWITCHES = ('SCRAPER_ENABLED',)
 
 
-def build_production_app(environ, public_builder=None, *, runtime_evidence=None, collector_client_factory=None, clock=None, mail_binding_provider=None, coverage_binding_provider=None):
+def build_production_app(environ, public_builder=None, *, runtime_evidence=None, collector_client_factory=None, clock=None, mail_binding_provider=None, coverage_binding_provider=None, finder_candidate_binding=None, finder_comparison_baseline=None):
     if type(environ) is not dict or any(type(k) is not str or type(v) is not str for k, v in environ.items()):
         raise ValueError('Plain environment strings required')
     bad = [k for k in _UNWIRED_SWITCHES if environ.get(k, 'false') != 'false']
@@ -62,9 +62,20 @@ def build_production_app(environ, public_builder=None, *, runtime_evidence=None,
         if mail_binding is not None:mail_binding.close()
         raise
     if public_builder is None:
-        from integration.public_live_builder import guarded_public_app as public_builder
+        from integration.public_live_builder import guarded_public_app, build_public_live_preview
+        def public_builder(public_environ, **builder_bindings):
+            if not builder_bindings:
+                return guarded_public_app(public_environ)
+            return guarded_public_app(
+                public_environ,
+                build=lambda selected_environ: build_public_live_preview(selected_environ, **builder_bindings),
+            )
     public_env=environ if flag=='false' and mail_flag=='false' else {**environ,'COLLECTION_ENABLED':'false','MERGED_MAIL_ENABLED':'false','MAIL_V1_ENABLED':'false'}
-    try:app = public_builder(public_env) if coverage_binding_provider is None else public_builder(public_env,coverage_binding_provider=coverage_binding_provider)
+    builder_bindings={}
+    if coverage_binding_provider is not None:builder_bindings['coverage_binding_provider']=coverage_binding_provider
+    if finder_candidate_binding is not None:builder_bindings['finder_candidate_binding']=finder_candidate_binding
+    if finder_comparison_baseline is not None:builder_bindings['finder_comparison_baseline']=finder_comparison_baseline
+    try:app = public_builder(public_env,**builder_bindings) if builder_bindings else public_builder(public_env)
     except Exception:
         if collector is not None:collector.extensions['collector_close']()
         if mail_binding is not None:mail_binding.close()
