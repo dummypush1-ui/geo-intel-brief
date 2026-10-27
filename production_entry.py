@@ -1,11 +1,12 @@
-"""Single production entry point (factory). Additive; nothing imports or mounts it yet.
+"""Single production entry point (factory). No app is built at import time.
 
-Use as `gunicorn production_entry:create_app()`. No app is built at import time.
-It delegates unchanged to the reviewed public read-only builder and records which
-merge components are wired, so one place shows the composition. Collector dispatch is default OFF and requires real injected runtime evidence.
+Use as `gunicorn production_entry:create_app()`. Finder candidate and comparison
+bindings can be injected into the factory by a trusted Python deployment wrapper;
+paths, hashes and evidence are never accepted from environment strings.
+Collector dispatch is default OFF and requires real injected runtime evidence.
 Mail has an injected default-OFF private receipt mount; no builtin provider, DB
 creation or sender. Scraper is not wired. Enabling components is a separately
-reviewed owner-scoped step; environment strings never supply evidence.
+reviewed owner-scoped step.
 """
 import os
 
@@ -20,7 +21,7 @@ COMPONENTS = {
 _UNWIRED_SWITCHES = ('SCRAPER_ENABLED',)
 
 
-def build_production_app(environ, public_builder=None, *, runtime_evidence=None, collector_client_factory=None, clock=None, mail_binding_provider=None, coverage_binding_provider=None):
+def build_production_app(environ, public_builder=None, *, runtime_evidence=None, collector_client_factory=None, clock=None, mail_binding_provider=None, coverage_binding_provider=None, finder_candidate_binding=None, finder_comparison_baseline=None):
     if type(environ) is not dict or any(type(k) is not str or type(v) is not str for k, v in environ.items()):
         raise ValueError('Plain environment strings required')
     bad = [k for k in _UNWIRED_SWITCHES if environ.get(k, 'false') != 'false']
@@ -62,10 +63,38 @@ def build_production_app(environ, public_builder=None, *, runtime_evidence=None,
         if mail_binding is not None:mail_binding.close()
         raise
     if public_builder is None:
-        from integration.public_live_builder import guarded_public_app as public_builder
+        from integration.public_live_builder import guarded_public_app, build_public_live_preview
+        def public_builder(public_environ, **builder_bindings):
+            if not builder_bindings:
+                return guarded_public_app(public_environ)
+            return guarded_public_app(
+                public_environ,
+                build=lambda selected_environ: build_public_live_preview(selected_environ, **builder_bindings),
+            )
     public_env=environ if flag=='false' and mail_flag=='false' else {**environ,'COLLECTION_ENABLED':'false','MERGED_MAIL_ENABLED':'false','MAIL_V1_ENABLED':'false'}
-    try:app = public_builder(public_env) if coverage_binding_provider is None else public_builder(public_env,coverage_binding_provider=coverage_binding_provider)
+    if 'PUBLIC_NEWS_FULL_PAGES_ENABLED' not in public_env:
+        public_env={**public_env,'PUBLIC_NEWS_FULL_PAGES_ENABLED':'true' if public_env.get('PUBLIC_NEWS_READ_ENABLED')=='true' else 'false'}
+    if 'PUBLIC_NEWS_SEARCH_PROGRESS_ENABLED' not in public_env:
+        public_env={**public_env,'PUBLIC_NEWS_SEARCH_PROGRESS_ENABLED':'true' if public_env.get('PUBLIC_NEWS_FULL_PAGES_ENABLED')=='true' else 'false'}
+    builder_bindings={}
+    if coverage_binding_provider is not None:builder_bindings['coverage_binding_provider']=coverage_binding_provider
+    if finder_candidate_binding is not None:builder_bindings['finder_candidate_binding']=finder_candidate_binding
+    if finder_comparison_baseline is not None:builder_bindings['finder_comparison_baseline']=finder_comparison_baseline
+    app=None
+    try:
+        app = public_builder(public_env,**builder_bindings) if builder_bindings else public_builder(public_env)
+        if public_env.get('PUBLIC_NEWS_FULL_PAGES_ENABLED')=='true':
+            from integration.public_news_keyset import install as install_public_news_keyset
+            install_public_news_keyset(app,public_env.get('GEO_MONGODB_URI',''))
     except Exception:
+        if app is not None:
+            cleanup=app.extensions.get('coverage_close')
+            if callable(cleanup):
+                cleanup()
+            else:
+                for client in app.extensions.get('read_only_news_clients',[]):
+                    try:client.close()
+                    except Exception:pass
         if collector is not None:collector.extensions['collector_close']()
         if mail_binding is not None:mail_binding.close()
         raise
@@ -102,5 +131,5 @@ def build_production_app(environ, public_builder=None, *, runtime_evidence=None,
     return app
 
 
-def create_app():
-    return build_production_app(dict(os.environ))
+def create_app(**bindings):
+    return build_production_app(dict(os.environ), **bindings)

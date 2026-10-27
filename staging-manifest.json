@@ -7,8 +7,8 @@
   "files": [
     {
       "path": ".env.example",
-      "bytes": 9719,
-      "sha256": "d6fe22c0b9e14ee40e4cce4257384a76bcb41e2701d6dcd5716a92da1c862d42"
+      "bytes": 9787,
+      "sha256": "161f007cae747508fe21743ff1f99d4dc19e7888dafc09803b19cbcd7ab74d62"
     },
     {
       "path": ".gitignore",
@@ -2832,8 +2832,8 @@
     },
     {
       "path": "integration/news_search_progress.py",
-      "bytes": 4329,
-      "sha256": "6ea9325efb5e37d7d2d9b19aab07315adedefd48e19dd2149688bb90ae4bac01"
+      "bytes": 4215,
+      "sha256": "01bd14bbcd140be4af620637bfb0e362a31e342031ee44e181b44fdabfb00d88"
     },
     {
       "path": "integration/news_view.py",
@@ -3174,6 +3174,11 @@
       "path": "integration/public_news.py",
       "bytes": 1051,
       "sha256": "08a002863831a1e7cf9336e10b2f9d61aa1ce0ecf4b4367027dd34ed1dbd8145"
+    },
+    {
+      "path": "integration/public_news_keyset.py",
+      "bytes": 6271,
+      "sha256": "b49c20ca043211f9dc288ae59fd1bb67149561884932d501882431b04983772e"
     },
     {
       "path": "integration/public_preview_builder.py",
@@ -3887,8 +3892,8 @@
     },
     {
       "path": "integration/ui/news_search_progress.js",
-      "bytes": 2597,
-      "sha256": "e933c9d0267dc461b106a649a1393ff4db659f50cf37afe4633c80605756a736"
+      "bytes": 2575,
+      "sha256": "7534389119161d9f5c425a50c91e532588160feec818aeaf8ae6b1480452b9ad"
     },
     {
       "path": "integration/ui/public_ai_answers.css",
@@ -4487,8 +4492,8 @@
     },
     {
       "path": "production_entry.py",
-      "bytes": 6521,
-      "sha256": "a9329b440fa7e39f7308003b2b5911fd582677a7c6cdf2091c40ea8d4168634e"
+      "bytes": 8254,
+      "sha256": "be351c6b79153eec5d2aa2f6f8d676292d8188c42c1da6dd6ca86de8ea604dfd"
     },
     {
       "path": "proxy_runtime/ais-frame.cjs",
@@ -4537,8 +4542,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 2407,
-      "sha256": "dd699792f9571f7f3fbd705d228d93c8b2715aa2669badfa7d3b8cec7c7f9aec"
+      "bytes": 2683,
+      "sha256": "817623197c3e61db6a6e6316828f23eba4c951f7cdb6edb4cdc796013f266c40"
     },
     {
       "path": "refresh.mjs",

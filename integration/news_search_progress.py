@@ -4,7 +4,7 @@ import hashlib
 from flask import request
 ROOT=Path(__file__).resolve().parents[1]
 FLAG='PUBLIC_NEWS_SEARCH_PROGRESS_ENABLED'
-PINS={'integration/ui/workspace.js':'d1c8893753936a8f8b6583ae591c33a9966b5f28cc13af7bf76e0b296f6fab32', 'integration/ui/news_search_progress.js': 'e933c9d0267dc461b106a649a1393ff4db659f50cf37afe4633c80605756a736', 'integration/ui/news_scroll.js': '1fe5950c718c4a7136e853565fc7ec2857ddb209c4ffa01d4278be2165936ea5', 'integration/ui/workspace.html': 'f0947e8b67b2c579f105ce3f24752d96e1d7633718a7ba0972be41b455a8324f', 'integration/news_pages.py': '24d25bb917c72f1601cfa7c1d667e6c6663e42f604a3e0f2db4de2c085cbb9f0'}
+PINS={'integration/ui/workspace.js':'d1c8893753936a8f8b6583ae591c33a9966b5f28cc13af7bf76e0b296f6fab32', 'integration/ui/news_search_progress.js': '7534389119161d9f5c425a50c91e532588160feec818aeaf8ae6b1480452b9ad', 'integration/ui/news_scroll.js': '1fe5950c718c4a7136e853565fc7ec2857ddb209c4ffa01d4278be2165936ea5', 'integration/ui/workspace.html': 'f0947e8b67b2c579f105ce3f24752d96e1d7633718a7ba0972be41b455a8324f', 'integration/news_pages.py': '24d25bb917c72f1601cfa7c1d667e6c6663e42f604a3e0f2db4de2c085cbb9f0'}
 PATH='/workspace/assets/news_scroll.js'
 WORKSPACE='/workspace/assets/workspace.js'
 SEAM='  return r.json();'
@@ -46,7 +46,7 @@ def install(app):
    for name in ['ETag','Last-Modified','Accept-Ranges']:r.headers.pop(name,None)
   if request.path=='/workspace'and r.status_code==200 and request.method!='HEAD':
    r.direct_passthrough=False;text=r.get_data(as_text=True)
-   text=text.replace('Whole-store read, not a fixed snapshot. Earlier cards leave the screen window as you continue. Refresh to start over. Summary charts and CSV still cover up to 100 stored articles in the selected summary view, not the whole feed.','Mutable read, not a snapshot. Search checks title, summary, source and country text only, not meaning. Empty scans can have later matches: keep searching until cursor exhaustion. Earlier cards leave the display window. Browser cancellation does not close the server cursor immediately: 120-second idle / 30-minute absolute expiry, up to 16 shared streams per process. Summary charts and CSV remain latest-100 only.')
+   text=text.replace('Whole-store read, not a fixed snapshot. Earlier cards leave the screen window as you continue. Refresh to start over. Summary charts and CSV still cover up to 100 stored articles in the selected summary view, not the whole feed.','Search covers the full stored Geo collection by title, summary, source and country text; it does not infer meaning. Results may change during a search. Empty batches can have later matches: keep loading until search says complete. Refresh to start over. Summary charts and CSV remain latest-100 only.')
    r.set_data(text)
   if request.path in (PATH,WORKSPACE,'/workspace'):r.headers['Cache-Control']='no-store'
   return r
