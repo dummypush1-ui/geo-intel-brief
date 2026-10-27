@@ -33,11 +33,15 @@ folders, build outputs and staged modules.
 
 ## Feature status
 
-The public workspace provides read-only news and trade context. The Finder
-retains its search, detail, comparison, shortlist and offline capabilities.
-Some maps, reports, code-news, accounts, collectors, mail and AI-related paths
-are guarded or default-off. Source presence does not mean a feature is live,
-approved or deployed; the archived records preserve the evidence and limits.
+The public workspace provides read-only news and trade context. When
+`PUBLIC_NEWS_READ_ENABLED=true` and the required public disclosure, store
+mapping and read-only credential checks pass, the full saved Geo collection is
+searchable by default. Set `PUBLIC_NEWS_FULL_PAGES_ENABLED=false` to keep the
+latest-100 sample view. Summary charts and CSV remain limited to the latest 100
+articles. The Finder retains its offline search, detail, comparison, shortlist
+and offline access. Optional Finder tools, maps, reports, code-news, accounts,
+collectors, mail and AI paths remain guarded or default-off. Source presence
+does not mean a feature is live or deployed.
 
 Stored catalogue duties are reference data, not current official customs
 rulings. External provider access, credentials, database configuration and
