@@ -4487,8 +4487,8 @@
     },
     {
       "path": "production_entry.py",
-      "bytes": 7275,
-      "sha256": "f46e3c9e2d376b2ca5af303e9e5fbb2528c2baa08516f8a9f52f9cfe90e38516"
+      "bytes": 7250,
+      "sha256": "ec434754826a418d7b47d1d369eb2a2bc0b26dcd7510fe7c79eea167639eeeba"
     },
     {
       "path": "proxy_runtime/ais-frame.cjs",
