@@ -2242,8 +2242,8 @@
     },
     {
       "path": "integration/finder_refresh_f1/__init__.py",
-      "bytes": 8887,
-      "sha256": "a195bc904bfea919b8b08c1cffe8fae9f02ad7a89ecd3eb451eb709672ec8a2a"
+      "bytes": 8988,
+      "sha256": "cbf687a2344dfaa87932b2ba534d267288e61c9d7236d22af70d1c00499c7fc4"
     },
     {
       "path": "integration/finder_refresh_f1/__main__.py",

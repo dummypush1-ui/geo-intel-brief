@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - .github/workflows/finder-held-package.yml
+      - integration/finder_refresh_f1/**
   workflow_dispatch:
     inputs:
       revision:
