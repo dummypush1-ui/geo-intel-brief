@@ -1,11 +1,12 @@
-"""Single production entry point (factory). Additive; nothing imports or mounts it yet.
+"""Single production entry point (factory). No app is built at import time.
 
-Use as `gunicorn production_entry:create_app()`. No app is built at import time.
-It delegates unchanged to the reviewed public read-only builder and records which
-merge components are wired, so one place shows the composition. Collector dispatch is default OFF and requires real injected runtime evidence.
+Use as `gunicorn production_entry:create_app()`. Finder candidate and comparison
+bindings can be injected into the factory by a trusted Python deployment wrapper;
+paths, hashes and evidence are never accepted from environment strings.
+Collector dispatch is default OFF and requires real injected runtime evidence.
 Mail has an injected default-OFF private receipt mount; no builtin provider, DB
 creation or sender. Scraper is not wired. Enabling components is a separately
-reviewed owner-scoped step; environment strings never supply evidence.
+reviewed owner-scoped step.
 """
 import os
 
@@ -113,5 +114,5 @@ def build_production_app(environ, public_builder=None, *, runtime_evidence=None,
     return app
 
 
-def create_app():
-    return build_production_app(dict(os.environ))
+def create_app(**bindings):
+    return build_production_app(dict(os.environ), **bindings)
