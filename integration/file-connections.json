@@ -945,7 +945,7 @@
       "path": "collector113_prep/feed_composition.py",
       "project": "finder_or_build",
       "role": "preserved_engine_or_asset",
-      "sha256": "f651caabd5e0b81e5347946ebe7f5b728e80fca1fd47cbbb25ef7eb44df77f9d",
+      "sha256": "1710bb10b0e0a140151a65c57f00e15155cb61ff13646ee3da7b468e99c472db",
       "static_file_edges": [
         "collector112_prep/parser_runner.py",
         "collector113_prep/transport_policy.py",
@@ -3243,7 +3243,7 @@
       "path": "integration/collector197_config.py",
       "project": "integration",
       "role": "offline_contract_or_private_view",
-      "sha256": "eab36cafe3774aa1bf33327e6eefa10b368e984c3f617ee3aae063199e87499f",
+      "sha256": "523052753b9f5c54f215d2dedf1aad7ffc3e3fd95758e50877d176b4637659ae",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -3252,7 +3252,7 @@
       "path": "integration/collector197_connector.py",
       "project": "integration",
       "role": "offline_contract_or_private_view",
-      "sha256": "b0d41ed15199196563c640767dfa4bec5db6d300d2e542118f814cdeb66f0afa",
+      "sha256": "c572cd2b73a3fb86d0632c8ffac5c8a875163539b21930a2e5228f2a2bfabd1c",
       "static_file_edges": [
         "collector113_prep/transport_policy.py"
       ],
@@ -3310,7 +3310,7 @@
       "path": "integration/collector197_feed_child.py",
       "project": "integration",
       "role": "offline_contract_or_private_view",
-      "sha256": "84e0ebf31bdf7a1c5a35addcf9f124c8f4427a6652d9639b64246abf8da5545e",
+      "sha256": "2d2742bb393490ee66ca385928de445d617790478648b7a124e580cfb688d364",
       "static_file_edges": [
         "collector113_prep/feed_composition.py",
         "collector129_prep/supplied_feed.py",
@@ -3351,8 +3351,10 @@
       "path": "integration/collector197_job.py",
       "project": "integration",
       "role": "offline_contract_or_private_view",
-      "sha256": "0eef8839ea8f74859ea34a0a793fe302d185ac9c3c00b2057f255b2788c0a912",
+      "sha256": "a79b1439539057b0d805253b4d26dee9edde0f9b9df640425934e1e1a6adaab3",
       "static_file_edges": [
+        "collector113_prep/feed_composition.py",
+        "collector115_prep/profile.py",
         "collector130_prep/base_profile.py",
         "integration/collector197_config.py",
         "integration/collector197_coordinator.py",
@@ -3361,7 +3363,9 @@
         "integration/collector197_job_runtime.py",
         "integration/collector197_orchestrator.py",
         "integration/collector197_preflight.py",
-        "integration/geo_article_writer.py"
+        "integration/collector197_supervisor.py",
+        "integration/geo_article_writer.py",
+        "intelligence/geo/__init__.py"
       ],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -3401,7 +3405,7 @@
       "path": "integration/collector197_orchestrator.py",
       "project": "integration",
       "role": "offline_contract_or_private_view",
-      "sha256": "3144fca89cd7ce4dabde5ca7c9e7dc559a821292c976fa0e9a87edb21178a6ee",
+      "sha256": "1adaaf26257f61852c72ee1624e25a6eb256fc57784268e67a796aff1c36ab8a",
       "static_file_edges": [
         "collector108_prep/durable_ledger.py",
         "collector109_prep/checkpoint.py",
@@ -3464,7 +3468,7 @@
       "path": "integration/collector197_worker_pins.json",
       "project": "integration",
       "role": "offline_contract_or_private_view",
-      "sha256": "4cc3dfaedd5b98b46ae72a579b5ed4f43b5c353c8cf14d26349e457c3a20a465",
+      "sha256": "eb8aa94dd60581a860cff4e0311aaea1c9f863479245a29aec0f5c1602f37126",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -3473,7 +3477,7 @@
       "path": "integration/collector_actions/entry.py",
       "project": "integration",
       "role": "offline_contract_or_private_view",
-      "sha256": "664f9fb04fa0a052580b4a454421d01f6be9c0ca4f340d10c88e3fe056d75ba8",
+      "sha256": "0d4fa4b916c95ec3a0e8e534bd402724cfa91a9844eb328661d72867a1735bb8",
       "static_file_edges": [
         "collector108_prep/durable_ledger.py",
         "collector130_prep/base_profile.py",
@@ -3502,7 +3506,7 @@
       "path": "integration/collector_actions/manual-first.workflow.yml",
       "project": "integration",
       "role": "offline_contract_or_private_view",
-      "sha256": "7537860fa61c2998363079a067da943043c42f4cbefd85be8b61eb6f52babd76",
+      "sha256": "8c0dcb3548f63b81242a884715d747cca0af4ae1f56ac0e75c123e2542574274",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -3770,7 +3774,7 @@
       "path": "integration/dependency_audit/import-inventory.json",
       "project": "integration",
       "role": "offline_contract_or_private_view",
-      "sha256": "aaae754580f84fd3a6157a98ebc9182ff090dea76717e4dcfcb1bad59301c7a2",
+      "sha256": "96ea88d71d00843e27c3e6dfcc74c6367d991c367eeffc4aafd990a4781d8514",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -4841,7 +4845,7 @@
       "path": "integration/geo_article_writer.py",
       "project": "integration",
       "role": "offline_contract_or_private_view",
-      "sha256": "28379724081b15a961f30ac4bbbb7711aac8058b2b956392a77bbe960ebb54dd",
+      "sha256": "32f5f74870ad1ad2ec600ef31f3cad6ee25d9c22b184390efab3b50c1d02fb97",
       "static_file_edges": [
         "integration/fake_collection_writer.py"
       ],
@@ -5268,9 +5272,12 @@
       "path": "integration/mail_mount_binding.py",
       "project": "integration",
       "role": "offline_contract_or_private_view",
-      "sha256": "be84e2dc8ce8abaec4e6bd80b8f1930e346885b789950e833166efdd727e0d99",
+      "sha256": "52401353a6852ff82204f0540c7073da5000e38fbebd76e18ec683ccda67900c",
       "static_file_edges": [
-        "feature_mail_mount/store.py"
+        "feature_mail_mount/composition.py",
+        "feature_mail_mount/reports.py",
+        "feature_mail_mount/store.py",
+        "integration/collector197_http.py"
       ],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -9210,7 +9217,7 @@
       "path": "production_entry.py",
       "project": "finder_or_build",
       "role": "preserved_engine_or_asset",
-      "sha256": "70d313c2abea6b5a5f283ee682f8a5385c9b8657f097d4867ccfe2808073bb2b",
+      "sha256": "7824dd4100880979518a2b2f9dbaff818fd98f39270fd4457c76a52e34c92363",
       "static_file_edges": [
         "feature_mail_mount/composition.py",
         "integration/__init__.py",
@@ -11017,7 +11024,7 @@
       "path": "staging-manifest.json",
       "project": "finder_or_build",
       "role": "preserved_engine_or_asset",
-      "sha256": "3acf3662d9290df91a1e338173a1bf8075cf42884ac0e2b2a4a477edf5578190",
+      "sha256": "1d280871b3230b38bb3e8109001efcc6ce3e7b14937bd45ee65cbe6b144a72c2",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
