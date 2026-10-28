@@ -52,6 +52,8 @@ jobs:
             schedule==1.2.2 \
             gunicorn==26.2.0 \
             pymongo==4.18.2
+      - name: Compile production Python source trees
+        run: python -m compileall -q production_entry.py integration intelligence feature_mail_mount proxy_runtime updater_runtime
       - name: Test production entry default-off contracts
         run: python tests/test_production_entry_contract.py
       - name: Test public live builder read-only contracts
