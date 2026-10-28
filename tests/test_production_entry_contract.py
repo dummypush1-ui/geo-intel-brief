@@ -56,5 +56,22 @@ class ProductionEntryContractTests(unittest.TestCase):
             build_production_app({"COLLECTION_ENABLED": True}, self.builder)
 
 
+    def test_host_probe_switch_requires_exact_boolean_text(self):
+        with self.assertRaisesRegex(ValueError, "Exact host probe switch"):
+            build_production_app({"COLLECTOR_HOST_PROBE_ENABLED": "yes"}, self.builder)
+
+    def test_collection_requires_runtime_evidence_before_building(self):
+        with self.assertRaisesRegex(Exception, "Verified runtime evidence required"):
+            build_production_app({"COLLECTION_ENABLED": "true"}, self.builder)
+        self.assertEqual(self.received, {})
+
+    def test_public_builder_errors_propagate(self):
+        def broken_builder(environ, **bindings):
+            raise RuntimeError("intentional builder failure")
+
+        with self.assertRaisesRegex(RuntimeError, "intentional builder failure"):
+            build_production_app({}, broken_builder)
+
+
 if __name__ == "__main__":
     unittest.main()
