@@ -29,9 +29,11 @@ def config(raw):
     ref=raw['activation_reference']
     if type(ref)is not str or not 1<=len(ref)<=200 or any(ord(c)<33 or ord(c)>126 for c in ref):raise JobRefused('Owner activation source reference required')
     v=raw['values'];allowed={'GEO_WRITER_MONGODB_URI','COLLECTOR_PROFILE_FINGERPRINT'}
-    if type(v)is not dict or set(v)!=allowed or any(type(x)is not str for x in v.values()):raise JobRefused('Exact installation values')
+    if type(v)is not dict or not allowed<=set(v)<=allowed|{'ENABLE_FULL_TEXT','ENABLE_GNEWS','ENABLE_TELEGRAM_BACKUP','TELEGRAM_BACKUP_BOT_TOKEN','TELEGRAM_BACKUP_CHAT_ID','TELEGRAM_BACKUP_APPROVAL'} or any(type(x)is not str for x in v.values()):raise JobRefused('Exact installation values')
+    if any(v.get(k,'false')not in ('true','false')for k in ('ENABLE_FULL_TEXT','ENABLE_GNEWS','ENABLE_TELEGRAM_BACKUP')):raise JobRefused('Exact feature switch')
+    if v.get('ENABLE_TELEGRAM_BACKUP','false')!='true' and any(k in v for k in ('TELEGRAM_BACKUP_BOT_TOKEN','TELEGRAM_BACKUP_CHAT_ID','TELEGRAM_BACKUP_APPROVAL')):raise JobRefused('Telegram values without switch')
     if not v['GEO_WRITER_MONGODB_URI'] or len(v['GEO_WRITER_MONGODB_URI'])>4096 or not re.fullmatch('[0-9a-f]{64}',v['COLLECTOR_PROFILE_FINGERPRINT']):raise JobRefused('Writer/profile required')
-    return {**v,'COLLECTION_ENABLED':'true','ENABLE_FULL_TEXT':'false','ENABLE_GNEWS':'false','ENABLE_TELEGRAM_BACKUP':'false'}
+    return {**v,'COLLECTION_ENABLED':'true','ENABLE_FULL_TEXT':v.get('ENABLE_FULL_TEXT','false'),'ENABLE_GNEWS':v.get('ENABLE_GNEWS','false'),'ENABLE_TELEGRAM_BACKUP':v.get('ENABLE_TELEGRAM_BACKUP','false')}
 
 def nonce(repository,run_id):
     # Deliberately excludes run_attempt. Every GitHub rerun is the SAME job.
@@ -50,7 +52,7 @@ def read_status(values,n):
     finally:c.close()
 
 def measure(values):
-    start=time.monotonic()
+    start=time.monotonic();hard_end=start+74
     facts=read_job_facts()
     if facts['supported']is not True:raise JobRefused('Measured containment unavailable')
     # Real dedicated Mongo preflight is read-only. No ledger init/claim here.
@@ -66,7 +68,10 @@ def measure(values):
     # prepare path in the measured parent. Actual Mongo/write overhead remains
     # unmeasured and is an explicit separate qualification limit.
     docs=prepare_geo_documents(out['candidates'],p['active_categories'],p['threshold'])['documents']
-    return {'state':'measured_no_write','fetched':len(out['candidates']),'prepared':len(docs),
+    bad=[x['index']for x in out['source_states']if x['state']not in ('selected','parsed_bozo_unverified')]
+    from integration.collector197_job import feed_diagnostics
+    diag=feed_diagnostics(bad,end=time.monotonic()+max(0,min(15,hard_end-time.monotonic()))) if bad else []
+    return {'state':'measured_no_write','feed_diagnostics':diag,'fetched':len(out['candidates']),'prepared':len(docs),
       'coverage_states':[x['state']for x in out['source_states']],
       'writer_memory_proven':False,'driver_serialization_fixture':maximum,'readonly_mongo_preflight':True,'source_digest':source_digest(ROOT)}
 
