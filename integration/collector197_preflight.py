@@ -16,6 +16,16 @@ REQUIRED = {'articles': {'find', 'listIndexes', 'insert'},
 # Checkpoints need insert for new immutable upsert documents; ledger is preinitialized.
 # No collection creation allowed by this adapter, including initialization.
 
+def _simple_collation(row):
+    # MongoDB does not persist {locale: 'simple'} and lists binary comparison as an
+    # ABSENT collation field (some 9.0.x builds listed exactly {locale: 'simple'}).
+    # Any other present value (None, {}, extra keys, other locales) is refused.
+    if 'collation' not in row:
+        return True
+    c = row['collation']
+    return isinstance(c, dict) and c == {'locale': 'simple'}
+
+
 def inspect_writer(client, fingerprint):
     handles = {}
     try:
@@ -70,7 +80,7 @@ def inspect_writer(client, fingerprint):
                 valid = [r for r in indexes if dict(r.get('key',{})) == {'url':1}
                          and r.get('unique') is True and r.get('sparse',False) is False
                          and 'partialFilterExpression' not in r
-                         and r.get('collation') == {'locale':'simple'}]
+                         and _simple_collation(r)]
                 if not valid:
                     raise ValueError()
             # Existing _id unique constraint is mandatory for ledger/checkpoint.
