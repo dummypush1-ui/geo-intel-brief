@@ -1717,8 +1717,8 @@
     },
     {
       "path": "integration/collector197_job_diagnostic.sh",
-      "bytes": 2847,
-      "sha256": "788ab4c849d8f4e14c3102b6767561585fbed25d66c8bc6f1292caeb0836e36c"
+      "bytes": 3026,
+      "sha256": "bd2eb6c644dad953d83aa7831635057f321e492cf341c5ca3ce588d360b890e5"
     },
     {
       "path": "integration/collector197_job_runtime.py",
