@@ -2058,7 +2058,7 @@
     {
       "path": "integration/finder_composition_f9/pins.json",
       "bytes": 4247,
-      "sha256": "8152f80592f40afac03d61b7e7aa84a36d683096a5d89cd39937e091947f585a"
+      "sha256": "73f2d34d9fb4a087579a9a37acad079cc77a52728eacc81cedeaeb891c52b74e"
     },
     {
       "path": "integration/finder_controls_f17/__init__.py",
@@ -4492,8 +4492,8 @@
     },
     {
       "path": "production_entry.py",
-      "bytes": 8254,
-      "sha256": "be351c6b79153eec5d2aa2f6f8d676292d8188c42c1da6dd6ca86de8ea604dfd"
+      "bytes": 11386,
+      "sha256": "70d313c2abea6b5a5f283ee682f8a5385c9b8657f097d4867ccfe2808073bb2b"
     },
     {
       "path": "proxy_runtime/ais-frame.cjs",
@@ -4567,13 +4567,13 @@
     },
     {
       "path": "requirements-offline-reviewed.candidate.txt",
-      "bytes": 2699,
-      "sha256": "8f05f424f6f2a56afb8d56de0e40854d043cddbbdd9927cc2a71b1341f331663"
+      "bytes": 8467,
+      "sha256": "7d1039fc79810d9c445f89555405fb108a3d2f53f2e7207ac9d493e047af4f79"
     },
     {
       "path": "requirements-staging.txt",
       "bytes": 128,
-      "sha256": "6b3652b56fd473f1fbcf91d4b7dafac8973e9e7f176a592a3e808734ad9d6f15"
+      "sha256": "9b5543149a76344282139cfe6c0a63f7a5df51e29056b522df8388fdb8416949"
     },
     {
       "path": "robots.txt",

@@ -2,7 +2,10 @@
 
 Use as `gunicorn production_entry:create_app()`. Finder candidate and comparison
 bindings can be injected into the factory by a trusted Python deployment wrapper;
-paths, hashes and evidence are never accepted from environment strings.
+paths, hashes and evidence are never accepted from environment strings. With
+MERGED_FINDER_BINDING_PREP_ENABLED, PUBLIC_FINDER_CANDIDATE_COMPOSITION_ENABLED
+and the fixed build directory below, the held Finder package built at deploy time
+is bound only after every pinned payload file matches.
 Collector dispatch is default OFF and requires real injected runtime evidence.
 Mail has an injected default-OFF private receipt mount; no builtin provider, DB
 creation or sender. Scraper is not wired. Enabling components is a separately
@@ -21,12 +24,59 @@ COMPONENTS = {
 _UNWIRED_SWITCHES = ('SCRAPER_ENABLED',)
 
 
+_FINDER_BUILD_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), '.finder-candidate')
+# Exact sha256 of the 13 payload files of the held Finder package. manifest.json and
+# provenance/source-chain.json embed the build commit, so they are checked by F8.
+_FINDER_PAYLOAD_SHA256 = {
+    'data.aa056ad4e0cf.js': 'aa056ad4e0cf8e0c12ccff4474425c700c27f4b3387484c02c77121c889d40d3',
+    'index.html': 'fd839e43e397e50043bf5e365b80d76ca1f582c81f3e69d8332d281d1faf1d73',
+    'integration/code_news_index/codes.idx': '4f6487562fd144ef42f75724581fc4d206bf2f0df7b78ce6c66270bffff3fb03',
+    'integration/code_news_index/manifest.json': '9dde33202076e4eb08b8589878f5fd26d1d89e2de4edb1bc0b227947458a1aaf',
+    'integration/code_news_index/rows.jsonl': '1bf6201069537c58c7dd5ee287d9b3b990b88e3884c10fd3febcd726f2c0f92a',
+    'integration/finder_identity_proof.bin': 'bfbea25e82ffaddadae5b8e6175ce27d1872477c96d31e085d1a0056fb6e6fc2',
+    'offline.html': '5f21235e1454dc7470c5020d40f22ce3eca083386dfc46eb3fab24161fef490b',
+    'review/public-offline.html': '30d8055442b84a9005475ff651a53c9d2981332146fb6299186ae21d3327f78e',
+    'src/sanctions.ts': '198ad67256387dd86ba7a7147005cfef0d2ce82c6efb73190eecf7a5e835ba9f',
+    'src/tradepartners.ts': '61d36205a98506009752ef42adff11f84f63071962c17c08ff07b2739bca8c39',
+    'sw.js': '18f9be15a710ae55fcbfe374861a856ac69c1dd8067d7ab151154bc5f22da17a',
+    'upstream/src/sanctions.ts': '03d33e43c46dc79235c18be1d3c750c04eeffc70e34460ba048040b395fb702e',
+    'upstream/src/tradepartners.ts': '1a2c819224371e783bdfe70b8c9b247f7410415db2b74e60fcd73ceb58611334',
+}
+
+
+def _load_finder_binding(environ):
+    import hashlib
+    from integration import finder_binding_f8 as f8
+    archive = os.path.join(_FINDER_BUILD_DIR, 'finder-candidate.zip')
+    root = os.path.join(_FINDER_BUILD_DIR, 'root')
+    try:
+        for name, pin in _FINDER_PAYLOAD_SHA256.items():
+            digest = hashlib.sha256()
+            with open(os.path.join(root, name), 'rb') as stream:
+                for chunk in iter(lambda: stream.read(65536), b''):
+                    digest.update(chunk)
+            if digest.hexdigest() != pin:
+                raise f8.Held('Finder payload hash mismatch')
+        digest = hashlib.sha256()
+        with open(archive, 'rb') as stream:
+            for chunk in iter(lambda: stream.read(65536), b''):
+                digest.update(chunk)
+    except OSError as exc:
+        raise f8.Held('Finder candidate package not present') from exc
+    binding = f8.prepare(environ, archive=archive, expected_sha256=digest.hexdigest(), root=root)
+    if binding is None:
+        raise f8.Held('Finder composition requires MERGED_FINDER_BINDING_PREP_ENABLED=true')
+    return binding
+
+
 def build_production_app(environ, public_builder=None, *, runtime_evidence=None, collector_client_factory=None, clock=None, mail_binding_provider=None, coverage_binding_provider=None, finder_candidate_binding=None, finder_comparison_baseline=None):
     if type(environ) is not dict or any(type(k) is not str or type(v) is not str for k, v in environ.items()):
         raise ValueError('Plain environment strings required')
     bad = [k for k in _UNWIRED_SWITCHES if environ.get(k, 'false') != 'false']
     if bad:
         raise ValueError('Component not wired in production entry: ' + ', '.join(bad))
+    if finder_candidate_binding is None and environ.get('PUBLIC_FINDER_CANDIDATE_COMPOSITION_ENABLED', 'false') == 'true':
+        finder_candidate_binding = _load_finder_binding(environ)
     probe_flag=environ.get('COLLECTOR_HOST_PROBE_ENABLED','false')
     if probe_flag not in ('false','true'):raise ValueError('Exact host probe switch required')
     probe_app=None
