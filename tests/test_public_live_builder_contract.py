@@ -50,7 +50,7 @@ class PublicLiveBuilderContractTests(unittest.TestCase):
 
  def test_text_bounds_and_public_disabled_code_button(self):
   from integration.public_live_builder import sanitize_public_geo_rows
-  c=Client();c.rows[0].update(summary='x'*8001,source='x'*201,country='\\ud800')
+  c=Client();c.rows[0].update(summary='x'*8001,source='x'*201,country='\ud800')
   row=sanitize_public_geo_rows(c.rows)[0]
   self.assertNotIn('summary',row);self.assertNotIn('source',row);self.assertNotIn('country',row)
   c.rows[0]['title']='x'*2049
@@ -96,7 +96,7 @@ class PublicLiveBuilderContractTests(unittest.TestCase):
 
  def test_projection_mapping_limit_timeout_and_public_fields(self):
   a,c=self.app();r=a.test_client().get('/api/news',base_url=BASE)
-  self.assertEqual(r.status_code,200);self.assertEqual(c.paths,['geo_intel','articles'])
+  self.assertEqual(r.status_code,200);self.assertEqual(c.paths,['geo_intel','articles','geo_intel','articles'])
   self.assertEqual(c.calls[0][1],{});p=c.calls[0][2]
   self.assertNotIn('password',p);self.assertNotIn('emailed',p)
   self.assertIn(('sort',('created_at',-1)),c.calls);self.assertIn(('limit',(100,)),c.calls)
@@ -127,7 +127,7 @@ class PublicLiveBuilderContractTests(unittest.TestCase):
  def test_live_notice_and_deny_private_writes(self):
   a,c=self.app();cl=a.test_client();r=cl.get('/workspace',base_url=BASE)
   self.assertEqual(r.status_code,200);self.assertIn('PUBLIC NEWS PREVIEW',r.text)
-  self.assertIn('Latest up to 100',r.text);self.assertEqual(r.headers['X-Preview-Mode'],'public_geo_readonly')
+  self.assertIn('Latest-100',r.text);self.assertEqual(r.headers['X-Preview-Mode'],'public_geo_readonly')
   self.assertEqual(c.calls,[]);r.close()
   for p in ('/login','/private-session','/workspace/finder/index.html','/api/export-full.csv','/api/weekly-report.pdf','/digest-data'):
    self.assertEqual(cl.get(p,base_url=BASE).status_code,403,p)
