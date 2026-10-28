@@ -15,7 +15,7 @@ from collector113_prep.feed_composition import original_catalog
 from integration.collector197_parser import parse_supplied_bytes
 from collector129_prep.supplied_feed import prepare_supplied_feed
 from datetime import datetime, timezone, timedelta
-assert set(os.environ) <= {'LANG','LC_ALL','TZ'}
+assert set(os.environ) <= {'LANG','LC_ALL','TZ','PWD'}
 raw=sys.stdin.buffer.read(4097);assert len(raw)<=4096
 v=json.loads(raw);assert type(v)is dict and set(v)=={'index','timeout','max_items','lookback_hours','request_timeout','observed_at'}
 feeds=original_catalog();index=v['index'];assert type(index)is int and 0<=index<len(feeds)

@@ -94,12 +94,19 @@ def build_production_app(environ, public_builder=None, *, runtime_evidence=None,
     mail_flag=environ.get('MERGED_MAIL_ENABLED','false')
     if mail_flag not in ('false','true'):raise ValueError('Exact merged mail switch required')
     mail_binding=None
+    lazy_mail_provider=None
     if mail_flag=='true':
         if environ.get('MAIL_V1_ENABLED','false')!='true':raise ValueError('Exact private mail gate required')
         import time
         from integration.mail_mount_binding import resolve_binding
         live_mail_clock=clock or (lambda:int(time.time()))
-        mail_binding=resolve_binding(mail_binding_provider,live_mail_clock)
+        if mail_binding_provider is None:
+            # Env-driven provider: mail comes up lazily and fails closed per request.
+            # A bad setting or unreachable database never takes the web app down.
+            from integration.mail_mount_binding import env_mail_binding_provider
+            lazy_mail_provider=env_mail_binding_provider(environ,clock=live_mail_clock)
+        else:
+            mail_binding=resolve_binding(mail_binding_provider,live_mail_clock)
     collector=None
     try:
         if flag=='true':
@@ -167,6 +174,12 @@ def build_production_app(environ, public_builder=None, *, runtime_evidence=None,
             mail_binding.close()
             if collector is not None:collector.extensions['collector_close']()
             raise
+    if lazy_mail_provider is not None:
+        from integration.mail_mount_binding import LazyMailDispatcher
+        lazy=LazyMailDispatcher(app.wsgi_app,lazy_mail_provider,live_mail_clock)
+        app.wsgi_app=lazy
+        app.extensions['mail_close']=lazy.close
+        app.extensions['mail_receipt_mode']='private_receipt_bridge_no_send'
     if probe_app is not None:
         original=app.wsgi_app
         def probe_dispatch(env,start_response):

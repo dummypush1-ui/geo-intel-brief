@@ -17,7 +17,7 @@ class GeoArticleWriter:
   self._client=client
  def __init_subclass__(cls,**kwargs):raise TypeError('Writer cannot be subclassed')
  def write(self,documents,clock):
-  failed=False
+  self._inserted=None;failed=False
   try:
    if type(documents) is not list or len(documents)>1000 or type(clock) is not datetime or type(clock.tzinfo) is not timezone:raise ValueError()
    # Copy exact built-in JSON values first; never validate caller objects then
@@ -53,7 +53,7 @@ class GeoArticleWriter:
   except Exception:failed=True
   if failed:raise WriterUnavailable('Geo article batch invalid')
   if not docs:return {'state':'empty','attempted':0,'inserted_count':0,'duplicate_count':0,'failed_count':0,'uncertain_count':0,'retry_safe':True}
-  attempted=len(docs);submitted=tuple(docs)
+  attempted=len(docs);submitted=tuple(docs);self._inserted=None
   # No source mapping or driver mutation before entire batch copied/validated.
   try:
    collection=self._client['geo_intel']['articles']
@@ -63,7 +63,12 @@ class GeoArticleWriter:
   try:
    result=insert(driver_docs,ordered=False)
   except BulkWriteError as exc:
-   try:return self._bulk_outcome(exc.details,attempted)
+   try:
+    out=self._bulk_outcome(exc.details,attempted)
+    if out['state'] in ('duplicates','partial'):
+     bad={e['index'] for e in exc.details['writeErrors']}
+     self._inserted=tuple(i for i in range(attempted) if i not in bad)
+    return out
    except Exception:return self._uncertain(attempted)
   except Exception:return self._uncertain(attempted)
   # Receipt failures are not write-command errors. Never classify their
@@ -72,8 +77,14 @@ class GeoArticleWriter:
    acknowledged=result.acknowledged
    ids=result.inserted_ids
    if acknowledged is not True or type(ids) is not list or len(ids)!=attempted:raise ValueError()
+   self._inserted=tuple(range(attempted))
    return {'state':'inserted','attempted':attempted,'inserted_count':attempted,'duplicate_count':0,'failed_count':0,'uncertain_count':0,'retry_safe':False}
   except Exception:return self._uncertain(attempted)
+ _inserted=None
+ def last_inserted_indices(self):
+  """Indices (into the last write batch) that the last receipt proves were newly inserted; None when unknown or uncertain."""
+  v=self._inserted
+  return list(v) if v is not None else None
  @staticmethod
  def _uncertain(n):return {'state':'uncertain','attempted':n,'inserted_count':None,'duplicate_count':None,'failed_count':None,'uncertain_count':n,'retry_safe':False}
  @staticmethod

@@ -462,8 +462,8 @@
     },
     {
       "path": "collector113_prep/feed_composition.py",
-      "bytes": 2255,
-      "sha256": "f651caabd5e0b81e5347946ebe7f5b728e80fca1fd47cbbb25ef7eb44df77f9d"
+      "bytes": 2886,
+      "sha256": "1710bb10b0e0a140151a65c57f00e15155cb61ff13646ee3da7b468e99c472db"
     },
     {
       "path": "collector113_prep/inventory113.json",
@@ -1622,8 +1622,8 @@
     },
     {
       "path": "integration/collector_actions/entry.py",
-      "bytes": 6403,
-      "sha256": "664f9fb04fa0a052580b4a454421d01f6be9c0ca4f340d10c88e3fe056d75ba8"
+      "bytes": 7333,
+      "sha256": "0d4fa4b916c95ec3a0e8e534bd402724cfa91a9844eb328661d72867a1735bb8"
     },
     {
       "path": "integration/collector_actions/launch.sh",
@@ -1632,8 +1632,8 @@
     },
     {
       "path": "integration/collector_actions/manual-first.workflow.yml",
-      "bytes": 3238,
-      "sha256": "7537860fa61c2998363079a067da943043c42f4cbefd85be8b61eb6f52babd76"
+      "bytes": 4915,
+      "sha256": "8c0dcb3548f63b81242a884715d747cca0af4ae1f56ac0e75c123e2542574274"
     },
     {
       "path": "integration/collector_actions/provider.py",
@@ -1667,13 +1667,13 @@
     },
     {
       "path": "integration/collector197_config.py",
-      "bytes": 2536,
-      "sha256": "eab36cafe3774aa1bf33327e6eefa10b368e984c3f617ee3aae063199e87499f"
+      "bytes": 3349,
+      "sha256": "523052753b9f5c54f215d2dedf1aad7ffc3e3fd95758e50877d176b4637659ae"
     },
     {
       "path": "integration/collector197_connector.py",
-      "bytes": 6660,
-      "sha256": "b0d41ed15199196563c640767dfa4bec5db6d300d2e542118f814cdeb66f0afa"
+      "bytes": 11094,
+      "sha256": "c572cd2b73a3fb86d0632c8ffac5c8a875163539b21930a2e5228f2a2bfabd1c"
     },
     {
       "path": "integration/collector197_coordinator_child.py",
@@ -1697,8 +1697,8 @@
     },
     {
       "path": "integration/collector197_feed_child.py",
-      "bytes": 2842,
-      "sha256": "84e0ebf31bdf7a1c5a35addcf9f124c8f4427a6652d9639b64246abf8da5545e"
+      "bytes": 2848,
+      "sha256": "2d2742bb393490ee66ca385928de445d617790478648b7a124e580cfb688d364"
     },
     {
       "path": "integration/collector197_host_probe.py",
@@ -1727,13 +1727,13 @@
     },
     {
       "path": "integration/collector197_job.py",
-      "bytes": 4388,
-      "sha256": "0eef8839ea8f74859ea34a0a793fe302d185ac9c3c00b2057f255b2788c0a912"
+      "bytes": 26582,
+      "sha256": "a79b1439539057b0d805253b4d26dee9edde0f9b9df640425934e1e1a6adaab3"
     },
     {
       "path": "integration/collector197_orchestrator.py",
-      "bytes": 7518,
-      "sha256": "3144fca89cd7ce4dabde5ca7c9e7dc559a821292c976fa0e9a87edb21178a6ee"
+      "bytes": 8346,
+      "sha256": "1adaaf26257f61852c72ee1624e25a6eb256fc57784268e67a796aff1c36ab8a"
     },
     {
       "path": "integration/collector197_parser.py",
@@ -1758,7 +1758,7 @@
     {
       "path": "integration/collector197_worker_pins.json",
       "bytes": 1868,
-      "sha256": "4cc3dfaedd5b98b46ae72a579b5ed4f43b5c353c8cf14d26349e457c3a20a465"
+      "sha256": "eb8aa94dd60581a860cff4e0311aaea1c9f863479245a29aec0f5c1602f37126"
     },
     {
       "path": "integration/commodity_candidate_eval.py",
@@ -1868,7 +1868,7 @@
     {
       "path": "integration/dependency_audit/import-inventory.json",
       "bytes": 388934,
-      "sha256": "aaae754580f84fd3a6157a98ebc9182ff090dea76717e4dcfcb1bad59301c7a2"
+      "sha256": "96ea88d71d00843e27c3e6dfcc74c6367d991c367eeffc4aafd990a4781d8514"
     },
     {
       "path": "integration/dependency_build/executed-orchestrator.txt",
@@ -2392,8 +2392,8 @@
     },
     {
       "path": "integration/geo_article_writer.py",
-      "bytes": 7311,
-      "sha256": "28379724081b15a961f30ac4bbbb7711aac8058b2b956392a77bbe960ebb54dd"
+      "bytes": 7827,
+      "sha256": "32f5f74870ad1ad2ec600ef31f3cad6ee25d9c22b184390efab3b50c1d02fb97"
     },
     {
       "path": "integration/geo_collector_contract.py",
@@ -2607,8 +2607,8 @@
     },
     {
       "path": "integration/mail_mount_binding.py",
-      "bytes": 3174,
-      "sha256": "be84e2dc8ce8abaec4e6bd80b8f1930e346885b789950e833166efdd727e0d99"
+      "bytes": 9830,
+      "sha256": "52401353a6852ff82204f0540c7073da5000e38fbebd76e18ec683ccda67900c"
     },
     {
       "path": "integration/mail_preflight225.py",
@@ -4492,8 +4492,8 @@
     },
     {
       "path": "production_entry.py",
-      "bytes": 11386,
-      "sha256": "70d313c2abea6b5a5f283ee682f8a5385c9b8657f097d4867ccfe2808073bb2b"
+      "bytes": 12152,
+      "sha256": "7824dd4100880979518a2b2f9dbaff818fd98f39270fd4457c76a52e34c92363"
     },
     {
       "path": "proxy_runtime/ais-frame.cjs",

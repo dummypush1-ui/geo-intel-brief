@@ -33,9 +33,18 @@ def configure(values, proofs):
     switch = values.get('COLLECTION_ENABLED', 'false')
     if type(switch) is not str or switch not in ('false', 'true'):
         raise ConfigRefused('Exact collection switch required')
+    # Full text and Google News have reviewed bounded fetchers in collector197_job.
+    # Telegram backup is owner-gated: it needs an explicit approval text plus a bot
+    # token and chat id in the job payload, checked here and again in the entry.
     for flag in ('ENABLE_FULL_TEXT', 'ENABLE_GNEWS', 'ENABLE_TELEGRAM_BACKUP'):
-        if values.get(flag, 'false') != 'false' or type(values.get(flag, 'false')) is not str:
-            raise ConfigRefused('Unsupported collector feature')
+        if type(values.get(flag, 'false')) is not str or values.get(flag, 'false') not in ('true', 'false'):
+            raise ConfigRefused('Exact feature switch required')
+    if values.get('ENABLE_TELEGRAM_BACKUP', 'false') == 'true':
+        import re
+        t, c, a = values.get('TELEGRAM_BACKUP_BOT_TOKEN'), values.get('TELEGRAM_BACKUP_CHAT_ID'), values.get('TELEGRAM_BACKUP_APPROVAL')
+        if (type(t) is not str or not re.fullmatch(r'[0-9]{5,15}:[A-Za-z0-9_-]{20,80}', t) or type(c) is not str
+                or not re.fullmatch(r'@[A-Za-z0-9_]{5,32}|-?[0-9]{1,20}', c) or type(a) is not str or not 8 <= len(a) <= 200):
+            raise ConfigRefused('Telegram backup needs owner approval, token and chat id')
     if switch == 'false':
         return CollectorConfig(False)
     if set(proofs) != GATES or any(proofs[k] is not True for k in GATES):
