@@ -28,13 +28,13 @@ jobs:
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
-          ref: ed3ae3a86648453100578f902b5504845ee4e129
+          ref: 4ff26bc0bd3b41a57e3db88496bf72e78ef6b161
           persist-credentials: false
       - name: Verify immutable reviewed checkout and clean source
         shell: bash
         run: |
           set -euo pipefail
-          test "$(git rev-parse HEAD)" = ed3ae3a86648453100578f902b5504845ee4e129
+          test "$(git rev-parse HEAD)" = 4ff26bc0bd3b41a57e3db88496bf72e78ef6b161
           test -z "$(git status --porcelain)"
       - name: Install collector candidate dependencies
         shell: bash
