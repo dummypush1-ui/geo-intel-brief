@@ -5,6 +5,7 @@ without changing source data or enabling any guarded integration.
 """
 import hashlib
 import re
+import subprocess
 import unittest
 from pathlib import Path
 
@@ -54,6 +55,30 @@ class FinderBuildContractTests(unittest.TestCase):
         self.assertIn('id="root"', self.offline)
         self.assertIn("Worldwide HSN Code Finder", self.index)
         self.assertIn("Worldwide HSN Code Finder", self.offline)
+
+    def test_generated_javascript_parses(self):
+        # Parse every inline script plus the versioned data and service worker.
+        # This catches syntax regressions that simple string checks cannot see.
+        check_script = r"""
+const fs = require('fs');
+const vm = require('vm');
+for (const name of ['index.html', 'offline.html']) {
+  const html = fs.readFileSync(name, 'utf8');
+  const scripts = [...html.matchAll(/<script>([\s\S]*?)<\/script>/g)];
+  if (!scripts.length) throw new Error(name + ': no inline scripts found');
+  for (const match of scripts) new vm.Script(match[1], {filename: name});
+}
+for (const name of fs.readdirSync('.').filter(
+  n => /^data\.[a-f0-9]{12}\.js$/.test(n) || n === 'sw.js'
+)) new vm.Script(fs.readFileSync(name, 'utf8'), {filename: name});
+"""
+        subprocess.run(
+            ["node", "-e", check_script],
+            cwd=ROOT,
+            check=True,
+            capture_output=True,
+            text=True,
+        )
 
 
 if __name__ == "__main__":
