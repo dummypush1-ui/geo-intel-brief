@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
-          ref: 6d3d5ab9f1f23b6d8572deea599ca8193e358d9b
+          ref: ed3ae3a86648453100578f902b5504845ee4e129
           persist-credentials: false
       - name: Install bounded diagnostic dependencies
         shell: bash
@@ -20,9 +20,21 @@ jobs:
           sudo -n apt-get update
           sudo -n apt-get install -y bubblewrap
           python3 -m venv .collector-job-env
-          .collector-job-env/bin/python -m pip install --require-hashes -r requirements-future-deploy.lock
-      - name: Disposable aggregate guard diagnostics only
+          .collector-job-env/bin/python -m pip install --require-hashes -r requirements-collector-cp312.lock
+      - name: Runner facts (read only)
         shell: bash
         run: |
-          set -euo pipefail
-          sudo -n /bin/bash integration/collector197_job_diagnostic.sh --diagnose
+          uname -r
+          cat /proc/self/cgroup
+          echo "controllers: $(cat /sys/fs/cgroup/cgroup.controllers)"
+          echo "subtree_control: $(cat /sys/fs/cgroup/cgroup.subtree_control)"
+          free -m
+      - name: Disposable aggregate guard diagnostics only (traced)
+        shell: bash
+        run: |
+          set +e
+          sudo -n /bin/bash -c '/usr/bin/env -i PATH=/usr/bin:/bin SUDO_UID="$SUDO_UID" SUDO_GID="$SUDO_GID" /bin/bash -x integration/collector197_job_diagnostic.sh --diagnose' > /tmp/diag.out 2>&1
+          code=$?
+          echo "diagnostic_exit_code=$code"
+          tail -n 120 /tmp/diag.out
+          exit 0
