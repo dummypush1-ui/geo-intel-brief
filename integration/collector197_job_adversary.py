@@ -14,7 +14,7 @@ try:
         parent=bytearray(350*MiB)
         count=350+8*200+180
     else:
-        sizes=[(256,240)]*14
+        sizes=[(320,240)]*14
         parent=bytearray(80*MiB)
         count=80+14*240
     for cap,size in sizes:
