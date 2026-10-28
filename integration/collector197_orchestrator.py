@@ -32,7 +32,7 @@ def _concerns(collection):
 
 
 def run_cycle(config, *, ledger, checkpoints, nonce, fetch, categories, threshold,
-              clock, monotonic=time.monotonic, writer=None, hard_deadline=None):
+              clock, monotonic=time.monotonic, writer=None, hard_deadline=None, post_write_hook=None):
     if type(config) is not CollectorConfig or config != CollectorConfig(config.enabled):
         raise CycleRefused('Fixed configuration contract required')
     if type(config.enabled) is not bool:
@@ -123,7 +123,20 @@ def run_cycle(config, *, ledger, checkpoints, nonce, fetch, categories, threshol
             raise CycleRefused('Write reconciliation required')
         counts.update(checked)
         ledger.advance(key, fence, 'completed', now(), counts)
-        return {'state': 'completed', 'job': key, 'counts': counts, 'production_mounted': False, **({'coverage':source_coverage}if source_coverage is not None else{})}
+        extra = {}
+        if post_write_hook is not None:
+            # At-most-once side effect: runs only after the write is durable and the
+            # job is 'completed'. Its failure or a crash here can only lose the
+            # backup for this run; it can never cause a resend or fail the job.
+            try:
+                idx = writer.last_inserted_indices()
+                if (type(idx) is not list or len(idx) != checked['inserted'] or len(set(idx)) != len(idx)
+                        or any(type(i) is not int or not 0 <= i < len(docs) for i in idx)):
+                    idx = None
+                extra['post_write'] = post_write_hook(docs, saved['candidates'], dict(checked), idx)
+            except Exception:
+                extra['post_write'] = {'state': 'hook_failed'}
+        return {'state': 'completed', 'job': key, 'counts': counts, 'production_mounted': False, **extra, **({'coverage':source_coverage}if source_coverage is not None else{})}
     except Exception:
         # Unknown CAS failure could have landed. Read source state; do NOT
         # downgrade a write ticket or clear uncertain/expired jobs.
