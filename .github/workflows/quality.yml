@@ -24,6 +24,8 @@ jobs:
         run: npm run build
       - name: Test production entry default-off contracts
         run: python3 tests/test_production_entry_contract.py
+      - name: Test generated Finder build contracts
+        run: python3 tests/test_finder_build_contract.py
       - name: Validate repository audit helper
         run: |
           python3 -m py_compile scripts/repo_audit.py
