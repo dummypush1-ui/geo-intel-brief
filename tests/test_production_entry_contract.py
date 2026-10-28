@@ -1,11 +1,15 @@
 """Fast, dependency-light contract tests for the production entry boundary.
 
-These tests intentionally use an injected public builder so they do not need
-Flask, network access, credentials, or a database. They verify default-off
-behavior and fail-closed switch parsing without enabling optional integrations.
+These tests use an injected public builder so they do not need Flask, network
+access, credentials, or a database. They verify default-off behavior and
+fail-closed switch parsing without enabling optional integrations.
 """
+from pathlib import Path
+import sys
 import unittest
 
+# Running this file directly puts tests/ on sys.path, not the repository root.
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from production_entry import build_production_app
 
 
@@ -32,8 +36,8 @@ class ProductionEntryContractTests(unittest.TestCase):
         self.assertEqual(components["collector"]["gate_state"], "false")
         self.assertEqual(components["mail"]["gate_state"], "false")
         self.assertEqual(components["scraper"]["gate_state"], "false")
-        self.assertFalse(self.received["environ"]["PUBLIC_NEWS_FULL_PAGES_ENABLED"] == "true")
-        self.assertFalse(self.received["environ"]["PUBLIC_NEWS_SEARCH_PROGRESS_ENABLED"] == "true")
+        self.assertEqual(self.received["environ"]["PUBLIC_NEWS_FULL_PAGES_ENABLED"], "false")
+        self.assertEqual(self.received["environ"]["PUBLIC_NEWS_SEARCH_PROGRESS_ENABLED"], "false")
 
     def test_unwired_scraper_cannot_be_enabled(self):
         with self.assertRaisesRegex(ValueError, "not wired"):
