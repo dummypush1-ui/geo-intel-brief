@@ -16,7 +16,7 @@ UA = 'Mozilla/5.0 (compatible; GeoIntelMonitor/2.0; +https://render.com)'
 class ConnectorRefused(ValueError):
     pass
 
-def fetch_one(feeds, url, *, timeout=20, account):
+def _fetch_hop(feeds, url, *, timeout=20, account, request_override=None):
     if type(timeout) not in (int, float) or not math.isfinite(timeout) or not 0 < timeout <= 30:
         raise ConnectorRefused('Timeout shape')
     # Validate URL before a DNS call; public literal is supplied solely to check
@@ -55,16 +55,25 @@ def fetch_one(feeds, url, *, timeout=20, account):
         if tls.getpeername()[0] != peer: raise ConnectorRefused('TLS peer changed')
         request = ('GET ' + plan['request_target'] + ' HTTP/1.1\r\nHost: ' + plan['hostname'] +
                    '\r\nUser-Agent: ' + UA + '\r\nAccept-Encoding: gzip, deflate\r\nConnection: close\r\n\r\n').encode('ascii')
+        if request_override is not None:
+            request = request_override(plan)
+            if type(request) is not bytes or len(request) > 8192: raise ConnectorRefused('Request shape')
         tls.sendall(request)
         response = http.client.HTTPResponse(tls)
         tls.settimeout(remaining()); response.begin()
         if response.headers.defects:
             raise ConnectorRefused('Malformed HTTP header parse')
         pairs = response.getheaders()
-        if len(pairs) > 32: raise ConnectorRefused('Response header budget')
+        if len(pairs) > 128 or sum(len(k) + len(v) for k, v in pairs) > 65536: raise ConnectorRefused('Response header budget')
+        # Only headers that decide framing, decoding or a redirect are kept and
+        # strictly checked. Everything else (Set-Cookie, Vary, Link, CSP, ...)
+        # is ignored: ordinary servers repeat or enlarge them and they cannot
+        # change what bytes are read or where the connection goes.
+        KEEP = ('content-length', 'content-encoding', 'transfer-encoding', 'content-type', 'location')
         headers = {}
         for k, v in pairs:
             key = k.lower()
+            if key not in KEEP: continue
             if key in headers: raise ConnectorRefused('Duplicate HTTP header')
             headers[key] = v
         # HTTPResponse may parse TE liberally. Accept only exact chunked without
@@ -73,8 +82,13 @@ def fetch_one(feeds, url, *, timeout=20, account):
         if transfer is not None and (transfer.strip().lower() != 'chunked' or 'content-length' in headers or not response.chunked):
             raise ConnectorRefused('Ambiguous HTTP framing')
         # Validate metadata before any body read. No exception-string routing.
+        if type(response.status) is int and response.status in (301, 302, 303, 307, 308):
+            loc = headers.get('location')
+            if type(loc) is not str or not 1 <= len(loc) <= 2000 or any(ord(c) < 33 or ord(c) > 126 for c in loc):
+                raise ConnectorRefused('Redirect target shape')
+            return {'redirect': loc}
         if type(response.status) is not int or response.status != 200:
-            raise ConnectorRefused('HTTP status or redirect refused')
+            raise ConnectorRefused('HTTP status refused: %d' % response.status)
         import re
         for key, value in headers.items():
             if (type(key) is not str or type(value) is not str or
@@ -118,3 +132,57 @@ def fetch_one(feeds, url, *, timeout=20, account):
         if response is not None: response.close()
         if tls is not None: tls.close()
         if raw is not None: raw.close()
+
+
+def fetch_one(feeds, url, *, timeout=20, account, max_redirects=3):
+    """Fetch with at most max_redirects hops. Every hop is validated from scratch:
+    https only, plain host, port 443, DNS answers all public unicast, connection
+    pinned to a checked address, peer re-checked, TLS verified. The first URL must
+    be in the allowlist; later hops only need to pass the same public-https checks.
+    Redirects to http, to IP literals, localhost, .internal or non-public hosts fail."""
+    from urllib.parse import urljoin, urlsplit
+    if type(timeout) not in (int, float) or not math.isfinite(timeout) or not 0 < timeout <= 30:
+        raise ConnectorRefused('Timeout shape')
+    deadline = time.monotonic() + timeout
+    current, hop_feeds, seen = url, feeds, {url}
+    for hop in range(max_redirects + 1):
+        left = deadline - time.monotonic()
+        if left <= 0: raise ConnectorRefused('Fetch wall budget')
+        result = _fetch_hop(hop_feeds, current, timeout=min(30, left), account=account)
+        if 'redirect' not in result:
+            result['url'] = url
+            result['final_url'] = current
+            result['redirects'] = hop > 0
+            return result
+        if hop == max_redirects: raise ConnectorRefused('Too many redirects')
+        target = urljoin(current, result['redirect'])
+        parts = urlsplit(target)
+        if parts.scheme != 'https' or parts.fragment: raise ConnectorRefused('Redirect must stay https')
+        target = parts._replace(path=parts.path or '/').geturl()
+        if target in seen: raise ConnectorRefused('Redirect loop')
+        seen.add(target)
+        name = hop_feeds[0][0]
+        hop_feeds, current = ((name, target, 'LOW'),), target
+
+
+def post_form_once(url, fields, *, timeout=15, account=lambda n: None, allowed_host='api.telegram.org'):
+    """One bounded form POST, no redirects. Same destination checks as fetch_one:
+    https, port 443, plain host, every DNS answer public unicast, pinned peer
+    re-checked, verified TLS, 1 MiB response cap, wall deadline. The host must equal
+    allowed_host. Used only by the gated Telegram backup child."""
+    from urllib.parse import urlsplit, urlencode
+    if type(fields) is not dict or not 1 <= len(fields) <= 8 or any(type(k) is not str or type(v) is not str for k, v in fields.items()):
+        raise ConnectorRefused('Form shape')
+    if urlsplit(url).hostname != allowed_host: raise ConnectorRefused('Host not allowed')
+    body = urlencode(fields).encode('ascii')
+    if len(body) > 6000: raise ConnectorRefused('Form too large')
+    def build(plan):
+        if plan['hostname'] != allowed_host: raise ConnectorRefused('Host not allowed')
+        return (('POST ' + plan['request_target'] + ' HTTP/1.1\r\nHost: ' + plan['hostname'] +
+                 '\r\nUser-Agent: ' + UA + '\r\nContent-Type: application/x-www-form-urlencoded\r\nContent-Length: ' + str(len(body)) +
+                 '\r\nAccept-Encoding: identity\r\nConnection: close\r\n\r\n').encode('ascii') + body)
+    if type(timeout) not in (int, float) or not math.isfinite(timeout) or not 0 < timeout <= 30:
+        raise ConnectorRefused('Timeout shape')
+    result = _fetch_hop((('post', url, 'LOW'),), url, timeout=timeout, account=account, request_override=build)
+    if 'redirect' in result: raise ConnectorRefused('Redirect refused for POST')
+    return result
