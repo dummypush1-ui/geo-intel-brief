@@ -52,7 +52,10 @@ set -e
 [[ $status != 0 && $status != 124 ]]
 [[ $(awk '$1=="oom_kill"{print $2}' "$base/overflow/memory.events") -gt 0 ]]
 [[ $(awk '$1=="oom_group_kill"{print $2}' "$base/overflow/memory.events") -gt 0 ]]
-[[ -z $(cat "$base/overflow/cgroup.procs") ]]
+for _ in $(seq 1 100); do procs=$(cat "$base/overflow/cgroup.procs"); [[ -z $procs ]] && break; sleep 0.1; done
+procs=$(cat "$base/overflow/cgroup.procs")
+[[ -z $procs ]]
+grep -qx "populated 0" "$base/overflow/cgroup.events"
 printf 'aggregate_fixture_oom_group_kill_verified=true\n'
 for name in below overflow; do
  printf '%s_memory_peak_bytes=' "$name";cat "$base/$name/memory.peak"
