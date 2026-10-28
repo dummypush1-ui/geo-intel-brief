@@ -1,5 +1,7 @@
-import unittest,copy
+import unittest,copy,sys
 from datetime import datetime,timezone
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from integration.public_live_builder import build_public_live_preview,create_public_geo_client
 BASE='https://preview.example'
 
