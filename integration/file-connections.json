@@ -3433,7 +3433,7 @@
       "path": "integration/collector197_preflight.py",
       "project": "integration",
       "role": "offline_contract_or_private_view",
-      "sha256": "371120e8ad4341121538106b8dc328fb3f82352867f5141daaed1fdb91eb9c9d",
+      "sha256": "95e78a98520688ab5d0538a8c03593b5c3c5dc6e0e290963c913cb4f674486ae",
       "static_file_edges": [
         "collector108_prep/durable_ledger.py",
         "integration/collector197_orchestrator.py"
@@ -3774,7 +3774,7 @@
       "path": "integration/dependency_audit/import-inventory.json",
       "project": "integration",
       "role": "offline_contract_or_private_view",
-      "sha256": "96ea88d71d00843e27c3e6dfcc74c6367d991c367eeffc4aafd990a4781d8514",
+      "sha256": "ecc2537a4d85a6a62886e12eb9ff914736061f79d3eafbb7226d8c181e0e14a3",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
