@@ -14,6 +14,16 @@ ROOT = Path(__file__).resolve().parents[1]
 class CompositionRefused(ValueError):
     pass
 
+# Added after verified public reads (2026-10-28). The 25 original rows stay first and
+# are still attempted; none is removed or renamed. These rows are official feeds of
+# the same publishers, added because the original URLs for WTO and UN News return
+# a 404-redirect or an empty body: (name, url, credibility).
+ADDED_CURRENT_FEEDS = (
+    ("WTO News (current feed)", "https://www.wto.org/library/rss/latest_news_e.xml", "HIGH"),
+    ("UN News (all topics)", "https://news.un.org/feed/subscribe/en/news/all/rss.xml", "HIGH"),
+    ("BIS Working Papers", "https://www.bis.org/doclist/wppubls.rss", "HIGH"),
+)
+
 def original_catalog():
     path = 'intelligence/geo/collectors/rss.py'
     raw = (ROOT / path).read_bytes()
@@ -22,7 +32,7 @@ def original_catalog():
     tree = ast.parse(raw)
     node = next(n for n in tree.body if type(n) is ast.Assign and
                 any(type(t) is ast.Name and t.id == 'DEFAULT_FEEDS' for t in n.targets))
-    return tuple(ast.literal_eval(node.value))
+    return tuple(ast.literal_eval(node.value)) + ADDED_CURRENT_FEEDS
 
 def select_response(feeds, url, *, answers, peer, status, headers, chunks,
                     deadline, clock, cutoff, fallback_clock, max_items=50):
