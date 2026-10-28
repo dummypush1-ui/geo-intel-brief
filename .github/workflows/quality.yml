@@ -22,6 +22,8 @@ jobs:
           node-version: "22"
       - name: Build Finder outputs from reviewed source
         run: npm run build
+      - name: Test production entry default-off contracts
+        run: python3 -m unittest tests.test_production_entry_contract -v
       - name: Validate repository audit helper
         run: |
           python3 -m py_compile scripts/repo_audit.py
