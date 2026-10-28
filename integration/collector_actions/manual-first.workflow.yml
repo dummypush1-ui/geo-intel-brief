@@ -1,7 +1,17 @@
 # REVIEW CANDIDATE: owner adds via GitHub UI after independent code review.
-# No schedule. Collect mode is a candidate held until source review/owner approval.
+# Manual runs: measure, collect, status. A scheduled collect run happens ONLY when
+# the owner sets repository variable COLLECTOR_SCHEDULE_ENABLED=true (kill switch:
+# set it to anything else) and COLLECTOR_ACTIVATION_REFERENCE (the owner's own
+# approval reference text, never filled by code). The Environment protection
+# below is the owner's setting; with a required reviewer every scheduled run waits
+# for approval, so unattended runs need the owner to choose that policy.
+# Cadence is best-effort: GitHub may delay or drop scheduled runs under load and
+# the shortest allowed interval is 5 minutes (GitHub docs, on.schedule).
 name: Collector Actions qualification candidate
 on:
+  schedule:
+    # Every 10 minutes, offset from the top of the hour (high-load time).
+    - cron: '3,13,23,33,43,53 * * * *'
   workflow_dispatch:
     inputs:
       mode:
@@ -21,7 +31,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   qualify:
-    if: github.repository == 'dummypush1-ui/geo-intel-brief' && github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main'
+    if: github.repository == 'dummypush1-ui/geo-intel-brief' && github.ref == 'refs/heads/main' && (github.event_name == 'workflow_dispatch' || (github.event_name == 'schedule' && vars.COLLECTOR_SCHEDULE_ENABLED == 'true'))
     # Owner configures Environment with required reviewer before installation.
     # The writer secret exists ONLY in this protected Environment, not repo scope.
     environment: collector-owner-approved
@@ -53,8 +63,14 @@ jobs:
         env:
           WRITER_URI: ${{ secrets.GEO_WRITER_MONGODB_URI }}
           PROFILE: ${{ vars.COLLECTOR_PROFILE_FINGERPRINT }}
-          MODE: ${{ inputs.mode }}
-          OWNER_REFERENCE: ${{ inputs.owner_reference }}
+          FULL_TEXT: ${{ vars.COLLECTOR_FULL_TEXT == 'true' && 'true' || 'false' }}
+          GNEWS: ${{ vars.COLLECTOR_GNEWS == 'true' && 'true' || 'false' }}
+          TG_ON: ${{ vars.COLLECTOR_TELEGRAM_BACKUP == 'true' && 'true' || 'false' }}
+          TG_TOKEN: ${{ secrets.TELEGRAM_BACKUP_BOT_TOKEN }}
+          TG_CHAT: ${{ secrets.TELEGRAM_BACKUP_CHAT_ID }}
+          TG_APPROVAL: ${{ vars.COLLECTOR_TELEGRAM_APPROVAL }}
+          MODE: ${{ github.event_name == 'schedule' && 'collect' || inputs.mode }}
+          OWNER_REFERENCE: ${{ github.event_name == 'schedule' && vars.COLLECTOR_ACTIVATION_REFERENCE || inputs.owner_reference }}
           QUALIFY_REPOSITORY: ${{ github.repository }}
           QUALIFY_RUN_ID: ${{ github.run_id }}
           QUALIFY_RUN_ATTEMPT: ${{ github.run_attempt }}
@@ -62,9 +78,13 @@ jobs:
           set -euo pipefail
           .collector-job-env/bin/python - <<'PY' | sudo -n /bin/bash integration/collector_actions/launch.sh --candidate
           import json,os
+          values={'GEO_WRITER_MONGODB_URI':os.environ['WRITER_URI'],
+            'COLLECTOR_PROFILE_FINGERPRINT':os.environ['PROFILE'],
+            'ENABLE_FULL_TEXT':os.environ['FULL_TEXT'],'ENABLE_GNEWS':os.environ['GNEWS']}
+          if os.environ['TG_ON']=='true':
+            values.update({'ENABLE_TELEGRAM_BACKUP':'true','TELEGRAM_BACKUP_BOT_TOKEN':os.environ['TG_TOKEN'],
+              'TELEGRAM_BACKUP_CHAT_ID':os.environ['TG_CHAT'],'TELEGRAM_BACKUP_APPROVAL':os.environ['TG_APPROVAL']})
           print(json.dumps({'mode':os.environ['MODE'],'repository':os.environ['QUALIFY_REPOSITORY'],
             'run_id':os.environ['QUALIFY_RUN_ID'],'run_attempt':os.environ['QUALIFY_RUN_ATTEMPT'],
-            'activation_reference':os.environ['OWNER_REFERENCE'],
-            'values':{'GEO_WRITER_MONGODB_URI':os.environ['WRITER_URI'],
-              'COLLECTOR_PROFILE_FINGERPRINT':os.environ['PROFILE']}}))
+            'activation_reference':os.environ['OWNER_REFERENCE'],'values':values}))
           PY
