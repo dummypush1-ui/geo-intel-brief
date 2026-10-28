@@ -1713,7 +1713,7 @@
     {
       "path": "integration/collector197_job_adversary.py",
       "bytes": 1369,
-      "sha256": "553dc040261b77fddbffcd2ad3f78e9c6f652099243fc1e5dd5f08d38f140d9e"
+      "sha256": "28badb856577b42c9a4c1c6a70224b754f99da97b4aa2287547263c3b029e6fc"
     },
     {
       "path": "integration/collector197_job_diagnostic.sh",
@@ -1868,7 +1868,7 @@
     {
       "path": "integration/dependency_audit/import-inventory.json",
       "bytes": 388934,
-      "sha256": "ecc2537a4d85a6a62886e12eb9ff914736061f79d3eafbb7226d8c181e0e14a3"
+      "sha256": "4c55ece41fc3b9900b5804419cc513bb232d2af7f600abc486f34e1e80ab9eaf"
     },
     {
       "path": "integration/dependency_build/executed-orchestrator.txt",

@@ -6376,7 +6376,7 @@
       },
       {
         "path": "integration/collector197_job_adversary.py",
-        "sha256": "553dc040261b77fddbffcd2ad3f78e9c6f652099243fc1e5dd5f08d38f140d9e"
+        "sha256": "28badb856577b42c9a4c1c6a70224b754f99da97b4aa2287547263c3b029e6fc"
       },
       {
         "path": "integration/collector197_job_runtime.py",
