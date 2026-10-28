@@ -3374,7 +3374,7 @@
       "path": "integration/collector197_job_adversary.py",
       "project": "integration",
       "role": "offline_contract_or_private_view",
-      "sha256": "553dc040261b77fddbffcd2ad3f78e9c6f652099243fc1e5dd5f08d38f140d9e",
+      "sha256": "28badb856577b42c9a4c1c6a70224b754f99da97b4aa2287547263c3b029e6fc",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -3774,7 +3774,7 @@
       "path": "integration/dependency_audit/import-inventory.json",
       "project": "integration",
       "role": "offline_contract_or_private_view",
-      "sha256": "ecc2537a4d85a6a62886e12eb9ff914736061f79d3eafbb7226d8c181e0e14a3",
+      "sha256": "4c55ece41fc3b9900b5804419cc513bb232d2af7f600abc486f34e1e80ab9eaf",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -11024,7 +11024,7 @@
       "path": "staging-manifest.json",
       "project": "finder_or_build",
       "role": "preserved_engine_or_asset",
-      "sha256": "1d280871b3230b38bb3e8109001efcc6ce3e7b14937bd45ee65cbe6b144a72c2",
+      "sha256": "b32ae1c9488440687948db81c08834b657dadfd591e662ed434d1d802a5eed58",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
