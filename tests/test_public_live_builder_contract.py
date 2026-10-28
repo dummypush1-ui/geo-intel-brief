@@ -1,6 +1,6 @@
 import unittest,copy
 from datetime import datetime,timezone
-from public_live107 import build_public_live_preview,create_public_geo_client
+from integration.public_live_builder import build_public_live_preview,create_public_geo_client
 BASE='https://preview.example'
 
 def env():
@@ -40,14 +40,14 @@ class PublicLiveBuilderContractTests(unittest.TestCase):
    self.assertEqual(a.test_client().get('/api/news',base_url=BASE).json['items'],[])
 
  def test_sanitizer_types_and_private_fields(self):
-  from public_live107 import sanitize_public_geo_rows
+  from integration.public_live_builder import sanitize_public_geo_rows
   c=Client();c.rows[0].update(summary=None,source=123,country=True,score=float('nan'),category=['hidden'],created_at={'secret':'hidden'})
   rows=sanitize_public_geo_rows(c.rows)
   self.assertEqual(rows[0],{'url':'https://example.com/story','title':'Public article','risk_level':'HIGH','credibility':'HIGH'})
   self.assertEqual(sanitize_public_geo_rows([None,[],{'title':True,'url':'https://example.com'}]),[])
 
  def test_text_bounds_and_public_disabled_code_button(self):
-  from public_live107 import sanitize_public_geo_rows
+  from integration.public_live_builder import sanitize_public_geo_rows
   c=Client();c.rows[0].update(summary='x'*8001,source='x'*201,country='\\ud800')
   row=sanitize_public_geo_rows(c.rows)[0]
   self.assertNotIn('summary',row);self.assertNotIn('source',row);self.assertNotIn('country',row)
