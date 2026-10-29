@@ -6404,7 +6404,7 @@
       },
       {
         "path": "integration/collector_actions/entry.py",
-        "sha256": "0d4fa4b916c95ec3a0e8e534bd402724cfa91a9844eb328661d72867a1735bb8"
+        "sha256": "a8a29b03a153c1921063d515793d5a509ef11956855857e3938a134463a666a9"
       },
       {
         "path": "integration/collector_actions/provider.py",
