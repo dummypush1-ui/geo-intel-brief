@@ -1622,8 +1622,8 @@
     },
     {
       "path": "integration/collector_actions/entry.py",
-      "bytes": 7333,
-      "sha256": "0d4fa4b916c95ec3a0e8e534bd402724cfa91a9844eb328661d72867a1735bb8"
+      "bytes": 8779,
+      "sha256": "a8a29b03a153c1921063d515793d5a509ef11956855857e3938a134463a666a9"
     },
     {
       "path": "integration/collector_actions/launch.sh",
@@ -1868,7 +1868,7 @@
     {
       "path": "integration/dependency_audit/import-inventory.json",
       "bytes": 388934,
-      "sha256": "4c55ece41fc3b9900b5804419cc513bb232d2af7f600abc486f34e1e80ab9eaf"
+      "sha256": "75d85ad5f5e701d0dd4e7567136ddbf805d8a601e37ba9fdbd13a6e21859ecf2"
     },
     {
       "path": "integration/dependency_build/executed-orchestrator.txt",
