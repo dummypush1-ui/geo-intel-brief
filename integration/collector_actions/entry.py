@@ -23,7 +23,7 @@ REPO='dummypush1-ui/geo-intel-brief'
 
 _STAGE='start'
 _STAGES=frozenset({'start','payload','config','facts','atlas_preflight','fixtures','fetch','prepare','feed_diagnostics','provider','status','job'})
-_HELD_CLASSES=frozenset({'JobRefused','ParserRefused','SupervisorRefused','ProbeRefused','EvidenceRefused','HTTPRefused','ConfigRefused','ConnectorRefused','CoordinatorRefused','ProfileRefused','ValueError','KeyError','TypeError','OSError','TimeoutError','JSONDecodeError','ConnectionError','ConnectionFailure','ServerSelectionTimeoutError','OperationFailure','ConfigurationError','NetworkTimeout','AutoReconnect','ExecutionTimeout','HTTPError','URLError','SSLError','gaierror','TimeoutExpired','CalledProcessError'})
+_HELD_CLASSES=frozenset({'JobRefused','ParserRefused','SupervisorRefused','ProbeRefused','EvidenceRefused','HTTPRefused','ConfigRefused','ConnectorRefused','CoordinatorRefused','ProfileRefused','ValueError','KeyError','TypeError','OSError','TimeoutError','JSONDecodeError','ConnectionError','ConnectionFailure','ServerSelectionTimeoutError','OperationFailure','ConfigurationError','NetworkTimeout','AutoReconnect','ExecutionTimeout','HTTPError','URLError','SSLError','gaierror','TimeoutExpired','CalledProcessError','PreflightConnectRefused','PreflightRoleRefused','PreflightIndexRefused','PreflightLedgerRefused'})
 
 def _held(stage,exc):
     # Bounded stage/exception-class marker on stderr only. Never str(exc),
