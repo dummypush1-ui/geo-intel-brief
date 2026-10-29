@@ -3433,7 +3433,7 @@
       "path": "integration/collector197_preflight.py",
       "project": "integration",
       "role": "offline_contract_or_private_view",
-      "sha256": "95e78a98520688ab5d0538a8c03593b5c3c5dc6e0e290963c913cb4f674486ae",
+      "sha256": "713b176903dc0decb9116cae8badbb258de9815cebb114c531aa18e37059ac02",
       "static_file_edges": [
         "collector108_prep/durable_ledger.py",
         "integration/collector197_orchestrator.py"
@@ -3477,7 +3477,7 @@
       "path": "integration/collector_actions/entry.py",
       "project": "integration",
       "role": "offline_contract_or_private_view",
-      "sha256": "a8a29b03a153c1921063d515793d5a509ef11956855857e3938a134463a666a9",
+      "sha256": "1bd3202ccb2318747181808dfe2e51766a06d6c9ac02a34b3a2fbbd675c5d778",
       "static_file_edges": [
         "collector108_prep/durable_ledger.py",
         "collector130_prep/base_profile.py",
@@ -3774,7 +3774,7 @@
       "path": "integration/dependency_audit/import-inventory.json",
       "project": "integration",
       "role": "offline_contract_or_private_view",
-      "sha256": "75d85ad5f5e701d0dd4e7567136ddbf805d8a601e37ba9fdbd13a6e21859ecf2",
+      "sha256": "a0d1c2ed85eda08c852c362a37d36a295dd00ad5fd2d39cb3c5e82d3fe6d2db1",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -11024,7 +11024,7 @@
       "path": "staging-manifest.json",
       "project": "finder_or_build",
       "role": "preserved_engine_or_asset",
-      "sha256": "32a47929b7fe83dd306b89266cad065a9966ca52eb03fe18bde9f0808543a5d1",
+      "sha256": "8be7c454b487d7d35823a7c8ebd32c3e023da1913806159bad151687734de5e1",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
