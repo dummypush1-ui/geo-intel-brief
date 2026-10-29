@@ -23,7 +23,7 @@ jobs:
   qualify:
     if: github.repository == 'dummypush1-ui/geo-intel-brief' && github.ref == 'refs/heads/main' && (github.event_name == 'workflow_dispatch' || (github.event_name == 'schedule' && vars.COLLECTOR_SCHEDULE_ENABLED == 'true'))
     environment: collector-owner-approved
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-22.04
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
@@ -36,6 +36,9 @@ jobs:
           set -euo pipefail
           test "$(git rev-parse HEAD)" = 08914ab7873387d127484075d9439fdc0377fbbf
           test -z "$(git status --porcelain)"
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1
+        with:
+          python-version: '3.12'
       - name: Install collector candidate dependencies
         shell: bash
         run: |
