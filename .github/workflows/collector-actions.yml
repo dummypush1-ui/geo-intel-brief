@@ -28,13 +28,13 @@ jobs:
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
-          ref: d9f6c710d34b0bf1440619070b570e06aa09b107
+          ref: dac0f108052db8f497b8aa34285231dafd7e3e64
           persist-credentials: false
       - name: Verify immutable reviewed checkout and clean source
         shell: bash
         run: |
           set -euo pipefail
-          test "$(git rev-parse HEAD)" = d9f6c710d34b0bf1440619070b570e06aa09b107
+          test "$(git rev-parse HEAD)" = dac0f108052db8f497b8aa34285231dafd7e3e64
           test -z "$(git status --porcelain)"
       - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1
         with:
