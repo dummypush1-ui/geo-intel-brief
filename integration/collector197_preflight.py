@@ -110,6 +110,7 @@ def inspect_writer(client, fingerprint, role_policy='exact'):
         try:
             from pymongo.write_concern import WriteConcern
             from pymongo.read_concern import ReadConcern
+            from pymongo import timeout as _timeout
             db = client['geo_intel']
             for name in NAMES:
                 c = db.get_collection(name, write_concern=WriteConcern(w='majority',j=True,wtimeout=5000),
@@ -117,15 +118,16 @@ def inspect_writer(client, fingerprint, role_policy='exact'):
                 if c.name != name or c.database.name != 'geo_intel' or c.database.client is not client:
                     raise ValueError()
                 _concerns(c)
-                cursor = c.list_indexes(maxTimeMS=2000)
-                try:
-                    indexes = []
-                    for row in cursor:
-                        if not isinstance(row, Mapping) or len(row) > 32 or len(indexes) >= 64 or 'expireAfterSeconds' in row:
-                            raise ValueError()
-                        indexes.append(dict(row))
-                finally:
-                    cursor.close()
+                with _timeout(2):
+                    cursor = c.list_indexes()
+                    try:
+                        indexes = []
+                        for row in cursor:
+                            if not isinstance(row, Mapping) or len(row) > 32 or len(indexes) >= 64 or 'expireAfterSeconds' in row:
+                                raise ValueError()
+                            indexes.append(dict(row))
+                    finally:
+                        cursor.close()
                 if not indexes:
                     raise ValueError()
                 if name == 'articles':
