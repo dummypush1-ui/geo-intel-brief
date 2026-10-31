@@ -1,3 +1,0 @@
-#m3-controls{margin:12px 0;padding:12px;border:1px solid #7297af;border-radius:6px}#m3-credit{margin:0;padding:8px 10px;background:#fff;color:#172b40;font:14px/1.5 system-ui,sans-serif;overflow-wrap:anywhere}#m3-credit a{color:#064976;text-decoration:underline}.leaflet-gl-layer{pointer-events:none}#map canvas{max-width:none}
-
-#m3-map-wrap{position:relative}#m3-credit{position:absolute;top:0;right:0;z-index:1001;max-width:calc(100% - 64px);box-sizing:border-box;font-size:12px;line-height:1.4;padding:5px 8px;border:1px solid #c8d3da}#m3-controls summary{min-height:44px;cursor:pointer;display:list-item}

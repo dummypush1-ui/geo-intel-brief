@@ -1,1 +1,0 @@
-export const TRADE_PARTNERS: Record<string, { x: [string, number, number?][]; m: [string, number, number?][]; gx?: [string, number][]; gm?: [string, number][]; xq?: [number, string]; mq?: [number, string]; xn?: [number, boolean]; mn?: [number, boolean] }> = {

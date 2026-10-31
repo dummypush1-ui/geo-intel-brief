@@ -1,6 +1,0 @@
-{
-  "build.mjs": "c14aa1e1736dc500d72e09c94b236acb82a915b0d5a81b6529b9e0c723a05663",
-  "updater_runtime/refresh-bundle.mjs": "bf8b852d6024b1a9c627434add5dfa0cd3a4217bd744d8075c9bd22acb4d822e",
-  "automate.mjs": "d19312fa9201582d4d150a22d9be8a9d9f337b798a2e5a37c1ae92233aced285",
-  "refresh.mjs": "b82c8e0137e77f18258afa79d30194f4a74c1e49a137cfa1a0beebe30014d611"
-}

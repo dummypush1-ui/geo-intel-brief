@@ -1,2 +1,0 @@
-# Narrow inert-preparation exceptions; scanner, severity and exit-code stay in CI.
-ignorefile: .trivyignore.yaml
