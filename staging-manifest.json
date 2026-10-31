@@ -1622,8 +1622,8 @@
     },
     {
       "path": "integration/collector_actions/entry.py",
-      "bytes": 9146,
-      "sha256": "a9537b7e811005c2e4b156e52441a42dcdcce32910cfb86d0d099288eb9c78de"
+      "bytes": 9479,
+      "sha256": "a13e19b4bd46e7eaf620b5c0e9eb32fa1267210b538eb522056b2c97d08faece"
     },
     {
       "path": "integration/collector_actions/launch.sh",
@@ -1727,8 +1727,8 @@
     },
     {
       "path": "integration/collector197_job.py",
-      "bytes": 26626,
-      "sha256": "65b2f161391e36987d28deae364437a38b8c77fd80adc27598f63aa1a0c0d456"
+      "bytes": 28624,
+      "sha256": "043f5ed968fe5565d01eb004f237329870c35f8dbe1ee3a8ba7df9be996bff6c"
     },
     {
       "path": "integration/collector197_orchestrator.py",
@@ -1868,7 +1868,7 @@
     {
       "path": "integration/dependency_audit/import-inventory.json",
       "bytes": 388934,
-      "sha256": "f85f2398312af3678ca130f94a6f15639be7083dad4fb0b93eae0faba1e0797b"
+      "sha256": "5bc0a5e395ef6a5f7395ec7171301848d23215ca07060f8c6ce9a75fcba17ba7"
     },
     {
       "path": "integration/dependency_build/executed-orchestrator.txt",
