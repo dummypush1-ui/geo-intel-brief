@@ -13,6 +13,14 @@ from integration.collector197_orchestrator import run_cycle
 from integration.collector197_coordinator import supervised_candidates
 from integration.geo_article_writer import GeoArticleWriter
 
+# Fixed refusal-marker vocabulary shared with collector_actions/entry.py.
+# Class names and stage tags only: never messages, args, values or env.
+# Unknown/dynamic classes collapse to 'other'. entry._HELD_CLASSES unchanged;
+# this set adds the cycle/ledger/checkpoint/writer classes visible under the
+# run_job mask so a held job names its inner cause without widening entry's set.
+SAFE_INNER_CLASSES=frozenset({'JobRefused','ParserRefused','SupervisorRefused','ProbeRefused','EvidenceRefused','HTTPRefused','ConfigRefused','ConnectorRefused','CoordinatorRefused','ProfileRefused','ValueError','KeyError','TypeError','OSError','TimeoutError','JSONDecodeError','ConnectionError','ConnectionFailure','ServerSelectionTimeoutError','OperationFailure','ConfigurationError','NetworkTimeout','AutoReconnect','ExecutionTimeout','HTTPError','URLError','SSLError','gaierror','TimeoutExpired','CalledProcessError','PreflightConnectRefused','PreflightRoleRefused','PreflightIndexRefused','PreflightLedgerRefused','CycleRefused','LedgerRefused','DurableCheckpointRefused','CoverageRefused','WriterUnavailable'})
+INNER_JOB_STAGES=frozenset({'job_values','job_provider_first','job_facts_first','job_profile','job_config','job_client','job_preflight','job_provider_refresh','job_facts_refresh','job_writer','job_cycle'})
+
 _FT_CHILD = r"""
 import sys,os,json,resource
 resource.setrlimit(resource.RLIMIT_CPU,(10,10))
@@ -362,29 +370,43 @@ def phase_plan(now, outer, full, gnews):
 
 def run_job(values,*,nonce,runtime_evidence=None,client_factory=None,clock=None,fetch=None,hard_deadline=None):
     clock=clock or(lambda:int(time.time()))
-    if type(values)is not dict or any(type(k)is not str or type(v)is not str for k,v in values.items()):raise JobRefused('Exact job configuration required')
-    off={**values,'COLLECTION_ENABLED':'false'};configure(off,{})
-    switch=values.get('COLLECTION_ENABLED','false')
-    if switch not in ('false','true'):raise JobRefused('Exact job switch required')
-    if switch=='false':return {'state':'disabled','activation_authority':False}
-    # Must already be launched with bounds; do not pretend an observation sets them.
-    require_job_provider(runtime_evidence,clock)
-    facts=read_job_facts()
-    if facts['supported']is not True:raise JobRefused('Observed job containment unavailable')
-    from collector130_prep.base_profile import compile_profile
-    keys={'MAX_ITEMS_PER_FEED','REQUEST_TIMEOUT','LOOKBACK_HOURS','ACTIVE_CATEGORIES','DEDUPE_THRESHOLD','ENABLE_FULL_TEXT','ENABLE_GNEWS','ENABLE_TELEGRAM_BACKUP'}
-    profile=compile_profile({k:v for k,v in values.items()if k in keys})
-    fp=values.get('COLLECTOR_PROFILE_FINGERPRINT','')
-    if type(fp)is not str or len(fp)!=64 or any(c not in '0123456789abcdef'for c in fp):raise JobRefused('Exact profile fingerprint required')
-    if type(nonce)is not str or not 20<=len(nonce)<=80 or any(c not in 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_-'for c in nonce):raise JobRefused('Exact job nonce required')
-    config=configure(values,dict.fromkeys(GATES,True))
+    inner='job_values'
+    def _tag(e,src=None):
+        n=type(src if src is not None else e).__name__
+        e.inner_class=n if n in SAFE_INNER_CLASSES else 'other'
+        e.inner_stage=inner if inner in INNER_JOB_STAGES else 'other'
+        return e
+    try:
+        if type(values)is not dict or any(type(k)is not str or type(v)is not str for k,v in values.items()):raise JobRefused('Exact job configuration required')
+        off={**values,'COLLECTION_ENABLED':'false'};configure(off,{})
+        switch=values.get('COLLECTION_ENABLED','false')
+        if switch not in ('false','true'):raise JobRefused('Exact job switch required')
+        if switch=='false':return {'state':'disabled','activation_authority':False}
+        # Must already be launched with bounds; do not pretend an observation sets them.
+        inner='job_provider_first';require_job_provider(runtime_evidence,clock)
+        inner='job_facts_first';facts=read_job_facts()
+        if facts['supported']is not True:raise JobRefused('Observed job containment unavailable')
+        inner='job_profile'
+        from collector130_prep.base_profile import compile_profile
+        keys={'MAX_ITEMS_PER_FEED','REQUEST_TIMEOUT','LOOKBACK_HOURS','ACTIVE_CATEGORIES','DEDUPE_THRESHOLD','ENABLE_FULL_TEXT','ENABLE_GNEWS','ENABLE_TELEGRAM_BACKUP'}
+        profile=compile_profile({k:v for k,v in values.items()if k in keys})
+        inner='job_config'
+        fp=values.get('COLLECTOR_PROFILE_FINGERPRINT','')
+        if type(fp)is not str or len(fp)!=64 or any(c not in '0123456789abcdef'for c in fp):raise JobRefused('Exact profile fingerprint required')
+        if type(nonce)is not str or not 20<=len(nonce)<=80 or any(c not in 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_-'for c in nonce):raise JobRefused('Exact job nonce required')
+        config=configure(values,dict.fromkeys(GATES,True))
+    except Exception as e:raise _tag(e)
     client=None
     try:
+        inner='job_client'
         client=(client_factory or create_writer_client)(values['GEO_WRITER_MONGODB_URI'])
+        inner='job_preflight'
         handles=inspect_writer(client,fp,values.get('COLLECTOR_ROLE_POLICY','exact'))
         # Refresh before claim; no evidence from an earlier run can drive this one.
-        require_job_provider(runtime_evidence,clock)
+        inner='job_provider_refresh';require_job_provider(runtime_evidence,clock)
+        inner='job_facts_refresh'
         if read_job_facts()['supported']is not True:raise JobRefused('Job guard changed')
+        inner='job_writer'
         writer=GeoArticleWriter(_Client(handles['articles']),review={'mapping':('geo_intel','articles'),'write_permission':True,'unique_url_index_verified':True,'source_contract_verified':True})
         def bounded_fetch(**kw):
             require_job_provider(runtime_evidence,clock)
@@ -408,8 +430,10 @@ def run_job(values,*,nonce,runtime_evidence=None,client_factory=None,clock=None,
         hook=None
         if profile['source_flags']['ENABLE_TELEGRAM_BACKUP']:
             hook=telegram_post_write(values['TELEGRAM_BACKUP_BOT_TOKEN'],values['TELEGRAM_BACKUP_CHAT_ID'])
-        return run_cycle(config,ledger=handles['ledger'],checkpoints=CoverageCheckpoints(handles['checkpoints']),nonce=nonce,fetch=fetch or bounded_fetch,categories=profile['active_categories'],threshold=profile['threshold'],clock=clock,writer=writer,**({'hard_deadline':hard_deadline}if hard_deadline is not None else{}),**({'post_write_hook':hook}if hook is not None else{}))
-    except Exception:raise JobRefused('Job held; inspect durable state, never retry blindly')from None
+        checkpoints=CoverageCheckpoints(handles['checkpoints'])
+        inner='job_cycle'
+        return run_cycle(config,ledger=handles['ledger'],checkpoints=checkpoints,nonce=nonce,fetch=fetch or bounded_fetch,categories=profile['active_categories'],threshold=profile['threshold'],clock=clock,writer=writer,**({'hard_deadline':hard_deadline}if hard_deadline is not None else{}),**({'post_write_hook':hook}if hook is not None else{}))
+    except Exception as e:raise _tag(JobRefused('Job held; inspect durable state, never retry blindly'),e)from None
     finally:
         if client is not None:
             try:client.close()
