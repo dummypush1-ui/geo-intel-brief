@@ -6372,7 +6372,7 @@
       },
       {
         "path": "integration/collector197_job.py",
-        "sha256": "a79b1439539057b0d805253b4d26dee9edde0f9b9df640425934e1e1a6adaab3"
+        "sha256": "65b2f161391e36987d28deae364437a38b8c77fd80adc27598f63aa1a0c0d456"
       },
       {
         "path": "integration/collector197_job_adversary.py",
@@ -6392,7 +6392,7 @@
       },
       {
         "path": "integration/collector197_preflight.py",
-        "sha256": "713b176903dc0decb9116cae8badbb258de9815cebb114c531aa18e37059ac02"
+        "sha256": "fc916e6606dc4fc82cee71e8154527fec186f5f95891dd170c01cccb026a93a7"
       },
       {
         "path": "integration/collector197_runtime_evidence.py",
@@ -6404,7 +6404,7 @@
       },
       {
         "path": "integration/collector_actions/entry.py",
-        "sha256": "1bd3202ccb2318747181808dfe2e51766a06d6c9ac02a34b3a2fbbd675c5d778"
+        "sha256": "a9537b7e811005c2e4b156e52441a42dcdcce32910cfb86d0d099288eb9c78de"
       },
       {
         "path": "integration/collector_actions/provider.py",
