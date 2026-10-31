@@ -6372,7 +6372,7 @@
       },
       {
         "path": "integration/collector197_job.py",
-        "sha256": "65b2f161391e36987d28deae364437a38b8c77fd80adc27598f63aa1a0c0d456"
+        "sha256": "043f5ed968fe5565d01eb004f237329870c35f8dbe1ee3a8ba7df9be996bff6c"
       },
       {
         "path": "integration/collector197_job_adversary.py",
@@ -6404,7 +6404,7 @@
       },
       {
         "path": "integration/collector_actions/entry.py",
-        "sha256": "a9537b7e811005c2e4b156e52441a42dcdcce32910cfb86d0d099288eb9c78de"
+        "sha256": "a13e19b4bd46e7eaf620b5c0e9eb32fa1267210b538eb522056b2c97d08faece"
       },
       {
         "path": "integration/collector_actions/provider.py",
