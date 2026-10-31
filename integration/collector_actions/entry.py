@@ -41,8 +41,9 @@ def config(raw):
     ref=raw['activation_reference']
     if type(ref)is not str or not 1<=len(ref)<=200 or any(ord(c)<33 or ord(c)>126 for c in ref):raise JobRefused('Owner activation source reference required')
     v=raw['values'];allowed={'GEO_WRITER_MONGODB_URI','COLLECTOR_PROFILE_FINGERPRINT'}
-    if type(v)is not dict or not allowed<=set(v)<=allowed|{'ENABLE_FULL_TEXT','ENABLE_GNEWS','ENABLE_TELEGRAM_BACKUP','TELEGRAM_BACKUP_BOT_TOKEN','TELEGRAM_BACKUP_CHAT_ID','TELEGRAM_BACKUP_APPROVAL'} or any(type(x)is not str for x in v.values()):raise JobRefused('Exact installation values')
+    if type(v)is not dict or not allowed<=set(v)<=allowed|{'COLLECTOR_ROLE_POLICY','ENABLE_FULL_TEXT','ENABLE_GNEWS','ENABLE_TELEGRAM_BACKUP','TELEGRAM_BACKUP_BOT_TOKEN','TELEGRAM_BACKUP_CHAT_ID','TELEGRAM_BACKUP_APPROVAL'} or any(type(x)is not str for x in v.values()):raise JobRefused('Exact installation values')
     if any(v.get(k,'false')not in ('true','false')for k in ('ENABLE_FULL_TEXT','ENABLE_GNEWS','ENABLE_TELEGRAM_BACKUP')):raise JobRefused('Exact feature switch')
+    if 'COLLECTOR_ROLE_POLICY' in v and v['COLLECTOR_ROLE_POLICY'] not in ('exact','coverage_admin_accepted'):raise JobRefused('Exact role policy required')
     if v.get('ENABLE_TELEGRAM_BACKUP','false')!='true' and any(k in v for k in ('TELEGRAM_BACKUP_BOT_TOKEN','TELEGRAM_BACKUP_CHAT_ID','TELEGRAM_BACKUP_APPROVAL')):raise JobRefused('Telegram values without switch')
     if not v['GEO_WRITER_MONGODB_URI'] or len(v['GEO_WRITER_MONGODB_URI'])>4096 or not re.fullmatch('[0-9a-f]{64}',v['COLLECTOR_PROFILE_FINGERPRINT']):raise JobRefused('Writer/profile required')
     return {**v,'COLLECTION_ENABLED':'true','ENABLE_FULL_TEXT':v.get('ENABLE_FULL_TEXT','false'),'ENABLE_GNEWS':v.get('ENABLE_GNEWS','false'),'ENABLE_TELEGRAM_BACKUP':v.get('ENABLE_TELEGRAM_BACKUP','false')}
@@ -54,7 +55,7 @@ def nonce(repository,run_id):
 def read_status(values,n):
     c=create_writer_client(values['GEO_WRITER_MONGODB_URI'])
     try:
-        h=inspect_writer(c,values['COLLECTOR_PROFILE_FINGERPRINT']);ledger=h['ledger']
+        h=inspect_writer(c,values['COLLECTOR_PROFILE_FINGERPRINT'],values.get('COLLECTOR_ROLE_POLICY','exact'));ledger=h['ledger']
         d=ledger.c.find_one({'_id':'geo108'},max_time_ms=2000)
         _valid_document(d,'geo108',values['COLLECTOR_PROFILE_FINGERPRINT'])
         key=ledger_key(ledger,n)
@@ -71,7 +72,7 @@ def measure(values):
     _STAGE='atlas_preflight'
     # Real dedicated Mongo preflight is read-only. No ledger init/claim here.
     c=create_writer_client(values['GEO_WRITER_MONGODB_URI'])
-    try:inspect_writer(c,values['COLLECTOR_PROFILE_FINGERPRINT'])
+    try:inspect_writer(c,values['COLLECTOR_PROFILE_FINGERPRINT'],values.get('COLLECTOR_ROLE_POLICY','exact'))
     finally:c.close()
     _STAGE='fixtures'
     from integration.collector_actions.qualification import maximum_processing
