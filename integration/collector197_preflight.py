@@ -38,7 +38,13 @@ def _simple_collation(row):
     return isinstance(c, dict) and c == {'locale': 'simple'}
 
 
-def inspect_writer(client, fingerprint):
+def inspect_writer(client, fingerprint, role_policy='exact'):
+    # 'exact' is the default least-privilege contract and stays unchanged.
+    # 'coverage_admin_accepted' accepts whatever wider credential envelope the
+    # credential holds: a minimum capability floor ONLY, never least privilege.
+    # Unknown policy values refuse closed before any command runs.
+    if role_policy not in ('exact', 'coverage_admin_accepted'):
+        raise ValueError()
     handles = {}
     try:
         try:
@@ -55,21 +61,48 @@ def inspect_writer(client, fingerprint):
             if type(auth['authenticatedUsers']) is not list or len(auth['authenticatedUsers']) != 1:
                 raise ValueError()
             grants = auth['authenticatedUserPrivileges']
-            if type(grants) is not list or not 1 <= len(grants) <= 12:
+            if type(grants) is not list or not 1 <= len(grants) <= (12 if role_policy == 'exact' else 64):
                 raise ValueError()
             got = {name: set() for name in NAMES}
             for grant in grants:
                 if type(grant) is not dict or set(grant) != {'resource','actions'}:
                     raise ValueError()
                 resource = grant['resource']; actions = grant['actions']
-                if (type(resource) is not dict or set(resource) != {'db','collection'}
-                        or resource['db'] != 'geo_intel' or resource['collection'] not in NAMES
-                        or type(actions) is not list or any(type(a) is not str for a in actions)):
+                if type(resource) is not dict or type(actions) is not list or any(type(a) is not str for a in actions):
                     raise ValueError()
-                name = resource['collection']
-                if not set(actions) <= REQUIRED[name]:
-                    raise ValueError()
-                got[name].update(actions)
+                keys = set(resource)
+                if role_policy == 'exact':
+                    if (keys != {'db','collection'}
+                            or resource['db'] != 'geo_intel' or resource['collection'] not in NAMES):
+                        raise ValueError()
+                    name = resource['collection']
+                    if not set(actions) <= REQUIRED[name]:
+                        raise ValueError()
+                    got[name].update(actions)
+                else:
+                    # Coverage over documented resource shapes for the 3 named
+                    # non-system collections in geo_intel. {cluster: true} grants
+                    # system-state actions only and NEVER counts as collection
+                    # coverage. 64 is an application anomaly bound on expanded
+                    # grants, not a documented MongoDB maximum.
+                    if keys == {'db','collection'}:
+                        db, coll = resource['db'], resource['collection']
+                        if type(db) is not str or type(coll) is not str:
+                            raise ValueError()
+                        if db in ('geo_intel','') and (coll == '' or coll in NAMES):
+                            targets = NAMES if coll == '' else (coll,)
+                            for name in targets:
+                                got[name].update(a for a in actions if a in REQUIRED[name])
+                    elif keys == {'anyResource'} and resource['anyResource'] is True:
+                        for name in NAMES:
+                            if 'anyAction' in actions:
+                                got[name].update(REQUIRED[name])
+                            else:
+                                got[name].update(a for a in actions if a in REQUIRED[name])
+                    elif keys == {'cluster'} and resource['cluster'] is True:
+                        pass
+                    else:
+                        raise ValueError()
             if got != REQUIRED:
                 raise ValueError()
         except Exception:

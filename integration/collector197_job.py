@@ -381,7 +381,7 @@ def run_job(values,*,nonce,runtime_evidence=None,client_factory=None,clock=None,
     client=None
     try:
         client=(client_factory or create_writer_client)(values['GEO_WRITER_MONGODB_URI'])
-        handles=inspect_writer(client,fp)
+        handles=inspect_writer(client,fp,values.get('COLLECTOR_ROLE_POLICY','exact'))
         # Refresh before claim; no evidence from an earlier run can drive this one.
         require_job_provider(runtime_evidence,clock)
         if read_job_facts()['supported']is not True:raise JobRefused('Job guard changed')
