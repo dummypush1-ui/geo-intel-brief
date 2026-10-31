@@ -3351,7 +3351,7 @@
       "path": "integration/collector197_job.py",
       "project": "integration",
       "role": "offline_contract_or_private_view",
-      "sha256": "043f5ed968fe5565d01eb004f237329870c35f8dbe1ee3a8ba7df9be996bff6c",
+      "sha256": "50e2c9c52599ddd998b5e873425005792aa4e24bab73d19034566cbcfdcfbeb6",
       "static_file_edges": [
         "collector113_prep/feed_composition.py",
         "collector115_prep/profile.py",
@@ -3433,7 +3433,7 @@
       "path": "integration/collector197_preflight.py",
       "project": "integration",
       "role": "offline_contract_or_private_view",
-      "sha256": "4207fa9801a0a5ec04a9662462bd11d6d53010cad8e9cc9c78324fb7e71d9f1e",
+      "sha256": "f078a4385e45b728e2ed05c56249af7e09dae44f9675a93b4cf943e371695b03",
       "static_file_edges": [
         "collector108_prep/durable_ledger.py",
         "integration/collector197_orchestrator.py"
@@ -3477,7 +3477,7 @@
       "path": "integration/collector_actions/entry.py",
       "project": "integration",
       "role": "offline_contract_or_private_view",
-      "sha256": "a13e19b4bd46e7eaf620b5c0e9eb32fa1267210b538eb522056b2c97d08faece",
+      "sha256": "2040ae32a17c3f13755a46e2f831e1d23a15049fddae634b989015ae9b3d3730",
       "static_file_edges": [
         "collector108_prep/durable_ledger.py",
         "collector130_prep/base_profile.py",
@@ -3774,7 +3774,7 @@
       "path": "integration/dependency_audit/import-inventory.json",
       "project": "integration",
       "role": "offline_contract_or_private_view",
-      "sha256": "5bc0a5e395ef6a5f7395ec7171301848d23215ca07060f8c6ce9a75fcba17ba7",
+      "sha256": "087b3b163a7e82e5e86eef977aa019fdb94cd9ab52e36cf9a3ea07e4ecc390b6",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false
@@ -11024,7 +11024,7 @@
       "path": "staging-manifest.json",
       "project": "finder_or_build",
       "role": "preserved_engine_or_asset",
-      "sha256": "65c99440438c39d990f0d9bb5c4977bcf5b6a8a48a105b46609d64ba558c9b5c",
+      "sha256": "5a3ad8e105ebab8a395f093d653f01f0923baa482492a5b08ad9f670554d5225",
       "static_file_edges": [],
       "unresolved_internal_imports": [],
       "runtime_verified": false

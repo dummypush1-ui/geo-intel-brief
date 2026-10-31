@@ -7,7 +7,7 @@ from integration.collector197_job_runtime import (JobRefused,require_job_provide
     read_job_facts,PARENT_BYTES)
 from integration.collector197_config import configure,GATES
 from integration.collector197_http import create_writer_client,_Client
-from integration.collector197_preflight import inspect_writer
+from integration.collector197_preflight import inspect_writer,CONNECT_PREDICATES,CONNECT_UNDERLYING
 from integration.collector197_coverage import CoverageCheckpoints
 from integration.collector197_orchestrator import run_cycle
 from integration.collector197_coordinator import supervised_candidates
@@ -375,6 +375,11 @@ def run_job(values,*,nonce,runtime_evidence=None,client_factory=None,clock=None,
         n=type(src if src is not None else e).__name__
         e.inner_class=n if n in SAFE_INNER_CLASSES else 'other'
         e.inner_stage=inner if inner in INNER_JOB_STAGES else 'other'
+        s=src if src is not None else e
+        p=getattr(s,'connect_predicate',None)
+        if type(p)is str and (p in CONNECT_PREDICATES or p=='other'):e.connect_predicate=p
+        u=getattr(s,'connect_underlying',None)
+        if type(u)is str and (u in CONNECT_UNDERLYING or u=='other'):e.connect_underlying=u
         return e
     try:
         if type(values)is not dict or any(type(k)is not str or type(v)is not str for k,v in values.items()):raise JobRefused('Exact job configuration required')

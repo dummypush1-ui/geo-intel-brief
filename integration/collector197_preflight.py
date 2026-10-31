@@ -21,6 +21,20 @@ class PreflightIndexRefused(PreflightRefused):
 class PreflightLedgerRefused(PreflightRefused):
     pass
 
+# Closed connect-group condition vocabulary shared with collector197_job and
+# collector_actions/entry. Constant condition labels and driver/OS class names
+# only: never messages, server values, hosts, URIs or credentials.
+CONNECT_PREDICATES=frozenset({'fingerprint','status_command','hello_command','hello_ok','hello_setName','hello_primary'})
+CONNECT_UNDERLYING=frozenset({'ServerSelectionTimeoutError','ConnectionFailure','AutoReconnect','NetworkTimeout','OperationFailure','ConfigurationError','ExecutionTimeout','OSError','SSLError','gaierror','TimeoutError','ConnectionError'})
+
+def _connect_refused(predicate, src=None):
+    e = PreflightConnectRefused('Writer preflight unavailable; no writes permitted')
+    e.connect_predicate = predicate
+    if src is not None:
+        n = type(src).__name__
+        e.connect_underlying = n if n in CONNECT_UNDERLYING else 'other'
+    return e
+
 NAMES = ('articles', 'collector_jobs197', 'collector_checkpoints197')
 REQUIRED = {'articles': {'find', 'listIndexes', 'insert'},
             'collector_jobs197': {'find', 'listIndexes', 'update'},
@@ -49,13 +63,27 @@ def inspect_writer(client, fingerprint, role_policy='exact'):
     try:
         try:
             if type(fingerprint) is not str or len(fingerprint) != 64 or any(c not in '0123456789abcdef' for c in fingerprint):
-                raise ValueError()
-            info = client.admin.command({'connectionStatus': 1, 'showPrivileges': True})
-            hello = client.admin.command({'hello': 1})
-            if info.get('ok') != 1 or hello.get('ok') != 1 or not hello.get('setName') or hello.get('isWritablePrimary') is not True:
-                raise ValueError()
-        except Exception:
-            raise PreflightConnectRefused('Writer preflight unavailable; no writes permitted') from None
+                raise _connect_refused('fingerprint')
+            try:
+                info = client.admin.command({'connectionStatus': 1, 'showPrivileges': True})
+            except Exception as e:
+                raise _connect_refused('status_command', e)
+            try:
+                hello = client.admin.command({'hello': 1})
+            except Exception as e:
+                raise _connect_refused('hello_command', e)
+            if info.get('ok') != 1:
+                raise _connect_refused('status_command')
+            if hello.get('ok') != 1:
+                raise _connect_refused('hello_ok')
+            if not hello.get('setName'):
+                raise _connect_refused('hello_setName')
+            if hello.get('isWritablePrimary') is not True:
+                raise _connect_refused('hello_primary')
+        except PreflightConnectRefused as e:
+            raise e from None
+        except Exception as e:
+            raise _connect_refused('other', e) from None
         try:
             auth = info['authInfo']
             if type(auth['authenticatedUsers']) is not list or len(auth['authenticatedUsers']) != 1:
