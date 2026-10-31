@@ -7,7 +7,7 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[2]
 sys.path.insert(0,str(ROOT))
 from integration.collector_actions.provider import ActionsProvider,source_digest
-from integration.collector197_job import run_job,SAFE_INNER_CLASSES,INNER_JOB_STAGES
+from integration.collector197_job import run_job,SAFE_INNER_CLASSES,INNER_JOB_STAGES,CONNECT_PREDICATES,CONNECT_UNDERLYING
 from integration.collector197_job_runtime import read_job_facts,JobRefused
 from integration.collector197_coordinator import supervised_candidates
 from integration.collector197_http import create_writer_client
@@ -36,6 +36,10 @@ def _held(stage,exc):
     if type(inner)is str and (inner in SAFE_INNER_CLASSES or inner=='other'):rec['inner']=inner
     istage=getattr(exc,'inner_stage',None)
     if type(istage)is str and (istage in INNER_JOB_STAGES or istage=='other'):rec['inner_stage']=istage
+    pred=getattr(exc,'connect_predicate',None)
+    if type(pred)is str and (pred in CONNECT_PREDICATES or pred=='other'):rec['predicate']=pred
+    und=getattr(exc,'connect_underlying',None)
+    if type(und)is str and (und in CONNECT_UNDERLYING or und=='other'):rec['underlying']=und
     sys.stderr.write(json.dumps(rec,sort_keys=True)+'\n')
 
 def config(raw):
