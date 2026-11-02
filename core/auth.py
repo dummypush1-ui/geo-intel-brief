@@ -1,0 +1,34 @@
+"""One shared guard for every trigger / admin route (/brics/*, /geo/*)."""
+import hmac
+import os
+from flask import request, jsonify
+
+_WEAK = {"", "changeme", "change-me", "secret", "password"}
+
+
+def _secret():
+    return os.getenv("TRIGGER_SECRET", "").strip()
+
+
+def secret_is_weak():
+    return _secret().lower() in _WEAK
+
+
+def authorized(req=None):
+    """True when ?key= / X-Trigger-Key matches TRIGGER_SECRET.
+
+    A missing or placeholder secret FAILS CLOSED (the originals either
+    accepted any request or accepted the literal "changeme"). Local dev can
+    opt out explicitly with ALLOW_INSECURE_LOCAL=true."""
+    req = req or request
+    if secret_is_weak():
+        return os.getenv("ALLOW_INSECURE_LOCAL", "false").lower() == "true"
+    supplied = req.args.get("key") or req.headers.get("X-Trigger-Key") or ""
+    return hmac.compare_digest(supplied.encode(), _secret().encode())
+
+
+def deny():
+    if secret_is_weak():
+        return jsonify(error="TRIGGER_SECRET is not set (or is a placeholder); "
+                             "set a real value in the environment."), 503
+    return jsonify(error="unauthorized"), 401
