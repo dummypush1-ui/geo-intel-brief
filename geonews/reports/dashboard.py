@@ -5,6 +5,7 @@ collection, scoring, or filtering logic. This is purely a browser view of
 data that already exists in MongoDB.
 """
 import html
+from urllib.parse import quote
 from collections import defaultdict
 from datetime import datetime
 
@@ -97,6 +98,8 @@ def build_dashboard_html(limit=100000, category=None, trigger_key=None, sort_by=
 
     max_cat = max((c["cnt"] for c in cats), default=1)
     now = datetime.now().strftime("%d %b %Y, %H:%M")
+    trigger_key = html.escape(quote(trigger_key, safe="")) if trigger_key else ""
+    category_param = html.escape(quote(category, safe="")) if category else ""
     key_param = f"&key={trigger_key}" if trigger_key else ""
 
     # Risk-level breakdown (from the currently loaded article set)
@@ -125,11 +128,11 @@ def build_dashboard_html(limit=100000, category=None, trigger_key=None, sort_by=
 
     <input type="text" class="searchbox" id="searchBox" placeholder="🔎 Filter articles by title, source, or country..." onkeyup="filterArticles()">
     <p style="margin:-8px 0 16px;display:flex;justify-content:space-between;align-items:center">
-        <a href="/geo/export.csv{('?key=' + trigger_key) if trigger_key else ''}{('&category=' + category) if category else ''}" style="font-size:12px;color:#2b6cb0;font-weight:600">⬇️ Export all articles as CSV</a>
+        <a href="/geo/export.csv{('?key=' + trigger_key) if trigger_key else ''}{('&category=' + category_param) if category else ''}" style="font-size:12px;color:#2b6cb0;font-weight:600">⬇️ Export all articles as CSV</a>
         <span style="font-size:12px;color:#718096">Sort by:
-            <a href="?limit={limit}&sort_by=score{key_param}{('&category=' + category) if category else ''}" style="{'font-weight:700;color:#1a365d' if sort_by=='score' else 'color:#2b6cb0'}">Score</a> &middot;
-            <a href="?limit={limit}&sort_by=newest{key_param}{('&category=' + category) if category else ''}" style="{'font-weight:700;color:#1a365d' if sort_by=='newest' else 'color:#2b6cb0'}">Newest</a> &middot;
-            <a href="?limit={limit}&sort_by=title{key_param}{('&category=' + category) if category else ''}" style="{'font-weight:700;color:#1a365d' if sort_by=='title' else 'color:#2b6cb0'}">Title A-Z</a>
+            <a href="?limit={limit}&sort_by=score{key_param}{('&category=' + category_param) if category else ''}" style="{'font-weight:700;color:#1a365d' if sort_by=='score' else 'color:#2b6cb0'}">Score</a> &middot;
+            <a href="?limit={limit}&sort_by=newest{key_param}{('&category=' + category_param) if category else ''}" style="{'font-weight:700;color:#1a365d' if sort_by=='newest' else 'color:#2b6cb0'}">Newest</a> &middot;
+            <a href="?limit={limit}&sort_by=title{key_param}{('&category=' + category_param) if category else ''}" style="{'font-weight:700;color:#1a365d' if sort_by=='title' else 'color:#2b6cb0'}">Title A-Z</a>
         </span>
     </p>
     """]
@@ -167,8 +170,8 @@ def build_dashboard_html(limit=100000, category=None, trigger_key=None, sort_by=
     grouped = defaultdict(list)
     for a in articles:
         grouped[a.get("category") or "GENERAL"].append(a)
-    for category, items in grouped.items():
-        label = CATEGORY_LABELS.get(category, category)
+    for article_category, items in grouped.items():
+        label = CATEGORY_LABELS.get(article_category, article_category)
         body.append(f"<h3 style='font-size:14px;color:#2d3748;margin:16px 0 8px'>{html.escape(label)} ({len(items)})</h3>")
         for a in items:
             risk_color = RISK_COLORS.get(a.get("risk_level"), "#718096")

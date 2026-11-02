@@ -76,11 +76,12 @@ def init_app():
     except Exception as exc:
         log.error("MongoDB init failed at startup — check MONGODB_URI. %s", exc)
         _db_ready = False
+    return _db_ready
 
 
 def _db_check():
     if not _db_ready:
-        return jsonify(error="Database not connected — check MONGODB_URI in Render's environment variables."), 500
+        return jsonify(error="Database not connected — check MONGODB_URI in Render's environment variables."), 503
     return None
 
 
@@ -123,7 +124,7 @@ def _run_collect_job():
 
 @bp.route("/health")
 def health():
-    return jsonify(status="ok", app="geonews", db_ready=_db_ready)
+    return jsonify(status="ok" if _db_ready else "degraded", app="geonews", db_ready=_db_ready), (200 if _db_ready else 503)
 
 
 @bp.route("/collect", methods=["GET", "POST"])
@@ -191,7 +192,11 @@ def mark_emailed_route():
         return err
     from bson import ObjectId
     ids = request.get_json(silent=True) or {}
+    if not isinstance(ids, dict):
+        return jsonify(error="expected a JSON object"), 400
     raw_ids = ids.get("article_ids", [])
+    if not isinstance(raw_ids, list) or any(not isinstance(i, str) or len(i) != 24 for i in raw_ids):
+        return jsonify(error="invalid article_ids"), 400
     try:
         object_ids = [ObjectId(i) for i in raw_ids]
     except Exception:
@@ -224,6 +229,7 @@ def weekly():
     return jsonify(status="sent")
 
 
+@bp.route("/")
 @bp.route("/dashboard")
 def dashboard():
     if not _authorized():
