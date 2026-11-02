@@ -1,6 +1,6 @@
 # Unified integration verification
 
-- **67 Python tests passed**, including the original 45 regressions.
+- **69 Python tests passed**, including the original 45 regressions.
 - **6 Apps Script workflow scenarios passed** using mocked Google services:
   combined collection/delivery, acknowledgement retry without duplicate send, Gmail
   failure without marking sent, legacy pending acknowledgement migration, trigger
@@ -13,6 +13,8 @@
   mobile horizontal overflow, sign-out, and absence of JavaScript page errors.
 - MongoDB stream persistence tested with mongomock; source outage and AI provider
   fallback tested with mocks. No real credentials or outbound messages used.
+- Latest uploaded project ZIP contributed a BRICS RSS date normalization fix: related-news date cutoffs now work for RFC email dates as well as ISO timestamps. Added two regression cases for date parsing and cutoff behavior.
+- SQLite-only deployments can import the BRICS store without requiring PyMongo. Replaced the final deprecated RSS utcnow timestamp. Documented safe, nonblank optional environment defaults in .env.example.
 
 ## New behavior
 

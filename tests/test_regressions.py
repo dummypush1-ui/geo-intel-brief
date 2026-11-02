@@ -207,3 +207,33 @@ def test_mark_emailed_valid(client, monkeypatch):
     r = client.post('/geo/mark-emailed?key=regression-test-key', json={'article_ids':[str(oid)]})
     assert r.status_code == 200 and r.get_json()['marked'] == 1
     sent.assert_called_once_with([oid])
+
+
+
+def test_crosslink_normalizes_feed_dates():
+    from core.crosslink import _norm_date
+    assert _norm_date({'published': 'Tue, 02 Nov 2026 10:00:00 GMT'}) == '2026-11-02'
+    assert _norm_date({'published': 'Tue, 02 Nov 2026 23:30:00 -0500'}) == '2026-11-03'
+    assert _norm_date({'published': '2026-11-02T06:00:00+00:00'}) == '2026-11-02'
+    assert _norm_date({'published': '', 'collected_at': '2026-11-01T01:02:03'}) == '2026-11-01'
+    assert _norm_date({'published': 'not a date', 'collected_at': '2026-11-01T01:02:03'}) == '2026-11-01'
+    assert _norm_date({}) == ''
+
+
+def test_news_for_code_applies_cutoff_to_rss_dated_brics(monkeypatch):
+    from core import crosslink
+    old = 'Mon, 01 Jan 2024 10:00:00 GMT'
+    fresh = datetime.now(timezone.utc).strftime('%a, %d %b %Y %H:%M:%S GMT')
+    rows = [{'title': 'Crude oil exports old', 'url': 'https://x.test/old', 'source': 's', 'published': old,
+             'collected_at': '2026-11-02T00:00:00'},
+            {'title': 'Crude oil exports fresh', 'url': 'https://x.test/new', 'source': 's', 'published': fresh,
+             'collected_at': '2026-11-02T00:00:00'}]
+    store = Mock()
+    store.recent.return_value = rows
+    monkeypatch.setattr('brics.database.get_store', lambda: store)
+    monkeypatch.setattr('brics.processing.classifier.filter_brics', lambda a: a)
+    monkeypatch.setattr('geonews.database.recent_articles', lambda **k: [])
+    monkeypatch.setattr(crosslink, '_cache', {'t': 0.0, 'rows': []})
+    res = crosslink.news_for_code('2709', days=30)
+    assert [i['url'] for i in res['items']] == ['https://x.test/new']
+    assert res['items'][0]['date'] == datetime.now(timezone.utc).strftime('%Y-%m-%d')
