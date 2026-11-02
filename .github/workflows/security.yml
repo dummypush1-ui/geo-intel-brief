@@ -40,7 +40,7 @@ jobs:
       - run: |
           pip install scancode-toolkit
           scancode --license --copyright --json-pp scancode-report.json --ignore ".git/*" .
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: licence-report
           path: scancode-report.json
