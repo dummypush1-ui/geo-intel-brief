@@ -152,7 +152,7 @@ _run_lock = threading.Lock()
 _running = {"collect": False}
 
 
-def collect_all_async():
+def collect_all_async(enable_brics=True, enable_geo=True):
     """Kick off a full collection in a background thread; returns False if one
     is already running. Used by POST /api/trigger/collect so ONE external cron
     job can drive both news apps."""
@@ -163,9 +163,11 @@ def collect_all_async():
 
     def work():
         try:
-            for fn in (brics_tier1, brics_tier2):
-                fn()
-            _guard("geo.collect")(geo_collect)()
+            if enable_brics:
+                for fn in (brics_tier1, brics_tier2):
+                    fn()
+            if enable_geo:
+                _guard("geo.collect")(geo_collect)()
         finally:
             _running["collect"] = False
     threading.Thread(target=work, daemon=True, name="collect-all").start()

@@ -20,11 +20,17 @@ def cleanup(days=None):
     if not old_articles:
         return {"deleted": 0, "message": "Nothing older than the cleanup window."}
 
+    archived = [a for a in old_articles if a.get("telegram_url") and a.get("telegram_message_id")]
+    skipped = len(old_articles) - len(archived)
+    if not archived:
+        return {"deleted": 0, "skipped_unarchived": skipped, "message": "No confirmed Telegram backups; kept all records."}
+    old_articles = archived
     date_from = old_articles[0].get("created_at", "")[:10]
     date_to = old_articles[-1].get("created_at", "")[:10]
     deleted = delete_articles([a["_id"] for a in old_articles])
     return {
         "deleted": deleted,
+        "skipped_unarchived": skipped,
         "date_range": f"{date_from} to {date_to}",
         "note": "Full records for these remain permanently in the Telegram backup channel.",
     }

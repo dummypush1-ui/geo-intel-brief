@@ -146,7 +146,7 @@ def _recent_articles(limit=400):
         log.info("crosslink: brics source unavailable (%s)", type(e).__name__)
     try:
         from geonews.database import recent_articles
-        for a in recent_articles(limit=limit, sort_by="date") or []:
+        for a in recent_articles(limit=limit, sort_by="newest") or []:
             rows.append(dict(app="geo", title=a.get("title", ""), url=a.get("url", ""), source=a.get("source", ""),
                              date=_norm_date(a), text=f"{a.get('title', '')}. {a.get('summary') or ''}",
                              country=a.get("country", "")))

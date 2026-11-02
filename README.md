@@ -53,3 +53,21 @@ Geo News needs `MONGODB_URI` (free Atlas tier works). BRICS works with SQLite ou
 - `/api/links/*` is public read-only (titles, links, sources, dates from both feeds) and rate-limited to 120 calls / 10 min / IP.
 - Geo's dashboard/email/Telegram links still carry `?key=<TRIGGER_SECRET>` in the URL (original design). Treat those links as secrets, or change the key if one leaks.
 - `ENABLE_TELEGRAM_BACKUP` defaults to **true** in Geo News; set `GEO_ENABLE_TELEGRAM_BACKUP=false` unless you've configured the backup channel.
+
+## Verification
+
+```bash
+pip install -r requirements-dev.txt
+python -m pytest -q
+ruff check . --select E9,F63,F7,F82
+cd hsn/tools
+npm run build
+npm run check
+```
+
+Tests use temporary SQLite storage and mocks for MongoDB errors; they do not send
+messages, collect external feeds, or require provider credentials. See
+`TEST_REPORT.md` for fixes and verification limits. Geo requires a configured,
+reachable MongoDB database; without it the hub marks Geo unavailable and its
+health route returns 503. Other apps continue running. Metadata cleanup keeps
+records without both a confirmed Telegram message ID and backup URL.

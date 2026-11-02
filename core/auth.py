@@ -10,8 +10,12 @@ def _secret():
     return os.getenv("TRIGGER_SECRET", "").strip()
 
 
+def is_weak_secret(value):
+    return (value or "").strip().lower() in _WEAK
+
+
 def secret_is_weak():
-    return _secret().lower() in _WEAK
+    return is_weak_secret(_secret())
 
 
 def authorized(req=None):
