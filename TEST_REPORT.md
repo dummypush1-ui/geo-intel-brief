@@ -1,4 +1,62 @@
-# Fixes and verification
+# Unified integration verification
+
+- **69 Python tests passed**, including the original 45 regressions.
+- **6 Apps Script workflow scenarios passed** using mocked Google services:
+  combined collection/delivery, acknowledgement retry without duplicate send, Gmail
+  failure without marking sent, legacy pending acknowledgement migration, trigger
+  installation, and invalid schedule rejection before deleting triggers.
+- Ruff fatal/error checks and workspace JavaScript syntax: passed.
+- HSN build and offline validation: passed; **340,232** dataset rows.
+- Chromium browser smoke: passed with seeded local data, mocked AI, and blocked external
+  browser requests. Checked sign-in, combined feed, country filter, saved view, selected
+  story analysis/download, shared Geo session, BRICS stream writes, HSN deep link,
+  mobile horizontal overflow, sign-out, and absence of JavaScript page errors.
+- MongoDB stream persistence tested with mongomock; source outage and AI provider
+  fallback tested with mocks. No real credentials or outbound messages used.
+- Latest uploaded project ZIP contributed a BRICS RSS date normalization fix: related-news date cutoffs now work for RFC email dates as well as ISO timestamps. Added two regression cases for date parsing and cutoff behavior.
+- SQLite-only deployments can import the BRICS store without requiring PyMongo. Replaced the final deprecated RSS utcnow timestamp. Documented safe, nonblank optional environment defaults in .env.example.
+
+## New behavior
+
+One signed administrator session works across the three tools. The homepage combines
+news, heuristic HS links, shared provider/model configuration, source-numbered AI
+briefs, saved browser views and port context. Stream edits persist in MongoDB (or
+DATA_DIR for local SQLite mode). Apps Script collects both feeds and sends a combined
+Gmail digest with idempotent acknowledgements and retry state. Placeholder empty
+events are skipped. AI and AIS data are not presented as proof of cargo/compliance.
+
+## Live verification still needed
+
+Actual Render deployment, Atlas access, provider model/quota access, AIS data reception,
+Google authorization/trigger timing and Gmail delivery require the owner's accounts.
+Free Render can sleep; no uptime guarantee is made. Tests do not establish tariff or
+news accuracy. The integrated AI uses saved source excerpts, not independent live
+web verification. This release does not add automatic event discovery, scheduled AI
+emails, or a replacement weekly/critical email workflow.
+
+## Reproduce
+
+```bash
+pip install -r requirements-dev.txt
+python -m pytest -q
+ruff check . --select E9,F63,F7,F82
+node tests/test_apps_script.mjs
+node --check static/workspace.js
+cd hsn/tools
+npm run build
+npm run check
+```
+
+Optional Chromium test from the project root:
+
+```bash
+pip install playwright
+CHROMIUM_PATH=/usr/bin/chromium python tests/browser_smoke.py
+```
+
+---
+
+# Earlier fixes and verification
 
 ## Results
 

@@ -12,6 +12,9 @@ Run:  gunicorn app:app   (see Procfile)    or    python app.py
 """
 import logging
 import os
+import secrets
+from datetime import timedelta
+from urllib.parse import urlparse
 
 from flask import Flask, jsonify, render_template, request
 from werkzeug.middleware.proxy_fix import ProxyFix
@@ -30,6 +33,21 @@ def _flag(name, default="true"):
 def create_app():
     app = Flask(__name__, template_folder="templates")
     app.config["JSON_SORT_KEYS"] = False
+    app.secret_key = os.getenv("SESSION_SECRET") or (auth._secret() if not auth.secret_is_weak() else secrets.token_hex(32))
+    app.config.update(SESSION_COOKIE_HTTPONLY=True, SESSION_COOKIE_SAMESITE="Strict",
+                      SESSION_COOKIE_SECURE=os.getenv("DEPLOY_MODE") == "cloud",
+                      PERMANENT_SESSION_LIFETIME=timedelta(hours=8), MAX_CONTENT_LENGTH=2_000_000)
+
+    @app.before_request
+    def guard_origin():
+        # Cookie authentication must not turn cross-origin requests into admin actions.
+        origin = request.headers.get("Origin")
+        if origin and request.path.startswith(("/api/intel/", "/api/trigger/", "/geo/", "/brics/api/streams")):
+            if urlparse(origin).netloc != request.host or urlparse(origin).scheme != request.scheme:
+                return jsonify(error="Cross-origin admin request denied"), 403
+
+    from core.intelligence import bp as intelligence_bp
+    app.register_blueprint(intelligence_bp, url_prefix="/api/intel")
     # Render / most PaaS sit behind exactly one proxy hop.
     app.wsgi_app = ProxyFix(app.wsgi_app, x_for=1, x_proto=1, x_host=1)
 

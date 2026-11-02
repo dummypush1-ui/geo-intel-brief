@@ -178,6 +178,14 @@ def _preflight(_any):
 
 
 # ------------------------------------------------------------------ API
+@bp.get("/api/config")
+def public_config():
+    from core.ai_config import models
+    response = jsonify(providers=[k for k, v in POOLS.items() if v], models=models())
+    response.headers["Cache-Control"] = "no-store"
+    return response
+
+
 @bp.get("/api/health")
 def health():
     return jsonify(ok=True, service="hsn ai + ais", providers=[k for k, v in POOLS.items() if v], ais=ais.health())

@@ -16,6 +16,18 @@ Merges three projects into a single Flask service:
 
 A sub-app that fails to start (missing DB, bad config) is shown as *unavailable* on the hub; the others keep running.
 
+## Unified intelligence workspace
+
+The homepage now combines BRICS + Geo news with filters, saved views, HS-code links,
+selected-story AI trade-impact briefs, and live AIS context. Sign in once using your
+TRIGGER_SECRET; the same session opens Geo and authorizes BRICS stream management.
+MongoDB deployments persist stream edits across redeploys.
+
+**Free Render users:** follow [the combined setup guide](docs/FREE_RENDER_SETUP.md)
+and replace your Apps Script with [the updated Code.gs](geonews/apps_script/Code.gs).
+The script now collects BOTH news feeds and sends one combined Gmail digest.
+AI keys and optional model overrides are shared between the workspace and HSN finder.
+
 ## Layout
 ```
 app.py            hub + blueprint mounting          core/   paths, shared auth, scheduler
@@ -60,6 +72,7 @@ Geo News needs `MONGODB_URI` (free Atlas tier works). BRICS works with SQLite ou
 pip install -r requirements-dev.txt
 python -m pytest -q
 ruff check . --select E9,F63,F7,F82
+node tests/test_apps_script.mjs
 cd hsn/tools
 npm run build
 npm run check

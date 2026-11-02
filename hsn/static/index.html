@@ -556,13 +556,27 @@ const BUILTIN_GROQ_KEYS = '';
 const BUILTIN_MISTRAL_KEYS = '';
 const BUILTIN_NVIDIA_KEYS = '';
 
-// ==== AI model swap points: change a model by editing one line ====
-const GEMINI_MODEL = 'gemini-3.8-flash'; // report writing; free tier confirmed 22 Sep 2026. Google Search grounding is NOT in the free tier - the report call retries ungrounded automatically.
-const GROQ_MODEL = 'openai/gpt-oss-120b'; // instant best-code picks
-const GROQ_MODEL_FALLBACK = 'openai/gpt-oss-20b'; // used if the primary is busy or retired
+// Server model overrides are shared with the unified intelligence workspace.
+const GEMINI_MODEL = 'gemini-2.5-flash';
+const GROQ_MODEL = 'llama-3.3-70b-versatile';
+const GROQ_MODEL_FALLBACK = 'openai/gpt-oss-20b';
 const GROQ_MODELS = [GROQ_MODEL, GROQ_MODEL_FALLBACK];
-// Gemini chain: tried in order when a model is retired, busy or quota-maxed.
-const GEMINI_MODELS = [GEMINI_MODEL, 'gemini-3.7-flash', 'gemini-3.6-flash', 'gemini-3.5-flash-lite', 'gemini-3.1-flash-lite', 'gemini-2.5-flash-lite', 'gemini-2.5-flash'];
+const GEMINI_MODELS = [GEMINI_MODEL, 'gemini-2.5-flash-lite'];
+let serverProviders = [];
+async function loadServerAI() {
+  if (!AI_PROXY_URL) return;
+  try {
+    const response = await fetch(AI_PROXY_URL + '/config', { signal: AbortSignal.timeout(10000) });
+    if (!response.ok) return;
+    const config = await response.json();
+    serverProviders = (config.providers || []).filter(p => ['gemini','groq','mistral','nvidia'].includes(p));
+    const arrays = {gemini:GEMINI_MODELS, groq:GROQ_MODELS, mistral:MISTRAL_MODELS, nvidia:NVIDIA_MODELS};
+    for (const [provider, list] of Object.entries(arrays)) {
+      const model = config.models && config.models[provider];
+      if (typeof model === 'string') list.splice(0, list.length, model);
+    }
+  } catch { /* Search and offline data remain available without AI configuration. */ }
+}
 // Extra rotation members: Mistral (free tier on la Plateforme) and NVIDIA NIM
 // (free key, 90-day expiry - an expired key is skipped, never fatal).
 const MISTRAL_MODELS = ['mistral-small-latest', 'open-mistral-nemo', 'ministral-8b-latest'];
@@ -576,15 +590,15 @@ let mistralModelUsed = '', nvidiaModelUsed = '';
 // so it joins automatically if a key is ever added.
 const KEYED_PROVIDERS = ['groq', 'gemini', 'mistral'];
 function shuffleProviders() {
-  const arr = KEYED_PROVIDERS.slice();
+  const arr = KEYED_PROVIDERS.filter(p => serverProviders.includes(p) || builtinKeys(p).length || (V.apiKey && ownProvider() === p));
   for (let i = arr.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); const t = arr[i]; arr[i] = arr[j]; arr[j] = t; }
-  arr.push('nvidia');
+  if (serverProviders.includes('nvidia') || builtinKeys('nvidia').length || (V.apiKey && ownProvider() === 'nvidia')) arr.push('nvidia');
   return arr;
 }
 const PROVIDER_LABEL = { groq: 'Groq', gemini: 'Gemini', mistral: 'Mistral', nvidia: 'NVIDIA' };
 const builtinPools = { gemini: { off: 0 }, groq: { off: 0 }, mistral: { off: 0 }, nvidia: { off: 0 } };
 const builtinKeys = (kind) => String(kind === 'groq' ? BUILTIN_GROQ_KEYS : kind === 'mistral' ? BUILTIN_MISTRAL_KEYS : kind === 'nvidia' ? BUILTIN_NVIDIA_KEYS : BUILTIN_GEMINI_KEYS).split(',').map((k) => k.trim()).filter(Boolean);
-const aiAvailable = () => Boolean(V.apiKey || AI_PROXY_URL || BUILTIN_GEMINI_KEYS.trim() || BUILTIN_GROQ_KEYS.trim() || BUILTIN_MISTRAL_KEYS.trim() || BUILTIN_NVIDIA_KEYS.trim());
+const aiAvailable = () => Boolean(V.apiKey || serverProviders.length || BUILTIN_GEMINI_KEYS.trim() || BUILTIN_GROQ_KEYS.trim() || BUILTIN_MISTRAL_KEYS.trim() || BUILTIN_NVIDIA_KEYS.trim());
 let aiSharedKey = false;
 let aiProviderUsed = 'gemini';
 let aiOwnKeyRejected = false; // saved own key got 401/refused - shared keys answered instead
@@ -608,7 +622,7 @@ async function aiCrossCall(producer, prompt, opts, order) {
 const aiHasBoth = () => {
   const set = new Set();
   if (V.apiKey) set.add(ownProvider());
-  if (AI_PROXY_URL) { set.add('gemini'); set.add('groq'); set.add('mistral'); set.add('nvidia'); }
+  serverProviders.forEach(p => set.add(p));
   if (builtinKeys('groq').length) set.add('groq');
   if (builtinKeys('gemini').length) set.add('gemini');
   if (builtinKeys('mistral').length) set.add('mistral');
@@ -3746,7 +3760,7 @@ function detailHtml(idx) {
   if (kids.length > 120) s += '<p class="muted">Showing 120 of ' + kids.length + ' sub-lines. Use the code search with prefix ' + esc(e[1]) + ' to see more.</p>';
   s += '</div>';
   s += '<div class="detail-sec no-print ai-panel">' +
-    '<div class="ai-panel-head"><div><h3>Full report</h3><p class="muted">One tap makes the branded 14-section PDF - exact official data with AI-written analysis inside. ' + (AI_PROXY_URL || builtinKeys('gemini').length || builtinKeys('groq').length ? 'AI is built in for everyone - no key needed.' : 'Needs a free AI key, set up once.') + '</p></div><span class="ai-status ' + (aiAvailable() ? 'ready' : 'offline') + '">' + (apiKey || AI_PROXY_URL ? 'Live ready' : aiAvailable() ? 'Shared AI - may hit daily limit' : 'Key needed') + '</span></div>' +
+    '<div class="ai-panel-head"><div><h3>Full report</h3><p class="muted">One tap makes the branded 14-section PDF - exact official data with AI-written analysis inside. ' + (serverProviders.length || builtinKeys('gemini').length || builtinKeys('groq').length ? 'AI is built in for everyone - no key needed.' : 'Needs a free AI key, set up once.') + '</p></div><span class="ai-status ' + (aiAvailable() ? 'ready' : 'offline') + '">' + (apiKey || serverProviders.length ? 'AI configured' : aiAvailable() ? 'Shared AI - may hit daily limit' : 'Key needed') + '</span></div>' +
     '<div class="action-row">' +
     '<button class="file-button is-compact" id="d-tpl"' + (V.busy ? ' disabled' : '') + '>' + (V.busy ? 'Writing the report with AI...' : 'Make the PDF report') + '</button>' +
     '<button class="file-button is-compact" data-variant="secondary" id="ai-settings">' + (V.settingsOpen ? 'Hide AI settings' : apiKey ? 'Change API key' : 'Use your own key') + '</button>' +
@@ -4964,7 +4978,7 @@ function render() {
 }
 
 function headerHtml() {
-  return '<div class="app-head no-print"><h1 class="app-title">Worldwide HSN Code Finder</h1>' +
+  return '<nav class="no-print" style="padding:12px 0"><a href="/">← Intelligence workspace</a> · <a href="/brics/">BRICS &amp; live streams</a> · <a href="/geo/">Geo news</a></nav><div class="app-head no-print"><h1 class="app-title">Worldwide HSN Code Finder</h1>' +
     '<button type="button" class="theme-toggle no-print" id="theme-toggle" aria-label="Switch to ' + (V.dark ? 'light' : 'dark') + ' mode" aria-pressed="' + V.dark + '">' + (V.dark ? 'Light mode' : 'Dark mode') + '</button>' +
     '<p class="app-fact">' + SYS.length + ' official systems - ' + S.db.entries.length.toLocaleString('en-US') + ' codes</p>' +
     '<p class="app-intro">Search WCO, India, USA, EU, UK, Korea, Canada, Japan, Australia, Brazil, Taiwan, New Zealand, Norway, Singapore, Israel, Mexico, Hong Kong, South Africa, Peru, China and the UAE. Every code links international roots to national and statistical lines, with detail and PDF.</p></div>';
@@ -4999,7 +5013,7 @@ if (typeof window !== 'undefined') {
 
 function boot(rootEl) {
   rootEl.innerHTML = '<div class="app-shell"><div class="app-head"><h1 class="app-title">Worldwide HSN Code Finder</h1><p class="muted">Loading trade codes...</p></div></div>';
-  decodeData().then((entries) => {
+  Promise.all([decodeData(), loadServerAI()]).then(([entries]) => {
     const seenUS = new Set(entries.filter((e) => e[0] === 2).map((e) => e[1]));
     for (const row of US_CH97_SUPPLEMENT) if (!seenUS.has(row[1])) entries.push(row);
     S.db = loadDb(entries);

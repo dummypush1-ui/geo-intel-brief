@@ -72,7 +72,7 @@ def _record_status(name, status, count, message=None):
             "status": status,      # "ok" | "warning" | "error" | "disabled"
             "count": count,
             "message": message,
-            "checked_at": datetime.datetime.utcnow().isoformat(),
+            "checked_at": datetime.datetime.now(datetime.timezone.utc).replace(tzinfo=None).isoformat(),
         }
 
 

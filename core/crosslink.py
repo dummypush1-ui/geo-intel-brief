@@ -129,8 +129,31 @@ _cache_lock = threading.Lock()
 TTL = 120
 
 
+_ISO_DAY = re.compile(r"^\d{4}-\d{2}-\d{2}")
+
+
 def _norm_date(a):
-    return (a.get("published") or a.get("collected_at") or "")[:10]
+    """Normalize RSS and stored timestamps to UTC YYYY-MM-DD."""
+    from email.utils import parsedate_to_datetime
+
+    for key in ("published", "collected_at", "created_at"):
+        value = a.get(key)
+        if not value:
+            continue
+        if isinstance(value, datetime):
+            dt = value if value.tzinfo else value.replace(tzinfo=timezone.utc)
+            return dt.astimezone(timezone.utc).strftime("%Y-%m-%d")
+        value = str(value).strip()
+        if _ISO_DAY.match(value):
+            return value[:10]
+        try:
+            dt = parsedate_to_datetime(value)
+            if dt.tzinfo is None:
+                dt = dt.replace(tzinfo=timezone.utc)
+            return dt.astimezone(timezone.utc).strftime("%Y-%m-%d")
+        except (TypeError, ValueError, IndexError, OverflowError):
+            continue
+    return ""
 
 
 def _recent_articles(limit=400):

@@ -4,7 +4,11 @@ import os
 import sqlite3
 import hashlib
 import datetime
-from pymongo.errors import DuplicateKeyError
+try:
+    from pymongo.errors import DuplicateKeyError
+except ImportError:  # SQLite-only installs do not need pymongo
+    class DuplicateKeyError(Exception):
+        pass
 import threading
 from functools import wraps
 
