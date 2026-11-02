@@ -1,0 +1,22 @@
+# One web service replaces the three old ones (finder static site, hsn-ai-proxy, news apps).
+services:
+  - type: web
+    name: geo-intel-brief
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app --bind 0.0.0.0:$PORT --workers 1 --threads 8 --timeout 300
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - { key: PYTHON_VERSION, value: "3.11.9" }
+      - { key: TRIGGER_SECRET, sync: false }      # REQUIRED: long random string
+      - { key: DEPLOY_MODE, value: cloud }
+      - { key: STORAGE_BACKEND, value: mongodb }  # BRICS storage; the free disk is wiped on every deploy
+      - { key: MONGODB_URI, sync: false }
+      - { key: RUN_SCHEDULER, value: "false" }    # free tier sleeps: drive it with an external cron instead
+      - { key: GROQ_KEYS, sync: false }
+      - { key: GEMINI_KEYS, sync: false }
+      - { key: MISTRAL_KEYS, sync: false }
+      - { key: NVIDIA_KEYS, sync: false }
+      - { key: AISSTREAM_KEY, sync: false }

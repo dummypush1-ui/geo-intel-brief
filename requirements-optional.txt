@@ -1,0 +1,3 @@
+# Heavy extras, only needed if you switch the matching feature on in .env
+trafilatura>=1.8.0      # ENABLE_FULL_TEXT=true   (Geo News full-article extraction)
+gnews>=0.3.6            # ENABLE_GNEWS=true       (Geo News Google News collector)

@@ -1,0 +1,10 @@
+Flask>=3.0.3
+gunicorn>=22.0.0
+requests>=2.32.0
+PyYAML>=6.0.1
+python-dotenv>=1.0.1
+schedule>=1.2.2
+feedparser>=6.0.11
+python-dateutil>=2.9.0
+pymongo>=4.8.0
+websockets>=12.0        # live ship feed (/hsn/api/ships); only used when AISSTREAM_KEY is set
