@@ -42,9 +42,10 @@ def create_app():
         try:
             bp, init = importer()
             app.register_blueprint(bp, url_prefix=prefix)
-            if init:
-                init(app)
-            modules[name] = dict(ok=True, error=None, path=prefix + "/", title=title)
+            ready = init(app) if init else True
+            modules[name] = dict(ok=ready is not False,
+                                 error=None if ready is not False else "Initialization failed; check server configuration and logs",
+                                 path=prefix + "/", title=title)
         except Exception as e:  # one broken sub-app must not take the others down
             log.exception("failed to mount %s", name)
             modules[name] = dict(ok=False, error=f"{type(e).__name__}: {e}", path=prefix + "/", title=title)
@@ -98,7 +99,8 @@ def create_app():
         if not auth.authorized():
             return auth.deny()
         from core import scheduler
-        started = scheduler.collect_all_async()
+        started = scheduler.collect_all_async(enable_brics=modules["brics"]["ok"],
+                                              enable_geo=modules["geo"]["ok"])
         return jsonify(status="started" if started else "already_running"), 202
 
     # In-process scheduler: opt-in for gunicorn, on by default for `python app.py`.

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://finder-hsn-codee.onrender.com/sitemap.xml

@@ -16,6 +16,8 @@ _db = None
 
 def connect():
     global _client, _db
+    if not MONGODB_URI or not MONGODB_URI.strip():
+        raise ValueError("MONGODB_URI is not configured")
     if _db is None:
         # Explicit timeouts: without these, a bad/unreachable MONGODB_URI
         # (wrong password, IP not allow-listed in Atlas, typo'd cluster
@@ -77,7 +79,10 @@ def save_articles_bulk(articles):
         # Some documents inserted, some failed (almost always duplicate
         # urls colliding with the unique index) -- count is total attempted
         # minus how many actually errored out.
-        return len(articles) - len(bwe.details.get("writeErrors", []))
+        errors = bwe.details.get("writeErrors", [])
+        if bwe.details.get("writeConcernErrors") or any(e.get("code") != 11000 for e in errors):
+            raise
+        return bwe.details.get("nInserted", 0)
 
 
 def update_telegram_refs(articles):

@@ -1,0 +1,14 @@
+{
+  "name": "hsn-finder",
+  "private": true,
+  "version": "1.0.0",
+  "description": "HSN finder build + daily data pipeline (the web app itself is served by the Flask service in ../routes.py)",
+  "scripts": {
+    "build": "node build.mjs && node publish.mjs",
+    "refresh": "node automate.mjs && node publish.mjs",
+    "check": "node check-build.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
