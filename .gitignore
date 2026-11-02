@@ -1,0 +1,12 @@
+.env
+.venv/
+__pycache__/
+*.pyc
+data/*
+!data/.gitkeep
+logs/
+hsn/tools/offline.html
+hsn/tools/index.html
+hsn/tools/data.*.js
+hsn/tools/sw.js
+node_modules/
