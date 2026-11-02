@@ -5,6 +5,8 @@ format (watch?v=, youtu.be/, /live/, /embed/) — just paste the link."""
 import re
 import threading
 import yaml
+from core.paths import data_path
+from . import config as C
 
 import os as _os
 STREAMS_FILE = _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "settings", "streams.yaml")
@@ -39,6 +41,15 @@ def extract_video_id(value):
 def _read_raw_streams():
     """Load the raw stream list from disk (no embed_url/watch_url injected —
     those are derived fields, not stored)."""
+    if C.STORAGE_BACKEND == "mongodb":
+        from .database import get_store
+        doc = get_store().col.database.settings.find_one({"_id": "live_streams"})
+        if doc is not None:
+            return doc.get("streams", [])
+    else:
+        saved = data_path("brics-streams.yaml")
+        if saved.exists():
+            return (yaml.safe_load(saved.read_text()) or {}).get("streams", [])
     with open(STREAMS_FILE, "r", encoding="utf-8") as f:
         data = yaml.safe_load(f) or {}
     return data.get("streams", []) or []
@@ -86,10 +97,16 @@ _FILE_HEADER = """# Live video streams to embed on the dashboard.
 
 def _write_raw_streams(streams):
     """Persist the raw stream list back to settings/streams.yaml."""
-    with open(STREAMS_FILE, "w", encoding="utf-8") as f:
-        f.write(_FILE_HEADER)
-        f.write("\n")
-        yaml.safe_dump({"streams": streams}, f, sort_keys=False, allow_unicode=True)
+    if C.STORAGE_BACKEND == "mongodb":
+        from .database import get_store
+        get_store().col.database.settings.update_one(
+            {"_id": "live_streams"}, {"$set": {"streams": streams}}, upsert=True)
+        return
+    target = data_path("brics-streams.yaml")
+    target.parent.mkdir(parents=True, exist_ok=True)
+    tmp = target.with_suffix(".tmp")
+    tmp.write_text(yaml.safe_dump({"streams": streams}, sort_keys=False, allow_unicode=True))
+    tmp.replace(target)
 
 
 def add_stream(name, country, link):
@@ -101,7 +118,7 @@ def add_stream(name, country, link):
     vid = extract_video_id(link)
     if not name:
         raise ValueError("Stream name is required.")
-    if not vid:
+    if not re.fullmatch(r"[A-Za-z0-9_-]{11}", vid):
         raise ValueError("Could not read a video ID from that link.")
 
     with _STREAMS_LOCK:

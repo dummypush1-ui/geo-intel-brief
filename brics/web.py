@@ -32,9 +32,12 @@ def _auth_ok():
 def _dashboard_key_ok(req):
     """Checks the key from either the query string or a submitted form/JSON
     body, so the on-page 'add stream' form works without extra JS wiring."""
+    if auth.session_authorized():
+        return True
     key = req.args.get("key") or req.form.get("key")
     if key is None and req.is_json:
-        key = (req.get_json(silent=True) or {}).get("key")
+        payload = req.get_json(silent=True)
+        key = payload.get("key") if isinstance(payload, dict) else None
     # Fail closed: the shipped default "changeme" used to unlock stream
     # add/remove for anyone. Fall back to the shared TRIGGER_SECRET when no
     # dedicated DASHBOARD_KEY is configured.
@@ -172,7 +175,9 @@ def api_streams():
 def api_add_stream():
     if not _dashboard_key_ok(request):
         return jsonify({"error": "unauthorized — wrong dashboard key"}), 401
-    payload = request.get_json(silent=True) or request.form
+    payload = request.get_json(silent=True) if request.is_json else request.form
+    if not hasattr(payload, "get") or any(not isinstance(payload.get(k, ""), str) for k in ("name", "country", "link", "video_id")):
+        return jsonify(error="Expected text fields for name, country and link"), 400
     try:
         stream = add_stream(
             name=payload.get("name", ""),

@@ -239,7 +239,7 @@ def dashboard():
     limit = request.args.get("limit", default=100000, type=int)
     category = request.args.get("category") or None
     sort_by = request.args.get("sort_by", default="score")
-    html_out = build_dashboard_html(limit=limit, category=category, trigger_key=TRIGGER_SECRET, sort_by=sort_by)
+    html_out = build_dashboard_html(limit=limit, category=category, trigger_key=None if auth.session_authorized() else TRIGGER_SECRET, sort_by=sort_by)
     return Response(html_out, mimetype="text/html")
 
 

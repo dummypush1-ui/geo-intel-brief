@@ -1,37 +1,18 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Geo Intel Brief</title>
-<style>
-:root{--bg:#f4f6fa;--card:#fff;--ink:#14213d;--mut:#5b6b82;--line:#dde3ee;--ok:#1b7f4b;--bad:#b3261e;--acc:#0e2240}
-@media (prefers-color-scheme:dark){:root{--bg:#0d1420;--card:#152033;--ink:#e8eef9;--mut:#9fb0c8;--line:#26354d;--ok:#4cc38a;--bad:#ff8a80;--acc:#7fb0ff}}
-*{box-sizing:border-box}body{margin:0;font:16px/1.5 system-ui,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink)}
-main{max-width:980px;margin:0 auto;padding:40px 20px}
-h1{margin:0 0 4px;font-size:28px;color:var(--acc)}p.sub{margin:0 0 28px;color:var(--mut)}
-.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(270px,1fr))}
-a.card{display:block;text-decoration:none;color:inherit;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;transition:transform .12s,box-shadow .12s}
-a.card:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(0,0,0,.08)}
-a.card.off{opacity:.55;pointer-events:none}
-h2{margin:0 0 6px;font-size:19px}.d{color:var(--mut);font-size:14px;margin:0 0 12px}
-.pill{display:inline-block;font-size:12px;padding:2px 10px;border-radius:99px;border:1px solid currentColor}
-.ok{color:var(--ok)}.bad{color:var(--bad)}.err{font-size:12px;color:var(--bad);margin-top:8px;word-break:break-word}
-footer{margin-top:32px;color:var(--mut);font-size:13px}
-</style></head><body><main>
-<h1>Geo Intel Brief</h1>
-<p class="sub">Trade codes, geopolitical news and BRICS monitoring in one service.</p>
-<div class="grid">
-{% set desc = {
- 'hsn': 'Search 340,000+ customs tariff codes across 22 systems with duty, trade data, sanctions and AI reports.',
- 'brics': 'Live video, searchable news feed, critical alerts and the full source list on one dashboard.',
- 'geo': 'Trade activity, sanctions / circulars and research papers, with digest, weekly summary and CSV export.'} %}
-{% for key, m in modules.items() %}
-  <a class="card {% if not m.ok %}off{% endif %}" href="{{ m.path }}">
-    <h2>{{ m.title }}</h2>
-    <p class="d">{{ desc[key] }}</p>
-    <span class="pill {{ 'ok' if m.ok else 'bad' }}">{{ 'online' if m.ok else ('disabled' if m.get('disabled') else 'unavailable') }}</span>
-    {% if m.error and not m.get('disabled') %}<div class="err">{{ m.error }}</div>{% endif %}
-  </a>
-{% endfor %}
-</div>
-<footer>Health: <a href="/health">/health</a>. Geo and BRICS dashboards need <code>?key=</code> where the original apps did.</footer>
-</main></body></html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Geo Intel · Intelligence workspace</title><link rel="stylesheet" href="/static/workspace.css">
+</head><body>
+<header class="top"><a class="brand" href="/">G<span>▧</span> / GEO INTEL</a><nav aria-label="Applications"><a class="active" href="/">Workspace</a><a href="/hsn/">HS code finder ↗</a><a href="/brics/">BRICS & live streams ↗</a><a href="/geo/">Geo news ↗</a></nav><button id="logout" hidden>Sign out</button></header>
+<main><div class="heading"><div><p class="eyebrow">CONNECTED TRADE INTELLIGENCE</p><h1>The world moves.<br><span>Understand the trade impact.</span></h1><p class="intro">Follow BRICS and global news, connect product codes, and build a brief from the stories that matter.</p></div><div class="status-card"><span class="dot"></span> ONE WORKSPACE · THREE TOOLS<div class="module-status">{% for name, m in modules.items() %}<span>{{ name|upper }} <b class="{{ 'online' if m.ok else 'offline' }}">{{ 'Ready' if m.ok else 'Unavailable' }}</b></span>{% endfor %}</div></div></div>
+<section id="login-panel" class="login panel"><div><p class="eyebrow">YOUR PRIVATE WORKSPACE</p><h2>Sign in once. Connect the whole picture.</h2><p>Use your workspace secret (TRIGGER_SECRET) to access news, AI analysis, and stream management. Your API keys stay on the server.</p></div><form id="login-form"><label for="secret">Workspace secret</label><div class="form-row"><input id="secret" type="password" autocomplete="current-password" required placeholder="Enter your workspace secret"><button class="primary" type="submit">Open workspace →</button></div><p id="login-error" role="alert"></p></form></section>
+<div id="workspace" hidden>
+<div class="toolbar"><p id="updated">Loading workspace…</p><div><button id="refresh">↻ Refresh</button><button id="collect" class="primary">Collect both feeds</button></div></div>
+<p id="notice" role="status" class="notice" hidden></p>
+<div class="metrics"><div class="panel metric"><span>Stories in latest feed</span><strong id="story-count">—</strong></div><div class="panel metric"><span>Countries mentioned</span><strong id="country-count">—</strong></div><div class="panel metric"><span>Candidate HS headings</span><strong id="code-count">—</strong></div><div class="panel metric"><span>AI providers configured</span><strong id="provider-count">—</strong></div></div>
+<section class="panel filters"><div class="filter-title"><h2>Your intelligence feed</h2><button id="save-watch">Save this view</button></div><div class="filter-grid"><label>Search news<input type="search" id="search" placeholder="Semiconductors, sanctions, shipping…"></label><label>News feed<select id="source"><option value="">Both feeds</option><option value="brics">BRICS</option><option value="geo">Geo</option></select></label><label>Country<select id="country"><option value="">All countries</option></select></label><label>HS heading<input id="hs" inputmode="numeric" maxlength="8" placeholder="e.g. 8542"></label></div><div id="watchlist" class="chips" aria-label="Saved views"></div><p class="hint">HS matches are keyword-based research suggestions. Verify classification before using a tariff or compliance decision.</p></section>
+<div class="columns"><section aria-label="News stories"><div class="section-title"><h2>Latest developments</h2><span id="visible-count"></span></div><div id="feed" aria-live="polite"></div><button id="more" hidden>Show more stories</button></section>
+<aside><section class="panel analysis"><p class="eyebrow">CONNECT NEWS → TRADE</p><h2>Build an intelligence brief</h2><p>Select up to six stories from either feed. AI will separate reported facts, possible trade impacts, and questions to verify.</p><p id="selected-count">0 stories selected</p><label>AI provider<select id="provider"><option value="">Automatic fallback</option></select></label><button class="primary full" id="analyze">Analyze selected stories</button><p class="hint" id="ai-status"></p><div id="analysis-result" hidden><p class="badge" id="analysis-meta"></p><div id="analysis-text"></div><ol id="analysis-sources"></ol><button id="download-brief">Download brief</button><p class="hint">AI-generated research, based only on the selected saved stories. No live web verification.</p></div></section>
+<section class="panel ports"><p class="eyebrow">NEWS → TRANSPORT CONTEXT</p><h2>Live port activity</h2><p>Inspect available vessel positions alongside the news. Positions do not establish cargo, ownership, or a connection to a selected story.</p><label>Port<select id="port"><option value="ALL">All tracked ports</option></select></label><button id="ships" class="full">Load live positions</button><p class="hint" id="ship-status"></p><div id="ship-list"></div></section>
+<section class="panel"><p class="eyebrow">BRICS LIVE MONITOR</p><h2>Manage live coverage</h2><p id="stream-storage">Stream settings are shared with BRICS.</p><a class="button full" href="/brics/">Open streams & controls ↗</a></section>
+<section class="panel"><p class="eyebrow">FREE RENDER AUTOMATION</p><h2>One combined Gmail brief</h2><p>Collect both feeds and email their latest stories through Google Apps Script. Includes candidate HS headings.</p><a href="https://github.com/dummypush1-ui/geo-intel-brief/blob/feature/unified-intelligence/docs/FREE_RENDER_SETUP.md" target="_blank" rel="noopener">Read the setup guide ↗</a></section></aside></div></div>
+<footer>Geo Intel Brief · Source reports and AI interpretations are distinct. <a href="/health">Service health</a></footer></main><script src="/static/workspace.js" defer></script></body></html>

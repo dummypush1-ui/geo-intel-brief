@@ -118,6 +118,7 @@ def build_dashboard_html(limit=100000, category=None, trigger_key=None, sort_by=
     body = [f"""<!DOCTYPE html><html><head><meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Geo Intel Dashboard</title><style>{BASE_CSS}</style></head><body><div class="wrap">
+    <nav><a href="/">← Intelligence workspace</a> · <a href="/brics/">BRICS &amp; live streams</a> · <a href="/hsn/">HS code finder</a></nav>
     <header><h1>🌍 Geo Intel Monitor — Dashboard</h1><p>Last refreshed {now} &middot; Last article collected: {html.escape((last_collected or "never")[:16].replace("T", " "))} UTC</p></header>
     <div class="stats">
         {_stat(f"{len(articles)} / {total_in_db}", "Articles shown / total in DB")}

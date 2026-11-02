@@ -1,6 +1,8 @@
 """One shared guard for every trigger / admin route (/brics/*, /geo/*)."""
 import hmac
 import os
+import hashlib
+from flask import session
 from flask import request, jsonify
 
 _WEAK = {"", "changeme", "change-me", "secret", "password"}
@@ -18,6 +20,15 @@ def secret_is_weak():
     return is_weak_secret(_secret())
 
 
+def session_fingerprint():
+    return hashlib.sha256(("geo-admin:" + _secret()).encode()).hexdigest()
+
+
+def session_authorized():
+    return not secret_is_weak() and hmac.compare_digest(
+        str(session.get("admin", "")), session_fingerprint())
+
+
 def authorized(req=None):
     """True when ?key= / X-Trigger-Key matches TRIGGER_SECRET.
 
@@ -27,6 +38,8 @@ def authorized(req=None):
     req = req or request
     if secret_is_weak():
         return os.getenv("ALLOW_INSECURE_LOCAL", "false").lower() == "true"
+    if session_authorized():
+        return True
     supplied = req.args.get("key") or req.headers.get("X-Trigger-Key") or ""
     return hmac.compare_digest(supplied.encode(), _secret().encode())
 

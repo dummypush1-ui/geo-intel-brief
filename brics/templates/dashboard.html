@@ -241,6 +241,7 @@
   <div class="ticker-label">🚨 Critical</div>
   <div class="ticker-track" id="tickerTrack"></div>
 </div>
+<nav style="padding:12px 24px"><a href="/" style="color:inherit">← Intelligence workspace</a> · <a href="/hsn/" style="color:inherit">HS code finder</a> · <a href="/geo/" style="color:inherit">Geo news</a></nav>
 <header>
   <div class="title-block">
     <h1>BRICS Live Monitor</h1>
@@ -274,7 +275,7 @@
       <input id="newStreamName" placeholder="Stream name (e.g. NDTV 24x7)">
       <input id="newStreamCountry" placeholder="Country (optional)">
       <input id="newStreamLink" class="link" placeholder="Paste any YouTube link (watch?v=, youtu.be/, /live/...) or a bare video ID">
-      <input id="dashboardKey" type="password" placeholder="Dashboard key">
+      <input id="dashboardKey" type="password" placeholder="Stream key (not needed after workspace sign-in)">
       <button onclick="submitNewStream()">Add live stream</button>
       <div class="stream-msg" id="streamMsg"></div>
     </div>
@@ -601,7 +602,8 @@ function toggleTheme(){
 }
 
 (function(){
-  var saved = localStorage.getItem('brics_dashboard_key');
+  localStorage.removeItem('brics_dashboard_key');
+  var saved = sessionStorage.getItem('brics_dashboard_key');
   if (saved) document.getElementById('dashboardKey').value = saved;
 })();
 
@@ -751,7 +753,7 @@ function submitNewStream(){
 
   if (!name || !link){ streamMsg('Name and a YouTube link are both required.', true); return; }
 
-  localStorage.setItem('brics_dashboard_key', key);
+  sessionStorage.setItem('brics_dashboard_key', key);
 
   fetch('/brics/api/streams', {
     method: 'POST',
