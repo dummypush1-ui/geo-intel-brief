@@ -1,0 +1,56 @@
+# Copyright (c) 2026 Push
+name: security
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 3 * * 1"
+permissions:
+  contents: read
+jobs:
+  trivy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Trivy filesystem scan (vulnerabilities, secrets, misconfig)
+        uses: aquasecurity/trivy-action@v0.36.0
+        with:
+          scan-type: fs
+          scanners: vuln,secret,misconfig
+          severity: HIGH,CRITICAL
+          format: table
+          exit-code: "0"
+  npm-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Audit npm dependencies
+        run: cd hsn/tools && npm audit --audit-level=high || true
+  licences:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: |
+          pip install scancode-toolkit
+          scancode --license --copyright --json-pp scancode-report.json --ignore ".git/*" .
+      - uses: actions/upload-artifact@v4
+        with:
+          name: licence-report
+          path: scancode-report.json
+  pip-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: |
+          pip install pip-audit
+          pip-audit -r requirements.txt || true
